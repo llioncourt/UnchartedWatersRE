@@ -86,3 +86,9 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 - `$F169` = 1: suprimentos acabaram no mar; 2: tempestade; 3: prazo (ano > 1521, `root 8272`); 4: derrota sem texto; `$FF`: final bom.
 - Prazo: o ano começa em 1502 (`$EA8D` = ano − 1500); ao virar 1522 o jogo acaba ("After 20 long years ... passed away").
 - Final bom (script em `ending $B51D`): o rei oferece Land, Princess, Honor ou Refuse. Land e Honor dão o título de Lord of Alcobaca; Princess leva ao casamento com Christiana e à coroa de Portugal; Land também pode terminar no pedido de casamento. Detalhar as condições do script.
+
+## Suprimentos e moral (`uarugo A445`)
+- Por dia e por navio, água e comida caem cada uma em tripulantes × ração / 100 + 1 (tripulantes em `$EB96 + 7×navio`; ração padrão 50). Ex.: 20 homens, ração 50 → 11 por dia; 200 unidades duram 18 dias.
+- Ração ≥ 50: moral do navio (`carga +22`) sobe (ração − 50)/10 por dia, até 100. Ração < 50: moral cai (50 − ração)/2 e a lealdade do imediato do navio cai (50 − ração)/10 por dia.
+- Acabou água ou comida em todos os navios: fim de jogo "lost at sea" (`$F169 = 1`).
+- Perigos no mar (`uarugo`): tempestade (dano, leme), algas que prendem o leme, navio que some em certas águas, falta de suprimento.
