@@ -44,3 +44,11 @@ Base para o walkthrough Master Play. Cada regra aponta a função de onde saiu.
 - Mercantes rivais: compram a especial (índice +4..6, base +3 até 600), investem metade do ouro, sobem o apoio da nação (`cminato 96CA`). Destino por apoio político (`cminato A102`, `A05F`).
 - Frota que volta para casa: índice da capital −2..3 (`cminato 9AFF`).
 - Mensal: índice volta rand(min(d,5)) pontos para 100% (`maituki A3BB`).
+
+## Abertura (`initop`)
+- Atributos do herói: Charisma, Wisdom, Intel, Courage, Strength (nomes em `initop $AE24`). Cada um começa em 40 + rand(30).
+- Pontos de bônus: 40 + rand(30), e em 1 de cada 40 sorteios soma mais 20 a 69 (máximo 138). Dá para sortear de novo quantas vezes quiser respondendo "não" (`initop 998B`).
+- Ficha do herói em `$EAB0` (nome) e `$EAC1` (atributos); `$E444` aponta para o nome.
+
+## Itens citados pela tripulação (`uminato2`)
+- Figurehead (proteção contra desastre), telescope, sextant, speculum. Falta decodificar onde se obtêm e o efeito.
