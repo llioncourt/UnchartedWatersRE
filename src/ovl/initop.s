@@ -2,25 +2,28 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp INITOP_F_9603
+; calls 1
 INITOP_F_9603:
   k_func 0
   k_call INITOP_F_972A
   k_return
+; sys: screen_off, apu_upload, screen_on
 INITOP_F_960C:
   k_func 0
   k_pushib 34
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 34 screen_off
   k_pushi 13
   k_pushiw $8000
   k_pushib 65
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 65 apu_upload
   k_pushib 35
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 35 screen_on
   k_return
 INITOP_F_9628:
   k_func 0
@@ -33,6 +36,7 @@ INITOP_F_9628:
   k_ldli 0
   k_stlba $F190
   k_return
+; sys: memset_long | vars: g_portrait
 INITOP_F_9641:
   k_func 0
   k_ldli 0
@@ -48,13 +52,13 @@ INITOP_F_9641:
   k_pushiw $F199
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_pushiw $00C4
   k_pushi 0
   k_pushiw $F1AE
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 0
   k_stlba $F273
   k_stlba $F272
@@ -86,8 +90,9 @@ INITOP_F_9641:
   k_stlba $F290
   k_ldlib -1
   k_stla $F297
-  k_stla $F295
+  k_stla g_portrait
   k_return
+; sys: file_seek, file_read | vars: g_fh_sgdata
 INITOP_F_96CD:
   k_func 6
   k_ldliw $EF64
@@ -101,16 +106,17 @@ INITOP_F_96CD:
   k_ldliw $1064
   k_long $26
   k_long $14
-  k_pusha $F27E
+  k_pusha g_fh_sgdata
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_push -4
   k_push -2
   k_pushib 126
-  k_pusha $F27E
+  k_pusha g_fh_sgdata
   k_pushib 28
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 28 file_read
   k_return
+; sys: oam_hide_all | calls 4
 INITOP_F_96FE:
   k_func 0
   k_ldliw $00FF
@@ -118,7 +124,7 @@ INITOP_F_96FE:
   k_ldli 5
   k_stlba $EA8A
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_call RF_3D7C
   k_pushi 0
   k_pushi 0
@@ -130,6 +136,7 @@ INITOP_F_96FE:
   k_pushi 0
   k_callx RF_2F8F, 4
   k_return
+; calls 10
 INITOP_F_972A:
   k_func 2
   k_call INITOP_F_960C
@@ -145,32 +152,34 @@ INITOP_F_972A:
   k_pushi 0
   k_callx RF_530E, 4
   k_return
+; sys: color_math, window_off
 INITOP_F_9751:
   k_func 0
   k_pushiw $00E0
   k_pushi 0
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_return
+; sys: file_seek, file_read | vars: g_fh_fdata
 INITOP_F_9768:
   k_func 18
   k_pushi 0
   k_ldlarg 13
   k_long $26
   k_long $14
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushi 15
   k_leal -18
   k_pushl
   k_pushib 126
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 28
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 28 file_read
   k_leal -18
   k_stln -3
   k_ldli 0
@@ -216,6 +225,7 @@ INITOP_L_97BE:
   k_jumpt INITOP_L_9795
   k_ldli 1
   k_return
+; sys: file_seek, file_read | vars: g_fh_sgdata
 INITOP_F_97CB:
   k_func 4
   k_ldliw $DF04
@@ -229,22 +239,23 @@ INITOP_F_97CB:
   k_ldliw $0004
   k_long $26
   k_long $14
-  k_pusha $F27E
+  k_pusha g_fh_sgdata
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_push -4
   k_push -2
   k_pushib 126
-  k_pusha $F27E
+  k_pusha g_fh_sgdata
   k_pushib 28
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 28 file_read
   k_pushi 0
   k_longd $18, $00000000
   k_long $14
-  k_pusha $F27E
+  k_pusha g_fh_sgdata
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_return
+; calls 5
 INITOP_F_980E:
   k_func 0
   k_pushi 3
@@ -276,6 +287,7 @@ INITOP_F_980E:
   k_pushiw INITOP_D_AE15
   k_callx RF_2FB9, 4
   k_return
+; calls 3
 INITOP_F_9853:
   k_func 2
   k_pushib 25
@@ -291,6 +303,7 @@ INITOP_F_9853:
   k_stl -2
   k_ldl -2
   k_return
+; sys: tilemap_write, wait_frames, oam_hide_all, memset_long | vars: g_player_name_ptr, g_hero_name, g_fh_fdata, g_hero_stats | calls 16
 INITOP_F_9873:
   k_func 55
   k_call INITOP_F_97CB
@@ -326,7 +339,7 @@ INITOP_L_98B4:
   k_ldln -53
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -343,7 +356,7 @@ INITOP_L_98B4:
   k_pushi 3
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushib 25
   k_pushi 6
   k_callx RF_2F8F, 4
@@ -352,9 +365,9 @@ INITOP_L_98B4:
   k_callx RF_2FB9, 4
   k_pushib 60
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_pushiw $2000
   k_pushi 2
   k_pushib 21
@@ -362,7 +375,7 @@ INITOP_L_98B4:
   k_pushi 6
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_jump INITOP_L_9918
 INITOP_L_990B:
   k_ldln -53
@@ -382,7 +395,7 @@ INITOP_L_9918:
   k_pushib 24
   k_pushi 10
   k_callx RF_2F8F, 4
-  k_pushiw $EAB0
+  k_pushiw g_hero_name
   k_callx RF_40DE, 2
 INITOP_L_9935:
   k_pushiw INITOP_D_AE7F
@@ -396,10 +409,10 @@ INITOP_L_9935:
 INITOP_L_994C:
   k_pushiw INITOP_D_AE88
 INITOP_L_994F:
-  k_pushiw $EAB0
+  k_pushiw g_hero_name
   k_callx $8979, 4
-  k_ldliw $EAB0
-  k_stla $E444
+  k_ldliw g_hero_name
+  k_stla g_player_name_ptr
   k_pushi 3
   k_callx RF_3D5C, 2
   k_call INITOP_F_9751
@@ -410,7 +423,7 @@ INITOP_L_994F:
   k_pushi 9
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 0
   k_pushi 2
   k_pushib 25
@@ -421,7 +434,7 @@ INITOP_L_994F:
   k_pushi 5
   k_pushi 10
   k_callx RF_2F8F, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
 INITOP_L_998B:
   k_pushiw $2000
@@ -431,7 +444,7 @@ INITOP_L_998B:
   k_pushib 23
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_ldli 0
   k_jump INITOP_L_99EF
 INITOP_L_999E:
@@ -521,7 +534,7 @@ INITOP_L_99EF:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_pushiw $2000
   k_pushi 1
   k_pushib 18
@@ -529,7 +542,7 @@ INITOP_L_99EF:
   k_pushi 7
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
 INITOP_L_9A60:
   k_pushiw $2000
   k_pushi 2
@@ -538,7 +551,7 @@ INITOP_L_9A60:
   k_pushi 7
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushib 22
   k_pushi 9
   k_callx RF_2F8F, 4
@@ -612,7 +625,7 @@ INITOP_L_9AD1:
   k_ldli 12
   k_stln -53
 INITOP_L_9AFC:
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushiw $26CC
   k_pushi 2
   k_pushi 1
@@ -660,7 +673,7 @@ INITOP_L_9B60:
   k_ldlbf -1
   k_jumpt INITOP_L_9AFC
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_pushiw $2000
   k_pushi 2
   k_pushib 18
@@ -668,7 +681,7 @@ INITOP_L_9B60:
   k_pushi 7
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushiw $2000
   k_pushi 2
   k_pushib 18
@@ -676,11 +689,11 @@ INITOP_L_9B60:
   k_pushi 7
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushiw INITOP_D_AEE4
   k_callx INITOP_F_9853, 2
   k_jumpf INITOP_L_9A60
-  k_ldliw $EAC1
+  k_ldliw g_hero_stats
   k_stl -14
   k_ldli 0
   k_jump INITOP_L_9CA1
@@ -903,7 +916,7 @@ INITOP_L_9D1C:
   k_pushi 9
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 0
   k_pushi 2
   k_pushib 25
@@ -914,7 +927,7 @@ INITOP_L_9D1C:
   k_pushi 5
   k_pushi 10
   k_callx RF_2F8F, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_ldli 0
   k_jump INITOP_L_9D7F
@@ -968,6 +981,7 @@ INITOP_L_9D7F:
   k_pushiw INITOP_D_AF1D
   k_callx INITOP_F_9853, 2
   k_return
+; vars: g_captains | calls 1
 INITOP_F_9DAA:
   k_func 5
   k_call INITOP_F_9873
@@ -978,7 +992,7 @@ INITOP_L_9DB8:
   k_ldlbf -1
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stln -5
   k_ldln -5
@@ -997,6 +1011,7 @@ INITOP_L_9DD0:
   k_jumpt INITOP_L_9DB8
   k_ldln -3
   k_return
+; sys: memcpy_long | vars: g_captains | calls 2
 INITOP_F_9DDF:
   k_func 5
   k_pushi 1
@@ -1006,7 +1021,7 @@ INITOP_F_9DDF:
   k_pushiw $1062
   k_pushib 112
   k_pushib 23
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 23 memcpy_long
   k_ldlbf -1
   k_ldrib 75
   k_ne
@@ -1021,17 +1036,17 @@ INITOP_F_9DDF:
   k_return
 INITOP_L_9E10:
   k_ldliw $EF62
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_sub
   k_inc
   k_stln -3
   k_pushn -3
-  k_pushiw $DF05
+  k_pushiw g_captains
   k_pushib 126
   k_pushiw $0005
   k_pushib 112
   k_pushib 23
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 23 memcpy_long
   k_pushib 24
   k_pushi 10
   k_callx RF_2F8F, 4
@@ -1040,30 +1055,32 @@ INITOP_L_9E10:
   k_callx RF_2FB9, 4
   k_ldli 1
   k_return
+; calls 1
 INITOP_F_9E3D:
   k_func 2
   k_call INITOP_F_9DDF
   k_stl -2
   k_ldl -2
   k_return
+; sys: brightness_set, lz_decompress, vram_load_tiles | vars: g_fh_cbmap0 | calls 8
 INITOP_F_9E48:
   k_func 6
   k_pushi 0
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushi 12
   k_pushiw $ACC0
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_pushi 2
   k_pushib 127
   k_pushi 0
   k_pushiw $0348
   k_pushiw $0098
   k_pushi 11
-  k_callx RL_21BE, 12
-  k_pusha $F280
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
+  k_pusha g_fh_cbmap0
   k_pushiw $73D8
   k_pushib 28
   k_pushib 30
@@ -1116,6 +1133,7 @@ INITOP_L_9EC3:
   k_stl -2
   k_ldli 0
   k_jump INITOP_L_9EBC
+; sys: color_math, window_off, sound_stop | calls 4
 INITOP_F_9ECB:
   k_func 0
   k_pushi 1
@@ -1131,15 +1149,15 @@ INITOP_L_9EE0:
   k_pushi 0
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_ldlba $EA89
   k_ldri 4
   k_and
   k_jumpt INITOP_L_9F04
   k_pushib 61
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 61 sound_stop
 INITOP_L_9F04:
   k_ldli 0
   k_stlba $F192
@@ -1152,6 +1170,7 @@ INITOP_L_9F04:
   k_ldliw $00FF
   k_stlba $EF6A
   k_return
+; sys: color_math, wait_frames
 INITOP_F_9F1B:
   k_func 2
   k_ldlarg 13
@@ -1161,7 +1180,7 @@ INITOP_F_9F1B:
   k_pushl
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_ldli 0
   k_stl -2
 INITOP_L_9F34:
@@ -1173,10 +1192,10 @@ INITOP_L_9F34:
   k_pushl
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -2
   k_inc
   k_stl -2
@@ -1198,10 +1217,10 @@ INITOP_L_9F5C:
   k_pushl
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -2
   k_dec
   k_stl -2
@@ -1213,50 +1232,51 @@ INITOP_L_9F5C:
   k_pushi 0
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
 INITOP_L_9F89:
   k_return
+; sys: brightness_set, screen_off, vram_load_tiles, vram_load_obj_tiles, screen_on, palette_dma | vars: g_fh_cbmap0 | calls 7
 INITOP_F_9F8A:
   k_func 4
   k_pushi 0
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushib 34
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 34 screen_off
   k_pushi 1
   k_pushib 30
   k_pushiw $E820
   k_pushiw $0085
   k_pushi 1
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 30
   k_pushiw $E820
   k_pushib 74
   k_pushi 1
   k_pushi 13
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 13 vram_load_obj_tiles
   k_pushi 2
   k_pushib 30
   k_pushiw INITOP_D_D300
   k_pushiw $00AA
   k_pushiw $0090
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 35
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 35 screen_on
   k_pushib 32
   k_pushib 64
   k_pushib 126
   k_pushiw INITOP_D_B848
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushiw $3001
   k_pushi 0
   k_pushi 2
   k_pushi 4
-  k_callx RL_21BE, 8
-  k_pusha $F280
+  k_callx syscall, 8  ; sys 4 tilemap_clear
+  k_pusha g_fh_cbmap0
   k_pushiw $61DC
   k_pushi 7
   k_pushi 12
@@ -1269,10 +1289,10 @@ INITOP_F_9F8A:
 INITOP_L_9FF8:
   k_push -2
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -2
   k_inc
   k_stl -2
@@ -1282,7 +1302,7 @@ INITOP_L_9FF8:
   k_jumpt INITOP_L_9FF8
   k_pushib 20
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldli 1
   k_stl -2
 INITOP_L_A019:
@@ -1296,8 +1316,8 @@ INITOP_L_A019:
   k_add
   k_pushl
   k_pushi 3
-  k_callx RL_21BE, 10
-  k_pusha $F280
+  k_callx syscall, 10  ; sys 3 palette_dma
+  k_pusha g_fh_cbmap0
   k_ldl -2
   k_dec
   k_shl1
@@ -1318,7 +1338,7 @@ INITOP_L_A019:
   k_ldri 6
   k_ult
   k_jumpt INITOP_L_A019
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $61DC
   k_pushi 7
   k_pushi 12
@@ -1339,10 +1359,10 @@ INITOP_L_A05B:
   k_add
   k_pushl
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushi 0
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -2
   k_inc
   k_stl -2
@@ -1363,10 +1383,10 @@ INITOP_L_A080:
   k_add
   k_pushl
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushi 0
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -2
   k_dec
   k_stl -2
@@ -1387,10 +1407,10 @@ INITOP_L_A0A5:
   k_add
   k_pushl
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -2
   k_dec
   k_stl -2
@@ -1398,7 +1418,7 @@ INITOP_L_A0A5:
   k_ldri 0
   k_ugt
   k_jumpt INITOP_L_A0A5
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $61DC
   k_pushi 7
   k_pushi 12
@@ -1411,10 +1431,10 @@ INITOP_L_A0A5:
   k_pushib 126
   k_pushiw INITOP_D_B848
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushi 10
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldli 10
   k_stl -2
 INITOP_L_A0EE:
@@ -1428,10 +1448,10 @@ INITOP_L_A0EE:
   k_add
   k_pushl
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushi 4
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -2
   k_inc
   k_stl -2
@@ -1444,8 +1464,8 @@ INITOP_L_A0EE:
   k_pushib 126
   k_pushiw INITOP_D_B9E8
   k_pushi 3
-  k_callx RL_21BE, 10
-  k_pusha $F280
+  k_callx syscall, 10  ; sys 3 palette_dma
+  k_pusha g_fh_cbmap0
   k_pushiw $61DC
   k_pushi 7
   k_pushi 12
@@ -1455,27 +1475,27 @@ INITOP_L_A0EE:
   k_callx RF_3E5A, 14
   k_pushib 20
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 0
   k_pushi 0
   k_pushi 1
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushi 0
   k_pushi 0
   k_pushi 2
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushib 32
   k_pushib 16
   k_pushib 126
   k_pushiw INITOP_D_B6C8
   k_pushi 3
-  k_callx RL_21BE, 10
-  k_pusha $F280
+  k_callx syscall, 10  ; sys 3 palette_dma
+  k_pusha g_fh_cbmap0
   k_pushiw $61A2
   k_pushi 2
   k_pushi 14
@@ -1488,28 +1508,28 @@ INITOP_L_A0EE:
   k_callx INITOP_F_9F1B, 4
   k_pushib 120
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 2
   k_callx RF_4F48, 2
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_pushi 0
   k_pushi 0
   k_pushi 2
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushi 0
   k_pushi 0
   k_pushi 1
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushi 15
   k_callx INITOP_F_A4C3, 2
   k_ldla $F320
   k_jumpf INITOP_L_A1A4
   k_return
 INITOP_L_A1A4:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $6132
   k_pushi 2
   k_pushib 28
@@ -1519,7 +1539,7 @@ INITOP_L_A1A4:
   k_callx RF_3DF1, 14
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushiw $00B4
   k_callx INITOP_F_A4C3, 2
   k_ldla $F320
@@ -1530,19 +1550,19 @@ INITOP_L_A1C9:
   k_callx RF_4F48, 2
   k_pushi 0
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushi 0
   k_pushi 0
   k_pushi 2
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushi 15
   k_callx INITOP_F_A4C3, 2
   k_ldla $F320
   k_jumpf INITOP_L_A1E9
   k_return
 INITOP_L_A1E9:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $60BA
   k_pushi 3
   k_pushi 8
@@ -1550,7 +1570,7 @@ INITOP_L_A1E9:
   k_pushi 12
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $60EA
   k_pushi 2
   k_pushib 18
@@ -1560,7 +1580,7 @@ INITOP_L_A1E9:
   k_callx RF_3DF1, 14
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushiw $00B4
   k_callx INITOP_F_A4C3, 2
   k_ldla $F320
@@ -1571,7 +1591,7 @@ INITOP_L_A21D:
   k_callx RF_4F48, 2
   k_pushi 0
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_call RF_3D7C
   k_pushi 0
   k_pushi 0
@@ -1586,6 +1606,7 @@ INITOP_L_A21D:
   k_return
 INITOP_L_A244:
   k_return
+; calls 1
 INITOP_F_A245:
   k_func 2
   k_ldli 0
@@ -1617,16 +1638,18 @@ INITOP_L_A25E:
   k_ult
   k_jumpt INITOP_L_A25E
   k_return
+; sys: color_math, window_off
 INITOP_F_A26F:
   k_func 0
   k_pushiw $00E0
   k_pushi 0
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_return
+; sys: wait_frames | calls 1
 INITOP_F_A286:
   k_func 0
 INITOP_L_A28B:
@@ -1644,10 +1667,11 @@ INITOP_L_A28B:
 INITOP_L_A29F:
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_jump INITOP_L_A28B
 INITOP_L_A2A9:
   k_return
+; calls 5
 INITOP_F_A2AA:
   k_func 11
   k_pushiw INITOP_D_BA2E
@@ -1799,6 +1823,7 @@ INITOP_L_A3DE:
   k_jump INITOP_L_A2BA
 INITOP_L_A3E4:
   k_return
+; sys: wait_frames, sound_play, lz_decompress, vram_load_tiles, palette_dma, tilemap_copy | vars: g_player_name_ptr | calls 10
 INITOP_F_A3E5:
   k_func 2
   k_call INITOP_F_A26F
@@ -1806,29 +1831,29 @@ INITOP_F_A3E5:
   k_callx RF_3D5C, 2
   k_pushi 15
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 1
   k_pushi 13
   k_pushib 60
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 60 sound_play
   k_pushib 31
   k_pusha INITOP_D_B214
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_pushi 1
   k_pushib 127
   k_pushi 0
   k_pushib 17
   k_pushib 119
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 32
   k_pushib 96
   k_pushib 126
   k_pushiw INITOP_D_B0E8
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushib 126
   k_pushiw INITOP_D_D240
   k_pushi 10
@@ -1837,7 +1862,7 @@ INITOP_F_A3E5:
   k_pushi 5
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushi 1
   k_pushib 32
   k_pushiw $00AB
@@ -1845,15 +1870,15 @@ INITOP_F_A3E5:
   k_pushib 109
   k_pushib 45
   k_pushib 38
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 38 window_shape
   k_pushiw $00E0
   k_pushib 82
   k_pushib 32
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_ldli 0
   k_stlba $F300
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_pushiw $F301
   k_callx $8979, 4
   k_pushi 0
@@ -1873,7 +1898,7 @@ INITOP_L_A475:
   k_pushi 6
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 1
   k_pushiw INITOP_D_BA33
   k_callx RF_2FB9, 4
@@ -1904,6 +1929,7 @@ INITOP_L_A475:
   k_pushi 0
   k_callx RF_3E7E, 4
   k_return
+; sys: wait_frames | calls 1
 INITOP_F_A4C3:
   k_func 0
 INITOP_L_A4C8:
@@ -1923,10 +1949,11 @@ INITOP_L_A4C8:
 INITOP_L_A4E0:
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_jump INITOP_L_A4C8
 INITOP_L_A4EA:
   k_return
+; sys: brightness_set | calls 1
 INITOP_F_A4EB:
   k_func 2
   k_ldlarg 11
@@ -1936,7 +1963,7 @@ INITOP_F_A4EB:
 INITOP_L_A4F6:
   k_push -2
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushi 6
   k_callx INITOP_F_A4C3, 2
   k_ldla $F320
@@ -1959,7 +1986,7 @@ INITOP_L_A519:
   k_dec
   k_pushl
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushi 6
   k_callx INITOP_F_A4C3, 2
   k_ldla $F320
@@ -1973,6 +2000,7 @@ INITOP_L_A52E:
   k_jumpt INITOP_L_A519
 INITOP_L_A535:
   k_return
+; sys: color_math | calls 1
 INITOP_F_A536:
   k_func 2
   k_ldlarg 13
@@ -1982,7 +2010,7 @@ INITOP_F_A536:
   k_pushl
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_ldli 0
   k_stl -2
 INITOP_L_A54F:
@@ -1994,7 +2022,7 @@ INITOP_L_A54F:
   k_pushl
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushi 8
   k_callx INITOP_F_A4C3, 2
   k_ldla $F320
@@ -2022,7 +2050,7 @@ INITOP_L_A57C:
   k_pushl
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushi 8
   k_callx INITOP_F_A4C3, 2
   k_ldla $F320
@@ -2040,7 +2068,7 @@ INITOP_L_A59A:
   k_pushi 0
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
 INITOP_L_A5AE:
   k_return
 INITOP_F_A5AF:
@@ -2112,31 +2140,32 @@ INITOP_L_A607:
 INITOP_L_A60F:
   k_ldl -2
   k_return
+; sys: brightness_set, sound_play, bg_map_base_set, lz_decompress, vram_load_tiles, tilemap_copy | calls 5
 INITOP_F_A611:
   k_func 12
   k_pushi 0
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushi 0
   k_pushi 1
   k_pushib 60
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 60 sound_play
   k_pushib 122
   k_pushi 3
   k_pushib 75
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 75 bg_map_base_set
   k_pushib 31
   k_pusha INITOP_D_B208
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_pushi 1
   k_pushib 127
   k_pushi 0
   k_pushiw $008D
   k_pushi 1
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_ldla $F320
   k_jumpf INITOP_L_A66C
   k_pushib 126
@@ -2147,27 +2176,27 @@ INITOP_F_A611:
   k_pushib 18
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushiw $0080
   k_pushi 0
   k_pushib 126
   k_pushiw INITOP_D_AF48
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_return
 INITOP_L_A66C:
   k_pushib 31
   k_pusha INITOP_D_B20A
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_pushi 2
   k_pushib 127
   k_pushi 0
   k_pushiw $02B6
   k_pushiw $00CE
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 126
   k_pushiw INITOP_D_BB96
   k_pushib 28
@@ -2176,7 +2205,7 @@ INITOP_L_A66C:
   k_pushi 0
   k_pushi 2
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushib 126
   k_pushiw INITOP_D_BAA6
   k_pushi 12
@@ -2185,13 +2214,13 @@ INITOP_L_A66C:
   k_pushib 18
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushiw $0080
   k_pushi 0
   k_pushib 126
   k_pushiw INITOP_D_AF48
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushi 10
   k_callx INITOP_F_A4C3, 2
   k_ldla $F320
@@ -2208,22 +2237,22 @@ INITOP_L_A6CE:
   k_pushi 0
   k_pushi 3
   k_pushib 17
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 17 bg_scroll
   k_pushiw $2000
   k_pushi 0
   k_pushi 3
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushiw $2000
   k_pushi 1
   k_pushi 3
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushib 31
   k_pusha INITOP_D_B20C
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_pushi 1
   k_pushi 4
   k_pushiw $00D4
@@ -2231,7 +2260,7 @@ INITOP_L_A6CE:
   k_pushib 28
   k_pushib 16
   k_pushib 38
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 38 window_shape
   k_ldli 0
   k_stl -12
   k_pushi 3
@@ -2240,7 +2269,7 @@ INITOP_L_A6CE:
   k_pushiw $01F8
   k_pushi 1
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_ldli 0
   k_stl -2
 INITOP_L_A71A:
@@ -2261,7 +2290,7 @@ INITOP_L_A71A:
   k_pushi 2
   k_pushi 3
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_ldl -2
   k_inc
   k_stl -2
@@ -2287,7 +2316,7 @@ INITOP_L_A744:
   k_pushi 0
   k_pushi 1
   k_pushib 69
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 69 auto_move
   k_ldl -2
   k_dec
   k_pushl
@@ -2313,7 +2342,7 @@ INITOP_L_A744:
   k_pushi 2
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 3
   k_pushib 127
   k_ldl -2
@@ -2328,7 +2357,7 @@ INITOP_L_A744:
   k_inc
   k_pushl
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 126
   k_ldl -4
   k_shl1
@@ -2342,7 +2371,7 @@ INITOP_L_A744:
   k_pushi 2
   k_pushi 3
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_ldl -4
   k_inc
   k_stl -4
@@ -2369,19 +2398,19 @@ INITOP_L_A7BD:
   k_pushi 0
   k_pushi 0
   k_pushib 69
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 69 auto_move
   k_ldli 1
   k_stla $F320
   k_pushiw $2000
   k_pushi 0
   k_pushi 3
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushiw $2000
   k_pushi 1
   k_pushi 3
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_return
 INITOP_L_A7F0:
   k_pushi 3
@@ -2393,7 +2422,7 @@ INITOP_L_A7F0:
   k_pushi 0
   k_pushi 2
   k_pushib 69
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 69 auto_move
   k_jumpt INITOP_L_A7BD
   k_ldl -2
   k_inc
@@ -2412,12 +2441,12 @@ INITOP_L_A817:
   k_pushi 0
   k_pushi 3
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushiw $2000
   k_pushi 1
   k_pushi 3
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushi 2
   k_callx INITOP_F_A4C3, 2
   k_ldla $F320
@@ -2425,12 +2454,12 @@ INITOP_L_A817:
   k_return
 INITOP_L_A837:
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_pushi 0
   k_pushi 0
   k_pushi 3
   k_pushib 17
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 17 bg_scroll
   k_ldli 0
   k_stl -2
 INITOP_L_A848:
@@ -2440,7 +2469,7 @@ INITOP_L_A848:
   k_push -2
   k_pushi 1
   k_pushib 17
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 17 bg_scroll
   k_pushi 6
   k_callx INITOP_F_A4C3, 2
   k_ldla $F320
@@ -2455,6 +2484,7 @@ INITOP_L_A862:
   k_lt
   k_jumpt INITOP_L_A848
   k_return
+; sys: sprite_anim_stream
 INITOP_F_A86D:
   k_func 0
   k_pushib 31
@@ -2467,7 +2497,7 @@ INITOP_F_A86D:
   k_pushi 2
   k_pushi 0
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 31
   k_ldla INITOP_D_B210
   k_addliw $0080
@@ -2480,7 +2510,7 @@ INITOP_F_A86D:
   k_pushi 2
   k_pushi 1
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 31
   k_ldla INITOP_D_B210
   k_addliw $0100
@@ -2493,7 +2523,7 @@ INITOP_F_A86D:
   k_pushi 2
   k_pushi 2
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 31
   k_ldla INITOP_D_B210
   k_addliw $0180
@@ -2506,8 +2536,9 @@ INITOP_F_A86D:
   k_pushi 2
   k_pushi 3
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_return
+; sys: hdma_effect_on, color_math | calls 1
 INITOP_F_A8D0:
   k_func 0
   k_pushib 126
@@ -2515,13 +2546,13 @@ INITOP_F_A8D0:
   k_pushib 38
   k_pushi 1
   k_pushib 73
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 73 hdma_effect_on
   k_call INITOP_L_ADE8
   k_pushiw $00E0
   k_pushib 83
   k_pushib 32
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_return
 INITOP_F_A8F4:
   k_func 2
@@ -2624,26 +2655,27 @@ INITOP_L_A993:
 INITOP_L_A996:
   k_ldlarg 13
   k_return
+; sys: brightness_set, bg_scroll, color_math, palette_dma, lz_decompress, vram_load_tiles | calls 8
 INITOP_F_A998:
   k_func 18
   k_ldla $F320
   k_jumpf INITOP_L_A9B9
   k_pushi 0
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushi 2
   k_callx RF_3F3E, 2
   k_pushl
   k_pushib 55
   k_pushi 1
   k_pushib 17
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 17 bg_scroll
 INITOP_L_A9B9:
   k_pushiw $00E0
   k_pushiw $0082
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_ldli 0
   k_stl -2
 INITOP_L_A9C8:
@@ -2654,7 +2686,7 @@ INITOP_L_A9C8:
   k_pushiw $0082
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_ldla $F320
   k_jumpf INITOP_L_A9E1
   k_ldlib 30
@@ -2676,20 +2708,20 @@ INITOP_L_A9E1:
   k_add
   k_pushl
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushi 6
   k_callx INITOP_F_A4C3, 2
   k_ldla $F320
   k_jumpf INITOP_L_AA1F
   k_pushi 0
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushib 32
   k_pushib 48
   k_pushib 126
   k_pushiw INITOP_D_B1A8
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_jump INITOP_L_AA4F
 INITOP_L_AA1F:
   k_jump INITOP_L_AA45
@@ -2700,13 +2732,13 @@ INITOP_L_AA22:
   k_jumpf INITOP_L_AA45
   k_pushi 0
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushib 32
   k_pushib 48
   k_pushib 126
   k_pushiw INITOP_D_B1A8
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_jump INITOP_L_AA4F
 INITOP_L_AA45:
   k_ldl -2
@@ -2727,39 +2759,39 @@ INITOP_L_AA4F:
   k_pusha INITOP_D_B20E
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_pushi 2
   k_pushib 127
   k_pushi 0
   k_pushiw $01F6
   k_pushiw $00CE
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushi 2
   k_pushib 31
   k_pusha INITOP_D_B210
   k_pushib 16
   k_pushiw $02FC
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 31
   k_pusha INITOP_D_B212
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_pushi 3
   k_pushib 127
   k_pushi 0
   k_pushiw $00CE
   k_pushi 1
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 127
   k_pushiw $18D0
   k_pushib 42
   k_pushiw $0100
   k_pushi 13
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 13 vram_load_obj_tiles
   k_pushib 126
   k_pushiw INITOP_D_C296
   k_pushi 1
@@ -2768,7 +2800,7 @@ INITOP_L_AA4F:
   k_pushi 0
   k_pushi 2
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushib 126
   k_pushiw INITOP_D_C7EA
   k_pushi 7
@@ -2777,7 +2809,7 @@ INITOP_L_AA4F:
   k_pushi 0
   k_pushi 2
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushib 126
   k_pushiw INITOP_D_C9AA
   k_pushi 11
@@ -2786,7 +2818,7 @@ INITOP_L_AA4F:
   k_pushi 5
   k_pushi 3
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushi 1
   k_callx INITOP_F_A86D, 2
 INITOP_L_AAE6:
@@ -2813,41 +2845,41 @@ INITOP_L_AB0F:
   k_pushib 126
   k_pushiw INITOP_D_B088
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushib 32
   k_pushib 64
   k_pushib 126
   k_pushiw INITOP_D_B068
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushib 32
   k_pushib 112
   k_pushib 126
   k_pushiw INITOP_D_B1C8
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushib 32
   k_pushi 0
   k_pushib 126
   k_pushiw INITOP_D_B0A8
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushib 32
   k_pushiw $0090
   k_pushib 126
   k_pushiw INITOP_D_B0A8
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushib 32
   k_pushiw $00D0
   k_pushib 126
   k_pushiw INITOP_D_B0C8
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushi 0
   k_pushi 12
   k_pushib 60
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 60 sound_play
   k_ldla $F320
   k_jumpf INITOP_L_AB75
   k_jump INITOP_L_AB7D
@@ -2860,10 +2892,10 @@ INITOP_L_AB7D:
   k_pushiw $0082
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushib 126
   k_pushiw INITOP_D_C772
   k_pushi 2
@@ -2872,7 +2904,7 @@ INITOP_L_AB7D:
   k_pushib 18
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_ldli 0
   k_stl -4
 INITOP_L_ABA4:
@@ -2896,7 +2928,7 @@ INITOP_L_ABAF:
   k_pushib 18
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushib 126
   k_ldl -2
   k_shl1
@@ -2910,7 +2942,7 @@ INITOP_L_ABAF:
   k_pushib 22
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushi 5
   k_callx INITOP_F_A4C3, 2
   k_ldl -2
@@ -2945,7 +2977,7 @@ INITOP_L_AC06:
   k_pushi 0
   k_pushi 3
   k_pushib 17
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 17 bg_scroll
   k_ldl -4
   k_ldri 6
   k_umod
@@ -2963,7 +2995,7 @@ INITOP_L_AC06:
   k_pushib 18
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushib 126
   k_ldl -2
   k_shl1
@@ -2977,7 +3009,7 @@ INITOP_L_AC06:
   k_pushib 22
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_ldl -2
   k_inc
   k_stl -2
@@ -3011,7 +3043,7 @@ INITOP_L_AC5B:
   k_pushib 126
   k_pushiw INITOP_D_B1E8
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_ldla $F320
   k_jumpf INITOP_L_ACA1
   k_pushib 126
@@ -3022,7 +3054,7 @@ INITOP_L_AC5B:
   k_pushi 14
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushib 126
   k_pushi 0
   k_pushiw INITOP_D_CB8E
@@ -3032,7 +3064,7 @@ INITOP_L_AC5B:
   k_pushib 40
   k_pushi 0
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_ldli 0
   k_stla $F320
 INITOP_L_ACA1:
@@ -3057,7 +3089,7 @@ INITOP_L_ACA7:
   k_pushib 18
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushib 126
   k_ldl -2
   k_shl1
@@ -3071,7 +3103,7 @@ INITOP_L_ACA7:
   k_pushib 22
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushi 0
   k_callx RF_362A, 2
   k_jumpt INITOP_L_ACDC
@@ -3103,7 +3135,7 @@ INITOP_L_ACEF:
 INITOP_L_AD05:
   k_pushi 6
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_jump INITOP_L_AD1B
 INITOP_L_AD0F:
   k_pushi 6
@@ -3135,7 +3167,7 @@ INITOP_L_AD2D:
   k_pushi 14
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_jump INITOP_L_AD61
 INITOP_L_AD47:
   k_ldl -4
@@ -3151,7 +3183,7 @@ INITOP_L_AD47:
   k_pushib 40
   k_pushi 0
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
 INITOP_L_AD61:
   k_ldl -4
   k_inc
@@ -3161,6 +3193,7 @@ INITOP_L_AD61:
   k_ult
   k_jumpt INITOP_L_ACA5
   k_return
+; calls 3
 INITOP_F_AD6B:
   k_func 0
   k_ldla $F320
@@ -3177,13 +3210,14 @@ INITOP_L_AD82:
   k_return
 INITOP_L_AD8C:
   k_return
+; sys: oam_hide_all, wait_frames, brightness_set, hdma_effect_off, bg_map_base_set | calls 8
 INITOP_F_AD8D:
   k_func 2
   k_pushi 0
   k_pushi 0
   k_callx RF_530E, 4
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_call RF_3D7C
   k_ldli 0
   k_stla $F320
@@ -3191,19 +3225,19 @@ INITOP_F_AD8D:
   k_call INITOP_F_AD6B
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 0
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_call RF_2281
   k_pushib 74
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 74 hdma_effect_off
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_pushib 121
   k_pushi 3
   k_pushib 75
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 75 bg_map_base_set
   k_call INITOP_F_A26F
   k_pushi 0
   k_callx INITOP_F_A86D, 2
@@ -3213,7 +3247,7 @@ INITOP_F_AD8D:
   k_call RF_20CC
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_return
 INITOP_L_ADE8:
   php

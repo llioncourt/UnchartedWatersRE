@@ -2,11 +2,13 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp ZOUSEN_F_B003
+; calls 1
 ZOUSEN_F_B003:
   k_func 0
   k_call ZOUSEN_F_B310
@@ -15,6 +17,7 @@ ZOUSEN_F_B003:
 ZOUSEN_F_B00F:
   k_func 0
   k_return
+; calls 1
 ZOUSEN_F_B015:
   k_func 0
   k_pushi 0
@@ -25,29 +28,30 @@ ZOUSEN_F_B015:
   k_pushi 1
   k_callx RF_604A, 12
   k_return
+; sys: brightness_set, lz_decompress, vram_load_tiles | vars: g_fh_cbmap0 | calls 4
 ZOUSEN_F_B027:
   k_func 8
   k_pushi 0
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushi 0
   k_callx $9825, 2
   k_pushib 22
   k_pushiw RD_8F6D
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_pushi 2
   k_pushib 127
   k_pushi 0
   k_pushiw $0126
   k_pushiw $01A0
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushi 1
   k_callx RF_3D5C, 2
   k_call RF_4DD8
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $8478
   k_pushib 27
   k_pushib 30
@@ -55,7 +59,7 @@ ZOUSEN_F_B027:
   k_pushi 1
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw RL_48A6
   k_pushib 22
   k_pushib 28
@@ -68,21 +72,23 @@ ZOUSEN_F_B027:
   k_callx RF_60CE, 4
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_return
+; sys: brightness_set
 ZOUSEN_F_B08B:
   k_func 0
   k_pushi 0
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_call $97F5
   k_call $97BE
   k_pushi 1
   k_callx $9825, 2
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_return
+; calls 4
 ZOUSEN_F_B0AA:
   k_func 6
   k_ldlbf 11
@@ -138,6 +144,7 @@ ZOUSEN_F_B0AA:
   k_pushl
   k_callx RF_40DE, 2
   k_return
+; calls 4
 ZOUSEN_F_B103:
   k_func 4
   k_ldlib -1
@@ -169,6 +176,7 @@ ZOUSEN_L_B12D:
   k_jumpt ZOUSEN_L_B121
   k_ldl -2
   k_return
+; vars: g_ships | calls 3
 ZOUSEN_F_B136:
   k_func 0
   k_pushi 12
@@ -180,13 +188,14 @@ ZOUSEN_F_B136:
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_pushl
   k_pushiw ZOUSEN_D_C458
   k_callx RF_3608, 6
   k_return
+; calls 3
 ZOUSEN_F_B158:
   k_func 0
   k_pushi 14
@@ -205,6 +214,7 @@ ZOUSEN_F_B158:
   k_pushiw ZOUSEN_D_C473
   k_callx RF_3608, 6
   k_return
+; calls 3
 ZOUSEN_F_B17A:
   k_func 0
   k_pushi 13
@@ -223,6 +233,7 @@ ZOUSEN_F_B17A:
   k_pushiw ZOUSEN_D_C48E
   k_callx RF_3608, 6
   k_return
+; calls 5
 ZOUSEN_F_B19C:
   k_func 0
   k_pushi 15
@@ -248,6 +259,7 @@ ZOUSEN_F_B19C:
   k_pushiw ZOUSEN_D_C4A9
   k_callx RF_3608, 6
   k_return
+; calls 4
 ZOUSEN_F_B1CC:
   k_func 0
   k_pushib 18
@@ -262,6 +274,7 @@ ZOUSEN_F_B1CC:
   k_pushiw ZOUSEN_D_C4C4
   k_callx RF_3608, 6
   k_return
+; calls 4
 ZOUSEN_F_B1EC:
   k_func 0
   k_pushib 16
@@ -295,18 +308,19 @@ ZOUSEN_F_B1EC:
   k_pushiw ZOUSEN_D_C4F6
   k_callx RF_3608, 4
   k_return
+; vars: g_cargo, g_ships, g_player_name_ptr | calls 17
 ZOUSEN_F_B22A:
   k_func 6
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -6
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -4
   k_ldl -4
@@ -348,12 +362,12 @@ ZOUSEN_F_B22A:
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -418,6 +432,7 @@ ZOUSEN_F_B22A:
   k_pusharg 11
   k_callx ZOUSEN_F_B1CC, 2
   k_return
+; calls 4
 ZOUSEN_F_B310:
   k_func 4
   k_ldli 0
@@ -461,6 +476,7 @@ ZOUSEN_L_B34D:
   k_jumpf ZOUSEN_L_B317
   k_ldl -4
   k_return
+; sys: wait_frames | vars: g_player_gold | calls 13
 ZOUSEN_F_B357:
   k_func 14
   k_pushi 1
@@ -469,7 +485,7 @@ ZOUSEN_F_B357:
   k_call RF_60B2
   k_pushiw ZOUSEN_D_C566
   k_callx RF_4B44, 2
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldri 10
   k_ult
   k_jumpf ZOUSEN_L_B383
@@ -567,12 +583,12 @@ ZOUSEN_L_B41B:
   k_jumpf ZOUSEN_L_B454
   k_pushib 30
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_jump ZOUSEN_L_B460
 ZOUSEN_L_B454:
   k_pushib 30
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldli 1
   k_jumpt ZOUSEN_L_B404
 ZOUSEN_L_B460:
@@ -581,11 +597,12 @@ ZOUSEN_L_B460:
   k_call RF_4DD8
   k_ldli 10
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_ldli 1
   k_return
+; vars: g_ships, g_port, g_player_gold | calls 21
 ZOUSEN_F_B473:
   k_func 24
   k_pushi 1
@@ -630,7 +647,7 @@ ZOUSEN_L_B4B8:
   k_ldlbf -8
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -24
   k_ldl -24
@@ -674,7 +691,7 @@ ZOUSEN_L_B4FF:
   k_ldriw $00FF
   k_ne
   k_jumpf ZOUSEN_L_B6F9
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -742,7 +759,7 @@ ZOUSEN_L_B56D:
   k_pushib 25
   k_pushi 12
   k_callx RF_2F8F, 4
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw ZOUSEN_D_C6D3
   k_callx RF_3619, 4
   k_pushi 1
@@ -761,7 +778,7 @@ ZOUSEN_L_B56D:
   k_ldr -2
   k_mul
   k_pushl
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_popr
   k_ult
   k_jumpf ZOUSEN_L_B5E9
@@ -775,9 +792,9 @@ ZOUSEN_L_B5E9:
   k_ldr -4
   k_mul
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_ldlbf -7
   k_pushl
   k_ldlbf -21
@@ -833,7 +850,7 @@ ZOUSEN_L_B62A:
   k_addli 3
   k_derefb
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -855,7 +872,7 @@ ZOUSEN_L_B62A:
   k_ldl -6
   k_long $26
   k_long $14
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_long $26
   k_long $15
   k_long $03
@@ -864,12 +881,12 @@ ZOUSEN_L_B62A:
   k_jumpf ZOUSEN_L_B696
   k_ldliw $EA60
 ZOUSEN_L_B690:
-  k_stla $E56D
+  k_stla g_player_gold
   k_jump ZOUSEN_L_B6C5
 ZOUSEN_L_B696:
   k_ldl -6
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_add
   k_jump ZOUSEN_L_B690
 ZOUSEN_L_B69F:
@@ -944,6 +961,7 @@ ZOUSEN_L_B715:
   k_pushiw ZOUSEN_D_C7B7
   k_callx RF_4B44, 2
   k_jump ZOUSEN_L_B47E
+; vars: g_port, g_player_gold, g_cargo, g_ships | calls 15
 ZOUSEN_F_B722:
   k_func 32
 ZOUSEN_L_B727:
@@ -996,7 +1014,7 @@ ZOUSEN_L_B793:
   k_ldl -2
   k_jumpf ZOUSEN_L_B727
   k_call RF_6080
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -1028,7 +1046,7 @@ ZOUSEN_L_B793:
   k_pushib 25
   k_pushi 12
   k_callx RF_2F8F, 4
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw ZOUSEN_D_C82B
   k_callx RF_3619, 4
   k_pushi 1
@@ -1066,14 +1084,14 @@ ZOUSEN_L_B806:
   k_jumpf ZOUSEN_L_B822
   k_ldl -2
   k_jumpf ZOUSEN_L_B850
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldr -18
   k_ult
   k_jumpf ZOUSEN_L_B850
 ZOUSEN_L_B822:
   k_ldl -2
   k_jumpf ZOUSEN_L_B83B
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldr -18
   k_ult
   k_jumpf ZOUSEN_L_B83B
@@ -1105,7 +1123,7 @@ ZOUSEN_L_B850:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -22
   k_ldl -22
@@ -1116,9 +1134,9 @@ ZOUSEN_L_B850:
 ZOUSEN_L_B879:
   k_ldl -18
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_pushib 16
   k_leal -14
   k_pushl
@@ -1232,7 +1250,7 @@ ZOUSEN_L_B879:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -20
   k_push -20
@@ -1317,6 +1335,7 @@ ZOUSEN_L_B879:
   k_call $9662
   k_ldli 1
   k_return
+; vars: g_player_gold, g_port, g_ports, g_cargo | calls 14
 ZOUSEN_F_B9A7:
   k_func 22
   k_ldli 1
@@ -1384,15 +1403,15 @@ ZOUSEN_L_BA2F:
   k_jumpf ZOUSEN_L_B9D4
   k_ldli 0
   k_stl -2
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_long $26
   k_longd $19, $000088B8
   k_long $2B
   k_jumpf ZOUSEN_L_BAAC
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_deref
   k_ldriw $0352
@@ -1413,9 +1432,9 @@ ZOUSEN_L_BA2F:
   k_jumpf ZOUSEN_L_BA9D
   k_ldl -20
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_leal -14
   k_pushl
   k_ldlbf -16
@@ -1448,13 +1467,13 @@ ZOUSEN_L_BAAC:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -22
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_deref
   k_ldriw $00AA
@@ -1547,7 +1566,7 @@ ZOUSEN_L_BB3F:
   k_pushib 25
   k_pushi 12
   k_callx RF_2F8F, 4
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw ZOUSEN_D_CA17
   k_callx RF_3619, 4
   k_pushi 1
@@ -1557,7 +1576,7 @@ ZOUSEN_L_BB3F:
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpf ZOUSEN_L_BAD0
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldr -20
   k_ult
   k_jumpf ZOUSEN_L_BBBA
@@ -1572,9 +1591,9 @@ ZOUSEN_L_BBBA:
   k_callx RF_4B44, 2
   k_ldl -20
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_leal -14
   k_pushl
   k_ldlbf -16
@@ -1602,6 +1621,7 @@ ZOUSEN_L_BBE9:
   k_call $9662
   k_ldl -2
   k_return
+; calls 7
 ZOUSEN_F_BBFC:
   k_func 3
   k_ldli 0
@@ -1655,16 +1675,17 @@ ZOUSEN_L_BC55:
 ZOUSEN_L_BC63:
   k_ldl -2
   k_return
+; vars: g_fame, g_port, g_ports | calls 2
 ZOUSEN_F_BC65:
   k_func 4
-  k_ldla $EE74
+  k_ldla g_fame
   k_ldriw $C350
   k_ult
   k_jumpf ZOUSEN_L_BCA1
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -2
   k_ldl -2
@@ -1682,21 +1703,22 @@ ZOUSEN_F_BC65:
   k_callx RF_3F3E, 2
   k_popr
   k_add
-  k_ldra $EE74
+  k_ldra g_fame
   k_add
   k_stl -4
   k_pushiw $C350
   k_push -4
   k_callx RL_8962, 4
-  k_stla $EE74
+  k_stla g_fame
 ZOUSEN_L_BCA1:
   k_return
+; vars: g_port, g_ports | calls 2
 ZOUSEN_F_BCA2:
   k_func 4
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -2
   k_ldlarg 11
@@ -1736,9 +1758,10 @@ ZOUSEN_F_BCA2:
   k_callx RL_8962, 4
   k_popstoreb
   k_return
+; vars: g_player_gold, g_port, g_port_flags | calls 13
 ZOUSEN_F_BCE2:
   k_func 14
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_jumpt ZOUSEN_L_BCFC
   k_call RF_60EE
   k_call RF_60B2
@@ -1747,7 +1770,7 @@ ZOUSEN_F_BCE2:
   k_ldli 0
   k_return
 ZOUSEN_L_BCFC:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 3
   k_ult
   k_jumpf ZOUSEN_L_BD28
@@ -1755,7 +1778,7 @@ ZOUSEN_L_BCFC:
   k_pushi 5
   k_callx RF_60CE, 4
   k_call RF_60B2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 2
   k_eq
   k_jumpf ZOUSEN_L_BD1B
@@ -1770,7 +1793,7 @@ ZOUSEN_L_BD1E:
   k_ldli 0
   k_return
 ZOUSEN_L_BD28:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BA
@@ -1794,7 +1817,7 @@ ZOUSEN_L_BD4B:
   k_call RF_60B2
   k_pushiw ZOUSEN_D_CB54
   k_callx RF_4B44, 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BA
@@ -1805,18 +1828,18 @@ ZOUSEN_L_BD4B:
   k_popr
   k_sub
   k_stl -2
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldr -2
   k_ult
   k_jumpf ZOUSEN_L_BD78
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stl -2
 ZOUSEN_L_BD78:
   k_call RF_60EE
   k_pushi 1
   k_callx RF_609A, 2
   k_push -2
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw ZOUSEN_D_CB86
   k_callx RF_3619, 6
   k_push -2
@@ -1838,7 +1861,7 @@ ZOUSEN_L_BD78:
   k_return
 ZOUSEN_L_BDAE:
   k_push -4
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BA
@@ -1850,9 +1873,9 @@ ZOUSEN_L_BDAE:
   k_popstore
   k_ldl -4
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_pushi 1
   k_pushi 5
   k_callx RF_60CE, 4
@@ -1894,7 +1917,7 @@ ZOUSEN_L_BE08:
   k_callx RF_2FB9, 4
   k_pushi 1
   k_callx RF_3DDF, 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BC
@@ -1925,8 +1948,8 @@ ZOUSEN_L_BE2B:
   k_popr
   k_add
   k_stl -8
-  k_ldlba $EF69
-  k_ldriw $EE78
+  k_ldlba g_port
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 3
@@ -1934,11 +1957,11 @@ ZOUSEN_L_BE2B:
   k_stl -10
   k_push -8
   k_pushi 0
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_callx RF_4353, 6
-  k_ldlba $EF69
-  k_ldriw $EE78
+  k_callx port_owner_update, 6
+  k_ldlba g_port
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 3
@@ -1977,6 +2000,7 @@ ZOUSEN_L_BE7B:
 ZOUSEN_L_BE8A:
   k_ldli 1
   k_return
+; vars: g_ships, g_port, g_player_gold | calls 11
 ZOUSEN_F_BE8C:
   k_func 16
   k_ldlbf 11
@@ -2052,7 +2076,7 @@ ZOUSEN_F_BE8C:
   k_ldlbf 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -8
   k_ldl -16
@@ -2145,7 +2169,7 @@ ZOUSEN_F_BE8C:
   k_ldli 0
   k_return
 ZOUSEN_L_BF78:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -2164,7 +2188,7 @@ ZOUSEN_L_BF78:
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpf ZOUSEN_L_BFB3
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldr -2
   k_ult
   k_jumpf ZOUSEN_L_BFCA
@@ -2187,9 +2211,9 @@ ZOUSEN_L_BFB3:
 ZOUSEN_L_BFCA:
   k_ldl -2
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_push -8
   k_ldl -12
   k_ldri 10
@@ -2268,6 +2292,7 @@ ZOUSEN_L_BFCA:
 ZOUSEN_L_C027:
   k_ldli 1
   k_return
+; calls 9
 ZOUSEN_F_C029:
   k_func 10
   k_ldli 0
@@ -2329,6 +2354,7 @@ ZOUSEN_L_C09A:
   k_call ZOUSEN_F_B08B
   k_ldl -10
   k_return
+; vars: g_cargo, g_port, g_title, g_player_gold | calls 18
 ZOUSEN_F_C0AF:
   k_func 20
   k_leal -7
@@ -2397,7 +2423,7 @@ ZOUSEN_L_C12B:
   k_ldlbf -1
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_jumpt ZOUSEN_L_C169
@@ -2546,7 +2572,7 @@ ZOUSEN_L_C1B2:
   k_ldr -16
   k_add
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -2573,7 +2599,7 @@ ZOUSEN_L_C1B2:
   k_ldli 1
   k_jump ZOUSEN_L_C28F
 ZOUSEN_L_C269:
-  k_ldlba $EE76
+  k_ldlba g_title
   k_inc
   k_pushl
   k_callx RF_3F3E, 2
@@ -2600,7 +2626,7 @@ ZOUSEN_L_C290:
   k_ldl -12
   k_long $25
   k_long $14
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_long $26
   k_long $15
   k_long $03
@@ -2612,10 +2638,10 @@ ZOUSEN_L_C290:
 ZOUSEN_L_C2B3:
   k_ldl -12
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_add
 ZOUSEN_L_C2B9:
-  k_stla $E56D
+  k_stla g_player_gold
   k_pushiw $00BF
   k_ldlbf -1
   k_ldri 7
@@ -2642,6 +2668,7 @@ ZOUSEN_L_C2E2:
   k_call ZOUSEN_F_B08B
   k_ldl -18
   k_return
+; sys: file_open, file_seek, file_read_7e, file_close
 ZOUSEN_F_C2EB:
   k_func 4
   k_ldli 0
@@ -2655,22 +2682,22 @@ ZOUSEN_F_C2EB:
   k_deref
   k_pushl
   k_pushib 24
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 24 file_open
   k_stl -2
   k_pushi 0
   k_longd $18, $00000000
   k_long $14
   k_push -2
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_push -4
   k_pushiw $D000
   k_push -2
   k_pushib 27
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 27 file_read_7e
   k_push -2
   k_pushib 25
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 25 file_close
   k_ldlarg 13
   k_jumpf ZOUSEN_L_C331
   k_ldliw $D000
@@ -2678,6 +2705,7 @@ ZOUSEN_F_C2EB:
 ZOUSEN_L_C331:
   k_ldla $F99A
   k_return
+; vars: g_port, g_ships, g_cargo | calls 16
 ZOUSEN_F_C335:
   k_func 25
   k_leal -23
@@ -2705,7 +2733,7 @@ ZOUSEN_L_C357:
   k_ldli 0
   k_return
 ZOUSEN_L_C371:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6B8
@@ -2791,7 +2819,7 @@ ZOUSEN_L_C3FE:
   k_ldl -2
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stln -25
   k_call RF_60EE
@@ -2814,7 +2842,7 @@ ZOUSEN_L_C3FE:
   k_ldl -2
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_pushl
   k_call RF_430C

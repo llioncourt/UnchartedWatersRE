@@ -2,15 +2,18 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp S_PK_F_B803
+; calls 1
 S_PK_F_B803:
   k_func 0
   k_call S_PK_F_CBAD
   k_return
+; sys: tilemap_write
 S_PK_F_B80C:
   k_func 0
   k_pushi 0
@@ -20,7 +23,7 @@ S_PK_F_B80C:
   k_pusharg 11
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_return
 S_PK_F_B81D:
   k_func 4
@@ -61,6 +64,7 @@ S_PK_L_B826:
   k_ult
   k_jumpt S_PK_L_B824
   k_return
+; calls 1
 S_PK_F_B849:
   k_func 0
   k_pushi 3
@@ -70,6 +74,7 @@ S_PK_F_B854:
   k_func 0
   k_call $B1A4
   k_return
+; calls 1
 S_PK_F_B85D:
   k_func 14
   k_ldli 0
@@ -165,6 +170,7 @@ S_PK_L_B8CA:
   k_ldli 0
   k_popstoreb
   k_return
+; calls 1
 S_PK_F_B8D7:
   k_func 0
   k_pushi 1
@@ -201,6 +207,7 @@ S_PK_L_B901:
   k_pushl
   k_callx $B1C3, 8
   k_return
+; vars: g_fh_cbmap0 | calls 1
 S_PK_F_B91B:
   k_func 0
   k_ldlarg 15
@@ -217,7 +224,7 @@ S_PK_L_B92F:
   k_ldlarg 15
   k_sub
   k_stlarg 15
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 15
   k_shl1
   k_ldriw S_PK_D_D294
@@ -232,6 +239,7 @@ S_PK_L_B92F:
   k_callx RF_3DF1, 14
 S_PK_L_B948:
   k_return
+; sys: memset_long
 S_PK_F_B949:
   k_func 16
   k_pushi 4
@@ -240,7 +248,7 @@ S_PK_F_B949:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 1
   k_stl -14
 S_PK_L_B95E:
@@ -420,6 +428,7 @@ S_PK_L_BA1E:
   k_jumpt S_PK_L_B9E3
   k_ldl -6
   k_return
+; sys: memset_long
 S_PK_F_BA27:
   k_func 30
   k_pushib 26
@@ -428,7 +437,7 @@ S_PK_F_BA27:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 0
   k_stln -28
 S_PK_L_BA3E:
@@ -507,6 +516,7 @@ S_PK_L_BA9A:
   k_jumpt S_PK_L_BA66
   k_ldln -30
   k_return
+; sys: memset_long | calls 1
 S_PK_F_BAA4:
   k_func 1
   k_pushi 5
@@ -524,9 +534,10 @@ S_PK_L_BAB6:
   k_pusharg 11
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldlbf -1
   k_return
+; calls 8
 S_PK_F_BACD:
   k_func 15
   k_leal -9
@@ -665,6 +676,7 @@ S_PK_L_BBCD:
   k_pusharg 11
   k_callx S_PK_F_BAA4, 4
   k_return
+; calls 4
 S_PK_F_BBD4:
   k_func 3
   k_ldlib 16
@@ -692,6 +704,7 @@ S_PK_F_BBD4:
   k_callx RF_2FB9, 4
   k_ldln -3
   k_return
+; calls 1
 S_PK_F_BC0C:
   k_func 2
   k_pusharg 13
@@ -700,9 +713,10 @@ S_PK_F_BC0C:
   k_stl -2
   k_ldl -2
   k_return
+; vars: g_fh_cbmap0 | calls 1
 S_PK_F_BC1A:
   k_func 0
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $73D0
   k_pushi 2
   k_pushi 2
@@ -717,6 +731,7 @@ S_PK_F_BC1A:
   k_pushi 1
   k_callx RF_3DF1, 14
   k_return
+; sys: tilemap_write
 S_PK_F_BC36:
   k_func 0
   k_pushi 0
@@ -732,8 +747,9 @@ S_PK_F_BC36:
   k_pushl
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_return
+; sys: memset_long, tilemap_write | calls 8
 S_PK_F_BC4E:
   k_func 18
   k_ldli 0
@@ -746,7 +762,7 @@ S_PK_F_BC4E:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_pushiw $2000
   k_pushi 1
   k_pushi 8
@@ -754,7 +770,7 @@ S_PK_F_BC4E:
   k_pushi 10
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 0
   k_callx RF_362A, 2
   k_stl -2
@@ -974,6 +990,7 @@ S_PK_L_BDB4:
   k_callx S_PK_F_BC36, 4
   k_ldl -18
   k_return
+; calls 4
 S_PK_F_BDC8:
   k_func 4
   k_ldln 21
@@ -1044,6 +1061,7 @@ S_PK_L_BE28:
   k_dec
 S_PK_L_BE2A:
   k_return
+; sys: tilemap_write | calls 4
 S_PK_F_BE2B:
   k_func 14
   k_ldliw S_PK_D_D2AB
@@ -1149,7 +1167,7 @@ S_PK_L_BEC2:
   k_pushib 21
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 7
   k_pushi 15
   k_pushib 17
@@ -1217,6 +1235,7 @@ S_PK_L_BF28:
   k_callx RF_2FB9, 4
   k_ldli 0
   k_return
+; calls 3
 S_PK_F_BF32:
   k_func 31
   k_ldli 0
@@ -1542,6 +1561,7 @@ S_PK_L_C116:
   k_popstore
   k_ldli 1
   k_return
+; calls 2
 S_PK_F_C119:
   k_func 4
   k_pushi 5
@@ -1601,6 +1621,7 @@ S_PK_L_C142:
   k_ult
   k_jumpt S_PK_L_C142
   k_return
+; sys: tilemap_write | vars: g_port, g_ports, g_player_gold, g_fh_cbmap0 | calls 26
 S_PK_F_C169:
   k_func 162
   k_leal -162
@@ -1636,10 +1657,10 @@ S_PK_L_C17A:
   k_ldri 3
   k_ult
   k_jumpt S_PK_L_C17A
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_deref
   k_ldrib 100
@@ -1651,7 +1672,7 @@ S_PK_L_C17A:
   k_stlf -142
   k_ldli 0
   k_stln -116
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stlf -134
   k_leal -52
   k_pushl
@@ -1722,7 +1743,7 @@ S_PK_L_C227:
   k_callx S_PK_F_CD4C, 6
 S_PK_L_C240:
   k_ldlf -134
-  k_stla $E56D
+  k_stla g_player_gold
   k_return
 S_PK_L_C247:
   k_leal -132
@@ -1902,7 +1923,7 @@ S_PK_L_C356:
   k_jumpt S_PK_L_C2BF
   k_ldln -92
   k_stln -96
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $73C8
   k_pushi 2
   k_pushi 2
@@ -2945,15 +2966,15 @@ S_PK_L_CA5E:
   k_pushib 50
   k_callx RF_3F3E, 2
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_deref
   k_popr
   k_add
-  k_ldra $E56D
+  k_ldra g_player_gold
   k_add
   k_pushl
   k_ldlf -134
@@ -3044,7 +3065,7 @@ S_PK_L_CAB2:
   k_jumpt S_PK_L_CB51
   k_pushib 100
   k_callx RF_3F3E, 2
-  k_ldra $E56D
+  k_ldra g_player_gold
   k_add
   k_addlib 100
   k_ldrf -134
@@ -3058,7 +3079,7 @@ S_PK_L_CB3D:
 S_PK_L_CB3E:
   k_callx S_PK_F_CD4C, 6
   k_ldlf -134
-  k_stla $E56D
+  k_stla g_player_gold
   k_return
 S_PK_L_CB49:
   k_leal -162
@@ -3090,7 +3111,7 @@ S_PK_L_CB55:
   k_pushl
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushiw $2000
   k_pushi 7
   k_pushi 14
@@ -3112,7 +3133,7 @@ S_PK_L_CB55:
   k_pushl
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_ldlf -144
   k_inc
   k_stlf -144
@@ -3121,22 +3142,23 @@ S_PK_L_CB55:
   k_ult
   k_jumpt S_PK_L_CB55
   k_jump S_PK_L_C1D9
+; vars: g_player_gold, g_port, g_ports | calls 2
 S_PK_F_CBAD:
   k_func 6
   k_call $B1A4
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stl -2
   k_call S_PK_F_C169
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stl -4
   k_ldl -2
   k_ldr -4
   k_ult
   k_jumpf S_PK_L_CBEB
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_deref
   k_ldri 3
@@ -3162,6 +3184,7 @@ S_PK_F_CBAD:
 S_PK_L_CBEB:
   k_ldli 1
   k_return
+; sys: tilemap_write | calls 5
 S_PK_F_CBED:
   k_func 4
   k_ldlarg 11
@@ -3198,7 +3221,7 @@ S_PK_F_CBED:
   k_pushl
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 1
   k_ldlarg 15
   k_ldrarg 11
@@ -3217,7 +3240,7 @@ S_PK_F_CBED:
   k_push -4
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 0
   k_pushi 3
   k_pushi 6
@@ -3248,7 +3271,7 @@ S_PK_L_CC5E:
   k_push -4
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 1
   k_ldlarg 15
   k_ldrarg 11
@@ -3267,7 +3290,7 @@ S_PK_L_CC5E:
   k_pushl
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 0
   k_pushi 4
   k_pushi 6
@@ -3297,6 +3320,7 @@ S_PK_L_CCA7:
   k_ldli 0
   k_stla $F18C
   k_return
+; calls 6
 S_PK_F_CCB6:
   k_func 10
 S_PK_L_CCBB:
@@ -3383,6 +3407,7 @@ S_PK_L_CD45:
   k_call RF_4D8B
   k_jumpt S_PK_L_CD45
   k_return
+; calls 3
 S_PK_F_CD4C:
   k_func 20
   k_ldlbf 13
@@ -3513,6 +3538,7 @@ S_PK_L_CE6E:
   k_callx RF_3F3E, 2
   k_addlib 76
   k_jump S_PK_L_CD87
+; calls 5
 S_PK_F_CE83:
   k_func 0
   k_pushi 0
@@ -3607,6 +3633,7 @@ S_PK_L_CF02:
   k_ult
   k_jumpt S_PK_L_CEB8
   k_return
+; sys: memset_long
 S_PK_F_CF0C:
   k_func 9
   k_pushi 4
@@ -3615,7 +3642,7 @@ S_PK_F_CF0C:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 0
   k_stln -9
 S_PK_L_CF22:
@@ -3693,6 +3720,7 @@ S_PK_L_CF7A:
   k_popstoreb
   k_ldl -2
   k_return
+; calls 1
 S_PK_F_CF8D:
   k_func 10
   k_ldli 0
@@ -3800,6 +3828,7 @@ S_PK_L_D013:
   k_ldrib 100
   k_eq
   k_return
+; sys: memset_long
 S_PK_F_D020:
   k_func 21
   k_pushi 13
@@ -3808,7 +3837,7 @@ S_PK_F_D020:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 0
   k_stl -2
 S_PK_L_D035:
@@ -3962,6 +3991,7 @@ S_PK_L_D0E3:
   k_jumpt S_PK_L_D06D
   k_ldln -21
   k_return
+; calls 3
 S_PK_F_D0ED:
   k_func 15
   k_ldli 0

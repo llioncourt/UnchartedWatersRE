@@ -2,11 +2,13 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp CMINATO_F_9603
+; calls 1
 CMINATO_F_9603:
   k_func 2
   k_ldlba $F16A
@@ -14,19 +16,20 @@ CMINATO_F_9603:
   k_push -2
   k_callx CMINATO_F_9612, 2
   k_return
+; vars: g_fleets, g_captains | calls 1
 CMINATO_F_9612:
   k_func 6
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -4
   k_ldlarg 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -6
   k_ldl -6
@@ -73,13 +76,14 @@ CMINATO_L_965C:
   k_callx CMINATO_F_9662, 2
 CMINATO_L_9661:
   k_return
+; vars: g_captains, g_fleets | calls 2
 CMINATO_F_9662:
   k_func 8
   k_ldlarg 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -8
   k_ldl -8
@@ -90,7 +94,7 @@ CMINATO_F_9662:
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -2
   k_pushib 16
@@ -152,12 +156,13 @@ CMINATO_F_9662:
   k_popstore
 CMINATO_L_96C9:
   k_return
-CMINATO_F_96CA:
+; vars: g_fleets, g_ports, g_ships, g_port_flags, g_relations | calls 8
+rival_merchant_trade:
   k_func 43
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -12
   k_ldlarg 13
@@ -167,7 +172,7 @@ CMINATO_F_96CA:
   k_ldlarg 13
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -14
   k_ldlarg 13
@@ -200,7 +205,7 @@ CMINATO_L_9717:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -16
   k_ldl -16
@@ -308,7 +313,7 @@ CMINATO_L_97B2:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -16
   k_ldl -16
@@ -443,9 +448,9 @@ CMINATO_L_984B:
   k_pushl
   k_pushn -41
   k_pusharg 13
-  k_callx RF_4353, 6
+  k_callx port_owner_update, 6
   k_ldlarg 13
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 3
@@ -460,7 +465,7 @@ CMINATO_L_984B:
   k_ldrn -43
   k_ne
   k_jumpf CMINATO_L_98C5
-  k_ldliw $EA8F
+  k_ldliw g_relations
   k_stln -27
   k_pushi 3
   k_callx RF_3F3E, 2
@@ -505,12 +510,13 @@ CMINATO_L_98C5:
   k_pusharg 11
   k_callx RF_46C6, 2
   k_return
+; vars: g_fleets, g_ports | calls 7
 CMINATO_F_98CB:
   k_func 43
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -12
   k_ldlarg 13
@@ -520,7 +526,7 @@ CMINATO_F_98CB:
   k_ldlarg 13
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -14
   k_ldlarg 13
@@ -698,18 +704,19 @@ CMINATO_L_99E5:
   k_pusharg 11
   k_callx RF_46C6, 2
   k_return
+; vars: g_fleets, g_ships, g_ports | calls 4
 CMINATO_F_99EB:
   k_func 17
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stln -3
   k_ldlarg 13
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stln -7
   k_ldln -7
@@ -855,7 +862,7 @@ CMINATO_F_99EB:
   k_ldlarg 15
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_deref
   k_ldrib 30
@@ -874,7 +881,8 @@ CMINATO_L_9AFD:
   k_popstore
 CMINATO_L_9AFE:
   k_return
-CMINATO_F_9AFF:
+; vars: g_fleets, g_ports | calls 5
+rival_fleet_home:
   k_func 15
   k_leal -7
   k_pushl
@@ -905,7 +913,7 @@ CMINATO_L_9B29:
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stln -13
   k_ldlarg 13
@@ -915,7 +923,7 @@ CMINATO_L_9B29:
   k_ldlarg 13
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stln -15
   k_pushib 50
@@ -990,18 +998,19 @@ CMINATO_L_9BAD:
   k_pusharg 11
   k_callx CMINATO_F_A186, 2
   k_return
+; vars: g_fleets, g_ships | calls 5
 CMINATO_F_9BB3:
   k_func 24
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -4
   k_ldlarg 13
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -8
   k_ldl -8
@@ -1256,6 +1265,7 @@ CMINATO_F_9BB3:
   k_popstore
 CMINATO_L_9D09:
   k_return
+; vars: g_player_gold | calls 4
 CMINATO_F_9D0A:
   k_func 11
   k_leal -5
@@ -1290,7 +1300,7 @@ CMINATO_L_9D35:
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E56D
+  k_ldriw g_player_gold
   k_add
   k_deref
   k_ldriw $03E8
@@ -1305,13 +1315,14 @@ CMINATO_L_9D5B:
   k_callx CMINATO_F_A186, 2
 CMINATO_L_9D60:
   k_return
+; vars: g_captains, g_port_flags, g_ports | calls 1
 CMINATO_F_9D61:
   k_func 22
   k_ldlarg 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -20
   k_ldl -20
@@ -1327,7 +1338,7 @@ CMINATO_F_9D61:
   k_ldli 3
   k_stl -10
   k_ldl -10
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_stl -4
   k_ldliw $EEAA
@@ -1335,7 +1346,7 @@ CMINATO_F_9D61:
   k_ldl -10
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -22
   k_ldlib 101
@@ -1408,20 +1419,21 @@ CMINATO_L_9DD4:
 CMINATO_L_9DDD:
   k_popstoreb
   k_return
+; vars: g_captains, g_ports | calls 2
 CMINATO_F_9DDF:
   k_func 10
   k_ldlarg 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -10
   k_ldli 3
   k_stlbf -1
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -6
   k_ldliw $E970
@@ -1474,6 +1486,7 @@ CMINATO_L_9E40:
   k_callx CMINATO_F_9D61, 2
 CMINATO_L_9E45:
   k_return
+; vars: g_captains | calls 2
 CMINATO_F_9E46:
   k_func 6
   k_ldlarg 11
@@ -1482,7 +1495,7 @@ CMINATO_F_9E46:
   k_ldl -2
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -6
   k_ldli 5
@@ -1537,6 +1550,7 @@ CMINATO_L_9E9B:
   k_pusharg 11
   k_callx CMINATO_F_9DDF, 2
   k_jump CMINATO_L_9E8E
+; vars: g_fleets
 CMINATO_F_9EA3:
   k_func 8
   k_ldlarg 11
@@ -1548,14 +1562,14 @@ CMINATO_F_9EA3:
   k_addli 3
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -6
   k_ldl -4
   k_addli 5
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -8
   k_ldli 0
@@ -1591,6 +1605,7 @@ CMINATO_L_9EDC:
   k_jumpt CMINATO_L_9EC4
   k_ldl -2
   k_return
+; vars: g_fleets
 CMINATO_F_9EE4:
   k_func 8
   k_ldlarg 11
@@ -1601,7 +1616,7 @@ CMINATO_F_9EE4:
   k_ldl -4
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -6
   k_addlib 48
@@ -1639,13 +1654,14 @@ CMINATO_L_9F16:
   k_jumpt CMINATO_L_9EFE
   k_ldl -2
   k_return
+; vars: g_captains, g_nations | calls 4
 CMINATO_F_9F1E:
   k_func 11
   k_ldlarg 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stln -11
   k_ldlarg 11
@@ -1656,14 +1672,14 @@ CMINATO_F_9F1E:
   k_ldlarg 13
   k_shl1
   k_shl1
-  k_ldriw $EEBE
+  k_ldriw g_nations
   k_add
   k_deref
   k_pushl
   k_ldln -7
   k_shl1
   k_shl1
-  k_ldriw $EEBE
+  k_ldriw g_nations
   k_add
   k_deref
   k_popr
@@ -1705,16 +1721,17 @@ CMINATO_L_9F82:
   k_callx CMINATO_F_9D61, 2
 CMINATO_L_9F87:
   k_return
+; vars: g_fleets, g_ports
 CMINATO_F_9F88:
   k_func 8
   k_ldlib 16
   k_stl -4
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -6
-  k_ldliw $E6B4
+  k_ldliw g_ports
   k_stl -8
   k_ldli 0
   k_stl -2
@@ -1749,13 +1766,14 @@ CMINATO_L_9FB8:
   k_jumpt CMINATO_L_9FA0
   k_ldl -2
   k_return
+; vars: g_captains | calls 3
 CMINATO_F_9FC0:
   k_func 9
   k_ldlarg 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stln -9
   k_leal -5
@@ -1786,6 +1804,7 @@ CMINATO_L_9FFA:
   k_callx CMINATO_F_9D61, 2
 CMINATO_L_9FFF:
   k_return
+; vars: g_captains | calls 4
 CMINATO_F_A000:
   k_func 6
   k_ldlarg 11
@@ -1794,7 +1813,7 @@ CMINATO_F_A000:
   k_ldl -2
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -6
   k_ldli 5
@@ -1842,13 +1861,14 @@ CMINATO_L_A057:
   k_pusharg 11
   k_callx CMINATO_F_9D61, 2
   k_jump CMINATO_L_A046
+; vars: g_captains, g_port_flags, g_ports | calls 1
 CMINATO_F_A05F:
   k_func 24
   k_ldlarg 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -22
   k_ldli 0
@@ -1865,7 +1885,7 @@ CMINATO_F_A05F:
   k_ldli 3
   k_stl -8
   k_ldl -8
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_stl -4
   k_ldliw $EEAA
@@ -1873,7 +1893,7 @@ CMINATO_F_A05F:
   k_ldl -8
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -24
   k_jump CMINATO_L_A0D3
@@ -1970,13 +1990,14 @@ CMINATO_L_A0F6:
 CMINATO_L_A100:
   k_popstoreb
   k_return
-CMINATO_F_A102:
+; vars: g_captains, g_port_flags, g_ports | calls 1
+rival_pick_destination:
   k_func 20
   k_ldlarg 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -18
   k_ldl -18
@@ -2003,7 +2024,7 @@ CMINATO_F_A102:
   k_ldli 3
   k_stl -12
   k_ldl -12
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_stl -4
   k_ldliw $EEAA
@@ -2011,7 +2032,7 @@ CMINATO_F_A102:
   k_ldl -12
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -20
   k_ldliw $00C8
@@ -2074,6 +2095,7 @@ CMINATO_L_A180:
   k_pusharg 11
   k_callx CMINATO_F_A05F, 2
   k_return
+; calls 3
 CMINATO_F_A186:
   k_func 2
   k_ldlarg 11
@@ -2096,7 +2118,7 @@ CMINATO_L_A19E:
   k_ult
   k_jumpf CMINATO_L_A1AE
   k_pusharg 11
-  k_callx CMINATO_F_A102, 2
+  k_callx rival_pick_destination, 2
   k_jump CMINATO_L_A1B3
 CMINATO_L_A1AE:
   k_pusharg 11
@@ -2104,7 +2126,7 @@ CMINATO_L_A1AE:
 CMINATO_L_A1B3:
   k_return
 CMINATO_D_A1B4:
-  .word CMINATO_F_9D0A, CMINATO_F_96CA, CMINATO_F_98CB, CMINATO_F_9AFF
+  .word CMINATO_F_9D0A, rival_merchant_trade, CMINATO_F_98CB, rival_fleet_home
 CMINATO_D_A1BC:
   .byte $FF, $00, $00, $00, $02, $00, $03, $00, $00, $00, $FF, $00, $01, $00, $04, $00
   .byte $02, $00, $01, $00, $FF, $00, $05, $00, $03, $00, $04, $00, $05, $00, $FF, $00

@@ -2,15 +2,18 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp SENSOU_F_9603
+; calls 1
 SENSOU_F_9603:
   k_func 0
   k_call SENSOU_F_9649
   k_return
+; sys: file_open, file_seek, file_read_7e, file_close
 SENSOU_F_960C:
   k_func 2
   k_ldlarg 11
@@ -20,25 +23,26 @@ SENSOU_F_960C:
   k_deref
   k_pushl
   k_pushib 24
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 24 file_open
   k_stl -2
   k_pushi 0
   k_longd $18, $00000000
   k_long $14
   k_push -2
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushiw $3A00
   k_pushiw $A500
   k_push -2
   k_pushib 27
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 27 file_read_7e
   k_push -2
   k_pushib 25
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 25 file_close
   k_ldliw $A500
   k_callptr
   k_return
+; calls 1
 SENSOU_F_9649:
   k_func 0
   k_ldli 0
@@ -50,9 +54,10 @@ SENSOU_F_9649:
   k_pushi 1
   k_callx SENSOU_F_960C, 2
   k_return
+; vars: g_fh_cbmap0 | calls 1
 SENSOU_F_9662:
   k_func 0
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 17
   k_shl1
   k_pushl
@@ -72,6 +77,7 @@ SENSOU_F_9662:
   k_pushi 1
   k_callx RF_3DF1, 14
   k_return
+; vars: g_fh_cbmap0 | calls 1
 SENSOU_F_9682:
   k_func 0
   k_ldlarg 15
@@ -84,7 +90,7 @@ SENSOU_L_968E:
   k_ldri 3
   k_ult
   k_jumpf SENSOU_L_96A2
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $0418
   k_pushi 2
   k_pushi 2
@@ -93,7 +99,7 @@ SENSOU_L_968E:
   k_pushi 2
   k_jump SENSOU_L_96B2
 SENSOU_L_96A2:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 15
   k_ldri 3
   k_shl
@@ -108,6 +114,7 @@ SENSOU_L_96A2:
 SENSOU_L_96B2:
   k_callx RF_3DF1, 14
   k_return
+; sys: sprite_anim_stream, wait_frames
 SENSOU_F_96B7:
   k_func 0
   k_ldlarg 11
@@ -124,7 +131,7 @@ SENSOU_F_96B7:
   k_pushi 2
   k_pushi 0
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 28
   k_pushiw RD_92A0
   k_pushi 0
@@ -135,7 +142,7 @@ SENSOU_F_96B7:
   k_pushi 2
   k_pushi 1
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 28
   k_pushiw RD_9320
   k_pushi 0
@@ -146,7 +153,7 @@ SENSOU_F_96B7:
   k_pushi 2
   k_pushi 2
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 28
   k_pushiw RD_93A0
   k_pushi 0
@@ -157,7 +164,7 @@ SENSOU_F_96B7:
   k_pushi 2
   k_pushi 3
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 28
   k_pushiw RD_9420
   k_pushi 0
@@ -168,7 +175,7 @@ SENSOU_F_96B7:
   k_pushi 2
   k_pushi 4
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 28
   k_pushiw RD_94A0
   k_pushi 0
@@ -179,7 +186,7 @@ SENSOU_F_96B7:
   k_pushi 2
   k_pushi 5
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 28
   k_pushiw RD_9520
   k_pushi 0
@@ -190,7 +197,7 @@ SENSOU_F_96B7:
   k_pushi 2
   k_pushi 6
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 28
   k_pushiw RD_95A0
   k_pushiw $00FF
@@ -201,14 +208,15 @@ SENSOU_F_96B7:
   k_pushi 2
   k_pushi 7
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldlarg 11
   k_stla $F302
 SENSOU_L_9772:
   k_return
+; calls 1
 SENSOU_F_9773:
   k_func 2
   k_ldlarg 11
@@ -231,6 +239,7 @@ SENSOU_L_9784:
   k_pushl
   k_callx RF_2FB9, 4
   k_return
+; sys: tilemap_write | calls 2
 SENSOU_F_9793:
   k_func 0
   k_pushiw $2000
@@ -240,7 +249,7 @@ SENSOU_F_9793:
   k_pushi 12
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 1
   k_pushiw SENSOU_D_A0C0
   k_callx RF_2FB9, 4
@@ -248,6 +257,7 @@ SENSOU_F_9793:
   k_pushi 13
   k_callx RF_2F8F, 4
   k_return
+; sys: sprite_move
 SENSOU_F_97B7:
   k_func 2
   k_ldliw $3B22
@@ -283,8 +293,9 @@ SENSOU_L_97DC:
   k_pusha $F306
   k_pushib 20
   k_pushi 10
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 10 sprite_move
   k_return
+; sys: sprite_move, sprites_hide
 SENSOU_F_97F5:
   k_func 0
   k_pushi 0
@@ -294,24 +305,25 @@ SENSOU_F_97F5:
   k_pusha $F306
   k_pushib 20
   k_pushi 10
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 10 sprite_move
   k_pushi 1
   k_pushib 20
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_return
+; vars: g_ships | calls 2
 SENSOU_F_9816:
   k_func 4
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldlarg 13
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -4
   k_pushib 24
@@ -369,6 +381,7 @@ SENSOU_F_9816:
   k_pushiw SENSOU_D_A0EA
   k_callx RF_3608, 4
   k_return
+; sys: color_math, window_off, tilemap_write, sprites_hide | vars: g_ships, g_fh_cbmap0 | calls 9
 SENSOU_F_98AE:
   k_func 8
   k_call SENSOU_F_9793
@@ -381,9 +394,9 @@ SENSOU_F_98AE:
   k_pushi 0
   k_pushib 48
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_pushi 0
   k_pushi 6
   k_pushib 30
@@ -391,23 +404,23 @@ SENSOU_F_98AE:
   k_pushi 1
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 10
   k_pushi 10
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_pushi 1
   k_callx SENSOU_F_96B7, 2
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -4
   k_ldlarg 13
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -6
   k_ldlarg 11
@@ -463,7 +476,7 @@ SENSOU_L_9949:
   k_callx SENSOU_F_9816, 4
   k_ldlarg 15
   k_jumpf SENSOU_L_9972
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $1510
   k_pushi 6
   k_pushi 4
@@ -471,7 +484,7 @@ SENSOU_L_9949:
   k_pushi 10
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $14E0
   k_pushi 6
   k_pushi 4
@@ -479,7 +492,7 @@ SENSOU_L_9949:
   k_pushib 18
   k_jump SENSOU_L_998E
 SENSOU_L_9972:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $16E4
   k_pushi 6
   k_pushi 11
@@ -487,7 +500,7 @@ SENSOU_L_9972:
   k_pushi 1
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $1660
   k_pushi 6
   k_pushi 11
@@ -497,6 +510,7 @@ SENSOU_L_998E:
   k_pushi 1
   k_callx RF_3DF1, 14
   k_return
+; sys: memset_long, tilemap_copy | vars: g_fh_cbmap0 | calls 2
 SENSOU_F_9994:
   k_func 12
   k_ldlarg 15
@@ -508,7 +522,7 @@ SENSOU_F_9994:
   k_ldlarg 17
   k_umod
   k_stlarg 17
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 17
   k_shl1
   k_ldriw $05D8
@@ -536,7 +550,7 @@ SENSOU_L_99BA:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldlarg 15
   k_jump SENSOU_L_99EC
 SENSOU_L_99DA:
@@ -595,7 +609,7 @@ SENSOU_L_9A18:
   k_ldriw $05D8
   k_add
   k_pushl
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_callx RF_3FC8, 10
 SENSOU_L_9A2A:
   k_ldl -6
@@ -618,32 +632,33 @@ SENSOU_L_9A2F:
   k_pusharg 11
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
 SENSOU_L_9A46:
   k_return
+; vars: g_month, g_zone_attr, g_fh_cbmap0 | calls 2
 SENSOU_F_9A47:
   k_func 2
   k_ldla $F30C
   k_jumpf SENSOU_L_9A92
-  k_ldlba $EA8C
+  k_ldlba g_month
   k_ldri 2
   k_ugt
   k_jumpf SENSOU_L_9A6A
-  k_ldlba $EA8C
+  k_ldlba g_month
   k_ldri 9
   k_ult
   k_jumpf SENSOU_L_9A6A
-  k_ldlba $EF84
+  k_ldlba g_zone_attr
   k_ldri 4
   k_shr
   k_jump SENSOU_L_9A6D
 SENSOU_L_9A6A:
-  k_ldlba $EF84
+  k_ldlba g_zone_attr
 SENSOU_L_9A6D:
   k_ldri 15
   k_and
   k_stl -2
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldl -2
   k_ldri 3
   k_shl
@@ -663,6 +678,7 @@ SENSOU_L_9A6D:
   k_callx SENSOU_F_9994, 8
 SENSOU_L_9A92:
   k_return
+; vars: g_fh_cbmap0 | calls 1
 SENSOU_F_9A93:
   k_func 2
   k_pushiw $00AD
@@ -672,7 +688,7 @@ SENSOU_F_9A93:
   k_pushl
   k_callx $894B, 4
   k_stl -2
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $0E08
   k_pushi 2
   k_pushi 2
@@ -681,6 +697,7 @@ SENSOU_F_9A93:
   k_pushi 14
   k_callx RF_3E5A, 14
   k_return
+; vars: g_ships | calls 8
 SENSOU_F_9AB7:
   k_func 2
   k_pusharg 13
@@ -689,7 +706,7 @@ SENSOU_F_9AB7:
   k_ldlarg 13
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldlarg 15
@@ -760,6 +777,7 @@ SENSOU_L_9B2F:
   k_jumpt SENSOU_L_9B23
   k_ldli 1
   k_return
+; sys: sprite_commit, sprites_hide, wait_frames | vars: g_fh_cbmap0 | calls 5
 SENSOU_F_9B3A:
   k_func 24
   k_ldli 0
@@ -856,7 +874,7 @@ SENSOU_L_9B6F:
   k_addlib 48
   k_pushl
   k_pushib 19
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 19 sprite_commit
   k_jump SENSOU_L_9BCD
 SENSOU_L_9BC2:
   k_pushi 1
@@ -864,7 +882,7 @@ SENSOU_L_9BC2:
   k_addlib 48
   k_pushl
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
 SENSOU_L_9BCD:
   k_ldl -4
   k_inc
@@ -1044,8 +1062,8 @@ SENSOU_L_9CB2:
 SENSOU_L_9CB7:
   k_pushi 4
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw $1540
   k_pushi 6
   k_pushi 6
@@ -1055,8 +1073,8 @@ SENSOU_L_9CB7:
   k_callx RF_3DF1, 14
   k_pushi 4
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw $1588
   k_pushi 6
   k_pushi 6
@@ -1066,8 +1084,8 @@ SENSOU_L_9CB7:
   k_callx RF_3DF1, 14
   k_pushi 4
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw $15D0
   k_pushi 6
   k_pushi 6
@@ -1077,8 +1095,8 @@ SENSOU_L_9CB7:
   k_callx RF_3DF1, 14
   k_pushi 4
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw $1618
   k_pushi 6
   k_pushi 6
@@ -1088,8 +1106,8 @@ SENSOU_L_9CB7:
   k_callx RF_3DF1, 14
   k_pushi 4
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw $1540
   k_pushi 6
   k_pushi 6
@@ -1105,6 +1123,7 @@ SENSOU_L_9CB7:
   k_ult
   k_jumpt SENSOU_L_9B41
   k_return
+; sys: tilemap_write, window_shape, wait_frames, oam_hide_all, window_off | vars: g_fh_cbmap0 | calls 2
 SENSOU_F_9D39:
   k_func 20
   k_ldliw $0080
@@ -1136,7 +1155,7 @@ SENSOU_L_9D44:
   k_ldli 0
   k_stl -20
 SENSOU_L_9D61:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldl -20
   k_shl1
   k_ldriw SENSOU_D_A0F6
@@ -1175,7 +1194,7 @@ SENSOU_L_9D61:
   k_pushib 16
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 0
   k_callx SENSOU_F_96B7, 2
   k_pushi 0
@@ -1185,7 +1204,7 @@ SENSOU_L_9D61:
   k_pushiw $00DA
   k_pushiw $0080
   k_pushib 38
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 38 window_shape
   k_jump SENSOU_L_9E10
 SENSOU_L_9DB6:
   k_ldli 4
@@ -1221,7 +1240,7 @@ SENSOU_L_9DD6:
   k_ldriw $00E0
   k_ult
   k_jumpf SENSOU_L_9DFB
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldl -20
   k_shl1
   k_ldriw SENSOU_D_A0F6
@@ -1256,26 +1275,27 @@ SENSOU_L_9DFB:
   k_jumpt SENSOU_L_9DD6
   k_pushi 8
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
 SENSOU_L_9E10:
   k_ldl -14
   k_ldriw $00D8
   k_ult
   k_jumpt SENSOU_L_9DB6
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_pushi 8
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_pushi 8
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_return
+; sys: wait_frames, tilemap_write | vars: g_fh_cbmap0 | calls 3
 SENSOU_F_9E32:
   k_func 2
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $176C
   k_pushi 1
   k_pushi 2
@@ -1286,7 +1306,7 @@ SENSOU_F_9E32:
   k_ldli 0
   k_stl -2
 SENSOU_L_9E49:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $1770
   k_pushi 1
   k_pushi 1
@@ -1298,7 +1318,7 @@ SENSOU_L_9E49:
   k_callx RF_3DF1, 14
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -2
   k_inc
   k_stl -2
@@ -1306,7 +1326,7 @@ SENSOU_L_9E49:
   k_ldri 8
   k_ult
   k_jumpt SENSOU_L_9E49
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $1768
   k_pushi 1
   k_pushi 2
@@ -1314,7 +1334,7 @@ SENSOU_L_9E49:
   k_pushib 20
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $1772
   k_pushi 3
   k_pushi 2
@@ -1324,8 +1344,8 @@ SENSOU_L_9E49:
   k_callx RF_3DF1, 14
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw $1796
   k_pushi 3
   k_pushi 2
@@ -1335,8 +1355,8 @@ SENSOU_L_9E49:
   k_callx RF_3DF1, 14
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw $177E
   k_pushi 3
   k_pushi 2
@@ -1346,8 +1366,8 @@ SENSOU_L_9E49:
   k_callx RF_3DF1, 14
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw $17A2
   k_pushi 3
   k_pushi 2
@@ -1357,8 +1377,8 @@ SENSOU_L_9E49:
   k_callx RF_3DF1, 14
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw $178A
   k_pushi 3
   k_pushi 2
@@ -1368,8 +1388,8 @@ SENSOU_L_9E49:
   k_callx RF_3DF1, 14
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw $17AE
   k_pushi 3
   k_pushi 2
@@ -1379,13 +1399,13 @@ SENSOU_L_9E49:
   k_callx RF_3DF1, 14
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldli 0
   k_stl -2
 SENSOU_L_9F0B:
   k_pushib 23
   k_callx RF_21CA, 2
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $184C
   k_pushi 1
   k_pushi 1
@@ -1393,7 +1413,7 @@ SENSOU_L_9F0B:
   k_pushib 16
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $184E
   k_pushi 1
   k_pushi 1
@@ -1403,8 +1423,8 @@ SENSOU_L_9F0B:
   k_callx RF_3DF1, 14
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw $17BA
   k_pushi 3
   k_pushi 8
@@ -1419,8 +1439,8 @@ SENSOU_L_9F0B:
   k_pushi 13
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
-  k_pusha $F280
+  k_callx syscall, 14  ; sys 5 tilemap_write
+  k_pusha g_fh_cbmap0
   k_pushiw $184E
   k_pushi 1
   k_pushi 1
@@ -1428,7 +1448,7 @@ SENSOU_L_9F0B:
   k_pushi 15
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $184C
   k_pushi 1
   k_pushi 1
@@ -1436,7 +1456,7 @@ SENSOU_L_9F0B:
   k_pushib 17
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $184A
   k_pushi 1
   k_pushi 1
@@ -1447,8 +1467,8 @@ SENSOU_L_9F0B:
   k_call RF_229B
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw $17EA
   k_pushi 3
   k_pushi 8
@@ -1465,8 +1485,8 @@ SENSOU_L_9F0B:
   k_pushi 13
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
-  k_pusha $F280
+  k_callx syscall, 14  ; sys 5 tilemap_write
+  k_pusha g_fh_cbmap0
   k_pushiw $184A
   k_pushi 1
   k_pushi 1
@@ -1474,7 +1494,7 @@ SENSOU_L_9F0B:
   k_pushi 15
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $184E
   k_pushi 1
   k_pushi 1
@@ -1482,7 +1502,7 @@ SENSOU_L_9F0B:
   k_pushib 16
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $184C
   k_pushi 1
   k_pushi 1
@@ -1492,8 +1512,8 @@ SENSOU_L_9F0B:
   k_callx RF_3DF1, 14
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw $181A
   k_pushi 3
   k_pushi 8
@@ -1508,8 +1528,8 @@ SENSOU_L_9F0B:
   k_pushi 13
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
-  k_pusha $F280
+  k_callx syscall, 14  ; sys 5 tilemap_write
+  k_pusha g_fh_cbmap0
   k_pushiw $184C
   k_pushi 1
   k_pushi 1
@@ -1517,7 +1537,7 @@ SENSOU_L_9F0B:
   k_pushi 15
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $184A
   k_pushi 1
   k_pushi 1
@@ -1525,7 +1545,7 @@ SENSOU_L_9F0B:
   k_pushib 16
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $184E
   k_pushi 1
   k_pushi 1
@@ -1540,7 +1560,7 @@ SENSOU_L_9F0B:
   k_pushi 13
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_call RF_229B
   k_ldl -2
   k_inc
@@ -1551,7 +1571,7 @@ SENSOU_L_9F0B:
   k_jumpt SENSOU_L_9F0B
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_return
 SENSOU_D_A058:
   .word SENSOU_D_A05C, SENSOU_D_A064

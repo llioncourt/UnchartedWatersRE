@@ -2,16 +2,19 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp S_TOBAKU_F_B803
+; calls 1
 S_TOBAKU_F_B803:
   k_func 0
   k_call S_TOBAKU_F_B99F
   k_stla $F9A8
   k_return
+; vars: g_port, g_ports, g_player_gold | calls 8
 S_TOBAKU_F_B80F:
   k_func 2
   k_pushi 0
@@ -21,7 +24,7 @@ S_TOBAKU_F_B80F:
   k_callx RF_609A, 2
   k_pushiw S_TOBAKU_D_B9F6
   k_callx RF_4B44, 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -34,10 +37,10 @@ S_TOBAKU_F_B80F:
   k_callx RF_3F3E, 2
   k_jumpt S_TOBAKU_L_B883
 S_TOBAKU_L_B83E:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_deref
   k_ldri 2
@@ -45,7 +48,7 @@ S_TOBAKU_L_B83E:
   k_ldrib 100
   k_lt
   k_jumpt S_TOBAKU_L_B883
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_long $26
   k_longd $19, $0000E678
   k_long $2C
@@ -57,7 +60,7 @@ S_TOBAKU_L_B83E:
   k_popr
   k_sub
   k_pushl
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_popr
   k_ult
   k_jumpt S_TOBAKU_L_B883
@@ -149,6 +152,7 @@ S_TOBAKU_L_B913:
   k_stla $F99E
   k_ldli 0
   k_return
+; vars: g_port, g_player_gold | calls 7
 S_TOBAKU_F_B91A:
   k_func 0
   k_pushi 0
@@ -158,7 +162,7 @@ S_TOBAKU_F_B91A:
   k_callx RF_609A, 2
   k_pushiw S_TOBAKU_D_BAA5
   k_callx RF_4B44, 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -178,11 +182,11 @@ S_TOBAKU_L_B949:
   k_popr
   k_sub
   k_pushl
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_popr
   k_ult
   k_jumpt S_TOBAKU_L_B974
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_long $26
   k_longd $19, $0000E678
   k_long $2C
@@ -215,6 +219,7 @@ S_TOBAKU_L_B998:
   k_stla $F99E
   k_ldli 0
   k_return
+; calls 4
 S_TOBAKU_F_B99F:
   k_func 2
   k_call RF_60EE

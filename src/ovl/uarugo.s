@@ -2,11 +2,13 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp UARUGO_F_9603
+; calls 2
 UARUGO_F_9603:
   k_func 0
   k_ldlba $F16A
@@ -21,6 +23,7 @@ UARUGO_L_9619:
   k_callx UARUGO_F_9ECE, 4
 UARUGO_L_961F:
   k_return
+; calls 1
 UARUGO_F_9620:
   k_func 10
   k_ldlarg 13
@@ -152,13 +155,14 @@ UARUGO_L_96BF:
 UARUGO_L_96C3:
   k_popstore
   k_return
+; vars: g_captains, g_fleets | calls 6
 UARUGO_F_96C5:
   k_func 18
   k_ldlarg 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -16
   k_ldl -16
@@ -172,7 +176,7 @@ UARUGO_L_96DD:
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -18
   k_ldl -18
@@ -529,19 +533,20 @@ UARUGO_L_988C:
   k_callx UARUGO_F_9620, 4
 UARUGO_L_98BE:
   k_return
+; vars: g_captains, g_fleets | calls 5
 UARUGO_F_98BF:
   k_func 8
   k_ldlarg 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -2
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -8
   k_ldl -2
@@ -590,7 +595,7 @@ UARUGO_L_9918:
   k_derefb
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -6
   k_ldl -6
@@ -761,7 +766,7 @@ UARUGO_L_99FB:
   k_derefb
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -6
   k_ldl -6
@@ -866,6 +871,7 @@ UARUGO_L_9A85:
   k_callx UARUGO_F_96C5, 2
 UARUGO_L_9A8A:
   k_return
+; calls 2
 UARUGO_F_9A8B:
   k_func 16
   k_pusharg 17
@@ -953,19 +959,20 @@ UARUGO_L_9AFC:
   k_ldliw $00FF
   k_popstoreb
   k_return
+; vars: g_fleets, g_captains | calls 1
 UARUGO_F_9B03:
   k_func 4
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -4
   k_ldlarg 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -2
   k_ldl -4
@@ -1067,6 +1074,7 @@ UARUGO_L_9B9A:
   k_ult
   k_jumpt UARUGO_L_9B68
   k_return
+; calls 1
 UARUGO_F_9BA2:
   k_func 10
   k_ldlarg 13
@@ -1135,6 +1143,7 @@ UARUGO_L_9BD9:
   k_derefb
   k_popstoreb
   k_return
+; vars: g_cargo
 UARUGO_F_9BFC:
   k_func 8
   k_ldlarg 11
@@ -1151,7 +1160,7 @@ UARUGO_L_9C12:
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_stl -8
@@ -1196,6 +1205,7 @@ UARUGO_L_9C36:
   k_ldri 8
   k_sdiv
   k_return
+; vars: g_ships | calls 2
 UARUGO_F_9C48:
   k_func 12
   k_ldli 5
@@ -1206,7 +1216,7 @@ UARUGO_F_9C48:
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -10
   k_addlib 35
@@ -1275,12 +1285,13 @@ UARUGO_L_9CA0:
 UARUGO_L_9CAC:
   k_ldl -2
   k_return
+; sys: memset_long | vars: g_fleets, g_captains | calls 3
 UARUGO_F_9CAE:
   k_func 24
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -20
   k_ldl -20
@@ -1294,7 +1305,7 @@ UARUGO_F_9CAE:
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -24
   k_ldl -24
@@ -1306,7 +1317,7 @@ UARUGO_F_9CAE:
   k_derefb
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -22
   k_ldl -22
@@ -1379,7 +1390,7 @@ UARUGO_L_9D23:
   k_pushiw $F300
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 0
   k_stl -12
 UARUGO_L_9D36:
@@ -1529,6 +1540,7 @@ UARUGO_L_9DDD:
   k_pushl
   k_callx UARUGO_L_AF99, 8
   k_return
+; vars: g_fleets | calls 3
 UARUGO_F_9DEF:
   k_func 16
   k_pusharg 11
@@ -1536,7 +1548,7 @@ UARUGO_F_9DEF:
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -16
   k_ldl -16
@@ -1617,6 +1629,7 @@ UARUGO_L_9E3F:
   k_derefb
   k_popstoreb
   k_return
+; calls 1
 UARUGO_F_9E76:
   k_func 4
   k_pushn 19
@@ -1674,12 +1687,13 @@ UARUGO_L_9EC9:
   k_ldl -4
   k_inc
   k_jump UARUGO_L_9EAA
+; sys: wait_frames | vars: g_fleets, g_days_at_sea, g_captains, g_zone_attr | calls 18
 UARUGO_F_9ECE:
   k_func 38
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -4
   k_ldlarg 13
@@ -1702,18 +1716,18 @@ UARUGO_L_9EF1:
   k_and
   k_jumpf UARUGO_L_9F1E
   k_pushiw $0096
-  k_ldla $E998
+  k_ldla g_days_at_sea
   k_inc
   k_pushl
   k_callx RL_8962, 4
-  k_stla $E998
+  k_stla g_days_at_sea
   k_jump UARUGO_L_9F1E
 UARUGO_L_9F14:
   k_ldlarg 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -2
 UARUGO_L_9F1E:
@@ -1803,7 +1817,7 @@ UARUGO_L_9F8D:
   k_ldri 1
   k_and
   k_pushl
-  k_ldlba $EF86
+  k_ldlba g_zone_attr+2
   k_ldri 3
   k_shr
   k_ldri 3
@@ -1837,7 +1851,7 @@ UARUGO_L_9FB6:
   k_pushn -38
   k_pushn -36
   k_push -12
-  k_ldlba $EF86
+  k_ldlba g_zone_attr+2
   k_ldri 6
   k_shr
   k_ldri 7
@@ -2103,7 +2117,7 @@ UARUGO_L_A112:
   k_callx RF_530E, 4
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
 UARUGO_L_A161:
   k_ldl -16
   k_ldri 6
@@ -2123,7 +2137,7 @@ UARUGO_L_A161:
   k_callx RF_530E, 4
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
 UARUGO_L_A184:
   k_pusharg 11
   k_callx RF_57CD, 2
@@ -2150,7 +2164,7 @@ UARUGO_L_A1A3:
   k_derefb
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -6
   k_ldl -4
@@ -2305,6 +2319,7 @@ UARUGO_L_A273:
   k_dec
   k_stlba $EF81
   k_return
+; vars: g_port_flags | calls 3
 UARUGO_F_A281:
   k_func 6
   k_ldlarg 11
@@ -2359,7 +2374,7 @@ UARUGO_L_A2AE:
   k_jumpf UARUGO_L_A2FA
   k_ldl -2
   k_derefb
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 8
@@ -2368,7 +2383,7 @@ UARUGO_L_A2AE:
   k_pushi 8
   k_ldl -2
   k_derefb
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_popr
   k_pushl
@@ -2378,7 +2393,7 @@ UARUGO_L_A2AE:
   k_ldl -2
   k_derefb
   k_pushl
-  k_callx UARUGO_F_AD00, 2
+  k_callx port_discovered, 2
   k_ldl -2
   k_derefb
   k_pushl
@@ -2396,6 +2411,7 @@ UARUGO_L_A2FD:
   k_jumpt UARUGO_L_A2AE
   k_ldli 0
   k_return
+; vars: g_port_flags | calls 3
 UARUGO_F_A305:
   k_func 6
   k_ldliw $EF6D
@@ -2417,7 +2433,7 @@ UARUGO_L_A318:
   k_pushi 8
   k_ldl -2
   k_derefb
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_popr
   k_pushl
@@ -2427,7 +2443,7 @@ UARUGO_L_A318:
   k_ldl -2
   k_derefb
   k_pushl
-  k_callx UARUGO_F_AD00, 2
+  k_callx port_discovered, 2
   k_ldl -6
   k_addlib 18
   k_pushl
@@ -2450,6 +2466,7 @@ UARUGO_L_A34E:
   k_ldli 0
   k_stlba $EF81
   k_return
+; calls 4
 UARUGO_F_A359:
   k_func 4
   k_ldlarg 15
@@ -2515,6 +2532,7 @@ UARUGO_L_A3AB:
   k_jumpt UARUGO_L_A371
 UARUGO_L_A3B4:
   k_return
+; vars: g_cargo | calls 2
 UARUGO_F_A3B5:
   k_func 19
   k_leal -5
@@ -2537,7 +2555,7 @@ UARUGO_L_A3C9:
   k_ldln -11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -19
   k_ldlarg 11
@@ -2603,14 +2621,15 @@ UARUGO_L_A439:
   k_jumpt UARUGO_L_A3C9
   k_ldlarg 13
   k_return
-UARUGO_F_A445:
+; vars: g_cargo | calls 4
+daily_supplies:
   k_func 8
   k_ldli 0
   k_stl -8
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -4
   k_ldlarg 11
@@ -2766,6 +2785,7 @@ UARUGO_L_A4E8:
   k_popstoreb
 UARUGO_L_A528:
   k_return
+; vars: g_cargo, g_ships, g_ending | calls 11
 UARUGO_F_A529:
   k_func 19
   k_call RF_5F1C
@@ -2785,7 +2805,7 @@ UARUGO_L_A549:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -15
   k_ldln -15
@@ -2834,7 +2854,7 @@ UARUGO_L_A549:
   k_ldln -7
   k_derefb
   k_pushl
-  k_callx UARUGO_F_A445, 8
+  k_callx daily_supplies, 8
   k_pushi 1
   k_ldln -15
   k_addlib 16
@@ -2844,12 +2864,12 @@ UARUGO_L_A549:
   k_ldln -7
   k_derefb
   k_pushl
-  k_callx UARUGO_F_A445, 8
+  k_callx daily_supplies, 8
   k_ldln -7
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stln -19
   k_ldln -15
@@ -2934,7 +2954,7 @@ UARUGO_L_A639:
 UARUGO_L_A643:
   k_ldli 1
 UARUGO_L_A644:
-  k_stlba $F169
+  k_stlba g_ending
 UARUGO_L_A647:
   k_ldln -7
   k_inc
@@ -2946,6 +2966,7 @@ UARUGO_L_A64C:
   k_jumpt UARUGO_L_A549
   k_call RF_5FDB
   k_return
+; vars: g_cargo, g_player_name_ptr | calls 1
 UARUGO_F_A658:
   k_func 21
   k_leal -9
@@ -2969,14 +2990,14 @@ UARUGO_L_A67D:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -19
   k_ldln -19
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_stln -21
   k_ldln -19
@@ -3013,6 +3034,7 @@ UARUGO_L_A6B5:
   k_add
   k_derefb
   k_return
+; vars: g_ships | calls 7
 UARUGO_F_A6C5:
   k_func 4
   k_call UARUGO_F_A658
@@ -3020,7 +3042,7 @@ UARUGO_F_A6C5:
   k_ldl -2
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -4
   k_call UARUGO_F_AA84
@@ -3044,6 +3066,7 @@ UARUGO_F_A6C5:
   k_ldli 0
   k_popstoreb
   k_return
+; vars: g_ships, g_cargo | calls 8
 UARUGO_F_A706:
   k_func 6
   k_call UARUGO_F_A658
@@ -3051,13 +3074,13 @@ UARUGO_F_A706:
   k_ldl -2
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -6
   k_ldl -2
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_stl -4
@@ -3092,12 +3115,13 @@ UARUGO_L_A757:
   k_callx RF_4B44, 2
 UARUGO_L_A761:
   k_return
+; sys: anim_control | calls 6
 UARUGO_F_A762:
   k_func 0
   k_pushi 0
   k_pushi 0
   k_pushib 56
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 56 anim_control
   k_call UARUGO_F_AA23
   k_pushi 1
   k_pushi 1
@@ -3125,18 +3149,19 @@ UARUGO_L_A796:
   k_ldli 0
   k_stlba $F195
   k_return
+; vars: g_cargo, g_ships, g_ending | calls 8
 UARUGO_F_A7AD:
   k_func 4
   k_ldlbf 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -4
   k_ldlbf 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_pushi 3
@@ -3238,9 +3263,10 @@ UARUGO_L_A816:
   k_jump UARUGO_L_A860
 UARUGO_L_A85C:
   k_ldli 2
-  k_stlba $F169
+  k_stlba g_ending
 UARUGO_L_A860:
   k_return
+; calls 3
 UARUGO_F_A861:
   k_func 11
   k_leal -9
@@ -3280,6 +3306,7 @@ UARUGO_L_A899:
   k_ult
   k_jumpt UARUGO_L_A87C
   k_return
+; vars: g_cargo, g_player_name_ptr | calls 9
 UARUGO_F_A8A0:
   k_func 17
   k_ldlba $F193
@@ -3321,7 +3348,7 @@ UARUGO_L_A8F0:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -13
   k_ldln -13
@@ -3335,7 +3362,7 @@ UARUGO_L_A8F0:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_stln -17
   k_ldln -17
@@ -3388,6 +3415,7 @@ UARUGO_L_A956:
   k_jumpt UARUGO_L_A8F0
 UARUGO_L_A95C:
   k_return
+; sys: palette_dma, wait_frames
 UARUGO_F_A95D:
   k_func 146
   k_ldli 0
@@ -3487,12 +3515,12 @@ UARUGO_L_A9B9:
   k_add
   k_pushl
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_ldlarg 17
   k_jumpf UARUGO_L_A9E0
   k_pusharg 17
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
 UARUGO_L_A9E0:
   k_ldl -2
   k_inc
@@ -3502,6 +3530,7 @@ UARUGO_L_A9E0:
   k_ult
   k_jumpt UARUGO_L_A964
   k_return
+; sys: wait_frames | calls 3
 UARUGO_F_A9EA:
   k_func 4
   k_ldlba $EA8E
@@ -3530,17 +3559,18 @@ UARUGO_F_A9EA:
   k_callx RF_3EC3, 6
   k_pushi 3
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_push -2
   k_callx RF_5BBB, 2
   k_return
+; sys: wait_frames | calls 4
 UARUGO_F_AA23:
   k_func 2
   k_pushib 24
   k_callx RF_21CA, 2
   k_pushi 3
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldli 0
   k_stl -2
 UARUGO_L_AA37:
@@ -3562,7 +3592,7 @@ UARUGO_L_AA37:
   k_callx RF_3EC3, 6
   k_pushi 3
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 0
   k_pushi 4
   k_pushib 19
@@ -3574,7 +3604,7 @@ UARUGO_L_AA37:
   k_callx RF_5BBB, 2
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -2
   k_inc
   k_stl -2
@@ -3584,9 +3614,10 @@ UARUGO_L_AA37:
   k_jumpt UARUGO_L_AA37
   k_call RF_229B
   k_return
+; sys: metasprite_set, wait_frames | vars: g_fleets, g_fh_cbmap0 | calls 2
 UARUGO_F_AA84:
   k_func 26
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stln -26
   k_ldln -26
   k_addli 2
@@ -3632,7 +3663,7 @@ UARUGO_F_AA84:
   k_pushl
   k_pushib 126
   k_pushiw RD_21BA
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_callx RF_3FC8, 10
   k_ldli 2
   k_stl -12
@@ -3648,7 +3679,7 @@ UARUGO_L_AAD7:
   k_ldriw $21AA
   k_add
   k_pushl
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_callx RF_3FC8, 10
   k_ldli 1
   k_stl -12
@@ -3698,23 +3729,24 @@ UARUGO_L_AB21:
   k_pushl
   k_pushib 22
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -24
   k_dec
   k_stl -24
   k_ldl -24
   k_jumpt UARUGO_L_AAF3
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
   k_return
+; sys: sprite_anim_stream
 UARUGO_F_AB4A:
   k_func 0
   k_pushib 16
@@ -3727,7 +3759,7 @@ UARUGO_F_AB4A:
   k_pushi 2
   k_pushi 0
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 16
   k_pushiw $ED1E
   k_pushi 0
@@ -3738,7 +3770,7 @@ UARUGO_F_AB4A:
   k_pushi 2
   k_pushi 1
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 16
   k_pushiw $ED9E
   k_pushi 0
@@ -3749,7 +3781,7 @@ UARUGO_F_AB4A:
   k_pushi 2
   k_pushi 2
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 16
   k_pushiw $EE1E
   k_pushi 15
@@ -3760,8 +3792,9 @@ UARUGO_F_AB4A:
   k_pushi 2
   k_pushi 3
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_return
+; sys: memcpy_long, tilemap_copy | calls 2
 UARUGO_F_ABA1:
   k_func 6
   k_ldliw $D800
@@ -3787,7 +3820,7 @@ UARUGO_L_ABC1:
   k_pushl
   k_pushib 126
   k_pushib 23
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 23 memcpy_long
   k_ldli 4
   k_swap
   k_ldl -6
@@ -3815,7 +3848,7 @@ UARUGO_L_ABC1:
   k_pushi 2
   k_pushi 2
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_pushi 0
   k_pushi 4
   k_pushib 19
@@ -3823,13 +3856,14 @@ UARUGO_L_ABC1:
   k_pushi 1
   k_callx UARUGO_F_AB4A, 2
   k_return
+; sys: anim_control | vars: g_zone_attr | calls 7
 UARUGO_F_AC01:
   k_func 0
   k_call RF_5F1C
   k_pushi 0
   k_pushi 0
   k_pushib 56
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 56 anim_control
   k_ldli 0
   k_stlba $F193
   k_call RF_5F56
@@ -3841,13 +3875,13 @@ UARUGO_F_AC01:
   k_udiv
   k_pushl
   k_callx RF_5BBB, 2
-  k_ldlba $EF86
+  k_ldlba g_zone_attr+2
   k_ldri 6
   k_shr
   k_ldri 7
   k_and
   k_pushl
-  k_ldlba $EF86
+  k_ldlba g_zone_attr+2
   k_ldri 3
   k_shr
   k_ldri 3
@@ -3862,6 +3896,7 @@ UARUGO_F_AC01:
   k_pushl
   k_callx RF_21EA, 4
   k_return
+; calls 3
 UARUGO_F_AC4C:
   k_func 0
   k_pushi 1
@@ -3873,6 +3908,7 @@ UARUGO_F_AC4C:
   k_pushiw UARUGO_D_B4DE
   k_callx RF_3619, 4
   k_return
+; calls 1
 UARUGO_F_AC67:
   k_func 0
   k_ldlarg 11
@@ -3886,6 +3922,7 @@ UARUGO_F_AC67:
   k_pushl
   k_callx RF_40A5, 2
   k_return
+; calls 4
 UARUGO_F_AC7C:
   k_func 0
   k_call RF_5F1C
@@ -3895,6 +3932,7 @@ UARUGO_F_AC7C:
   k_callx RF_2FB9, 4
   k_call RF_5FDB
   k_return
+; calls 5
 UARUGO_F_AC93:
   k_func 0
   k_call RF_5C91
@@ -3916,16 +3954,17 @@ UARUGO_L_ACBA:
   k_pushiw UARUGO_D_B511
   k_callx RF_3608, 4
   k_return
+; vars: g_fame, g_port, g_ports | calls 2
 UARUGO_F_ACC3:
   k_func 4
-  k_ldla $EE74
+  k_ldla g_fame
   k_ldriw $C350
   k_ult
   k_jumpf UARUGO_L_ACFF
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -2
   k_ldl -2
@@ -3943,16 +3982,17 @@ UARUGO_F_ACC3:
   k_callx RF_3F3E, 2
   k_popr
   k_add
-  k_ldra $EE74
+  k_ldra g_fame
   k_add
   k_stl -4
   k_pushiw $C350
   k_push -4
   k_callx RL_8962, 4
-  k_stla $EE74
+  k_stla g_fame
 UARUGO_L_ACFF:
   k_return
-UARUGO_F_AD00:
+; vars: g_cargo, g_player_name_ptr, g_fame | calls 3
+port_discovered:
   k_func 19
   k_ldlarg 11
   k_ldri 5
@@ -3983,14 +4023,14 @@ UARUGO_L_AD2C:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -19
   k_ldln -19
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_stln -17
   k_ldln -19
@@ -4038,7 +4078,7 @@ UARUGO_L_AD81:
   k_ult
   k_jumpt UARUGO_L_AD2C
 UARUGO_L_AD8B:
-  k_ldla $EE74
+  k_ldla g_fame
   k_ldriw $C350
   k_ult
   k_jumpf UARUGO_L_ADBF
@@ -4052,20 +4092,21 @@ UARUGO_L_AD8B:
   k_shr
   k_ldrib 100
   k_mul
-  k_ldra $EE74
+  k_ldra g_fame
   k_add
   k_addlib 20
   k_jump UARUGO_L_ADB7
 UARUGO_L_ADAF:
   k_pushiw $C350
-  k_ldla $EE74
+  k_ldla g_fame
   k_addlib 100
 UARUGO_L_ADB7:
   k_pushl
   k_callx RL_8962, 4
-  k_stla $EE74
+  k_stla g_fame
 UARUGO_L_ADBF:
   k_return
+; calls 3
 UARUGO_F_ADC0:
   k_func 0
   k_call RF_5F1C

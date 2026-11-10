@@ -2,11 +2,13 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp SCOM_F_9603
+; calls 1
 SCOM_F_9603:
   k_func 0
   k_ldlba $F198
@@ -74,6 +76,7 @@ SCOM_L_964D:
   k_ldri 5
   k_sdiv
   k_return
+; vars: g_ships
 SCOM_F_9657:
   k_func 12
   k_ldli 0
@@ -89,7 +92,7 @@ SCOM_L_9664:
   k_ldl -4
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -10
   k_ldl -10
@@ -168,12 +171,13 @@ SCOM_L_96BE:
 SCOM_L_96C6:
   k_ldl -6
   k_return
+; vars: g_fleets
 SCOM_F_96C8:
   k_func 2
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -2
   k_ldlarg 13
@@ -210,6 +214,7 @@ SCOM_L_96E6:
   k_or
   k_popstoreb
   k_return
+; calls 3
 SCOM_F_96FE:
   k_func 4
   k_ldlarg 15
@@ -283,18 +288,19 @@ SCOM_L_975B:
   k_jumpt SCOM_L_970E
 SCOM_L_9761:
   k_return
+; vars: g_fleets, g_player_gold | calls 1
 SCOM_F_9762:
   k_func 2
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -2
   k_ldlarg 13
   k_ldri 4
   k_shl
-  k_ldriw $E56D
+  k_ldriw g_player_gold
   k_add
   k_deref
   k_pushl
@@ -316,6 +322,7 @@ SCOM_F_9762:
   k_add
   k_popstore
   k_return
+; vars: g_player_name_ptr, g_ships | calls 3
 SCOM_F_978F:
   k_func 6
   k_pushi 3
@@ -325,7 +332,7 @@ SCOM_F_978F:
   k_addlib 20
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_stl -6
   k_ldl -6
@@ -367,7 +374,7 @@ SCOM_L_97D6:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_ldrib 20
@@ -386,6 +393,7 @@ SCOM_L_97EE:
   k_ult
   k_jumpt SCOM_L_97D6
   k_return
+; calls 7
 SCOM_F_97F5:
   k_func 66
   k_leal -5
@@ -493,6 +501,7 @@ SCOM_L_98B0:
   k_callx SCOM_F_9762, 4
 SCOM_L_98DA:
   k_return
+; sys: sprite_move, sprites_hide | calls 2
 SCOM_F_98DB:
   k_func 4
   k_ldl -2
@@ -522,11 +531,11 @@ SCOM_F_98DB:
   k_push -2
   k_pushi 10
   k_pushi 10
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 10 sprite_move
   k_pushi 1
   k_pushi 10
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_pushi 1
   k_pushi 1
   k_callx RF_3E7E, 4
@@ -535,6 +544,7 @@ SCOM_F_98DB:
   k_pushi 0
   k_callx RF_3EC3, 6
   k_return
+; sys: palette_dma, sprite_move
 SCOM_F_991B:
   k_func 0
   k_pushib 32
@@ -542,7 +552,7 @@ SCOM_F_991B:
   k_pushib 126
   k_pushiw SCOM_D_9A14
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_ldlarg 11
   k_shl1
   k_addli 2
@@ -570,28 +580,29 @@ SCOM_F_991B:
   k_pusharg 11
   k_pushi 10
   k_pushi 10
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 10 sprite_move
   k_return
+; sys: wait_frames | vars: g_princess, g_king_mission, g_fleets, g_captains | calls 6
 SCOM_F_9955:
   k_func 16
   k_ldlba $F197
   k_stl -2
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf SCOM_L_999C
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 1
   k_ugt
   k_jumpf SCOM_L_999C
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 3
   k_eq
   k_jumpf SCOM_L_997C
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_jump SCOM_L_997F
 SCOM_L_997C:
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
 SCOM_L_997F:
   k_stl -6
   k_ldl -2
@@ -613,27 +624,27 @@ SCOM_L_999C:
   k_ldlbf 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -8
   k_ldl -2
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -10
   k_ldlbf 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -12
   k_ldl -2
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -14
   k_ldli 0
@@ -643,7 +654,7 @@ SCOM_L_999C:
   k_ldl -8
   k_derefb
   k_pushl
-  k_ldlba $E564
+  k_ldlba g_fleets
   k_popr
   k_eq
   k_jumpf SCOM_L_99F7
@@ -651,7 +662,7 @@ SCOM_L_999C:
   k_inc
   k_derefb
   k_pushl
-  k_ldlba $E565
+  k_ldlba g_fleets+1
   k_popr
   k_eq
   k_jumpf SCOM_L_99F7
@@ -678,7 +689,7 @@ SCOM_L_99F7:
   k_jumpf SCOM_L_9A13
   k_pushib 30
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_call SCOM_F_98DB
   k_call RF_229B
 SCOM_L_9A13:

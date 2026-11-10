@@ -2,22 +2,26 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp S_NWAKA_F_B803
+; calls 1
 S_NWAKA_F_B803:
   k_func 0
   k_call S_NWAKA_F_B95F
   k_stla $F9A8
   k_return
+; calls 1
 S_NWAKA_F_B80F:
   k_func 0
   k_pushi 1
   k_pushi 8
   k_callx RF_60CE, 4
   k_return
+; vars: g_player_name_ptr | calls 4
 S_NWAKA_F_B81B:
   k_func 1
   k_pushi 0
@@ -70,7 +74,7 @@ S_NWAKA_L_B84E:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_popstore
@@ -92,6 +96,7 @@ S_NWAKA_L_B888:
   k_ult
   k_jumpt S_NWAKA_L_B84E
   k_return
+; vars: g_port | calls 6
 S_NWAKA_F_B898:
   k_func 8
   k_call S_NWAKA_F_B80F
@@ -202,11 +207,12 @@ S_NWAKA_L_B947:
   k_ldriw $E971
   k_add
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_popstoreb
 S_NWAKA_L_B95D:
   k_ldl -2
   k_return
+; calls 13
 S_NWAKA_F_B95F:
   k_func 66
   k_leal -12

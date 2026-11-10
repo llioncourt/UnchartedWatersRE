@@ -2,6 +2,7 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 
 .segment "CODE"
 
@@ -70,7 +71,7 @@ EL_8052:
   sta z:$46
   lda #$2000
   sta z:$44
-  jsr EL_9CBF
+  jsr file_copy
   rep #$10
   sep #$20
   ldx #$FFFF
@@ -176,7 +177,7 @@ EL_8190:
   ldx #$0120
   stx a:$0B27
   lda #$8F
-  sta a:$0B3E
+  sta a:e_brightness
   lda #$00
   ldx #$00
   sta a:$0E19
@@ -185,14 +186,14 @@ EL_8190:
   sta a:$0B4D
   stx a:$0B4E
   sta a:$0B50
-  stx a:$0B51
-  stx a:$0B53
-  sta a:$0B55
+  stx a:e_pads
+  stx a:e_pads+2
+  sta a:e_frame_wait
   sta a:$0E03
-  sta a:$0DD8
-  inc a:$0DD8
-  sta a:$0B56
-  sta a:$0B57
+  sta a:e_screen_off
+  inc a:e_screen_off
+  sta a:e_nmi_jobs
+  sta a:e_vram_job
   stx a:$0B58
   stx a:$0B5A
   stx a:$0B5C
@@ -204,10 +205,10 @@ EL_8190:
   stx a:$0B67
   stx a:$0B69
   sta a:$0B6B
-  stx a:$0B6D
-  stx a:$0B6F
-  sta a:$0B71
-  stx a:$0B72
+  stx a:e_dma_bytes
+  stx a:e_dma_src
+  sta a:e_dma_src+2
+  stx a:e_dma_vram
   sta a:$0B74
   stx a:$0B75
   stx a:$0B77
@@ -241,12 +242,12 @@ EL_8190:
   stx a:$0DF9
   stx a:$0DFB
   stx a:$0DFD
-  sta a:$0E09
-  sta a:$0E04
-  sta a:$0E05
-  sta a:$0E07
-  sta a:$0E08
-  sta a:$0E06
+  sta a:e_apu_busy
+  sta a:e_sound_req
+  sta a:e_sound_req+1
+  sta a:e_sound_req+3
+  sta a:e_sound_req+4
+  sta a:e_sound_req+2
   stx a:$0E0A
   stx a:$0E0C
   stx a:$0E0E
@@ -255,8 +256,8 @@ EL_8190:
   stx a:$0E14
   sta a:$0E16
   lda #$13
-  sta a:$0DD6
-  sta a:$0DD7
+  sta a:e_tm
+  sta a:e_ts
   lda #$00
   sta a:$0DCC
   stx a:$0BA2
@@ -328,7 +329,7 @@ EL_8314:
   ldx #$00
   ldy #$80
 EL_831F:
-  sta a:$0900,x
+  sta a:e_oam,x
   inx
   inx
   inx
@@ -339,7 +340,7 @@ EL_831F:
   tax
   ldy #$10
 EL_8330:
-  sta a:$0B00,x
+  sta a:e_oam+512,x
   inx
   inx
   dey
@@ -368,19 +369,19 @@ nmi:
   pha
   plb
   cmp a:$4210
-  lda a:$0E09
+  lda a:e_apu_busy
   bne EL_83A0
-  lda a:$0E04
+  lda a:e_sound_req
   beq EL_8394
-  lda a:$0E05
+  lda a:e_sound_req+1
   sta a:$2140
-  lda a:$0E06
+  lda a:e_sound_req+2
   sta a:$2141
-  stz a:$0E04
+  stz a:e_sound_req
 EL_8394:
-  lda a:$0E07
+  lda a:e_sound_req+3
   sta a:$2142
-  lda a:$0E08
+  lda a:e_sound_req+4
   sta a:$2143
 EL_83A0:
   lda #$80
@@ -396,7 +397,7 @@ EL_83A0:
   jsr EL_8C79
   jsr EL_8C97
   sep #$20
-  lda a:$0B56
+  lda a:e_nmi_jobs
   beq EL_83EF
   lsr a
   bcc EL_83DA
@@ -404,21 +405,21 @@ EL_83A0:
   sta z:$4C
   jsr EL_8430
   lda #$FE
-  and a:$0B56
-  sta a:$0B56
+  and a:e_nmi_jobs
+  sta a:e_nmi_jobs
 EL_83DA:
-  lda a:$0B56
+  lda a:e_nmi_jobs
   and #$02
-  sta a:$0B56
+  sta a:e_nmi_jobs
   beq EL_83EF
-  lda a:$0B56
+  lda a:e_nmi_jobs
   sta z:$4C
   jsr EL_8457
-  stz a:$0B56
+  stz a:e_nmi_jobs
 EL_83EF:
-  lda a:$0B57
+  lda a:e_vram_job
   beq EL_83F7
-  jsr EL_8488
+  jsr nmi_vram_dma
 EL_83F7:
   lda a:$0B74
   beq EL_8406
@@ -430,10 +431,10 @@ EL_8403:
 EL_8406:
   jsr EL_8D07
   jsr EL_8C05
-  stz a:$0B55
+  stz a:e_frame_wait
   sep #$20
-  stz a:$0B55
-  lda a:$0B3E
+  stz a:e_frame_wait
+  lda a:e_brightness
   sta a:$2100
   lda #$81
   sta a:$4200
@@ -464,7 +465,7 @@ EL_8430:
   stz a:$0B24
   ldx #$0220
   stx a:$0B25
-  jsr EL_8512
+  jsr dma_run
   rts
 EL_8457:
   rep #$10
@@ -484,19 +485,19 @@ EL_8457:
   sta a:$0B24
   ldx a:$0B4E
   stx a:$0B25
-  jsr EL_8512
+  jsr dma_run
   rts
-EL_8488:
+nmi_vram_dma:
   sep #$20
   rep #$10
   ldx #$4300
   stx z:$38
-  ldx a:$0B72
+  ldx a:e_dma_vram
   stx z:$30
   stx a:$2116
   lda #$80
   sta a:$2115
-  lda a:$0B57
+  lda a:e_vram_job
   sta a:$0B20
   bmi EL_84AA
   lda #$18
@@ -506,31 +507,31 @@ EL_84AA:
   lda #$39
 EL_84AF:
   sta a:$0B21
-  ldx a:$0B6F
+  ldx a:e_dma_src
   stx a:$0B22
-  lda a:$0B71
+  lda a:e_dma_src+2
   sta a:$0B24
   rep #$20
-  lda a:$0B6D
+  lda a:e_dma_bytes
 .a16
   cmp #$0800
   bcc EL_84D4
   sec
   sbc #$0800
-  sta a:$0B6D
+  sta a:e_dma_bytes
   lda #$0800
   bra EL_84DA
 EL_84D4:
   ldx #$00
-  stx a:$0B6D
+  stx a:e_dma_bytes
 EL_84DA:
   sta a:$0B25
   clc
-  lda a:$0B72
+  lda a:e_dma_vram
   adc #$0400
-  sta a:$0B72
+  sta a:e_dma_vram
   clc
-  lda a:$0B6F
+  lda a:e_dma_src
   adc #$0800
   bcc EL_84FD
   clc
@@ -538,22 +539,22 @@ EL_84DA:
   pha
   php
   sep #$20
-  inc a:$0B71
+  inc a:e_dma_src+2
   plp
   pla
 EL_84FD:
-  sta a:$0B6F
+  sta a:e_dma_src
   sep #$20
 .a8
   lda #$01
   sta z:$4C
-  jsr EL_8512
-  ldx a:$0B6D
+  jsr dma_run
+  ldx a:e_dma_bytes
   bne EL_8511
-  stz a:$0B57
+  stz a:e_vram_job
 EL_8511:
   rts
-EL_8512:
+dma_run:
   rep #$10
   sep #$20
   phy
@@ -843,7 +844,7 @@ EL_873F:
 .a8
   lda #$01
   sta z:$4C
-  jsr EL_8512
+  jsr dma_run
   dey
   beq EL_87A5
   bmi EL_87A5
@@ -879,7 +880,7 @@ EL_879C:
   bra EL_873F
 EL_87A5:
   sep #$20
-  lda a:$0DD8
+  lda a:e_screen_off
   beq EL_87AF
   stz a:$0B74
 EL_87AF:
@@ -917,7 +918,7 @@ EL_87D2:
   lda #$01
   sta z:$4C
   lda a:$213A
-  jsr EL_8512
+  jsr dma_run
   dey
   beq EL_8823
   bmi EL_8823
@@ -966,17 +967,17 @@ EL_883E:
   beq EL_885F
   ldx a:$0B64
   lda a:$0B66
-  sta a:$0901,x
+  sta a:e_oam+1,x
   lda #$01
   bra EL_8869
 EL_885F:
   ldx a:$0B64
   lda #$F0
-  sta a:$0901,x
+  sta a:e_oam+1,x
   lda #$01
 EL_8869:
-  ora a:$0B56
-  sta a:$0B56
+  ora a:e_nmi_jobs
+  sta a:e_nmi_jobs
 EL_886F:
   rts
 EL_8870:
@@ -1087,7 +1088,7 @@ EL_8916:
   sta a:$0B25
 EL_895A:
   php
-  jsr EL_8512
+  jsr dma_run
   plp
   dey
   beq EL_899D
@@ -1137,7 +1138,7 @@ EL_89AD:
   sep #$20
 EL_89BD:
   lda a:$0BBB,y
-  sta a:$0902,x
+  sta a:e_oam+2,x
   inx
   inx
   inx
@@ -1151,8 +1152,8 @@ EL_89CF:
 EL_89D1:
   lda a:$0BC3,y
   clc
-  adc a:$0902,x
-  sta a:$0902,x
+  adc a:e_oam+2,x
+  sta a:e_oam+2,x
   inx
   inx
   inx
@@ -1172,8 +1173,8 @@ EL_89F7:
   sep #$20
 .a8
   lda #$01
-  ora a:$0B56
-  sta a:$0B56
+  ora a:e_nmi_jobs
+  sta a:e_nmi_jobs
 EL_8A01:
   rts
 EL_8A02:
@@ -1226,7 +1227,7 @@ EL_8A37:
   lda #$01
   sta z:$4C
   php
-  jsr EL_8512
+  jsr dma_run
   plp
   rep #$20
 EL_8A6D:
@@ -1347,7 +1348,7 @@ EL_8B3E:
   stz a:$0DCD
 EL_8B44:
   stx a:$212C
-  stx a:$0DD6
+  stx a:e_tm
   ldx #$00
   stx a:$0DCE
   bra EL_8B57
@@ -1522,10 +1523,10 @@ EL_8C97:
   stz a:$0E03
 EL_8CD1:
   rts
-EL_8CD2:
+inidisp_set:
   rep #$10
   sep #$20
-  sta a:$0B3E
+  sta a:e_brightness
   sta a:$2100
   rts
   .byte $C2, $30, $8D, $02, $42, $EA, $EA, $EA, $EA, $AD, $16, $42, $60
@@ -1552,9 +1553,9 @@ EL_8D0B:
   lsr a
   bcs EL_8D0B
   ldx a:$4218
-  stx a:$0B51
+  stx a:e_pads
   ldx a:$421A
-  stx a:$0B53
+  stx a:e_pads+2
   rts
 EL_8D1E:
   rep #$10
@@ -1572,10 +1573,10 @@ EL_8D1E:
   stx a:$0B25
   lda #$01
   sta z:$4C
-  jsr EL_8512
-  stz a:$0B56
+  jsr dma_run
+  stz a:e_nmi_jobs
   rts
-EL_8D4C:
+cgram_dma_now:
   rep #$10
   sep #$20
   ldx #$4310
@@ -1595,10 +1596,10 @@ EL_8D4C:
   stx a:$0B25
   lda #$02
   sta z:$4C
-  jsr EL_8512
-  stz a:$0B56
+  jsr dma_run
+  stz a:e_nmi_jobs
   rts
-EL_8D84:
+vram_dma_now:
   sep #$20
   rep #$10
   lda z:$4E
@@ -1609,10 +1610,10 @@ EL_8D84:
   sta a:$2115
   ldx #$4300
   stx z:$38
-  ldx a:$0B72
+  ldx a:e_dma_vram
   stx z:$30
   stx a:$2116
-  lda a:$0B57
+  lda a:e_vram_job
   sta a:$0B20
   bmi EL_8DAC
   lda #$18
@@ -1622,18 +1623,18 @@ EL_8DAC:
   lda #$39
 EL_8DB1:
   sta a:$0B21
-  ldx a:$0B6F
+  ldx a:e_dma_src
   stx a:$0B22
-  lda a:$0B71
+  lda a:e_dma_src+2
   sta a:$0B24
   rep #$20
-  lda a:$0B6D
+  lda a:e_dma_bytes
   sta a:$0B25
   sep #$20
   lda #$01
   sta z:$4C
-  jsr EL_8512
-  stz a:$0B57
+  jsr dma_run
+  stz a:e_vram_job
   rep #$20
   pla
   sta z:$50
@@ -1697,7 +1698,7 @@ EL_8E04:
   pla
   plp
   rtl
-EL_8E2F:
+wait_nmi:
   sep #$30
   lda z:$54
   sta z:$3D
@@ -1707,21 +1708,21 @@ EL_8E2F:
   lda #$7E
   sta z:$3F
   rts
-sys_01:
+sys_01_display_init:
   sep #$20
   lda #$8F
-  jsr EL_8CD2
-  stz a:$0DD8
-  inc a:$0DD8
+  jsr inidisp_set
+  stz a:e_screen_off
+  inc a:e_screen_off
   stz a:$4200
   lda #$04
   sta a:$2133
-  jsr EL_8E2F
+  jsr wait_nmi
   sep #$30
 .i8
   ldy #$00
   lda [$3D],y
-  sta a:$0B3F
+  sta a:e_obsel
   sta a:$2101
   tax
   and #$03
@@ -1761,7 +1762,7 @@ EL_8E7A:
   iny
   lda [$3D],y
   sta a:$2105
-  sta a:$0B29
+  sta a:e_bgmode
   iny
   iny
   lda [$3D],y
@@ -1819,17 +1820,17 @@ EL_8E7A:
   stz a:$0B3A
   sta a:$0B3B
   rts
-sys_02:
+sys_02_display_reset:
   sep #$30
-  jsr EL_8E2F
+  jsr wait_nmi
   rep #$10
   sep #$20
-  stz a:$0B56
+  stz a:e_nmi_jobs
   lda #$04
   sta a:$2133
-  lda a:$0DD6
+  lda a:e_tm
   sta a:$212C
-  lda a:$0DD7
+  lda a:e_ts
   sta a:$212D
   sta a:$0B41
   stz a:$420C
@@ -1845,10 +1846,10 @@ sys_02:
   lda #$18
   ldy #$00
   jsr EL_9058
-  lda a:$0B56
+  lda a:e_nmi_jobs
   sta z:$4C
-  jsr EL_8512
-  stz a:$0B56
+  jsr dma_run
+  stz a:e_nmi_jobs
   lda #$02
   xba
   lda #$10
@@ -1858,10 +1859,10 @@ sys_02:
   stx a:$2116
   lda #$18
   jsr EL_9058
-  lda a:$0B56
+  lda a:e_nmi_jobs
   sta z:$4C
-  jsr EL_8512
-  stz a:$0B56
+  jsr dma_run
+  stz a:e_nmi_jobs
   lda #$04
   xba
   lda #$20
@@ -1871,10 +1872,10 @@ sys_02:
   stx a:$2116
   lda #$18
   jsr EL_9058
-  lda a:$0B56
+  lda a:e_nmi_jobs
   sta z:$4C
-  jsr EL_8512
-  stz a:$0B56
+  jsr dma_run
+  stz a:e_nmi_jobs
   lda #$80
   sta a:$2115
   ldx a:$0B32
@@ -1894,10 +1895,10 @@ EL_8FAA:
   stx a:$2116
   lda #$18
   jsr EL_9058
-  lda a:$0B56
+  lda a:e_nmi_jobs
   sta z:$4C
-  jsr EL_8512
-  stz a:$0B56
+  jsr dma_run
+  stz a:e_nmi_jobs
   lda #$10
   xba
   lda #$40
@@ -1907,10 +1908,10 @@ EL_8FAA:
   stx a:$2116
   lda #$18
   jsr EL_9058
-  lda a:$0B56
+  lda a:e_nmi_jobs
   sta z:$4C
-  jsr EL_8512
-  stz a:$0B56
+  jsr dma_run
+  stz a:e_nmi_jobs
   lda #$20
   xba
   lda #$50
@@ -1920,10 +1921,10 @@ EL_8FAA:
   stx a:$2116
   lda #$18
   jsr EL_9058
-  lda a:$0B56
+  lda a:e_nmi_jobs
   sta z:$4C
-  jsr EL_8512
-  stz a:$0B56
+  jsr dma_run
+  stz a:e_nmi_jobs
   lda #$40
   xba
   lda #$60
@@ -1933,10 +1934,10 @@ EL_8FAA:
   stx a:$2116
   lda #$18
   jsr EL_9058
-  lda a:$0B56
+  lda a:e_nmi_jobs
   sta z:$4C
-  jsr EL_8512
-  stz a:$0B56
+  jsr dma_run
+  stz a:e_nmi_jobs
   lda #$80
   xba
   lda #$70
@@ -1946,12 +1947,12 @@ EL_8FAA:
   stz a:$2121
   lda #$22
   jsr EL_9058
-  lda a:$0B56
+  lda a:e_nmi_jobs
   sta z:$4C
-  jsr EL_8512
-  stz a:$0B56
+  jsr dma_run
+  stz a:e_nmi_jobs
   lda #$0F
-  jsr EL_8CD2
+  jsr inidisp_set
   lda #$81
   sta a:$4200
   rts
@@ -1986,12 +1987,12 @@ EL_906E:
   lda [$3D],y
   sta a:$0B26
   xba
-  ora a:$0B56
-  sta a:$0B56
+  ora a:e_nmi_jobs
+  sta a:e_nmi_jobs
 EL_9097:
   iny
   rts
-sys_03:
+sys_03_palette_dma:
   sep #$20
   rep #$10
   lda z:$54
@@ -2005,18 +2006,18 @@ sys_03:
   ldx z:$5A
   stx a:$0B4E
   lda #$02
-  ora a:$0B56
-  sta a:$0B56
-  lda a:$0DD8
+  ora a:e_nmi_jobs
+  sta a:e_nmi_jobs
+  lda a:e_screen_off
   beq EL_90C9
-  jsr EL_8D4C
-  stz a:$0B56
+  jsr cgram_dma_now
+  stz a:e_nmi_jobs
 EL_90C9:
-  lda a:$0B56
+  lda a:e_nmi_jobs
   and #$02
   bne EL_90C9
   rts
-sys_04:
+sys_04_tilemap_clear:
   rep #$30
   lda z:$54
 .a16
@@ -2053,7 +2054,7 @@ EL_90FD:
 .a8
   lda #$04
   sta a:$0B74
-  lda a:$0DD8
+  lda a:e_screen_off
   beq EL_9124
   php
   jsr EL_9193
@@ -2065,7 +2066,7 @@ EL_9124:
   bne EL_9124
 EL_912B:
   rts
-EL_912C:
+tilemap_args:
   sep #$20
   rep #$10
   ldx z:$5C
@@ -2101,15 +2102,15 @@ EL_9151:
   adc a:$0B7B
   sta a:$0B7B
   rts
-sys_05:
-  jsr EL_912C
+sys_05_tilemap_write:
+  jsr tilemap_args
   rep #$30
   lda z:$5E
   sta a:$0B7D
   sep #$20
   lda #$02
   sta a:$0B74
-  lda a:$0DD8
+  lda a:e_screen_off
   beq EL_918B
   php
   jsr EL_9193
@@ -2146,8 +2147,8 @@ EL_91A7:
   sep #$20
   stz a:$0B74
   rts
-sys_06:
-  jsr EL_912C
+sys_06_tilemap_copy:
+  jsr tilemap_args
   rep #$10
   sep #$20
   ldx z:$5E
@@ -2157,7 +2158,7 @@ sys_06:
 .a8
   lda #$01
   sta a:$0B74
-  lda a:$0DD8
+  lda a:e_screen_off
   beq EL_91E8
 EL_91DE:
   lda a:$0B74
@@ -2170,8 +2171,8 @@ EL_91E8:
   bne EL_91E8
 EL_91EF:
   rts
-sys_07:
-  jsr EL_912C
+sys_07_tilemap_read:
+  jsr tilemap_args
   rep #$30
   lda z:$5E
   sta z:$3A
@@ -2185,14 +2186,14 @@ EL_9204:
   and #$80
   bne EL_9204
   rts
-sys_08:
+sys_08_oam_hide_all:
   rep #$10
   sep #$20
   lda #$F0
   ldx #$00
   ldy #$80
 EL_9218:
-  sta a:$0901,x
+  sta a:e_oam+1,x
   inx
   inx
   inx
@@ -2200,8 +2201,8 @@ EL_9218:
   dey
   bne EL_9218
   lda #$01
-  ora a:$0B56
-  sta a:$0B56
+  ora a:e_nmi_jobs
+  sta a:e_nmi_jobs
   rts
 EL_922B:
   rep #$30
@@ -2218,7 +2219,7 @@ EL_922B:
   plx
   pla
   rts
-sys_09:
+sys_09_metasprite_set:
   rep #$10
   sep #$20
 .a8
@@ -2282,11 +2283,11 @@ EL_92A5:
   lda z:$56
 EL_92AC:
   pha
-  sta a:$0900,x
+  sta a:e_oam,x
   lda z:$58
-  sta a:$0901,x
+  sta a:e_oam+1,x
   lda [$3D],y
-  sta a:$0902,x
+  sta a:e_oam+2,x
   iny
   cpy a:$0E01
   bne EL_92C5
@@ -2295,7 +2296,7 @@ EL_92AC:
   plp
 EL_92C5:
   lda [$3D],y
-  sta a:$0903,x
+  sta a:e_oam+3,x
   iny
   cpy a:$0E01
   bne EL_92D5
@@ -2341,23 +2342,23 @@ EL_930E:
   inc a:$0B5A
   ldx a:$0B58
   lda a:ED_9A96,y
-  and a:$0B00,x
-  sta a:$0B00,x
+  and a:e_oam+512,x
+  sta a:e_oam+512,x
   xba
-  ora a:$0B00,x
-  sta a:$0B00,x
+  ora a:e_oam+512,x
+  sta a:e_oam+512,x
   dec a:$0B5C
   bne EL_92F2
   lda #$01
-  ora a:$0B56
-  sta a:$0B56
-  lda a:$0DD8
+  ora a:e_nmi_jobs
+  sta a:e_nmi_jobs
+  lda a:e_screen_off
   beq EL_9340
   jsr EL_8D1E
-  stz a:$0B56
+  stz a:e_nmi_jobs
 EL_9340:
   rts
-EL_9341:
+oam_entry_set:
   rep #$10
   sep #$20
   lda #$04
@@ -2372,24 +2373,24 @@ EL_9341:
   tay
   sep #$20
   lda #$FE
-  and a:$0B56
-  sta a:$0B56
+  and a:e_nmi_jobs
+  sta a:e_nmi_jobs
   lda z:$56
-  sta a:$0900,y
+  sta a:e_oam,y
   iny
   lda z:$58
-  sta a:$0900,y
+  sta a:e_oam,y
   iny
   lda z:$5A
-  sta a:$0900,y
+  sta a:e_oam,y
   iny
   lda z:$5B
-  sta a:$0900,y
+  sta a:e_oam,y
   ldx a:$0B58
   ldy a:$0B5A
   lda a:ED_9A96,y
-  and a:$0B00,x
-  sta a:$0B00,x
+  and a:e_oam+512,x
+  sta a:e_oam+512,x
   lda z:$5C
 EL_9387:
   dey
@@ -2398,10 +2399,10 @@ EL_9387:
   asl a
   bra EL_9387
 EL_938E:
-  ora a:$0B00,x
-  sta a:$0B00,x
+  ora a:e_oam+512,x
+  sta a:e_oam+512,x
   rts
-sys_10:
+sys_10_sprite_move:
   rep #$10
   sep #$20
   lda z:$5E
@@ -2413,60 +2414,60 @@ sys_10:
   asl a
   asl a
   sta a:$0B64
-  jsr EL_9341
+  jsr oam_entry_set
   sep #$20
   lda #$01
   sta a:$0B6C
 EL_93B5:
   sta a:$0B62
   rts
-EL_93B9:
+tile_dma_args_4bpp:
   rep #$30
   lda z:$54
   asl a
   asl a
   asl a
   asl a
-  sta a:$0B72
+  sta a:e_dma_vram
   lda z:$56
   asl a
   asl a
   asl a
   asl a
   asl a
-  sta a:$0B6D
+  sta a:e_dma_bytes
 EL_93CE:
   lda z:$58
-  sta a:$0B6F
+  sta a:e_dma_src
   sep #$20
   lda z:$5A
-  sta a:$0B71
+  sta a:e_dma_src+2
   rts
-EL_93DB:
+tile_dma_args_2bpp:
   rep #$30
   lda z:$54
   asl a
   asl a
   asl a
-  sta a:$0B72
+  sta a:e_dma_vram
   lda z:$56
   asl a
   asl a
   asl a
   asl a
-  sta a:$0B6D
+  sta a:e_dma_bytes
   jmp EL_93CE
-sys_11:
+sys_11_vram_load_tiles:
   lda z:$5C
 .a16
   cmp #$03
   bne EL_9402
-  jsr EL_93DB
+  jsr tile_dma_args_2bpp
   rep #$20
   lda a:$0B3A
   bra EL_941B
 EL_9402:
-  jsr EL_93B9
+  jsr tile_dma_args_4bpp
   rep #$10
   sep #$20
   lda z:$5C
@@ -2481,28 +2482,28 @@ EL_9416:
   lda a:$0B36
 EL_941B:
   clc
-  adc a:$0B72
-  sta a:$0B72
+  adc a:e_dma_vram
+  sta a:e_dma_vram
   sep #$20
   lda #$01
-  ora a:$0B57
-  sta a:$0B57
-  lda a:$0DD8
+  ora a:e_vram_job
+  sta a:e_vram_job
+  lda a:e_screen_off
   beq EL_9436
-  jsr EL_8D84
+  jsr vram_dma_now
   bra EL_943D
 EL_9436:
-  lda a:$0B57
+  lda a:e_vram_job
   and #$01
   bne EL_9436
 EL_943D:
   rts
-sys_12:
+sys_12_vram_load_tiles_2bpp:
   lda z:$5C
 .a16
   cmp #$D003
   asl a
-  jsr EL_93DB
+  jsr tile_dma_args_2bpp
   rep #$20
   lda a:$0B3A
   bra EL_9467
@@ -2510,89 +2511,89 @@ sys_12:
   .byte $38, $0B, $80, $05, $C2, $20, $AD, $36, $0B
 EL_9467:
   clc
-  adc a:$0B72
-  sta a:$0B72
+  adc a:e_dma_vram
+  sta a:e_dma_vram
   sep #$20
 .a8
   lda #$81
-  ora a:$0B57
-  sta a:$0B57
-  lda a:$0DD8
+  ora a:e_vram_job
+  sta a:e_vram_job
+  lda a:e_screen_off
   beq EL_9482
-  jsr EL_8D84
+  jsr vram_dma_now
   bra EL_9489
 EL_9482:
-  lda a:$0B57
+  lda a:e_vram_job
   and #$81
   bne EL_9482
 EL_9489:
   rts
-sys_13:
-  jsr EL_93B9
+sys_13_vram_load_obj_tiles:
+  jsr tile_dma_args_4bpp
   rep #$30
   lda a:$0B2A
   clc
-  adc a:$0B72
-  sta a:$0B72
+  adc a:e_dma_vram
+  sta a:e_dma_vram
   sep #$20
   lda #$01
-  ora a:$0B57
-  sta a:$0B57
-  lda a:$0DD8
+  ora a:e_vram_job
+  sta a:e_vram_job
+  lda a:e_screen_off
   beq EL_94AD
-  jsr EL_8D84
+  jsr vram_dma_now
   bra EL_94B4
 EL_94AD:
-  lda a:$0B57
+  lda a:e_vram_job
   and #$01
   bne EL_94AD
 EL_94B4:
   rts
-sys_14:
-  jsr EL_93B9
+sys_14_vram_read_tiles:
+  jsr tile_dma_args_4bpp
   rep #$30
   lda a:$0B2A
   clc
-  adc a:$0B72
-  sta a:$0B72
+  adc a:e_dma_vram
+  sta a:e_dma_vram
   sep #$20
   lda #$81
-  ora a:$0B57
-  sta a:$0B57
-  lda a:$0DD8
+  ora a:e_vram_job
+  sta a:e_vram_job
+  lda a:e_screen_off
   beq EL_94D8
-  jsr EL_8D84
+  jsr vram_dma_now
   bra EL_94DF
 EL_94D8:
-  lda a:$0B57
+  lda a:e_vram_job
   and #$81
   bne EL_94D8
 EL_94DF:
   rts
-sys_15:
+sys_15_pad_read:
   rep #$30
   lda z:$54
   asl a
   tax
-  lda a:$0B51,x
+  lda a:e_pads,x
   sta z:$68
   rts
-sys_16:
+sys_16_wait_frames:
   rep #$10
   sep #$20
   lda #$01
   ldx z:$54
   beq EL_9504
-  sta a:$0B55
+  sta a:e_frame_wait
 EL_94F9:
-  lda a:$0B55
+  lda a:e_frame_wait
   bne EL_94F9
-  inc a:$0B55
+  inc a:e_frame_wait
   dex
   bpl EL_94F9
 EL_9504:
   rts
-sys_17:
+sys_17_bg_scroll:
   sep #$20
   rep #$10
 EL_9509:
@@ -2606,56 +2607,56 @@ EL_9509:
   stx a:$0B84
   inc a:$0B86
   rts
-sys_19:
-  jsr EL_9341
+sys_19_sprite_commit:
+  jsr oam_entry_set
   sep #$20
   lda #$01
-  ora a:$0B56
-  sta a:$0B56
+  ora a:e_nmi_jobs
+  sta a:e_nmi_jobs
   rts
-sys_20:
+sys_20_layers_enable:
   sep #$30
   ldx z:$54
   lda z:$56
-  stx a:$0DD6
-  sta a:$0DD7
+  stx a:e_tm
+  sta a:e_ts
   stx a:$212C
   sta a:$212D
   rts
-sys_22:
+sys_22_set_0B7F:
   sep #$20
   lda z:$54
   sta a:$0B7F
   rts
-sys_34:
+sys_34_screen_off:
   sep #$20
   lda #$80
-  ora a:$0B3E
-  jsr EL_8CD2
+  ora a:e_brightness
+  jsr inidisp_set
   lda #$01
-  sta a:$0DD8
+  sta a:e_screen_off
   lda #$00
   sta a:$4200
   lda #$00
   sta a:$212C
   sta a:$212D
   rts
-sys_35:
+sys_35_screen_on:
   sep #$20
   lda #$0F
-  and a:$0B3E
-  jsr EL_8CD2
+  and a:e_brightness
+  jsr inidisp_set
   lda #$00
-  sta a:$0DD8
+  sta a:e_screen_off
   lda #$A1
   sta a:$4200
-  lda a:$0DD6
+  lda a:e_tm
   sta a:$212C
-  lda a:$0DD7
+  lda a:e_ts
   sta a:$212D
   cmp a:$4211
   rts
-sys_68:
+sys_68_counter_0B27_read:
   rep #$20
   lda a:$0B27
   sta z:$68
@@ -2684,7 +2685,7 @@ irq:
   pla
   cli
   rti
-sys_69:
+sys_69_auto_move:
   sep #$20
   rep #$10
   lda z:$54
@@ -2719,14 +2720,14 @@ EL_95F9:
   stx a:$0E0A
 EL_95FF:
   rts
-sys_70:
+sys_70_tilemap_copy_wait:
   rep #$10
   sep #$20
   ldx z:$5A
   ldy z:$5C
   stx z:$5C
   sty z:$5A
-  jsr EL_912C
+  jsr tilemap_args
   rep #$10
   sep #$20
   stz a:$0E19
@@ -2737,7 +2738,7 @@ sys_70:
   sta z:$3C
   lda #$01
   sta a:$0B74
-  lda a:$0DD8
+  lda a:e_screen_off
   beq EL_9635
 EL_962B:
   lda a:$0B74
@@ -2751,13 +2752,13 @@ EL_9635:
 EL_963C:
   stz a:$0E19
   rts
-sys_71:
+sys_71_bg_mode_set:
   sep #$30
   lda z:$54
-  sta a:$0B29
+  sta a:e_bgmode
   sta a:$2105
   rts
-sys_75:
+sys_75_bg_map_base_set:
   sep #$30
   lda z:$54
   dec a
@@ -2772,7 +2773,7 @@ sys_75:
   stz a:$0B2E,x
   sta a:$0B2F,x
   rts
-sys_76:
+sys_76_lz_decompress:
   rep #$20
   sep #$10
   tsc
@@ -2783,7 +2784,7 @@ sys_76:
   pha
   lda z:$58
   sep #$20
-  jsr EL_97F3
+  jsr lz_decompress
   rep #$20
   rts
 ED_967C:
@@ -2818,25 +2819,25 @@ ED_97E6:
   .byte $14, $14, $14, $0A, $08
 ED_97EB:
   .byte $06, $04, $02, $16, $18, $1A, $1C, $1E
-EL_97F3:
+lz_decompress:
   sep #$30
   sta a:$0010
   lda #$7F
   sta a:$000C
   rep #$21
   pla
-  sta a:$0E1A
+  sta a:e_lz_bits
   pla
   sta a:$000A
   pla
   sta a:$000E
-  lda a:$0E1A
+  lda a:e_lz_bits
   pha
-  stz a:$0E1E
-  stz a:$0E20
+  stz a:e_lz_avail
+  stz a:e_lz_need
 .i8
   ldx #$20
-  jsr EL_98E9
+  jsr lz_getbits
   sep #$20
   ldx #$00
 EL_981E:
@@ -2844,7 +2845,7 @@ EL_981E:
   bpl EL_9839
   ldx #$07
   lda [$0E]
-  sta a:$0E24
+  sta a:e_lz_flags
   inc a:$000E
   bne EL_9839
   inc a:$000F
@@ -2853,7 +2854,7 @@ EL_981E:
   ror a:$000F
   inc a:$0010
 EL_9839:
-  asl a:$0E24
+  asl a:e_lz_flags
   bcc EL_985C
   lda [$0E]
   sta [$0A]
@@ -2871,7 +2872,7 @@ EL_9852:
 EL_985C:
   phx
   rep #$20
-  lda a:$0E1A
+  lda a:e_lz_bits
   bmi EL_9895
   lsr a
   xba
@@ -2900,7 +2901,7 @@ EL_9884:
 EL_988A:
   pha
   ldx a:ED_96D6,y
-  jsr EL_98E9
+  jsr lz_getbits
   rep #$20
   bra EL_9898
 EL_9895:
@@ -2929,19 +2930,19 @@ EL_98B0:
   rol a
   and #$07
   tay
-  lda a:$0E1A
+  lda a:e_lz_bits
   and #$0FFF
   ora #$1000
   ldx a:ED_97E6,y
   jsr ($99A4,x)
   ldx a:ED_97EB,y
 EL_98CA:
-  sta a:$0E22
-  jsr EL_98E9
+  sta a:e_lz_dist
+  jsr lz_getbits
   rep #$11
   ldy a:$000A
   tya
-  sbc a:$0E22
+  sbc a:e_lz_dist
   tax
   pla
   phb
@@ -2951,25 +2952,25 @@ EL_98CA:
   sep #$30
   plx
   jmp EL_981E
-EL_98E9:
-  stx a:$0E20
-  lda a:$0E1A
+lz_getbits:
+  stx a:e_lz_need
+  lda a:e_lz_bits
   jsr ($995C,x)
-  sta a:$0E1A
-  ldx a:$0E1E
-  cpx a:$0E20
+  sta a:e_lz_bits
+  ldx a:e_lz_avail
+  cpx a:e_lz_need
   bcs EL_9928
-  lda a:$0E20
+  lda a:e_lz_need
   sec
-  sbc a:$0E1E
-  sta a:$0E20
-  lda a:$0E1C
+  sbc a:e_lz_avail
+  sta a:e_lz_need
+  lda a:e_lz_next
   and a:ED_967C,x
-  ldx a:$0E20
+  ldx a:e_lz_need
   jsr ($995C,x)
-  tsb a:$0E1A
+  tsb a:e_lz_bits
   lda [$0E]
-  sta a:$0E1C
+  sta a:e_lz_next
   lda a:$000E
   inc a
   inc a
@@ -2980,15 +2981,15 @@ EL_9925:
   sec
 EL_9928:
   txa
-  sbc a:$0E20
-  sta a:$0E1E
+  sbc a:e_lz_need
+  sta a:e_lz_avail
   tax
-  lda a:$0E1C
+  lda a:e_lz_next
   jsr ($99A4,x)
-  ldx a:$0E20
+  ldx a:e_lz_need
   and a:ED_967C,x
-  ora a:$0E1A
-  sta a:$0E1A
+  ora a:e_lz_bits
+  sta a:e_lz_bits
   rts
 EL_9943:
   sep #$21
@@ -2997,7 +2998,7 @@ EL_9943:
   dec a:$000E
   bne EL_9955
   lda [$0E]
-  sta a:$0E1D
+  sta a:e_lz_next+1
 EL_9955:
   inc a:$000E
   rep #$20
@@ -3070,16 +3071,16 @@ EL_9955:
   rts
   lda #$00
   rts
-  .word reset, sys_01, sys_02, sys_03, sys_04, sys_05, sys_06, sys_07
-  .word sys_08, sys_09, sys_10, sys_11, sys_12, sys_13, sys_14, sys_15
-  .word sys_16, sys_17, sys_18, sys_19, sys_20, sys_21, sys_22, sys_23
-  .word sys_24, sys_25, sys_26, sys_27, sys_28, sys_29, sys_30, sys_31
-  .word sys_32, sys_33, sys_34, sys_35, sys_36, sys_37, sys_38, sys_39
-  .word sys_40, sys_41, sys_42, sys_43, sys_44, sys_45, sys_46, sys_47
-  .word sys_48, sys_49, sys_50, sys_51, sys_52, sys_53, sys_54, sys_55
-  .word sys_56, sys_57, sys_58, sys_59, sys_60, sys_61, sys_62, sys_63
-  .word sys_64, sys_65, sys_66, sys_67, sys_68, sys_69, sys_70, sys_71
-  .word sys_72, sys_73, sys_74, sys_75, sys_76, sys_77, sys_78
+  .word reset, sys_01_display_init, sys_02_display_reset, sys_03_palette_dma, sys_04_tilemap_clear, sys_05_tilemap_write, sys_06_tilemap_copy, sys_07_tilemap_read
+  .word sys_08_oam_hide_all, sys_09_metasprite_set, sys_10_sprite_move, sys_11_vram_load_tiles, sys_12_vram_load_tiles_2bpp, sys_13_vram_load_obj_tiles, sys_14_vram_read_tiles, sys_15_pad_read
+  .word sys_16_wait_frames, sys_17_bg_scroll, sys_18_anim_path, sys_19_sprite_commit, sys_20_layers_enable, sys_21_hv_counter_read, sys_22_set_0B7F, sys_23_memcpy_long
+  .word sys_24_file_open, sys_25_file_close, sys_26_file_seek, sys_27_file_read_7e, sys_28_file_read, sys_29_file_palette_dma, sys_30_file_tilemap_copy, sys_31_file_metasprite_set
+  .word sys_32_file_vram_load_tiles, sys_33_file_vram_load_obj_tiles, sys_34_screen_off, sys_35_screen_on, sys_36_memset_long, sys_37_brightness_set, sys_38_window_shape, sys_39_window_off
+  .word sys_40_tile_put, sys_41_mode7_init, sys_42_bg_block_put, sys_43_bg_block_put2, sys_44_file_bg_block_put, sys_45_file_bg_block_put2, sys_46_mode7_center, sys_47_mode7_matrix
+  .word sys_48_color_math, sys_49_grid_open, sys_50_grid_cell, sys_51_file_anim_frames, sys_52_anim_frames, sys_53_file_anim_53, sys_54_file_anim_54, sys_55_sprite_anim_stream
+  .word sys_56_anim_control, sys_57_sprites_offset, sys_58_sprites_hide, sys_59_palette_cycle, sys_60_sound_play, sys_61_sound_stop, sys_62_apu_ports_read, sys_63_sound_effect
+  .word sys_64_file_rom_address, sys_65_apu_upload, sys_66_obj_size_set, sys_67_file_metasprite_67, sys_68_counter_0B27_read, sys_69_auto_move, sys_70_tilemap_copy_wait, sys_71_bg_mode_set
+  .word sys_72_metasprite_72, sys_73_hdma_effect_on, sys_74_hdma_effect_off, sys_75_bg_map_base_set, sys_76_lz_decompress, sys_77_file_anim_77, sys_78_anim_78
   .byte $00, $20, $40, $60, $80, $A0, $C0, $E0
 ED_9A96:
   .byte $FC, $F3, $CF, $3F
@@ -3087,7 +3088,7 @@ ED_9A9A:
   .byte $12, $14, $18
   .byte "$(H", $00
   .byte $00, $00, $08
-sys_23:
+sys_23_memcpy_long:
   rep #$30
   lda z:$54
   sta z:$42
@@ -3099,9 +3100,9 @@ sys_23:
   sta z:$44
   lda z:$5C
   sta z:$4E
-  jsr EL_9CFB
+  jsr mvn_copy
   rts
-sys_24:
+sys_24_file_open:
   rep #$30
 .i16
   ldy #$00
@@ -3169,7 +3170,7 @@ EL_9B2E:
   sta z:$68
 EL_9B33:
   rts
-sys_25:
+sys_25_file_close:
   rep #$30
   ldx z:$54
   lda #$00
@@ -3183,7 +3184,7 @@ sys_25:
 EL_9B4B:
   sta z:$68
   rts
-sys_26:
+sys_26_file_seek:
   rep #$30
   ldx z:$54
   lda z:$54
@@ -3242,78 +3243,78 @@ EL_9BAA:
 EL_9BB2:
   sta z:$68
   rts
-sys_27:
+sys_27_file_read_7e:
   rep #$30
   ldx z:$54
-  jsr EL_9C3D
+  jsr file_to_rom
   lda #$7E
   sta z:$46
   lda z:$56
   sta z:$44
   lda z:$58
   sta z:$4C
-  jsr EL_9CBF
+  jsr file_copy
   rts
-sys_28:
+sys_28_file_read:
   rep #$30
   ldx z:$54
-  jsr EL_9C3D
+  jsr file_to_rom
   lda z:$56
   sta z:$46
   lda z:$58
   sta z:$44
   lda z:$5A
   sta z:$4C
-  jsr EL_9CBF
+  jsr file_copy
   rts
-sys_29:
+sys_29_file_palette_dma:
   rep #$30
   lda z:$58
   sta z:$5A
   lda z:$56
   sta z:$58
   ldx z:$54
-  jsr EL_9C3D
+  jsr file_to_rom
   sty z:$54
   stx z:$56
-  jsr sys_03
+  jsr sys_03_palette_dma
   rts
-sys_30:
+sys_30_file_tilemap_copy:
   rep #$30
   ldx z:$5E
-  jsr EL_9C3D
+  jsr file_to_rom
   sty z:$5E
   stx z:$60
-  jsr sys_06
+  jsr sys_06_tilemap_copy
   rts
-sys_31:
+sys_31_file_metasprite_set:
   rep #$30
   lda z:$5E
   ldx z:$60
   sta z:$60
-  jsr EL_9C3D
+  jsr file_to_rom
   stx z:$62
   sty z:$5E
-  jsr sys_09
+  jsr sys_09_metasprite_set
   rts
-sys_32:
+sys_32_file_vram_load_tiles:
   lda z:$5A
   sta z:$5C
   ldx z:$58
-  jsr EL_9C3D
+  jsr file_to_rom
   stx z:$5A
   sty z:$58
-  jsr sys_11
+  jsr sys_11_vram_load_tiles
   rts
-sys_33:
+sys_33_file_vram_load_obj_tiles:
   rep #$30
   ldx z:$58
-  jsr EL_9C3D
+  jsr file_to_rom
   sty z:$58
   stx z:$5A
-  jsr sys_13
+  jsr sys_13_vram_load_obj_tiles
   rts
-EL_9C3D:
+file_to_rom:
   rep #$30
   lda #$00
   sta z:$42
@@ -3377,7 +3378,7 @@ EL_9C9B:
   .byte $C2, $30, $A9, $00, $1E, $85, $40, $A9, $00, $00, $85, $42, $8A, $A2, $14, $00
   .byte $A0, $00, $00, $D7, $40, $F0, $08, $C8, $C8, $CA, $D0, $F7, $38, $80, $01, $18
   .byte $60
-EL_9CBF:
+file_copy:
   rep #$30
   ldx z:$4C
   stz z:$50
@@ -3400,7 +3401,7 @@ EL_9CDB:
   stz z:$50
 EL_9CE1:
   php
-  jsr EL_9CFB
+  jsr mvn_copy
   plp
   lda z:$50
   beq EL_9CFA
@@ -3414,7 +3415,7 @@ EL_9CE1:
   bra EL_9CC5
 EL_9CFA:
   rts
-EL_9CFB:
+mvn_copy:
   rep #$10
   sep #$20
   lda z:$42
@@ -3434,7 +3435,7 @@ EL_9CFB:
   ply
   plx
   rts
-sys_21:
+sys_21_hv_counter_read:
   sep #$20
   rep #$10
   cmp a:$2137
@@ -3447,7 +3448,7 @@ sys_21:
   rep #$20
   sta z:$68
   rts
-sys_36:
+sys_36_memset_long:
   sep #$20
   rep #$10
   ldx z:$54
@@ -3463,14 +3464,14 @@ EL_9D49:
   dex
   bne EL_9D49
   rts
-sys_37:
+sys_37_brightness_set:
   sep #$20
   lda z:$54
 .a8
   and #$0F
-  sta a:$0B3E
+  sta a:e_brightness
   rts
-sys_38:
+sys_38_window_shape:
   sep #$20
   rep #$10
   ldx #$0DDF
@@ -3600,7 +3601,7 @@ EL_9E30:
   dec a
   bne EL_9E30
   rts
-sys_39:
+sys_39_window_off:
   sep #$30
   stz a:$0DD9
   stz a:$2123
@@ -3611,7 +3612,7 @@ sys_39:
   stz a:$2128
   stz a:$2129
   rts
-sys_40:
+sys_40_tile_put:
   rep #$30
   stz a:$0DF7
   lda z:$58
@@ -3634,7 +3635,7 @@ sys_40:
 EL_9E70:
   sta a:$0DFB
   ldx a:$0B32
-  lda a:$0B29
+  lda a:e_bgmode
   cmp #$04
   beq EL_9E88
   lda z:$5A
@@ -3659,7 +3660,7 @@ EL_9E9E:
   lda a:$0DF7
   bne EL_9E9E
   rts
-sys_42:
+sys_42_bg_block_put:
   rep #$30
   lda z:$54
   asl a
@@ -3725,7 +3726,7 @@ EL_9ED6:
   sta a:$420B
 EL_9F1A:
   rts
-sys_43:
+sys_43_bg_block_put2:
   rep #$30
   stz z:$4C
   lda z:$54
@@ -3845,7 +3846,7 @@ EL_9FD3:
   jmp EL_9F66
 EL_9FEB:
   rts
-sys_41:
+sys_41_mode7_init:
   sep #$20
   rep #$10
 .a8
@@ -3880,7 +3881,7 @@ sys_41:
   sty a:$0B43
   sty a:$0B49
   rts
-sys_46:
+sys_46_mode7_center:
   sep #$30
   lda z:$54
   sta a:$211F
@@ -3891,7 +3892,7 @@ sys_46:
   lda z:$57
   sta a:$2120
   rts
-sys_47:
+sys_47_mode7_matrix:
   rep #$30
   lda z:$54
   sta a:$0B42
@@ -3907,23 +3908,23 @@ EL_A073:
   lda a:$0E03
   bne EL_A073
   rts
-sys_44:
+sys_44_file_bg_block_put:
   rep #$30
   ldx z:$58
-  jsr EL_9C3D
+  jsr file_to_rom
   stx z:$5A
   sty z:$58
-  jsr sys_42
+  jsr sys_42_bg_block_put
   rts
-sys_45:
+sys_45_file_bg_block_put2:
   rep #$30
   ldx z:$5E
-  jsr EL_9C3D
+  jsr file_to_rom
   sty z:$5E
   stx z:$60
-  jsr sys_43
+  jsr sys_43_bg_block_put2
   rts
-sys_48:
+sys_48_color_math:
   sep #$30
   lda z:$54
   sta a:$2130
@@ -3932,7 +3933,7 @@ sys_48:
   lda z:$58
   sta a:$2132
   rts
-sys_73:
+sys_73_hdma_effect_on:
   sep #$20
   rep #$10
   lda z:$54
@@ -3948,7 +3949,7 @@ sys_73:
   lda #$01
   sta a:$0DF1
   rts
-sys_74:
+sys_74_hdma_effect_off:
   sep #$20
   rep #$10
   lda z:$54
@@ -5676,7 +5677,7 @@ EL_AD9C:
   dey
   bne EL_AD9C
   rts
-sys_49:
+sys_49_grid_open:
   rep #$30
   lda #$FFFF
   sta z:$68
@@ -5716,7 +5717,7 @@ sys_49:
   stz z:$68
 EL_ADE7:
   rts
-sys_50:
+sys_50_grid_cell:
   rep #$30
   lda #$FFFF
   sta z:$68
@@ -6371,16 +6372,16 @@ EL_B239:
   pla
   plp
   rts
-sys_51:
+sys_51_file_anim_frames:
   rep #$10
   sep #$20
   lda z:$5E
   beq EL_B25D
   ldx z:$64
-  jsr EL_9C3D
+  jsr file_to_rom
   sty z:$64
   stx z:$66
-sys_52:
+sys_52_anim_frames:
   sep #$20
   stz a:$0B87
   stz a:$0B88
@@ -6498,13 +6499,13 @@ EL_B32E:
   pla
   plp
   rts
-sys_53:
+sys_53_file_anim_53:
   rep #$10
   ldx z:$5E
-  jsr EL_9C3D
+  jsr file_to_rom
   sty z:$5E
   stx z:$60
-sys_18:
+sys_18_anim_path:
   sep #$20
   stz a:$0B87
   stz a:$0B88
@@ -6535,7 +6536,7 @@ sys_18:
 EL_B37C:
   xba
   lda #$F0
-  sta a:$0901,x
+  sta a:e_oam+1,x
   inx
   inx
   inx
@@ -6554,8 +6555,8 @@ EL_B395:
   sta a:$0B87
   sta a:$0B88
   lda #$01
-  ora a:$0B56
-  sta a:$0B56
+  ora a:e_nmi_jobs
+  sta a:e_nmi_jobs
   rts
 EL_B3A4:
   rep #$10
@@ -6570,7 +6571,7 @@ EL_B3A4:
   lda z:$60
   sta z:$3F
   lda #$00
-  sta a:$0B56
+  sta a:e_nmi_jobs
   rep #$20
 .a16
   lda #$00
@@ -6588,7 +6589,7 @@ EL_B3A4:
   sta a:$0B5C
 EL_B3DB:
   lda [$3D],y
-  sta a:$0900,x
+  sta a:e_oam,x
   iny
   cpy a:$0E01
   bne EL_B3EB
@@ -6597,7 +6598,7 @@ EL_B3DB:
   plp
 EL_B3EB:
   lda [$3D],y
-  sta a:$0901,x
+  sta a:e_oam+1,x
   iny
   cpy a:$0E01
   bne EL_B3FB
@@ -6606,7 +6607,7 @@ EL_B3EB:
   plp
 EL_B3FB:
   lda [$3D],y
-  sta a:$0902,x
+  sta a:e_oam+2,x
   phx
   ldx a:$0BCB
   sta a:$0BBB,x
@@ -6619,7 +6620,7 @@ EL_B3FB:
   plp
 EL_B413:
   lda [$3D],y
-  sta a:$0903,x
+  sta a:e_oam+3,x
   iny
   cpy a:$0E01
   bne EL_B423
@@ -6662,11 +6663,11 @@ EL_B453:
   inc a:$0B5A
   ldx a:$0B58
   lda a:ED_9A96,y
-  and a:$0B00,x
-  sta a:$0B00,x
+  and a:e_oam+512,x
+  sta a:e_oam+512,x
   xba
-  ora a:$0B00,x
-  sta a:$0B00,x
+  ora a:e_oam+512,x
+  sta a:e_oam+512,x
   ldx a:$0BCB
   lda a:$0BCD
 .a8
@@ -6693,13 +6694,13 @@ EL_B487:
   jmp EL_B3DB
 EL_B498:
   rts
-sys_54:
+sys_54_file_anim_54:
   rep #$10
   ldx z:$62
-  jsr EL_9C3D
+  jsr file_to_rom
   sty z:$62
   stx z:$64
-sys_55:
+sys_55_sprite_anim_stream:
   sep #$20
   stz a:$0B87
   stz a:$0B88
@@ -6859,7 +6860,7 @@ EL_B5AC:
   stz a:$0B87
   inc a:$0B88
   rts
-sys_56:
+sys_56_anim_control:
   sep #$20
   lda z:$54
 .a8
@@ -6872,7 +6873,7 @@ EL_B5D4:
   sta a:$0B87
   inc a:$0B88
   rts
-sys_57:
+sys_57_sprites_offset:
   rep #$30
   ldy z:$56
   lda z:$54
@@ -6886,8 +6887,8 @@ sys_57:
 EL_B5EB:
   pha
   clc
-  adc a:$0900,x
-  sta a:$0900,x
+  adc a:e_oam,x
+  sta a:e_oam,x
   inx
   inx
   inx
@@ -6905,11 +6906,11 @@ EL_B5FD:
 EL_B605:
   pha
   sec
-  sbc a:$0900,x
+  sbc a:e_oam,x
 .a8
   eor #$FF
   inc a
-  sta a:$0900,x
+  sta a:e_oam,x
   inx
   inx
   inx
@@ -6927,8 +6928,8 @@ EL_B618:
 EL_B623:
   pha
   clc
-  adc a:$0901,x
-  sta a:$0901,x
+  adc a:e_oam+1,x
+  sta a:e_oam+1,x
   inx
   inx
   inx
@@ -6946,11 +6947,11 @@ EL_B635:
 EL_B63D:
   pha
   sec
-  sbc a:$0901,x
+  sbc a:e_oam+1,x
 .a8
   eor #$FF
   inc a
-  sta a:$0901,x
+  sta a:e_oam+1,x
   inx
   inx
   inx
@@ -6961,10 +6962,10 @@ EL_B63D:
 EL_B650:
   sep #$20
   lda #$01
-  ora a:$0B56
-  sta a:$0B56
+  ora a:e_nmi_jobs
+  sta a:e_nmi_jobs
   rts
-sys_58:
+sys_58_sprites_hide:
   rep #$30
   ldy z:$56
   lda z:$54
@@ -6974,7 +6975,7 @@ sys_58:
   sep #$20
   lda #$F0
 EL_B668:
-  sta a:$0901,x
+  sta a:e_oam+1,x
   inx
   inx
   inx
@@ -6982,10 +6983,10 @@ EL_B668:
   dey
   bne EL_B668
   lda #$01
-  ora a:$0B56
-  sta a:$0B56
+  ora a:e_nmi_jobs
+  sta a:e_nmi_jobs
   rts
-sys_59:
+sys_59_palette_cycle:
   sep #$20
   rep #$10
   lda z:$5C
@@ -7006,7 +7007,7 @@ sys_59:
 EL_B6A4:
   sta a:$0DCC
   rts
-sys_66:
+sys_66_obj_size_set:
   sep #$30
   lda z:$54
   tax
@@ -7017,16 +7018,16 @@ sys_66:
   asl a
   xba
   lda #$1F
-  and a:$0B3F
-  sta a:$0B3F
+  and a:e_obsel
+  sta a:e_obsel
   xba
-  ora a:$0B3F
-  sta a:$0B3F
+  ora a:e_obsel
+  sta a:e_obsel
   sta a:$2101
   lda a:ED_9A9A,x
   sta a:$0B40
   rts
-sys_72:
+sys_72_metasprite_72:
   rep #$10
   sep #$20
   lda z:$5A
@@ -7034,17 +7035,17 @@ sys_72:
   ldy z:$58
   sty z:$3D
   jmp EL_B6E9
-sys_67:
+sys_67_file_metasprite_67:
   rep #$10
   ldx z:$58
-  jsr EL_9C3D
+  jsr file_to_rom
   sep #$20
   txa
   sta z:$3F
   sty z:$3D
 EL_B6E9:
   sep #$20
-  stz a:$0B56
+  stz a:e_nmi_jobs
   lda #$04
   ldx z:$54
   php
@@ -7070,7 +7071,7 @@ EL_B711:
   sta a:$0BCB
 EL_B716:
   lda [$3D],y
-  sta a:$0900,x
+  sta a:e_oam,x
   iny
   cpy a:$0E01
   bne EL_B726
@@ -7111,29 +7112,29 @@ EL_B755:
   inc a:$0B5A
   ldx a:$0B58
   lda a:ED_9A96,y
-  and a:$0B00,x
-  sta a:$0B00,x
+  and a:e_oam+512,x
+  sta a:e_oam+512,x
   xba
-  ora a:$0B00,x
-  sta a:$0B00,x
+  ora a:e_oam+512,x
+  sta a:e_oam+512,x
   ply
   plx
   dec a:$0B5C
   beq EL_B778
   bra EL_B711
 EL_B778:
-  inc a:$0B56
+  inc a:e_nmi_jobs
   rts
-sys_77:
+sys_77_file_anim_77:
   rep #$10
   sep #$20
   lda z:$58
   beq EL_B79A
   ldx z:$60
-  jsr EL_9C3D
+  jsr file_to_rom
   sty z:$60
   stx z:$62
-sys_78:
+sys_78_anim_78:
   sep #$20
   stz a:$0B87
   stz a:$0B88
@@ -7227,7 +7228,7 @@ EL_B824:
 EL_B839:
   stz a:$0CB4
   rts
-EL_B83D:
+apu_src_bank_next:
   rep #$30
   pha
   phx
@@ -7242,7 +7243,7 @@ EL_B83D:
   plx
   pla
   rts
-EL_B855:
+apu_upload_ipl:
   php
   rep #$30
   lda #$00
@@ -7264,7 +7265,7 @@ EL_B870:
   cpy a:$0E01
   bne EL_B87D
   php
-  jsr EL_B83D
+  jsr apu_src_bank_next
   plp
 EL_B87D:
   xba
@@ -7277,7 +7278,7 @@ EL_B882:
   cpy a:$0E01
   bne EL_B890
   php
-  jsr EL_B83D
+  jsr apu_src_bank_next
   plp
 EL_B890:
   xba
@@ -7305,7 +7306,7 @@ EL_B8AA:
   cpy a:$0E01
   bne EL_B8BA
   php
-  jsr EL_B83D
+  jsr apu_src_bank_next
   plp
 EL_B8BA:
   xba
@@ -7315,7 +7316,7 @@ EL_B8BA:
   cpy a:$0E01
   bne EL_B8C9
   php
-  jsr EL_B83D
+  jsr apu_src_bank_next
   plp
 EL_B8C9:
   tax
@@ -7324,7 +7325,7 @@ EL_B8C9:
   cpy a:$0E01
   bne EL_B8D7
   php
-  jsr EL_B83D
+  jsr apu_src_bank_next
   plp
 EL_B8D7:
   xba
@@ -7334,7 +7335,7 @@ EL_B8D7:
   cpy a:$0E01
   bne EL_B8E6
   php
-  jsr EL_B83D
+  jsr apu_src_bank_next
   plp
 EL_B8E6:
   rep #$20
@@ -7360,49 +7361,49 @@ EL_B906:
   stz a:$2143
   plp
   rts
-sys_60:
+sys_60_sound_play:
   sep #$20
   lda z:$54
-  sta a:$0E05
+  sta a:e_sound_req+1
   lda z:$56
-  sta a:$0E06
+  sta a:e_sound_req+2
   lda #$01
-  sta a:$0E04
+  sta a:e_sound_req
   rts
-sys_61:
+sys_61_sound_stop:
   sep #$20
   lda #$00
-  sta a:$0E05
-  sta a:$0E06
+  sta a:e_sound_req+1
+  sta a:e_sound_req+2
   inc a
-  sta a:$0E04
+  sta a:e_sound_req
   rts
-sys_62:
+sys_62_apu_ports_read:
   sep #$20
   lda a:$2140
   sta z:$68
   lda a:$2142
   sta z:$69
   rts
-sys_63:
+sys_63_sound_effect:
   sep #$20
-  stz a:$0E07
-  inc a:$0B55
+  stz a:e_sound_req+3
+  inc a:e_frame_wait
 EL_B94C:
-  lda a:$0B55
+  lda a:e_frame_wait
   bne EL_B94C
   lda z:$54
-  sta a:$0E07
+  sta a:e_sound_req+3
   lda z:$55
-  sta a:$0E08
+  sta a:e_sound_req+4
   rts
-sys_64:
+sys_64_file_rom_address:
   rep #$10
   ldx z:$54
-  jsr EL_9C3D
+  jsr file_to_rom
   sty z:$54
   stx z:$56
-sys_65:
+sys_65_apu_upload:
   rep #$10
   sep #$20
   ldy z:$54
@@ -7410,17 +7411,17 @@ sys_65:
   lda z:$56
   sta z:$D0
   lda #$01
-  sta a:$0E09
+  sta a:e_apu_busy
   lda #$FF
   sta a:$2140
-  jsr EL_B855
+  jsr apu_upload_ipl
   lda #$00
-  sta a:$0E09
-  sta a:$0E04
-  sta a:$0E05
-  sta a:$0E07
-  sta a:$0E08
-  sta a:$0E06
+  sta a:e_apu_busy
+  sta a:e_sound_req
+  sta a:e_sound_req+1
+  sta a:e_sound_req+3
+  sta a:e_sound_req+4
+  sta a:e_sound_req+2
   rts
   .res 15979, $00
 ED_F800:

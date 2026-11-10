@@ -2,20 +2,23 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp HANTEI_F_B003
+; calls 1
 HANTEI_F_B003:
   k_func 0
   k_call HANTEI_F_B6E9
   k_stla $F9A6
   k_return
+; vars: g_port_flags
 HANTEI_F_B00F:
   k_func 0
   k_ldlbf 11
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 3
@@ -47,23 +50,24 @@ HANTEI_L_B046:
   k_ldli 1
 HANTEI_L_B047:
   k_return
+; vars: g_princess, g_king_mission, g_port
 HANTEI_F_B048:
   k_func 0
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpf HANTEI_L_B075
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf HANTEI_L_B075
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 1
   k_eq
   k_jumpf HANTEI_L_B075
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_popr
   k_eq
   k_jumpf HANTEI_L_B075
@@ -93,6 +97,7 @@ HANTEI_F_B077:
   k_popr
   k_and
   k_return
+; sys: metasprite_set
 HANTEI_F_B098:
   k_func 8
   k_ldli 1
@@ -125,8 +130,9 @@ HANTEI_F_B098:
   k_deref
   k_pushl
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_return
+; vars: g_relations, g_title
 HANTEI_F_B0D2:
   k_func 7
   k_ldlbf 15
@@ -135,7 +141,7 @@ HANTEI_F_B0D2:
   k_ldriw $E6BC
   k_add
   k_stln -5
-  k_ldliw $EA8F
+  k_ldliw g_relations
   k_stl -2
   k_ldlbf 13
   k_pushl
@@ -162,7 +168,7 @@ HANTEI_F_B0D2:
   k_popr
   k_ugt
   k_jumpf HANTEI_L_B138
-  k_ldlba $EE76
+  k_ldlba g_title
   k_inc
   k_pushl
   k_ldlbf 13
@@ -195,6 +201,7 @@ HANTEI_L_B139:
   k_stln -7
   k_ldln -7
   k_return
+; vars: g_relations
 HANTEI_F_B13E:
   k_func 7
   k_ldlbf 15
@@ -203,7 +210,7 @@ HANTEI_F_B13E:
   k_ldriw $E6BC
   k_add
   k_stl -4
-  k_ldliw $EA8F
+  k_ldliw g_relations
   k_stl -2
   k_ldlbf 13
   k_pushl
@@ -251,6 +258,7 @@ HANTEI_L_B191:
   k_stln -7
   k_ldln -7
   k_return
+; vars: g_player_gold | calls 7
 HANTEI_F_B196:
   k_func 6
   k_pushi 3
@@ -259,7 +267,7 @@ HANTEI_F_B196:
   k_ldriw $01F4
   k_mul
   k_stl -4
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_jumpt HANTEI_L_B1BF
   k_call RF_60EE
   k_call RF_60B2
@@ -272,7 +280,7 @@ HANTEI_F_B196:
 HANTEI_L_B1BF:
   k_call RF_60EE
   k_call RF_60B2
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushi 1
   k_pusha HANTEI_D_B7C0
   k_callx RF_3C4E, 6
@@ -303,9 +311,9 @@ HANTEI_L_B1DA:
   k_call RF_472D
   k_ldl -2
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_ldli 1
   k_return
 HANTEI_L_B20C:
@@ -316,6 +324,7 @@ HANTEI_L_B20C:
   k_call RF_472D
   k_ldli 10
   k_return
+; calls 7
 HANTEI_F_B21C:
   k_func 3
   k_ldli 0
@@ -376,6 +385,7 @@ HANTEI_L_B28C:
   k_call RF_472D
   k_ldli 0
   k_return
+; sys: sprites_hide, memset_long | calls 10
 HANTEI_F_B295:
   k_func 0
   k_call HANTEI_F_B098
@@ -418,7 +428,7 @@ HANTEI_F_B295:
   k_pushi 6
   k_pushib 16
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_ldliw $00FF
   k_stlba $FB84
   k_pushiw $01CE
@@ -426,7 +436,7 @@ HANTEI_F_B295:
   k_pushiw $F9B2
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 2
   k_stla $F308
   k_ldli 0
@@ -441,6 +451,7 @@ HANTEI_L_B31E:
   k_callx RF_4B44, 2
   k_ldli 1
   k_return
+; sys: memset_long | calls 1
 HANTEI_F_B332:
   k_func 7
   k_leal -7
@@ -466,7 +477,7 @@ HANTEI_L_B347:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldlbf -2
   k_inc
 HANTEI_L_B367:
@@ -478,6 +489,7 @@ HANTEI_L_B367:
   k_ult
   k_jumpt HANTEI_L_B347
   k_return
+; vars: g_player_gold | calls 5
 HANTEI_F_B377:
   k_func 0
   k_pushi 0
@@ -490,12 +502,13 @@ HANTEI_F_B377:
   k_callx RF_2FB9, 4
   k_ldli 10
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_udiv
-  k_stla $E56D
+  k_stla g_player_gold
   k_call HANTEI_F_B332
   k_call RF_472D
   k_return
+; vars: g_hero_stats | calls 9
 HANTEI_F_B39F:
   k_func 2
   k_pushi 0
@@ -510,7 +523,7 @@ HANTEI_F_B39F:
   k_pushib 120
   k_callx RF_3F3E, 2
   k_pushl
-  k_ldlba $EAC5
+  k_ldlba g_hero_stats+4
   k_pushl
   k_ldlba $E446
   k_shl1
@@ -552,6 +565,7 @@ HANTEI_L_B3E6:
 HANTEI_L_B41C:
   k_ldli 1
   k_return
+; vars: g_player_gold | calls 9
 HANTEI_F_B41E:
   k_func 6
   k_ldlba $FB81
@@ -582,7 +596,7 @@ HANTEI_F_B41E:
   k_add
   k_addlib 100
   k_stl -4
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_jumpt HANTEI_L_B47B
   k_call RF_60EE
   k_pushi 1
@@ -604,7 +618,7 @@ HANTEI_L_B47B:
   k_call RF_60EE
   k_call RF_60B2
   k_pushi 1
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushi 1
   k_pushiw HANTEI_D_BAE8
   k_callx RF_3C4E, 8
@@ -632,9 +646,9 @@ HANTEI_L_B497:
   k_call RF_472D
   k_ldl -2
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_jump HANTEI_L_B4D3
 HANTEI_L_B4C2:
   k_call RF_60B2
@@ -647,6 +661,7 @@ HANTEI_L_B4C9:
 HANTEI_L_B4D3:
   k_ldli 1
   k_return
+; calls 6
 HANTEI_F_B4D5:
   k_func 0
   k_pushi 3
@@ -678,6 +693,7 @@ HANTEI_L_B4FE:
 HANTEI_L_B51A:
   k_ldli 1
   k_return
+; vars: g_player_name_ptr | calls 14
 HANTEI_F_B51C:
   k_func 3
   k_pushi 1
@@ -700,7 +716,7 @@ HANTEI_F_B51C:
   k_ldla $F18A
   k_inc
   k_stla $F18A
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_ldlbf 11
   k_shl1
@@ -757,14 +773,15 @@ HANTEI_L_B5B4:
   k_callx RF_4B44, 2
   k_call RF_2281
   k_return
+; vars: g_player_items, g_princess, g_port | calls 8
 HANTEI_F_B5CF:
   k_func 8
   k_call RF_60EE
-  k_ldla $E56F
+  k_ldla g_player_items
   k_ldri 7
   k_and
   k_stl -2
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf HANTEI_L_B5FF
@@ -786,7 +803,7 @@ HANTEI_L_B5FF:
   k_callx RF_3F3E, 2
   k_jumpt HANTEI_L_B62C
 HANTEI_L_B608:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldrib 50
   k_ult
   k_jumpf HANTEI_L_B62C
@@ -804,7 +821,7 @@ HANTEI_L_B628:
   k_pushl
   k_jump HANTEI_L_B6E4
 HANTEI_L_B62C:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_jumpt HANTEI_L_B64C
   k_ldlba $E442
   k_jumpt HANTEI_L_B64C
@@ -817,7 +834,7 @@ HANTEI_L_B62C:
   k_pushiw HANTEI_D_BD0C
   k_jump HANTEI_L_B6E4
 HANTEI_L_B64C:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
   k_callx HANTEI_F_B00F, 2
   k_stlbf -3
@@ -889,9 +906,10 @@ HANTEI_L_B6E4:
   k_callx RF_2FB9, 4
 HANTEI_L_B6E8:
   k_return
+; vars: g_fleets | calls 10
 HANTEI_F_B6E9:
   k_func 10
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -10
   k_ldl -10
   k_addli 3

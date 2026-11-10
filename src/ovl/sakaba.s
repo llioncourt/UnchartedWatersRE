@@ -2,16 +2,19 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp SAKABA_F_B003
+; calls 1
 SAKABA_F_B003:
   k_func 0
   k_call SAKABA_F_B0CA
   k_stla $F9A6
   k_return
+; vars: g_cargo | calls 1
 SAKABA_F_B00F:
   k_func 21
   k_leal -5
@@ -32,7 +35,7 @@ SAKABA_L_B02F:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -21
   k_ldln -21
@@ -79,6 +82,7 @@ SAKABA_L_B075:
   k_jumpt SAKABA_L_B02F
   k_ldln -19
   k_return
+; sys: file_open, file_seek, file_read_7e, file_close
 SAKABA_F_B080:
   k_func 4
   k_ldli 0
@@ -90,7 +94,7 @@ SAKABA_F_B080:
   k_deref
   k_pushl
   k_pushib 24
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 24 file_open
   k_stl -2
   k_ldliw $2700
   k_stl -4
@@ -99,15 +103,15 @@ SAKABA_F_B080:
   k_long $14
   k_push -2
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_push -4
   k_pushiw $B800
   k_push -2
   k_pushib 27
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 27 file_read_7e
   k_push -2
   k_pushib 25
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 25 file_close
   k_ldlarg 13
   k_jumpf SAKABA_L_B0C6
   k_ldliw $B800
@@ -115,6 +119,7 @@ SAKABA_F_B080:
 SAKABA_L_B0C6:
   k_ldla $F9A8
   k_return
+; vars: g_port | calls 12
 SAKABA_F_B0CA:
   k_func 6
   k_pushi 1
@@ -135,7 +140,7 @@ SAKABA_L_B0DA:
   k_call RF_60B2
   k_pushiw SAKABA_D_B297
   k_callx RF_4B44, 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 5
   k_mul
   k_ldriw $150D

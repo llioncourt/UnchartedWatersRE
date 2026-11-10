@@ -2,22 +2,25 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp KOUEKI_F_B003
+; calls 1
 KOUEKI_F_B003:
   k_func 0
   k_call KOUEKI_F_C52B
   k_stla $F9A6
   k_return
+; vars: g_cargo
 KOUEKI_F_B00F:
   k_func 6
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -6
   k_ldli 0
@@ -45,12 +48,13 @@ KOUEKI_L_B02F:
   k_jumpt KOUEKI_L_B023
   k_ldl -2
   k_return
+; vars: g_cargo | calls 1
 KOUEKI_F_B038:
   k_func 2
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -2
   k_ldl -2
@@ -78,6 +82,7 @@ KOUEKI_F_B038:
   k_popr
   k_add
   k_return
+; vars: g_player_gold | calls 6
 KOUEKI_F_B065:
   k_func 0
   k_pushi 1
@@ -103,10 +108,11 @@ KOUEKI_F_B065:
   k_pushib 17
   k_pushi 8
   k_callx RF_2F8F, 4
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw KOUEKI_D_C586
   k_callx RF_3619, 4
   k_return
+; calls 7
 KOUEKI_F_B0A8:
   k_func 12
   k_ldlib -1
@@ -196,6 +202,7 @@ KOUEKI_L_B12D:
   k_ult
   k_jumpt KOUEKI_L_B0EE
   k_return
+; vars: g_port, g_ports, g_cargo | calls 6
 KOUEKI_F_B135:
   k_func 29
   k_ldli 0
@@ -207,10 +214,10 @@ KOUEKI_F_B135:
   k_pushi 6
   k_pushi 3
   k_callx RF_604A, 12
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stln -27
   k_addli 11
@@ -220,7 +227,7 @@ KOUEKI_F_B135:
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -23
   k_addli 6
@@ -237,7 +244,7 @@ KOUEKI_L_B170:
   k_jumpf KOUEKI_L_B281
   k_ldl -2
   k_jumpt KOUEKI_L_B1B6
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 5
   k_mul
   k_ldriw $150A
@@ -408,6 +415,7 @@ KOUEKI_L_B28B:
   k_jumpt KOUEKI_L_B170
   k_ldl -6
   k_return
+; vars: g_player_gold | calls 11
 KOUEKI_F_B294:
   k_func 47
   k_pusharg 11
@@ -420,7 +428,7 @@ KOUEKI_F_B294:
   k_ldli 0
   k_return
 KOUEKI_L_B2B0:
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldriw $EA60
   k_eq
   k_jumpf KOUEKI_L_B2C9
@@ -459,7 +467,7 @@ KOUEKI_L_B2C9:
   k_pushib 17
   k_pushi 8
   k_callx RF_2F8F, 4
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw KOUEKI_D_C70B
   k_callx RF_3619, 4
   k_ldli 1
@@ -493,7 +501,7 @@ KOUEKI_L_B336:
   k_ldriw $00FF
   k_ne
   k_jumpf KOUEKI_L_B4A5
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_long $26
   k_long $14
   k_leal -29
@@ -521,7 +529,7 @@ KOUEKI_L_B336:
   k_long $0A
   k_jumpf KOUEKI_L_B3AC
   k_ldliw $EA60
-  k_ldra $E56D
+  k_ldra g_player_gold
   k_sub
   k_stln -41
   k_leal -29
@@ -617,17 +625,17 @@ KOUEKI_L_B3B5:
   k_ldrn -43
   k_mul
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_add
-  k_stla $E56D
+  k_stla g_player_gold
   k_ldli 1
   k_stln -45
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldriw $EA60
   k_ugt
   k_jumpf KOUEKI_L_B421
   k_ldliw $EA60
-  k_stla $E56D
+  k_stla g_player_gold
 KOUEKI_L_B421:
   k_pushi 1
   k_pushiw KOUEKI_D_C74B
@@ -635,7 +643,7 @@ KOUEKI_L_B421:
   k_pushib 17
   k_pushi 8
   k_callx RF_2F8F, 4
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw KOUEKI_D_C74F
   k_callx RF_3619, 4
   k_leal -29
@@ -670,7 +678,7 @@ KOUEKI_L_B454:
   k_udiv
 KOUEKI_L_B465:
   k_popstoreb
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldriw $EA60
   k_eq
   k_jumpf KOUEKI_L_B480
@@ -713,6 +721,7 @@ KOUEKI_L_B4AA:
 KOUEKI_L_B4B7:
   k_ldln -45
   k_return
+; vars: g_player_gold, g_port | calls 10
 KOUEKI_F_B4BA:
   k_func 31
   k_pusharg 11
@@ -760,7 +769,7 @@ KOUEKI_L_B4EE:
   k_ldli 0
   k_return
 KOUEKI_L_B50E:
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldriw $EA60
   k_eq
   k_jumpf KOUEKI_L_B529
@@ -856,7 +865,7 @@ KOUEKI_L_B5BC:
   k_derefb
   k_jumpf KOUEKI_L_B5F4
 KOUEKI_L_B5C6:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -868,7 +877,7 @@ KOUEKI_L_B5C6:
   k_ldlarg 11
   k_derefb
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -879,7 +888,7 @@ KOUEKI_L_B5C6:
   k_sub
   k_jump KOUEKI_L_B5F3
 KOUEKI_L_B5E8:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -925,9 +934,10 @@ KOUEKI_L_B61C:
   k_jumpt KOUEKI_L_B60E
   k_ldl -2
   k_return
+; vars: g_port, g_ports | calls 2
 KOUEKI_F_B625:
   k_func 14
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 5
   k_mul
   k_ldriw $150A
@@ -947,10 +957,10 @@ KOUEKI_F_B625:
   k_ldl -4
   k_addlib 18
   k_stl -12
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -6
   k_ldl -6
@@ -1003,12 +1013,13 @@ KOUEKI_L_B68C:
   k_jumpt KOUEKI_L_B658
   k_ldli 0
   k_return
+; vars: g_cargo, g_port, g_ports | calls 2
 KOUEKI_F_B6A0:
   k_func 10
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -6
   k_ldli 0
@@ -1055,7 +1066,7 @@ KOUEKI_L_B6DC:
   k_ldri 5
   k_ult
   k_jumpt KOUEKI_L_B6B0
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 5
   k_mul
   k_ldriw $150A
@@ -1089,10 +1100,10 @@ KOUEKI_L_B702:
   k_popr
   k_eq
   k_jumpf KOUEKI_L_B753
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -10
   k_pusharg 13
@@ -1135,12 +1146,13 @@ KOUEKI_L_B753:
 KOUEKI_L_B75C:
   k_ldlbf -3
   k_return
+; vars: g_cargo
 KOUEKI_F_B760:
   k_func 4
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -4
   k_ldli 0
@@ -1171,12 +1183,13 @@ KOUEKI_L_B781:
   k_jumpt KOUEKI_L_B770
   k_ldli 0
   k_return
+; vars: g_cargo
 KOUEKI_F_B78C:
   k_func 4
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -4
   k_ldli 0
@@ -1209,6 +1222,7 @@ KOUEKI_L_B7B1:
   k_jumpt KOUEKI_L_B79C
   k_ldli 1
   k_return
+; vars: g_player_gold | calls 12
 KOUEKI_F_B7BC:
   k_func 4
   k_pushi 1
@@ -1223,7 +1237,7 @@ KOUEKI_F_B7BC:
   k_pushib 17
   k_pushib 22
   k_callx RF_2F8F, 4
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw KOUEKI_D_C800
   k_callx RF_3608, 4
   k_pushi 8
@@ -1366,12 +1380,13 @@ KOUEKI_L_B8D2:
   k_ult
   k_jumpt KOUEKI_L_B851
   k_return
+; vars: g_port, g_ports | calls 2
 KOUEKI_F_B8DA:
   k_func 28
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -20
   k_ldl -20
@@ -1382,7 +1397,7 @@ KOUEKI_F_B8DA:
   k_ldl -20
   k_deref
   k_stl -10
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 5
   k_mul
   k_ldriw $150A
@@ -1515,6 +1530,7 @@ KOUEKI_L_B970:
 KOUEKI_L_B9C0:
   k_ldln -26
   k_return
+; sys: oam_hide_all | vars: g_fh_fdata | calls 4
 KOUEKI_F_B9C3:
   k_func 18
   k_ldliw $00E1
@@ -1557,7 +1573,7 @@ KOUEKI_L_B9F0:
   k_ldri 3
   k_shl
   k_stl -12
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushiw $26CC
   k_pushi 2
   k_pushi 1
@@ -1629,7 +1645,7 @@ KOUEKI_L_BA59:
 KOUEKI_L_BA65:
   k_stl -10
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_push -10
   k_pusharg 17
   k_pusharg 15
@@ -1646,7 +1662,7 @@ KOUEKI_L_BA79:
   k_jump KOUEKI_L_BA65
 KOUEKI_L_BA81:
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_ldl -6
   k_ldriw $8000
   k_eq
@@ -1660,6 +1676,7 @@ KOUEKI_L_BA92:
   k_ldr -8
   k_add
   k_return
+; vars: g_player_gold, g_port, g_title, g_cargo | calls 20
 KOUEKI_F_BA98:
   k_func 17
   k_pusharg 17
@@ -1736,7 +1753,7 @@ KOUEKI_L_BAE4:
   k_push -10
   k_pushiw KOUEKI_D_C85D
   k_callx RF_3619, 4
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stl -6
   k_call RF_3CFF
   k_stl -12
@@ -1758,7 +1775,7 @@ KOUEKI_L_BB48:
   k_callx RF_3F3E, 2
   k_addlib 70
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BC
@@ -1786,7 +1803,7 @@ KOUEKI_L_BB48:
   k_ldri 2
   k_sdiv
   k_pushl
-  k_ldlba $EE76
+  k_ldlba g_title
   k_inc
   k_popr
   k_mul
@@ -1842,7 +1859,7 @@ KOUEKI_L_BBBA:
   k_popr
   k_sub
   k_stl -4
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldr -10
   k_udiv
   k_pushl
@@ -1901,7 +1918,7 @@ KOUEKI_L_BC48:
   k_ldlarg 17
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -17
   k_ldli 0
@@ -1989,9 +2006,9 @@ KOUEKI_L_BCB2:
   k_ldr -10
   k_mul
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_ldl -2
   k_ldr -10
   k_mul
@@ -2009,7 +2026,7 @@ KOUEKI_L_BCB2:
   k_stlbf -15
   k_ldlbf -15
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -2020,7 +2037,7 @@ KOUEKI_L_BCB2:
   k_ldrib 100
   k_ugt
   k_jumpf KOUEKI_L_BD17
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -2030,7 +2047,7 @@ KOUEKI_L_BCB2:
   k_jump KOUEKI_L_BD27
 KOUEKI_L_BD17:
   k_pushbf -15
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -2044,6 +2061,7 @@ KOUEKI_L_BD27:
 KOUEKI_L_BD28:
   k_ldli 0
   k_return
+; calls 17
 KOUEKI_F_BD2A:
   k_func 40
   k_ldli 0
@@ -2205,6 +2223,7 @@ KOUEKI_L_BE58:
   k_call $9675
   k_ldln -38
   k_return
+; sys: color_math, window_off | vars: g_player_gold, g_port | calls 14
 KOUEKI_F_BE5E:
   k_func 24
   k_pusharg 11
@@ -2289,7 +2308,7 @@ KOUEKI_L_BEDC:
   k_ldli 0
   k_return
 KOUEKI_L_BEEF:
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_jumpt KOUEKI_L_BF04
   k_call RF_60EE
   k_call RF_60B2
@@ -2312,9 +2331,9 @@ KOUEKI_L_BF16:
   k_pushi 0
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_pushi 1
   k_pushi 6
   k_callx RF_60CE, 4
@@ -2381,7 +2400,7 @@ KOUEKI_L_BF91:
 KOUEKI_L_BF9F:
   k_ldl -22
   k_jumpf KOUEKI_L_BFD3
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -2393,7 +2412,7 @@ KOUEKI_L_BF9F:
   k_ldlarg 11
   k_derefb
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -2404,7 +2423,7 @@ KOUEKI_L_BF9F:
   k_add
   k_jump KOUEKI_L_BFD2
 KOUEKI_L_BFC6:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -2418,6 +2437,7 @@ KOUEKI_L_BFD3:
   k_call $97BE
   k_ldli 0
   k_return
+; calls 1
 KOUEKI_F_BFDB:
   k_func 2
   k_ldli 0
@@ -2445,9 +2465,10 @@ KOUEKI_L_BFF2:
   k_jumpt KOUEKI_L_BFE2
   k_ldliw $00FF
   k_return
+; vars: g_port, g_ports | calls 10
 KOUEKI_F_C002:
   k_func 32
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 5
   k_mul
   k_ldriw $150A
@@ -2481,10 +2502,10 @@ KOUEKI_F_C002:
   k_ldl -2
   k_addlib 36
   k_stl -22
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -6
   k_ldl -6
@@ -2750,6 +2771,7 @@ KOUEKI_L_C1E6:
   k_callx RF_3619, 2
 KOUEKI_L_C217:
   k_return
+; calls 3
 KOUEKI_F_C218:
   k_func 6
   k_ldlarg 11
@@ -2817,6 +2839,7 @@ KOUEKI_L_C275:
   k_dec
 KOUEKI_L_C277:
   k_return
+; calls 5
 KOUEKI_F_C278:
   k_func 8
   k_ldli 1
@@ -2879,16 +2902,17 @@ KOUEKI_L_C2D0:
 KOUEKI_L_C2DF:
   k_ldli 0
   k_return
-KOUEKI_F_C2E1:
+; vars: g_fame, g_port, g_ports | calls 2
+port_alliance_check:
   k_func 4
-  k_ldla $EE74
+  k_ldla g_fame
   k_ldriw $C350
   k_ult
   k_jumpf KOUEKI_L_C31D
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -2
   k_ldl -2
@@ -2906,21 +2930,22 @@ KOUEKI_F_C2E1:
   k_callx RF_3F3E, 2
   k_popr
   k_add
-  k_ldra $EE74
+  k_ldra g_fame
   k_add
   k_stl -4
   k_pushiw $C350
   k_push -4
   k_callx RL_8962, 4
-  k_stla $EE74
+  k_stla g_fame
 KOUEKI_L_C31D:
   k_return
+; vars: g_port, g_ports | calls 2
 KOUEKI_F_C31E:
   k_func 4
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -2
   k_ldlarg 11
@@ -2960,9 +2985,10 @@ KOUEKI_F_C31E:
   k_callx RL_8962, 4
   k_popstoreb
   k_return
+; vars: g_player_gold, g_port, g_port_flags | calls 14
 KOUEKI_F_C35E:
   k_func 12
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_jumpt KOUEKI_L_C378
   k_call RF_60EE
   k_call RF_60B2
@@ -2971,7 +2997,7 @@ KOUEKI_F_C35E:
   k_ldli 0
   k_return
 KOUEKI_L_C378:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 3
   k_ult
   k_jumpf KOUEKI_L_C3A4
@@ -2979,7 +3005,7 @@ KOUEKI_L_C378:
   k_pushi 6
   k_callx RF_60CE, 4
   k_call RF_60B2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 2
   k_eq
   k_jumpf KOUEKI_L_C397
@@ -2994,7 +3020,7 @@ KOUEKI_L_C39A:
   k_ldli 0
   k_return
 KOUEKI_L_C3A4:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6B6
@@ -3019,7 +3045,7 @@ KOUEKI_L_C3C7:
   k_callx RF_609A, 2
   k_pushiw KOUEKI_D_CB5B
   k_callx RF_4B44, 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6B6
@@ -3030,11 +3056,11 @@ KOUEKI_L_C3C7:
   k_popr
   k_sub
   k_stl -2
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldr -2
   k_ult
   k_jumpf KOUEKI_L_C3F6
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stl -2
 KOUEKI_L_C3F6:
   k_call RF_60EE
@@ -3059,7 +3085,7 @@ KOUEKI_L_C3F6:
   k_return
 KOUEKI_L_C420:
   k_push -4
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6B6
@@ -3072,7 +3098,7 @@ KOUEKI_L_C420:
   k_pushl
   k_callx RL_8962, 4
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6B6
@@ -3084,9 +3110,9 @@ KOUEKI_L_C420:
   k_popstore
   k_ldl -4
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_pushi 1
   k_pushi 6
   k_callx RF_60CE, 4
@@ -3128,7 +3154,7 @@ KOUEKI_L_C48F:
   k_callx RF_2FB9, 4
   k_pushi 1
   k_callx RF_3DDF, 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BC
@@ -3140,7 +3166,7 @@ KOUEKI_L_C48F:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BC
@@ -3151,7 +3177,7 @@ KOUEKI_L_C4BB:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BC
@@ -3172,8 +3198,8 @@ KOUEKI_L_C4D0:
   k_popr
   k_add
   k_stl -8
-  k_ldlba $EF69
-  k_ldriw $EE78
+  k_ldlba g_port
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 3
@@ -3181,11 +3207,11 @@ KOUEKI_L_C4D0:
   k_stl -10
   k_push -8
   k_pushi 0
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_callx RF_4353, 6
-  k_ldlba $EF69
-  k_ldriw $EE78
+  k_callx port_owner_update, 6
+  k_ldlba g_port
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 3
@@ -3220,10 +3246,11 @@ KOUEKI_L_C51A:
   k_ldri 1
   k_eq
   k_jumpf KOUEKI_L_C529
-  k_call KOUEKI_F_C2E1
+  k_call port_alliance_check
 KOUEKI_L_C529:
   k_ldli 1
   k_return
+; calls 4
 KOUEKI_F_C52B:
   k_func 4
   k_ldli 0

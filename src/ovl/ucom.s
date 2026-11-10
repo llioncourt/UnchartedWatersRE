@@ -2,19 +2,23 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp UCOM_F_9603
+; calls 1
 UCOM_F_9603:
   k_func 0
   k_call UCOM_F_9675
   k_return
+; calls 1
 UCOM_F_960C:
   k_func 0
   k_call RF_2E13
   k_return
+; sys: metasprite_set
 UCOM_F_9615:
   k_func 10
   k_ldlarg 11
@@ -76,15 +80,17 @@ UCOM_L_9634:
   k_pusharg 11
   k_pushi 10
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_return
+; sys: sprites_hide
 UCOM_F_9666:
   k_func 0
   k_pushib 17
   k_pushi 0
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_return
+; calls 7
 UCOM_F_9675:
   k_func 2
   k_call RF_5F1C
@@ -129,9 +135,10 @@ UCOM_L_96BC:
   k_eq
   k_jumpf UCOM_L_96AD
   k_jump UCOM_L_96B8
+; vars: g_fleets | calls 8
 UCOM_F_96C6:
   k_func 4
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -4
   k_call RF_5C91
   k_ldl -4
@@ -145,11 +152,11 @@ UCOM_F_96C6:
   k_callx RF_2FB9, 4
   k_call RF_49B5
   k_stl -2
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
   k_ldl -2
@@ -176,9 +183,10 @@ UCOM_L_9716:
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
+; sys: sprites_hide | vars: g_fleets | calls 3
 UCOM_F_971F:
   k_func 2
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -2
   k_pushi 0
   k_pushi 0
@@ -214,16 +222,17 @@ UCOM_L_9757:
   k_pushi 4
   k_pushib 22
   k_pushib 58
-  k_callx RL_21BE, 6
-  k_ldlba $E56C
+  k_callx syscall, 6  ; sys 58 sprites_hide
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
   k_ldli 1
   k_return
+; calls 1
 UCOM_F_9773:
   k_func 2
   k_pushi 2
@@ -271,6 +280,7 @@ UCOM_L_97B8:
   k_ldli 1
 UCOM_L_97B9:
   k_return
+; calls 2
 UCOM_F_97BA:
   k_func 6
   k_pusharg 13
@@ -409,11 +419,12 @@ UCOM_L_9862:
 UCOM_L_9872:
   k_ldl -2
   k_return
+; vars: g_days_at_sea, g_cargo, g_player_name_ptr, g_hero_stats | calls 9
 UCOM_F_9874:
   k_func 27
   k_ldli 1
   k_stln -27
-  k_ldla $E998
+  k_ldla g_days_at_sea
   k_stl -2
   k_leal -17
   k_pushl
@@ -431,7 +442,7 @@ UCOM_L_988E:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -19
   k_ldln -19
@@ -445,7 +456,7 @@ UCOM_L_988E:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_stln -23
   k_ldln -23
@@ -504,7 +515,7 @@ UCOM_L_98E8:
   k_inc
   k_derefb
   k_pushl
-  k_ldlba $EAC1
+  k_ldlba g_hero_stats
   k_popr
   k_sub
   k_ldri 10
@@ -582,7 +593,7 @@ UCOM_L_996C:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -673,8 +684,9 @@ UCOM_L_9A01:
   k_ult
   k_jumpt UCOM_L_988E
   k_ldli 0
-  k_stla $E998
+  k_stla g_days_at_sea
   k_return
+; sys: sprites_hide | vars: g_fleets | calls 10
 UCOM_F_9A0D:
   k_func 80
   k_leal -70
@@ -697,7 +709,7 @@ UCOM_F_9A0D:
   k_pushl
   k_callx RL_87E0, 6
   k_stln -72
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stln -78
   k_ldliw $00FF
   k_stln -74
@@ -864,12 +876,13 @@ UCOM_L_9B14:
   k_pushi 4
   k_pushib 22
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_ldli 1
   k_return
 UCOM_L_9B50:
   k_ldli 0
   k_return
+; calls 2
 UCOM_F_9B52:
   k_func 0
   k_pusharg 13
@@ -942,9 +955,10 @@ UCOM_L_9BAD:
   k_jumpt UCOM_L_9B94
   k_ldli 0
   k_return
+; vars: g_fleets | calls 7
 UCOM_F_9BB6:
   k_func 36
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stln -36
   k_ldln -36
   k_addli 2
@@ -1151,9 +1165,10 @@ UCOM_L_9CF2:
   k_jumpt UCOM_L_9C8B
   k_ldli 0
   k_return
+; sys: sprites_hide | vars: g_fleets | calls 7
 UCOM_F_9D00:
   k_func 6
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -4
   k_call RF_5C91
   k_pushi 1
@@ -1254,12 +1269,12 @@ UCOM_L_9D75:
   k_pushi 4
   k_pushib 22
   k_pushib 58
-  k_callx RL_21BE, 6
-  k_ldlba $E56C
+  k_callx syscall, 6  ; sys 58 sprites_hide
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
   k_ldli 1
@@ -1271,6 +1286,7 @@ UCOM_L_9DB4:
 UCOM_L_9DB5:
   k_ldl -6
   k_return
+; vars: g_fleets | calls 5
 UCOM_F_9DB7:
   k_func 16
   k_ldlba $F167
@@ -1289,7 +1305,7 @@ UCOM_F_9DB7:
   k_popr
   k_add
   k_stl -12
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -16
   k_ldli 0
   k_stl -2
@@ -1372,6 +1388,7 @@ UCOM_L_9E41:
   k_deref
   k_callptr
   k_return
+; sys: wait_frames | vars: g_fleets | calls 5
 UCOM_F_9E4A:
   k_func 6
   k_ldlarg 11
@@ -1419,16 +1436,16 @@ UCOM_L_9E8D:
 UCOM_L_9EA3:
   k_pushi 0
   k_callx RF_530E, 4
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
 UCOM_L_9EBF:
   k_ldl -2
   k_ldriw $0080
@@ -1482,6 +1499,7 @@ UCOM_L_9EFF:
   k_ldl -4
   k_dec
   k_jump UCOM_L_9EFB
+; vars: g_fleets
 UCOM_F_9F0A:
   k_func 8
   k_ldlarg 17
@@ -1497,7 +1515,7 @@ UCOM_L_9F19:
   k_derefb
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -8
   k_ldl -8
@@ -1533,6 +1551,7 @@ UCOM_L_9F3F:
   k_jumpt UCOM_L_9F19
   k_ldl -2
   k_return
+; calls 4
 UCOM_F_9F47:
   k_func 10
   k_ldlarg 11
@@ -1605,9 +1624,10 @@ UCOM_L_9FAC:
   k_ldlarg 13
   k_derefb
   k_return
+; vars: g_fleets, g_hero_stats | calls 7
 UCOM_F_9FAF:
   k_func 20
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -20
   k_ldl -20
   k_addli 11
@@ -1634,11 +1654,11 @@ UCOM_L_9FCC:
   k_ldriw $00FF
   k_eq
   k_jumpf UCOM_L_9FE7
-  k_ldlba $EAC3
+  k_ldlba g_hero_stats+2
   k_addlib 60
   k_jump UCOM_L_9FF5
 UCOM_L_9FE7:
-  k_ldlba $EAC3
+  k_ldlba g_hero_stats+2
   k_pushl
   k_ldl -14
   k_ldri 10
@@ -1782,17 +1802,19 @@ UCOM_L_A0B6:
   k_ldli 1
 UCOM_L_A0B7:
   k_return
+; calls 2
 UCOM_F_A0B8:
   k_func 0
   k_call UCOM_F_A388
   k_call RF_5C91
   k_return
+; sys: color_math, window_off, anim_control | vars: g_fleets, g_ships, g_hero_stats, g_player_items, g_player_name_ptr | calls 19
 UCOM_F_A0C4:
   k_func 31
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stln -27
   k_pushn -27
@@ -1928,7 +1950,7 @@ UCOM_L_A1BD:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stln -25
   k_ldln -25
@@ -1963,7 +1985,7 @@ UCOM_L_A1F0:
   k_jumpt UCOM_L_A1BD
   k_call RF_430C
   k_stln -13
-  k_ldlba $EAC3
+  k_ldlba g_hero_stats+2
   k_stln -17
   k_ldln -13
   k_ldriw $00FF
@@ -1983,7 +2005,7 @@ UCOM_L_A217:
   k_ldln -17
   k_add
   k_stln -17
-  k_ldla $E56F
+  k_ldla g_player_items
   k_ldri 1
   k_and
   k_stln -31
@@ -2008,7 +2030,7 @@ UCOM_L_A217:
   k_addlib 20
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -2049,11 +2071,11 @@ UCOM_L_A291:
 UCOM_L_A294:
   k_ldln -29
   k_jumpf UCOM_L_A2A9
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
 UCOM_L_A2A9:
@@ -2062,14 +2084,15 @@ UCOM_L_A2A9:
   k_pushi 0
   k_pushib 48
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_pushiw $00FF
   k_pushi 3
   k_pushib 56
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 56 anim_control
   k_return
+; calls 1
 UCOM_F_A2C9:
   k_func 7
   k_ldli 0
@@ -2122,6 +2145,7 @@ UCOM_L_A31C:
   k_jumpt UCOM_L_A2E6
   k_ldln -3
   k_return
+; vars: g_fleets | calls 1
 UCOM_F_A327:
   k_func 6
   k_ldlarg 17
@@ -2152,7 +2176,7 @@ UCOM_L_A334:
   k_ldrarg 13
   k_eq
   k_jumpf UCOM_L_A37D
-  k_ldlba $E564
+  k_ldlba g_fleets
   k_pushl
   k_ldl -6
   k_addli 15
@@ -2161,7 +2185,7 @@ UCOM_L_A334:
   k_popr
   k_eq
   k_jumpf UCOM_L_A37D
-  k_ldlba $E565
+  k_ldlba g_fleets+1
   k_pushl
   k_ldl -6
   k_addlib 16
@@ -2185,17 +2209,18 @@ UCOM_L_A380:
   k_jumpt UCOM_L_A334
   k_ldli 0
   k_return
+; sys: sprites_hide | vars: g_fleets
 UCOM_F_A388:
   k_func 6
   k_ldli 0
   k_stl -6
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_stl -2
   k_ldl -2
   k_ldri 1
   k_ugt
   k_jumpf UCOM_L_A3BE
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_stl -4
   k_ldlba $F28C
   k_ldri 1
@@ -2226,10 +2251,11 @@ UCOM_L_A3BE:
   k_pushi 4
   k_pushib 22
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
 UCOM_L_A3CB:
   k_ldl -6
   k_return
+; sys: tilemap_clear | vars: g_fleets, g_portrait | calls 17
 UCOM_F_A3CD:
   k_func 119
   k_ldli 0
@@ -2238,7 +2264,7 @@ UCOM_F_A3CD:
   k_ldli 13
   k_stl -22
   k_stl -20
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -24
   k_leal -49
   k_pushl
@@ -2350,12 +2376,12 @@ UCOM_L_A46A:
   k_stlba $F291
   k_stlba $F290
   k_ldlib -1
-  k_stla $F295
+  k_stla g_portrait
   k_pushi 0
   k_pushi 0
   k_pushi 3
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushib 127
   k_pushiw $E000
   k_pushib 28
@@ -2372,11 +2398,11 @@ UCOM_L_A46A:
   k_pushi 1
   k_pushi 2
   k_callx RF_532F, 14
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
   k_ldli 0
@@ -2493,16 +2519,17 @@ UCOM_L_A578:
   k_ldln -28
   k_jumpf UCOM_L_A59B
   k_call RF_586A
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
 UCOM_L_A59B:
   k_ldli 0
   k_return
+; vars: g_ports | calls 2
 UCOM_F_A59D:
   k_func 16
   k_ldli 0
@@ -2521,7 +2548,7 @@ UCOM_L_A5AA:
   k_ldl -8
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -4
   k_ldl -4
@@ -2599,6 +2626,7 @@ UCOM_L_A625:
   k_jumpt UCOM_L_A5AA
   k_ldl -6
   k_return
+; vars: g_cargo | calls 1
 UCOM_F_A62E:
   k_func 25
   k_leal -9
@@ -2619,7 +2647,7 @@ UCOM_L_A64E:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -2
   k_ldl -2
@@ -2716,6 +2744,7 @@ UCOM_L_A6D7:
   k_jumpt UCOM_L_A6B7
   k_ldli 0
   k_return
+; calls 2
 UCOM_F_A6DF:
   k_func 4
   k_ldli 0
@@ -2739,6 +2768,7 @@ UCOM_L_A6F7:
   k_jumpt UCOM_L_A6E6
   k_ldliw $00FF
   k_return
+; calls 9
 UCOM_F_A705:
   k_func 31
   k_ldlarg 11
@@ -2859,13 +2889,14 @@ UCOM_L_A7EE:
 UCOM_L_A7F4:
   k_callx RF_4B44, 2
   k_return
+; vars: g_captains
 UCOM_F_A7F9:
   k_func 2
   k_ldlarg 11
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -2
   k_ldl -2
@@ -2884,6 +2915,7 @@ UCOM_F_A7F9:
   k_ldli 0
   k_popstore
   k_return
+; calls 4
 UCOM_F_A818:
   k_func 0
   k_ldlba $EA8E
@@ -2906,9 +2938,10 @@ UCOM_L_A83F:
   k_stlba $F197
 UCOM_L_A847:
   k_return
+; vars: g_fleets | calls 12
 UCOM_F_A848:
   k_func 45
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stln -43
   k_call RF_5C91
   k_leal -21
@@ -3068,6 +3101,7 @@ UCOM_L_A971:
   k_call UCOM_F_9666
   k_ldli 0
   k_return
+; calls 1
 UCOM_F_A97F:
   k_func 2
   k_pushi 3
@@ -3091,6 +3125,7 @@ UCOM_L_A99A:
   k_deref
   k_callptr
   k_return
+; vars: g_fleets
 UCOM_F_A9A3:
   k_func 8
   k_ldlarg 11
@@ -3106,7 +3141,7 @@ UCOM_L_A9B2:
   k_derefb
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -8
   k_ldl -2
@@ -3155,9 +3190,10 @@ UCOM_L_A9ED:
   k_jumpt UCOM_L_A9B2
   k_ldlarg 13
   k_return
+; vars: g_fleets | calls 12
 UCOM_F_A9F5:
   k_func 47
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stln -47
   k_ldln -47
   k_addli 2
@@ -3367,9 +3403,10 @@ UCOM_L_AB80:
   k_ldli 7
 UCOM_L_AB81:
   k_return
+; vars: g_fleets
 UCOM_F_AB82:
   k_func 2
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -2
   k_ldl -2
   k_addli 2
@@ -3383,6 +3420,7 @@ UCOM_L_AB98:
   k_ldli 2
 UCOM_L_AB99:
   k_return
+; sys: color_math, window_off, anim_control | calls 1
 UCOM_F_AB9A:
   k_func 0
   k_call RF_4D8B
@@ -3390,14 +3428,15 @@ UCOM_F_AB9A:
   k_pushi 0
   k_pushib 48
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_pushiw $00FF
   k_pushi 3
   k_pushib 56
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 56 anim_control
   k_return
+; vars: g_fleets | calls 8
 UCOM_F_ABBF:
   k_func 10
   k_ldlarg 15
@@ -3506,11 +3545,11 @@ UCOM_L_AC33:
   k_call UCOM_F_AB9A
   k_ldl -10
   k_jumpf UCOM_L_AC63
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
 UCOM_L_AC63:
@@ -3525,6 +3564,7 @@ UCOM_L_AC70:
   k_dec
 UCOM_L_AC72:
   k_return
+; vars: g_player_name_ptr | calls 5
 UCOM_F_AC73:
   k_func 26
   k_ldli 0
@@ -3548,7 +3588,7 @@ UCOM_L_AC80:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_popstore
@@ -3595,6 +3635,7 @@ UCOM_L_ACDE:
   k_add
   k_derefb
   k_return
+; calls 6
 UCOM_F_ACE6:
   k_func 6
   k_ldlarg 15
@@ -3679,6 +3720,7 @@ UCOM_L_AD5C:
   k_ldli 7
 UCOM_L_AD5D:
   k_return
+; sys: tilemap_write, tilemap_clear | vars: g_fleets | calls 7
 UCOM_F_AD5E:
   k_func 8
   k_call UCOM_F_AD4B
@@ -3719,12 +3761,12 @@ UCOM_L_AD81:
   k_pushi 1
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushiw $2000
   k_pushi 0
   k_pushi 3
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_push -4
   k_push -6
   k_pushi 1
@@ -3732,11 +3774,11 @@ UCOM_L_AD81:
   k_call RF_5F56
   k_ldl -8
   k_jumpf UCOM_L_ADCD
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
 UCOM_L_ADCD:
@@ -3761,12 +3803,12 @@ UCOM_L_ADDC:
   k_pushi 1
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushiw $2000
   k_pushi 0
   k_pushi 3
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_push -2
   k_push -6
   k_pushi 1
@@ -3774,11 +3816,11 @@ UCOM_L_ADDC:
   k_call RF_5F56
   k_ldl -8
   k_jumpf UCOM_L_AE1C
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
 UCOM_L_AE1C:
@@ -3788,6 +3830,7 @@ UCOM_L_AE1C:
   k_jumpt UCOM_L_AD67
   k_ldli 0
   k_return
+; vars: g_ships | calls 7
 UCOM_F_AE26:
   k_func 27
   k_leal -19
@@ -3808,7 +3851,7 @@ UCOM_L_AE47:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_pushn -21
@@ -3863,6 +3906,7 @@ UCOM_L_AEA7:
   k_ldliw $00FF
 UCOM_L_AEAA:
   k_return
+; sys: tilemap_write, tilemap_clear | vars: g_fleets | calls 6
 UCOM_F_AEAB:
   k_func 8
   k_call UCOM_F_AD4B
@@ -3886,12 +3930,12 @@ UCOM_L_AEB4:
   k_pushi 1
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushiw $2000
   k_pushi 0
   k_pushi 3
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_push -6
   k_push -4
   k_pushi 1
@@ -3899,11 +3943,11 @@ UCOM_L_AEB4:
   k_call RF_5F56
   k_ldl -8
   k_jumpf UCOM_L_AEFF
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
 UCOM_L_AEFF:
@@ -3915,6 +3959,7 @@ UCOM_L_AEFF:
   k_stlba $F28F
   k_ldli 0
   k_return
+; vars: g_cargo | calls 12
 UCOM_F_AF0D:
   k_func 12
   k_ldlarg 15
@@ -3927,7 +3972,7 @@ UCOM_F_AF0D:
   k_and
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -12
   k_ldli 0
@@ -4052,9 +4097,10 @@ UCOM_L_AFB1:
   k_call UCOM_F_AB9A
 UCOM_L_AFDA:
   k_return
+; vars: g_fleets
 UCOM_F_AFDB:
   k_func 2
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -2
   k_ldl -2
   k_addli 2
@@ -4068,6 +4114,7 @@ UCOM_L_AFF1:
   k_ldli 1
 UCOM_L_AFF2:
   k_return
+; calls 4
 UCOM_F_AFF3:
   k_func 2
 UCOM_L_AFF8:
@@ -4089,9 +4136,10 @@ UCOM_L_B010:
   k_jumpt UCOM_L_AFF8
   k_ldli 0
   k_return
+; vars: g_player_items
 UCOM_F_B01A:
   k_func 8
-  k_ldliw $E56F
+  k_ldliw g_player_items
   k_stl -6
   k_ldli 0
   k_stl -2
@@ -4148,9 +4196,10 @@ UCOM_L_B063:
   k_ldli 1
 UCOM_L_B064:
   k_return
+; vars: g_fleets
 UCOM_F_B065:
   k_func 2
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -2
   k_ldl -2
   k_addli 2
@@ -4164,6 +4213,7 @@ UCOM_L_B07B:
   k_ldli 0
 UCOM_L_B07C:
   k_return
+; sys: wait_frames, tilemap_write | calls 13
 UCOM_F_B07D:
   k_func 50
   k_call RF_5C91
@@ -4278,7 +4328,7 @@ UCOM_L_B0F7:
 UCOM_L_B128:
   k_pushi 8
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
 UCOM_L_B12F:
   k_pushi 0
   k_callx RF_362A, 2
@@ -4296,7 +4346,7 @@ UCOM_L_B12F:
   k_push -14
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_ldl -6
   k_inc
   k_stl -6
@@ -4320,9 +4370,10 @@ UCOM_L_B162:
   k_call UCOM_F_AB9A
   k_ldli 0
   k_return
+; sys: metasprite_set | vars: g_fleets
 UCOM_F_B16F:
   k_func 6
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -2
   k_ldl -2
   k_addli 2
@@ -4406,8 +4457,9 @@ UCOM_L_B1B1:
   k_push -4
   k_pushi 14
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_return
+; sys: sprite_commit
 UCOM_F_B1DA:
   k_func 4
   k_ldlba $EF5F
@@ -4478,8 +4530,9 @@ UCOM_L_B21B:
   k_push -2
   k_pushi 14
   k_pushib 19
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 19 sprite_commit
   k_return
+; sys: oam_hide_all, tilemap_clear | calls 3
 UCOM_F_B241:
   k_func 0
   k_pushi 1
@@ -4487,26 +4540,28 @@ UCOM_F_B241:
   k_call UCOM_F_B16F
   k_call RF_2F18
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_pushi 0
   k_pushi 0
   k_pushi 1
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_return
+; sys: tilemap_clear
 UCOM_F_B25F:
   k_func 0
   k_pushiw $2000
   k_pushi 0
   k_pushi 3
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_ldli 2
   k_stlba $F28F
   k_return
-UCOM_F_B273:
+; vars: g_player_items, g_fleets | calls 7
+navigation_item_use:
   k_func 4
-  k_ldla $E56F
+  k_ldla g_player_items
   k_ldri 4
   k_and
   k_jumpt UCOM_L_B28C
@@ -4525,22 +4580,22 @@ UCOM_L_B28C:
   k_stl -4
   k_call UCOM_F_B241
   k_call RF_5F56
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
   k_ldl -4
   k_ldri 1
   k_eq
   k_jumpf UCOM_L_B2C6
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
 UCOM_L_B2C6:
@@ -4551,6 +4606,7 @@ UCOM_L_B2C6:
   k_callx RF_5BBB, 2
   k_ldli 0
   k_return
+; sys: sprites_hide | calls 4
 UCOM_F_B2D2:
   k_func 10
   k_ldlba $EF5D
@@ -4583,7 +4639,7 @@ UCOM_L_B2F8:
   k_stl -8
   k_push -4
   k_push -2
-  k_callx RF_54D9, 4
+  k_callx map_open, 4
   k_ldl -2
   k_stlba $F165
   k_ldl -4
@@ -4596,18 +4652,19 @@ UCOM_L_B313:
   k_pushi 4
   k_pushi 14
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_ldl -10
   k_jumpf UCOM_L_B338
   k_push -8
   k_push -6
-  k_callx RF_54D9, 4
+  k_callx map_open, 4
   k_ldl -6
   k_stlba $F165
   k_ldl -8
   k_stlba $F166
 UCOM_L_B338:
   k_return
+; vars: g_fleets | calls 5
 UCOM_F_B339:
   k_func 2
   k_call RF_5F56
@@ -4623,11 +4680,11 @@ UCOM_F_B339:
   k_ldri 1
   k_eq
   k_jumpf UCOM_L_B368
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
 UCOM_L_B368:
@@ -4638,6 +4695,7 @@ UCOM_L_B368:
   k_callx RF_5BBB, 2
   k_ldli 0
   k_return
+; sys: tilemap_write | calls 1
 UCOM_F_B374:
   k_func 0
   k_pushi 0
@@ -4647,17 +4705,18 @@ UCOM_F_B374:
   k_pushi 2
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushib 27
   k_pushi 2
   k_callx RF_2F8F, 4
   k_return
+; vars: g_princess | calls 1
 UCOM_F_B38E:
   k_func 4
   k_ldli 1
   k_stl -4
 UCOM_L_B395:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 4
   k_and
   k_jumpf UCOM_L_B3A2
@@ -4691,6 +4750,7 @@ UCOM_L_B3BB:
 UCOM_L_B3C6:
   k_ldl -4
   k_return
+; sys: sprite_commit
 UCOM_F_B3C8:
   k_func 0
   k_ldlarg 15
@@ -4757,8 +4817,9 @@ UCOM_L_B3F5:
   k_pusharg 11
   k_pushn 19
   k_pushib 19
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 19 sprite_commit
   k_return
+; vars: g_port_flags | calls 3
 UCOM_F_B420:
   k_func 35
   k_ldlib 26
@@ -4796,7 +4857,7 @@ UCOM_L_B42C:
 UCOM_L_B455:
   k_ldln -31
   k_derefb
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 8
@@ -4851,6 +4912,7 @@ UCOM_L_B499:
   k_lt
   k_jumpt UCOM_L_B42A
   k_return
+; sys: tilemap_copy | vars: g_fh_cbmap0 | calls 3
 UCOM_F_B4AC:
   k_func 10
   k_call RF_4DD8
@@ -4867,7 +4929,7 @@ UCOM_L_B4C6:
   k_pushib 126
   k_pushiw $1902
 UCOM_L_B4D1:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_callx RF_3FC8, 10
   k_ldli 0
   k_stl -10
@@ -4941,12 +5003,13 @@ UCOM_L_B4F4:
   k_pushi 4
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_ldlarg 11
   k_jumpf UCOM_L_B53D
   k_call UCOM_F_B420
 UCOM_L_B53D:
   k_return
+; sys: color_math, window_off, anim_control | calls 11
 UCOM_F_B53E:
   k_func 12
   k_ldli 0
@@ -5097,22 +5160,23 @@ UCOM_L_B630:
   k_pushi 0
   k_pushib 48
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_pushiw $00FF
   k_pushi 3
   k_pushib 56
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 56 anim_control
   k_call RF_4D8B
   k_ldl -8
   k_return
+; vars: g_hero_stats, g_player_name_ptr | calls 3
 UCOM_F_B651:
   k_func 29
   k_ldlarg 11
   k_ldri 10
   k_mul
-  k_ldriw $EAC1
+  k_ldriw g_hero_stats
   k_add
   k_stl -2
   k_ldli 0
@@ -5150,7 +5214,7 @@ UCOM_L_B687:
   k_jumpt UCOM_L_B66B
   k_ldlbf -5
   k_stln -13
-  k_ldliw $EAC1
+  k_ldliw g_hero_stats
   k_stl -4
   k_ldl -4
   k_ldrn -7
@@ -5162,10 +5226,10 @@ UCOM_L_B687:
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_stln -27
-  k_ldliw $E444
+  k_ldliw g_player_name_ptr
   k_stln -29
   k_ldln -27
   k_addli 3
@@ -5245,9 +5309,10 @@ UCOM_L_B6FB:
   k_pushiw UCOM_D_C73E
   k_callx RF_4B44, 2
   k_return
+; vars: g_fleets
 UCOM_F_B727:
   k_func 2
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -2
   k_ldl -2
   k_addli 2
@@ -5261,6 +5326,7 @@ UCOM_L_B73D:
   k_ldli 2
 UCOM_L_B73E:
   k_return
+; sys: color_math, window_off, anim_control | vars: g_player_name_ptr, g_player_gold | calls 10
 UCOM_F_B73F:
   k_func 12
   k_ldli 0
@@ -5268,7 +5334,7 @@ UCOM_F_B73F:
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_stl -12
   k_call UCOM_F_B727
@@ -5307,7 +5373,7 @@ UCOM_F_B73F:
   k_pushl
   k_pushiw UCOM_D_C753
   k_callx RF_3619, 4
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stl -4
   k_ldl -4
   k_ldriw $03E7
@@ -5335,9 +5401,9 @@ UCOM_L_B79D:
   k_jumpf UCOM_L_B7E2
   k_ldl -6
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_push -6
   k_pusharg 11
   k_callx UCOM_F_B651, 4
@@ -5361,18 +5427,19 @@ UCOM_L_B7E2:
   k_pushi 0
   k_pushib 48
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_pushiw $00FF
   k_pushi 3
   k_pushib 56
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 56 anim_control
   k_ldl -10
   k_return
+; vars: g_player_gold | calls 4
 UCOM_F_B803:
   k_func 4
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_jumpt UCOM_L_B81A
   k_call RF_5C91
   k_pushiw UCOM_D_C78F
@@ -5406,6 +5473,7 @@ UCOM_L_B841:
   k_ldli 7
 UCOM_L_B842:
   k_return
+; sys: sprites_hide, sprite_commit | vars: g_fh_fdata | calls 5
 UCOM_F_B843:
   k_func 20
   k_ldln 19
@@ -5539,7 +5607,7 @@ UCOM_L_B8E8:
   k_ldri 3
   k_shl
   k_stl -18
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushiw $26CC
   k_pushi 2
   k_pushi 1
@@ -5569,20 +5637,20 @@ UCOM_L_B94A:
   k_pushi 2
   k_push -14
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_pushi 0
   k_pushiw $30E7
   k_push -20
   k_push -18
   k_push -14
   k_pushib 19
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 19 sprite_commit
   k_ldl -2
   k_jumpt UCOM_L_B96B
   k_pushi 9
   k_pushi 0
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
 UCOM_L_B96B:
   k_pushi 0
   k_callx RF_362A, 2
@@ -5593,7 +5661,7 @@ UCOM_L_B975:
   k_pushi 9
   k_pushi 0
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
 UCOM_L_B97D:
   k_pushi 0
   k_callx RF_362A, 2
@@ -5675,6 +5743,7 @@ UCOM_L_B9DC:
 UCOM_L_B9E6:
   k_ldli 0
   k_jump UCOM_L_B99D
+; sys: tilemap_write | vars: g_player_name_ptr | calls 3
 UCOM_F_B9EA:
   k_func 4
   k_pushiw $2000
@@ -5686,7 +5755,7 @@ UCOM_F_B9EA:
   k_pusharg 11
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_ldlarg 17
   k_ldrarg 15
   k_add
@@ -5709,7 +5778,7 @@ UCOM_L_BA1A:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -5740,7 +5809,7 @@ UCOM_L_BA35:
   k_pusha $F188
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
 UCOM_L_BA58:
   k_ldli 2
   k_ldrn 19
@@ -5758,12 +5827,14 @@ UCOM_L_BA63:
   k_ult
   k_jumpt UCOM_L_BA05
   k_return
+; calls 1
 UCOM_F_BA6A:
   k_func 0
   k_pushi 1
   k_pusharg 11
   k_callx RF_2FB9, 4
   k_return
+; calls 3
 UCOM_F_BA76:
   k_func 6
   k_ldlarg 17
@@ -5804,6 +5875,7 @@ UCOM_L_BAA7:
   k_ult
   k_jumpt UCOM_L_BA82
   k_return
+; sys: tilemap_write | calls 8
 UCOM_F_BAAE:
   k_func 14
   k_ldli 3
@@ -5839,7 +5911,7 @@ UCOM_F_BAAE:
   k_pushi 8
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_ldl -12
   k_addli 12
   k_pushl
@@ -5946,12 +6018,13 @@ UCOM_L_BBA0:
   k_jumpt UCOM_L_BB8E
   k_ldli 1
   k_return
+; vars: g_ships, g_cargo
 UCOM_F_BBA8:
   k_func 4
   k_ldlarg 17
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldl -2
@@ -5961,7 +6034,7 @@ UCOM_F_BBA8:
   k_and
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -4
   k_push -4
@@ -5970,7 +6043,7 @@ UCOM_F_BBA8:
   k_ldlarg 15
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldl -2
@@ -5980,13 +6053,14 @@ UCOM_F_BBA8:
   k_and
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -4
   k_push -4
   k_ldlarg 13
   k_popstoreb
   k_return
+; sys: sprites_hide | vars: g_ships, g_cargo | calls 7
 UCOM_F_BBDE:
   k_func 60
   k_ldli 3
@@ -6071,7 +6145,7 @@ UCOM_L_BC7C:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stln -58
   k_ldln -58
@@ -6081,7 +6155,7 @@ UCOM_L_BC7C:
   k_and
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -60
   k_pushn -60
@@ -6201,7 +6275,7 @@ UCOM_L_BD43:
   k_pushi 9
   k_pushi 0
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_pushn -52
   k_pushn -50
   k_pushn -48
@@ -6237,6 +6311,7 @@ UCOM_L_BD43:
   k_stln -54
   k_ldli 0
   k_jump UCOM_L_BD0E
+; calls 13
 UCOM_F_BD9E:
   k_func 15
   k_call RF_5C91
@@ -6291,14 +6366,15 @@ UCOM_L_BDC1:
   k_call RF_5FDB
   k_ldln -11
   k_return
+; vars: g_cargo, g_ships
 UCOM_F_BE1F:
   k_func 10
-  k_ldliw $E9A6
+  k_ldliw g_cargo
   k_stl -10
   k_ldli 0
   k_stl -2
   k_stl -4
-  k_ldliw $EB92
+  k_ldliw g_ships
   k_stl -6
   k_addlib 35
   k_stl -8
@@ -6339,6 +6415,7 @@ UCOM_L_BE56:
   k_jumpt UCOM_L_BE35
   k_ldl -4
   k_return
+; vars: g_ships | calls 11
 UCOM_F_BE5E:
   k_func 34
   k_call RF_5C91
@@ -6366,7 +6443,7 @@ UCOM_L_BE8E:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stln -28
   k_push -24
@@ -6445,6 +6522,7 @@ UCOM_L_BEAF:
 UCOM_L_BF14:
   k_ldln -34
   k_return
+; calls 1
 UCOM_F_BF17:
   k_func 4
 UCOM_L_BF1C:
@@ -6764,7 +6842,7 @@ UCOM_D_C622:
 UCOM_D_C63A:
   .word UCOM_D_C652, UCOM_D_C658, UCOM_D_C65E, UCOM_D_C663, UCOM_D_C669, UCOM_D_C66F
 UCOM_D_C646:
-  .word UCOM_F_AEAB, UCOM_F_AFF3, UCOM_F_B273, UCOM_F_AD5E, UCOM_F_B07D, UCOM_F_B339
+  .word UCOM_F_AEAB, UCOM_F_AFF3, navigation_item_use, UCOM_F_AD5E, UCOM_F_B07D, UCOM_F_B339
 UCOM_D_C652:
   .byte "Fleet", $00
 UCOM_D_C658:

@@ -2,11 +2,13 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp UMINATO2_F_B003
+; calls 3
 UMINATO2_F_B003:
   k_func 0
   k_ldla $F9A2
@@ -32,12 +34,14 @@ UMINATO2_L_B02A:
 UMINATO2_F_B030:
   k_func 0
   k_return
+; calls 1
 UMINATO2_F_B036:
   k_func 0
   k_pushi 1
   k_pushi 9
   k_callx RF_60CE, 4
   k_return
+; vars: g_fh_cbmap0, g_cargo | calls 11
 UMINATO2_F_B042:
   k_func 41
   k_ldli 0
@@ -69,7 +73,7 @@ UMINATO2_F_B042:
   k_pushi 7
   k_pushib 19
   k_callx RF_4B2A, 6
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $45E6
   k_pushi 2
   k_pushi 2
@@ -128,7 +132,7 @@ UMINATO2_L_B0D0:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -41
   k_ldln -21
@@ -265,6 +269,7 @@ UMINATO2_L_B1BE:
   k_callx RL_8962, 4
 UMINATO2_L_B1C7:
   k_return
+; sys: oam_hide_all | calls 9
 UMINATO2_F_B1C8:
   k_func 2
   k_pushib 18
@@ -273,7 +278,7 @@ UMINATO2_F_B1C8:
   k_pushi 2
   k_callx $97B0, 8
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_call UMINATO2_F_B042
   k_stl -2
   k_ldliw $00F0
@@ -326,6 +331,7 @@ UMINATO2_L_B244:
   k_call $97BE
   k_ldli 0
   k_return
+; sys: oam_hide_all | vars: g_ships | calls 8
 UMINATO2_F_B249:
   k_func 24
   k_call UMINATO2_F_B036
@@ -343,7 +349,7 @@ UMINATO2_L_B268:
   k_ldlbf -1
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -24
   k_ldl -24
@@ -395,7 +401,7 @@ UMINATO2_L_B2B6:
   k_pushi 1
   k_callx $97B0, 8
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_call UMINATO2_F_B030
   k_pushi 6
   k_pushi 1
@@ -407,9 +413,10 @@ UMINATO2_L_B2B6:
   k_call $97BE
   k_ldli 0
   k_return
+; vars: g_player_gold | calls 13
 UMINATO2_F_B2E3:
   k_func 8
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldrn 19
   k_udiv
   k_stl -2
@@ -485,9 +492,9 @@ UMINATO2_L_B35A:
   k_callx RF_6883, 10
   k_ldl -6
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_pushi 1
   k_pushiw UMINATO2_D_BA2A
   k_callx RF_2FB9, 4
@@ -499,11 +506,12 @@ UMINATO2_L_B35A:
   k_pushi 14
   k_pushib 25
   k_callx RF_2F8F, 4
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw UMINATO2_D_BA34
   k_callx RF_3608, 4
   k_ldli 1
   k_return
+; sys: oam_hide_all | vars: g_player_gold | calls 14
 UMINATO2_F_B39B:
   k_func 27
   k_leal -9
@@ -519,7 +527,7 @@ UMINATO2_F_B39B:
   k_callx RF_3619, 8
   k_pushi 1
   k_callx RF_3DDF, 2
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldrarg 13
   k_ult
   k_jumpf UMINATO2_L_B3D4
@@ -533,7 +541,7 @@ UMINATO2_L_B3D4:
   k_ldli 0
   k_stln -27
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_pushib 18
   k_pushib 30
   k_pushi 2
@@ -574,7 +582,7 @@ UMINATO2_L_B3D4:
   k_pushi 14
   k_pushib 25
   k_callx RF_2F8F, 4
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw UMINATO2_D_BA8E
   k_callx RF_3608, 4
 UMINATO2_L_B447:
@@ -616,12 +624,12 @@ UMINATO2_L_B482:
   k_ldriw $00FF
   k_eq
   k_jumpt UMINATO2_L_B492
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldrarg 13
   k_ult
   k_jumpf UMINATO2_L_B447
 UMINATO2_L_B492:
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldrarg 13
   k_ult
   k_jumpf UMINATO2_L_B4A7
@@ -686,16 +694,17 @@ UMINATO2_F_B4D8:
 UMINATO2_F_B4EF:
   k_func 0
   k_return
+; vars: g_port | calls 1
 UMINATO2_F_B4F5:
   k_func 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldrib 49
   k_ugt
   k_jumpf UMINATO2_L_B508
   k_ldlib 50
   k_jump UMINATO2_L_B512
 UMINATO2_L_B508:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -764,16 +773,17 @@ UMINATO2_F_B567:
   k_add
   k_popstore
   k_return
+; vars: g_port | calls 1
 UMINATO2_F_B57B:
   k_func 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldrib 49
   k_ugt
   k_jumpf UMINATO2_L_B58E
   k_ldlib 50
   k_jump UMINATO2_L_B598
 UMINATO2_L_B58E:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -795,6 +805,7 @@ UMINATO2_L_B598:
   k_pushi 2
   k_callx UMINATO2_F_B39B, 14
   k_return
+; calls 10
 UMINATO2_F_B5B5:
   k_func 17
   k_leal -9
@@ -895,6 +906,7 @@ UMINATO2_L_B65B:
   k_jumpt UMINATO2_L_B61F
   k_ldli 0
   k_return
+; sys: oam_hide_all | calls 7
 UMINATO2_F_B665:
   k_func 62
   k_call RF_60EE
@@ -920,7 +932,7 @@ UMINATO2_F_B665:
   k_pushi 2
   k_callx $97B0, 8
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_ldln -60
   k_switchn 2
     .word $0000, UMINATO2_L_B6AC
@@ -972,6 +984,7 @@ UMINATO2_L_B6DA:
   k_pushl
   k_callx RF_7B51, 2
   k_jump UMINATO2_L_B6B5
+; calls 4
 UMINATO2_F_B6FE:
   k_func 4
   k_ldli 0
@@ -1012,23 +1025,25 @@ UMINATO2_L_B733:
 UMINATO2_L_B73F:
   k_ldl -4
   k_return
+; vars: g_fleets
 UMINATO2_F_B741:
   k_func 0
   k_ldli 0
   k_stlba $EF65
   k_ldliw $00FD
   k_swap
-  k_ldlba $E573
+  k_ldlba g_fleets+15
   k_and
-  k_stlba $E573
+  k_stlba g_fleets+15
   k_ldli 1
   k_swap
-  k_ldlba $E573
+  k_ldlba g_fleets+15
   k_or
-  k_stlba $E573
+  k_stlba g_fleets+15
   k_ldli 0
   k_stlba $F28D
   k_return
+; calls 1
 UMINATO2_F_B763:
   k_func 0
   k_pushi 2
@@ -1040,16 +1055,18 @@ UMINATO2_F_B763:
   k_ldri 0
   k_eq
   k_return
+; calls 1
 UMINATO2_F_B776:
   k_func 0
   k_pusharg 11
   k_pushiw UMINATO2_D_BB8D
   k_callx RF_3619, 4
   k_return
+; vars: g_portrait, g_player_items, g_player_gold, g_princess, g_port | calls 6
 UMINATO2_F_B784:
   k_func 8
   k_ldlib -1
-  k_stla $F295
+  k_stla g_portrait
   k_call RF_60EE
   k_pushib 90
   k_callx RF_3F3E, 2
@@ -1060,7 +1077,7 @@ UMINATO2_F_B784:
   k_callx UMINATO2_F_B776, 2
   k_return
 UMINATO2_L_B7A7:
-  k_ldla $E56F
+  k_ldla g_player_items
   k_ldri 7
   k_and
   k_stl -2
@@ -1119,7 +1136,7 @@ UMINATO2_L_B819:
   k_callx RF_3F3E, 2
   k_addlib 70
   k_pushl
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_popr
   k_ult
   k_jumpf UMINATO2_L_B83F
@@ -1132,7 +1149,7 @@ UMINATO2_L_B819:
   k_callx UMINATO2_F_B776, 2
   k_return
 UMINATO2_L_B83F:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf UMINATO2_L_B861
@@ -1154,7 +1171,7 @@ UMINATO2_L_B861:
   k_callx RF_3F3E, 2
   k_jumpt UMINATO2_L_B89D
 UMINATO2_L_B86A:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldrib 50
   k_ult
   k_jumpf UMINATO2_L_B89D

@@ -2,16 +2,19 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp OUKYU_F_B003
+; calls 1
 OUKYU_F_B003:
   k_func 0
-  k_call OUKYU_F_B047
+  k_call palace_enter
   k_stla $F9A6
   k_return
+; calls 3
 OUKYU_F_B00F:
   k_func 1
   k_call RF_60B2
@@ -41,33 +44,34 @@ OUKYU_F_B00F:
 OUKYU_L_B045:
   k_ldli 0
   k_return
-OUKYU_F_B047:
+; vars: g_port, g_princess, g_king_mission, g_player_name_ptr, g_title, g_ending | calls 11
+palace_enter:
   k_func 4
   k_ldli 0
   k_stl -4
   k_pushi 1
   k_pushi 10
   k_callx RF_60CE, 4
-  k_ldlba $EF69
+  k_ldlba g_port
   k_jumpt OUKYU_L_B0B2
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf OUKYU_L_B09E
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf OUKYU_L_B09E
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt OUKYU_L_B09E
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 0
   k_pushiw OUKYU_D_C785
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pushiw OUKYU_D_C797
@@ -80,7 +84,7 @@ OUKYU_L_B09A:
   k_ldli 4
   k_jump OUKYU_L_B0E3
 OUKYU_L_B09E:
-  k_ldlba $EE76
+  k_ldlba g_title
   k_jumpt OUKYU_L_B09A
   k_pushi 1
   k_callx RF_609A, 2
@@ -89,7 +93,7 @@ OUKYU_L_B09E:
   k_ldli 0
   k_return
 OUKYU_L_B0B2:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_shl1
   k_shl1
   k_ldriw $EEC0
@@ -101,7 +105,7 @@ OUKYU_L_B0B2:
   k_ldrib 20
   k_ugt
   k_jumpt OUKYU_L_B0D4
-  k_ldlba $EE76
+  k_ldlba g_title
   k_inc
   k_pushl
   k_callx RF_3F3E, 2
@@ -157,13 +161,14 @@ OUKYU_L_B126:
   k_ldl -4
   k_jumpf OUKYU_L_B0E6
 OUKYU_L_B134:
-  k_ldlba $F169
+  k_ldlba g_ending
   k_jumpf OUKYU_L_B13B
   k_return
 OUKYU_L_B13B:
   k_call RF_2281
   k_ldl -4
   k_return
+; vars: g_cargo | calls 1
 OUKYU_F_B140:
   k_func 21
   k_leal -5
@@ -184,7 +189,7 @@ OUKYU_L_B160:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -21
   k_ldln -21
@@ -231,20 +236,21 @@ OUKYU_L_B1A6:
   k_jumpt OUKYU_L_B160
   k_ldln -19
   k_return
+; vars: g_king_mission, g_port, g_ports | calls 2
 OUKYU_F_B1B1:
   k_func 10
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_stl -6
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 5
   k_mul
   k_ldriw $150A
   k_add
   k_stl -8
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -10
   k_ldl -10
@@ -303,35 +309,39 @@ OUKYU_F_B1B1:
 OUKYU_L_B22A:
   k_ldl -4
   k_return
+; vars: g_player_name_ptr
 OUKYU_F_B22C:
   k_func 0
-  k_ldla $E444
+  k_ldla g_player_name_ptr
   k_return
+; vars: g_princess
 OUKYU_F_B235:
   k_func 0
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_return
+; vars: g_princess
 OUKYU_F_B240:
   k_func 0
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 2
   k_and
   k_return
+; vars: g_princess, g_port, g_king_mission
 OUKYU_F_B24B:
   k_func 0
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf OUKYU_L_B26A
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf OUKYU_L_B26A
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpf OUKYU_L_B26E
 OUKYU_L_B26A:
   k_ldli 0
@@ -340,6 +350,7 @@ OUKYU_L_B26E:
   k_ldli 1
 OUKYU_L_B26F:
   k_return
+; calls 3
 OUKYU_F_B270:
   k_func 0
   k_call OUKYU_F_B235
@@ -355,6 +366,7 @@ OUKYU_L_B28B:
   k_ldli 1
 OUKYU_L_B28C:
   k_return
+; calls 3
 OUKYU_F_B28D:
   k_func 0
   k_call OUKYU_F_B235
@@ -370,6 +382,7 @@ OUKYU_L_B2A8:
   k_ldli 1
 OUKYU_L_B2A9:
   k_return
+; calls 3
 OUKYU_F_B2AA:
   k_func 0
   k_call OUKYU_F_B235
@@ -385,20 +398,22 @@ OUKYU_L_B2C5:
   k_ldli 1
 OUKYU_L_B2C6:
   k_return
+; calls 1
 OUKYU_F_B2C7:
   k_func 0
   k_pushi 1
   k_pushi 1
   k_callx RF_60CE, 4
   k_return
-OUKYU_F_B2D3:
+; vars: g_fame, g_ending, g_princess | calls 7
+palace_mission_princess:
   k_func 2
-  k_ldla $EE74
+  k_ldla g_fame
   k_stl -2
   k_call OUKYU_F_B2AA
   k_jumpf OUKYU_L_B2EA
   k_ldliw $00FF
-  k_stlba $F169
+  k_stlba g_ending
   k_ldli 1
   k_return
 OUKYU_L_B2EA:
@@ -441,34 +456,35 @@ OUKYU_L_B30A:
   k_callx RF_2FB9, 4
   k_ldli 8
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_472D
 OUKYU_L_B354:
   k_ldli 1
   k_return
+; vars: g_fame, g_player_items, g_princess, g_port, g_king_mission, g_title | calls 11
 OUKYU_F_B356:
   k_func 4
-  k_ldla $EE74
+  k_ldla g_fame
   k_stl -4
-  k_ldliw $E56F
+  k_ldliw g_player_items
   k_stl -2
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpf OUKYU_L_B434
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf OUKYU_L_B434
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf OUKYU_L_B434
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt OUKYU_L_B434
   k_ldl -2
   k_addli 2
@@ -482,7 +498,7 @@ OUKYU_F_B356:
   k_pushi 0
   k_pushiw OUKYU_D_C917
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx RF_40C3, 2
   k_pushl
@@ -494,7 +510,7 @@ OUKYU_F_B356:
   k_dec
   k_stla $F18A
   k_call RF_472D
-  k_ldlba $EE76
+  k_ldlba g_title
   k_ldri 9
   k_ult
   k_jumpf OUKYU_L_B3DD
@@ -504,12 +520,12 @@ OUKYU_F_B356:
   k_callx RF_2FB9, 4
   k_ldli 1
   k_swap
-  k_ldlba $EE76
+  k_ldlba g_title
   k_add
-  k_stlba $EE76
+  k_stlba g_title
   k_call RF_472D
 OUKYU_L_B3DD:
-  k_ldlba $EE76
+  k_ldlba g_title
   k_pushl
   k_pushi 3
   k_callx RF_3F3E, 2
@@ -518,22 +534,22 @@ OUKYU_L_B3DD:
   k_mul
   k_ldriw $03E8
   k_mul
-  k_stla $EF5A
+  k_stla g_king_mission+6
   k_call RF_60B2
   k_pushi 1
   k_pushiw OUKYU_D_C965
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushiw $2710
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_ldriw $03E8
   k_udiv
-  k_ldra $EE72
+  k_ldra g_palace_savings
   k_add
   k_pushl
   k_callx RL_8962, 4
-  k_stla $EE72
-  k_ldlba $EF57
+  k_stla g_palace_savings
+  k_ldlba g_king_mission+3
   k_ldri 15
   k_and
   k_pushl
@@ -543,7 +559,7 @@ OUKYU_L_B3DD:
   k_ldrib -1
   k_xor
   k_pushl
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_ldri 4
   k_shr
   k_shl1
@@ -555,21 +571,21 @@ OUKYU_L_B3DD:
   k_and
   k_popstore
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldli 1
   k_return
 OUKYU_L_B434:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpf OUKYU_L_B4B0
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf OUKYU_L_B4B0
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf OUKYU_L_B4B0
@@ -579,7 +595,7 @@ OUKYU_L_B434:
   k_ldriw $8000
   k_and
   k_jumpt OUKYU_L_B4B0
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt OUKYU_L_B4B0
   k_call OUKYU_F_B2C7
   k_pushi 1
@@ -603,7 +619,7 @@ OUKYU_L_B486:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldl -4
   k_ldri 10
   k_udiv
@@ -616,27 +632,27 @@ OUKYU_L_B486:
   k_popr
   k_add
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_sub
-  k_stla $EE74
+  k_stla g_fame
   k_ldli 0
   k_return
 OUKYU_L_B4B0:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpt OUKYU_L_B544
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf OUKYU_L_B544
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf OUKYU_L_B544
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt OUKYU_L_B544
   k_call OUKYU_F_B2C7
   k_pushi 1
@@ -652,7 +668,7 @@ OUKYU_L_B4B0:
   k_pushib 26
   k_pushi 8
   k_callx RF_2F8F, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx RF_40C3, 2
   k_pushl
@@ -678,9 +694,9 @@ OUKYU_L_B4B0:
   k_callx RF_2FB9, 4
   k_ldli 8
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_472D
 OUKYU_L_B544:
   k_ldli 1
@@ -702,21 +718,22 @@ OUKYU_L_B546:
   k_popr
   k_add
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_sub
-  k_stla $EE74
+  k_stla g_fame
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_472D
   k_ldli 0
   k_return
+; vars: g_player_name_ptr | calls 3
 OUKYU_F_B570:
   k_func 1
   k_ldlbf 11
   k_addlib 20
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -747,9 +764,10 @@ OUKYU_L_B5A2:
   k_pushl
   k_callx RF_40DE, 2
   k_return
+; vars: g_fame, g_title, g_king_mission, g_palace_savings, g_princess | calls 11
 OUKYU_F_B5B9:
   k_func 2
-  k_ldla $EE74
+  k_ldla g_fame
   k_stl -2
   k_call OUKYU_F_B2AA
   k_jumpf OUKYU_L_B635
@@ -758,7 +776,7 @@ OUKYU_F_B5B9:
   k_pushi 1
   k_pushiw OUKYU_D_CAF3
   k_callx RF_2FB9, 4
-  k_ldlba $EE76
+  k_ldlba g_title
   k_ldri 9
   k_ult
   k_jumpf OUKYU_L_B5F5
@@ -769,11 +787,11 @@ OUKYU_F_B5B9:
   k_callx RF_2FB9, 4
   k_ldli 1
   k_swap
-  k_ldlba $EE76
+  k_ldlba g_title
   k_add
-  k_stlba $EE76
+  k_stlba g_title
 OUKYU_L_B5F5:
-  k_ldlba $EE76
+  k_ldlba g_title
   k_pushl
   k_pushi 3
   k_callx RF_3F3E, 2
@@ -782,23 +800,23 @@ OUKYU_L_B5F5:
   k_mul
   k_ldriw $03E8
   k_mul
-  k_stla $EF5A
+  k_stla g_king_mission+6
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
   k_pushiw OUKYU_D_CB3B
   k_callx RF_2FB9, 4
   k_pushiw $2710
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_ldriw $03E8
   k_udiv
-  k_ldra $EE72
+  k_ldra g_palace_savings
   k_add
   k_pushl
   k_callx RL_8962, 4
-  k_stla $EE72
+  k_stla g_palace_savings
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_472D
   k_ldli 1
   k_return
@@ -826,7 +844,7 @@ OUKYU_L_B65F:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldl -2
   k_ldri 10
   k_udiv
@@ -839,9 +857,9 @@ OUKYU_L_B65F:
   k_popr
   k_add
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_sub
-  k_stla $EE74
+  k_stla g_fame
   k_ldli 0
   k_return
 OUKYU_L_B689:
@@ -857,7 +875,7 @@ OUKYU_L_B689:
   k_pushi 0
   k_pushiw OUKYU_D_CC16
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx OUKYU_F_B570, 2
   k_pushi 0
@@ -879,9 +897,9 @@ OUKYU_L_B689:
   k_callx RF_2FB9, 4
   k_ldli 8
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_472D
 OUKYU_L_B6ED:
   k_ldli 1
@@ -892,7 +910,7 @@ OUKYU_L_B6EF:
   k_pushiw OUKYU_D_CC90
   k_callx RF_2FB9, 4
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_472D
   k_ldl -2
   k_ldri 10
@@ -906,15 +924,16 @@ OUKYU_L_B6EF:
   k_popr
   k_add
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_sub
-  k_stla $EE74
+  k_stla g_fame
   k_ldli 0
   k_return
+; vars: g_port, g_princess | calls 7
 OUKYU_F_B719:
   k_func 0
   k_pushi 1
-  k_ldlba $EF69
+  k_ldlba g_port
   k_inc
   k_pushl
   k_callx RF_60CE, 4
@@ -948,7 +967,7 @@ OUKYU_F_B719:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushi 1
-  k_ldlba $EF69
+  k_ldlba g_port
   k_inc
   k_pushl
   k_callx RF_60CE, 4
@@ -962,13 +981,14 @@ OUKYU_F_B719:
   k_call RF_472D
   k_ldli 2
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_return
-OUKYU_F_B79C:
+; vars: g_fame, g_title, g_king_mission, g_palace_savings, g_princess | calls 12
+palace_mission_letter:
   k_func 2
-  k_ldla $EE74
+  k_ldla g_fame
   k_stl -2
   k_call OUKYU_F_B2AA
   k_jumpf OUKYU_L_B818
@@ -977,7 +997,7 @@ OUKYU_F_B79C:
   k_pushi 1
   k_pushiw OUKYU_D_CD7F
   k_callx RF_2FB9, 4
-  k_ldlba $EE76
+  k_ldlba g_title
   k_ldri 9
   k_ult
   k_jumpf OUKYU_L_B7D8
@@ -988,11 +1008,11 @@ OUKYU_F_B79C:
   k_callx RF_2FB9, 4
   k_ldli 1
   k_swap
-  k_ldlba $EE76
+  k_ldlba g_title
   k_add
-  k_stlba $EE76
+  k_stlba g_title
 OUKYU_L_B7D8:
-  k_ldlba $EE76
+  k_ldlba g_title
   k_pushl
   k_pushi 3
   k_callx RF_3F3E, 2
@@ -1001,23 +1021,23 @@ OUKYU_L_B7D8:
   k_mul
   k_ldriw $03E8
   k_mul
-  k_stla $EF5A
+  k_stla g_king_mission+6
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
   k_pushiw OUKYU_D_CDCA
   k_callx RF_2FB9, 4
   k_pushiw $2710
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_ldriw $03E8
   k_udiv
-  k_ldra $EE72
+  k_ldra g_palace_savings
   k_add
   k_pushl
   k_callx RL_8962, 4
-  k_stla $EE72
+  k_stla g_palace_savings
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_472D
   k_ldli 1
   k_return
@@ -1045,7 +1065,7 @@ OUKYU_L_B842:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldl -2
   k_ldri 10
   k_udiv
@@ -1058,9 +1078,9 @@ OUKYU_L_B842:
   k_popr
   k_add
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_sub
-  k_stla $EE74
+  k_stla g_fame
   k_ldli 0
   k_return
 OUKYU_L_B86C:
@@ -1077,7 +1097,7 @@ OUKYU_L_B86C:
   k_pushiw OUKYU_D_CEAF
   k_callx RF_2FB9, 4
   k_pushi 0
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_ldri 2
   k_eq
   k_jumpf OUKYU_L_B89D
@@ -1091,7 +1111,7 @@ OUKYU_L_B8A0:
   k_pushi 0
   k_pushiw OUKYU_D_CEEF
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_shl1
   k_ldriw $1B24
   k_add
@@ -1115,9 +1135,9 @@ OUKYU_L_B8A0:
   k_callx RF_2FB9, 4
   k_ldli 8
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_472D
 OUKYU_L_B8F1:
   k_ldli 1
@@ -1128,7 +1148,7 @@ OUKYU_L_B8F3:
   k_pushiw OUKYU_D_CF2B
   k_callx RF_2FB9, 4
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_472D
   k_ldl -2
   k_ldri 10
@@ -1142,11 +1162,12 @@ OUKYU_L_B8F3:
   k_popr
   k_add
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_sub
-  k_stla $EE74
+  k_stla g_fame
   k_ldli 0
   k_return
+; calls 2
 OUKYU_F_B91D:
   k_func 15
   k_leal -8
@@ -1234,13 +1255,14 @@ OUKYU_L_B9A3:
   k_ult
   k_jumpt OUKYU_L_B932
   k_return
-OUKYU_F_B9B3:
+; vars: g_fame, g_king_mission, g_princess, g_title, g_palace_savings, g_player_gold | calls 19
+palace_mission_crates:
   k_func 10
-  k_ldla $EE74
+  k_ldla g_fame
   k_stl -6
   k_call OUKYU_F_B28D
   k_jumpf OUKYU_L_BA8B
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx OUKYU_F_B140, 2
   k_jumpf OUKYU_L_BA8B
@@ -1253,10 +1275,10 @@ OUKYU_F_B9B3:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx OUKYU_F_B140, 2
-  k_ldra $EF58
+  k_ldra g_king_mission+4
   k_ult
   k_jumpf OUKYU_L_BA3A
   k_pushi 1
@@ -1288,30 +1310,30 @@ OUKYU_L_BA10:
   k_popr
   k_add
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_sub
-  k_stla $EE74
+  k_stla g_fame
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldli 0
   k_return
 OUKYU_L_BA3A:
-  k_pusha $EF58
-  k_ldlba $EF57
+  k_pusha g_king_mission+4
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx OUKYU_F_B91D, 4
   k_pushi 1
   k_pushiw OUKYU_D_CFF1
   k_callx RF_2FB9, 4
-  k_ldlba $EE76
+  k_ldlba g_title
   k_ldri 9
   k_ult
   k_jumpf OUKYU_L_BA5E
   k_ldli 1
   k_swap
-  k_ldlba $EE76
+  k_ldlba g_title
   k_add
-  k_stlba $EE76
+  k_stlba g_title
 OUKYU_L_BA5E:
   k_call RF_472D
   k_call RF_60B2
@@ -1319,16 +1341,16 @@ OUKYU_L_BA5E:
   k_pushiw OUKYU_D_D015
   k_callx RF_2FB9, 4
   k_pushiw $2710
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_ldriw $03E8
   k_udiv
-  k_ldra $EE72
+  k_ldra g_palace_savings
   k_add
   k_pushl
   k_callx RL_8962, 4
-  k_stla $EE72
+  k_stla g_palace_savings
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_472D
   k_ldli 1
   k_return
@@ -1367,11 +1389,11 @@ OUKYU_L_BAB5:
   k_popr
   k_add
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_sub
-  k_stla $EE74
+  k_stla g_fame
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldli 0
   k_return
 OUKYU_L_BADF:
@@ -1389,7 +1411,7 @@ OUKYU_L_BADF:
   k_pushi 0
   k_pushiw OUKYU_D_D0EB
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_shl1
   k_ldriw $1B49
   k_add
@@ -1401,7 +1423,7 @@ OUKYU_L_BADF:
   k_dec
   k_stla $F18A
   k_call RF_472D
-  k_ldlba $EE76
+  k_ldlba g_title
   k_inc
   k_ldriw $07D0
   k_mul
@@ -1433,18 +1455,18 @@ OUKYU_L_BADF:
   k_callx RL_8962, 4
   k_stl -2
   k_ldl -2
-  k_stla $EF58
-  k_ldlba $EE76
+  k_stla g_king_mission+4
+  k_ldlba g_title
   k_inc
   k_ldriw $07D0
   k_mul
-  k_stla $EF5A
-  k_ldlba $EF57
+  k_stla g_king_mission+6
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx OUKYU_F_B140, 2
   k_jumpf OUKYU_L_BC74
   k_call RF_60B2
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx OUKYU_F_B140, 2
   k_pushl
@@ -1466,13 +1488,13 @@ OUKYU_L_BADF:
   k_pushi 1
   k_pushiw OUKYU_D_D1BF
   k_callx RF_2FB9, 4
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_long $26
   k_long $14
   k_ldl -4
   k_long $26
   k_long $14
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx OUKYU_F_B140, 2
   k_long $26
@@ -1492,43 +1514,43 @@ OUKYU_L_BADF:
   k_longd $19, $000003E8
   k_long $02
   k_long $27
-  k_ldra $EE72
+  k_ldra g_palace_savings
   k_add
   k_pushl
   k_callx RL_8962, 4
-  k_stla $EE72
+  k_stla g_palace_savings
   k_ldliw $EA60
   k_jump OUKYU_L_BC28
 OUKYU_L_BC0C:
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx OUKYU_F_B140, 2
   k_ldr -4
   k_mul
   k_pushl
   k_ldliw $EA60
-  k_ldra $E56D
+  k_ldra g_player_gold
   k_sub
   k_pushl
   k_callx RL_8962, 4
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_add
 OUKYU_L_BC28:
-  k_stla $E56D
-  k_ldlba $EF57
+  k_stla g_player_gold
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx OUKYU_F_B140, 2
   k_pushl
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx OUKYU_F_B91D, 4
 OUKYU_L_BC3C:
   k_ldli 8
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_472D
 OUKYU_L_BC48:
   k_ldli 1
@@ -1539,7 +1561,7 @@ OUKYU_L_BC4A:
   k_pushiw OUKYU_D_D1EC
   k_callx RF_2FB9, 4
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldl -6
   k_ldri 10
   k_udiv
@@ -1552,9 +1574,9 @@ OUKYU_L_BC4A:
   k_popr
   k_add
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_sub
-  k_stla $EE74
+  k_stla g_fame
   k_call RF_472D
   k_ldli 0
   k_return
@@ -1581,7 +1603,7 @@ OUKYU_L_BCA1:
   k_pushiw OUKYU_D_D293
   k_callx RF_2FB9, 4
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldl -6
   k_ldri 10
   k_udiv
@@ -1594,12 +1616,13 @@ OUKYU_L_BCA1:
   k_popr
   k_add
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_sub
-  k_stla $EE74
+  k_stla g_fame
   k_call RF_472D
   k_ldli 0
   k_return
+; calls 4
 OUKYU_F_BCCB:
   k_func 0
   k_pushiw $2000
@@ -1635,6 +1658,7 @@ OUKYU_L_BCEC:
   k_pushiw OUKYU_D_D2D5
   k_callx RF_2FB9, 4
   k_return
+; vars: g_port_flags, g_port | calls 6
 OUKYU_F_BD12:
   k_func 64
   k_ldli 0
@@ -1644,13 +1668,13 @@ OUKYU_F_BD12:
   k_jump OUKYU_L_BD49
 OUKYU_L_BD20:
   k_ldln -56
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 3
   k_and
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_inc
   k_popr
   k_eq
@@ -1731,7 +1755,7 @@ OUKYU_L_BD7D:
   k_pushl
   k_pushib 24
   k_callx RF_2F8F, 4
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldrn -52
   k_add
   k_derefb
@@ -1801,27 +1825,28 @@ OUKYU_L_BE1A:
   k_ult
   k_jumpt OUKYU_L_BD5E
   k_return
+; vars: g_title, g_princess, g_king_mission, g_port, g_ending | calls 13
 OUKYU_F_BE25:
   k_func 3
-  k_ldlba $EE76
+  k_ldlba g_title
   k_stlbf -1
   k_ldli 1
   k_stln -3
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpf OUKYU_L_BE5C
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 1
   k_eq
   k_jumpf OUKYU_L_BE5C
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_popr
   k_eq
   k_jumpf OUKYU_L_BE5C
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 2
   k_and
   k_jumpt OUKYU_L_BE5C
@@ -1829,19 +1854,19 @@ OUKYU_F_BE25:
   k_ldli 0
   k_return
 OUKYU_L_BE5C:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf OUKYU_L_BEA3
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf OUKYU_L_BEA3
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt OUKYU_L_BEA3
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 4
   k_ne
   k_jumpt OUKYU_L_BE84
@@ -1852,14 +1877,14 @@ OUKYU_L_BE84:
   k_pushi 4
   k_callx RF_21EA, 4
 OUKYU_L_BE8A:
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_shl1
   k_ldriw OUKYU_D_D303
   k_add
   k_deref
   k_callptr
   k_stln -3
-  k_ldlba $F169
+  k_ldlba g_ending
   k_jumpf OUKYU_L_BE9E
   k_ldli 1
   k_return
@@ -1868,17 +1893,17 @@ OUKYU_L_BE9E:
   k_ldli 0
   k_return
 OUKYU_L_BEA3:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf OUKYU_L_BEBD
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf OUKYU_L_BEBD
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpf OUKYU_L_BF2D
 OUKYU_L_BEBD:
   k_pushi 1
@@ -1910,7 +1935,7 @@ OUKYU_L_BEED:
   k_pushi 2
   k_callx $97B0, 8
   k_pushi 1
-  k_ldlba $EF69
+  k_ldlba g_port
   k_inc
   k_pushl
   k_callx RF_60CE, 4
@@ -1943,12 +1968,13 @@ OUKYU_L_BF2D:
   k_stlba $EF65
   k_ldli 0
   k_return
+; vars: g_player_gold, g_palace_savings | calls 8
 OUKYU_F_BF53:
   k_func 8
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stl -2
   k_ldliw $2710
-  k_ldra $EE72
+  k_ldra g_palace_savings
   k_le
   k_jumpf OUKYU_L_BF72
   k_call RF_60B2
@@ -2015,44 +2041,45 @@ OUKYU_L_BFBB:
 OUKYU_L_BFDA:
   k_ldl -4
   k_swap
-  k_ldla $EE72
+  k_ldla g_palace_savings
   k_add
-  k_stla $EE72
+  k_stla g_palace_savings
   k_ldl -4
   k_ldriw $03E8
   k_mul
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
-  k_ldla $EE72
+  k_stla g_player_gold
+  k_ldla g_palace_savings
   k_ldriw $2710
   k_gt
   k_jumpf OUKYU_L_C01E
   k_call RF_60B2
   k_pushiw OUKYU_D_D471
   k_callx RF_4B44, 2
-  k_ldla $EE72
+  k_ldla g_palace_savings
   k_addliw OUKYU_D_D8F0
   k_stl -4
   k_ldliw $2710
-  k_stla $EE72
+  k_stla g_palace_savings
   k_ldl -4
   k_ldriw $03E8
   k_mul
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_add
-  k_stla $E56D
+  k_stla g_player_gold
 OUKYU_L_C01E:
   k_call RF_60B2
   k_pushiw OUKYU_D_D489
   k_callx RF_4B44, 2
   k_ldli 1
   k_return
+; vars: g_player_gold, g_palace_savings | calls 11
 OUKYU_F_C02A:
   k_func 8
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stl -2
   k_ldl -2
   k_long $26
@@ -2074,7 +2101,7 @@ OUKYU_L_C052:
   k_callx RF_609A, 2
   k_pushiw OUKYU_D_D4C1
   k_callx RF_4B44, 2
-  k_pusha $EE72
+  k_pusha g_palace_savings
   k_ldl -2
   k_ldriw $03E8
   k_udiv
@@ -2139,17 +2166,17 @@ OUKYU_L_C0AC:
 OUKYU_L_C0CB:
   k_ldl -4
   k_swap
-  k_ldla $EE72
+  k_ldla g_palace_savings
   k_sub
-  k_stla $EE72
+  k_stla g_palace_savings
   k_ldl -4
   k_ldriw $03E8
   k_mul
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_add
-  k_stla $E56D
-  k_ldla $EE72
+  k_stla g_player_gold
+  k_ldla g_palace_savings
   k_jumpt OUKYU_L_C0F5
   k_call RF_60B2
   k_pushi 1
@@ -2158,7 +2185,7 @@ OUKYU_L_C0CB:
   k_jump OUKYU_L_C102
 OUKYU_L_C0F5:
   k_call RF_60B2
-  k_pusha $EE72
+  k_pusha g_palace_savings
   k_pushiw OUKYU_D_D537
   k_callx RF_3619, 4
 OUKYU_L_C102:
@@ -2169,9 +2196,10 @@ OUKYU_L_C102:
   k_callx RF_4B44, 2
   k_ldli 1
   k_return
+; vars: g_palace_savings | calls 10
 OUKYU_F_C113:
   k_func 6
-  k_ldla $EE72
+  k_ldla g_palace_savings
   k_stl -2
   k_pushi 1
   k_pushi 10
@@ -2239,6 +2267,7 @@ OUKYU_L_C191:
 OUKYU_L_C19F:
   k_ldli 0
   k_return
+; calls 11
 OUKYU_F_C1A1:
   k_func 15
   k_ldla $EED0
@@ -2338,11 +2367,12 @@ OUKYU_L_C255:
   k_stla $EED0
   k_ldln -15
   k_return
+; vars: g_player_gold | calls 9
 OUKYU_F_C261:
   k_func 8
   k_ldla $EECE
   k_stl -2
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stl -6
   k_ldl -6
   k_ldriw $E678
@@ -2414,9 +2444,9 @@ OUKYU_L_C2BE:
 OUKYU_L_C2EA:
   k_ldl -8
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_add
-  k_stla $E56D
+  k_stla g_player_gold
   k_ldl -8
   k_ldri 10
   k_udiv
@@ -2430,6 +2460,7 @@ OUKYU_L_C2EA:
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
+; sys: anim_control, hdma_effect_on, color_math | calls 2
 OUKYU_F_C30B:
   k_func 6
   k_ldlbf 11
@@ -2469,7 +2500,7 @@ OUKYU_L_C33C:
   k_pushi 0
   k_pushi 0
   k_pushib 56
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 56 anim_control
   k_pushib 126
   k_ldl -2
   k_ldriw $00F7
@@ -2480,41 +2511,42 @@ OUKYU_L_C33C:
   k_pushib 38
   k_pushi 4
   k_pushib 73
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 73 hdma_effect_on
   k_call OUKYU_L_C718
   k_pushiw $00E0
   k_pushib 83
   k_pushib 32
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_push -4
   k_pushib 83
   k_pushib 32
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_push -6
   k_pushib 83
   k_pushib 32
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_return
+; sys: hdma_effect_off, window_off, color_math, anim_control | vars: g_princess, g_port, g_king_mission, g_title, g_player_name_ptr, g_player_gold | calls 16
 OUKYU_F_C38C:
   k_func 11
   k_ldlba $E442
   k_stlbf -6
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf OUKYU_L_C3D1
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf OUKYU_L_C3D1
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt OUKYU_L_C3D1
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 4
   k_eq
   k_jumpf OUKYU_L_C3D1
@@ -2537,7 +2569,7 @@ OUKYU_L_C3D1:
   k_popr
   k_ult
   k_jumpf OUKYU_L_C416
-  k_ldlba $EE76
+  k_ldlba g_title
   k_pushl
   k_pushi 3
   k_callx RF_3F3E, 2
@@ -2584,7 +2616,7 @@ OUKYU_L_C416:
   k_pushi 0
   k_pushiw OUKYU_D_DCC3
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pushiw OUKYU_D_DCC9
@@ -2666,7 +2698,7 @@ OUKYU_L_C4B0:
   k_pushl
   k_callx RF_2FB9, 4
   k_call RF_472D
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldriw $0190
   k_ult
   k_jumpf OUKYU_L_C4F9
@@ -2703,7 +2735,7 @@ OUKYU_L_C500:
   k_pushiw OUKYU_D_DD0B
   k_callx RF_2FB9, 4
   k_call RF_472D
-  k_ldlba $EAC3
+  k_ldlba g_hero_stats+2
   k_jump OUKYU_L_C56D
 OUKYU_L_C540:
   k_pushi 0
@@ -2723,7 +2755,7 @@ OUKYU_L_C540:
   k_pushiw OUKYU_D_DD4E
   k_callx RF_2FB9, 4
   k_call RF_472D
-  k_ldlba $EAC2
+  k_ldlba g_hero_stats+1
 OUKYU_L_C56D:
   k_ldri 15
   k_mul
@@ -2737,7 +2769,7 @@ OUKYU_L_C579:
   k_ldri 1
   k_eq
   k_jumpt OUKYU_L_C540
-  k_ldliw $E56F
+  k_ldliw g_player_items
   k_stln -11
   k_ldli 0
   k_stlbf -8
@@ -2844,9 +2876,9 @@ OUKYU_L_C637:
   k_call RF_472D
   k_ldliw $012C
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_pushi 1
   k_pushi 12
   k_callx RF_60CE, 4
@@ -2920,18 +2952,18 @@ OUKYU_L_C6E4:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushib 74
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 74 hdma_effect_off
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_pushiw $00E0
   k_pushi 0
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushiw $00FF
   k_pushi 3
   k_pushib 56
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 56 anim_control
   k_call RF_2281
   k_ldli 1
   k_return
@@ -3136,7 +3168,7 @@ OUKYU_D_D2EE:
 OUKYU_D_D2F2:
   .byte "A-more  B-cancel", $00
 OUKYU_D_D303:
-  .word OUKYU_F_B9B3, OUKYU_F_B79C, OUKYU_F_B5B9, OUKYU_F_B356, OUKYU_F_B2D3
+  .word palace_mission_crates, palace_mission_letter, OUKYU_F_B5B9, OUKYU_F_B356, palace_mission_princess
 OUKYU_D_D30D:
   .byte "Please wait a moment", $00
 OUKYU_D_D322:

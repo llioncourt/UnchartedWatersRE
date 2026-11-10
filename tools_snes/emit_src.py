@@ -109,6 +109,13 @@ NAT_FMT = {
 }
 
 SYM_OPS = {0x8A, 0x8C, 0x8E, 0x90, 0xA4, 0xA5, 0xA6, 0xA7, 0xA8, 0xA9, 0xAA, 0xAB}
+MEM_OPS = {0xA4, 0xA5, 0xA6, 0xA7, 0xA8, 0xA9, 0xAA, 0xAB}
+import names as NM
+
+def ram_name(v, exact=False):
+    r = NM.ram_symbol(v) if v >= 0xDF00 else (NM.ram_symbol(v, True) if v < 0x2000 else None)
+    if r and exact and '+' in r: return None
+    return r
 
 def data_block(buf, start, a, n, k, syms):
     b = buf[a - start:a - start + n]
@@ -152,6 +159,8 @@ def native_text(mn, md, val, pc, labels, nxt, syms=None):
     if mn in ('BRK', 'COP', 'WDM'): return f'.byte ${ {"BRK":0,"COP":2,"WDM":0x42}[mn]:02X}, ${val:02X}'
     if syms and md in ('abs', 'absx', 'absy') and mn not in ('JSR', 'JMP') and val in syms:
         return NAT_FMT[md].replace('{v4}', syms[val]).format(mn=mnl, v2='', v4='', v6='')
+    if md in ('abs', 'absx', 'absy') and mn not in ('JSR', 'JMP') and ram_name(val):
+        return NAT_FMT[md].replace('{v4}', ram_name(val)).format(mn=mnl, v2='', v4='', v6='')
     if syms and md in ('immM', 'immX') and mn in ('LDA', 'LDX', 'LDY') and val is not None and val > 0xFF and val in syms:
         return f'{mnl} #{syms[val]}'
     if md in ('immM', 'immX', 'imm8'):
@@ -207,6 +216,9 @@ def bc_text(buf, off, pc, labels, ins_len, syms=None):
     v = buf[off + 1] | buf[off + 2] << 8
     if k == 'w':
         if syms and op in SYM_OPS and v in syms: return [f'{nm} {syms[v]}']
+        if op in SYM_OPS:
+            r = ram_name(v, exact=op not in MEM_OPS)
+            if r: return [f'{nm} {r}']
         return [f'{nm} {hx(v, 4)}']
     if k == 'sw': return [f'{nm} {s16(v)}']
     if k == 'lbl': return [f'{nm} {L(v)}']
@@ -244,6 +256,8 @@ def emit_segment(name, start, size, off, ins, prefix, globals_=None, header='', 
         if start <= a < start + size and a in starts:
             k = starts[a][1]
             labels[a] = f'{prefix}{"F" if k == "H" else "L"}_{a:04X}'
+    for (mname, a), nm in NM.FUNCS.items():
+        if mname == name and a in labels: labels[a] = nm
     if globals_:
         for a, nm in globals_.items():
             if not (start <= a < start + size) or a in starts: labels[a] = nm if (start <= a < start + size) else labels.get(a, nm)
@@ -259,8 +273,8 @@ def emit_segment(name, start, size, off, ins, prefix, globals_=None, header='', 
     syms = dict(labels)
     if ext_syms:
         for a, nm in ext_syms.items(): syms.setdefault(a, nm)
-    lines = [header, '.p816', '.smart -', f'.include "kvm.inc"', '']
-    if name not in ('root', 'bank00') and globals_ is not None: lines.insert(4, '.include "root_syms.inc"')
+    lines = [header, '.p816', '.smart -', f'.include "kvm.inc"', '.include "ram.inc"', '']
+    if name not in ('root', 'bank00') and globals_ is not None: lines.insert(5, '.include "root_syms.inc"')
     lines += ['.segment "CODE"', '']
     a = start; m16 = x16 = None; pend = []
     stats = defaultdict(int)
@@ -301,16 +315,55 @@ def emit_segment(name, start, size, off, ins, prefix, globals_=None, header='', 
             lines.append('  ' + native_text(mn, md, val, a, labels, (a + n) & 0xFFFF, syms)); stats['nat'] += n
         a += n
     flush()
-    return '\n'.join(lines) + '\n', labels, stats
+    return '\n'.join(annotate(lines, labels, prefix)) + '\n', labels, stats
 
 VMNAMES = {}
+def annotate(lines, labels, prefix):
+    """Comments: syscall name on each syscall call; a summary line above each bytecode function."""
+    import re
+    out = []
+    for i, l in enumerate(lines):
+        m = re.match(r'  k_callx (syscall|RL_21BE), (\d+)$', l)
+        if m and i and re.match(r'  k_pushib? (\d+)$', lines[i - 1]):
+            n = int(lines[i - 1].split()[-1])
+            nm = NM.SYS.get(n, ('',))[0]
+            l = f'{l}  ; sys {n} {nm}'.rstrip()
+        out.append(l)
+    # function summaries
+    func_re = re.compile(r'^([A-Za-z_][A-Za-z0-9_]*):$')
+    starts = [i for i, l in enumerate(out) if func_re.match(l) and i + 1 < len(out) and out[i + 1].startswith('  k_func')]
+    res = []; si = set(starts)
+    bounds = starts + [len(out)]
+    summ = {}
+    for j, st in enumerate(starts):
+        body = out[st:bounds[j + 1]]
+        sysn, ram, calls, strs = [], [], [], []
+        for b in body:
+            m = re.search(r'; sys (\d+) (\w+)', b)
+            if m and m.group(2) not in sysn: sysn.append(m.group(2))
+            for r in re.findall(r'\b(g_[a-z_0-9]+)', b):
+                if r not in ram: ram.append(r)
+            m = re.match(r'  k_call(?:x)? ([A-Za-z_][A-Za-z0-9_]*)', b)
+            if m and m.group(1) not in ('syscall', 'RL_21BE') and m.group(1) not in calls: calls.append(m.group(1))
+        parts = []
+        if sysn: parts.append('sys: ' + ', '.join(sysn[:6]))
+        if ram: parts.append('vars: ' + ', '.join(ram[:6]))
+        if calls: parts.append(f'calls {len(calls)}')
+        if parts: summ[st] = '; ' + ' | '.join(parts)
+    for i, l in enumerate(out):
+        if i in summ: res.append(summ[i])
+        res.append(l)
+    return res
+
 def table_labels():
     """Names for handlers reached only through the engine's jump tables."""
     from kbc import NAMES as KN
     lab = {}
     w = lambda o: ROM[o] | ROM[o + 1] << 8
     for i in range(79):
-        lab.setdefault(w(0x19F0 + 2 * i), f'sys_{i:02d}')
+        nm = NM.SYS.get(i, ('',))[0]
+        lab.setdefault(w(0x19F0 + 2 * i), f'sys_{i:02d}' + (f'_{nm}' if nm else ''))
+    for a, nm in NM.BANK0.items(): lab.setdefault(a, nm)
     for op in range(256):
         a = w(0x2797 + 2 * op)
         if a < 0x8000: continue
@@ -333,6 +386,7 @@ def main():
     os.makedirs(os.path.join(SRC, 'ovl'), exist_ok=True)
     os.makedirs(os.path.join(ROOT, 'include'), exist_ok=True)
     open(os.path.join(ROOT, 'include', 'kvm.inc'), 'w').write(kvm_inc())
+    open(os.path.join(ROOT, 'include', 'ram.inc'), 'w').write(NM.ram_inc())
     ram = pickle.load(open(os.path.join(ROOT, 'out', 'trace_ram.pickle'), 'rb'))
     import datacls
     DC = datacls.run()

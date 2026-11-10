@@ -2,21 +2,24 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp MAITUKI_F_9603
+; calls 1
 MAITUKI_F_9603:
   k_func 0
   k_call MAITUKI_F_A26C
   k_return
+; vars: g_nations | calls 2
 MAITUKI_F_960C:
   k_func 2
   k_ldlarg 11
   k_shl1
   k_shl1
-  k_ldriw $EEBE
+  k_ldriw g_nations
   k_add
   k_stl -2
   k_pushi 3
@@ -37,12 +40,13 @@ MAITUKI_F_960C:
   k_sub
   k_popstoreb
   k_return
+; vars: g_fleets, g_player_name_ptr, g_captains | calls 5
 MAITUKI_F_9631:
   k_func 10
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -6
   k_ldl -6
@@ -65,10 +69,10 @@ MAITUKI_L_9647:
   k_addlib 20
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_stl -2
-  k_ldliw $E444
+  k_ldliw g_player_name_ptr
   k_stl -4
   k_push -2
   k_ldlarg 11
@@ -183,7 +187,7 @@ MAITUKI_L_9647:
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -10
   k_ldl -10
@@ -206,12 +210,13 @@ MAITUKI_L_9647:
   k_ldli 0
   k_popstore
   k_return
+; vars: g_ships, g_ports | calls 5
 MAITUKI_F_971F:
   k_func 20
   k_ldlarg 11
   k_ldrib 35
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -4
   k_addlib 35
@@ -244,7 +249,7 @@ MAITUKI_L_9745:
   k_callx RL_884E, 2
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -10
   k_pushi 3
@@ -410,12 +415,13 @@ MAITUKI_L_9745:
   k_add
   k_popstore
   k_return
+; vars: g_nations | calls 3
 MAITUKI_F_9832:
   k_func 18
   k_ldlarg 11
   k_shl1
   k_shl1
-  k_ldriw $EEBE
+  k_ldriw g_nations
   k_add
   k_stl -18
   k_ldl -18
@@ -538,12 +544,13 @@ MAITUKI_L_98CF:
   k_jumpt MAITUKI_L_9887
 MAITUKI_L_98D9:
   k_return
+; vars: g_ships, g_ports | calls 5
 MAITUKI_F_98DA:
   k_func 12
   k_ldlarg 11
   k_ldrib 35
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -4
   k_addlib 35
@@ -576,7 +583,7 @@ MAITUKI_L_9900:
   k_callx RL_884E, 2
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -10
   k_pushi 2
@@ -787,12 +794,13 @@ MAITUKI_L_9900:
   k_add
   k_popstore
   k_return
+; vars: g_nations | calls 3
 MAITUKI_F_9A39:
   k_func 16
   k_ldlarg 11
   k_shl1
   k_shl1
-  k_ldriw $EEBE
+  k_ldriw g_nations
   k_add
   k_stl -16
   k_ldl -16
@@ -922,12 +930,13 @@ MAITUKI_L_9AE1:
   k_jumpt MAITUKI_L_9A8F
 MAITUKI_L_9AEB:
   k_return
+; vars: g_ships | calls 5
 MAITUKI_F_9AEC:
   k_func 8
   k_ldlarg 11
   k_ldrib 35
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -4
   k_addlib 35
@@ -1140,6 +1149,7 @@ MAITUKI_L_9B12:
   k_callx RL_8898, 2
   k_popstore
   k_return
+; vars: g_nations | calls 3
 MAITUKI_F_9C23:
   k_func 20
   k_ldli 3
@@ -1147,7 +1157,7 @@ MAITUKI_F_9C23:
   k_ldl -4
   k_shl1
   k_shl1
-  k_ldriw $EEBE
+  k_ldriw g_nations
   k_add
   k_stl -20
   k_ldli 5
@@ -1269,12 +1279,13 @@ MAITUKI_L_9CC3:
   k_jumpt MAITUKI_L_9C71
 MAITUKI_L_9CCE:
   k_return
+; vars: g_nations, g_relations | calls 2
 MAITUKI_F_9CCF:
   k_func 19
   k_ldlarg 11
   k_shl1
   k_shl1
-  k_ldriw $EEBE
+  k_ldriw g_nations
   k_add
   k_stln -17
   k_pushib 100
@@ -1349,7 +1360,7 @@ MAITUKI_L_9D36:
   k_ldri 3
   k_ult
   k_jumpt MAITUKI_L_9D11
-  k_ldliw $EA8F
+  k_ldliw g_relations
   k_stln -5
   k_ldln -9
   k_switchn 2
@@ -1507,6 +1518,7 @@ MAITUKI_L_9E17:
   k_jumpt MAITUKI_L_9DA3
   k_ldln -11
   k_jump MAITUKI_L_9CF2
+; calls 4
 MAITUKI_F_9E34:
   k_func 0
   k_ldlarg 11
@@ -1524,11 +1536,12 @@ MAITUKI_L_9E4F:
   k_pusharg 11
   k_callx MAITUKI_F_9CCF, 2
   k_return
+; vars: g_title, g_nations | calls 3
 MAITUKI_F_9E55:
   k_func 0
-  k_ldlba $EE76
+  k_ldlba g_title
   k_pushl
-  k_ldla $EEBE
+  k_ldla g_nations
   k_ldrib 50
   k_udiv
   k_pushl
@@ -1546,7 +1559,7 @@ MAITUKI_F_9E55:
   k_pusha $EECE
   k_callx RL_8962, 4
   k_stla $EECE
-  k_ldlba $EE76
+  k_ldlba g_title
   k_pushl
   k_pushi 5
   k_callx RF_3F3E, 2
@@ -1575,7 +1588,7 @@ MAITUKI_F_9E55:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_pushl
-  k_ldlba $EE76
+  k_ldlba g_title
   k_pushl
   k_ldli 9
   k_popr
@@ -1591,6 +1604,7 @@ MAITUKI_F_9E55:
   k_sub
   k_stlba $E442
   k_return
+; vars: g_ports, g_nations | calls 1
 MAITUKI_F_9ED8:
   k_func 2
   k_ldlarg 11
@@ -1601,7 +1615,7 @@ MAITUKI_F_9ED8:
   k_callx RL_884E, 2
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -2
   k_ldl -2
@@ -1614,7 +1628,7 @@ MAITUKI_F_9ED8:
   k_ldlarg 11
   k_shl1
   k_shl1
-  k_ldriw $EEBE
+  k_ldriw g_nations
   k_add
   k_deref
   k_ldrib 50
@@ -1624,9 +1638,10 @@ MAITUKI_F_9ED8:
   k_popr
   k_add
   k_return
+; vars: g_relations, g_port_flags | calls 5
 MAITUKI_F_9F06:
   k_func 14
-  k_ldliw $EA8F
+  k_ldliw g_relations
   k_stl -2
   k_ldliw $EA95
   k_stl -6
@@ -1814,7 +1829,7 @@ MAITUKI_L_9FFD:
   k_jumpt MAITUKI_L_9FED
   k_pushiw $00FC
   k_ldl -8
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_popr
   k_pushl
@@ -1825,7 +1840,7 @@ MAITUKI_L_9FFD:
   k_inc
   k_pushl
   k_ldl -8
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_popr
   k_pushl
@@ -2222,6 +2237,7 @@ MAITUKI_L_A224:
   k_popstoreb
 MAITUKI_L_A225:
   k_return
+; calls 1
 MAITUKI_F_A226:
   k_func 2
   k_ldli 0
@@ -2243,6 +2259,7 @@ MAITUKI_L_A239:
   k_ult
   k_jumpt MAITUKI_L_A22D
   k_return
+; calls 4
 MAITUKI_F_A243:
   k_func 2
   k_ldli 0
@@ -2268,13 +2285,15 @@ MAITUKI_L_A25A:
   k_jumpt MAITUKI_L_A24A
   k_call MAITUKI_F_9E55
   k_return
+; calls 4
 MAITUKI_F_A26C:
   k_func 0
-  k_call MAITUKI_F_A3BB
+  k_call monthly_index_recovery
   k_call MAITUKI_F_A243
   k_call MAITUKI_F_A5A2
   k_call MAITUKI_F_A5EF
   k_return
+; vars: g_player_name_ptr | calls 2
 MAITUKI_F_A27E:
   k_func 10
   k_ldlarg 11
@@ -2283,7 +2302,7 @@ MAITUKI_F_A27E:
   k_dec
   k_stlarg 11
 MAITUKI_L_A28A:
-  k_ldliw $E444
+  k_ldliw g_player_name_ptr
   k_stl -4
   k_addliw $011F
   k_stl -6
@@ -2331,6 +2350,7 @@ MAITUKI_L_A2C4:
   k_ldl -2
   k_popstore
   k_return
+; vars: g_port_flags
 MAITUKI_F_A2CC:
   k_func 6
   k_ldli 0
@@ -2339,7 +2359,7 @@ MAITUKI_F_A2CC:
   k_jump MAITUKI_L_A2EB
 MAITUKI_L_A2D7:
   k_ldl -2
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 3
@@ -2369,6 +2389,7 @@ MAITUKI_L_A2FB:
   k_ldli 0
 MAITUKI_L_A2FC:
   k_return
+; calls 1
 MAITUKI_F_A2FD:
   k_func 11
   k_ldlarg 11
@@ -2405,12 +2426,13 @@ MAITUKI_L_A32E:
   k_jumpt MAITUKI_L_A319
   k_ldln -7
   k_return
+; vars: g_ports | calls 2
 MAITUKI_F_A339:
   k_func 6
   k_ldlarg 11
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -6
   k_ldl -6
@@ -2500,7 +2522,8 @@ MAITUKI_L_A381:
   k_popstore
 MAITUKI_L_A3BA:
   k_return
-MAITUKI_F_A3BB:
+; sys: memset_long | vars: g_ports, g_port_flags, g_nations | calls 5
+monthly_index_recovery:
   k_func 158
   k_pushib 64
   k_pushi 0
@@ -2508,21 +2531,21 @@ MAITUKI_F_A3BB:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_pushib 64
   k_pushi 0
   k_leal -142
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
-  k_ldliw $E6B4
+  k_callx syscall, 10  ; sys 36 memset_long
+  k_ldliw g_ports
   k_stlf -154
   k_ldliw $150A
   k_stlf -156
   k_ldli 0
   k_stl -6
-  k_ldliw $EE78
+  k_ldliw g_port_flags
   k_stl -2
   k_addlib 50
   k_stl -4
@@ -2666,7 +2689,7 @@ MAITUKI_L_A4AB:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 1
   k_stl -6
   k_leal -148
@@ -2783,7 +2806,7 @@ MAITUKI_L_A54C:
   k_jumpt MAITUKI_L_A4CE
   k_ldli 0
   k_stl -6
-  k_ldliw $EEBE
+  k_ldliw g_nations
   k_stlf -158
   k_leal -148
   k_stlf -150
@@ -2820,6 +2843,7 @@ MAITUKI_L_A597:
   k_ult
   k_jumpt MAITUKI_L_A56B
   k_return
+; calls 1
 MAITUKI_F_A5A2:
   k_func 6
   k_ldliw $E970
@@ -2876,6 +2900,7 @@ MAITUKI_L_A5E8:
   k_ult
   k_jumpt MAITUKI_L_A5B1
   k_return
+; calls 2
 MAITUKI_F_A5EF:
   k_func 4
   k_ldliw $E42E

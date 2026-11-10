@@ -2,16 +2,19 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp Z_SINZOU_F_D003
+; calls 1
 Z_SINZOU_F_D003:
   k_func 0
   k_call Z_SINZOU_F_D759
   k_stla $F99A
   k_return
+; calls 1
 Z_SINZOU_F_D00F:
   k_func 0
   k_pusharg 15
@@ -20,11 +23,12 @@ Z_SINZOU_F_D00F:
   k_pusharg 15
   k_pusharg 13
   k_pusharg 11
-  k_callx RF_22A8, 12
+  k_callx face_block_load, 12
   k_return
 Z_SINZOU_F_D021:
   k_func 0
   k_return
+; calls 4
 Z_SINZOU_F_D027:
   k_func 6
   k_ldlib -1
@@ -92,6 +96,7 @@ Z_SINZOU_F_D071:
   k_add
   k_addlib 20
   k_return
+; calls 3
 Z_SINZOU_F_D085:
   k_func 0
   k_pushi 10
@@ -141,6 +146,7 @@ Z_SINZOU_F_D09E:
   k_ldri 2
   k_shr
   k_return
+; calls 3
 Z_SINZOU_F_D0CA:
   k_func 0
   k_pushi 14
@@ -191,6 +197,7 @@ Z_SINZOU_F_D0E3:
 Z_SINZOU_L_D10F:
   k_ldl -2
   k_return
+; calls 3
 Z_SINZOU_F_D111:
   k_func 0
   k_pushi 12
@@ -232,6 +239,7 @@ Z_SINZOU_F_D12A:
   k_stl -2
   k_ldl -2
   k_return
+; calls 3
 Z_SINZOU_F_D151:
   k_func 0
   k_pushib 16
@@ -243,6 +251,7 @@ Z_SINZOU_F_D151:
   k_pushiw Z_SINZOU_D_D887
   k_callx RF_3608, 4
   k_return
+; calls 2
 Z_SINZOU_F_D16B:
   k_func 0
   k_pushi 12
@@ -252,6 +261,7 @@ Z_SINZOU_F_D16B:
   k_pushiw Z_SINZOU_D_D896
   k_callx RF_3608, 4
   k_return
+; calls 2
 Z_SINZOU_F_D17F:
   k_func 0
   k_pushi 14
@@ -261,6 +271,7 @@ Z_SINZOU_F_D17F:
   k_pushiw Z_SINZOU_D_D8A0
   k_callx RF_3608, 4
   k_return
+; calls 2
 Z_SINZOU_F_D193:
   k_func 0
   k_pushib 16
@@ -270,6 +281,7 @@ Z_SINZOU_F_D193:
   k_pushiw Z_SINZOU_D_D8AA
   k_callx RF_3608, 4
   k_return
+; calls 4
 Z_SINZOU_F_D1A8:
   k_func 2
   k_pushi 1
@@ -283,6 +295,7 @@ Z_SINZOU_F_D1A8:
   k_stl -2
   k_ldl -2
   k_return
+; sys: memset_long, wait_frames | vars: g_ships, g_cargo | calls 13
 Z_SINZOU_F_D1C4:
   k_func 18
   k_ldli 0
@@ -291,7 +304,7 @@ Z_SINZOU_L_D1CB:
   k_ldl -2
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -16
   k_ldl -16
@@ -510,12 +523,12 @@ Z_SINZOU_L_D282:
   k_ldlbf -3
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_pushi 1
   k_pushi 5
   k_callx RF_60CE, 4
@@ -552,12 +565,12 @@ Z_SINZOU_L_D32A:
   k_jumpf Z_SINZOU_L_D354
   k_pushib 30
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_jump Z_SINZOU_L_D360
 Z_SINZOU_L_D354:
   k_pushib 30
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldli 1
   k_jumpt Z_SINZOU_L_D313
 Z_SINZOU_L_D360:
@@ -566,6 +579,7 @@ Z_SINZOU_L_D360:
   k_ldlbf -3
   k_addli 5
   k_return
+; calls 9
 Z_SINZOU_F_D36A:
   k_func 8
 Z_SINZOU_L_D36F:
@@ -692,6 +706,7 @@ Z_SINZOU_L_D3DC:
   k_stl -8
   k_ldl -8
   k_return
+; vars: g_player_gold, g_title | calls 22
 Z_SINZOU_F_D41F:
   k_func 17
   k_ldlarg 15
@@ -716,7 +731,7 @@ Z_SINZOU_F_D41F:
   k_pushib 18
   k_pushib 19
   k_callx RF_2F8F, 4
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw Z_SINZOU_D_D9B5
   k_callx RF_3608, 4
 Z_SINZOU_L_D45A:
@@ -898,7 +913,7 @@ Z_SINZOU_L_D56B:
   k_pushl
   k_pushi 6
   k_pushi 3
-  k_callx RF_22A8, 12
+  k_callx face_block_load, 12
   k_ldlarg 15
   k_addli 2
   k_deref
@@ -972,7 +987,7 @@ Z_SINZOU_L_D5E4:
   k_pushl
   k_pushiw Z_SINZOU_D_DA51
   k_callx RF_3619, 4
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stln -9
   k_call RF_3CFF
   k_jumpf Z_SINZOU_L_D651
@@ -996,13 +1011,13 @@ Z_SINZOU_L_D636:
   k_longw $0C, $FFEF
   k_long $27
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_ldln -13
   k_return
 Z_SINZOU_L_D651:
-  k_ldlba $EE76
+  k_ldlba g_title
   k_inc
   k_pushl
   k_callx RF_3F3E, 2
@@ -1040,7 +1055,7 @@ Z_SINZOU_L_D651:
   k_longd $19, $00000014
   k_long $02
   k_long $14
-  k_ldlba $EE76
+  k_ldlba g_title
   k_pushl
   k_ldli 10
   k_popr
@@ -1072,14 +1087,15 @@ Z_SINZOU_L_D6E4:
   k_jumpf Z_SINZOU_L_D6FB
   k_ldln -5
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_ldln -13
   k_return
 Z_SINZOU_L_D6FB:
   k_ldli 0
   k_return
+; calls 8
 Z_SINZOU_F_D6FD:
   k_func 2
   k_call RF_60B2
@@ -1123,6 +1139,7 @@ Z_SINZOU_L_D747:
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
+; sys: memset_long | vars: g_port | calls 7
 Z_SINZOU_F_D759:
   k_func 20
   k_pushi 1
@@ -1131,7 +1148,7 @@ Z_SINZOU_F_D759:
   k_call RF_60B2
   k_pushiw Z_SINZOU_D_DCD9
   k_callx RF_4B44, 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6B8
@@ -1156,7 +1173,7 @@ Z_SINZOU_L_D78E:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldl -20
   k_jumpf Z_SINZOU_L_D7B0
   k_call $9662
@@ -1184,7 +1201,7 @@ Z_SINZOU_L_D7B0:
   k_pushl
   k_leal -16
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF

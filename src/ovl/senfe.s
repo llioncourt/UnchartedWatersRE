@@ -2,11 +2,13 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp SENFE_F_A503
+; calls 2
 SENFE_F_A503:
   k_func 0
   k_ldlba $F300
@@ -43,6 +45,7 @@ SENFE_L_A53D:
   k_ldli 1
 SENFE_L_A53E:
   k_return
+; vars: g_cargo | calls 2
 SENFE_F_A53F:
   k_func 14
   k_ldlarg 11
@@ -68,7 +71,7 @@ SENFE_L_A565:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_stl -12
@@ -172,6 +175,7 @@ SENFE_L_A5EE:
   k_ult
   k_jumpt SENFE_L_A565
   k_return
+; calls 1
 SENFE_F_A5F5:
   k_func 6
   k_ldliw $F397
@@ -200,6 +204,7 @@ SENFE_L_A61B:
   k_ult
   k_jumpt SENFE_L_A605
   k_return
+; calls 1
 SENFE_F_A622:
   k_func 10
   k_ldli 0
@@ -323,41 +328,42 @@ SENFE_L_A6C3:
   k_ult
   k_jumpt SENFE_L_A6A7
   k_return
+; vars: g_month, g_zone_attr
 SENFE_F_A6CA:
   k_func 8
-  k_ldlba $EA8C
+  k_ldlba g_month
   k_ldri 2
   k_ugt
   k_jumpf SENFE_L_A6E7
-  k_ldlba $EA8C
+  k_ldlba g_month
   k_ldri 9
   k_ult
   k_jumpf SENFE_L_A6E7
-  k_ldlba $EF85
+  k_ldlba g_zone_attr+1
   k_ldri 4
   k_shr
   k_jump SENFE_L_A6EA
 SENFE_L_A6E7:
-  k_ldlba $EF85
+  k_ldlba g_zone_attr+1
 SENFE_L_A6EA:
   k_ldri 15
   k_and
   k_inc
   k_stla $F30C
-  k_ldlba $EA8C
+  k_ldlba g_month
   k_ldri 2
   k_ugt
   k_jumpf SENFE_L_A708
-  k_ldlba $EA8C
+  k_ldlba g_month
   k_ldri 9
   k_ult
   k_jumpf SENFE_L_A708
-  k_ldlba $EF84
+  k_ldlba g_zone_attr
   k_ldri 4
   k_shr
   k_jump SENFE_L_A70B
 SENFE_L_A708:
-  k_ldlba $EF84
+  k_ldlba g_zone_attr
 SENFE_L_A70B:
   k_ldri 15
   k_and
@@ -460,6 +466,7 @@ SENFE_L_A77E:
   k_ult
   k_jumpt SENFE_L_A761
   k_return
+; calls 1
 SENFE_F_A785:
   k_func 12
   k_ldliw $F41E
@@ -549,6 +556,7 @@ SENFE_L_A7F6:
   k_ult
   k_jumpt SENFE_L_A796
   k_return
+; sys: memset_long | vars: g_fleets | calls 6
 SENFE_F_A7FD:
   k_func 8
   k_pushiw $0087
@@ -556,7 +564,7 @@ SENFE_F_A7FD:
   k_pushiw $F310
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_pusharg 13
   k_callx SENFE_F_A5F5, 2
   k_call SENFE_F_A622
@@ -564,13 +572,13 @@ SENFE_F_A7FD:
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -2
   k_ldlarg 13
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -4
   k_ldl -4
@@ -620,6 +628,7 @@ SENFE_F_A7FD:
   k_pushi 5
   k_callx SENFE_F_A785, 4
   k_return
+; vars: g_cargo
 SENFE_F_A875:
   k_func 18
   k_ldliw $F423
@@ -653,7 +662,7 @@ SENFE_L_A8A9:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_jumpt SENFE_L_A8BE
@@ -717,6 +726,7 @@ SENFE_L_A8F1:
   k_ldl -18
   k_stla $F450
   k_return
+; calls 2
 SENFE_F_A8FC:
   k_func 8
   k_ldli 7
@@ -749,6 +759,7 @@ SENFE_L_A91A:
   k_push -2
   k_callx RF_2FB9, 4
   k_return
+; calls 3
 SENFE_F_A92C:
   k_func 6
   k_ldli 8
@@ -771,6 +782,7 @@ SENFE_L_A93E:
   k_pusharg 13
   k_callx RF_2FB9, 4
   k_return
+; vars: g_king_mission
 SENFE_F_A950:
   k_func 2
   k_ldlarg 11
@@ -781,19 +793,20 @@ SENFE_L_A95D:
   k_ldlarg 13
 SENFE_L_A95E:
   k_stl -2
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 3
   k_eq
   k_jumpf SENFE_L_A96D
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_ldr -2
   k_eq
   k_return
 SENFE_L_A96D:
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_ldr -2
   k_eq
   k_return
+; calls 1
 SENFE_F_A973:
   k_func 2
   k_ldlbf 13
@@ -832,6 +845,7 @@ SENFE_L_A9A3:
   k_pushl
   k_callx RF_2FB9, 4
   k_return
+; vars: g_princess, g_king_mission, g_player_name_ptr | calls 10
 SENFE_F_A9B5:
   k_func 2
   k_pushib 16
@@ -849,15 +863,15 @@ SENFE_L_A9C5:
   k_callx RF_4E29, 8
   k_ldlib 32
   k_stlba $F294
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpt SENFE_L_A9FC
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf SENFE_L_A9FC
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 1
   k_ugt
   k_jumpf SENFE_L_A9FC
@@ -866,21 +880,21 @@ SENFE_L_A9C5:
   k_callx SENFE_F_A950, 4
   k_jumpf SENFE_L_A9FC
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldli 0
-  k_stlba $EF56
+  k_stlba g_king_mission+2
 SENFE_L_A9FC:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpf SENFE_L_AA1F
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 2
   k_and
   k_ldri 2
   k_eq
   k_jumpt SENFE_L_AA1F
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 1
   k_ule
   k_jumpt SENFE_L_AA1F
@@ -911,7 +925,7 @@ SENFE_L_AA1F:
   k_addlib 20
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -977,7 +991,7 @@ SENFE_L_AADB:
   k_pushib 19
   k_pushib 25
   k_callx RF_4E29, 8
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 2
   k_eq
   k_jumpf SENFE_L_AB37
@@ -997,7 +1011,7 @@ SENFE_L_AB07:
   k_addlib 20
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -1016,7 +1030,7 @@ SENFE_L_AB07:
   k_pushi 0
   k_callx SENFE_F_A92C, 4
 SENFE_L_AB37:
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 3
   k_eq
   k_jumpf SENFE_L_AB6D
@@ -1038,7 +1052,7 @@ SENFE_L_AB37:
   k_pushi 0
   k_callx SENFE_F_A92C, 4
 SENFE_L_AB6D:
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 4
   k_eq
   k_jumpf SENFE_L_ABC3
@@ -1063,7 +1077,7 @@ SENFE_L_AB6D:
   k_pushi 0
   k_pushiw SENFE_D_BFB7
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pusha SENFE_D_BC88
   k_pushiw SENFE_D_BFBD
@@ -1074,6 +1088,7 @@ SENFE_L_AB6D:
 SENFE_L_ABC3:
   k_call RF_472D
   k_return
+; calls 4
 SENFE_F_ABC7:
   k_func 0
   k_ldlba $F294
@@ -1111,10 +1126,11 @@ SENFE_L_AC02:
   k_ne
   k_jumpt SENFE_L_ABDE
   k_return
+; vars: g_fh_cbmap0 | calls 2
 SENFE_F_AC0C:
   k_func 0
   k_call RF_3D7C
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $05EC
   k_pushib 28
   k_pushib 32
@@ -1122,7 +1138,7 @@ SENFE_F_AC0C:
   k_pushi 0
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $1378
   k_pushi 6
   k_pushib 30
@@ -1130,7 +1146,7 @@ SENFE_F_AC0C:
   k_pushi 1
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $0CEC
   k_pushi 6
   k_pushi 11
@@ -1170,6 +1186,7 @@ SENFE_L_AC6C:
   k_pusharg 11
   k_callx $9662, 8
   k_return
+; calls 1
 SENFE_F_AC75:
   k_func 10
   k_ldlarg 13
@@ -1246,13 +1263,14 @@ SENFE_L_ACCA:
   k_ult
   k_jumpt SENFE_L_AC81
   k_return
+; vars: g_fh_cbmap0 | calls 3
 SENFE_F_ACD1:
   k_func 8
   k_call SENFE_F_AC0C
   k_ldli 1
   k_stl -6
 SENFE_L_ACDB:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $0004
   k_pushi 1
   k_pushi 2
@@ -1269,7 +1287,7 @@ SENFE_L_ACDB:
   k_ldrib 30
   k_lt
   k_jumpt SENFE_L_ACDB
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $0008
   k_pushib 17
   k_pushib 30
@@ -1280,7 +1298,7 @@ SENFE_L_ACDB:
   k_ldli 3
   k_stl -6
 SENFE_L_AD09:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $0404
   k_pushi 1
   k_pushi 2
@@ -1359,6 +1377,7 @@ SENFE_L_AD60:
   k_pusha $F42A
   k_callx SENFE_F_AC75, 4
   k_return
+; sys: lz_decompress, vram_load_tiles | vars: g_player_name_ptr, g_fh_cbmap0, g_title | calls 6
 SENFE_F_AD80:
   k_func 2
   k_ldlarg 11
@@ -1381,7 +1400,7 @@ SENFE_L_AD91:
   k_addlib 20
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -1399,15 +1418,15 @@ SENFE_L_AD91:
   k_pushiw $8000
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_pushi 1
   k_pushib 127
   k_pushiw $0100
   k_pushi 4
   k_pushiw $00A0
   k_pushi 11
-  k_callx RL_21BE, 12
-  k_pusha $F280
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8C54
   k_pushi 2
   k_pushi 2
@@ -1421,7 +1440,7 @@ SENFE_L_AD91:
   k_pushi 0
   k_pushiw SENFE_D_C03C
   k_callx RF_2FB9, 4
-  k_ldlba $EE76
+  k_ldlba g_title
   k_shl1
   k_ldriw $1C56
   k_add
@@ -1429,7 +1448,7 @@ SENFE_L_AD91:
   k_callx RL_8875, 2
   k_pushl
   k_callx RF_40DE, 2
-  k_ldlba $EE76
+  k_ldlba g_title
   k_jumpf SENFE_L_AE1C
   k_pushi 1
   k_pushiw SENFE_D_C03E
@@ -1439,12 +1458,13 @@ SENFE_L_AE1C:
   k_pushiw SENFE_D_C040
 SENFE_L_AE20:
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pushiw SENFE_D_C049
   k_callx RF_2FB9, 4
   k_return
+; sys: memset_long, vram_load_tiles, vram_load_obj_tiles, brightness_set | calls 15
 SENFE_F_AE34:
   k_func 5
   k_pushi 5
@@ -1453,7 +1473,7 @@ SENFE_F_AE34:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 0
   k_stla $F572
   k_ldli 0
@@ -1524,21 +1544,22 @@ SENFE_F_AE34:
   k_pushiw $0335
   k_pushib 119
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 28
   k_pushiw $E6A0
   k_pushib 114
   k_pushiw $0100
   k_pushi 13
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 13 vram_load_obj_tiles
   k_call SENFE_F_ACD1
   k_call $9A47
   k_ldlba $F436
   k_stla $F574
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_return
+; calls 5
 SENFE_F_AF17:
   k_func 0
   k_ldlba $F294
@@ -1560,6 +1581,7 @@ SENFE_L_AF2B:
   k_pushib 22
   k_callx RF_3EC3, 6
   k_return
+; calls 5
 SENFE_F_AF45:
   k_func 0
   k_pushib 16
@@ -1586,6 +1608,7 @@ SENFE_F_AF45:
   k_callx SENFE_F_A92C, 4
   k_call RF_472D
   k_return
+; vars: g_player_name_ptr | calls 11
 SENFE_F_AF7E:
   k_func 2
   k_pushib 16
@@ -1634,7 +1657,7 @@ SENFE_L_AFC2:
   k_pushi 0
   k_pusha SENFE_D_C29C
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pusha SENFE_D_C29E
@@ -1643,11 +1666,12 @@ SENFE_L_AFC2:
   k_callx RF_3DDF, 2
   k_call SENFE_F_AF17
   k_return
+; vars: g_player_name_ptr, g_cargo | calls 13
 SENFE_F_AFEF:
   k_func 12
   k_ldli 1
   k_stl -12
-  k_ldliw $E444
+  k_ldliw g_player_name_ptr
   k_stl -4
   k_pushib 16
   k_pushi 0
@@ -1687,7 +1711,7 @@ SENFE_L_B048:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -2
   k_ldl -2
@@ -1714,7 +1738,7 @@ SENFE_L_B048:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_stl -4
   k_ldl -4
@@ -1827,7 +1851,7 @@ SENFE_L_B101:
   k_pushi 0
   k_pushiw SENFE_D_C439
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pusha SENFE_D_C2A4
@@ -1836,21 +1860,23 @@ SENFE_L_B101:
   k_callx RF_3DDF, 2
   k_call SENFE_F_AF17
   k_return
-SENFE_F_B131:
+; vars: g_king_mission
+treasure_fleet_set:
   k_func 0
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 3
   k_eq
   k_jumpf SENFE_L_B144
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_ldrarg 11
   k_eq
   k_return
 SENFE_L_B144:
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_ldrarg 11
   k_eq
   k_return
+; sys: brightness_set | vars: g_player_name_ptr, g_princess, g_king_mission | calls 12
 SENFE_F_B14A:
   k_func 6
   k_pushib 16
@@ -1914,7 +1940,7 @@ SENFE_L_B1AB:
   k_pushi 0
   k_pusha SENFE_D_C2A0
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pusha SENFE_D_C2A2
@@ -1922,18 +1948,18 @@ SENFE_L_B1AB:
   k_pushi 8
   k_callx RF_3DDF, 2
   k_call SENFE_F_AF17
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 10
   k_and
   k_ldri 8
   k_eq
   k_jumpf SENFE_L_B32A
   k_pusharg 13
-  k_callx SENFE_F_B131, 2
+  k_callx treasure_fleet_set, 2
   k_jumpf SENFE_L_B32A
-  k_ldliw $E444
+  k_ldliw g_player_name_ptr
   k_stl -2
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 2
   k_eq
   k_jumpf SENFE_L_B219
@@ -1947,14 +1973,14 @@ SENFE_L_B1AB:
   k_callx SENFE_F_A92C, 4
   k_ldli 2
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_pushi 1
   k_callx RF_4F2A, 2
   k_call RF_472D
 SENFE_L_B219:
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 3
   k_eq
   k_jumpf SENFE_L_B245
@@ -1968,14 +1994,14 @@ SENFE_L_B219:
   k_callx SENFE_F_A92C, 4
   k_ldli 2
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_pushi 1
   k_callx RF_4F2A, 2
   k_call RF_472D
 SENFE_L_B245:
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 4
   k_eq
   k_jumpf SENFE_L_B338
@@ -2008,7 +2034,7 @@ SENFE_L_B245:
   k_pushi 0
   k_pusha SENFE_D_C2A8
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pusha SENFE_D_C2AA
@@ -2027,7 +2053,7 @@ SENFE_L_B245:
   k_pushi 0
   k_pushiw SENFE_D_C4A7
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_ldla $F18A
   k_dec
@@ -2038,7 +2064,7 @@ SENFE_L_B245:
   k_pushi 1
   k_callx RF_4F2A, 2
   k_call RF_472D
-  k_ldliw $E444
+  k_ldliw g_player_name_ptr
   k_stl -2
   k_ldlib 32
   k_stlba $F294
@@ -2065,9 +2091,9 @@ SENFE_L_B245:
   k_call RF_472D
   k_ldli 2
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_jump SENFE_L_B338
 SENFE_L_B32A:
   k_pushib 127
@@ -2107,8 +2133,9 @@ SENFE_L_B338:
   k_popstoreb
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_return
+; vars: g_player_name_ptr | calls 5
 SENFE_F_B35E:
   k_func 2
   k_ldlba $EF6A
@@ -2130,7 +2157,7 @@ SENFE_F_B35E:
   k_pushi 0
   k_pushiw SENFE_D_C4B3
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pushiw SENFE_D_C4BF
@@ -2138,6 +2165,7 @@ SENFE_F_B35E:
   k_ldl -2
   k_stlba $EF6A
   k_return
+; calls 3
 SENFE_F_B3A8:
   k_func 0
   k_pushi 5
@@ -2147,6 +2175,7 @@ SENFE_F_B3A8:
   k_pushiw SENFE_D_C4C2
   k_callx RF_2FB9, 4
   k_return
+; sys: memset_long | vars: g_ships, g_cargo | calls 3
 SENFE_F_B3BE:
   k_func 26
   k_pushib 58
@@ -2154,7 +2183,7 @@ SENFE_F_B3BE:
   k_pushiw $F576
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_pushiw $F41E
   k_pusharg 11
   k_callx RL_8502, 4
@@ -2170,14 +2199,14 @@ SENFE_L_B3E8:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldl -12
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_stln -26
@@ -2229,7 +2258,7 @@ SENFE_L_B440:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -4
   k_ldl -4
@@ -2386,7 +2415,7 @@ SENFE_L_B50F:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldl -2
@@ -2576,14 +2605,15 @@ SENFE_L_B60A:
 SENFE_L_B61E:
   k_ldl -2
   k_return
+; vars: g_player_items
 SENFE_F_B620:
   k_func 10
-  k_ldliw $E56F
+  k_ldliw g_player_items
   k_stl -10
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E56F
+  k_ldriw g_player_items
   k_add
   k_stl -6
   k_ldli 0
@@ -2647,6 +2677,7 @@ SENFE_L_B66B:
   k_jumpt SENFE_L_B637
   k_ldl -4
   k_return
+; sys: tilemap_write | calls 2
 SENFE_F_B674:
   k_func 2
 SENFE_L_B679:
@@ -2673,7 +2704,7 @@ SENFE_L_B679:
   k_pushi 8
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushiw $2000
   k_pushi 14
   k_pushi 10
@@ -2681,7 +2712,7 @@ SENFE_L_B679:
   k_pushib 19
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_ldli 1
   k_return
 SENFE_L_B6AD:
@@ -2692,6 +2723,7 @@ SENFE_L_B6AD:
   k_call SENFE_F_AF17
   k_ldli 0
   k_return
+; sys: brightness_set | vars: g_fh_cbmap0 | calls 15
 SENFE_F_B6BA:
   k_func 18
   k_pushi 0
@@ -2705,7 +2737,7 @@ SENFE_F_B6BA:
   k_pushi 3
   k_pushi 15
   k_callx RF_3EC3, 6
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8D74
   k_pushib 30
   k_pushib 32
@@ -2724,7 +2756,7 @@ SENFE_F_B6BA:
   k_callx SENFE_F_A92C, 4
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushi 0
   k_pushi 1
   k_pushib 16
@@ -2908,6 +2940,7 @@ SENFE_L_B805:
   k_call SENFE_F_AF17
 SENFE_L_B819:
   k_return
+; sys: brightness_set, color_math, window_off | vars: g_cargo, g_player_name_ptr, g_relations, g_fleets, g_fh_cbmap0 | calls 22
 SENFE_F_B81A:
   k_func 58
   k_ldli 1
@@ -2915,7 +2948,7 @@ SENFE_F_B81A:
   k_call SENFE_F_AF17
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pusharg 13
   k_pusharg 11
   k_callx SENFE_F_B3BE, 4
@@ -2934,14 +2967,14 @@ SENFE_L_B849:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_stl -18
   k_ldl -18
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_stl -10
   k_ldl -10
@@ -3143,14 +3176,14 @@ SENFE_L_B955:
   k_addli 10
   k_pushl
   k_ldl -14
-  k_ldriw $EA8F
+  k_ldriw g_relations
   k_add
   k_derefb
   k_pushl
   k_callx RL_8962, 4
   k_pushl
   k_ldl -14
-  k_ldriw $EA8F
+  k_ldriw g_relations
   k_add
   k_popr
   k_pushl
@@ -3165,13 +3198,13 @@ SENFE_L_B9B8:
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -2
   k_ldlarg 13
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -4
   k_ldl -2
@@ -3231,7 +3264,7 @@ SENFE_L_BA16:
   k_call SENFE_F_AF17
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_leal -50
   k_pushl
   k_push -14
@@ -3241,9 +3274,9 @@ SENFE_L_BA16:
   k_pushi 0
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
 SENFE_L_BA3C:
   k_ldl -4
   k_addli 9
@@ -3289,7 +3322,7 @@ SENFE_L_BA57:
   k_pushi 3
   k_pushi 15
   k_callx RF_3EC3, 6
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8D74
   k_pushib 30
   k_pushib 32
@@ -3299,16 +3332,16 @@ SENFE_L_BA57:
   k_callx RF_3DF1, 14
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushiw $F576
   k_callx RF_7B51, 2
   k_pushiw $00E0
   k_pushi 0
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_jump SENFE_L_BAC8
 SENFE_L_BABB:
   k_ldln -52
@@ -3321,6 +3354,7 @@ SENFE_L_BAC0:
   k_jumpt SENFE_L_BA57
 SENFE_L_BAC8:
   k_return
+; vars: g_fame | calls 9
 SENFE_F_BAC9:
   k_func 4
   k_ldlarg 11
@@ -3391,20 +3425,21 @@ SENFE_L_BB41:
   k_add
   k_pushl
   k_ldliw SENFE_D_C350
-  k_ldra $EE74
+  k_ldra g_fame
   k_sub
   k_pushl
   k_callx RL_8962, 4
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_add
-  k_stla $EE74
+  k_stla g_fame
 SENFE_L_BB58:
   k_push -4
   k_push -2
   k_callx SENFE_F_B81A, 4
   k_ldli 1
   k_return
+; vars: g_ending | calls 5
 SENFE_F_BB60:
   k_func 0
   k_pushi 0
@@ -3464,7 +3499,7 @@ SENFE_L_BBC5:
   k_jump SENFE_L_BBDC
 SENFE_L_BBD8:
   k_ldli 4
-  k_stlba $F169
+  k_stlba g_ending
 SENFE_L_BBDC:
   k_ldli 1
   k_return

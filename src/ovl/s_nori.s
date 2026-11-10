@@ -2,22 +2,25 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp S_NORI_F_B803
+; calls 1
 S_NORI_F_B803:
   k_func 0
   k_call S_NORI_F_B962
   k_stla $F9A8
   k_return
+; vars: g_port, g_ports, g_player_gold, g_player_name_ptr, g_title | calls 15
 S_NORI_F_B80F:
   k_func 18
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -18
   k_call RF_60EE
@@ -35,7 +38,7 @@ S_NORI_F_B80F:
   k_ldli 0
   k_return
 S_NORI_L_B83D:
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldrib 50
   k_ult
   k_jumpf S_NORI_L_B852
@@ -45,7 +48,7 @@ S_NORI_L_B83D:
   k_ldli 0
   k_return
 S_NORI_L_B852:
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stl -14
   k_pushiw $03E8
   k_push -14
@@ -67,14 +70,14 @@ S_NORI_L_B852:
 S_NORI_L_B878:
   k_ldl -2
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_call RF_60B2
   k_pushi 0
   k_pushiw S_NORI_D_B9F8
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pushiw S_NORI_D_BA20
@@ -90,13 +93,13 @@ S_NORI_L_B878:
   k_ldrib 100
   k_sdiv
   k_pushl
-  k_ldlba $EE76
+  k_ldlba g_title
   k_pushl
   k_ldli 10
   k_popr
   k_sub
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BC
@@ -173,9 +176,10 @@ S_NORI_L_B90A:
   k_return
 S_NORI_L_B935:
   k_ldl -14
-  k_stla $E56D
+  k_stla g_player_gold
   k_ldl -16
   k_return
+; calls 1
 S_NORI_F_B93B:
   k_func 2
   k_ldliw $00F0
@@ -194,6 +198,7 @@ S_NORI_F_B93B:
   k_call $97BE
   k_ldl -2
   k_return
+; calls 4
 S_NORI_F_B962:
   k_func 4
   k_ldli 0

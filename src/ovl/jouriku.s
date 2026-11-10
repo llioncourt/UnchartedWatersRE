@@ -2,11 +2,13 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp JOURIKU_F_9603
+; calls 1
 JOURIKU_F_9603:
   k_func 0
   k_call JOURIKU_F_97BC
@@ -23,6 +25,7 @@ JOURIKU_L_961D:
   k_ldli 5
 JOURIKU_L_961E:
   k_return
+; sys: color_math, window_off, anim_control | vars: g_fleets | calls 9
 JOURIKU_F_961F:
   k_func 13
   k_leal -5
@@ -64,26 +67,27 @@ JOURIKU_L_9642:
   k_pushi 0
   k_pushib 48
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_pushiw $00FF
   k_pushi 3
   k_pushib 56
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 56 anim_control
   k_call RF_4D8B
   k_ldln -9
   k_jumpf JOURIKU_L_969D
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
 JOURIKU_L_969D:
   k_ldln -7
   k_return
+; sys: memset_long, sprites_hide | calls 3
 JOURIKU_F_96A0:
   k_func 60
   k_pushib 58
@@ -92,12 +96,12 @@ JOURIKU_F_96A0:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_call RF_5F56
   k_pushi 4
   k_pushib 18
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_leal -58
   k_pushl
   k_callx RF_7B51, 2
@@ -109,6 +113,7 @@ JOURIKU_F_96A0:
   k_callx RF_5BBB, 2
   k_ldli 1
   k_return
+; calls 1
 JOURIKU_F_96D7:
   k_func 4
   k_ldli 0
@@ -144,6 +149,7 @@ JOURIKU_L_96FB:
 JOURIKU_L_9709:
   k_ldl -4
   k_return
+; calls 1
 JOURIKU_F_970B:
   k_func 13
   k_ldli 0
@@ -183,10 +189,11 @@ JOURIKU_L_973D:
   k_jumpt JOURIKU_L_9722
   k_ldln -11
   k_return
+; vars: g_fleets | calls 6
 JOURIKU_F_974A:
   k_func 2
   k_call RF_5C91
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -2
   k_call JOURIKU_F_970B
   k_jumpf JOURIKU_L_9764
@@ -225,10 +232,11 @@ JOURIKU_L_9764:
 JOURIKU_L_9793:
   k_ldli 0
   k_return
+; vars: g_fleets | calls 3
 JOURIKU_F_9795:
   k_func 2
   k_call RF_5C91
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -2
   k_pushi 1
   k_pushiw JOURIKU_D_A487
@@ -248,6 +256,7 @@ JOURIKU_F_9795:
 JOURIKU_L_97BA:
   k_ldli 0
   k_return
+; sys: wait_frames, sprites_hide | vars: g_fleets | calls 6
 JOURIKU_F_97BC:
   k_func 4
   k_call RF_5F1C
@@ -273,11 +282,11 @@ JOURIKU_L_97C7:
   k_jumpf JOURIKU_L_97C7
 JOURIKU_L_97E6:
   k_call RF_5FDB
-  k_ldlba $E573
+  k_ldlba g_fleets+15
   k_ldrib 32
   k_and
   k_jumpt JOURIKU_L_982C
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_ldri 7
   k_ult
   k_jumpf JOURIKU_L_97FE
@@ -301,15 +310,16 @@ JOURIKU_L_9811:
   k_callx RF_530E, 4
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 4
   k_pushib 18
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_pushi 0
   k_callx RF_57CD, 2
 JOURIKU_L_982C:
   k_return
+; vars: g_ships | calls 3
 JOURIKU_F_982D:
   k_func 2
   k_ldli 0
@@ -320,7 +330,7 @@ JOURIKU_F_982D:
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_popr
@@ -361,6 +371,7 @@ JOURIKU_L_985E:
 JOURIKU_L_9873:
   k_ldl -2
   k_return
+; vars: g_ships | calls 1
 JOURIKU_F_9875:
   k_func 0
   k_ldlarg 13
@@ -370,7 +381,7 @@ JOURIKU_F_9875:
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_popr
   k_pushl
@@ -383,7 +394,7 @@ JOURIKU_F_9875:
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_popr
@@ -392,7 +403,7 @@ JOURIKU_F_9875:
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_pushl
   k_pusharg 11
@@ -400,6 +411,7 @@ JOURIKU_F_9875:
   k_popstoreb
 JOURIKU_L_98AB:
   k_return
+; calls 1
 JOURIKU_F_98AC:
   k_func 0
   k_ldlarg 13
@@ -439,6 +451,7 @@ JOURIKU_F_98AC:
   k_popstoreb
 JOURIKU_L_98E2:
   k_return
+; calls 1
 JOURIKU_F_98E3:
   k_func 0
   k_ldlarg 13
@@ -478,6 +491,7 @@ JOURIKU_F_98E3:
   k_popstoreb
 JOURIKU_L_9919:
   k_return
+; vars: g_cargo
 JOURIKU_F_991A:
   k_func 4
   k_ldli 0
@@ -489,7 +503,7 @@ JOURIKU_L_9923:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -4
   k_ldl -4
@@ -535,12 +549,13 @@ JOURIKU_L_9956:
   k_jumpt JOURIKU_L_9923
 JOURIKU_L_9961:
   k_return
+; vars: g_ships
 JOURIKU_F_9962:
   k_func 0
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_return
@@ -562,21 +577,25 @@ JOURIKU_F_997E:
   k_add
   k_derefb
   k_return
+; calls 1
 JOURIKU_F_998C:
   k_func 0
   k_pusharg 11
   k_callx RF_43F6, 2
   k_return
+; calls 1
 JOURIKU_F_9997:
   k_func 0
   k_pusharg 11
   k_callx RF_4439, 2
   k_return
+; calls 1
 JOURIKU_F_99A2:
   k_func 0
   k_pusharg 11
   k_callx RF_44AA, 2
   k_return
+; sys: oam_hide_all, sprite_commit | calls 2
 JOURIKU_F_99AD:
   k_func 16
   k_ldliw $00E1
@@ -605,7 +624,7 @@ JOURIKU_L_99C5:
   k_sdiv
   k_stl -12
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
 JOURIKU_L_99DB:
   k_ldla $F302
   k_dec
@@ -633,7 +652,7 @@ JOURIKU_L_99DB:
   k_pushl
   k_pushi 0
   k_pushib 19
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 19 sprite_commit
   k_ldln 19
   k_jumpf JOURIKU_L_9A16
   k_ldln 19
@@ -689,7 +708,7 @@ JOURIKU_L_9A60:
   k_pushl
   k_pushi 0
   k_pushib 19
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 19 sprite_commit
 JOURIKU_L_9A73:
   k_pushi 0
   k_callx RF_362A, 2
@@ -698,7 +717,7 @@ JOURIKU_L_9A73:
   k_return
 JOURIKU_L_9A7D:
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
 JOURIKU_L_9A82:
   k_pushi 0
   k_callx RF_362A, 2
@@ -801,6 +820,7 @@ JOURIKU_L_9B06:
   k_stl -8
   k_jump JOURIKU_L_99DB
   .byte $CF
+; calls 3
 JOURIKU_F_9B16:
   k_func 0
   k_pushiw $2000
@@ -837,22 +857,24 @@ JOURIKU_L_9B45:
   k_pushiw JOURIKU_D_A4DE
   k_callx RF_2FB9, 4
   k_return
+; sys: oam_hide_all | calls 3
 JOURIKU_F_9B55:
   k_func 0
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_call JOURIKU_F_9B16
   k_pushi 1
   k_pushiw JOURIKU_D_A4E5
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_return
+; vars: g_ships | calls 4
 JOURIKU_F_9B6E:
   k_func 4
   k_ldlarg 13
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_stl -2
@@ -877,6 +899,7 @@ JOURIKU_L_9B9A:
   k_callx RF_2FB9, 4
 JOURIKU_L_9BA2:
   k_return
+; calls 4
 JOURIKU_F_9BA3:
   k_func 4
   k_ldlarg 13
@@ -907,6 +930,7 @@ JOURIKU_L_9BD0:
   k_callx RF_2FB9, 4
 JOURIKU_L_9BD8:
   k_return
+; calls 4
 JOURIKU_F_9BD9:
   k_func 4
   k_ldlarg 13
@@ -937,6 +961,7 @@ JOURIKU_L_9C06:
   k_callx RF_2FB9, 4
 JOURIKU_L_9C0E:
   k_return
+; calls 4
 JOURIKU_F_9C0F:
   k_func 0
   k_pushi 1
@@ -952,6 +977,7 @@ JOURIKU_F_9C0F:
   k_pusharg 11
   k_callx JOURIKU_F_9BD9, 4
   k_return
+; calls 2
 JOURIKU_F_9C2F:
   k_func 0
   k_ldlarg 11
@@ -963,6 +989,7 @@ JOURIKU_F_9C2F:
   k_pushiw JOURIKU_D_A52A
   k_callx RF_3619, 4
   k_return
+; calls 5
 JOURIKU_F_9C46:
   k_func 0
   k_pushi 0
@@ -1027,6 +1054,7 @@ JOURIKU_F_9C46:
   k_pushiw JOURIKU_D_A54E
   k_callx RF_2FB9, 4
   k_return
+; calls 11
 JOURIKU_F_9CC5:
   k_func 18
   k_ldli 1
@@ -1248,6 +1276,7 @@ JOURIKU_L_9DBB:
   k_callx RF_4B44, 2
   k_call JOURIKU_F_9B55
   k_return
+; vars: g_ships, g_cargo
 JOURIKU_F_9E0D:
   k_func 8
   k_ldli 0
@@ -1261,7 +1290,7 @@ JOURIKU_L_9E16:
   k_ldl -4
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -6
   k_ldl -2
@@ -1316,7 +1345,7 @@ JOURIKU_L_9E57:
   k_ldl -4
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -8
   k_ldl -8
@@ -1356,6 +1385,7 @@ JOURIKU_L_9E8D:
   k_ldli 2
 JOURIKU_L_9E8E:
   k_return
+; vars: g_ships, g_cargo | calls 12
 JOURIKU_F_9E8F:
   k_func 56
   k_call JOURIKU_F_9E7C
@@ -1379,7 +1409,7 @@ JOURIKU_L_9EB1:
   k_ldl -2
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stln -52
   k_ldln -52
@@ -1434,7 +1464,7 @@ JOURIKU_L_9EB1:
   k_ldl -2
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -54
   k_leal -48
@@ -1537,7 +1567,7 @@ JOURIKU_L_9F8D:
   k_ldl -8
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stln -52
   k_pushn -52
@@ -1577,7 +1607,7 @@ JOURIKU_L_9F8D:
   k_ldl -8
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -54
   k_ldln -54
@@ -1618,6 +1648,7 @@ JOURIKU_L_A006:
   k_call RF_5F56
   k_ldln -50
   k_return
+; calls 4
 JOURIKU_F_A010:
   k_func 6
   k_ldli 1
@@ -1681,9 +1712,10 @@ JOURIKU_L_A06B:
   k_stl -2
   k_ldl -2
   k_return
+; vars: g_zone_attr, g_fleets | calls 8
 JOURIKU_F_A073:
   k_func 8
-  k_ldlba $EF86
+  k_ldlba g_zone_attr+2
   k_ldri 7
   k_and
   k_stl -4
@@ -1751,14 +1783,15 @@ JOURIKU_L_A0BA:
   k_pusharg 11
   k_callx RF_6995, 8
   k_call RF_4D8B
-  k_ldlba $E56C
+  k_ldlba g_fleets+8
   k_pushl
-  k_ldlba $E567
+  k_ldlba g_fleets+3
   k_pushl
-  k_ldlba $E566
+  k_ldlba g_fleets+2
   k_pushl
   k_callx RF_55F4, 6
   k_return
+; vars: g_ships, g_zone_attr | calls 10
 JOURIKU_F_A0F3:
   k_func 17
   k_ldli 0
@@ -1772,7 +1805,7 @@ JOURIKU_L_A103:
   k_ldl -2
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stln -17
   k_ldln -17
@@ -1849,7 +1882,7 @@ JOURIKU_L_A17D:
   k_pushiw JOURIKU_D_A689
   k_jump JOURIKU_L_A1A8
 JOURIKU_L_A184:
-  k_ldlba $EF86
+  k_ldlba g_zone_attr+2
   k_ldri 7
   k_and
   k_stl -4
@@ -1887,6 +1920,7 @@ JOURIKU_L_A1A8:
 JOURIKU_L_A1C5:
   k_ldli 0
   k_return
+; calls 2
 JOURIKU_F_A1C7:
   k_func 10
   k_ldlarg 13
@@ -1950,11 +1984,12 @@ JOURIKU_L_A1FE:
   k_callx RF_3619, 10
   k_ldli 1
   k_return
+; sys: vram_load_tiles | vars: g_fleets, g_princess, g_player_name_ptr, g_king_mission, g_player_items | calls 22
 JOURIKU_F_A21F:
   k_func 42
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stln -38
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 4
   k_and
   k_jumpf JOURIKU_L_A3EA
@@ -2009,12 +2044,12 @@ JOURIKU_F_A21F:
   k_pushi 0
   k_pushiw JOURIKU_D_A75D
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pushiw JOURIKU_D_A767
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx RF_40C3, 2
   k_pushl
@@ -2039,7 +2074,7 @@ JOURIKU_F_A21F:
   k_pushib 72
   k_pushib 119
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_call RF_5F56
   k_ldlba $EA8E
   k_ldri 5
@@ -2048,7 +2083,7 @@ JOURIKU_F_A21F:
   k_callx RF_5BBB, 2
   k_pushi 1
   k_callx RF_4F2A, 2
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_ldri 15
   k_and
   k_pushl
@@ -2056,11 +2091,11 @@ JOURIKU_F_A21F:
   k_popr
   k_shl
   k_pushl
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_ldri 4
   k_shr
   k_shl1
-  k_ldriw $E56F
+  k_ldriw g_player_items
   k_add
   k_popr
   k_pushl
@@ -2069,14 +2104,14 @@ JOURIKU_F_A21F:
   k_popstore
   k_ldli 2
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldli 4
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_xor
-  k_stlba $EF61
+  k_stlba g_princess
   k_jump JOURIKU_L_A3F4
 JOURIKU_L_A315:
   k_call RF_5C91
@@ -2202,6 +2237,7 @@ JOURIKU_L_A3EA:
 JOURIKU_L_A3F4:
   k_ldli 0
   k_return
+; calls 1
 JOURIKU_F_A3F6:
   k_func 4
   k_ldli 0

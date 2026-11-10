@@ -2,17 +2,20 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp SENMAIN_F_A503
+; calls 1
 SENMAIN_F_A503:
   k_func 0
   k_ldlba $F16A
   k_pushl
   k_callx SENMAIN_F_ADF4, 2
   k_return
+; calls 1
 SENMAIN_F_A511:
   k_func 0
   k_call $97B7
@@ -53,6 +56,7 @@ SENMAIN_L_A54A:
   k_pusharg 11
   k_callx $9662, 8
   k_return
+; sys: tilemap_write
 SENMAIN_F_A553:
   k_func 0
   k_pushi 0
@@ -62,8 +66,9 @@ SENMAIN_F_A553:
   k_pusharg 11
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_return
+; calls 2
 SENMAIN_F_A564:
   k_func 10
   k_ldlarg 15
@@ -196,6 +201,7 @@ SENMAIN_L_A604:
   k_stla $F440
   k_ldli 1
   k_return
+; sys: memset_long, tilemap_copy | vars: g_fh_cbmap0 | calls 2
 SENMAIN_F_A621:
   k_func 14
   k_ldlarg 17
@@ -206,7 +212,7 @@ SENMAIN_F_A621:
   k_ldrib 100
   k_eq
   k_jumpf SENMAIN_L_A659
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 17
   k_shl1
   k_ldriw SENMAIN_D_CA9A
@@ -242,14 +248,14 @@ SENMAIN_L_A659:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_pushi 2
   k_pushiw $00FF
   k_leal -10
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 2
   k_jump SENMAIN_L_A68E
 SENMAIN_L_A67B:
@@ -311,7 +317,7 @@ SENMAIN_L_A69F:
   k_push -6
   k_pushib 126
   k_push -8
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_callx RF_3FC8, 10
 SENMAIN_L_A6CA:
   k_ldl -6
@@ -333,14 +339,15 @@ SENMAIN_L_A6CA:
   k_pusharg 11
   k_pushi 1
   k_pushi 6
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 6 tilemap_copy
   k_return
+; vars: g_ships | calls 1
 SENMAIN_F_A6E7:
   k_func 14
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldl -2
@@ -449,9 +456,10 @@ SENMAIN_L_A768:
   k_push -8
   k_callx SENMAIN_F_A621, 8
   k_return
+; vars: g_fh_cbmap0 | calls 1
 SENMAIN_F_A776:
   k_func 0
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $18B0
   k_pushi 2
   k_pushi 2
@@ -460,12 +468,13 @@ SENMAIN_F_A776:
   k_pushi 1
   k_callx RF_3DF1, 14
   k_return
+; vars: g_ships | calls 2
 SENMAIN_F_A78B:
   k_func 14
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -14
   k_ldl -14
@@ -554,6 +563,7 @@ SENMAIN_L_A7F6:
   k_callx SENMAIN_F_A525, 8
 SENMAIN_L_A804:
   k_return
+; sys: wait_frames | calls 2
 SENMAIN_F_A805:
   k_func 0
   k_pushi 0
@@ -561,11 +571,12 @@ SENMAIN_F_A805:
   k_callx SENMAIN_F_A6E7, 4
   k_pushib 24
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 0
   k_pusharg 11
   k_callx SENMAIN_F_A78B, 4
   k_return
+; calls 3
 SENMAIN_F_A81F:
   k_func 0
   k_pushi 1
@@ -577,6 +588,7 @@ SENMAIN_F_A81F:
   k_pusharg 11
   k_callx SENMAIN_F_A78B, 4
   k_return
+; vars: g_cargo
 SENMAIN_F_A836:
   k_func 8
   k_ldlarg 11
@@ -592,7 +604,7 @@ SENMAIN_L_A846:
   k_ldl -6
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -4
   k_ldl -4
@@ -671,6 +683,7 @@ SENMAIN_L_A89F:
   k_derefb
   k_stlba $F44D
   k_return
+; vars: g_cargo | calls 2
 SENMAIN_F_A8C5:
   k_func 6
   k_ldli 1
@@ -724,12 +737,12 @@ SENMAIN_L_A8D4:
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_jumpt SENMAIN_L_A927
   k_pushi 2
-  k_callx RF_41CD, 2
+  k_callx item_best_power, 2
   k_ldr -2
   k_mul
   k_jump SENMAIN_L_A921
@@ -773,12 +786,13 @@ SENMAIN_L_A927:
   k_long $03
   k_long $27
   k_return
+; vars: g_ships, g_cargo | calls 2
 SENMAIN_F_A95C:
   k_func 8
   k_ldlarg 13
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_pusharg 11
@@ -808,7 +822,7 @@ SENMAIN_F_A95C:
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_stl -6
@@ -856,6 +870,7 @@ SENMAIN_F_A95C:
   k_popstore
 SENMAIN_L_A9CF:
   k_return
+; calls 3
 SENMAIN_F_A9D0:
   k_func 0
   k_pusharg 13
@@ -871,6 +886,7 @@ SENMAIN_F_A9D0:
   k_pusharg 11
   k_callx SENMAIN_F_A81F, 4
   k_return
+; vars: g_ships, g_cargo | calls 6
 SENMAIN_F_A9EE:
   k_func 18
   k_pusharg 13
@@ -889,7 +905,7 @@ SENMAIN_L_AA04:
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -18
   k_ldl -16
@@ -931,7 +947,7 @@ SENMAIN_L_AA04:
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_stl -6
@@ -941,7 +957,7 @@ SENMAIN_L_AA04:
   k_jumpt SENMAIN_L_AA60
   k_pushib 100
   k_pushi 3
-  k_callx RF_41CD, 2
+  k_callx item_best_power, 2
   k_ldr -4
   k_mul
   k_ldri 3
@@ -1016,7 +1032,7 @@ SENMAIN_L_AAAB:
   k_ldlarg 13
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_jumpt SENMAIN_L_AACA
@@ -1025,7 +1041,7 @@ SENMAIN_L_AAAB:
   k_sdiv
   k_pushl
   k_pushi 1
-  k_callx RF_41CD, 2
+  k_callx item_best_power, 2
   k_popr
   k_mul
   k_swap
@@ -1051,7 +1067,7 @@ SENMAIN_L_AAD6:
   k_ldlarg 13
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -18
   k_push -8
@@ -1153,7 +1169,7 @@ SENMAIN_L_AB55:
   k_ldlarg 13
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_ldri 7
@@ -1220,12 +1236,13 @@ SENMAIN_L_AB8A:
   k_popstore
 SENMAIN_L_ABCC:
   k_return
+; vars: g_ships
 SENMAIN_F_ABCD:
   k_func 2
   k_ldla $F44E
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldl -2
@@ -1244,7 +1261,7 @@ SENMAIN_L_ABED:
   k_ldla $F450
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldl -2
@@ -1284,6 +1301,7 @@ SENMAIN_L_AC25:
   k_ldli 1
 SENMAIN_L_AC26:
   k_return
+; vars: g_ships | calls 5
 SENMAIN_F_AC27:
   k_func 16
   k_ldlba $F41E
@@ -1308,7 +1326,7 @@ SENMAIN_L_AC4B:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -16
   k_ldl -16
@@ -1360,7 +1378,7 @@ SENMAIN_L_AC4B:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_ldrib 20
@@ -1429,6 +1447,7 @@ SENMAIN_L_ACFC:
   k_jumpt SENMAIN_L_AC43
   k_ldli 1
   k_return
+; vars: g_ships | calls 2
 SENMAIN_F_AD04:
   k_func 12
   k_ldli 1
@@ -1451,7 +1470,7 @@ SENMAIN_L_AD22:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -12
   k_ldl -12
@@ -1510,6 +1529,7 @@ SENMAIN_L_AD78:
   k_call $97F5
   k_ldl -2
   k_return
+; calls 3
 SENMAIN_F_AD7D:
   k_func 0
   k_pushiw $F41E
@@ -1527,6 +1547,7 @@ SENMAIN_F_AD7D:
 SENMAIN_L_ADA0:
   k_call SENMAIN_F_AD04
   k_return
+; calls 1
 SENMAIN_F_ADA4:
   k_func 0
   k_ldlba $EA8E
@@ -1568,6 +1589,7 @@ SENMAIN_L_ADE6:
   k_ldli 1
   k_stlba $F300
   k_return
+; calls 2
 SENMAIN_F_ADF4:
   k_func 0
   k_ldlarg 11
@@ -1589,12 +1611,13 @@ SENMAIN_L_AE0F:
 SENMAIN_L_AE14:
   k_callx SENMAIN_F_ADA4, 4
   k_return
+; vars: g_cargo | calls 1
 SENMAIN_F_AE19:
   k_func 0
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_ldri 7
@@ -1622,6 +1645,7 @@ SENMAIN_F_AE19:
   k_pushib 20
   k_callx RL_8962, 4
   k_return
+; sys: metasprite_set
 SENMAIN_F_AE4B:
   k_func 3
   k_ldlarg 11
@@ -1647,11 +1671,12 @@ SENMAIN_F_AE4B:
   k_addlib 23
   k_pushl
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_ldla $F572
   k_inc
   k_stla $F572
   k_return
+; sys: sprites_hide
 SENMAIN_F_AE7B:
   k_func 0
   k_ldla $F572
@@ -1659,36 +1684,38 @@ SENMAIN_F_AE7B:
   k_pusha $F572
   k_pushib 23
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
 SENMAIN_L_AE91:
   k_ldli 0
   k_stla $F572
   k_return
+; sys: pad_read
 SENMAIN_F_AE96:
   k_func 0
 SENMAIN_L_AE9B:
   k_pushi 0
   k_pushi 15
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 15 pad_read
   k_ldriw $4000
   k_ne
   k_jumpf SENMAIN_L_AEB5
   k_pushi 1
   k_pushi 15
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 15 pad_read
   k_ldriw $4000
   k_ne
   k_jumpt SENMAIN_L_AE9B
 SENMAIN_L_AEB5:
   k_pushi 0
   k_pushi 15
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 15 pad_read
   k_jumpt SENMAIN_L_AEB5
   k_pushi 1
   k_pushi 15
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 15 pad_read
   k_jumpt SENMAIN_L_AEB5
   k_return
+; calls 3
 SENMAIN_F_AEC8:
   k_func 4
   k_ldliw $F41E
@@ -1789,6 +1816,7 @@ SENMAIN_L_AF4E:
   k_ult
   k_jumpt SENMAIN_L_AF3F
   k_return
+; sys: sprite_move, sprites_hide
 SENMAIN_F_AF55:
   k_func 2
   k_ldlarg 11
@@ -1807,12 +1835,13 @@ SENMAIN_L_AF67:
   k_pusha $F306
   k_pushib 21
   k_pushi 10
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 10 sprite_move
   k_pushi 1
   k_pushib 21
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_return
+; sys: sprite_move
 SENMAIN_F_AF85:
   k_func 2
   k_ldlarg 11
@@ -1840,8 +1869,9 @@ SENMAIN_L_AFA4:
   k_pusha $F306
   k_pushib 21
   k_pushi 10
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 10 sprite_move
   k_return
+; sys: sprite_move, sprites_hide
 SENMAIN_F_AFB9:
   k_func 2
   k_ldliw RL_370E
@@ -1853,12 +1883,13 @@ SENMAIN_F_AFB9:
   k_pusha $F306
   k_pushib 21
   k_pushi 10
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 10 sprite_move
   k_pushi 1
   k_pushib 21
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_return
+; calls 5
 SENMAIN_F_AFDC:
   k_func 2
 SENMAIN_L_AFE1:
@@ -1956,6 +1987,7 @@ SENMAIN_L_B08A:
   k_inc
   k_jump SENMAIN_L_B084
   .byte $D6, $EE, $AF, $CF
+; calls 1
 SENMAIN_F_B09D:
   k_func 0
   k_ldlarg 11
@@ -2009,6 +2041,7 @@ SENMAIN_L_B0C8:
   k_popstoreb
 SENMAIN_L_B0E4:
   k_return
+; vars: g_ships
 SENMAIN_F_B0E5:
   k_func 8
   k_ldla $F308
@@ -2028,7 +2061,7 @@ SENMAIN_L_B100:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldl -4
@@ -2062,6 +2095,7 @@ SENMAIN_L_B128:
   k_jumpt SENMAIN_L_B100
   k_ldlba $F423
   k_return
+; calls 1
 SENMAIN_F_B132:
   k_func 4
   k_ldli 1
@@ -2110,6 +2144,7 @@ SENMAIN_L_B147:
   k_ult
   k_jumpt SENMAIN_L_B147
   k_return
+; vars: g_cargo | calls 9
 SENMAIN_F_B170:
   k_func 12
   k_ldla $F304
@@ -2156,7 +2191,7 @@ SENMAIN_L_B1C1:
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_stl -4
@@ -2213,6 +2248,7 @@ SENMAIN_L_B1F9:
   k_stla $F308
   k_ldli 1
   k_return
+; calls 1
 SENMAIN_F_B227:
   k_func 10
   k_ldlarg 11
@@ -2312,6 +2348,7 @@ SENMAIN_L_B29C:
   k_ult
   k_jumpt SENMAIN_L_B278
   k_return
+; vars: g_cargo | calls 9
 SENMAIN_F_B2A3:
   k_func 12
   k_ldla $F304
@@ -2362,7 +2399,7 @@ SENMAIN_L_B2FB:
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_stl -4
@@ -2417,6 +2454,7 @@ SENMAIN_L_B333:
   k_stla $F308
   k_ldli 1
   k_return
+; calls 4
 SENMAIN_F_B35D:
   k_func 0
   k_call SENMAIN_F_C425
@@ -2434,6 +2472,7 @@ SENMAIN_L_B36E:
 SENMAIN_L_B37C:
   k_ldli 0
   k_return
+; sys: metasprite_set
 SENMAIN_F_B37E:
   k_func 4
   k_ldli 8
@@ -2460,8 +2499,9 @@ SENMAIN_F_B37E:
   k_pusharg 11
   k_pushib 22
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_return
+; sys: sprites_hide | calls 4
 SENMAIN_F_B3A6:
   k_func 8
   k_ldlarg 11
@@ -2601,7 +2641,7 @@ SENMAIN_L_B4A5:
   k_pushi 1
   k_pushib 22
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_ldliw $00FF
   k_return
 SENMAIN_L_B4B2:
@@ -2619,7 +2659,7 @@ SENMAIN_L_B4B4:
   k_pushi 1
   k_pushib 22
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_ldl -6
   k_addlib -5
   k_return
@@ -2632,6 +2672,7 @@ SENMAIN_L_B4CD:
   k_ult
   k_jumpt SENMAIN_L_B4B4
   k_jump SENMAIN_L_B3D4
+; vars: g_ships | calls 1
 SENMAIN_F_B4D9:
   k_func 20
   k_ldli 0
@@ -2648,7 +2689,7 @@ SENMAIN_L_B4EE:
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -20
   k_ldl -20
@@ -2796,6 +2837,7 @@ SENMAIN_L_B5A7:
   k_jumpt SENMAIN_L_B513
   k_ldl -2
   k_return
+; vars: g_ships | calls 9
 SENMAIN_F_B5AF:
   k_func 14
   k_pusharg 11
@@ -2804,7 +2846,7 @@ SENMAIN_F_B5AF:
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -14
   k_ldl -14
@@ -2937,13 +2979,14 @@ SENMAIN_F_B694:
   k_func 0
   k_ldli 1
   k_return
+; sys: pad_read, tilemap_write, wait_frames
 SENMAIN_F_B69B:
   k_func 0
   k_jump SENMAIN_L_B6D6
 SENMAIN_L_B6A3:
   k_pushi 1
   k_pushi 15
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 15 pad_read
   k_jumpt SENMAIN_L_B6DF
   k_pushi 0
   k_pushiw $00E4
@@ -2952,10 +2995,10 @@ SENMAIN_L_B6A3:
   k_pushib 27
   k_pushib 21
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 3
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 0
   k_pushi 0
   k_pushi 1
@@ -2963,14 +3006,14 @@ SENMAIN_L_B6A3:
   k_pushib 27
   k_pushib 21
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 3
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
 SENMAIN_L_B6D6:
   k_pushi 0
   k_pushi 15
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 15 pad_read
   k_jumpf SENMAIN_L_B6A3
 SENMAIN_L_B6DF:
   k_pushi 0
@@ -2980,22 +3023,23 @@ SENMAIN_L_B6DF:
   k_pushib 27
   k_pushib 21
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
 SENMAIN_L_B6EC:
   k_pushi 0
   k_pushi 15
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 15 pad_read
   k_jumpt SENMAIN_L_B6EC
   k_pushi 1
   k_pushi 15
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 15 pad_read
   k_jumpt SENMAIN_L_B6EC
   k_return
+; sys: window_shape, color_math | vars: g_fh_cbmap0 | calls 2
 SENMAIN_F_B6FF:
   k_func 0
   k_pushi 0
   k_callx $96B7, 2
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $0D70
   k_pushi 4
   k_pushib 19
@@ -3010,16 +3054,17 @@ SENMAIN_F_B6FF:
   k_pushiw $00B3
   k_pushib 99
   k_pushib 38
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 38 window_shape
   k_pushib 71
   k_pushib 82
   k_pushib 32
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushi 1
   k_pushiw SENMAIN_D_CAD9
   k_callx RF_2FB9, 4
   k_return
+; sys: tilemap_write, color_math, window_off
 SENMAIN_F_B743:
   k_func 0
   k_pushi 0
@@ -3029,17 +3074,18 @@ SENMAIN_F_B743:
   k_pushi 12
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushiw $00E0
   k_pushi 0
   k_pushib 48
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_pushi 1
   k_callx $96B7, 2
   k_return
+; calls 2
 SENMAIN_F_B76D:
   k_func 0
   k_pushib 20
@@ -3049,6 +3095,7 @@ SENMAIN_F_B76D:
   k_callx RF_4D8B, 8
   k_call SENMAIN_F_B6FF
   k_return
+; sys: window_shape, color_math | vars: g_fh_cbmap0 | calls 2
 SENMAIN_F_B780:
   k_func 2
   k_ldlbf 11
@@ -3091,13 +3138,13 @@ SENMAIN_L_B79F:
   k_pushl
   k_pushib 50
   k_pushib 38
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 38 window_shape
   k_pushi 0
   k_pushib 82
   k_pushib 32
   k_pushib 48
-  k_callx RL_21BE, 8
-  k_pusha $F280
+  k_callx syscall, 8  ; sys 48 color_math
+  k_pusha g_fh_cbmap0
   k_ldlbf 11
   k_shl1
   k_ldriw SENMAIN_D_CAE0
@@ -3113,6 +3160,7 @@ SENMAIN_L_B79F:
   k_pushi 1
   k_callx RF_3DF1, 14
   k_return
+; sys: color_math, window_off, tilemap_write | vars: g_ships, g_cargo, g_player_name_ptr | calls 15
 SENMAIN_F_B7F8:
   k_func 14
   k_ldli 0
@@ -3157,7 +3205,7 @@ SENMAIN_L_B836:
   k_ldl -6
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldl -2
@@ -3181,9 +3229,9 @@ SENMAIN_L_B850:
   k_pushi 0
   k_pushib 48
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_pushi 0
   k_pushi 4
   k_pushib 19
@@ -3191,7 +3239,7 @@ SENMAIN_L_B850:
   k_pushi 12
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_ldl -6
   k_ldri 5
   k_ult
@@ -3222,7 +3270,7 @@ SENMAIN_L_B89A:
   k_ldl -6
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_jump SENMAIN_L_B8B1
@@ -3236,7 +3284,7 @@ SENMAIN_L_B8B1:
   k_ldl -10
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_stl -4
   k_pushi 0
@@ -3403,6 +3451,7 @@ SENMAIN_L_B9E6:
 SENMAIN_L_B9E9:
   k_call SENMAIN_F_B76D
   k_return
+; calls 3
 SENMAIN_F_B9ED:
   k_func 10
   k_ldla $F304
@@ -3481,6 +3530,7 @@ SENMAIN_F_BA65:
   k_stla $F570
   k_ldli 1
   k_return
+; vars: g_cargo, g_fh_cbmap0 | calls 4
 SENMAIN_F_BA74:
   k_func 12
   k_ldli 0
@@ -3528,7 +3578,7 @@ SENMAIN_L_BAAE:
   k_ldlarg 11
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_derefb
   k_jumpt SENMAIN_L_BADE
@@ -3555,7 +3605,7 @@ SENMAIN_L_BADE:
   k_mul
   k_addli 13
   k_stl -10
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldl -6
   k_ldri 3
   k_shl
@@ -3593,6 +3643,7 @@ SENMAIN_L_BB08:
   k_callx RF_2FB9, 4
   k_ldl -8
   k_return
+; vars: g_fh_cbmap0 | calls 1
 SENMAIN_F_BB1C:
   k_func 2
   k_ldlarg 11
@@ -3604,7 +3655,7 @@ SENMAIN_F_BB1C:
   k_mul
   k_addli 13
   k_stl -2
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 11
   k_shl1
   k_ldrarg 15
@@ -3627,7 +3678,7 @@ SENMAIN_L_BB45:
   k_mul
   k_addli 13
   k_stl -2
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 13
   k_shl1
   k_ldrarg 15
@@ -3645,6 +3696,7 @@ SENMAIN_L_BB45:
   k_pushi 1
   k_callx RF_3DF1, 14
   k_return
+; calls 3
 SENMAIN_F_BB64:
   k_func 10
   k_ldli 0
@@ -3714,6 +3766,7 @@ SENMAIN_L_BBC4:
   k_jumpf SENMAIN_L_BB75
   k_ldli 0
   k_jump SENMAIN_L_BBC0
+; calls 2
 SENMAIN_F_BBD3:
   k_func 2
   k_jump SENMAIN_L_BBE0
@@ -3739,6 +3792,7 @@ SENMAIN_L_BBFB:
   k_ldl -2
 SENMAIN_L_BBFC:
   k_return
+; vars: g_ships | calls 1
 SENMAIN_F_BBFD:
   k_func 8
   k_pusharg 11
@@ -3754,7 +3808,7 @@ SENMAIN_L_BC13:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -6
   k_ldl -6
@@ -3812,7 +3866,7 @@ SENMAIN_L_BC60:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_jumpf SENMAIN_L_BC87
@@ -3872,6 +3926,7 @@ SENMAIN_L_BC8A:
   k_dec
   k_popstoreb
   k_return
+; sys: memset_long | calls 5
 SENMAIN_F_BCAE:
   k_func 18
   k_ldli 0
@@ -3884,7 +3939,7 @@ SENMAIN_L_BCBA:
   k_pushiw $F310
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_pusharg 11
   k_callx SENMAIN_F_BBFD, 2
   k_leal -12
@@ -3921,6 +3976,7 @@ SENMAIN_L_BD05:
   k_call $9793
   k_ldla $F570
   k_return
+; vars: g_ships
 SENMAIN_F_BD0F:
   k_func 8
   k_ldla $F304
@@ -3966,7 +4022,7 @@ SENMAIN_L_BD4C:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldl -2
@@ -4043,6 +4099,7 @@ SENMAIN_L_BDAC:
   k_dec
   k_derefb
   k_return
+; calls 2
 SENMAIN_F_BDB6:
   k_func 13
   k_ldla $F304
@@ -4110,6 +4167,7 @@ SENMAIN_L_BE0D:
   k_pushn -11
   k_callx SENMAIN_F_BD7C, 4
   k_return
+; calls 2
 SENMAIN_F_BE21:
   k_func 19
   k_ldla $F304
@@ -4215,6 +4273,7 @@ SENMAIN_L_BEA8:
   k_pushn -17
   k_callx SENMAIN_F_BD7C, 4
   k_return
+; calls 4
 SENMAIN_F_BEB9:
   k_func 6
   k_ldla $F304
@@ -4244,6 +4303,7 @@ SENMAIN_F_BEB9:
   k_ldl -4
   k_stla $F308
   k_return
+; calls 3
 SENMAIN_F_BEF3:
   k_func 6
   k_ldla $F304
@@ -4272,6 +4332,7 @@ SENMAIN_F_BEF3:
   k_ldl -4
   k_stla $F308
   k_return
+; vars: g_ships | calls 4
 SENMAIN_F_BF2B:
   k_func 0
   k_call SENMAIN_F_C425
@@ -4288,7 +4349,7 @@ SENMAIN_F_BF2B:
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_ldrib 20
@@ -4306,6 +4367,7 @@ SENMAIN_L_BF58:
   k_callx SENMAIN_F_BEF3, 2
 SENMAIN_L_BF65:
   k_return
+; vars: g_ships
 SENMAIN_F_BF66:
   k_func 14
   k_ldliw $F423
@@ -4335,7 +4397,7 @@ SENMAIN_L_BF77:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_jumpf SENMAIN_L_C00D
@@ -4449,7 +4511,7 @@ SENMAIN_L_C022:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_jumpf SENMAIN_L_C04C
@@ -4689,6 +4751,7 @@ SENMAIN_L_C15C:
 SENMAIN_L_C162:
   k_ldli 0
   k_return
+; vars: g_ships | calls 2
 SENMAIN_F_C164:
   k_func 18
   k_ldlarg 11
@@ -4809,7 +4872,7 @@ SENMAIN_L_C1FD:
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -18
   k_ldl -8
@@ -4880,6 +4943,7 @@ SENMAIN_L_C223:
 SENMAIN_L_C262:
   k_ldli 0
   k_return
+; calls 7
 SENMAIN_F_C264:
   k_func 2
   k_call SENMAIN_F_BF66
@@ -4940,6 +5004,7 @@ SENMAIN_L_C2A3:
   k_call SENMAIN_F_C425
   k_jumpf SENMAIN_L_C297
   k_jump SENMAIN_L_C29D
+; calls 2
 SENMAIN_F_C2D3:
   k_func 8
   k_pusharg 11
@@ -4998,6 +5063,7 @@ SENMAIN_L_C31E:
   k_ult
   k_jumpt SENMAIN_L_C2FA
   k_return
+; vars: g_ships
 SENMAIN_F_C325:
   k_func 10
   k_ldla $F304
@@ -5056,7 +5122,7 @@ SENMAIN_L_C370:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldl -2
@@ -5091,6 +5157,7 @@ SENMAIN_L_C399:
   k_jumpt SENMAIN_L_C370
   k_ldli 0
   k_return
+; calls 1
 SENMAIN_F_C3A1:
   k_func 10
   k_ldlarg 11
@@ -5195,6 +5262,7 @@ SENMAIN_L_C41D:
 SENMAIN_L_C423:
   k_ldli 0
   k_return
+; calls 1
 SENMAIN_F_C425:
   k_func 4
   k_ldla $F304
@@ -5243,6 +5311,7 @@ SENMAIN_L_C45A:
   k_jumpt SENMAIN_L_C43A
   k_ldli 0
   k_return
+; calls 2
 SENMAIN_F_C465:
   k_func 8
   k_pusharg 11
@@ -5403,6 +5472,7 @@ SENMAIN_L_C52A:
   k_add
   k_derefb
   k_return
+; vars: g_ships | calls 1
 SENMAIN_F_C541:
   k_func 14
   k_pusharg 11
@@ -5418,7 +5488,7 @@ SENMAIN_L_C557:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_jumpf SENMAIN_L_C5DF
@@ -5540,7 +5610,7 @@ SENMAIN_L_C5F4:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_jumpf SENMAIN_L_C61D
@@ -5579,6 +5649,7 @@ SENMAIN_L_C620:
   k_ult
   k_jumpt SENMAIN_L_C5F4
   k_return
+; sys: memset_long | calls 2
 SENMAIN_F_C627:
   k_func 20
   k_pushiw $0087
@@ -5586,7 +5657,7 @@ SENMAIN_F_C627:
   k_pushiw $F310
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_pusharg 15
   k_callx SENMAIN_F_C541, 2
   k_ldla $F308
@@ -5755,6 +5826,7 @@ SENMAIN_L_C727:
   k_jump SENMAIN_L_C6D9
 SENMAIN_L_C72D:
   k_return
+; calls 1
 SENMAIN_F_C72E:
   k_func 8
   k_ldlarg 11
@@ -5834,6 +5906,7 @@ SENMAIN_L_C78C:
   k_ult
   k_jumpt SENMAIN_L_C743
   k_return
+; sys: memset_long | vars: g_ships | calls 3
 SENMAIN_F_C794:
   k_func 20
   k_pushiw $0087
@@ -5841,13 +5914,13 @@ SENMAIN_F_C794:
   k_pushiw $F45A
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_pushiw $0087
   k_pushiw $0080
   k_pushiw $F310
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 0
   k_stla $F4E2
   k_pusharg 13
@@ -5857,7 +5930,7 @@ SENMAIN_F_C794:
   k_ldlarg 13
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -6
   k_ldl -6
@@ -5883,7 +5956,7 @@ SENMAIN_F_C794:
   k_ldla $F450
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_derefb
   k_ldrib 20
@@ -6110,6 +6183,7 @@ SENMAIN_L_C91A:
   k_add
   k_derefb
   k_return
+; vars: g_ships | calls 1
 SENMAIN_F_C92B:
   k_func 12
   k_ldla $F44E
@@ -6131,7 +6205,7 @@ SENMAIN_L_C949:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_ldl -2

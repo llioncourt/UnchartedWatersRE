@@ -2,16 +2,19 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp S_ONNA_F_B803
+; calls 1
 S_ONNA_F_B803:
   k_func 0
   k_call S_ONNA_F_C297
   k_stla $F9A8
   k_return
+; calls 1
 S_ONNA_F_B80F:
   k_func 6
   k_ldliw $150A
@@ -43,32 +46,37 @@ S_ONNA_L_B82A:
   k_jumpt S_ONNA_L_B81A
   k_ldli 0
   k_return
+; vars: g_princess
 S_ONNA_F_B839:
   k_func 0
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_return
+; vars: g_princess
 S_ONNA_F_B844:
   k_func 0
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 2
   k_and
   k_return
+; vars: g_princess
 S_ONNA_F_B84F:
   k_func 0
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_return
+; vars: g_port, g_king_mission
 S_ONNA_F_B85A:
   k_func 0
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_return
+; vars: g_ports, g_port, g_king_mission | calls 1
 S_ONNA_F_B869:
   k_func 18
   k_ldlarg 11
@@ -92,7 +100,7 @@ S_ONNA_F_B869:
   k_ldlarg 11
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_deref
   k_stl -12
@@ -108,9 +116,9 @@ S_ONNA_F_B869:
   k_ldr -12
   k_le
   k_jumpf S_ONNA_L_B8B4
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_ne
   k_jumpf S_ONNA_L_B8B4
@@ -171,6 +179,7 @@ S_ONNA_L_B8ED:
 S_ONNA_L_B8FC:
   k_ldli 0
   k_return
+; calls 1
 S_ONNA_F_B8FE:
   k_func 10
   k_ldlarg 13
@@ -232,6 +241,7 @@ S_ONNA_L_B935:
   k_pushiw S_ONNA_D_C478
   k_callx RF_3608, 10
   k_return
+; calls 4
 S_ONNA_F_B952:
   k_func 2
   k_ldlarg 11
@@ -257,6 +267,7 @@ S_ONNA_F_B952:
   k_pushl
   k_callx S_ONNA_F_B8FE, 4
   k_return
+; vars: g_player_name_ptr | calls 3
 S_ONNA_F_B983:
   k_func 2
   k_ldlarg 11
@@ -268,7 +279,7 @@ S_ONNA_F_B983:
   k_addlib 20
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -294,12 +305,14 @@ S_ONNA_L_B9AD:
   k_pushl
   k_callx RF_40DE, 2
   k_return
+; calls 1
 S_ONNA_F_B9C2:
   k_func 0
   k_pushi 1
   k_pushiw S_ONNA_D_C49B
   k_callx RF_2FB9, 4
   k_return
+; vars: g_captains, g_port, g_fleets | calls 7
 S_ONNA_F_B9D0:
   k_func 8
   k_call RF_60B2
@@ -323,7 +336,7 @@ S_ONNA_F_B9D0:
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -4
   k_pushi 4
@@ -337,7 +350,7 @@ S_ONNA_F_B9D0:
   k_addli 4
   k_derefb
   k_jumpf S_ONNA_L_BA48
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldr -2
   k_eq
   k_jumpf S_ONNA_L_BA38
@@ -370,7 +383,7 @@ S_ONNA_L_BA5C:
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -8
   k_pushi 0
@@ -386,16 +399,17 @@ S_ONNA_L_BA5C:
   k_callx S_ONNA_F_B8FE, 4
 S_ONNA_L_BA77:
   k_return
+; vars: g_port, g_king_mission | calls 6
 S_ONNA_F_BA78:
   k_func 4
   k_pusharg 11
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
   k_callx S_ONNA_F_B869, 4
   k_jumpf S_ONNA_L_BAA4
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_popr
   k_ne
   k_jumpf S_ONNA_L_BAA4
@@ -452,6 +466,7 @@ S_ONNA_L_BAE2:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_return
+; vars: g_king_mission | calls 11
 S_ONNA_F_BAF1:
   k_func 2
   k_call S_ONNA_F_B84F
@@ -459,7 +474,7 @@ S_ONNA_F_BAF1:
   k_call S_ONNA_F_B839
   k_jumpt S_ONNA_L_BB3C
   k_call RF_60B2
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt S_ONNA_L_BB11
   k_call S_ONNA_F_B9C2
   k_jump S_ONNA_L_BB39
@@ -474,7 +489,7 @@ S_ONNA_L_BB22:
   k_pushi 0
   k_pushiw S_ONNA_D_C65F
   k_callx RF_2FB9, 4
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_pushl
   k_callx S_ONNA_F_B952, 2
   k_ldla $F18A
@@ -487,7 +502,7 @@ S_ONNA_L_BB3C:
   k_jumpf S_ONNA_L_BB8A
   k_call S_ONNA_F_B839
   k_jumpf S_ONNA_L_BB8A
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx $B00F, 2
   k_jumpt S_ONNA_L_BB8A
@@ -495,7 +510,7 @@ S_ONNA_L_BB3C:
   k_pushi 0
   k_pushiw S_ONNA_D_C67F
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_shl1
   k_ldriw $1B49
   k_add
@@ -510,7 +525,7 @@ S_ONNA_L_BB3C:
   k_dec
   k_stla $F18A
   k_call RF_472D
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx S_ONNA_F_BA78, 2
 S_ONNA_L_BB8A:
@@ -518,12 +533,12 @@ S_ONNA_L_BB8A:
   k_jumpf S_ONNA_L_BBEB
   k_call S_ONNA_F_B839
   k_jumpf S_ONNA_L_BBEB
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx $B00F, 2
   k_jumpf S_ONNA_L_BBEB
   k_call RF_60B2
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt S_ONNA_L_BBBC
   k_pushi 1
   k_pushiw S_ONNA_D_C6A8
@@ -540,7 +555,7 @@ S_ONNA_L_BBBC:
   k_pushi 0
   k_pushiw S_ONNA_D_C70E
   k_callx RF_2FB9, 4
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_ldrib 19
   k_mul
   k_ldriw $0FD8
@@ -557,10 +572,11 @@ S_ONNA_L_BBE8:
   k_call RF_472D
 S_ONNA_L_BBEB:
   k_return
+; vars: g_king_mission | calls 6
 S_ONNA_F_BBEC:
   k_func 0
   k_call RF_60B2
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt S_ONNA_L_BC00
   k_call S_ONNA_F_B9C2
   k_jump S_ONNA_L_BC28
@@ -575,7 +591,7 @@ S_ONNA_L_BC11:
   k_pushi 0
   k_pushiw S_ONNA_D_C75F
   k_callx RF_2FB9, 4
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_pushl
   k_callx S_ONNA_F_B952, 2
   k_ldla $F18A
@@ -584,6 +600,7 @@ S_ONNA_L_BC11:
 S_ONNA_L_BC28:
   k_call RF_472D
   k_return
+; vars: g_king_mission, g_player_name_ptr, g_port, g_princess, g_player_gold | calls 17
 S_ONNA_F_BC2C:
   k_func 12
   k_ldla $EF52
@@ -592,9 +609,9 @@ S_ONNA_F_BC2C:
   k_eq
   k_jumpf S_ONNA_L_BC59
   k_call RF_60B2
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_jumpf S_ONNA_L_BC4E
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_pushl
   k_callx S_ONNA_F_B9D0, 2
   k_jump S_ONNA_L_BFC4
@@ -637,7 +654,7 @@ S_ONNA_L_BC8D:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_stl -6
@@ -647,7 +664,7 @@ S_ONNA_L_BC9C:
   k_ldla $EF52
   k_derefb
   k_jumpf S_ONNA_L_BCAC
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldr -2
   k_ne
   k_jumpf S_ONNA_L_BCD7
@@ -705,7 +722,7 @@ S_ONNA_L_BD01:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
 S_ONNA_L_BD1A:
@@ -713,7 +730,7 @@ S_ONNA_L_BD1A:
   k_ldla $EF52
   k_derefb
   k_jumpf S_ONNA_L_BF2E
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldr -2
   k_eq
   k_jumpf S_ONNA_L_BECB
@@ -732,13 +749,13 @@ S_ONNA_L_BD1A:
   k_ldri 9
   k_eq
   k_jumpf S_ONNA_L_BD85
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_jumpf S_ONNA_L_BD6E
   k_call RF_60B2
   k_pushi 0
   k_pushiw S_ONNA_D_C808
   k_callx RF_2FB9, 4
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_pushl
   k_callx S_ONNA_F_B983, 2
   k_pushib 31
@@ -754,9 +771,9 @@ S_ONNA_L_BD6E:
   k_callx RF_2FB9, 4
   k_ldli 4
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_jump S_ONNA_L_BDBC
 S_ONNA_L_BD85:
   k_call RF_60B2
@@ -782,7 +799,7 @@ S_ONNA_L_BDAA:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
 S_ONNA_L_BDB6:
@@ -812,13 +829,13 @@ S_ONNA_L_BDD2:
   k_ldri 9
   k_eq
   k_jumpf S_ONNA_L_BE80
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_jumpf S_ONNA_L_BE14
   k_call RF_60B2
   k_pushi 0
   k_pushiw S_ONNA_D_C8B3
   k_callx RF_2FB9, 4
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_pushl
   k_callx S_ONNA_F_B983, 2
   k_pushib 31
@@ -837,7 +854,7 @@ S_ONNA_L_BE14:
   k_ldrib 100
   k_mul
   k_pushl
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_callx RL_8962, 4
   k_stl -10
   k_call RF_60B2
@@ -849,17 +866,17 @@ S_ONNA_L_BE14:
   k_call RF_60B2
   k_ldl -10
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_pushi 1
   k_pushiw S_ONNA_D_C8FB
   k_callx RF_2FB9, 4
   k_ldli 4
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldli 2
   k_swap
   k_ldla $EF52
@@ -902,7 +919,7 @@ S_ONNA_L_BEA5:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
 S_ONNA_L_BEB1:
@@ -974,7 +991,7 @@ S_ONNA_L_BF2E:
   k_pushi 0
   k_pushiw S_ONNA_D_C999
   k_callx RF_2FB9, 4
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldr -2
   k_eq
   k_jumpf S_ONNA_L_BF64
@@ -986,7 +1003,7 @@ S_ONNA_L_BF2E:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -1000,7 +1017,7 @@ S_ONNA_L_BF64:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -1055,10 +1072,11 @@ S_ONNA_L_BFCB:
   k_call RF_472D
 S_ONNA_L_BFCE:
   k_return
+; vars: g_king_mission | calls 5
 S_ONNA_F_BFCF:
   k_func 0
   k_call RF_60B2
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt S_ONNA_L_BFE8
   k_pushi 1
   k_pushiw S_ONNA_D_C9F4
@@ -1075,7 +1093,7 @@ S_ONNA_L_BFF9:
   k_pushi 0
   k_pushiw S_ONNA_D_CA3D
   k_callx RF_2FB9, 4
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_ldrib 19
   k_mul
   k_ldriw $0FD8
@@ -1089,6 +1107,7 @@ S_ONNA_L_C010:
 S_ONNA_L_C017:
   k_call RF_472D
   k_return
+; vars: g_player_items | calls 5
 S_ONNA_F_C01B:
   k_func 0
   k_call S_ONNA_F_B84F
@@ -1101,7 +1120,7 @@ S_ONNA_L_C02F:
   k_jumpf S_ONNA_L_C048
   k_call S_ONNA_F_B839
   k_jumpf S_ONNA_L_C048
-  k_ldla $E571
+  k_ldla g_player_items+2
   k_ldriw $8000
   k_and
   k_jumpt S_ONNA_L_C048
@@ -1111,13 +1130,14 @@ S_ONNA_L_C048:
   k_jumpf S_ONNA_L_C061
   k_call S_ONNA_F_B839
   k_jumpf S_ONNA_L_C061
-  k_ldla $E571
+  k_ldla g_player_items+2
   k_ldriw $8000
   k_and
   k_jumpf S_ONNA_L_C061
   k_call S_ONNA_F_BFCF
 S_ONNA_L_C061:
   k_return
+; vars: g_king_mission | calls 10
 S_ONNA_F_C062:
   k_func 0
   k_call S_ONNA_F_B84F
@@ -1125,7 +1145,7 @@ S_ONNA_F_C062:
   k_call S_ONNA_F_B839
   k_jumpt S_ONNA_L_C0AE
   k_call RF_60B2
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt S_ONNA_L_C08E
   k_pushi 1
   k_pushiw S_ONNA_D_CA63
@@ -1142,7 +1162,7 @@ S_ONNA_L_C08E:
   k_pushi 0
   k_pushiw S_ONNA_D_CAAA
   k_callx RF_2FB9, 4
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_pushl
   k_callx S_ONNA_F_B952, 2
   k_ldla $F18A
@@ -1157,7 +1177,7 @@ S_ONNA_L_C0AE:
   k_jumpf S_ONNA_L_C0D2
   k_call S_ONNA_F_B844
   k_jumpt S_ONNA_L_C0D2
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx S_ONNA_F_B9D0, 2
   k_ldla $F18A
@@ -1172,7 +1192,7 @@ S_ONNA_L_C0D2:
   k_call S_ONNA_F_B844
   k_jumpf S_ONNA_L_C12E
   k_call RF_60B2
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt S_ONNA_L_C0F8
   k_pushi 1
   k_pushiw S_ONNA_D_CACA
@@ -1188,7 +1208,7 @@ S_ONNA_L_C105:
   k_pushi 0
   k_pushiw S_ONNA_D_CB16
   k_callx RF_2FB9, 4
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_ldrib 19
   k_mul
   k_ldriw $0FD8
@@ -1206,6 +1226,7 @@ S_ONNA_L_C12B:
   k_call RF_472D
 S_ONNA_L_C12E:
   k_return
+; vars: g_king_mission | calls 8
 S_ONNA_F_C12F:
   k_func 0
   k_call S_ONNA_F_B84F
@@ -1241,7 +1262,7 @@ S_ONNA_L_C14E:
   k_pushi 0
   k_pushiw S_ONNA_D_CBA3
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx S_ONNA_F_B983, 2
   k_pushi 0
@@ -1249,7 +1270,7 @@ S_ONNA_L_C14E:
   k_callx RF_2FB9, 4
   k_jump S_ONNA_L_C1A4
 S_ONNA_L_C19C:
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx S_ONNA_F_B9D0, 2
 S_ONNA_L_C1A4:
@@ -1271,6 +1292,7 @@ S_ONNA_L_C1AE:
   k_call RF_472D
 S_ONNA_L_C1CE:
   k_return
+; vars: g_port, g_king_mission | calls 9
 S_ONNA_F_C1CF:
   k_func 0
   k_call S_ONNA_F_B84F
@@ -1288,16 +1310,16 @@ S_ONNA_L_C1E9:
   k_call S_ONNA_F_B844
   k_jumpt S_ONNA_L_C241
   k_call RF_60B2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_popr
   k_ne
   k_jumpf S_ONNA_L_C236
   k_pushi 0
   k_pushiw S_ONNA_D_CBE5
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_shl1
   k_ldriw $1B24
   k_add
@@ -1332,9 +1354,10 @@ S_ONNA_L_C241:
   k_call RF_472D
 S_ONNA_L_C261:
   k_return
+; vars: g_king_mission | calls 5
 S_ONNA_F_C262:
   k_func 0
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_switch 0, 5, S_ONNA_L_C27E
     .word S_ONNA_L_C27B, S_ONNA_L_C27F, S_ONNA_L_C285, S_ONNA_L_C28B, S_ONNA_L_C291
 S_ONNA_L_C27B:
@@ -1353,9 +1376,10 @@ S_ONNA_L_C28B:
 S_ONNA_L_C291:
   k_call S_ONNA_F_C12F
   k_jump S_ONNA_L_C27E
+; vars: g_port, g_player_gold, g_princess, g_player_name_ptr, g_captains | calls 15
 S_ONNA_F_C297:
   k_func 12
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 5
   k_mul
   k_ldriw $150D
@@ -1401,7 +1425,7 @@ S_ONNA_L_C2C4:
   k_callx RF_2FB9, 4
   k_pushi 1
   k_callx RF_3DDF, 2
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldri 10
   k_ult
   k_jumpf S_ONNA_L_C346
@@ -1444,9 +1468,9 @@ S_ONNA_L_C346:
 S_ONNA_L_C34D:
   k_ldli 10
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
 S_ONNA_L_C356:
   k_ldl -4
   k_ldrib 45
@@ -1499,7 +1523,7 @@ S_ONNA_L_C36E:
   k_callx RL_8962, 4
   k_popstoreb
 S_ONNA_L_C3A8:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf S_ONNA_L_C3BE
@@ -1533,7 +1557,7 @@ S_ONNA_L_C3C2:
   k_addlib 21
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -1561,7 +1585,7 @@ S_ONNA_L_C3C2:
   k_ldl -10
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -12
   k_ldl -12

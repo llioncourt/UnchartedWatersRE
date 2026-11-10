@@ -2,11 +2,13 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp UM_SUB_F_B003
+; calls 3
 UM_SUB_F_B003:
   k_func 0
   k_ldla $F9A2
@@ -16,7 +18,7 @@ UM_SUB_F_B003:
     .word $000F, UM_SUB_L_B029
     .word UM_SUB_L_B022
 UM_SUB_L_B01C:
-  k_call UM_SUB_F_B19D
+  k_call merchant_order_delivered
 UM_SUB_L_B01F:
   k_stla $F9A6
 UM_SUB_L_B022:
@@ -25,8 +27,9 @@ UM_SUB_L_B023:
   k_call UM_SUB_F_BBB4
   k_jump UM_SUB_L_B01F
 UM_SUB_L_B029:
-  k_call UM_SUB_F_C3FF
+  k_call wanted_item_delivered
   k_jump UM_SUB_L_B01F
+; vars: g_cargo | calls 1
 UM_SUB_F_B02F:
   k_func 21
   k_leal -5
@@ -47,7 +50,7 @@ UM_SUB_L_B04F:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -21
   k_ldln -21
@@ -94,20 +97,21 @@ UM_SUB_L_B095:
   k_jumpt UM_SUB_L_B04F
   k_ldln -19
   k_return
+; vars: g_king_mission, g_port, g_ports | calls 2
 UM_SUB_F_B0A0:
   k_func 10
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_stl -6
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 5
   k_mul
   k_ldriw $150A
   k_add
   k_stl -8
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -10
   k_ldl -10
@@ -166,6 +170,7 @@ UM_SUB_F_B0A0:
 UM_SUB_L_B119:
   k_ldl -4
   k_return
+; vars: g_cargo | calls 2
 UM_SUB_F_B11B:
   k_func 23
   k_leal -7
@@ -186,7 +191,7 @@ UM_SUB_L_B138:
   k_ldln -19
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -23
   k_ldln -23
@@ -246,27 +251,28 @@ UM_SUB_L_B194:
   k_ult
   k_jumpt UM_SUB_L_B138
   k_return
-UM_SUB_F_B19D:
+; vars: g_princess, g_port, g_king_mission, g_player_gold, g_palace_savings, g_fame | calls 18
+merchant_order_delivered:
   k_func 8
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpf UM_SUB_L_B300
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf UM_SUB_L_B300
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf UM_SUB_L_B300
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_ldri 1
   k_eq
   k_jumpf UM_SUB_L_B300
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx UM_SUB_F_B02F, 2
   k_jumpf UM_SUB_L_B300
@@ -282,10 +288,10 @@ UM_SUB_F_B19D:
   k_pushiw UM_SUB_D_C6BA
   k_callx RF_2FB9, 4
   k_call RF_472D
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx UM_SUB_F_B02F, 2
-  k_ldra $EF58
+  k_ldra g_king_mission+4
   k_ult
   k_jumpf UM_SUB_L_B22C
   k_call RF_60B2
@@ -298,28 +304,28 @@ UM_SUB_F_B19D:
   k_pushiw UM_SUB_D_C70D
   k_callx RF_2FB9, 4
   k_call RF_472D
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx UM_SUB_F_B02F, 2
   k_pushl
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx UM_SUB_F_B11B, 4
   k_jump UM_SUB_L_B2FA
 UM_SUB_L_B22C:
   k_call RF_60B2
-  k_pusha $EF58
-  k_ldlba $EF57
+  k_pusha g_king_mission+4
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx UM_SUB_F_B11B, 4
   k_pushi 1
   k_pushiw UM_SUB_D_C740
   k_callx RF_2FB9, 4
   k_call RF_472D
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_long $26
   k_long $14
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_long $26
   k_long $15
   k_long $03
@@ -335,13 +341,13 @@ UM_SUB_L_B22C:
   k_longd $19, $000003E8
   k_long $02
   k_long $27
-  k_ldra $EE72
+  k_ldra g_palace_savings
   k_add
   k_pushl
   k_callx RL_8962, 4
-  k_stla $EE72
+  k_stla g_palace_savings
   k_ldliw $EA60
-  k_stla $E56D
+  k_stla g_player_gold
   k_call RF_60B2
   k_pushi 0
   k_pushiw UM_SUB_D_C76A
@@ -352,22 +358,22 @@ UM_SUB_L_B22C:
   k_call RF_472D
   k_jump UM_SUB_L_B2C2
 UM_SUB_L_B2AB:
-  k_pusha $EF5A
+  k_pusha g_king_mission+6
   k_ldliw $EA60
-  k_ldra $E56D
+  k_ldra g_player_gold
   k_sub
   k_pushl
   k_callx RL_8962, 4
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_add
-  k_stla $E56D
+  k_stla g_player_gold
 UM_SUB_L_B2C2:
-  k_ldla $EE74
+  k_ldla g_fame
   k_ldriw $C350
   k_ult
   k_jumpf UM_SUB_L_B2EC
-  k_ldlba $EE76
+  k_ldlba g_title
   k_ldri 1
   k_shr
   k_ldrib 100
@@ -375,14 +381,14 @@ UM_SUB_L_B2C2:
   k_addliw $0096
   k_pushl
   k_ldliw $C350
-  k_ldra $EE74
+  k_ldra g_fame
   k_sub
   k_pushl
   k_callx RL_8962, 4
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_add
-  k_stla $EE74
+  k_stla g_fame
 UM_SUB_L_B2EC:
   k_call RF_60B2
   k_pushi 1
@@ -391,25 +397,25 @@ UM_SUB_L_B2EC:
   k_call RF_472D
 UM_SUB_L_B2FA:
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldli 1
   k_return
 UM_SUB_L_B300:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpf UM_SUB_L_B3B9
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf UM_SUB_L_B3B9
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf UM_SUB_L_B3B9
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_ldri 1
   k_eq
   k_jumpf UM_SUB_L_B3B9
@@ -437,12 +443,12 @@ UM_SUB_L_B354:
   k_pushi 1
   k_pushiw UM_SUB_D_C835
   k_callx RF_2FB9, 4
-  k_ldla $E56D
-  k_ldra $EF5A
+  k_ldla g_player_gold
+  k_ldra g_king_mission+6
   k_ult
   k_jumpf UM_SUB_L_B37E
   k_ldli 0
-  k_stla $E56D
+  k_stla g_player_gold
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
@@ -450,11 +456,11 @@ UM_SUB_L_B354:
   k_callx RF_2FB9, 4
   k_jump UM_SUB_L_B389
 UM_SUB_L_B37E:
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
 UM_SUB_L_B389:
   k_call RF_472D
   k_call RF_60B2
@@ -467,34 +473,34 @@ UM_SUB_L_B389:
   k_mul
   k_addlib 50
   k_pushl
-  k_pusha $EE74
+  k_pusha g_fame
   k_callx RL_8962, 4
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_sub
-  k_stla $EE74
+  k_stla g_fame
   k_call RF_472D
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
 UM_SUB_L_B3B7:
   k_ldli 1
   k_return
 UM_SUB_L_B3B9:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpt UM_SUB_L_B6A5
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf UM_SUB_L_B6A5
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf UM_SUB_L_B6A5
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_ldri 1
   k_eq
   k_jumpf UM_SUB_L_B6A5
@@ -516,7 +522,7 @@ UM_SUB_L_B3B9:
   k_pushi 0
   k_pushiw UM_SUB_D_C8DE
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_shl1
   k_ldriw $1B49
   k_add
@@ -529,7 +535,7 @@ UM_SUB_L_B3B9:
   k_stla $F18A
   k_call RF_472D
   k_call RF_60B2
-  k_ldlba $EE76
+  k_ldlba g_title
   k_inc
   k_ldriw $07D0
   k_mul
@@ -561,16 +567,16 @@ UM_SUB_L_B3B9:
   k_callx RL_8962, 4
   k_stl -2
   k_ldl -2
-  k_stla $EF58
+  k_stla g_king_mission+4
   k_ldl -2
   k_ldr -4
   k_mul
-  k_stla $EF5A
-  k_ldlba $EF57
+  k_stla g_king_mission+6
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx UM_SUB_F_B02F, 2
   k_jumpf UM_SUB_L_B5CD
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx UM_SUB_F_B02F, 2
   k_pushl
@@ -589,7 +595,7 @@ UM_SUB_L_B3B9:
   k_ldl -4
   k_long $26
   k_long $14
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx UM_SUB_F_B02F, 2
   k_long $26
@@ -608,7 +614,7 @@ UM_SUB_L_B3B9:
   k_callx RF_3619, 6
   k_jump UM_SUB_L_B4ED
 UM_SUB_L_B4DB:
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx UM_SUB_F_B02F, 2
   k_ldr -4
@@ -622,7 +628,7 @@ UM_SUB_L_B4ED:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_shl1
   k_pushl
   k_push -2
@@ -631,13 +637,13 @@ UM_SUB_L_B4ED:
   k_call RF_3CFF
   k_jumpf UM_SUB_L_B5C3
   k_call RF_60B2
-  k_pusha $EF5A
+  k_pusha g_king_mission+6
   k_pushiw UM_SUB_D_C9C5
   k_callx RF_3619, 4
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_long $26
   k_long $14
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_long $26
   k_long $15
   k_long $03
@@ -661,11 +667,11 @@ UM_SUB_L_B4ED:
   k_long $27
   k_ldriw $03E8
   k_udiv
-  k_ldra $EE72
+  k_ldra g_palace_savings
   k_add
   k_pushl
   k_callx RL_8962, 4
-  k_stla $EE72
+  k_stla g_palace_savings
   k_ldliw $EA60
   k_jump UM_SUB_L_B5A6
 UM_SUB_L_B57B:
@@ -673,34 +679,34 @@ UM_SUB_L_B57B:
   k_pushi 1
   k_pushiw UM_SUB_D_CA1C
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx UM_SUB_F_B02F, 2
   k_ldr -4
   k_mul
-  k_ldra $EF5A
+  k_ldra g_king_mission+6
   k_add
   k_pushl
   k_ldliw $EA60
-  k_ldra $E56D
+  k_ldra g_player_gold
   k_sub
   k_pushl
   k_callx RL_8962, 4
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_add
 UM_SUB_L_B5A6:
-  k_stla $E56D
-  k_ldlba $EF57
+  k_stla g_player_gold
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx UM_SUB_F_B02F, 2
   k_pushl
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx UM_SUB_F_B11B, 4
   k_ldli 8
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
   k_jump UM_SUB_L_B69D
 UM_SUB_L_B5C3:
@@ -714,7 +720,7 @@ UM_SUB_L_B5CD:
   k_callx RF_3619, 4
   k_call RF_472D
   k_call RF_60B2
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_shl1
   k_pushl
   k_pushiw UM_SUB_D_CA88
@@ -722,14 +728,14 @@ UM_SUB_L_B5CD:
   k_call RF_3CFF
   k_jumpf UM_SUB_L_B691
   k_call RF_60B2
-  k_pusha $EF5A
+  k_pusha g_king_mission+6
   k_pushiw UM_SUB_D_CAA2
   k_callx RF_3619, 4
   k_call RF_472D
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_long $26
   k_long $14
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_long $26
   k_long $15
   k_long $03
@@ -745,13 +751,13 @@ UM_SUB_L_B5CD:
   k_longd $19, $000003E8
   k_long $02
   k_long $27
-  k_ldra $EE72
+  k_ldra g_palace_savings
   k_add
   k_pushl
   k_callx RL_8962, 4
-  k_stla $EE72
+  k_stla g_palace_savings
   k_ldliw $EA60
-  k_stla $E56D
+  k_stla g_player_gold
   k_call RF_60B2
   k_pushi 0
   k_pushiw UM_SUB_D_CACB
@@ -762,22 +768,22 @@ UM_SUB_L_B5CD:
   k_call RF_472D
   k_jump UM_SUB_L_B67A
 UM_SUB_L_B663:
-  k_pusha $EF5A
+  k_pusha g_king_mission+6
   k_ldliw $EA60
-  k_ldra $E56D
+  k_ldra g_player_gold
   k_sub
   k_pushl
   k_callx RL_8962, 4
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_add
-  k_stla $E56D
+  k_stla g_player_gold
 UM_SUB_L_B67A:
   k_ldli 8
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_60B2
   k_pushi 1
   k_pushiw UM_SUB_D_CB13
@@ -791,7 +797,7 @@ UM_SUB_L_B698:
   k_callx RF_2FB9, 4
   k_ldli 0
 UM_SUB_L_B69D:
-  k_stlba $EF61
+  k_stlba g_princess
 UM_SUB_L_B6A0:
   k_call RF_472D
   k_ldli 1
@@ -802,10 +808,11 @@ UM_SUB_L_B6A5:
 UM_SUB_F_B6A7:
   k_func 0
   k_return
+; vars: g_portrait | calls 1
 UM_SUB_F_B6AD:
   k_func 0
   k_ldlib -1
-  k_stla $F295
+  k_stla g_portrait
   k_pushiw $2000
   k_pushi 8
   k_pushib 30
@@ -821,6 +828,7 @@ UM_SUB_F_B6AD:
   k_pushi 1
   k_callx RF_604A, 12
   k_return
+; calls 1
 UM_SUB_F_B6D2:
   k_func 0
   k_pushi 0
@@ -831,6 +839,7 @@ UM_SUB_F_B6D2:
   k_pushi 1
   k_callx RF_604A, 12
   k_return
+; calls 1
 UM_SUB_F_B6E4:
   k_func 0
   k_pushiw $2000
@@ -841,6 +850,7 @@ UM_SUB_F_B6E4:
   k_pushi 3
   k_callx RF_604A, 12
   k_return
+; vars: g_port, g_ports, g_port_flags | calls 9
 UM_SUB_F_B6F8:
   k_func 7
   k_pushi 1
@@ -848,16 +858,16 @@ UM_SUB_F_B6F8:
   k_callx RF_2FB9, 4
   k_ldliw $00F0
   k_stlba $EF65
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BC
   k_add
   k_stln -5
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stln -7
   k_ldln -7
@@ -977,8 +987,8 @@ UM_SUB_L_B7FF:
   k_ldri 3
   k_ult
   k_jumpt UM_SUB_L_B7A7
-  k_ldlba $EF69
-  k_ldriw $EE78
+  k_ldlba g_port
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 3
@@ -1013,6 +1023,7 @@ UM_SUB_L_B7FF:
   k_call $97BE
   k_ldli 0
   k_return
+; calls 5
 UM_SUB_F_B85B:
   k_func 6
   k_ldlarg 15
@@ -1118,6 +1129,7 @@ UM_SUB_L_B8E4:
   k_dec
 UM_SUB_L_B8E6:
   k_return
+; vars: g_player_name_ptr | calls 4
 UM_SUB_F_B8E7:
   k_func 26
   k_ldli 0
@@ -1141,7 +1153,7 @@ UM_SUB_L_B8F4:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_popstore
@@ -1188,6 +1200,7 @@ UM_SUB_L_B950:
   k_add
   k_derefb
   k_return
+; calls 10
 UM_SUB_F_B958:
   k_func 4
   k_ldliw $00F0
@@ -1329,6 +1342,7 @@ UM_SUB_L_BA52:
   k_callx RF_604A, 12
   k_ldli 0
   k_return
+; vars: g_ships | calls 5
 UM_SUB_F_BA6C:
   k_func 27
   k_leal -17
@@ -1349,7 +1363,7 @@ UM_SUB_L_BA8E:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stl -2
   k_pushn -19
@@ -1404,6 +1418,7 @@ UM_SUB_L_BAEF:
   k_ldliw $00FF
 UM_SUB_L_BAF2:
   k_return
+; calls 7
 UM_SUB_F_BAF3:
   k_func 2
   k_ldliw $00F0
@@ -1464,6 +1479,7 @@ UM_SUB_L_BB51:
   k_callx RF_604A, 12
   k_ldli 0
   k_return
+; calls 5
 UM_SUB_F_BB67:
   k_func 2
   k_pushi 1
@@ -1504,6 +1520,7 @@ UM_SUB_L_BB9A:
 UM_SUB_L_BBB2:
   k_ldli 1
   k_return
+; vars: g_portrait | calls 7
 UM_SUB_F_BBB4:
   k_func 4
   k_ldli 0
@@ -1557,7 +1574,7 @@ UM_SUB_L_BBE1:
   k_stl -4
 UM_SUB_L_BC11:
   k_ldlib -1
-  k_stla $F295
+  k_stla g_portrait
   k_ldl -2
   k_ldriw $00FF
   k_eq
@@ -1567,6 +1584,7 @@ UM_SUB_L_BC11:
 UM_SUB_L_BC22:
   k_ldl -4
   k_return
+; calls 1
 UM_SUB_F_BC24:
   k_func 0
   k_pushiw $2000
@@ -1577,6 +1595,7 @@ UM_SUB_F_BC24:
   k_pushi 3
   k_callx RF_604A, 12
   k_return
+; vars: g_nations, g_relations | calls 8
 UM_SUB_F_BC37:
   k_func 18
   k_ldlarg 11
@@ -1589,7 +1608,7 @@ UM_SUB_F_BC37:
   k_ldlarg 11
   k_shl1
   k_shl1
-  k_ldriw $EEBE
+  k_ldriw g_nations
   k_add
   k_deref
   k_stl -16
@@ -1600,7 +1619,7 @@ UM_SUB_F_BC37:
   k_add
   k_derefb
   k_stl -14
-  k_ldliw $EA8F
+  k_ldliw g_relations
   k_stl -18
   k_ldlib -1
   k_stla $EF66
@@ -1829,9 +1848,10 @@ UM_SUB_L_BDDB:
 UM_SUB_L_BDE9:
   k_call RF_472D
   k_return
+; vars: g_port, g_player_gold | calls 11
 UM_SUB_F_BDED:
   k_func 4
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BC
@@ -1874,7 +1894,7 @@ UM_SUB_F_BDED:
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpf UM_SUB_L_BE7F
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldr -4
   k_ult
   k_jumpf UM_SUB_L_BE5E
@@ -1888,9 +1908,9 @@ UM_SUB_F_BDED:
 UM_SUB_L_BE5E:
   k_ldl -4
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_pushib 18
   k_pushib 28
   k_pushi 2
@@ -1908,6 +1928,7 @@ UM_SUB_L_BE7F:
 UM_SUB_L_BE89:
   k_ldli 0
   k_return
+; calls 5
 UM_SUB_F_BE8B:
   k_func 4
   k_ldli 0
@@ -1949,6 +1970,7 @@ UM_SUB_L_BEC8:
 UM_SUB_L_BED4:
   k_ldl -4
   k_return
+; vars: g_player_gold | calls 9
 UM_SUB_F_BED6:
   k_func 6
   k_call $9662
@@ -2011,14 +2033,15 @@ UM_SUB_L_BF36:
   k_pushib 16
   k_pushi 14
   k_callx RF_2F8F, 4
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw UM_SUB_D_CE7B
   k_callx RF_3619, 4
   k_ldl -4
   k_return
+; vars: g_player_items, g_player_gold | calls 9
 UM_SUB_F_BF4F:
   k_func 2
-  k_ldliw $E56F
+  k_ldliw g_player_items
   k_stl -2
   k_ldlarg 15
   k_ldri 15
@@ -2060,7 +2083,7 @@ UM_SUB_L_BF7D:
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpf UM_SUB_L_BFF0
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldrarg 13
   k_ult
   k_jumpf UM_SUB_L_BFB8
@@ -2072,9 +2095,9 @@ UM_SUB_L_BF7D:
 UM_SUB_L_BFB8:
   k_ldlarg 13
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_ldlarg 15
   k_ldri 15
   k_and
@@ -2100,7 +2123,7 @@ UM_SUB_L_BFB8:
   k_pushi 1
   k_pushiw UM_SUB_D_CED4
   k_callx RF_2FB9, 4
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw UM_SUB_D_CED8
   k_callx RF_3619, 4
   k_ldli 1
@@ -2112,6 +2135,7 @@ UM_SUB_L_BFF6:
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
+; vars: g_port | calls 9
 UM_SUB_F_BFFC:
   k_func 18
   k_pushib 17
@@ -2119,7 +2143,7 @@ UM_SUB_F_BFFC:
   k_pushi 3
   k_pushi 2
   k_callx $97B0, 8
-  k_ldlba $EF69
+  k_ldlba g_port
   k_shl1
   k_shl1
   k_ldriw $00E9
@@ -2208,11 +2232,12 @@ UM_SUB_L_C090:
   k_call $97BE
   k_ldl -18
   k_return
+; vars: g_player_items
 UM_SUB_F_C09D:
   k_func 8
   k_ldli 0
   k_stl -6
-  k_ldliw $E56F
+  k_ldliw g_player_items
   k_stl -2
   k_ldli 0
   k_jump UM_SUB_L_C0CB
@@ -2255,11 +2280,12 @@ UM_SUB_L_C0CB:
   k_jumpt UM_SUB_L_C0AC
   k_ldl -6
   k_return
+; vars: g_player_items
 UM_SUB_F_C0D4:
   k_func 8
   k_ldli 0
   k_stl -6
-  k_ldliw $E56F
+  k_ldliw g_player_items
   k_stl -2
   k_ldli 15
   k_jump UM_SUB_L_C102
@@ -2302,6 +2328,7 @@ UM_SUB_L_C102:
   k_jumpt UM_SUB_L_C0E3
   k_ldl -6
   k_return
+; calls 6
 UM_SUB_F_C10C:
   k_func 2
   k_pushiw $2000
@@ -2351,13 +2378,14 @@ UM_SUB_L_C157:
   k_ult
   k_jumpt UM_SUB_L_C137
   k_return
+; sys: oam_hide_all | vars: g_fh_fdata | calls 3
 UM_SUB_F_C15F:
   k_func 6
   k_ldli 0
   k_stl -6
   k_stl -4
 UM_SUB_L_C167:
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushiw $26CC
   k_pushi 2
   k_pushi 1
@@ -2436,16 +2464,17 @@ UM_SUB_L_C1D3:
   k_jumpf UM_SUB_L_C167
 UM_SUB_L_C1E3:
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_ldl -2
   k_ldriw $8000
   k_eq
   k_jumpt UM_SUB_L_C1AE
   k_ldl -6
   k_return
+; vars: g_fleets, g_port, g_ports | calls 9
 UM_SUB_F_C1F2:
   k_func 10
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -10
   k_ldl -10
   k_addli 11
@@ -2460,10 +2489,10 @@ UM_SUB_F_C1F2:
   k_callx RF_60CE, 4
   k_pushi 1
   k_callx RF_609A, 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_deref
   k_pushl
@@ -2538,6 +2567,7 @@ UM_SUB_L_C23A:
 UM_SUB_L_C281:
   k_ldl -2
   k_return
+; calls 14
 UM_SUB_F_C283:
   k_func 46
   k_ldli 0
@@ -2682,6 +2712,7 @@ UM_SUB_L_C39E:
   k_call $97BE
   k_ldln -38
   k_return
+; calls 5
 UM_SUB_F_C3A7:
   k_func 3
   k_ldli 0
@@ -2724,25 +2755,26 @@ UM_SUB_L_C3ED:
 UM_SUB_L_C3FC:
   k_ldln -3
   k_return
-UM_SUB_F_C3FF:
+; vars: g_player_items, g_princess, g_port, g_king_mission, g_fame, g_palace_savings | calls 14
+wanted_item_delivered:
   k_func 8
-  k_ldliw $E56F
+  k_ldliw g_player_items
   k_stl -8
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpf UM_SUB_L_C4CD
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf UM_SUB_L_C4CD
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf UM_SUB_L_C4CD
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_ldri 2
   k_eq
   k_jumpf UM_SUB_L_C4CD
@@ -2762,7 +2794,7 @@ UM_SUB_F_C3FF:
   k_pushi 0
   k_pushiw UM_SUB_D_D016
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx RF_40C3, 2
   k_pushl
@@ -2770,28 +2802,28 @@ UM_SUB_F_C3FF:
   k_pushi 0
   k_pushiw UM_SUB_D_D02D
   k_callx RF_2FB9, 4
-  k_ldla $EE74
+  k_ldla g_fame
   k_ldriw $C350
   k_ult
   k_jumpf UM_SUB_L_C483
   k_pushiw $07D0
   k_ldliw $C350
-  k_ldra $EE74
+  k_ldra g_fame
   k_sub
   k_pushl
   k_callx RL_8962, 4
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_add
-  k_stla $EE74
+  k_stla g_fame
 UM_SUB_L_C483:
   k_pushiw $2710
-  k_ldla $EE72
-  k_ldra $EF5A
+  k_ldla g_palace_savings
+  k_ldra g_king_mission+6
   k_add
   k_pushl
   k_callx RL_8962, 4
-  k_stla $EE72
+  k_stla g_palace_savings
   k_ldla $F18A
   k_dec
   k_stla $F18A
@@ -2801,7 +2833,7 @@ UM_SUB_L_C483:
   k_pushiw UM_SUB_D_D03B
   k_callx RF_2FB9, 4
   k_call RF_472D
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_ldri 15
   k_and
   k_pushl
@@ -2811,7 +2843,7 @@ UM_SUB_L_C483:
   k_ldrib -1
   k_xor
   k_pushl
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_ldri 4
   k_shr
   k_shl1
@@ -2823,25 +2855,25 @@ UM_SUB_L_C483:
   k_and
   k_popstore
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldli 0
   k_return
 UM_SUB_L_C4CD:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpf UM_SUB_L_C587
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf UM_SUB_L_C587
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf UM_SUB_L_C587
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_ldri 2
   k_eq
   k_jumpf UM_SUB_L_C587
@@ -2874,59 +2906,59 @@ UM_SUB_L_C52F:
   k_pushi 1
   k_pushiw UM_SUB_D_D0C1
   k_callx RF_2FB9, 4
-  k_ldla $EE72
-  k_ldra $EF5A
+  k_ldla g_palace_savings
+  k_ldra g_king_mission+6
   k_ult
   k_jumpf UM_SUB_L_C559
   k_call RF_472D
   k_ldli 0
-  k_stla $EE72
+  k_stla g_palace_savings
   k_call RF_60B2
   k_pushi 1
   k_pushiw UM_SUB_D_D0E1
   k_callx RF_2FB9, 4
   k_jump UM_SUB_L_C564
 UM_SUB_L_C559:
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_swap
-  k_ldla $EE72
+  k_ldla g_palace_savings
   k_sub
-  k_stla $EE72
+  k_stla g_palace_savings
 UM_SUB_L_C564:
   k_call RF_472D
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_pushi 10
   k_callx RF_3F3E, 2
   k_ldri 5
   k_mul
   k_addliw $00C8
   k_pushl
-  k_pusha $EE74
+  k_pusha g_fame
   k_callx RL_8962, 4
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_sub
-  k_stla $EE74
+  k_stla g_fame
 UM_SUB_L_C585:
   k_ldli 0
   k_return
 UM_SUB_L_C587:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpt UM_SUB_L_C663
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf UM_SUB_L_C663
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf UM_SUB_L_C663
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_ldri 2
   k_eq
   k_jumpf UM_SUB_L_C663
@@ -2946,7 +2978,7 @@ UM_SUB_L_C587:
   k_pushi 0
   k_pushiw UM_SUB_D_D13A
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx RF_40C3, 2
   k_pushl
@@ -2964,7 +2996,7 @@ UM_SUB_L_C587:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
-  k_ldlba $EE76
+  k_ldlba g_title
   k_pushl
   k_pushi 2
   k_callx RF_3F3E, 2
@@ -2990,18 +3022,18 @@ UM_SUB_L_C587:
   k_ldl -6
   k_ldri 1
   k_shr
-  k_ldra $EE72
+  k_ldra g_palace_savings
   k_add
   k_pushl
   k_callx RL_8962, 4
-  k_stla $EE72
+  k_stla g_palace_savings
   k_ldl -6
   k_ldri 1
   k_shr
-  k_stla $EF5A
+  k_stla g_king_mission+6
   k_ldli 8
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
   k_jump UM_SUB_L_C65B
 UM_SUB_L_C64F:
@@ -3011,7 +3043,7 @@ UM_SUB_L_C64F:
   k_callx RF_2FB9, 4
   k_ldli 0
 UM_SUB_L_C65B:
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_472D
   k_ldli 0
   k_return

@@ -2,15 +2,18 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp UMINATO_F_9603
+; calls 1
 UMINATO_F_9603:
   k_func 0
   k_call UMINATO_F_A961
   k_return
+; sys: tilemap_write
 UMINATO_F_960C:
   k_func 6
   k_ldlarg 15
@@ -41,7 +44,7 @@ UMINATO_L_9629:
   k_pusharg 13
   k_pusharg 11
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_ldli 3
   k_swap
   k_ldl -2
@@ -53,6 +56,7 @@ UMINATO_L_963A:
   k_ult
   k_jumpt UMINATO_L_961A
   k_return
+; calls 1
 UMINATO_F_9642:
   k_func 0
   k_pushiw $2000
@@ -70,6 +74,7 @@ UMINATO_F_9642:
   k_pushi 1
   k_callx RF_604A, 12
   k_return
+; calls 1
 UMINATO_F_9662:
   k_func 0
   k_pushiw $2000
@@ -80,6 +85,7 @@ UMINATO_F_9662:
   k_pushi 3
   k_callx RF_604A, 12
   k_return
+; calls 2
 UMINATO_F_9675:
   k_func 0
   k_pushiw $2000
@@ -91,12 +97,13 @@ UMINATO_F_9675:
   k_callx RF_604A, 12
   k_call UMINATO_F_9662
   k_return
+; sys: oam_hide_all | vars: g_fh_fdata | calls 3
 UMINATO_F_968B:
   k_func 6
   k_ldli 0
   k_stl -6
   k_stl -4
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushiw $26CC
   k_pushi 2
   k_pushi 1
@@ -135,7 +142,7 @@ UMINATO_L_96CF:
 UMINATO_L_96D4:
   k_stl -6
 UMINATO_L_96D5:
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushiw $26CC
   k_pushi 2
   k_pushi 1
@@ -167,7 +174,7 @@ UMINATO_L_96D5:
   k_jumpf UMINATO_L_96AD
 UMINATO_L_9703:
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_ldl -2
   k_ldriw $8000
   k_eq
@@ -235,9 +242,10 @@ UMINATO_L_975C:
   k_ldr -4
   k_add
   k_return
+; vars: g_port | calls 1
 UMINATO_F_9762:
   k_func 0
-  k_ldlba $EF69
+  k_ldlba g_port
   k_jumpt UMINATO_L_9772
   k_pushi 1
   k_pushi 15
@@ -260,20 +268,22 @@ UMINATO_L_9788:
 UMINATO_L_978A:
   k_callx RF_21EA, 4
   k_return
+; sys: color_math, window_off, anim_control
 UMINATO_F_978F:
   k_func 0
   k_pushiw $00E0
   k_pushi 0
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_pushiw $00FF
   k_pushi 3
   k_pushib 56
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 56 anim_control
   k_return
+; calls 1
 UMINATO_F_97B0:
   k_func 0
   k_pusharg 17
@@ -282,6 +292,7 @@ UMINATO_F_97B0:
   k_pusharg 11
   k_callx RF_4D41, 8
   k_return
+; calls 2
 UMINATO_F_97BE:
   k_func 2
   k_ldli 1
@@ -290,10 +301,11 @@ UMINATO_F_97BE:
   k_call RF_4D8B
   k_stl -2
   k_return
+; vars: g_portrait | calls 2
 UMINATO_F_97CD:
   k_func 4
   k_ldlib -1
-  k_stla $F295
+  k_stla g_portrait
   k_ldlarg 11
   k_jumpf UMINATO_L_97E9
   k_pushi 3
@@ -312,6 +324,7 @@ UMINATO_L_97E9:
   k_callx RF_4C4B, 10
 UMINATO_L_97F4:
   k_return
+; sys: vram_load_tiles
 UMINATO_F_97F5:
   k_func 2
   k_pushi 2
@@ -338,8 +351,9 @@ UMINATO_F_97F5:
   k_pushl
   k_pushiw $01A0
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_return
+; sys: sprite_anim_stream
 UMINATO_F_9825:
   k_func 0
   k_pushib 22
@@ -352,7 +366,7 @@ UMINATO_F_9825:
   k_pushi 2
   k_pushi 0
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8BED
   k_pushi 0
@@ -363,7 +377,7 @@ UMINATO_F_9825:
   k_pushi 2
   k_pushi 1
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8C6D
   k_pushi 0
@@ -374,7 +388,7 @@ UMINATO_F_9825:
   k_pushi 2
   k_pushi 2
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8CED
   k_pushi 0
@@ -385,7 +399,7 @@ UMINATO_F_9825:
   k_pushi 2
   k_pushi 3
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8D6D
   k_pushi 0
@@ -396,7 +410,7 @@ UMINATO_F_9825:
   k_pushi 2
   k_pushi 4
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8DED
   k_pushi 0
@@ -407,7 +421,7 @@ UMINATO_F_9825:
   k_pushi 2
   k_pushi 5
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8E6D
   k_pushi 0
@@ -418,7 +432,7 @@ UMINATO_F_9825:
   k_pushi 2
   k_pushi 6
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8EED
   k_pushiw $00FF
@@ -429,7 +443,7 @@ UMINATO_F_9825:
   k_pushi 2
   k_pushi 7
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_return
 UMINATO_F_98CB:
   k_func 16
@@ -557,6 +571,7 @@ UMINATO_L_995B:
   k_jumpt UMINATO_L_9936
   k_ldli 1
   k_return
+; calls 1
 UMINATO_F_9964:
   k_func 14
   k_ldlarg 11
@@ -613,6 +628,7 @@ UMINATO_L_99AC:
   k_jumpt UMINATO_L_9987
   k_ldli 1
   k_return
+; sys: memset_long, file_seek, file_read | vars: g_fh_cbmap0 | calls 3
 UMINATO_F_99B5:
   k_func 12
   k_pushiw $01CE
@@ -620,7 +636,7 @@ UMINATO_F_99B5:
   k_pushiw $F9B2
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldlba $FB84
   k_ldriw $00FF
   k_eq
@@ -653,9 +669,9 @@ UMINATO_L_99D8:
   k_deref
   k_long $26
   k_long $14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushi 12
   k_ldl -4
   k_ldri 12
@@ -670,9 +686,9 @@ UMINATO_L_99D8:
   k_add
   k_pushl
   k_pushib 126
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushib 28
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 28 file_read
   k_ldl -4
   k_inc
   k_stl -4
@@ -1082,6 +1098,7 @@ UMINATO_L_9C31:
   k_jumpt UMINATO_L_9BCE
 UMINATO_L_9C38:
   k_return
+; sys: file_seek, file_metasprite_set, metasprite_set | vars: g_fh_cbmap0 | calls 2
 UMINATO_F_9C39:
   k_func 10
   k_ldla $F302
@@ -1110,10 +1127,10 @@ UMINATO_F_9C39:
   k_deref
   k_long $26
   k_long $14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushib 26
-  k_callx RL_21BE, 10
-  k_pusha $F280
+  k_callx syscall, 10  ; sys 26 file_seek
+  k_pusha g_fh_cbmap0
   k_pushi 0
   k_pushi 3
   k_pushi 2
@@ -1121,7 +1138,7 @@ UMINATO_F_9C39:
   k_push -6
   k_pushi 10
   k_pushib 31
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 31 file_metasprite_set
   k_pushi 0
   k_pusha $F304
   k_pusha $F302
@@ -1210,7 +1227,7 @@ UMINATO_L_9CA0:
   k_deref
   k_pushl
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_ldl -2
   k_inc
   k_stl -2
@@ -1449,6 +1466,7 @@ UMINATO_L_9E29:
 UMINATO_L_9E33:
   k_ldli 0
   k_return
+; sys: wait_frames, metasprite_set | calls 3
 UMINATO_F_9E35:
   k_func 17
   k_ldlba $FB84
@@ -1457,7 +1475,7 @@ UMINATO_F_9E35:
   k_jumpf UMINATO_L_9E4C
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_return
 UMINATO_L_9E4C:
   k_ldlarg 11
@@ -1659,28 +1677,31 @@ UMINATO_L_9F54:
   k_deref
   k_pushl
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_ldlarg 15
   k_jumpf UMINATO_L_9FA8
   k_pushi 3
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
 UMINATO_L_9FA8:
   k_return
+; sys: sprites_hide
 UMINATO_F_9FA9:
   k_func 0
   k_pushi 6
   k_pushi 10
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_return
+; sys: sprites_hide
 UMINATO_F_9FB7:
   k_func 0
   k_pushib 18
   k_pushib 16
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_return
+; sys: file_seek, file_metasprite_set | vars: g_fh_cbmap0 | calls 1
 UMINATO_F_9FC7:
   k_func 6
   k_ldla $F302
@@ -1715,14 +1736,14 @@ UMINATO_L_A004:
   k_deref
   k_long $26
   k_long $14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_ldl -4
   k_addlib -7
   k_jump UMINATO_L_A031
 UMINATO_L_A01F:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushi 0
   k_pushi 3
   k_pushi 2
@@ -1730,7 +1751,7 @@ UMINATO_L_A01F:
   k_push -2
   k_pushn 21
   k_pushib 31
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 31 file_metasprite_set
   k_ldl -6
   k_inc
 UMINATO_L_A031:
@@ -1763,14 +1784,14 @@ UMINATO_L_A04D:
   k_deref
   k_long $26
   k_long $14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_ldl -4
   k_addli 7
   k_jump UMINATO_L_A079
 UMINATO_L_A067:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushi 0
   k_pushi 3
   k_pushi 2
@@ -1778,7 +1799,7 @@ UMINATO_L_A067:
   k_push -2
   k_pushn 21
   k_pushib 31
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 31 file_metasprite_set
   k_ldl -6
   k_dec
 UMINATO_L_A079:
@@ -1798,14 +1819,14 @@ UMINATO_L_A084:
   k_deref
   k_long $26
   k_long $14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_ldl -2
   k_addlib -7
   k_jump UMINATO_L_A0B1
 UMINATO_L_A09F:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushi 0
   k_pushi 3
   k_pushi 2
@@ -1813,7 +1834,7 @@ UMINATO_L_A09F:
   k_push -6
   k_pushn 21
   k_pushib 31
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 31 file_metasprite_set
   k_ldl -6
   k_inc
 UMINATO_L_A0B1:
@@ -1833,14 +1854,14 @@ UMINATO_L_A0BC:
   k_deref
   k_long $26
   k_long $14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_ldl -2
   k_addli 7
   k_jump UMINATO_L_A0E8
 UMINATO_L_A0D6:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushi 0
   k_pushi 3
   k_pushi 2
@@ -1848,7 +1869,7 @@ UMINATO_L_A0D6:
   k_push -6
   k_pushn 21
   k_pushib 31
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 31 file_metasprite_set
   k_ldl -6
   k_dec
 UMINATO_L_A0E8:
@@ -1874,6 +1895,7 @@ UMINATO_F_A0F3:
 UMINATO_L_A106:
   k_ldli 0
   k_return
+; sys: file_seek, file_metasprite_set, wait_frames | vars: g_fh_cbmap0 | calls 3
 UMINATO_F_A108:
   k_func 22
   k_ldla $F302
@@ -1979,10 +2001,10 @@ UMINATO_L_A18F:
   k_deref
   k_long $26
   k_long $14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushib 26
-  k_callx RL_21BE, 10
-  k_pusha $F280
+  k_callx syscall, 10  ; sys 26 file_seek
+  k_pusha g_fh_cbmap0
   k_pushi 0
   k_pushi 3
   k_pushi 2
@@ -1990,7 +2012,7 @@ UMINATO_L_A18F:
   k_push -6
   k_pusharg 15
   k_pushib 31
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 31 file_metasprite_set
 UMINATO_L_A1BB:
   k_ldl -14
   k_jumpt UMINATO_L_A20F
@@ -2049,10 +2071,11 @@ UMINATO_L_A20F:
   k_pushi 1
 UMINATO_L_A216:
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
 UMINATO_L_A21C:
   k_ldl -2
   k_return
+; calls 3
 UMINATO_F_A21E:
   k_func 18
   k_ldli 0
@@ -2437,6 +2460,7 @@ UMINATO_L_A48C:
   k_stla $F308
   k_ldli 0
   k_return
+; calls 2
 UMINATO_F_A49B:
   k_func 0
   k_ldlarg 11
@@ -2457,6 +2481,7 @@ UMINATO_L_A4B2:
   k_callx RF_4C4B, 10
 UMINATO_L_A4BD:
   k_return
+; sys: color_math, wait_frames
 UMINATO_F_A4BE:
   k_func 2
   k_ldlarg 13
@@ -2466,7 +2491,7 @@ UMINATO_F_A4BE:
   k_pushl
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_ldli 0
   k_stl -2
 UMINATO_L_A4D7:
@@ -2478,10 +2503,10 @@ UMINATO_L_A4D7:
   k_pushl
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -2
   k_inc
   k_stl -2
@@ -2491,11 +2516,12 @@ UMINATO_L_A4D7:
   k_jumpt UMINATO_L_A4D7
 UMINATO_L_A4F8:
   k_return
+; sys: bg_map_base_set, color_math | vars: g_fh_cbmap0 | calls 5
 UMINATO_F_A4F9:
   k_func 0
   k_pushi 1
   k_callx UMINATO_F_A49B, 2
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $8478
   k_pushib 27
   k_pushib 30
@@ -2507,7 +2533,7 @@ UMINATO_F_A4F9:
   k_ldri 6
   k_eq
   k_jumpf UMINATO_L_A547
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $8ACC
   k_pushi 2
   k_pushi 4
@@ -2515,7 +2541,7 @@ UMINATO_F_A4F9:
   k_pushib 16
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8AEC
   k_pushi 2
   k_pushi 3
@@ -2529,7 +2555,7 @@ UMINATO_F_A4F9:
   k_callx UMINATO_F_9C39, 6
   k_jump UMINATO_L_A591
 UMINATO_L_A547:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8ADC
   k_pushi 2
   k_pushi 4
@@ -2537,7 +2563,7 @@ UMINATO_L_A547:
   k_pushib 16
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 11
   k_shl1
   k_pushl
@@ -2585,25 +2611,26 @@ UMINATO_L_A591:
   k_pushib 116
   k_pushi 2
   k_pushib 75
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 75 bg_map_base_set
   k_pushiw $00E0
   k_pushi 0
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_return
+; sys: bg_map_base_set, anim_control | calls 1
 UMINATO_F_A5B1:
   k_func 0
   k_pushib 113
   k_pushi 2
   k_pushib 75
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 75 bg_map_base_set
   k_pushi 0
   k_callx UMINATO_F_A49B, 2
   k_pushiw $00FF
   k_pushi 3
   k_pushib 56
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 56 anim_control
   k_return
 UMINATO_F_A5CF:
   k_func 4
@@ -2661,9 +2688,10 @@ UMINATO_L_A603:
   k_ult
   k_jumpt UMINATO_L_A603
   k_return
+; sys: file_seek, file_read | vars: g_port, g_fh_fdata, g_port_flags | calls 3
 UMINATO_F_A617:
   k_func 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldrib 50
   k_ult
   k_jumpf UMINATO_L_A666
@@ -2671,17 +2699,17 @@ UMINATO_F_A617:
   k_ldliw $2990
   k_long $26
   k_long $14
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushiw $0348
   k_pushiw $F30A
   k_pushib 126
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 28
-  k_callx RL_21BE, 10
-  k_ldlba $EF69
-  k_ldriw $EE78
+  k_callx syscall, 10  ; sys 28 file_read
+  k_ldlba g_port
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_stl -2
@@ -2702,21 +2730,22 @@ UMINATO_L_A666:
   k_ldliw $2CD8
   k_long $26
   k_long $14
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushiw $0348
   k_pushiw $F30A
   k_pushib 126
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 28
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 28 file_read
 UMINATO_L_A688:
   k_pushiw $0348
   k_pushiw $F652
   k_pushiw $F30A
   k_callx RL_88F4, 6
   k_return
+; calls 4
 UMINATO_F_A696:
   k_func 0
   k_pushi 1
@@ -2729,10 +2758,11 @@ UMINATO_F_A696:
   k_pushiw UMINATO_D_ADA2
   k_callx RF_2FB9, 4
   k_return
+; vars: g_port, g_port_flags
 UMINATO_F_A6B5:
   k_func 5
-  k_ldlba $EF69
-  k_ldriw $EE78
+  k_ldlba g_port
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_stlbf -1
@@ -2741,7 +2771,7 @@ UMINATO_F_A6B5:
   k_ldli 0
   k_jump UMINATO_L_A712
 UMINATO_L_A6CD:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldrib 50
   k_ult
   k_jumpf UMINATO_L_A71C
@@ -2796,6 +2826,7 @@ UMINATO_L_A71C:
 UMINATO_L_A720:
   k_jumpf UMINATO_L_A6FC
   k_jump UMINATO_L_A70F
+; sys: file_open, file_seek, file_read_7e, file_close
 UMINATO_F_A726:
   k_func 0
   k_ldlarg 11
@@ -2805,14 +2836,14 @@ UMINATO_F_A726:
   k_deref
   k_pushl
   k_pushib 24
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 24 file_open
   k_stla $F9A4
   k_pushi 0
   k_longd $18, $00000000
   k_long $14
   k_pusha $F9A4
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_ldlarg 11
   k_shl1
   k_ldriw UMINATO_D_ADF8
@@ -2822,16 +2853,17 @@ UMINATO_F_A726:
   k_pushiw $B000
   k_pusha $F9A4
   k_pushib 27
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 27 file_read_7e
   k_pusha $F9A4
   k_pushib 25
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 25 file_close
   k_ldlarg 13
   k_jumpf UMINATO_L_A773
   k_ldliw $B000
   k_callptr
 UMINATO_L_A773:
   k_return
+; calls 1
 UMINATO_F_A774:
   k_func 0
   k_ldli 0
@@ -2845,6 +2877,7 @@ UMINATO_F_A774:
   k_stla $F9A2
   k_ldla $F9A6
   k_return
+; calls 1
 UMINATO_F_A78F:
   k_func 0
   k_ldlarg 11
@@ -2864,6 +2897,7 @@ UMINATO_L_A7A4:
   k_ldli 0
   k_stla $F9AC
   k_return
+; calls 7
 UMINATO_F_A7AF:
   k_func 6
   k_ldli 0
@@ -2998,6 +3032,7 @@ UMINATO_L_A896:
 UMINATO_L_A89D:
   k_ldl -2
   k_return
+; calls 1
 UMINATO_F_A89F:
   k_func 4
   k_ldlbf 11
@@ -3101,6 +3136,7 @@ UMINATO_F_A919:
   k_ldliw $00FF
   k_stlba $FB84
   k_return
+; vars: g_fleets, g_port, g_ending | calls 22
 UMINATO_F_A961:
   k_func 10
   k_call UMINATO_F_A919
@@ -3125,7 +3161,7 @@ UMINATO_L_A983:
 UMINATO_L_A98F:
   k_ldli 1
   k_stl -10
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -8
   k_ldl -8
   k_addli 3
@@ -3143,13 +3179,13 @@ UMINATO_L_A98F:
   k_derefb
   k_pushl
   k_callx $8747, 8
-  k_stlba $EF69
-  k_ldlba $EF69
+  k_stlba g_port
+  k_ldlba g_port
   k_pushl
   k_callx UMINATO_F_A89F, 2
   k_stla $F99C
   k_pusha $F99C
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
   k_callx UMINATO_F_A8DC, 4
   k_stlba $FB84
@@ -3198,7 +3234,7 @@ UMINATO_L_AA1B:
   k_stlba $F196
   k_pushi 1
   k_callx UMINATO_F_97CD, 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldrib 50
   k_ult
   k_jumpf UMINATO_L_AA58
@@ -3303,7 +3339,7 @@ UMINATO_L_AAE6:
 UMINATO_L_AAE7:
   k_pushi 0
   k_callx UMINATO_F_97CD, 2
-  k_ldlba $F169
+  k_ldlba g_ending
   k_jumpf UMINATO_L_AAF3
   k_return
 UMINATO_L_AAF3:

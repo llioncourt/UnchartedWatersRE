@@ -2,16 +2,19 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp S_SAKE_F_B803
+; calls 1
 S_SAKE_F_B803:
   k_func 0
   k_call S_SAKE_F_C5CC
   k_stla $F9A8
   k_return
+; vars: g_ports | calls 2
 S_SAKE_F_B80F:
   k_func 14
   k_ldli 0
@@ -30,7 +33,7 @@ S_SAKE_L_B81C:
   k_ldl -8
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stl -4
   k_ldl -4
@@ -106,6 +109,7 @@ S_SAKE_L_B895:
   k_jumpt S_SAKE_L_B81C
   k_ldl -6
   k_return
+; vars: g_cargo | calls 1
 S_SAKE_F_B89E:
   k_func 19
   k_leal -9
@@ -126,7 +130,7 @@ S_SAKE_L_B8B5:
   k_derefb
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stl -2
   k_ldl -2
@@ -174,6 +178,7 @@ S_SAKE_L_B8F9:
   k_jumpt S_SAKE_L_B8B5
   k_ldln -11
   k_return
+; calls 2
 S_SAKE_F_B906:
   k_func 2
   k_pusharg 11
@@ -185,6 +190,7 @@ S_SAKE_F_B906:
   k_pushi 2
   k_callx RF_4E29, 8
   k_return
+; calls 1
 S_SAKE_F_B91B:
   k_func 6
   k_ldliw $150A
@@ -216,32 +222,37 @@ S_SAKE_L_B936:
   k_jumpt S_SAKE_L_B926
   k_ldli 0
   k_return
+; vars: g_princess
 S_SAKE_F_B945:
   k_func 0
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_return
+; vars: g_princess
 S_SAKE_F_B950:
   k_func 0
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 2
   k_and
   k_return
+; vars: g_princess
 S_SAKE_F_B95B:
   k_func 0
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_return
+; vars: g_port, g_king_mission
 S_SAKE_F_B966:
   k_func 0
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_return
+; vars: g_ports, g_port, g_king_mission | calls 1
 S_SAKE_F_B975:
   k_func 18
   k_ldlarg 11
@@ -265,7 +276,7 @@ S_SAKE_F_B975:
   k_ldlarg 11
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_deref
   k_stl -12
@@ -281,9 +292,9 @@ S_SAKE_F_B975:
   k_ldr -12
   k_le
   k_jumpf S_SAKE_L_B9C0
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_ne
   k_jumpf S_SAKE_L_B9C0
@@ -344,6 +355,7 @@ S_SAKE_L_B9F9:
 S_SAKE_L_BA08:
   k_ldli 0
   k_return
+; vars: g_player_name_ptr | calls 3
 S_SAKE_F_BA0A:
   k_func 0
   k_pushi 2
@@ -352,7 +364,7 @@ S_SAKE_F_BA0A:
   k_pushi 0
   k_pushiw S_SAKE_D_C680
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pushiw S_SAKE_D_C689
@@ -361,13 +373,14 @@ S_SAKE_L_BA2D:
   k_pushi 0
   k_pushiw S_SAKE_D_C698
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pushiw S_SAKE_D_C6B4
 S_SAKE_L_BA40:
   k_callx RF_2FB9, 4
   k_return
+; calls 1
 S_SAKE_F_BA45:
   k_func 10
   k_ldlarg 13
@@ -429,6 +442,7 @@ S_SAKE_L_BA7C:
   k_pushiw S_SAKE_D_C6C7
   k_callx RF_3608, 10
   k_return
+; calls 4
 S_SAKE_F_BA99:
   k_func 2
   k_ldlarg 11
@@ -454,6 +468,7 @@ S_SAKE_F_BA99:
   k_pushl
   k_callx S_SAKE_F_BA45, 4
   k_return
+; vars: g_player_name_ptr | calls 3
 S_SAKE_F_BACA:
   k_func 2
   k_ldlarg 11
@@ -465,7 +480,7 @@ S_SAKE_F_BACA:
   k_addlib 20
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -491,6 +506,7 @@ S_SAKE_L_BAF4:
   k_pushl
   k_callx RF_40DE, 2
   k_return
+; vars: g_player_name_ptr, g_captains, g_port, g_fleets | calls 7
 S_SAKE_F_BB09:
   k_func 8
   k_call RF_60B2
@@ -501,7 +517,7 @@ S_SAKE_F_BB09:
   k_addlib 20
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
@@ -513,7 +529,7 @@ S_SAKE_F_BB09:
   k_dec
   k_ldrib 51
   k_mul
-  k_ldriw $DF05
+  k_ldriw g_captains
   k_add
   k_stl -4
   k_pushi 4
@@ -527,7 +543,7 @@ S_SAKE_F_BB09:
   k_addli 4
   k_derefb
   k_jumpf S_SAKE_L_BB90
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldr -2
   k_eq
   k_jumpf S_SAKE_L_BB5F
@@ -578,7 +594,7 @@ S_SAKE_L_BBAB:
   k_ldlarg 11
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -8
   k_pushi 0
@@ -595,16 +611,17 @@ S_SAKE_L_BBC1:
   k_callx S_SAKE_F_BA45, 4
 S_SAKE_L_BBC6:
   k_return
+; vars: g_port, g_king_mission | calls 7
 S_SAKE_F_BBC7:
   k_func 6
   k_pusharg 11
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
   k_callx S_SAKE_F_B975, 4
   k_jumpf S_SAKE_L_BBF3
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_popr
   k_ne
   k_jumpf S_SAKE_L_BBF3
@@ -618,7 +635,7 @@ S_SAKE_L_BBF3:
   k_ldli 0
   k_stl -2
 S_SAKE_L_BBF5:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
   k_pushib 19
   k_callx RF_3F3E, 2
@@ -639,7 +656,7 @@ S_SAKE_L_BBF5:
   k_ldlib 50
   k_stl -4
 S_SAKE_L_BC16:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldr -4
   k_eq
   k_jumpt S_SAKE_L_BBF5
@@ -647,7 +664,7 @@ S_SAKE_L_BC16:
   k_push -4
   k_callx S_SAKE_F_B975, 4
   k_jumpf S_SAKE_L_BC4A
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_ldr -4
   k_ne
   k_jumpf S_SAKE_L_BC4A
@@ -676,6 +693,7 @@ S_SAKE_L_BC4A:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_return
+; vars: g_king_mission | calls 11
 S_SAKE_F_BC63:
   k_func 2
   k_call S_SAKE_F_B95B
@@ -684,7 +702,7 @@ S_SAKE_F_BC63:
   k_jumpt S_SAKE_L_BCB2
   k_call RF_60B2
   k_call S_SAKE_F_BA0A
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt S_SAKE_L_BC92
   k_pushi 0
   k_pushiw S_SAKE_D_C7DC
@@ -701,7 +719,7 @@ S_SAKE_L_BC92:
   k_pushi 0
   k_pushiw S_SAKE_D_C82A
   k_callx RF_2FB9, 4
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_pushl
   k_callx S_SAKE_F_BA99, 2
 S_SAKE_L_BCA8:
@@ -714,7 +732,7 @@ S_SAKE_L_BCB2:
   k_jumpf S_SAKE_L_BD00
   k_call S_SAKE_F_B945
   k_jumpf S_SAKE_L_BD00
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx $B00F, 2
   k_jumpt S_SAKE_L_BD00
@@ -722,7 +740,7 @@ S_SAKE_L_BCB2:
   k_pushi 0
   k_pushiw S_SAKE_D_C847
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_shl1
   k_ldriw $1B49
   k_add
@@ -737,7 +755,7 @@ S_SAKE_L_BCB2:
   k_dec
   k_stla $F18A
   k_call RF_472D
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx S_SAKE_F_BBC7, 2
 S_SAKE_L_BD00:
@@ -745,13 +763,13 @@ S_SAKE_L_BD00:
   k_jumpf S_SAKE_L_BD5C
   k_call S_SAKE_F_B945
   k_jumpf S_SAKE_L_BD5C
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx $B00F, 2
   k_jumpf S_SAKE_L_BD5C
   k_call RF_60B2
   k_call S_SAKE_F_BA0A
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt S_SAKE_L_BD35
   k_pushi 0
   k_pushiw S_SAKE_D_C87A
@@ -768,7 +786,7 @@ S_SAKE_L_BD35:
   k_pushi 0
   k_pushiw S_SAKE_D_C8BE
   k_callx RF_2FB9, 4
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_ldrib 19
   k_mul
   k_ldriw $0FD8
@@ -782,6 +800,7 @@ S_SAKE_L_BD52:
   k_call RF_472D
 S_SAKE_L_BD5C:
   k_return
+; vars: g_king_mission, g_player_items, g_fleets, g_player_name_ptr, g_port, g_princess | calls 21
 S_SAKE_F_BD5D:
   k_func 24
   k_call S_SAKE_F_B95B
@@ -790,7 +809,7 @@ S_SAKE_F_BD5D:
   k_jumpt S_SAKE_L_BDAC
   k_call RF_60B2
   k_call S_SAKE_F_BA0A
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt S_SAKE_L_BD8C
   k_pushi 0
   k_pushiw S_SAKE_D_C92F
@@ -807,7 +826,7 @@ S_SAKE_L_BD8C:
   k_pushi 0
   k_pushiw S_SAKE_D_C97E
   k_callx RF_2FB9, 4
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_pushl
   k_callx S_SAKE_F_BA99, 2
 S_SAKE_L_BDA2:
@@ -820,7 +839,7 @@ S_SAKE_L_BDAC:
   k_jumpf S_SAKE_L_C125
   k_call S_SAKE_F_B945
   k_jumpf S_SAKE_L_C125
-  k_ldla $E571
+  k_ldla g_player_items+2
   k_ldriw $8000
   k_and
   k_jumpt S_SAKE_L_C125
@@ -829,9 +848,9 @@ S_SAKE_L_BDAC:
   k_ldri 9
   k_eq
   k_jumpf S_SAKE_L_BE6A
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_jumpf S_SAKE_L_BDDC
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_pushl
   k_callx S_SAKE_F_BB09, 2
   k_jump S_SAKE_L_C11B
@@ -842,7 +861,7 @@ S_SAKE_L_BDDC:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stl -22
   k_ldl -22
   k_derefb
@@ -965,7 +984,7 @@ S_SAKE_L_BEB1:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
 S_SAKE_L_BEBD:
@@ -1011,7 +1030,7 @@ S_SAKE_L_BEF2:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
 S_SAKE_L_BF0B:
@@ -1033,7 +1052,7 @@ S_SAKE_L_BF0B:
   k_ldla $EF52
   k_derefb
   k_jumpf S_SAKE_L_BF4E
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldr -6
   k_eq
   k_jumpf S_SAKE_L_BF47
@@ -1045,7 +1064,7 @@ S_SAKE_L_BF47:
   k_pushiw S_SAKE_D_CAA8
   k_jump S_SAKE_L_C112
 S_SAKE_L_BF4E:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldr -6
   k_eq
   k_jumpf S_SAKE_L_C10E
@@ -1077,7 +1096,7 @@ S_SAKE_L_BF4E:
   k_ldri 9
   k_eq
   k_jumpf S_SAKE_L_BFDD
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_jumpf S_SAKE_L_BFC6
   k_call RF_60B2
   k_pushi 0
@@ -1090,7 +1109,7 @@ S_SAKE_L_BF4E:
   k_pushi 0
   k_pushiw S_SAKE_D_CB39
   k_callx RF_2FB9, 4
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_pushl
   k_callx S_SAKE_F_BACA, 2
   k_pushi 0
@@ -1106,9 +1125,9 @@ S_SAKE_L_BFCD:
   k_callx RF_2FB9, 4
   k_ldli 4
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
-  k_stlba $EF61
+  k_stlba g_princess
   k_jump S_SAKE_L_C014
 S_SAKE_L_BFDD:
   k_call RF_60B2
@@ -1134,7 +1153,7 @@ S_SAKE_L_C002:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
 S_SAKE_L_C00E:
@@ -1173,7 +1192,7 @@ S_SAKE_L_C033:
   k_ldri 9
   k_eq
   k_jumpf S_SAKE_L_C0D0
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_jumpf S_SAKE_L_C07E
   k_call RF_60B2
   k_pushi 0
@@ -1186,7 +1205,7 @@ S_SAKE_L_C033:
   k_pushi 0
   k_pushiw S_SAKE_D_CC0E
   k_callx RF_2FB9, 4
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_pushl
   k_callx S_SAKE_F_BACA, 2
   k_pushi 0
@@ -1202,7 +1221,7 @@ S_SAKE_L_C07E:
   k_ldrib 100
   k_mul
   k_pushl
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_callx RL_8962, 4
   k_stl -20
   k_call RF_60B2
@@ -1214,9 +1233,9 @@ S_SAKE_L_C07E:
   k_call RF_60B2
   k_ldl -20
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_pushi 0
   k_pushiw S_SAKE_D_CC68
   k_jump S_SAKE_L_BFCD
@@ -1254,7 +1273,7 @@ S_SAKE_L_C0F5:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
 S_SAKE_L_C101:
@@ -1282,13 +1301,13 @@ S_SAKE_L_C125:
   k_jumpf S_SAKE_L_C184
   k_call S_SAKE_F_B945
   k_jumpf S_SAKE_L_C184
-  k_ldla $E571
+  k_ldla g_player_items+2
   k_ldriw $8000
   k_and
   k_jumpf S_SAKE_L_C184
   k_call RF_60B2
   k_call S_SAKE_F_BA0A
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt S_SAKE_L_C14E
   k_pushi 0
   k_pushiw S_SAKE_D_CD41
@@ -1303,7 +1322,7 @@ S_SAKE_L_C15B:
   k_pushi 0
   k_pushiw S_SAKE_D_CD7F
   k_callx RF_2FB9, 4
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_ldrib 19
   k_mul
   k_ldriw $0FD8
@@ -1320,6 +1339,7 @@ S_SAKE_L_C176:
   k_call RF_472D
 S_SAKE_L_C184:
   k_return
+; vars: g_king_mission | calls 11
 S_SAKE_F_C185:
   k_func 0
   k_call S_SAKE_F_B95B
@@ -1328,7 +1348,7 @@ S_SAKE_F_C185:
   k_jumpt S_SAKE_L_C1D4
   k_call RF_60B2
   k_call S_SAKE_F_BA0A
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt S_SAKE_L_C1B4
   k_pushi 0
   k_pushiw S_SAKE_D_CDA7
@@ -1345,7 +1365,7 @@ S_SAKE_L_C1B4:
   k_pushi 0
   k_pushiw S_SAKE_D_CDE5
   k_callx RF_2FB9, 4
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_pushl
   k_callx S_SAKE_F_BA99, 2
 S_SAKE_L_C1CA:
@@ -1360,7 +1380,7 @@ S_SAKE_L_C1D4:
   k_jumpf S_SAKE_L_C1F8
   k_call S_SAKE_F_B950
   k_jumpt S_SAKE_L_C1F8
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx S_SAKE_F_BB09, 2
   k_ldla $F18A
@@ -1376,7 +1396,7 @@ S_SAKE_L_C1F8:
   k_jumpf S_SAKE_L_C253
   k_call RF_60B2
   k_call S_SAKE_F_BA0A
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_jumpt S_SAKE_L_C21D
   k_pushi 0
   k_pushiw S_SAKE_D_CE02
@@ -1391,7 +1411,7 @@ S_SAKE_L_C22A:
   k_pushi 0
   k_pushiw S_SAKE_D_CE3E
   k_callx RF_2FB9, 4
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_ldrib 19
   k_mul
   k_ldriw $0FD8
@@ -1408,6 +1428,7 @@ S_SAKE_L_C245:
   k_call RF_472D
 S_SAKE_L_C253:
   k_return
+; vars: g_king_mission | calls 9
 S_SAKE_F_C254:
   k_func 0
   k_call S_SAKE_F_B95B
@@ -1447,7 +1468,7 @@ S_SAKE_L_C27D:
   k_pushi 0
   k_pushiw S_SAKE_D_CEC9
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx S_SAKE_F_BACA, 2
   k_pushi 0
@@ -1455,7 +1476,7 @@ S_SAKE_L_C27D:
   k_callx RF_2FB9, 4
   k_jump S_SAKE_L_C2D3
 S_SAKE_L_C2CB:
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_pushl
   k_callx S_SAKE_F_BB09, 2
 S_SAKE_L_C2D3:
@@ -1481,6 +1502,7 @@ S_SAKE_L_C2DD:
   k_call RF_472D
 S_SAKE_L_C307:
   k_return
+; vars: g_port, g_king_mission | calls 9
 S_SAKE_F_C308:
   k_func 0
   k_call S_SAKE_F_B95B
@@ -1504,16 +1526,16 @@ S_SAKE_L_C331:
   k_call S_SAKE_F_B950
   k_jumpt S_SAKE_L_C38C
   k_call RF_60B2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_popr
   k_ne
   k_jumpf S_SAKE_L_C37E
   k_pushi 0
   k_pushiw S_SAKE_D_CF37
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_shl1
   k_ldriw $1B24
   k_add
@@ -1553,13 +1575,14 @@ S_SAKE_L_C38C:
   k_call RF_472D
 S_SAKE_L_C3B6:
   k_return
+; vars: g_king_mission | calls 7
 S_SAKE_F_C3B7:
   k_func 0
   k_pushi 3
   k_callx RF_3F3E, 2
   k_pushl
   k_callx S_SAKE_F_B906, 2
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_switch 0, 5, S_SAKE_L_C3DD
     .word S_SAKE_L_C3DA, S_SAKE_L_C3DE, S_SAKE_L_C3E4, S_SAKE_L_C3EA, S_SAKE_L_C3F0
 S_SAKE_L_C3DA:
@@ -1578,6 +1601,7 @@ S_SAKE_L_C3EA:
 S_SAKE_L_C3F0:
   k_call S_SAKE_F_C254
   k_jump S_SAKE_L_C3DD
+; vars: g_port, g_port_flags, g_ports, g_nations | calls 12
 S_SAKE_F_C3F6:
   k_func 39
   k_pushi 10
@@ -1646,7 +1670,7 @@ S_SAKE_L_C47C:
   k_pushl
   k_callx S_SAKE_F_B906, 2
 S_SAKE_L_C48E:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
   k_pushi 5
   k_callx RF_3F3E, 2
@@ -1654,7 +1678,7 @@ S_SAKE_L_C48E:
   k_add
   k_addlib -2
   k_stln -31
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldrn -31
   k_eq
   k_jumpt S_SAKE_L_C4B5
@@ -1681,7 +1705,7 @@ S_SAKE_L_C4B5:
   k_add
   k_stln -39
   k_ldln -31
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 8
@@ -1710,7 +1734,7 @@ S_SAKE_L_C503:
   k_ldln -31
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_deref
   k_pushl
@@ -1769,7 +1793,7 @@ S_SAKE_L_C535:
 S_SAKE_L_C578:
   k_pushi 3
   k_callx S_SAKE_F_B906, 2
-  k_ldlba $EECD
+  k_ldlba g_nations+15
   k_stln -29
   k_call RF_60B2
   k_ldln -29
@@ -1805,9 +1829,10 @@ S_SAKE_L_C5C5:
   k_pushi 1
   k_pushiw S_SAKE_D_D0F0
   k_jump S_SAKE_L_C5BE
+; vars: g_player_gold, g_port, g_ports, g_princess | calls 9
 S_SAKE_F_C5CC:
   k_func 4
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_ldrib 100
   k_ult
   k_jumpf S_SAKE_L_C5E9
@@ -1824,10 +1849,10 @@ S_SAKE_L_C5E9:
   k_call RF_60B2
   k_pushiw S_SAKE_D_D13A
   k_callx RF_4B44, 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_deref
   k_stl -4
@@ -1836,7 +1861,7 @@ S_SAKE_L_C5E9:
   k_sdiv
   k_inc
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -1859,9 +1884,9 @@ S_SAKE_L_C5E9:
   k_callx RF_3DDF, 2
   k_ldl -2
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_call RF_60EE
   k_ldl -4
   k_addliw $012C
@@ -1880,7 +1905,7 @@ S_SAKE_L_C65B:
   k_call RF_60B2
   k_pushiw S_SAKE_D_D1C9
   k_callx RF_4B44, 2
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf S_SAKE_L_C67B

@@ -2,15 +2,18 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp ENDING_F_9603
+; calls 1
 ENDING_F_9603:
   k_func 0
   k_call ENDING_F_966B
   k_return
+; sys: tilemap_clear | calls 2
 ENDING_F_960C:
   k_func 0
   k_pushib 45
@@ -19,11 +22,12 @@ ENDING_F_960C:
   k_pushi 0
   k_pushi 3
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushi 1
   k_pushiw ENDING_D_A7DE
   k_callx RF_2FB9, 4
   k_return
+; vars: g_player_name_ptr | calls 6
 ENDING_F_962A:
   k_func 0
   k_pushi 0
@@ -41,13 +45,14 @@ ENDING_F_962A:
   k_pushi 0
   k_pushiw ENDING_D_A7F3
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pushiw ENDING_D_A7FF
   k_callx RF_2FB9, 4
   k_call ENDING_F_960C
   k_return
+; sys: anim_control | vars: g_ending, g_player_name_ptr | calls 11
 ENDING_F_966B:
   k_func 0
   k_ldli 4
@@ -63,9 +68,9 @@ ENDING_F_966B:
   k_pushi 0
   k_pushi 0
   k_pushib 56
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 56 anim_control
   k_call RF_2281
-  k_ldlba $F169
+  k_ldlba g_ending
   k_ldri 5
   k_ult
   k_jumpf ENDING_L_969B
@@ -73,7 +78,7 @@ ENDING_F_966B:
   k_pushi 14
   k_callx RF_21EA, 4
 ENDING_L_969B:
-  k_ldlba $F169
+  k_ldlba g_ending
   k_switch -1, 4, ENDING_L_972D
     .word ENDING_L_96AD, ENDING_L_96D2, ENDING_L_96EC, ENDING_L_971E
 ENDING_L_96AD:
@@ -111,7 +116,7 @@ ENDING_L_96EC:
   k_pushi 0
   k_pushiw ENDING_D_A983
   k_callx RF_2FB9, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_callx RF_40DE, 2
   k_pushi 0
   k_pushiw ENDING_D_A9B0
@@ -133,6 +138,7 @@ ENDING_L_972C:
 ENDING_L_972D:
   k_call ENDING_F_A797
   k_jump ENDING_L_972C
+; sys: wait_frames | calls 1
 ENDING_F_9733:
   k_func 7
   k_pushiw ENDING_D_B51D
@@ -166,7 +172,7 @@ ENDING_L_9767:
 ENDING_L_9770:
   k_pushib 120
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_jump ENDING_L_978C
 ENDING_L_977B:
   k_switchn 3
@@ -212,7 +218,7 @@ ENDING_L_97C9:
   k_callx RF_2FB9, 4
   k_pushi 7
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_jump ENDING_L_97E9
 ENDING_L_97DC:
   k_switchn 2
@@ -226,6 +232,7 @@ ENDING_L_97E9:
   k_jump ENDING_L_9743
 ENDING_L_97EF:
   k_return
+; sys: metasprite_set, tilemap_write, wait_frames, bg_scroll | vars: g_fh_cbmap0 | calls 6
 ENDING_F_97F0:
   k_func 14
   k_ldlarg 11
@@ -282,7 +289,7 @@ ENDING_L_980B:
   k_derefb
   k_pushl
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_ldlbf -10
   k_inc
   k_stlbf -10
@@ -332,7 +339,7 @@ ENDING_L_9861:
   k_pushl
   k_pushib 126
   k_push -4
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_callx RF_3FC8, 10
   k_jump ENDING_L_99DC
 ENDING_L_98A2:
@@ -379,7 +386,7 @@ ENDING_L_98CB:
   k_pushi 9
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 0
   k_pushi 7
   k_pushi 8
@@ -401,7 +408,7 @@ ENDING_L_98FB:
   k_pushi 5
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 0
   k_pushi 8
   k_pushi 8
@@ -482,7 +489,7 @@ ENDING_L_9981:
   k_shl1
   k_pushl
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_jump ENDING_L_99DC
 ENDING_L_9997:
   k_ldl -2
@@ -496,7 +503,7 @@ ENDING_L_9997:
   k_pushl
   k_pushi 2
   k_pushib 17
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 17 bg_scroll
   k_jump ENDING_L_99DC
 ENDING_L_99AE:
   k_return
@@ -508,51 +515,61 @@ ENDING_L_99AF:
 ENDING_L_99DC:
   k_jump ENDING_L_97F7
   .byte $CF
+; calls 1
 ENDING_F_99E0:
   k_func 0
   k_pushiw ENDING_D_B52E
   k_callx ENDING_F_97F0, 2
   k_return
+; calls 1
 ENDING_F_99ED:
   k_func 0
   k_pushiw ENDING_D_B5C4
   k_callx ENDING_F_97F0, 2
   k_return
+; calls 1
 ENDING_F_99FA:
   k_func 0
   k_pushiw ENDING_D_B648
   k_callx ENDING_F_97F0, 2
   k_return
+; calls 1
 ENDING_F_9A07:
   k_func 0
   k_pushiw ENDING_D_B6AE
   k_callx ENDING_F_97F0, 2
   k_return
+; calls 1
 ENDING_F_9A14:
   k_func 0
   k_pushiw ENDING_D_B7DE
   k_callx ENDING_F_97F0, 2
   k_return
+; calls 1
 ENDING_F_9A21:
   k_func 0
   k_pushiw ENDING_D_B7FF
   k_callx ENDING_F_97F0, 2
   k_return
+; calls 1
 ENDING_F_9A2E:
   k_func 0
   k_pushiw ENDING_D_B874
   k_callx ENDING_F_97F0, 2
   k_return
+; calls 1
 ENDING_F_9A3B:
   k_func 0
   k_pushiw ENDING_D_B952
   k_callx ENDING_F_97F0, 2
   k_return
+; calls 1
 ENDING_F_9A48:
   k_func 0
   k_pushiw ENDING_D_BA70
   k_callx ENDING_F_97F0, 2
   k_return
+; sys: bg_scroll, tilemap_clear | calls 1
 ENDING_F_9A55:
   k_func 2
   k_ldli 1
@@ -565,7 +582,7 @@ ENDING_L_9A5C:
   k_pushl
   k_pushi 2
   k_pushib 17
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 17 bg_scroll
   k_pushi 0
   k_ldl -2
   k_ldri 3
@@ -573,7 +590,7 @@ ENDING_L_9A5C:
   k_pushl
   k_pushi 1
   k_pushib 17
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 17 bg_scroll
   k_pushiw ENDING_D_BC2E
   k_callx ENDING_F_97F0, 2
   k_ldl -2
@@ -589,13 +606,14 @@ ENDING_L_9A5C:
   k_pushi 1
   k_pushi 1
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushi 0
   k_pushi 0
   k_pushi 1
   k_pushib 17
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 17 bg_scroll
   k_return
+; sys: tilemap_read, memset_long, file_seek, file_read, metasprite_set, tilemap_write | vars: g_fh_cbmap0 | calls 4
 ENDING_F_9A9E:
   k_func 140
   k_ldlba $F300
@@ -611,7 +629,7 @@ ENDING_F_9A9E:
   k_pushi 1
   k_pushi 2
   k_pushi 7
-  k_callx RL_21BE, 16
+  k_callx syscall, 16  ; sys 7 tilemap_read
   k_ldli 0
   k_stl -2
 ENDING_L_9ABE:
@@ -661,7 +679,7 @@ ENDING_L_9ABE:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 0
   k_stl -10
   k_stl -8
@@ -680,9 +698,9 @@ ENDING_L_9B19:
   k_add
   k_long $26
   k_long $14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushi 2
   k_leal -122
   k_pushl
@@ -698,9 +716,9 @@ ENDING_L_9B19:
   k_add
   k_pushl
   k_pushib 126
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushib 28
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 28 file_read
   k_ldl -12
   k_inc
   k_stl -12
@@ -752,7 +770,7 @@ ENDING_L_9B6C:
   k_pushl
   k_push -22
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_ldl -2
   k_inc
   k_stl -2
@@ -776,8 +794,8 @@ ENDING_L_9B93:
   k_pushi 5
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
-  k_pusha $F280
+  k_callx syscall, 14  ; sys 5 tilemap_write
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8AF8
   k_pushi 2
   k_pushi 3
@@ -792,21 +810,21 @@ ENDING_L_9B93:
   k_pushi 13
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 8
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 12
   k_pushi 10
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_ldlib 104
   k_stl -8
   k_ldliw $0090
   k_stl -12
   k_jump ENDING_L_9C10
 ENDING_L_9BDD:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8AF8
   k_pushi 2
   k_pushi 3
@@ -821,7 +839,7 @@ ENDING_L_9BDD:
   k_callx RF_3E5A, 14
   k_pushi 3
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -8
   k_ldri 3
   k_smod
@@ -844,14 +862,14 @@ ENDING_L_9C10:
   k_jumpt ENDING_L_9BDD
   k_pushi 15
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 6
   k_pushib 94
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldlib 46
   k_stl -24
   k_ldl -14
@@ -913,7 +931,7 @@ ENDING_L_9C56:
   k_pushl
   k_push -22
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_ldl -8
   k_inc
   k_stl -8
@@ -938,7 +956,7 @@ ENDING_L_9C97:
 ENDING_L_9C98:
   k_pushl
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -14
   k_ldri 3
   k_shl
@@ -956,7 +974,7 @@ ENDING_L_9C98:
   k_push -18
   k_push -24
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_ldl -18
   k_swap
   k_ldl -24
@@ -983,23 +1001,24 @@ ENDING_L_9CD4:
 ENDING_L_9CDA:
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -14
   k_ldr -18
   k_mul
   k_pushl
   k_pushib 46
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_return
+; sys: wait_frames, vram_load_obj_tiles, vram_load_tiles, palette_dma | vars: g_fh_cbmap0 | calls 6
 ENDING_F_9CF5:
   k_func 0
   k_pushib 60
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_call RF_3D7C
   k_pushi 0
   k_pushi 1
@@ -1010,21 +1029,21 @@ ENDING_F_9CF5:
   k_pushib 74
   k_pushi 1
   k_pushi 13
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 13 vram_load_obj_tiles
   k_pushi 2
   k_pushib 30
   k_pushiw $D300
   k_pushiw $00AA
   k_pushiw $0090
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 32
   k_pushiw $0080
   k_pushib 126
   k_pushiw ENDING_D_ABEA
   k_pushi 3
-  k_callx RL_21BE, 10
-  k_pusha $F280
+  k_callx syscall, 10  ; sys 3 palette_dma
+  k_pusha g_fh_cbmap0
   k_pushiw $61DC
   k_pushi 7
   k_pushi 12
@@ -1036,7 +1055,7 @@ ENDING_F_9CF5:
   k_callx RF_4F2A, 2
   k_pushib 30
   k_callx RF_3654, 2
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $6036
   k_pushi 3
   k_pushib 22
@@ -1047,6 +1066,7 @@ ENDING_F_9CF5:
 ENDING_L_9D66:
   k_jump ENDING_L_9D66
   .byte $CF
+; sys: vram_load_tiles, vram_load_obj_tiles, palette_dma, brightness_set, wait_frames | vars: g_fh_cbmap0 | calls 13
 ENDING_F_9D6A:
   k_func 2
   k_pushi 1
@@ -1058,46 +1078,46 @@ ENDING_F_9D6A:
   k_pushib 109
   k_pushib 119
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushi 1
   k_pushib 29
   k_pushiw $9CA0
   k_pushiw $0150
   k_pushiw $00E4
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 29
   k_pushiw RD_8DA0
   k_pushib 120
   k_pushiw $00F0
   k_pushi 13
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 13 vram_load_obj_tiles
   k_pushi 1
   k_pushib 29
   k_pushiw $FB00
   k_pushib 19
   k_pushiw $0234
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 96
   k_pushib 32
   k_pushib 126
   k_pushiw ENDING_D_AA0A
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushib 32
   k_pushiw $00A0
   k_pushib 126
   k_pushiw ENDING_D_AA6A
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushib 32
   k_pushib 96
   k_pushib 126
   k_pushiw ENDING_D_AA6A
   k_pushi 3
-  k_callx RL_21BE, 10
-  k_pusha $F280
+  k_callx syscall, 10  ; sys 3 palette_dma
+  k_pusha g_fh_cbmap0
   k_pushiw RD_94F4
   k_pushi 11
   k_pushib 32
@@ -1105,7 +1125,7 @@ ENDING_F_9D6A:
   k_pushi 0
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $97B4
   k_pushi 11
   k_pushib 32
@@ -1113,7 +1133,7 @@ ENDING_F_9D6A:
   k_pushi 0
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw ENDING_D_BC5E
   k_pushi 4
   k_pushi 2
@@ -1121,7 +1141,7 @@ ENDING_F_9D6A:
   k_pushib 19
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw ENDING_D_BC6E
   k_pushi 4
   k_pushi 3
@@ -1131,7 +1151,7 @@ ENDING_F_9D6A:
   k_callx RF_3DF1, 14
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_call ENDING_F_9A55
   k_call ENDING_F_99E0
   k_pushi 0
@@ -1205,8 +1225,9 @@ ENDING_L_9EAE:
 ENDING_L_9EB1:
   k_pushiw $00B4
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_return
+; sys: set_0B7F, brightness_set, wait_frames | vars: g_fh_cbmap0 | calls 6
 ENDING_F_9EBB:
   k_func 2
   k_ldli 0
@@ -1219,13 +1240,13 @@ ENDING_L_9EC2:
   k_or
   k_pushl
   k_pushib 22
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 22 set_0B7F
   k_ldli 15
   k_ldr -2
   k_sub
   k_pushl
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_pushi 3
   k_callx RF_3654, 2
   k_ldl -2
@@ -1237,12 +1258,12 @@ ENDING_L_9EC2:
   k_jumpt ENDING_L_9EC2
   k_pushiw $00B4
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_call RF_3D7C
   k_pushi 0
   k_pushi 0
   k_callx RF_530E, 4
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $9E48
   k_pushi 11
   k_pushib 30
@@ -1250,7 +1271,7 @@ ENDING_L_9EC2:
   k_pushi 1
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $9BB4
   k_pushi 11
   k_pushib 30
@@ -1260,19 +1281,20 @@ ENDING_L_9EC2:
   k_callx RF_3DF1, 14
   k_pushi 2
   k_pushib 22
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 22 set_0B7F
   k_pushi 2
   k_callx RF_4F2A, 2
   k_pushiw $0190
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 2
   k_callx RF_4F48, 2
   k_call RF_3D7C
   k_return
+; vars: g_fh_cbmap0 | calls 1
 ENDING_F_9F37:
   k_func 0
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 11
   k_shl1
   k_ldriw ENDING_D_BD08
@@ -1307,9 +1329,10 @@ ENDING_F_9F37:
   k_pushi 2
   k_callx RF_3DF1, 14
   k_return
+; vars: g_fh_cbmap0 | calls 1
 ENDING_F_9F6E:
   k_func 4
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $82F0
   k_pushi 7
   k_pushib 28
@@ -1317,7 +1340,7 @@ ENDING_F_9F6E:
   k_pushi 2
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $8248
   k_pushi 2
   k_pushib 18
@@ -1325,7 +1348,7 @@ ENDING_F_9F6E:
   k_pushi 2
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $8290
   k_pushi 2
   k_pushi 14
@@ -1333,7 +1356,7 @@ ENDING_F_9F6E:
   k_pushib 16
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $8ACC
   k_pushi 2
   k_pushi 4
@@ -1341,7 +1364,7 @@ ENDING_F_9F6E:
   k_pushib 16
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8AEC
   k_pushi 2
   k_pushi 3
@@ -1350,13 +1373,14 @@ ENDING_F_9F6E:
   k_pushi 1
   k_callx RF_3DF1, 14
   k_return
+; sys: lz_decompress, vram_load_tiles | vars: g_cargo, g_fh_cbmap0 | calls 2
 ENDING_F_9FC8:
   k_func 21
   k_pushib 22
   k_pushiw $96FB
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_ldli 0
   k_stlbf -1
   k_jump ENDING_L_9FFC
@@ -1364,7 +1388,7 @@ ENDING_L_9FE0:
   k_ldlbf -1
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -21
   k_ldln -21
@@ -1464,8 +1488,8 @@ ENDING_L_A004:
   k_pushn -13
   k_pushiw $03B0
   k_pushi 11
-  k_callx RL_21BE, 12
-  k_pusha $F280
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8B04
   k_ldln -3
   k_shl1
@@ -1485,6 +1509,7 @@ ENDING_L_A004:
   k_callx RF_3DF1, 14
 ENDING_L_A0AF:
   k_return
+; sys: sprite_anim_stream
 ENDING_F_A0B0:
   k_func 0
   k_pushib 22
@@ -1497,7 +1522,7 @@ ENDING_F_A0B0:
   k_pushi 2
   k_pushi 0
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8BED
   k_pushi 0
@@ -1508,7 +1533,7 @@ ENDING_F_A0B0:
   k_pushi 2
   k_pushi 1
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8C6D
   k_pushi 0
@@ -1519,7 +1544,7 @@ ENDING_F_A0B0:
   k_pushi 2
   k_pushi 2
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8CED
   k_pushi 0
@@ -1530,7 +1555,7 @@ ENDING_F_A0B0:
   k_pushi 2
   k_pushi 3
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8D6D
   k_pushi 0
@@ -1541,7 +1566,7 @@ ENDING_F_A0B0:
   k_pushi 2
   k_pushi 4
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8DED
   k_pushi 0
@@ -1552,7 +1577,7 @@ ENDING_F_A0B0:
   k_pushi 2
   k_pushi 5
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8E6D
   k_pushi 0
@@ -1563,7 +1588,7 @@ ENDING_F_A0B0:
   k_pushi 2
   k_pushi 6
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_pushib 22
   k_pushiw RD_8EED
   k_pushiw $00FF
@@ -1574,8 +1599,9 @@ ENDING_F_A0B0:
   k_pushi 2
   k_pushi 7
   k_pushib 55
-  k_callx RL_21BE, 20
+  k_callx syscall, 20  ; sys 55 sprite_anim_stream
   k_return
+; sys: memset_long, sprites_hide, metasprite_set, wait_frames | vars: g_fh_cbmap0 | calls 2
 ENDING_F_A156:
   k_func 108
   k_pushib 72
@@ -1584,7 +1610,7 @@ ENDING_F_A156:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldliw ENDING_D_BD68
   k_stln -7
 ENDING_L_A16F:
@@ -1618,7 +1644,7 @@ ENDING_L_A185:
   k_addli 10
   k_pushl
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_jump ENDING_L_A1DD
 ENDING_L_A1A8:
   k_pushib 126
@@ -1655,7 +1681,7 @@ ENDING_L_A1A8:
   k_addli 10
   k_pushl
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
 ENDING_L_A1DD:
   k_ldlbf -84
   k_inc
@@ -1758,7 +1784,7 @@ ENDING_L_A285:
   k_pushl
   k_pushib 126
   k_pushn -11
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_callx RF_3FC8, 10
   k_jump ENDING_L_A2F1
 ENDING_L_A2A0:
@@ -1788,7 +1814,7 @@ ENDING_L_A2BC:
   k_ldlbf -5
   k_pushl
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_jump ENDING_L_A2F1
 ENDING_L_A2D3:
   k_return
@@ -1804,6 +1830,7 @@ ENDING_L_A2D4:
 ENDING_L_A2F1:
   k_jump ENDING_L_A16F
   .byte $CF
+; sys: vram_load_tiles, lz_decompress, vram_load_obj_tiles, file_seek, file_palette_dma, palette_dma | vars: g_fh_cbmap0, g_port, g_fh_fdata | calls 13
 ENDING_F_A2F5:
   k_func 2
   k_pushi 1
@@ -1812,46 +1839,46 @@ ENDING_F_A2F5:
   k_pushib 32
   k_pushib 119
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 22
   k_pushiw $8000
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_pushi 2
   k_pushib 127
   k_pushi 0
   k_pushiw $00BD
   k_pushiw $0097
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushi 2
   k_pushib 127
   k_pushiw $17A0
   k_pushi 11
   k_pushiw $03A5
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 17
   k_pushiw $8000
   k_pushib 60
   k_pushiw $00F0
   k_pushi 13
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 13 vram_load_obj_tiles
   k_pushib 29
-  k_pushiw $F280
+  k_pushiw g_fh_cbmap0
   k_pushib 68
   k_pushiw $012C
   k_pushi 13
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 13 vram_load_obj_tiles
   k_pushi 2
   k_pushib 18
   k_pushiw $8000
   k_pushiw $01C1
   k_pushiw $01A0
   k_pushi 11
-  k_callx RL_21BE, 12
-  k_pusha $F280
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
+  k_pusha g_fh_cbmap0
   k_pushiw $8478
   k_pushib 27
   k_pushib 30
@@ -1874,7 +1901,7 @@ ENDING_F_A2F5:
   k_pushi 1
   k_pushiw ENDING_D_C2C2
   k_callx RF_2FB9, 4
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $21C2
   k_pushi 15
   k_pushib 28
@@ -1895,7 +1922,7 @@ ENDING_L_A3AD:
   k_ult
   k_jumpt ENDING_L_A3AD
   k_call ENDING_F_9F6E
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
   k_callx ENDING_F_9FC8, 2
   k_pushi 1
@@ -1910,26 +1937,26 @@ ENDING_L_A3AD:
   k_ldliw RL_2790
   k_long $26
   k_long $14
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushib 32
   k_pushib 32
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 29
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 29 file_palette_dma
   k_pushi 0
   k_ldliw $2890
   k_long $26
   k_long $14
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushib 32
   k_pushib 96
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 29
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 29 file_palette_dma
   k_pushi 1
   k_pushi 1
   k_pushi 1
@@ -1939,10 +1966,11 @@ ENDING_L_A3AD:
   k_pushib 126
   k_pushiw ENDING_D_C297
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushi 1
   k_callx RF_4F2A, 2
   k_return
+; sys: wait_frames, tilemap_write, color_math, window_off, anim_control | calls 10
 ENDING_F_A42F:
   k_func 0
   k_pushi 0
@@ -1957,7 +1985,7 @@ ENDING_F_A42F:
   k_call ENDING_F_A156
   k_pushiw $012C
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 0
   k_pushi 0
   k_pushi 8
@@ -1970,7 +1998,7 @@ ENDING_F_A42F:
   k_callx RF_3619, 4
   k_pushiw $0168
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushiw $2000
   k_pushi 6
   k_pushib 26
@@ -1978,37 +2006,38 @@ ENDING_F_A42F:
   k_pushi 3
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 1
   k_pusha ENDING_D_C2C8
   k_callx RF_2FB9, 4
   k_pushiw $0168
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushiw $00E0
   k_pushi 0
   k_pushi 0
   k_pushib 48
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 48 color_math
   k_pushib 39
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 39 window_off
   k_call RF_4D8B
   k_pushiw $00FF
   k_pushi 3
   k_pushib 56
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 56 anim_control
   k_call ENDING_F_9A9E
   k_pushi 0
   k_callx ENDING_F_A0B0, 2
   k_return
+; sys: wait_frames, brightness_set, vram_load_tiles, palette_dma, vram_load_obj_tiles, tilemap_write | vars: g_fh_cbmap0 | calls 6
 ENDING_F_A4B9:
   k_func 2
   k_pushiw $012C
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 0
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_call RF_3D7C
   k_pushi 1
   k_pushib 29
@@ -2016,20 +2045,20 @@ ENDING_F_A4B9:
   k_pushiw $015F
   k_pushib 119
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 32
   k_pushib 112
   k_pushib 126
   k_pushiw ENDING_D_AA8A
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushib 32
   k_pushib 80
   k_pushib 126
   k_pushiw ENDING_D_AAAA
   k_pushi 3
-  k_callx RL_21BE, 10
-  k_pusha $F280
+  k_callx syscall, 10  ; sys 3 palette_dma
+  k_pusha g_fh_cbmap0
   k_pushiw $A334
   k_pushi 10
   k_pushib 30
@@ -2037,7 +2066,7 @@ ENDING_F_A4B9:
   k_pushi 1
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $A0DC
   k_pushi 10
   k_pushib 30
@@ -2049,44 +2078,44 @@ ENDING_F_A4B9:
   k_callx RF_4F2A, 2
   k_pushiw $012C
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 2
   k_callx RF_4F48, 2
   k_pushiw $00C8
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 1
   k_pushib 30
   k_pushiw $8000
   k_pushiw $0295
   k_pushib 119
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 30
   k_pushiw $D160
   k_pushi 10
   k_pushiw $00F0
   k_pushi 13
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 13 vram_load_obj_tiles
   k_pushib 64
   k_pushib 96
   k_pushib 126
   k_pushiw ENDING_D_AAEA
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushib 32
   k_pushib 64
   k_pushib 126
   k_pushiw ENDING_D_AACA
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushib 32
   k_pushiw $00C0
   k_pushib 126
   k_pushiw ENDING_D_AACA
   k_pushi 3
-  k_callx RL_21BE, 10
-  k_pusha $F280
+  k_callx syscall, 10  ; sys 3 palette_dma
+  k_pusha g_fh_cbmap0
   k_pushiw ENDING_D_AD48
   k_pushi 10
   k_pushib 30
@@ -2094,7 +2123,7 @@ ENDING_F_A4B9:
   k_pushi 1
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $A640
   k_pushi 10
   k_pushib 30
@@ -2106,8 +2135,8 @@ ENDING_F_A4B9:
   k_callx RF_4F2A, 2
   k_pushiw $00FA
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw ENDING_D_A898
   k_pushi 10
   k_pushib 30
@@ -2117,8 +2146,8 @@ ENDING_F_A4B9:
   k_callx RF_3DF1, 14
   k_pushiw $00C8
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw ENDING_D_AAF0
   k_pushi 10
   k_pushib 30
@@ -2128,41 +2157,41 @@ ENDING_F_A4B9:
   k_callx RF_3DF1, 14
   k_pushiw $0096
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushib 64
   k_pushib 96
   k_pushib 126
   k_pushiw ENDING_D_AB2A
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushib 120
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushib 64
   k_pushib 96
   k_pushib 126
   k_pushiw ENDING_D_AB6A
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushib 120
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushib 64
   k_pushib 96
   k_pushib 126
   k_pushiw ENDING_D_ABAA
   k_pushi 3
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 3 palette_dma
   k_pushiw $012C
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 2
   k_callx RF_4F48, 2
   k_pushib 120
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_call RF_3D7C
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw ENDING_D_AFA0
   k_pushi 8
   k_pushi 10
@@ -2194,7 +2223,7 @@ ENDING_L_A64F:
   k_pushi 8
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_ldl -2
   k_inc
   k_stl -2
@@ -2204,8 +2233,8 @@ ENDING_L_A64F:
   k_jumpt ENDING_L_A64F
   k_pushib 120
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw ENDING_D_B040
   k_pushi 8
   k_pushi 10
@@ -2215,8 +2244,8 @@ ENDING_L_A64F:
   k_callx RF_3DF1, 14
   k_pushib 50
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw ENDING_D_B0E0
   k_pushi 8
   k_pushi 10
@@ -2226,8 +2255,8 @@ ENDING_L_A64F:
   k_callx RF_3DF1, 14
   k_pushib 50
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw ENDING_D_B180
   k_pushi 8
   k_pushi 10
@@ -2237,25 +2266,26 @@ ENDING_L_A64F:
   k_callx RF_3DF1, 14
   k_pushiw $012C
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 2
   k_callx RF_4F48, 2
   k_pushi 0
   k_pushi 0
   k_pushi 2
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushiw $2000
   k_pushi 0
   k_pushi 3
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_return
+; sys: wait_frames, oam_hide_all | vars: g_fh_cbmap0 | calls 5
 ENDING_F_A6E1:
   k_func 2
   k_pushi 1
   k_callx RF_4F2A, 2
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw ENDING_D_BC40
   k_pushi 5
   k_pushi 3
@@ -2265,11 +2295,11 @@ ENDING_F_A6E1:
   k_callx RF_3E5A, 14
   k_pushib 60
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldli 0
   k_stl -2
 ENDING_L_A708:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw ENDING_D_BC40
   k_pushi 5
   k_pushi 3
@@ -2291,7 +2321,7 @@ ENDING_L_A708:
   k_pushl
   k_pushi 10
   k_callx RF_3E5A, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldl -2
   k_shl1
   k_ldriw ENDING_D_C405
@@ -2306,8 +2336,8 @@ ENDING_L_A708:
   k_callx RF_3DF1, 14
   k_pushi 3
   k_pushib 16
-  k_callx RL_21BE, 4
-  k_pusha $F280
+  k_callx syscall, 4  ; sys 16 wait_frames
+  k_pusha g_fh_cbmap0
   k_pushiw ENDING_D_BC40
   k_pushi 5
   k_pushi 3
@@ -2331,7 +2361,7 @@ ENDING_L_A708:
   k_callx RF_3E5A, 14
   k_pushi 3
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -2
   k_inc
   k_stl -2
@@ -2341,16 +2371,17 @@ ENDING_L_A708:
   k_jumpt ENDING_L_A708
   k_pushib 30
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_pushiw $0258
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 1
   k_callx RF_4F48, 2
   k_call ENDING_F_9CF5
   k_return
+; sys: tilemap_clear, memset_long | vars: g_player_name_ptr | calls 8
 ENDING_F_A797:
   k_func 0
   k_pushi 1
@@ -2360,11 +2391,11 @@ ENDING_F_A797:
   k_pushi 1
   k_pushi 2
   k_pushi 4
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 4 tilemap_clear
   k_pushi 0
   k_pushi 0
   k_callx RF_530E, 4
-  k_pusha $E444
+  k_pusha g_player_name_ptr
   k_pushiw $F302
   k_callx $8979, 4
   k_pushib 72
@@ -2372,7 +2403,7 @@ ENDING_F_A797:
   k_pushiw $F312
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 0
   k_stlba $F28C
   k_call ENDING_F_9D6A

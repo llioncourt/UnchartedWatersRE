@@ -2,14 +2,16 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp IBENTO_F_9603
+; calls 1
 IBENTO_F_9603:
   k_func 0
-  k_call IBENTO_F_9D79
+  k_call king_summons_check
   k_return
 IBENTO_F_960C:
   k_func 2
@@ -28,6 +30,7 @@ IBENTO_F_960C:
   k_add
   k_derefb
   k_return
+; calls 1
 IBENTO_F_9623:
   k_func 2
   k_pusharg 15
@@ -68,6 +71,7 @@ IBENTO_L_965D:
   k_ldli 1
 IBENTO_L_965E:
   k_return
+; calls 1
 IBENTO_F_965F:
   k_func 4
   k_ldli 0
@@ -100,6 +104,7 @@ IBENTO_L_9674:
   k_jumpt IBENTO_L_9666
   k_ldli 0
   k_return
+; calls 1
 IBENTO_F_9688:
   k_func 2
   k_ldli 0
@@ -160,6 +165,7 @@ IBENTO_L_96D1:
   k_ldli 1
 IBENTO_L_96D2:
   k_return
+; vars: g_title | calls 2
 IBENTO_F_96D3:
   k_func 4
   k_pusharg 11
@@ -173,7 +179,7 @@ IBENTO_F_96D3:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_pushl
-  k_ldlba $EE76
+  k_ldlba g_title
   k_ldri 3
   k_udiv
   k_popr
@@ -204,27 +210,28 @@ IBENTO_F_96D3:
   k_push -4
   k_callx $89A1, 4
   k_return
+; vars: g_king_mission, g_zone_attr, g_map_blocks_ofs, g_map_chunks_ofs | calls 9
 IBENTO_F_9721:
   k_func 25
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_jumpt IBENTO_L_9808
   k_pushi 3
   k_leal -3
   k_pushl
-  k_pushiw $EF84
+  k_pushiw g_zone_attr
   k_callx RL_88F4, 6
   k_longd $18, $00000000
   k_longw $0E, $FFE7
   k_pushi 2
-  k_pushiw $EFA7
+  k_pushiw g_map_blocks_ofs
   k_leal -25
   k_pushl
-  k_callx RF_3F4F, 6
+  k_callx map_rom_read, 6
   k_pushi 2
-  k_pushiw $EFA9
+  k_pushiw g_map_chunks_ofs
   k_leal -25
   k_pushl
-  k_callx RF_3F4F, 6
+  k_callx map_rom_read, 6
 IBENTO_L_975A:
   k_pushib 24
   k_callx RF_3F3E, 2
@@ -235,11 +242,11 @@ IBENTO_L_975A:
   k_pushiw $F300
   k_pushn -19
   k_pushn -17
-  k_callx RF_5449, 6
+  k_callx map_load_zone, 6
   k_call IBENTO_F_9688
   k_jumpt IBENTO_L_975A
   k_pushi 3
-  k_pushiw $EF84
+  k_pushiw g_zone_attr
   k_leal -3
   k_pushl
   k_callx RL_88F4, 6
@@ -312,7 +319,7 @@ IBENTO_L_97C7:
   k_stlba $EF60
 IBENTO_L_9808:
   k_ldlib 31
-  k_stlba $EF57
+  k_stlba g_king_mission+3
   k_pushib 31
   k_callx IBENTO_F_96D3, 2
   k_return
@@ -348,11 +355,12 @@ IBENTO_F_9827:
   k_stlarg 11
   k_ldlarg 11
   k_return
-IBENTO_F_983A:
+; vars: g_king_mission, g_title, g_princess | calls 1
+mission_crates_set:
   k_func 2
   k_ldli 0
-  k_stlba $EF56
-  k_ldlba $EE76
+  k_stlba g_king_mission+2
+  k_ldlba g_title
   k_pushl
   k_pushi 3
   k_callx RF_3F3E, 2
@@ -363,29 +371,31 @@ IBENTO_F_983A:
   k_ldriw IBENTO_D_9EBD
   k_add
   k_derefb
-  k_stlba $EF57
+  k_stlba g_king_mission+3
   k_ldli 1
-  k_stlba $EF61
+  k_stlba g_princess
   k_return
-IBENTO_F_985D:
+; vars: g_king_mission, g_princess | calls 1
+mission_letter_set:
   k_func 3
   k_ldli 1
-  k_stlba $EF56
+  k_stlba g_king_mission+2
   k_pushi 2
   k_callx RF_3F3E, 2
   k_inc
   k_stlbf -1
   k_ldlbf -1
-  k_stlba $EF57
+  k_stlba g_king_mission+3
   k_ldli 1
-  k_stlba $EF61
+  k_stlba g_princess
   k_return
+; vars: g_king_mission, g_port_flags, g_relations, g_fleets, g_princess
 IBENTO_F_987A:
   k_func 20
   k_ldli 2
-  k_stlba $EF56
-  k_ldlba $EF54
-  k_ldriw $EE78
+  k_stlba g_king_mission+2
+  k_ldlba g_king_mission
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 3
@@ -406,7 +416,7 @@ IBENTO_F_987A:
   k_stl -16
   k_ldl -8
   k_jumpf IBENTO_L_9916
-  k_ldliw $EA8F
+  k_ldliw g_relations
   k_stl -2
   k_ldl -8
   k_dec
@@ -469,7 +479,7 @@ IBENTO_L_98D9:
   k_ldl -14
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -18
   k_addlib 32
@@ -507,7 +517,7 @@ IBENTO_L_9916:
   k_ldl -14
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -18
   k_addlib 80
@@ -543,13 +553,14 @@ IBENTO_L_9947:
   k_return
 IBENTO_L_994C:
   k_ldl -6
-  k_stlba $EF57
+  k_stlba g_king_mission+3
   k_ldli 1
-  k_stlba $EF61
+  k_stlba g_princess
   k_return
+; vars: g_player_name_ptr | calls 2
 IBENTO_F_9955:
   k_func 10
-  k_ldliw $E444
+  k_ldliw g_player_name_ptr
   k_stl -4
   k_addliw $011F
   k_stl -6
@@ -591,15 +602,16 @@ IBENTO_L_998E:
   k_ldl -2
   k_popstore
   k_return
+; vars: g_player_name_ptr | calls 4
 IBENTO_F_9996:
   k_func 10
   k_ldlarg 11
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_stl -2
-  k_ldliw $E444
+  k_ldliw g_player_name_ptr
   k_stl -4
   k_push -2
   k_callx IBENTO_F_9955, 2
@@ -663,6 +675,7 @@ IBENTO_F_9996:
   k_or
   k_popstoreb
   k_return
+; calls 3
 IBENTO_F_99FF:
   k_func 22
   k_leal -10
@@ -740,6 +753,7 @@ IBENTO_L_9A5B:
   k_popstoreb
   k_ldl -18
   k_return
+; calls 1
 IBENTO_F_9A6A:
   k_func 6
 IBENTO_L_9A6F:
@@ -774,12 +788,13 @@ IBENTO_L_9A8B:
   k_jumpt IBENTO_L_9A6F
   k_ldl -6
   k_return
-IBENTO_F_9A97:
+; vars: g_fleets, g_king_mission, g_title, g_princess | calls 6
+mission_treasure_set:
   k_func 19
-  k_ldliw $E564
+  k_ldliw g_fleets
   k_stln -19
   k_ldli 3
-  k_stlba $EF56
+  k_stlba g_king_mission+2
   k_ldliw $EED2
   k_stln -7
   k_pushn -7
@@ -791,7 +806,7 @@ IBENTO_F_9A97:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_pushl
-  k_ldlba $EE76
+  k_ldlba g_title
   k_ldri 3
   k_udiv
   k_popr
@@ -846,7 +861,7 @@ IBENTO_L_9B0F:
   k_callx RF_3F3E, 2
   k_jumpf IBENTO_L_9B26
   k_ldli 0
-  k_stlba $EF5C
+  k_stlba g_king_mission+8
   k_jump IBENTO_L_9B51
 IBENTO_L_9B26:
   k_pushi 15
@@ -863,7 +878,7 @@ IBENTO_L_9B26:
   k_and
   k_jumpt IBENTO_L_9B26
   k_ldln -17
-  k_stlba $EF5C
+  k_stlba g_king_mission+8
   k_pushiw $8000
   k_ldln -17
   k_ldri 4
@@ -880,13 +895,14 @@ IBENTO_L_9B51:
   k_ldli 9
   k_popstoreb
   k_ldli 1
-  k_stlba $EF61
+  k_stlba g_princess
   k_call IBENTO_F_9721
   k_return
-IBENTO_F_9B5D:
+; vars: g_king_mission, g_relations, g_fleets, g_princess
+mission_princess_set:
   k_func 20
   k_ldli 4
-  k_stlba $EF56
+  k_stlba g_king_mission+2
   k_ldliw $EED2
   k_stl -4
   k_push -4
@@ -898,7 +914,7 @@ IBENTO_F_9B5D:
   k_push -4
   k_ldli 0
   k_popstoreb
-  k_ldliw $EA8F
+  k_ldliw g_relations
   k_stl -2
   k_ldlib 101
   k_stl -6
@@ -948,7 +964,7 @@ IBENTO_L_9B9A:
   k_ldl -12
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -18
   k_addlib 32
@@ -986,7 +1002,7 @@ IBENTO_L_9BD9:
   k_ldl -12
   k_ldri 4
   k_shl
-  k_ldriw $E564
+  k_ldriw g_fleets
   k_add
   k_stl -18
   k_addlib 80
@@ -1022,10 +1038,11 @@ IBENTO_L_9C0A:
   k_return
 IBENTO_L_9C0F:
   k_ldl -14
-  k_stlba $EF57
+  k_stlba g_king_mission+3
   k_ldli 1
-  k_stlba $EF61
+  k_stlba g_princess
   k_return
+; vars: g_port_flags | calls 1
 IBENTO_F_9C18:
   k_func 2
 IBENTO_L_9C1D:
@@ -1034,7 +1051,7 @@ IBENTO_L_9C1D:
   k_inc
   k_stl -2
   k_ldl -2
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 8
@@ -1042,6 +1059,7 @@ IBENTO_L_9C1D:
   k_jumpf IBENTO_L_9C1D
   k_ldl -2
   k_return
+; vars: g_port_flags | calls 1
 IBENTO_F_9C32:
   k_func 2
 IBENTO_L_9C37:
@@ -1050,14 +1068,14 @@ IBENTO_L_9C37:
   k_inc
   k_stl -2
   k_ldl -2
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 8
   k_and
   k_jumpf IBENTO_L_9C37
   k_ldl -2
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 4
@@ -1065,6 +1083,7 @@ IBENTO_L_9C37:
   k_jumpf IBENTO_L_9C37
   k_ldl -2
   k_return
+; vars: g_port_flags | calls 1
 IBENTO_F_9C57:
   k_func 2
 IBENTO_L_9C5C:
@@ -1073,7 +1092,7 @@ IBENTO_L_9C5C:
   k_inc
   k_stl -2
   k_ldl -2
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 8
@@ -1081,25 +1100,26 @@ IBENTO_L_9C5C:
   k_jumpf IBENTO_L_9C5C
   k_ldl -2
   k_return
-IBENTO_F_9C71:
+; vars: g_princess, g_king_mission, g_title | calls 4
+mission_pick:
   k_func 8
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf IBENTO_L_9CC3
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 3
   k_eq
   k_jumpt IBENTO_L_9C8E
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 2
   k_eq
   k_jumpf IBENTO_L_9CC3
 IBENTO_L_9C8E:
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_jumpf IBENTO_L_9CA5
   k_pushiw $7FFF
-  k_ldlba $EF5C
+  k_ldlba g_king_mission+8
   k_ldri 4
   k_shl
   k_ldriw $E571
@@ -1152,15 +1172,15 @@ IBENTO_L_9CD9:
   k_inc
   k_stla $EF52
   k_ldli 0
-  k_stlba $EF54
+  k_stlba g_king_mission
   k_ldli 0
-  k_stlba $EF55
-  k_ldlba $EE76
+  k_stlba g_king_mission+1
+  k_ldlba g_title
   k_jumpf IBENTO_L_9D10
   k_pushi 2
   k_callx RF_3F3E, 2
   k_pushl
-  k_ldlba $EE76
+  k_ldlba g_title
   k_dec
   k_ldri 1
   k_shr
@@ -1171,7 +1191,7 @@ IBENTO_L_9D10:
   k_ldli 0
 IBENTO_L_9D11:
   k_stl -4
-  k_ldlba $EE76
+  k_ldlba g_title
   k_ldri 9
   k_eq
   k_jumpf IBENTO_L_9D1C
@@ -1197,9 +1217,9 @@ IBENTO_L_9D2B:
   k_ne
   k_jumpf IBENTO_L_9D24
   k_ldl -2
-  k_stlba $EF54
+  k_stlba g_king_mission
   k_ldli 1
-  k_stlba $EF55
+  k_stlba g_king_mission+1
   k_ldla IBENTO_D_9EE9
   k_jump IBENTO_L_9D23
 IBENTO_L_9D45:
@@ -1210,9 +1230,9 @@ IBENTO_L_9D45:
   k_ne
   k_jumpf IBENTO_L_9D24
   k_ldl -2
-  k_stlba $EF54
+  k_stlba g_king_mission
   k_ldli 2
-  k_stlba $EF55
+  k_stlba g_king_mission+1
   k_ldla IBENTO_D_9EEF
   k_jump IBENTO_L_9D23
 IBENTO_L_9D5F:
@@ -1223,32 +1243,33 @@ IBENTO_L_9D5F:
   k_ne
   k_jumpf IBENTO_L_9D24
   k_ldl -2
-  k_stlba $EF54
+  k_stlba g_king_mission
   k_ldli 3
-  k_stlba $EF55
+  k_stlba g_king_mission+1
   k_ldla IBENTO_D_9EED
   k_jump IBENTO_L_9D23
-IBENTO_F_9D79:
+; vars: g_princess, g_king_mission, g_title, g_fame | calls 3
+king_summons_check:
   k_func 2
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpt IBENTO_L_9DCD
-  k_ldlba $EF56
+  k_ldlba g_king_mission+2
   k_ldri 4
   k_ne
   k_jumpf IBENTO_L_9DCD
-  k_ldlba $EE76
+  k_ldlba g_title
   k_inc
   k_pushl
-  k_ldlba $EE76
+  k_ldlba g_title
   k_inc
   k_popr
   k_mul
   k_ldriw $0190
   k_mul
   k_pushl
-  k_ldla $EE74
+  k_ldla g_fame
   k_popr
   k_ugt
   k_jumpf IBENTO_L_9DAA
@@ -1273,7 +1294,7 @@ IBENTO_L_9DBB:
   k_jumpf IBENTO_L_9DCD
 IBENTO_L_9DC8:
   k_push -2
-  k_callx IBENTO_F_9C71, 2
+  k_callx mission_pick, 2
 IBENTO_L_9DCD:
   k_return
 IBENTO_D_9DCE:
@@ -1344,9 +1365,9 @@ IBENTO_D_9EC9:
 IBENTO_D_9ED9:
   .byte $FF, $00, $02, $03, $00, $FF, $01, $04, $02, $01, $FF, $05, $03, $04, $05, $FF
 IBENTO_D_9EE9:
-  .word IBENTO_F_983A, IBENTO_F_985D
+  .word mission_crates_set, mission_letter_set
 IBENTO_D_9EED:
   .word IBENTO_F_987A
 IBENTO_D_9EEF:
-  .word IBENTO_F_9A97, IBENTO_F_9B5D
+  .word mission_treasure_set, mission_princess_set
   .byte $00

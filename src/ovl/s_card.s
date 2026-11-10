@@ -2,15 +2,18 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp S_CARD_F_B003
+; calls 1
 S_CARD_F_B003:
   k_func 0
   k_call S_CARD_F_B04D
   k_return
+; sys: file_open, file_seek, file_read_7e, file_close
 S_CARD_F_B00C:
   k_func 2
   k_ldlarg 11
@@ -20,28 +23,29 @@ S_CARD_F_B00C:
   k_deref
   k_pushl
   k_pushib 24
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 24 file_open
   k_stl -2
   k_pushi 0
   k_longd $18, $00000000
   k_long $14
   k_push -2
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushiw $2200
   k_pushiw $B800
   k_push -2
   k_pushib 27
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 27 file_read_7e
   k_push -2
   k_pushib 25
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 25 file_close
   k_ldlarg 13
   k_jumpf S_CARD_L_B04C
   k_ldliw $B800
   k_callptr
 S_CARD_L_B04C:
   k_return
+; sys: lz_decompress, vram_load_tiles, oam_hide_all, file_seek, file_palette_dma, brightness_set | vars: g_fh_fdata | calls 6
 S_CARD_F_B04D:
   k_func 0
   k_pushi 1
@@ -62,14 +66,14 @@ S_CARD_F_B04D:
   k_pushiw $CCE7
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_pushi 1
   k_pushib 127
   k_pushi 0
   k_pushiw $0194
   k_pushiw $01A0
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_ldla $F99E
   k_switchn 2
     .word $0021, S_CARD_L_B09E
@@ -91,7 +95,7 @@ S_CARD_L_B0A4:
   k_stlba $F294
 S_CARD_L_B0B8:
   k_pushi 8
-  k_callx RL_21BE, 2
+  k_callx syscall, 2  ; sys 8 oam_hide_all
   k_call RF_4DD8
   k_call RF_3D7C
   k_call $97F5
@@ -99,14 +103,14 @@ S_CARD_L_B0B8:
   k_ldliw $2750
   k_long $26
   k_long $14
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushib 64
   k_pushib 48
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 29
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 29 file_palette_dma
   k_call $978F
   k_pushi 6
   k_pushib 27
@@ -118,12 +122,13 @@ S_CARD_L_B0B8:
   k_callx $9825, 2
   k_pushi 15
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_return
 S_CARD_L_B0FF:
   k_pushi 1
   k_pushi 1
   k_jump S_CARD_L_B0A0
+; calls 1
 S_CARD_F_B104:
   k_func 5
   k_ldli 0
@@ -163,9 +168,10 @@ S_CARD_L_B10C:
   k_ult
   k_jumpt S_CARD_L_B10C
   k_return
+; vars: g_fh_cbmap0 | calls 1
 S_CARD_F_B14C:
   k_func 0
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $7374
   k_pushi 3
   k_pushi 2
@@ -174,36 +180,38 @@ S_CARD_F_B14C:
   k_pushi 1
   k_callx RF_3DF1, 14
   k_return
+; sys: file_seek, file_palette_dma | vars: g_fh_fdata
 S_CARD_F_B161:
   k_func 0
   k_pushi 0
   k_ldliw $2710
   k_long $26
   k_long $14
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushib 64
   k_pushib 48
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 29
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 29 file_palette_dma
   k_pushi 0
   k_ldliw $2710
   k_long $26
   k_long $14
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushib 32
   k_pushiw $00A0
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 29
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 29 file_palette_dma
   k_return
+; vars: g_fh_cbmap0 | calls 3
 S_CARD_F_B1A4:
   k_func 0
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $6C5C
   k_pushib 28
   k_pushib 30
@@ -215,9 +223,10 @@ S_CARD_F_B1A4:
   k_pushi 1
   k_callx RF_4F2A, 2
   k_return
+; sys: tilemap_write | vars: g_fh_cbmap0 | calls 1
 S_CARD_F_B1C3:
   k_func 0
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 17
   k_shl1
   k_ldriw S_CARD_D_B230
@@ -230,7 +239,7 @@ S_CARD_F_B1C3:
   k_pusharg 11
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 15
   k_shl1
   k_pushl
@@ -254,7 +263,7 @@ S_CARD_F_B1C3:
   k_pusharg 11
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 17
   k_shl1
   k_ldriw S_CARD_D_B238
@@ -278,7 +287,7 @@ S_CARD_F_B1C3:
   k_pusharg 11
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_return
 S_CARD_D_B222:
   .word S_CARD_D_B226, S_CARD_D_B22B

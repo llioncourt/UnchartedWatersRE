@@ -2,16 +2,18 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp MDISP1_F_B003
+; vars: g_port | calls 3
 MDISP1_F_B003:
   k_func 0
   k_ldla $F9AA
   k_jumpf MDISP1_L_B017
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
   k_callx MDISP1_F_B2CF, 2
   k_return
@@ -20,7 +22,7 @@ MDISP1_L_B017:
   k_ldri 2
   k_eq
   k_jumpf MDISP1_L_B02D
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
   k_callx MDISP1_F_B2CF, 2
   k_pushi 1
@@ -37,15 +39,16 @@ MDISP1_L_B02D:
 MDISP1_L_B03B:
   k_call MDISP1_F_B5CC
   k_return
+; vars: g_port, g_fh_cbmap0 | calls 7
 MDISP1_F_B03F:
   k_func 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldrib 19
   k_mul
   k_ldriw $0FD8
   k_add
   k_stl -2
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $8478
   k_pushib 27
   k_pushib 30
@@ -53,7 +56,7 @@ MDISP1_F_B03F:
   k_pushi 1
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $8478
   k_pushib 27
   k_pushib 30
@@ -76,6 +79,7 @@ MDISP1_F_B03F:
   k_pushiw MDISP1_D_BB1E
   k_callx RF_2FB9, 4
   k_return
+; sys: file_seek, file_palette_dma | vars: g_fh_fdata | calls 2
 MDISP1_F_B098:
   k_func 2
   k_pushi 0
@@ -92,14 +96,14 @@ MDISP1_F_B098:
   k_add
   k_long $26
   k_long $14
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushib 32
   k_pushib 32
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 29
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 29 file_palette_dma
   k_pushi 0
   k_ldlarg 11
   k_ldri 5
@@ -108,14 +112,14 @@ MDISP1_F_B098:
   k_add
   k_long $26
   k_long $14
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushib 32
   k_pushib 96
-  k_pusha $F282
+  k_pusha g_fh_fdata
   k_pushib 29
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 29 file_palette_dma
   k_pushi 1
   k_pushi 1
   k_pushi 1
@@ -125,6 +129,7 @@ MDISP1_F_B098:
   k_pushi 1
   k_callx RF_3EC3, 6
   k_return
+; vars: g_fh_cbmap0 | calls 1
 MDISP1_F_B0FC:
   k_func 0
   k_ldlarg 11
@@ -135,7 +140,7 @@ MDISP1_F_B0FC:
   k_dec
   k_stlarg 11
 MDISP1_L_B10A:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 11
   k_shl1
   k_pushl
@@ -175,7 +180,7 @@ MDISP1_L_B10A:
   k_pushl
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 11
   k_shl1
   k_pushl
@@ -216,10 +221,11 @@ MDISP1_L_B10A:
   k_pushi 2
   k_callx RF_3DF1, 14
   k_return
+; vars: g_fh_cbmap0, g_port, g_port_flags | calls 2
 MDISP1_F_B17A:
   k_func 5
   k_call $97F5
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 11
   k_shl1
   k_ldriw MDISP1_D_BB3A
@@ -232,7 +238,7 @@ MDISP1_F_B17A:
   k_pushi 2
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_ldlarg 11
   k_shl1
   k_ldriw MDISP1_D_BB4A
@@ -245,8 +251,8 @@ MDISP1_F_B17A:
   k_pushi 2
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_ldlba $EF69
-  k_ldriw $EE78
+  k_ldlba g_port
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_stlbf -1
@@ -255,7 +261,7 @@ MDISP1_F_B17A:
   k_ldli 0
   k_jump MDISP1_L_B215
 MDISP1_L_B1C0:
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldrib 50
   k_ult
   k_jumpf MDISP1_L_B1FF
@@ -312,9 +318,10 @@ MDISP1_L_B215:
   k_ult
   k_jumpt MDISP1_L_B1C0
   k_return
+; vars: g_fh_cbmap0 | calls 1
 MDISP1_F_B21F:
   k_func 4
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $82F0
   k_pushi 7
   k_pushib 28
@@ -322,7 +329,7 @@ MDISP1_F_B21F:
   k_pushi 2
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $82F0
   k_pushi 7
   k_pushib 28
@@ -330,7 +337,7 @@ MDISP1_F_B21F:
   k_pushi 2
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $8248
   k_pushi 2
   k_pushib 18
@@ -338,7 +345,7 @@ MDISP1_F_B21F:
   k_pushi 2
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $8248
   k_pushi 2
   k_pushib 18
@@ -346,7 +353,7 @@ MDISP1_F_B21F:
   k_pushi 2
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $82C8
   k_pushi 2
   k_pushi 10
@@ -354,7 +361,7 @@ MDISP1_F_B21F:
   k_pushib 20
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $82C8
   k_pushi 2
   k_pushi 10
@@ -362,7 +369,7 @@ MDISP1_F_B21F:
   k_pushib 20
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw $8ACC
   k_pushi 2
   k_pushi 4
@@ -370,7 +377,7 @@ MDISP1_F_B21F:
   k_pushib 16
   k_pushi 1
   k_callx RF_3DF1, 14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8AEC
   k_pushi 2
   k_pushi 3
@@ -379,6 +386,7 @@ MDISP1_F_B21F:
   k_pushi 1
   k_callx RF_3DF1, 14
   k_return
+; sys: file_seek, file_tilemap_copy
 MDISP1_F_B2AC:
   k_func 0
   k_pushi 0
@@ -387,7 +395,7 @@ MDISP1_F_B2AC:
   k_long $14
   k_pushn 23
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushn 23
   k_pushn 19
   k_pusharg 17
@@ -395,22 +403,23 @@ MDISP1_F_B2AC:
   k_pusharg 13
   k_pusharg 11
   k_pushib 30
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 30 file_tilemap_copy
   k_return
+; sys: lz_decompress, vram_load_tiles | vars: g_cargo, g_fh_cbmap0, g_ports | calls 3
 MDISP1_F_B2CF:
   k_func 21
   k_pushib 22
   k_pushiw $96FB
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_ldli 0
   k_jump MDISP1_L_B2FA
 MDISP1_L_B2E4:
   k_ldlbf -1
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_stln -21
   k_ldln -21
@@ -510,12 +519,12 @@ MDISP1_L_B37E:
   k_pushn -13
   k_pushiw $03B0
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_ldla $F9AA
   k_jumpf MDISP1_L_B397
   k_return
 MDISP1_L_B397:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8B04
   k_ldln -3
   k_shl1
@@ -609,8 +618,8 @@ MDISP1_L_B3DB:
   k_pushn -13
   k_pushiw $0158
   k_pushi 11
-  k_callx RL_21BE, 12
-  k_pusha $F280
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8BC4
   k_ldln -5
   k_shl1
@@ -661,7 +670,7 @@ MDISP1_L_B3DB:
   k_ldrn -9
   k_eq
   k_jumpf MDISP1_L_B528
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8BC4
   k_ldln -5
   k_shl1
@@ -696,7 +705,7 @@ MDISP1_L_B4B6:
   k_ldlbf 11
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_stln -17
   k_ldla $F99C
@@ -789,8 +798,8 @@ MDISP1_L_B528:
   k_pushn -15
   k_pushiw $0182
   k_pushi 11
-  k_callx RL_21BE, 12
-  k_pusha $F280
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8C18
   k_ldln -5
   k_shl1
@@ -823,6 +832,7 @@ MDISP1_L_B580:
   k_callx MDISP1_F_B2AC, 14
 MDISP1_L_B58C:
   k_return
+; sys: vram_load_obj_tiles
 MDISP1_F_B58D:
   k_func 0
   k_pushib 17
@@ -830,7 +840,7 @@ MDISP1_F_B58D:
   k_pushib 60
   k_pushiw $00F0
   k_pushi 13
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 13 vram_load_obj_tiles
   k_ldlba $FB84
   k_ldriw $00FF
   k_ne
@@ -852,9 +862,10 @@ MDISP1_F_B58D:
   k_pushl
   k_pushiw $012C
   k_pushi 13
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 13 vram_load_obj_tiles
 MDISP1_L_B5CB:
   k_return
+; sys: brightness_set, vram_load_tiles, lz_decompress | vars: g_fleets, g_port | calls 8
 MDISP1_F_B5CC:
   k_func 0
   k_ldlba $EF6A
@@ -868,9 +879,9 @@ MDISP1_F_B5CC:
 MDISP1_L_B5E1:
   k_pushi 0
   k_pushib 37
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 37 brightness_set
   k_call RF_3D7C
-  k_ldlba $E565
+  k_ldlba g_fleets+1
   k_pushl
   k_callx $9762, 2
   k_pushi 1
@@ -879,26 +890,26 @@ MDISP1_L_B5E1:
   k_pushib 32
   k_pushib 119
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushib 22
   k_pushiw $8000
   k_pushi 0
   k_pushib 76
-  k_callx RL_21BE, 8
+  k_callx syscall, 8  ; sys 76 lz_decompress
   k_pushi 2
   k_pushib 127
   k_pushi 0
   k_pushiw $00BD
   k_pushiw $0097
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_pushi 2
   k_pushib 127
   k_pushiw $17A0
   k_pushi 11
   k_pushiw $03A5
   k_pushi 11
-  k_callx RL_21BE, 12
+  k_callx syscall, 12  ; sys 11 vram_load_tiles
   k_ldlba $FB84
   k_pushl
   k_callx MDISP1_F_B58D, 2
@@ -906,7 +917,7 @@ MDISP1_L_B5E1:
   k_pusha $F99C
   k_callx MDISP1_F_B17A, 2
   k_call MDISP1_F_B21F
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
   k_callx MDISP1_F_B2CF, 2
   k_pushi 1
@@ -916,6 +927,7 @@ MDISP1_L_B5E1:
   k_pushi 1
   k_callx RF_4F2A, 2
   k_return
+; sys: metasprite_set, wait_frames | calls 1
 MDISP1_F_B65B:
   k_func 21
   k_ldli 0
@@ -1013,10 +1025,10 @@ MDISP1_L_B6BD:
   k_deref
   k_pushl
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_push -18
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -6
   k_inc
   k_stl -6
@@ -1060,7 +1072,7 @@ MDISP1_L_B6FD:
   k_deref
   k_pushl
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_ldl -20
   k_addliw $0092
   k_pushl
@@ -1074,7 +1086,7 @@ MDISP1_L_B6FD:
   k_popstore
   k_pushi 4
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -2
   k_inc
 MDISP1_L_B749:
@@ -1084,10 +1096,11 @@ MDISP1_L_B749:
   k_ult
   k_jumpt MDISP1_L_B664
   k_return
+; vars: g_port_flags
 MDISP1_F_B751:
   k_func 1
   k_ldlbf 11
-  k_ldriw $EE78
+  k_ldriw g_port_flags
   k_add
   k_derefb
   k_ldri 3
@@ -1107,6 +1120,7 @@ MDISP1_L_B779:
   k_return
 MDISP1_L_B77B:
   k_return
+; sys: memset_long, file_seek, file_read, metasprite_set, tilemap_write, wait_frames | vars: g_fh_cbmap0, g_port | calls 7
 MDISP1_F_B77C:
   k_func 145
   k_ldlba $FB82
@@ -1171,7 +1185,7 @@ MDISP1_L_B79B:
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldli 0
   k_stl -10
   k_stl -8
@@ -1189,9 +1203,9 @@ MDISP1_L_B7F5:
   k_add
   k_long $26
   k_long $14
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushib 26
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 26 file_seek
   k_pushi 2
   k_leal -122
   k_pushl
@@ -1207,9 +1221,9 @@ MDISP1_L_B7F5:
   k_add
   k_pushl
   k_pushib 126
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushib 28
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 28 file_read
   k_ldl -12
   k_inc
   k_stl -12
@@ -1261,7 +1275,7 @@ MDISP1_L_B848:
   k_pushl
   k_push -22
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_ldl -2
   k_inc
   k_stl -2
@@ -1285,8 +1299,8 @@ MDISP1_L_B86F:
   k_pushi 5
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
-  k_pusha $F280
+  k_callx syscall, 14  ; sys 5 tilemap_write
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8AF8
   k_pushi 2
   k_pushi 3
@@ -1301,7 +1315,7 @@ MDISP1_L_B86F:
   k_pushi 13
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 1
   k_pusha $F306
   k_pushi 3
@@ -1312,7 +1326,7 @@ MDISP1_L_B86F:
   k_ldriw $00FF
   k_ne
   k_jumpf MDISP1_L_B8CA
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
   k_callx MDISP1_F_B751, 2
   k_stl -20
@@ -1322,11 +1336,11 @@ MDISP1_L_B86F:
 MDISP1_L_B8CA:
   k_pushib 45
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
 MDISP1_L_B8D2:
   k_pushi 8
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_call $9FA9
   k_ldli 0
   k_stl -4
@@ -1338,7 +1352,7 @@ MDISP1_L_B8D2:
   k_stl -12
   k_jump MDISP1_L_B9AD
 MDISP1_L_B8EA:
-  k_pusha $F280
+  k_pusha g_fh_cbmap0
   k_pushiw RD_8AF8
   k_pushi 2
   k_pushi 3
@@ -1422,10 +1436,10 @@ MDISP1_L_B930:
   k_deref
   k_pushl
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_pushi 1
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -2
   k_inc
 MDISP1_L_B985:
@@ -1438,7 +1452,7 @@ MDISP1_L_B985:
 MDISP1_L_B98F:
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
 MDISP1_L_B996:
   k_ldl -8
   k_ldri 3
@@ -1465,14 +1479,14 @@ MDISP1_L_B9AD:
   k_jumpt MDISP1_L_B8EA
   k_pushi 15
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 6
   k_pushib 82
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldlib 34
   k_stl -24
   k_ldl -14
@@ -1534,7 +1548,7 @@ MDISP1_L_B9F3:
   k_pushl
   k_push -22
   k_pushi 9
-  k_callx RL_21BE, 18
+  k_callx syscall, 18  ; sys 9 metasprite_set
   k_ldl -8
   k_inc
   k_stl -8
@@ -1559,7 +1573,7 @@ MDISP1_L_BA34:
 MDISP1_L_BA35:
   k_pushl
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -14
   k_ldri 3
   k_shl
@@ -1577,7 +1591,7 @@ MDISP1_L_BA35:
   k_push -18
   k_push -24
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_ldl -18
   k_swap
   k_ldl -24
@@ -1602,18 +1616,19 @@ MDISP1_L_BA6E:
 MDISP1_L_BA74:
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldl -14
   k_ldr -18
   k_mul
   k_pushl
   k_pushib 34
   k_pushib 58
-  k_callx RL_21BE, 6
+  k_callx syscall, 6  ; sys 58 sprites_hide
   k_return
+; sys: tilemap_write, wait_frames | vars: g_port | calls 6
 MDISP1_F_BA88:
   k_func 2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldrib 19
   k_mul
   k_ldriw $0FD8
@@ -1648,12 +1663,12 @@ MDISP1_F_BA88:
   k_pushi 6
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_call $978F
   k_call MDISP1_F_B77C
   k_pushi 2
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_pushi 0
   k_callx $9825, 2
   k_ldliw $00FF
@@ -1677,7 +1692,7 @@ MDISP1_L_BAF4:
   k_pushi 6
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_call $978F
   k_return
   .byte $00

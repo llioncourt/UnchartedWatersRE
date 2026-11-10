@@ -2,16 +2,19 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp S_NSASO_F_B803
+; calls 1
 S_NSASO_F_B803:
   k_func 0
   k_call S_NSASO_F_B80F
   k_stla $F9A8
   k_return
+; vars: g_port, g_player_name_ptr, g_hero_stats, g_title | calls 12
 S_NSASO_F_B80F:
   k_func 70
   k_call RF_60EE
@@ -43,7 +46,7 @@ S_NSASO_L_B83F:
   k_add
   k_derefb
   k_stlbf -53
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
   k_ldlbf -1
   k_shl1
@@ -137,7 +140,7 @@ S_NSASO_L_B8CE:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_popstore
@@ -155,9 +158,9 @@ S_NSASO_L_B907:
   k_jumpt S_NSASO_L_B8CE
   k_ldliw $00F0
   k_stlba $EF65
-  k_ldliw $E444
+  k_ldliw g_player_name_ptr
   k_stln -66
-  k_ldliw $EAC1
+  k_ldliw g_hero_stats
   k_stln -48
   k_ldlib -1
   k_stla $EF66
@@ -219,7 +222,7 @@ S_NSASO_L_B907:
   k_derefb
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_stln -68
   k_leal -31
@@ -230,7 +233,7 @@ S_NSASO_L_B907:
   k_derefb
   k_ldri 10
   k_mul
-  k_ldriw $EAC1
+  k_ldriw g_hero_stats
   k_add
   k_stln -50
   k_ldln -68
@@ -297,7 +300,7 @@ S_NSASO_L_BA03:
   k_ldrn -58
   k_mul
   k_pushl
-  k_ldlba $EE76
+  k_ldlba g_title
   k_pushl
   k_ldlbf -52
   k_popr

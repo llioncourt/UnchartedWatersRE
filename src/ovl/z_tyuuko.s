@@ -2,11 +2,13 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp Z_TYUUKO_F_D003
+; calls 1
 Z_TYUUKO_F_D003:
   k_func 0
   k_call Z_TYUUKO_F_D72B
@@ -15,6 +17,7 @@ Z_TYUUKO_F_D003:
 Z_TYUUKO_F_D00F:
   k_func 0
   k_return
+; calls 5
 Z_TYUUKO_F_D015:
   k_func 6
   k_call Z_TYUUKO_F_D00F
@@ -52,6 +55,7 @@ Z_TYUUKO_F_D015:
   k_push -6
   k_callx RF_40DE, 2
   k_return
+; calls 1
 Z_TYUUKO_F_D04B:
   k_func 2
   k_ldlib -1
@@ -74,6 +78,7 @@ Z_TYUUKO_L_D063:
   k_ult
   k_jumpt Z_TYUUKO_L_D05C
   k_return
+; calls 2
 Z_TYUUKO_F_D06E:
   k_func 4
   k_pusharg 11
@@ -103,6 +108,7 @@ Z_TYUUKO_F_D06E:
   k_add
   k_addlib 20
   k_return
+; calls 2
 Z_TYUUKO_F_D09D:
   k_func 0
   k_ldlbf 11
@@ -162,6 +168,7 @@ Z_TYUUKO_F_D09D:
   k_ldri 4
   k_sdiv
   k_return
+; calls 2
 Z_TYUUKO_F_D0F9:
   k_func 2
   k_ldlbf 11
@@ -223,6 +230,7 @@ Z_TYUUKO_L_D157:
   k_ldl -2
 Z_TYUUKO_L_D158:
   k_return
+; calls 2
 Z_TYUUKO_F_D159:
   k_func 3
   k_ldlbf 11
@@ -266,6 +274,7 @@ Z_TYUUKO_F_D159:
   k_stl -2
   k_ldl -2
   k_return
+; calls 2
 Z_TYUUKO_F_D1A0:
   k_func 0
   k_ldlbf 11
@@ -275,6 +284,7 @@ Z_TYUUKO_F_D1A0:
   k_pushl
   k_callx RL_8898, 2
   k_return
+; calls 2
 Z_TYUUKO_F_D1B5:
   k_func 0
   k_ldlbf 11
@@ -284,6 +294,7 @@ Z_TYUUKO_F_D1B5:
   k_pushl
   k_callx RL_8898, 2
   k_return
+; calls 2
 Z_TYUUKO_F_D1C9:
   k_func 0
   k_ldlbf 11
@@ -293,6 +304,7 @@ Z_TYUUKO_F_D1C9:
   k_pushl
   k_callx RL_884E, 2
   k_return
+; vars: g_player_gold | calls 11
 Z_TYUUKO_F_D1DE:
   k_func 0
   k_call $9662
@@ -384,10 +396,11 @@ Z_TYUUKO_F_D1DE:
   k_pushi 0
   k_pushiw Z_TYUUKO_D_D7D8
   k_callx RF_2FB9, 4
-  k_pusha $E56D
+  k_pusha g_player_gold
   k_pushiw Z_TYUUKO_D_D7DE
   k_callx RF_3608, 4
   k_return
+; sys: memset_long, wait_frames | vars: g_ships, g_cargo, g_player_gold | calls 16
 Z_TYUUKO_F_D2C4:
   k_func 21
   k_ldli 0
@@ -396,7 +409,7 @@ Z_TYUUKO_L_D2CB:
   k_ldl -2
   k_ldri 7
   k_mul
-  k_ldriw $EB92
+  k_ldriw g_ships
   k_add
   k_stln -17
   k_ldln -17
@@ -619,17 +632,17 @@ Z_TYUUKO_L_D3AD:
   k_ldlbf -3
   k_ldrib 24
   k_mul
-  k_ldriw $E9A6
+  k_ldriw g_cargo
   k_add
   k_pushl
   k_pushib 126
   k_pushib 36
-  k_callx RL_21BE, 10
+  k_callx syscall, 10  ; sys 36 memset_long
   k_ldlarg 11
   k_swap
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_sub
-  k_stla $E56D
+  k_stla g_player_gold
   k_pushi 1
   k_pushi 5
   k_callx RF_60CE, 4
@@ -666,12 +679,12 @@ Z_TYUUKO_L_D471:
   k_jumpf Z_TYUUKO_L_D49C
   k_pushib 30
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_jump Z_TYUUKO_L_D4A8
 Z_TYUUKO_L_D49C:
   k_pushib 30
   k_pushib 16
-  k_callx RL_21BE, 4
+  k_callx syscall, 4  ; sys 16 wait_frames
   k_ldli 1
   k_jumpt Z_TYUUKO_L_D45A
 Z_TYUUKO_L_D4A8:
@@ -680,6 +693,7 @@ Z_TYUUKO_L_D4A8:
   k_ldlbf -3
   k_addli 5
   k_return
+; vars: g_port, g_player_gold, g_title | calls 19
 Z_TYUUKO_F_D4B2:
   k_func 17
   k_ldli 0
@@ -792,7 +806,7 @@ Z_TYUUKO_F_D4B2:
   k_ldrib 100
   k_sdiv
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6BF
@@ -805,7 +819,7 @@ Z_TYUUKO_F_D4B2:
   k_pushn -7
   k_pushiw Z_TYUUKO_D_D9D9
   k_callx RF_3619, 4
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stln -15
   k_call RF_3CFF
   k_jumpf Z_TYUUKO_L_D5E3
@@ -837,7 +851,7 @@ Z_TYUUKO_L_D5D3:
   k_ldln -17
   k_return
 Z_TYUUKO_L_D5E3:
-  k_ldlba $EE76
+  k_ldlba g_title
   k_inc
   k_pushl
   k_callx RF_3F3E, 2
@@ -880,7 +894,7 @@ Z_TYUUKO_L_D619:
   k_ldrib 20
   k_sdiv
   k_pushl
-  k_ldlba $EE76
+  k_ldlba g_title
   k_pushl
   k_ldli 10
   k_popr
@@ -911,16 +925,17 @@ Z_TYUUKO_L_D659:
   k_ldlbf -1
   k_jumpf Z_TYUUKO_L_D672
   k_ldliw $EA60
-  k_stla $E56D
+  k_stla g_player_gold
 Z_TYUUKO_L_D672:
   k_ldln -17
   k_return
+; vars: g_port | calls 8
 Z_TYUUKO_F_D675:
   k_func 6
   k_pushi 1
   k_pushi 5
   k_callx RF_60CE, 4
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
   k_ldriw $E6B8
@@ -1001,6 +1016,7 @@ Z_TYUUKO_L_D71B:
 Z_TYUUKO_L_D729:
   k_ldl -4
   k_return
+; calls 1
 Z_TYUUKO_F_D72B:
   k_func 2
   k_call Z_TYUUKO_F_D675

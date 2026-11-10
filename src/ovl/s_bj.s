@@ -2,15 +2,18 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp S_BJ_F_B803
+; calls 1
 S_BJ_F_B803:
   k_func 0
   k_call S_BJ_F_BB7D
   k_return
+; calls 1
 S_BJ_F_B80C:
   k_func 11
   k_ldli 0
@@ -72,6 +75,7 @@ S_BJ_L_B859:
   k_stlbf -7
   k_ldlbf -7
   k_return
+; calls 1
 S_BJ_F_B874:
   k_func 0
   k_call $B1A4
@@ -317,6 +321,7 @@ S_BJ_L_BA12:
 S_BJ_L_BA30:
   k_ldlbf -6
   k_return
+; calls 2
 S_BJ_F_BA34:
   k_func 2
   k_ldli 0
@@ -355,6 +360,7 @@ S_BJ_L_BA58:
 S_BJ_L_BA7C:
   k_ldlbf -1
   k_return
+; calls 2
 S_BJ_F_BA80:
   k_func 5
   k_pushi 8
@@ -436,6 +442,7 @@ S_BJ_L_BB06:
   k_ult
   k_jumpt S_BJ_L_BAD5
   k_return
+; calls 4
 S_BJ_F_BB12:
   k_func 0
   k_pushi 0
@@ -459,6 +466,7 @@ S_BJ_F_BB12:
   k_ldli 0
   k_stla $F18C
   k_return
+; sys: tilemap_write
 S_BJ_F_BB41:
   k_func 0
   k_pushi 0
@@ -468,7 +476,7 @@ S_BJ_F_BB41:
   k_pushi 10
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushi 0
   k_pushi 6
   k_pushib 17
@@ -476,7 +484,7 @@ S_BJ_F_BB41:
   k_pushi 10
   k_pushi 1
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushiw $2000
   k_pushi 4
   k_pushib 17
@@ -484,7 +492,7 @@ S_BJ_F_BB41:
   k_pushi 10
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_pushiw $2000
   k_pushi 6
   k_pushib 17
@@ -492,8 +500,9 @@ S_BJ_F_BB41:
   k_pushi 10
   k_pushi 3
   k_pushi 5
-  k_callx RL_21BE, 14
+  k_callx syscall, 14  ; sys 5 tilemap_write
   k_return
+; vars: g_player_gold, g_port, g_ports | calls 20
 S_BJ_F_BB7D:
   k_func 122
   k_call S_BJ_F_B80C
@@ -508,7 +517,7 @@ S_BJ_F_BB7D:
   k_stlbf -73
   k_ldli 1
   k_stlbf -74
-  k_ldla $E56D
+  k_ldla g_player_gold
   k_stln -115
 S_BJ_L_BBA5:
   k_pushi 1
@@ -542,7 +551,7 @@ S_BJ_L_BBA5:
   k_pushi 1
   k_callx RF_3DDF, 2
   k_ldln -115
-  k_stla $E56D
+  k_stla g_player_gold
   k_return
 S_BJ_L_BBEE:
   k_leal -52
@@ -1239,17 +1248,17 @@ S_BJ_L_C112:
   k_pushib 50
   k_callx RF_3F3E, 2
   k_pushl
-  k_ldlba $EF69
+  k_ldlba g_port
   k_ldri 14
   k_mul
-  k_ldriw $E6B4
+  k_ldriw g_ports
   k_add
   k_deref
   k_ldri 2
   k_sdiv
   k_popr
   k_add
-  k_ldra $E56D
+  k_ldra g_player_gold
   k_add
   k_ldrn -115
   k_ule
@@ -1274,7 +1283,7 @@ S_BJ_L_C13A:
   k_stlba $EA88
 S_BJ_L_C156:
   k_ldln -115
-  k_stla $E56D
+  k_stla g_player_gold
   k_return
 S_BJ_L_C15C:
   k_pushi 6

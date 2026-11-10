@@ -2,16 +2,19 @@
 .p816
 .smart -
 .include "kvm.inc"
+.include "ram.inc"
 .include "root_syms.inc"
 
 .segment "CODE"
 
   jmp S_IBENT_F_B803
+; calls 1
 S_IBENT_F_B803:
   k_func 0
   k_call S_IBENT_F_B85B
   k_stla $F9A8
   k_return
+; vars: g_player_name_ptr | calls 4
 S_IBENT_F_B80F:
   k_func 2
   k_ldlarg 11
@@ -52,33 +55,34 @@ S_IBENT_L_B843:
   k_addlib 20
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
   k_callx RF_40DE, 2
   k_return
+; vars: g_princess, g_port, g_king_mission, g_palace_savings, g_fame, g_player_name_ptr | calls 12
 S_IBENT_F_B85B:
   k_func 0
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpf S_IBENT_L_B8EF
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 2
   k_and
   k_jumpf S_IBENT_L_B8EF
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf S_IBENT_L_B8EF
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf S_IBENT_L_B8EF
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_ldri 3
   k_eq
   k_jumpf S_IBENT_L_B8EF
@@ -94,28 +98,28 @@ S_IBENT_F_B85B:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushiw $2710
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_ldri 1
   k_shr
-  k_ldra $EE72
+  k_ldra g_palace_savings
   k_add
   k_pushl
   k_callx RL_8962, 4
-  k_stla $EE72
-  k_ldla $EE74
+  k_stla g_palace_savings
+  k_ldla g_fame
   k_ldriw $C350
   k_ult
   k_jumpf S_IBENT_L_B8DB
   k_pushiw $03E8
   k_ldliw $C350
-  k_ldra $EE74
+  k_ldra g_fame
   k_sub
   k_pushl
   k_callx RL_8962, 4
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_add
-  k_stla $EE74
+  k_stla g_fame
 S_IBENT_L_B8DB:
   k_call RF_60B2
   k_pushi 1
@@ -123,25 +127,25 @@ S_IBENT_L_B8DB:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
   k_ldli 1
   k_return
 S_IBENT_L_B8EF:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpf S_IBENT_L_B9B7
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf S_IBENT_L_B9B7
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf S_IBENT_L_B9B7
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_ldri 3
   k_eq
   k_jumpf S_IBENT_L_B9B7
@@ -173,16 +177,16 @@ S_IBENT_L_B94F:
   k_pushi 1
   k_pushiw S_IBENT_D_BB93
   k_callx RF_2FB9, 4
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_ldri 1
   k_shr
   k_pushl
-  k_ldla $EE72
+  k_ldla g_palace_savings
   k_popr
   k_ult
   k_jumpf S_IBENT_L_B97D
   k_ldli 0
-  k_stla $EE72
+  k_stla g_palace_savings
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
@@ -190,13 +194,13 @@ S_IBENT_L_B94F:
   k_callx RF_2FB9, 4
   k_jump S_IBENT_L_B98A
 S_IBENT_L_B97D:
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_ldri 1
   k_shr
   k_swap
-  k_ldla $EE72
+  k_ldla g_palace_savings
   k_sub
-  k_stla $EE72
+  k_stla g_palace_savings
 S_IBENT_L_B98A:
   k_call RF_472D
   k_call RF_60B2
@@ -208,33 +212,33 @@ S_IBENT_L_B98A:
   k_mul
   k_addliw $012C
   k_pushl
-  k_pusha $EE74
+  k_pusha g_fame
   k_callx RL_8962, 4
   k_swap
-  k_ldla $EE74
+  k_ldla g_fame
   k_sub
-  k_stla $EE74
+  k_stla g_fame
   k_ldli 0
-  k_stlba $EF61
+  k_stlba g_princess
 S_IBENT_L_B9B5:
   k_ldli 1
   k_return
 S_IBENT_L_B9B7:
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 8
   k_and
   k_jumpt S_IBENT_L_BAB2
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_ldri 1
   k_and
   k_jumpf S_IBENT_L_BAB2
-  k_ldlba $EF69
+  k_ldlba g_port
   k_pushl
-  k_ldlba $EF54
+  k_ldlba g_king_mission
   k_popr
   k_eq
   k_jumpf S_IBENT_L_BAB2
-  k_ldlba $EF55
+  k_ldlba g_king_mission+1
   k_ldri 3
   k_eq
   k_jumpf S_IBENT_L_BAB2
@@ -246,7 +250,7 @@ S_IBENT_L_B9B7:
   k_ldri 5
   k_mul
   k_addlib 100
-  k_stla $EF5A
+  k_stla g_king_mission+6
   k_pushi 1
   k_pushi 7
   k_callx RF_60CE, 4
@@ -259,16 +263,16 @@ S_IBENT_L_B9B7:
   k_pushi 0
   k_pushiw S_IBENT_D_BC46
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_addlib 20
   k_ldri 7
   k_mul
-  k_ldriw $E444
+  k_ldriw g_player_name_ptr
   k_add
   k_deref
   k_pushl
   k_callx RF_40DE, 2
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_dec
   k_ldri 5
   k_udiv
@@ -283,7 +287,7 @@ S_IBENT_L_BA2F:
   k_pushiw S_IBENT_D_BC58
 S_IBENT_L_BA33:
   k_callx RF_2FB9, 4
-  k_ldlba $EF57
+  k_ldlba g_king_mission+3
   k_dec
   k_ldri 5
   k_udiv
@@ -302,30 +306,30 @@ S_IBENT_L_BA33:
   k_stla $F18A
   k_call RF_472D
   k_call RF_60B2
-  k_pusha $EF5A
+  k_pusha g_king_mission+6
   k_pushiw S_IBENT_D_BC76
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpf S_IBENT_L_BA9E
   k_call RF_60B2
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_ldri 1
   k_shr
   k_pushl
   k_pushiw S_IBENT_D_BCA6
   k_callx RF_3619, 4
   k_pushiw $2710
-  k_ldla $EF5A
+  k_ldla g_king_mission+6
   k_ldri 1
   k_shr
-  k_ldra $EE72
+  k_ldra g_palace_savings
   k_add
   k_pushl
   k_callx RL_8962, 4
-  k_stla $EE72
+  k_stla g_palace_savings
   k_ldli 8
   k_swap
-  k_ldlba $EF61
+  k_ldlba g_princess
   k_or
   k_jump S_IBENT_L_BAAA
 S_IBENT_L_BA9E:
@@ -335,7 +339,7 @@ S_IBENT_L_BA9E:
   k_callx RF_2FB9, 4
   k_ldli 0
 S_IBENT_L_BAAA:
-  k_stlba $EF61
+  k_stlba g_princess
   k_call RF_472D
   k_ldli 1
   k_return
