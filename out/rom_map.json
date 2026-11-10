@@ -1,0 +1,416 @@
+{
+ "rom": "Uncharted Waters (USA).sfc",
+ "sha1": "08aa3634b5cf3b912b1afc74d6ef6183e8c65299",
+ "size": 1048576,
+ "modules": [
+  {
+   "name": "bank00",
+   "src": "src/bank00.s",
+   "off": 0,
+   "size": 32768,
+   "run": 32768
+  },
+  {
+   "name": "root",
+   "src": "src/root.s",
+   "off": 32768,
+   "size": 30126,
+   "run": 8192
+  },
+  {
+   "name": "initop",
+   "src": "src/ovl/initop.s",
+   "off": 141556,
+   "size": 15972,
+   "run": 38400
+  },
+  {
+   "name": "ibento",
+   "src": "src/ovl/ibento.s",
+   "off": 157528,
+   "size": 2292,
+   "run": 38400
+  },
+  {
+   "name": "maituki",
+   "src": "src/ovl/maituki.s",
+   "off": 159820,
+   "size": 4158,
+   "run": 38400
+  },
+  {
+   "name": "cminato",
+   "src": "src/ovl/cminato.s",
+   "off": 163978,
+   "size": 3036,
+   "run": 38400
+  },
+  {
+   "name": "jouriku",
+   "src": "src/ovl/jouriku.s",
+   "off": 167014,
+   "size": 4680,
+   "run": 38400
+  },
+  {
+   "name": "scom",
+   "src": "src/ovl/scom.s",
+   "off": 171694,
+   "size": 1076,
+   "run": 38400
+  },
+  {
+   "name": "sensou",
+   "src": "src/ovl/sensou.s",
+   "off": 172770,
+   "size": 2818,
+   "run": 38400
+  },
+  {
+   "name": "senmain",
+   "src": "src/ovl/senmain.s",
+   "off": 175588,
+   "size": 10122,
+   "run": 42240
+  },
+  {
+   "name": "senfe",
+   "src": "src/ovl/senfe.s",
+   "off": 185710,
+   "size": 8360,
+   "run": 42240
+  },
+  {
+   "name": "uarugo",
+   "src": "src/ovl/uarugo.s",
+   "off": 196666,
+   "size": 7996,
+   "run": 38400
+  },
+  {
+   "name": "ucom",
+   "src": "src/ovl/ucom.s",
+   "off": 204662,
+   "size": 13050,
+   "run": 38400
+  },
+  {
+   "name": "ending",
+   "src": "src/ovl/ending.s",
+   "off": 217712,
+   "size": 11966,
+   "run": 38400
+  },
+  {
+   "name": "uminato",
+   "src": "src/ovl/uminato.s",
+   "off": 229678,
+   "size": 6418,
+   "run": 38400
+  },
+  {
+   "name": "hantei",
+   "src": "src/ovl/hantei.s",
+   "off": 236096,
+   "size": 3742,
+   "run": 45056
+  },
+  {
+   "name": "mdisp1",
+   "src": "src/ovl/mdisp1.s",
+   "off": 239838,
+   "size": 3452,
+   "run": 45056
+  },
+  {
+   "name": "uminato2",
+   "src": "src/ovl/uminato2.s",
+   "off": 243290,
+   "size": 3394,
+   "run": 45056
+  },
+  {
+   "name": "um_sub",
+   "src": "src/ovl/um_sub.s",
+   "off": 246684,
+   "size": 8752,
+   "run": 45056
+  },
+  {
+   "name": "oukyu",
+   "src": "src/ovl/oukyu.s",
+   "off": 255436,
+   "size": 11868,
+   "run": 45056
+  },
+  {
+   "name": "koueki",
+   "src": "src/ovl/koueki.s",
+   "off": 267304,
+   "size": 7240,
+   "run": 45056
+  },
+  {
+   "name": "sakaba",
+   "src": "src/ovl/sakaba.s",
+   "off": 274544,
+   "size": 720,
+   "run": 45056
+  },
+  {
+   "name": "s_nwaka",
+   "src": "src/ovl/s_nwaka.s",
+   "off": 275264,
+   "size": 742,
+   "run": 47104
+  },
+  {
+   "name": "s_nsaso",
+   "src": "src/ovl/s_nsaso.s",
+   "off": 276006,
+   "size": 906,
+   "run": 47104
+  },
+  {
+   "name": "s_nori",
+   "src": "src/ovl/s_nori.s",
+   "off": 276912,
+   "size": 624,
+   "run": 47104
+  },
+  {
+   "name": "s_sake",
+   "src": "src/ovl/s_sake.s",
+   "off": 277536,
+   "size": 6648,
+   "run": 47104
+  },
+  {
+   "name": "s_onna",
+   "src": "src/ovl/s_onna.s",
+   "off": 284184,
+   "size": 5802,
+   "run": 47104
+  },
+  {
+   "name": "s_tobaku",
+   "src": "src/ovl/s_tobaku.s",
+   "off": 289986,
+   "size": 856,
+   "run": 47104
+  },
+  {
+   "name": "s_ibent",
+   "src": "src/ovl/s_ibent.s",
+   "off": 290842,
+   "size": 1286,
+   "run": 47104
+  },
+  {
+   "name": "s_card",
+   "src": "src/ovl/s_card.s",
+   "off": 292128,
+   "size": 632,
+   "run": 45056
+  },
+  {
+   "name": "s_bj",
+   "src": "src/ovl/s_bj.s",
+   "off": 292760,
+   "size": 3286,
+   "run": 47104
+  },
+  {
+   "name": "s_pk",
+   "src": "src/ovl/s_pk.s",
+   "off": 296046,
+   "size": 8234,
+   "run": 47104
+  },
+  {
+   "name": "zousen",
+   "src": "src/ovl/zousen.s",
+   "off": 304280,
+   "size": 7930,
+   "run": 45056
+  },
+  {
+   "name": "z_tyuuko",
+   "src": "src/ovl/z_tyuuko.s",
+   "off": 312210,
+   "size": 2758,
+   "run": 53248
+  },
+  {
+   "name": "z_sinzou",
+   "src": "src/ovl/z_sinzou.s",
+   "off": 314968,
+   "size": 3364,
+   "run": 53248
+  }
+ ],
+ "assets": [
+  {
+   "name": "sgdata",
+   "off": 62894,
+   "size": 4744,
+   "kind": "data file"
+  },
+  {
+   "name": "fdata",
+   "off": 67638,
+   "size": 14296,
+   "kind": "data file"
+  },
+  {
+   "name": "cbmap0",
+   "off": 81934,
+   "size": 59622,
+   "kind": "data file"
+  },
+  {
+   "name": "kdata",
+   "off": 194070,
+   "size": 2596,
+   "kind": "data file"
+  },
+  {
+   "name": "bank09_tail",
+   "off": 318332,
+   "size": 9348,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank0A",
+   "off": 327680,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank0B",
+   "off": 360448,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank0C",
+   "off": 393216,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank0D",
+   "off": 425984,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank0E",
+   "off": 458752,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank0F",
+   "off": 491520,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank10",
+   "off": 524288,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank11",
+   "off": 557056,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank12",
+   "off": 589824,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank13",
+   "off": 622592,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank14",
+   "off": 655360,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank15",
+   "off": 688128,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank16",
+   "off": 720896,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank17",
+   "off": 753664,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank18",
+   "off": 786432,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank19",
+   "off": 819200,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank1A",
+   "off": 851968,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank1B",
+   "off": 884736,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank1C",
+   "off": 917504,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank1D",
+   "off": 950272,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank1E",
+   "off": 983040,
+   "size": 32768,
+   "kind": "unclassified"
+  },
+  {
+   "name": "bank1F",
+   "off": 1015808,
+   "size": 32768,
+   "kind": "unclassified"
+  }
+ ]
+}

@@ -1,0 +1,176 @@
+{
+ "bank00": {
+  "nat": 13385,
+  "data": 19383
+ },
+ "root": {
+  "nat": 1518,
+  "bc": 25786,
+  "data": 2822
+ },
+ "initop": {
+  "nat": 14,
+  "bc": 6117,
+  "data": 9841
+ },
+ "ibento": {
+  "nat": 3,
+  "bc": 1995,
+  "data": 294
+ },
+ "maituki": {
+  "nat": 3,
+  "bc": 4122,
+  "data": 33
+ },
+ "cminato": {
+  "nat": 3,
+  "bc": 2993,
+  "data": 40
+ },
+ "jouriku": {
+  "nat": 3,
+  "bc": 3622,
+  "data": 1055
+ },
+ "scom": {
+  "nat": 3,
+  "bc": 1041,
+  "data": 32
+ },
+ "sensou": {
+  "nat": 3,
+  "bc": 2645,
+  "data": 170
+ },
+ "senmain": {
+  "nat": 3,
+  "bc": 9332,
+  "data": 787
+ },
+ "senfe": {
+  "nat": 3,
+  "bc": 5851,
+  "data": 2506
+ },
+ "uarugo": {
+  "nat": 1253,
+  "bc": 6107,
+  "data": 636
+ },
+ "ucom": {
+  "nat": 3,
+  "bc": 10555,
+  "data": 2492
+ },
+ "ending": {
+  "nat": 3,
+  "bc": 4568,
+  "data": 7395
+ },
+ "uminato": {
+  "nat": 3,
+  "bc": 5453,
+  "data": 962
+ },
+ "hantei": {
+  "nat": 3,
+  "bc": 1978,
+  "data": 1761
+ },
+ "mdisp1": {
+  "nat": 3,
+  "bc": 2838,
+  "data": 611
+ },
+ "uminato2": {
+  "nat": 3,
+  "bc": 2250,
+  "data": 1141
+ },
+ "um_sub": {
+  "nat": 3,
+  "bc": 5815,
+  "data": 2934
+ },
+ "oukyu": {
+  "nat": 20,
+  "bc": 5909,
+  "data": 5939
+ },
+ "koueki": {
+  "nat": 3,
+  "bc": 5495,
+  "data": 1742
+ },
+ "sakaba": {
+  "nat": 3,
+  "bc": 428,
+  "data": 289
+ },
+ "s_nwaka": {
+  "nat": 3,
+  "bc": 606,
+  "data": 133
+ },
+ "s_nsaso": {
+  "nat": 3,
+  "bc": 729,
+  "data": 174
+ },
+ "s_nori": {
+  "nat": 3,
+  "bc": 428,
+  "data": 193
+ },
+ "s_sake": {
+  "nat": 3,
+  "bc": 3709,
+  "data": 2936
+ },
+ "s_onna": {
+  "nat": 3,
+  "bc": 3173,
+  "data": 2626
+ },
+ "s_tobaku": {
+  "nat": 3,
+  "bc": 492,
+  "data": 361
+ },
+ "s_ibent": {
+  "nat": 3,
+  "bc": 689,
+  "data": 594
+ },
+ "s_card": {
+  "nat": 3,
+  "bc": 543,
+  "data": 86
+ },
+ "s_bj": {
+  "nat": 3,
+  "bc": 2480,
+  "data": 803
+ },
+ "s_pk": {
+  "nat": 3,
+  "bc": 6784,
+  "data": 1447
+ },
+ "zousen": {
+  "nat": 3,
+  "bc": 5204,
+  "data": 2723
+ },
+ "z_tyuuko": {
+  "nat": 3,
+  "bc": 1852,
+  "data": 903
+ },
+ "z_sinzou": {
+  "nat": 3,
+  "bc": 2060,
+  "data": 1301
+ }
+}

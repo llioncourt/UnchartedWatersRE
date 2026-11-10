@@ -13,3 +13,5 @@ rom_jp/
 extracted/
 extracted_jp/
 __pycache__/
+build/
+assets/

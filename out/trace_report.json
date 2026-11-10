@@ -1,0 +1,391 @@
+{
+ "root": {
+  "size": 30126,
+  "N": 1518,
+  "B": 25786,
+  "-": 2822,
+  "funcs": 241,
+  "log": []
+ },
+ "initop": {
+  "size": 15972,
+  "N": 14,
+  "B": 6117,
+  "-": 9841,
+  "funcs": 37,
+  "log": []
+ },
+ "ibento": {
+  "size": 2292,
+  "N": 3,
+  "B": 1995,
+  "-": 294,
+  "funcs": 24,
+  "log": []
+ },
+ "maituki": {
+  "size": 4158,
+  "N": 3,
+  "B": 4122,
+  "-": 33,
+  "funcs": 24,
+  "log": []
+ },
+ "cminato": {
+  "size": 3036,
+  "N": 3,
+  "B": 2993,
+  "-": 40,
+  "funcs": 21,
+  "log": []
+ },
+ "jouriku": {
+  "size": 4680,
+  "N": 3,
+  "B": 3622,
+  "-": 1055,
+  "funcs": 39,
+  "log": []
+ },
+ "scom": {
+  "size": 1076,
+  "N": 3,
+  "B": 1041,
+  "-": 32,
+  "funcs": 11,
+  "log": []
+ },
+ "sensou": {
+  "size": 2818,
+  "N": 3,
+  "B": 2645,
+  "-": 170,
+  "funcs": 21,
+  "log": []
+ },
+ "senmain": {
+  "size": 10122,
+  "N": 3,
+  "B": 9332,
+  "-": 787,
+  "funcs": 82,
+  "log": [
+   "call outside root/overlay $9A93",
+   "call outside root/overlay $9994",
+   "call outside root/overlay $9793",
+   "call outside root/overlay $98AE",
+   "call outside root/overlay $9E32",
+   "call outside root/overlay $9AB7",
+   "call outside root/overlay $97B7",
+   "call outside root/overlay $9B3A",
+   "call outside root/overlay $96B7",
+   "call outside root/overlay $9662",
+   "call outside root/overlay $9773",
+   "call outside root/overlay $97F5"
+  ]
+ },
+ "senfe": {
+  "size": 8360,
+  "N": 3,
+  "B": 5851,
+  "-": 2506,
+  "funcs": 38,
+  "log": [
+   "call outside root/overlay $9682",
+   "call outside root/overlay $96B7",
+   "call outside root/overlay $9A47",
+   "call outside root/overlay $9662"
+  ]
+ },
+ "uarugo": {
+  "size": 7996,
+  "N": 1253,
+  "B": 6107,
+  "-": 636,
+  "funcs": 44,
+  "log": []
+ },
+ "ucom": {
+  "size": 13050,
+  "N": 3,
+  "B": 10555,
+  "-": 2492,
+  "funcs": 88,
+  "log": []
+ },
+ "ending": {
+  "size": 11966,
+  "N": 3,
+  "B": 4568,
+  "-": 7395,
+  "funcs": 30,
+  "log": []
+ },
+ "uminato": {
+  "size": 6418,
+  "N": 3,
+  "B": 5453,
+  "-": 962,
+  "funcs": 44,
+  "log": []
+ },
+ "hantei": {
+  "size": 3742,
+  "N": 3,
+  "B": 1978,
+  "-": 1761,
+  "funcs": 19,
+  "log": [
+   "call outside root/overlay $9C39"
+  ]
+ },
+ "mdisp1": {
+  "size": 3452,
+  "N": 3,
+  "B": 2838,
+  "-": 611,
+  "funcs": 14,
+  "log": [
+   "call outside root/overlay $978F",
+   "call outside root/overlay $9825",
+   "call outside root/overlay $9FA9",
+   "call outside root/overlay $9C39",
+   "call outside root/overlay $9762",
+   "call outside root/overlay $97F5"
+  ]
+ },
+ "uminato2": {
+  "size": 3394,
+  "N": 3,
+  "B": 2250,
+  "-": 1141,
+  "funcs": 23,
+  "log": [
+   "call outside root/overlay $97B0",
+   "call outside root/overlay $97BE",
+   "call outside root/overlay $9662",
+   "call outside root/overlay $9675"
+  ]
+ },
+ "um_sub": {
+  "size": 8752,
+  "N": 3,
+  "B": 5815,
+  "-": 2934,
+  "funcs": 32,
+  "log": [
+   "call outside root/overlay $978F",
+   "call outside root/overlay $97B0",
+   "call outside root/overlay $97BE",
+   "call outside root/overlay $9662",
+   "call outside root/overlay $9675"
+  ]
+ },
+ "oukyu": {
+  "size": 11868,
+  "N": 20,
+  "B": 5909,
+  "-": 5939,
+  "funcs": 31,
+  "log": [
+   "call outside root/overlay $97B0",
+   "call outside root/overlay $97BE",
+   "call outside root/overlay $9662"
+  ]
+ },
+ "koueki": {
+  "size": 7240,
+  "N": 3,
+  "B": 5495,
+  "-": 1742,
+  "funcs": 27,
+  "log": [
+   "call outside root/overlay $960C",
+   "call outside root/overlay $97B0",
+   "call outside root/overlay $97BE",
+   "call outside root/overlay $9675"
+  ]
+ },
+ "sakaba": {
+  "size": 720,
+  "N": 3,
+  "B": 428,
+  "-": 289,
+  "funcs": 4,
+  "log": []
+ },
+ "s_nwaka": {
+  "size": 742,
+  "N": 3,
+  "B": 606,
+  "-": 133,
+  "funcs": 5,
+  "log": [
+   "call outside root/overlay $9662",
+   "call outside root/overlay $960C",
+   "call outside root/overlay $97B0",
+   "call outside root/overlay $97BE"
+  ]
+ },
+ "s_nsaso": {
+  "size": 906,
+  "N": 3,
+  "B": 729,
+  "-": 174,
+  "funcs": 2,
+  "log": [
+   "call outside root/overlay $9662",
+   "call outside root/overlay $97B0",
+   "call outside root/overlay $97BE"
+  ]
+ },
+ "s_nori": {
+  "size": 624,
+  "N": 3,
+  "B": 428,
+  "-": 193,
+  "funcs": 4,
+  "log": [
+   "call outside root/overlay $97B0",
+   "call outside root/overlay $97BE",
+   "call outside root/overlay $9662"
+  ]
+ },
+ "s_sake": {
+  "size": 6648,
+  "N": 3,
+  "B": 3709,
+  "-": 2936,
+  "funcs": 24,
+  "log": [
+   "call outside root/overlay $B00F"
+  ]
+ },
+ "s_onna": {
+  "size": 5802,
+  "N": 3,
+  "B": 3173,
+  "-": 2626,
+  "funcs": 23,
+  "log": [
+   "call outside root/overlay $B00F"
+  ]
+ },
+ "s_tobaku": {
+  "size": 856,
+  "N": 3,
+  "B": 492,
+  "-": 361,
+  "funcs": 4,
+  "log": []
+ },
+ "s_ibent": {
+  "size": 1286,
+  "N": 3,
+  "B": 689,
+  "-": 594,
+  "funcs": 3,
+  "log": []
+ },
+ "s_card": {
+  "size": 632,
+  "N": 3,
+  "B": 543,
+  "-": 86,
+  "funcs": 8,
+  "log": [
+   "call outside root/overlay $9642",
+   "call outside root/overlay $9825",
+   "call outside root/overlay $978F",
+   "call outside root/overlay $97F5"
+  ]
+ },
+ "s_bj": {
+  "size": 3286,
+  "N": 3,
+  "B": 2480,
+  "-": 803,
+  "funcs": 15,
+  "log": [
+   "call outside root/overlay $B104",
+   "call outside root/overlay $B1A4",
+   "call outside root/overlay $97B0",
+   "call outside root/overlay $97BE",
+   "call outside root/overlay $B1C3",
+   "call outside root/overlay $B14C"
+  ]
+ },
+ "s_pk": {
+  "size": 8234,
+  "N": 3,
+  "B": 6784,
+  "-": 1447,
+  "funcs": 34,
+  "log": [
+   "call outside root/overlay $B104",
+   "call outside root/overlay $978F",
+   "call outside root/overlay $B1A4",
+   "call outside root/overlay $97B0",
+   "call outside root/overlay $97BE",
+   "call outside root/overlay $B1C3",
+   "call outside root/overlay $B14C"
+  ]
+ },
+ "zousen": {
+  "size": 7930,
+  "N": 3,
+  "B": 5204,
+  "-": 2723,
+  "funcs": 28,
+  "log": [
+   "call outside root/overlay $968B",
+   "call outside root/overlay $9825",
+   "call outside root/overlay $97B0",
+   "call outside root/overlay $97BE",
+   "call outside root/overlay $9662",
+   "call outside root/overlay $97F5"
+  ]
+ },
+ "z_tyuuko": {
+  "size": 2758,
+  "N": 3,
+  "B": 1852,
+  "-": 903,
+  "funcs": 16,
+  "log": [
+   "call outside root/overlay $968B",
+   "call outside root/overlay $B015",
+   "call outside root/overlay $B027",
+   "call outside root/overlay $9662",
+   "call outside root/overlay $9675"
+  ]
+ },
+ "z_sinzou": {
+  "size": 3364,
+  "N": 3,
+  "B": 2060,
+  "-": 1301,
+  "funcs": 21,
+  "log": [
+   "call outside root/overlay $968B",
+   "call outside root/overlay $B015",
+   "call outside root/overlay $B027",
+   "call outside root/overlay $9662"
+  ]
+ },
+ "rom": {
+  "size": 1048576,
+  "N": 13385,
+  "B": 0,
+  "-": 1035191,
+  "funcs": 0,
+  "log": [
+   "indirect JMP ind $0000 at 00:A9AE",
+   "indirect JML indl $0000 at 00:A730",
+   "indirect JMP ind $0000 at 00:A159",
+   "forced flags at 00:9B2E from m1x0",
+   "indirect JML indl $0000 at 00:A463",
+   "native jump outside ROM 00:006C"
+  ]
+ }
+}
