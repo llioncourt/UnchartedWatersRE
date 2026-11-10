@@ -199,9 +199,10 @@ def emit_segment(name, start, size, off, ins, prefix, globals_=None, header=''):
             k = starts[a][1]
             labels[a] = f'{prefix}{"F" if k == "H" else "L"}_{a:04X}'
     if globals_:
-        for a, nm in globals_.items(): labels.setdefault(a, nm)
+        for a, nm in globals_.items():
+            if not (start <= a < start + size) or a in starts: labels[a] = nm if (start <= a < start + size) else labels.get(a, nm)
     lines = [header, '.p816', '.smart -', f'.include "kvm.inc"', '']
-    if name != 'root' and globals_ is not None: lines.insert(4, '.include "root_syms.inc"')
+    if name not in ('root', 'bank00') and globals_ is not None: lines.insert(4, '.include "root_syms.inc"')
     lines += ['.segment "CODE"', '']
     a = start; m16 = x16 = None; pend = []
     stats = defaultdict(int)
@@ -235,6 +236,27 @@ def emit_segment(name, start, size, off, ins, prefix, globals_=None, header=''):
     flush()
     return '\n'.join(lines) + '\n', labels, stats
 
+VMNAMES = {}
+def table_labels():
+    """Names for handlers reached only through the engine's jump tables."""
+    from kbc import NAMES as KN
+    lab = {}
+    w = lambda o: ROM[o] | ROM[o + 1] << 8
+    for i in range(79):
+        lab.setdefault(w(0x19F0 + 2 * i), f'sys_{i:02d}')
+    for op in range(256):
+        a = w(0x2797 + 2 * op)
+        if a < 0x8000: continue
+        nm = KN.get(op, f'op{op:02X}').split()[0].lower().replace('?', '').replace('+', 'x')
+        lab.setdefault(a, f'vm_{op:02X}_{nm}')
+    for sub in range(1, 0x30):
+        a = w(0x29AF + 2 * sub)
+        if a >= 0x8000: lab.setdefault(a, f'vm_b7_{sub:02X}')
+    lab[0x800F] = 'reset'; lab[w(0x7FEA)] = 'nmi'; lab[w(0x7FEE)] = 'irq'
+    lab[0xA0FD] = 'vm_enter'; lab[0xA0D9] = 'syscall_gate'; lab[0x8DDD] = 'syscall_dispatch'
+    lab[0xA141] = 'vm_fetch'; lab[0xA997] = 'vm_b7_prefix'
+    return lab
+
 def rom_ins_bank0():
     """ROM native instructions in bank 0 keyed by CPU address."""
     ins = pickle.load(open(os.path.join(ROOT, 'out', 'trace_rom.pickle'), 'rb'))
@@ -247,7 +269,7 @@ def main():
     ram = pickle.load(open(os.path.join(ROOT, 'out', 'trace_ram.pickle'), 'rb'))
     report = {}
     # bank 0
-    txt, lab0, st = emit_segment('bank00', 0x8000, 0x8000, 0, rom_ins_bank0(), 'E', header='; Uncharted Waters (SNES US) - engine bank $00')
+    txt, lab0, st = emit_segment('bank00', 0x8000, 0x8000, 0, rom_ins_bank0(), 'E', globals_=table_labels(), header='; Uncharted Waters (SNES US) - engine bank $00')
     open(os.path.join(SRC, 'bank00.s'), 'w').write(txt); report['bank00'] = dict(st)
     # root
     start, off, size, ins = ram['root']

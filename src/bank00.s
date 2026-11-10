@@ -5,11 +5,12 @@
 
 .segment "CODE"
 
-  jmp EL_A0FD
-  jmp EL_A0D9
-  jmp EL_A997
-  jmp EL_A997
+  jmp vm_enter
+  jmp syscall_gate
+  jmp vm_b7_prefix
+  jmp vm_b7_prefix
   jmp EL_8E04
+reset:
   clc
   xce
   sei
@@ -346,6 +347,7 @@ EL_8330:
   .byte $E2, $20, $C2, $10, $A2, $A0, $9A, $86, $CE, $A9, $00, $85, $D0, $20, $55, $B8
   .byte $60, $E2, $20, $78, $A9, $A1, $8D, $00, $42, $A9, $24, $8D, $09, $41, $9C, $0A
   .byte $41, $9C, $07, $41, $9C, $08, $41, $60
+nmi:
   sei
   rep #$30
   pha
@@ -1637,7 +1639,7 @@ EL_8DB1:
   pla
   sta z:$4E
   rts
-EL_8DDD:
+syscall_dispatch:
   php
   rep #$30
   pha
@@ -1704,6 +1706,7 @@ EL_8E2F:
   lda #$7E
   sta z:$3F
   rts
+sys_01:
   sep #$20
   lda #$8F
   jsr EL_8CD2
@@ -1815,6 +1818,7 @@ EL_8E7A:
   stz a:$0B3A
   sta a:$0B3B
   rts
+sys_02:
   sep #$30
   jsr EL_8E2F
   rep #$10
@@ -1986,7 +1990,7 @@ EL_906E:
 EL_9097:
   iny
   rts
-EL_9099:
+sys_03:
   sep #$20
   rep #$10
   lda z:$54
@@ -2011,6 +2015,7 @@ EL_90C9:
   and #$02
   bne EL_90C9
   rts
+sys_04:
   rep #$30
   lda z:$54
 .a16
@@ -2095,6 +2100,7 @@ EL_9151:
   adc a:$0B7B
   sta a:$0B7B
   rts
+sys_05:
   jsr EL_912C
   rep #$30
   lda z:$5E
@@ -2139,7 +2145,7 @@ EL_91A7:
   sep #$20
   stz a:$0B74
   rts
-EL_91C5:
+sys_06:
   jsr EL_912C
   rep #$10
   sep #$20
@@ -2163,6 +2169,7 @@ EL_91E8:
   bne EL_91E8
 EL_91EF:
   rts
+sys_07:
   jsr EL_912C
   rep #$30
   lda z:$5E
@@ -2177,6 +2184,7 @@ EL_9204:
   and #$80
   bne EL_9204
   rts
+sys_08:
   rep #$10
   sep #$20
   lda #$F0
@@ -2209,7 +2217,7 @@ EL_922B:
   plx
   pla
   rts
-EL_9243:
+sys_09:
   rep #$10
   sep #$20
 .a8
@@ -2392,6 +2400,7 @@ EL_938E:
   ora a:$0B00,x
   sta a:$0B00,x
   rts
+sys_10:
   rep #$10
   sep #$20
   lda z:$5E
@@ -2446,7 +2455,7 @@ EL_93DB:
   asl a
   sta a:$0B6D
   jmp EL_93CE
-EL_93F1:
+sys_11:
   lda z:$5C
 .a16
   cmp #$03
@@ -2487,6 +2496,7 @@ EL_9436:
   bne EL_9436
 EL_943D:
   rts
+sys_12:
   lda z:$5C
 .a16
   cmp #$D003
@@ -2516,7 +2526,7 @@ EL_9482:
   bne EL_9482
 EL_9489:
   rts
-EL_948A:
+sys_13:
   jsr EL_93B9
   rep #$30
   lda a:$0B2A
@@ -2537,6 +2547,7 @@ EL_94AD:
   bne EL_94AD
 EL_94B4:
   rts
+sys_14:
   jsr EL_93B9
   rep #$30
   lda a:$0B2A
@@ -2557,6 +2568,7 @@ EL_94D8:
   bne EL_94D8
 EL_94DF:
   rts
+sys_15:
   rep #$30
   lda z:$54
   asl a
@@ -2564,6 +2576,7 @@ EL_94DF:
   lda a:$0B51,x
   sta z:$68
   rts
+sys_16:
   rep #$10
   sep #$20
   lda #$01
@@ -2578,6 +2591,7 @@ EL_94F9:
   bpl EL_94F9
 EL_9504:
   rts
+sys_17:
   sep #$20
   rep #$10
 EL_9509:
@@ -2591,12 +2605,14 @@ EL_9509:
   stx a:$0B84
   inc a:$0B86
   rts
+sys_19:
   jsr EL_9341
   sep #$20
   lda #$01
   ora a:$0B56
   sta a:$0B56
   rts
+sys_20:
   sep #$30
   ldx z:$54
   lda z:$56
@@ -2605,10 +2621,12 @@ EL_9509:
   stx a:$212C
   sta a:$212D
   rts
+sys_22:
   sep #$20
   lda z:$54
   sta a:$0B7F
   rts
+sys_34:
   sep #$20
   lda #$80
   ora a:$0B3E
@@ -2621,6 +2639,7 @@ EL_9509:
   sta a:$212C
   sta a:$212D
   rts
+sys_35:
   sep #$20
   lda #$0F
   and a:$0B3E
@@ -2635,10 +2654,12 @@ EL_9509:
   sta a:$212D
   cmp a:$4211
   rts
+sys_68:
   rep #$20
   lda a:$0B27
   sta z:$68
   rts
+irq:
   sei
   rep #$30
   pha
@@ -2662,6 +2683,7 @@ EL_9509:
   pla
   cli
   rti
+sys_69:
   sep #$20
   rep #$10
   lda z:$54
@@ -2696,6 +2718,7 @@ EL_95F9:
   stx a:$0E0A
 EL_95FF:
   rts
+sys_70:
   rep #$10
   sep #$20
   ldx z:$5A
@@ -2727,11 +2750,13 @@ EL_9635:
 EL_963C:
   stz a:$0E19
   rts
+sys_71:
   sep #$30
   lda z:$54
   sta a:$0B29
   sta a:$2105
   rts
+sys_75:
   sep #$30
   lda z:$54
   dec a
@@ -2746,6 +2771,7 @@ EL_963C:
   stz a:$0B2E,x
   sta a:$0B2F,x
   rts
+sys_76:
   rep #$20
   sep #$10
   tsc
@@ -3044,6 +3070,7 @@ EL_9955:
   .byte $CC, $B6, $A9, $A0, $CC, $A0, $4B, $96, $64, $96, $7C, $B7, $8D, $B7, $00, $20
   .byte $40, $60, $80, $A0, $C0, $E0, $FC, $F3, $CF, $3F, $12, $14, $18, $24, $28, $48
   .byte $00, $00, $00, $08
+sys_23:
   rep #$30
   lda z:$54
   sta z:$42
@@ -3057,6 +3084,7 @@ EL_9955:
   sta z:$4E
   jsr EL_9CFB
   rts
+sys_24:
   rep #$30
 .i16
   ldy #$00
@@ -3124,6 +3152,7 @@ EL_9B2E:
   sta z:$68
 EL_9B33:
   rts
+sys_25:
   rep #$30
   ldx z:$54
   lda #$00
@@ -3137,6 +3166,7 @@ EL_9B33:
 EL_9B4B:
   sta z:$68
   rts
+sys_26:
   rep #$30
   ldx z:$54
   lda z:$54
@@ -3195,6 +3225,7 @@ EL_9BAA:
 EL_9BB2:
   sta z:$68
   rts
+sys_27:
   rep #$30
   ldx z:$54
   jsr EL_9C3D
@@ -3206,6 +3237,7 @@ EL_9BB2:
   sta z:$4C
   jsr EL_9CBF
   rts
+sys_28:
   rep #$30
   ldx z:$54
   jsr EL_9C3D
@@ -3217,6 +3249,7 @@ EL_9BB2:
   sta z:$4C
   jsr EL_9CBF
   rts
+sys_29:
   rep #$30
   lda z:$58
   sta z:$5A
@@ -3226,15 +3259,17 @@ EL_9BB2:
   jsr EL_9C3D
   sty z:$54
   stx z:$56
-  jsr EL_9099
+  jsr sys_03
   rts
+sys_30:
   rep #$30
   ldx z:$5E
   jsr EL_9C3D
   sty z:$5E
   stx z:$60
-  jsr EL_91C5
+  jsr sys_06
   rts
+sys_31:
   rep #$30
   lda z:$5E
   ldx z:$60
@@ -3242,22 +3277,24 @@ EL_9BB2:
   jsr EL_9C3D
   stx z:$62
   sty z:$5E
-  jsr EL_9243
+  jsr sys_09
   rts
+sys_32:
   lda z:$5A
   sta z:$5C
   ldx z:$58
   jsr EL_9C3D
   stx z:$5A
   sty z:$58
-  jsr EL_93F1
+  jsr sys_11
   rts
+sys_33:
   rep #$30
   ldx z:$58
   jsr EL_9C3D
   sty z:$58
   stx z:$5A
-  jsr EL_948A
+  jsr sys_13
   rts
 EL_9C3D:
   rep #$30
@@ -3380,6 +3417,7 @@ EL_9CFB:
   ply
   plx
   rts
+sys_21:
   sep #$20
   rep #$10
   cmp a:$2137
@@ -3392,6 +3430,7 @@ EL_9CFB:
   rep #$20
   sta z:$68
   rts
+sys_36:
   sep #$20
   rep #$10
   ldx z:$54
@@ -3407,12 +3446,14 @@ EL_9D49:
   dex
   bne EL_9D49
   rts
+sys_37:
   sep #$20
   lda z:$54
 .a8
   and #$0F
   sta a:$0B3E
   rts
+sys_38:
   sep #$20
   rep #$10
   ldx #$0DDF
@@ -3542,6 +3583,7 @@ EL_9E30:
   dec a
   bne EL_9E30
   rts
+sys_39:
   sep #$30
   stz a:$0DD9
   stz a:$2123
@@ -3552,6 +3594,7 @@ EL_9E30:
   stz a:$2128
   stz a:$2129
   rts
+sys_40:
   rep #$30
   stz a:$0DF7
   lda z:$58
@@ -3599,7 +3642,7 @@ EL_9E9E:
   lda a:$0DF7
   bne EL_9E9E
   rts
-EL_9EA4:
+sys_42:
   rep #$30
   lda z:$54
   asl a
@@ -3665,7 +3708,7 @@ EL_9ED6:
   sta a:$420B
 EL_9F1A:
   rts
-EL_9F1B:
+sys_43:
   rep #$30
   stz z:$4C
   lda z:$54
@@ -3785,6 +3828,7 @@ EL_9FD3:
   jmp EL_9F66
 EL_9FEB:
   rts
+sys_41:
   sep #$20
   rep #$10
 .a8
@@ -3819,6 +3863,7 @@ EL_9FEB:
   sty a:$0B43
   sty a:$0B49
   rts
+sys_46:
   sep #$30
   lda z:$54
   sta a:$211F
@@ -3829,6 +3874,7 @@ EL_9FEB:
   lda z:$57
   sta a:$2120
   rts
+sys_47:
   rep #$30
   lda z:$54
   sta a:$0B42
@@ -3844,20 +3890,23 @@ EL_A073:
   lda a:$0E03
   bne EL_A073
   rts
+sys_44:
   rep #$30
   ldx z:$58
   jsr EL_9C3D
   stx z:$5A
   sty z:$58
-  jsr EL_9EA4
+  jsr sys_42
   rts
+sys_45:
   rep #$30
   ldx z:$5E
   jsr EL_9C3D
   sty z:$5E
   stx z:$60
-  jsr EL_9F1B
+  jsr sys_43
   rts
+sys_48:
   sep #$30
   lda z:$54
   sta a:$2130
@@ -3866,6 +3915,7 @@ EL_A073:
   lda z:$58
   sta a:$2132
   rts
+sys_73:
   sep #$20
   rep #$10
   lda z:$54
@@ -3881,13 +3931,14 @@ EL_A073:
   lda #$01
   sta a:$0DF1
   rts
+sys_74:
   sep #$20
   rep #$10
   lda z:$54
   stz a:$0DD9
   stz a:$0DF1
   rts
-EL_A0D9:
+syscall_gate:
 .i16
   ldy #$00
   tsc
@@ -3907,11 +3958,11 @@ EL_A0E8:
   tya
   cmp #$16
   bne EL_A0E8
-  jsr EL_8DDD
+  jsr syscall_dispatch
   lda z:$68
   sta z:$0A
   rtl
-EL_A0FD:
+vm_enter:
   sep #$20
   pla
   pla
@@ -3955,7 +4006,7 @@ EL_A11B:
   lda #$7E
   pha
   plb
-EL_A141:
+vm_fetch:
   sep #$20
   ldy #$00
   lda [$06],y
@@ -3970,28 +4021,40 @@ EL_A141:
   sta z:$00
   plx
   jmp ($0000)
+vm_00_op00:
   lda #$FFE9
   bne EL_A196
+vm_01_op01:
   lda #$FFEB
   bne EL_A196
+vm_02_op02:
   lda #$FFED
   bne EL_A196
+vm_03_op03:
   lda #$FFEF
   bne EL_A196
+vm_04_op04:
   lda #$FFF1
   bne EL_A196
+vm_05_op05:
   lda #$FFF3
   bne EL_A196
+vm_06_op06:
   lda #$FFF5
   bne EL_A196
+vm_07_op07:
   lda #$FFF7
   bne EL_A196
+vm_08_op08:
   lda #$FFF9
   bne EL_A196
+vm_09_op09:
   lda #$FFFB
   bne EL_A196
+vm_0A_op0a:
   lda #$FFFD
   bne EL_A196
+vm_0B_op0b:
   lda #$FFFF
 EL_A196:
   clc
@@ -3999,40 +4062,56 @@ EL_A196:
   sta z:$00
   lda ($00),y
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_0F_op0f:
   ldy #$15
   bne EL_A1B4
+vm_0E_op0e:
   ldy #$13
   bne EL_A1B4
+vm_0D_op0d:
   ldy #$11
   bne EL_A1B4
+vm_0C_op0c:
   ldy #$0F
 EL_A1B4:
   lda ($04),y
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_10_op10:
   lda #$FFE9
   bne EL_A1F5
+vm_11_op11:
   lda #$FFEB
   bne EL_A1F5
+vm_12_op12:
   lda #$FFED
   bne EL_A1F5
+vm_13_op13:
   lda #$FFEF
   bne EL_A1F5
+vm_14_op14:
   lda #$FFF1
   bne EL_A1F5
+vm_15_op15:
   lda #$FFF3
   bne EL_A1F5
+vm_16_op16:
   lda #$FFF5
   bne EL_A1F5
+vm_17_op17:
   lda #$FFF7
   bne EL_A1F5
+vm_18_op18:
   lda #$FFF9
   bne EL_A1F5
+vm_19_op19:
   lda #$FFFB
   bne EL_A1F5
+vm_1A_op1a:
   lda #$FFFD
   bne EL_A1F5
+vm_1B_op1b:
   lda #$FFFF
 EL_A1F5:
   clc
@@ -4040,40 +4119,56 @@ EL_A1F5:
   sta z:$00
   lda ($00),y
   sta z:$0E
-  jmp EL_A141
+  jmp vm_fetch
+vm_1F_op1f:
   ldy #$15
   bne EL_A213
+vm_1E_op1e:
   ldy #$13
   bne EL_A213
+vm_1D_op1d:
   ldy #$11
   bne EL_A213
+vm_1C_op1c:
   ldy #$0F
 EL_A213:
   lda ($04),y
   sta z:$0E
-  jmp EL_A141
+  jmp vm_fetch
+vm_20_op20:
   lda #$FFE9
   bne EL_A254
+vm_21_op21:
   lda #$FFEB
   bne EL_A254
+vm_22_op22:
   lda #$FFED
   bne EL_A254
+vm_23_op23:
   lda #$FFEF
   bne EL_A254
+vm_24_op24:
   lda #$FFF1
   bne EL_A254
+vm_25_op25:
   lda #$FFF3
   bne EL_A254
+vm_26_op26:
   lda #$FFF5
   bne EL_A254
+vm_27_op27:
   lda #$FFF7
   bne EL_A254
+vm_28_op28:
   lda #$FFF9
   bne EL_A254
+vm_29_op29:
   lda #$FFFB
   bne EL_A254
+vm_2A_op2a:
   lda #$FFFD
   bne EL_A254
+vm_2B_op2b:
   lda #$FFFF
 EL_A254:
   clc
@@ -4081,40 +4176,56 @@ EL_A254:
   sta z:$00
   lda z:$0A
   sta ($00),y
-  jmp EL_A141
+  jmp vm_fetch
+vm_2F_op2f:
   ldy #$15
   bne EL_A272
+vm_2E_op2e:
   ldy #$13
   bne EL_A272
+vm_2D_op2d:
   ldy #$11
   bne EL_A272
+vm_2C_op2c:
   ldy #$0F
 EL_A272:
   lda z:$0A
   sta ($04),y
-  jmp EL_A141
+  jmp vm_fetch
+vm_30_op30:
   lda #$FFE9
   bne EL_A2B3
+vm_31_op31:
   lda #$FFEB
   bne EL_A2B3
+vm_32_op32:
   lda #$FFED
   bne EL_A2B3
+vm_33_op33:
   lda #$FFEF
   bne EL_A2B3
+vm_34_op34:
   lda #$FFF1
   bne EL_A2B3
+vm_35_op35:
   lda #$FFF3
   bne EL_A2B3
+vm_36_op36:
   lda #$FFF5
   bne EL_A2B3
+vm_37_op37:
   lda #$FFF7
   bne EL_A2B3
+vm_38_op38:
   lda #$FFF9
   bne EL_A2B3
+vm_39_op39:
   lda #$FFFB
   bne EL_A2B3
+vm_3A_op3a:
   lda #$FFFD
   bne EL_A2B3
+vm_3B_op3b:
   lda #$FFFF
 EL_A2B3:
   clc
@@ -4122,157 +4233,197 @@ EL_A2B3:
   sta z:$00
   lda ($00),y
   pha
-  jmp EL_A141
+  jmp vm_fetch
+vm_3F_op3f:
   ldy #$15
   bne EL_A2D0
+vm_3E_op3e:
   ldy #$13
   bne EL_A2D0
+vm_3D_op3d:
   ldy #$11
   bne EL_A2D0
+vm_3C_op3c:
   ldy #$0F
 EL_A2D0:
   lda ($04),y
   pha
-  jmp EL_A141
+  jmp vm_fetch
+vm_41_op41:
   txa
   and #$0F
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_40_op40:
   sty z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_51_op51:
   txa
   and #$0F
   sta z:$0E
-  jmp EL_A141
+  jmp vm_fetch
+vm_50_op50:
   sty z:$0E
-  jmp EL_A141
+  jmp vm_fetch
+vm_60_op60:
   txa
   and #$0F
   pha
-  jmp EL_A141
+  jmp vm_fetch
+vm_71_op71:
   txa
   and #$0F
   clc
   adc z:$0A
   sta z:$0A
-  jmp EL_A141
+vm_70_op70:
+  jmp vm_fetch
+vm_82_ldl:
   jsr EL_A77F
   bcc EL_A30E
+vm_81_ldl:
   jsr EL_A74C
 EL_A30E:
   lda ($00),y
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_A4_ldl:
   jsr EL_A775
   lda ($00),y
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_83_ldr:
   jsr EL_A74C
 EL_A322:
   lda ($00),y
   sta z:$0E
-  jmp EL_A141
+  jmp vm_fetch
+vm_84_ldr:
   jsr EL_A77F
   bcc EL_A322
+vm_A6_ldr:
   jsr EL_A775
   lda ($00),y
   sta z:$0E
-  jmp EL_A141
+  jmp vm_fetch
+vm_85_stl:
   jsr EL_A74C
 EL_A33B:
   lda z:$0A
   sta ($00),y
-  jmp EL_A141
+  jmp vm_fetch
+vm_86_stl:
   jsr EL_A77F
   bcc EL_A33B
+vm_A8_stl:
   jsr EL_A775
   lda z:$0A
   sta ($00),y
-  jmp EL_A141
+  jmp vm_fetch
+vm_87_push:
   jsr EL_A74C
 EL_A354:
   lda ($00),y
   pha
-  jmp EL_A141
+  jmp vm_fetch
+vm_88_push:
   jsr EL_A77F
   bcc EL_A354
+vm_AA_push:
   jsr EL_A775
   lda ($00),y
   pha
-  jmp EL_A141
+  jmp vm_fetch
+vm_DE_leal:
   jsr EL_A77F
   lda z:$00
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_DF_lear:
   jsr EL_A77F
   lda z:$00
   sta z:$0E
-  jmp EL_A141
+  jmp vm_fetch
+vm_89_ldl:
   jsr EL_A73A
 EL_A37F:
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_8A_ldl:
   jsr EL_A76D
   bcc EL_A37F
+vm_8B_ldr:
   jsr EL_A73A
 EL_A38C:
   sta z:$0E
-  jmp EL_A141
+  jmp vm_fetch
+vm_8C_ldr:
   jsr EL_A76D
   bcc EL_A38C
+vm_8D_push:
   jsr EL_A73A
   pha
-  jmp EL_A141
+  jmp vm_fetch
+vm_8E_push:
   jsr EL_A76D
   pha
-  jmp EL_A141
+  jmp vm_fetch
+vm_8F_addl:
   jsr EL_A73A
 EL_A3A7:
   adc z:$0A
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_90_addl:
   jsr EL_A76D
   bcc EL_A3A7
+vm_A0_ldlb:
   jsr EL_A77F
   sep #$30
   lda ($00),y
   sta z:$0A
   sty z:$0B
   rep #$30
-  jmp EL_A141
+  jmp vm_fetch
+vm_A5_ldlb:
   jsr EL_A775
   sep #$30
   lda ($00),y
   sta z:$0A
   sty z:$0B
   rep #$30
-  jmp EL_A141
+  jmp vm_fetch
+vm_A1_ldrb:
   jsr EL_A77F
   sep #$30
   lda ($00),y
   sta z:$0E
   sty z:$0F
   rep #$30
-  jmp EL_A141
+  jmp vm_fetch
+vm_A7_ldrb:
   jsr EL_A775
   sep #$30
   lda ($00),y
   sta z:$0E
   sty z:$0F
   rep #$30
-  jmp EL_A141
+  jmp vm_fetch
+vm_A2_stlb:
   jsr EL_A77F
   sep #$20
   lda z:$0A
   sta ($00),y
   rep #$20
-  jmp EL_A141
+  jmp vm_fetch
+vm_A9_stlb:
   jsr EL_A775
   sep #$20
   lda z:$0A
   sta ($00),y
   rep #$20
-  jmp EL_A141
+  jmp vm_fetch
+vm_A3_pushb:
   jsr EL_A77F
   sep #$20
 .a8
@@ -4281,7 +4432,8 @@ EL_A3A7:
   lda ($00),y
   rep #$20
   pha
-  jmp EL_A141
+  jmp vm_fetch
+vm_AB_pushb:
   jsr EL_A775
   sep #$20
   lda #$00
@@ -4289,22 +4441,26 @@ EL_A3A7:
   lda ($00),y
   rep #$20
   pha
-  jmp EL_A141
+  jmp vm_fetch
+vm_EA_callptrx:
   lda z:$0A
   sta z:$00
   jmp EL_A439
+vm_E9_callx:
   jsr EL_A775
 EL_A439:
   jsr EL_A452
   ldy #$00
-  jmp EL_A47B
+  jmp vm_AE_unstack
+vm_DD_callptr:
   lda z:$0A
   sta z:$00
   jmp EL_A44C
+vm_AC_call:
   jsr EL_A775
 EL_A44C:
   jsr EL_A452
-  jmp EL_A141
+  jmp vm_fetch
 EL_A452:
   lda z:$06
   pha
@@ -4318,6 +4474,7 @@ EL_A45B:
   sta z:$02
   rep #$20
   jml [$0000]
+vm_AD_copy:
   jsr EL_A76D
   ldy #$00
   tax
@@ -4328,55 +4485,63 @@ EL_A46F:
   dex
   bne EL_A46F
   rep #$20
-  jmp EL_A141
-EL_A47B:
+  jmp vm_fetch
+vm_AE_unstack:
   jsr EL_A73A
 EL_A47E:
   sta z:$00
   tsc
   adc z:$00
   tcs
-  jmp EL_A141
+  jmp vm_fetch
+vm_AF_unstack:
   jsr EL_A76D
   bcc EL_A47E
-EL_A48C:
+vm_D6_jump:
   jsr EL_A76D
   sta z:$06
-  jmp EL_A141
+  jmp vm_fetch
+vm_D7_jumpt:
   lda z:$0A
-  bne EL_A48C
+  bne vm_D6_jump
 EL_A498:
   jsr EL_A76D
-  jmp EL_A141
+  jmp vm_fetch
+vm_D8_jumpf:
   lda z:$0A
-  beq EL_A48C
+  beq vm_D6_jump
   bne EL_A498
-EL_A4A4:
+vm_E3_jmpb:
   jsr EL_A73A
   adc z:$06
   sta z:$06
-  jmp EL_A141
+  jmp vm_fetch
+vm_E4_jtb:
   lda z:$0A
-  bne EL_A4A4
+  bne vm_E3_jmpb
 EL_A4B2:
   jsr EL_A73A
-  jmp EL_A141
+  jmp vm_fetch
+vm_E5_jfb:
   lda z:$0A
-  beq EL_A4A4
+  beq vm_E3_jmpb
   bne EL_A4B2
-EL_A4BE:
+vm_E6_jmpf:
   jsr EL_A73A
   adc z:$06
   sta z:$06
-  jmp EL_A141
+  jmp vm_fetch
+vm_E7_jtf:
   lda z:$0A
-  bne EL_A4BE
+  bne vm_E6_jmpf
 EL_A4CC:
   jsr EL_A73A
-  jmp EL_A141
+  jmp vm_fetch
+vm_E8_jff:
   lda z:$0A
-  beq EL_A4BE
+  beq vm_E6_jmpf
   bne EL_A4CC
+vm_D9_switchn:
   lda [$06],y
   tax
   inc z:$06
@@ -4399,7 +4564,8 @@ EL_A4DF:
 EL_A4F8:
   lda [$06],y
   sta z:$06
-  jmp EL_A141
+  jmp vm_fetch
+vm_D5_switch:
   clc
   lda [$06],y
   adc z:$0A
@@ -4421,34 +4587,41 @@ EL_A512:
 EL_A51C:
   lda [$06],y
   sta z:$06
-  jmp EL_A141
+  jmp vm_fetch
+vm_B0_deref:
   lda ($0A),y
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_D3_derefb:
   sep #$30
   lda ($0A),y
   sta z:$0A
   sty z:$0B
   rep #$30
-  jmp EL_A141
+  jmp vm_fetch
+vm_B1_popstore:
   pla
   sta z:$0E
   lda z:$0A
   sta ($0E),y
-  jmp EL_A141
+  jmp vm_fetch
+vm_D4_popstoreb:
   pla
   sta z:$0E
   sep #$20
   lda z:$0A
   sta ($0E),y
   rep #$20
-  jmp EL_A141
+  jmp vm_fetch
+vm_B3_pushl:
   lda z:$0A
   pha
-  jmp EL_A141
+  jmp vm_fetch
+vm_B4_popr:
   pla
   sta z:$0E
-  jmp EL_A141
+  jmp vm_fetch
+vm_B5_mul:
   ldy #$00
   sty z:$00
   ldy #$10
@@ -4465,16 +4638,18 @@ EL_A56F:
   ror z:$0A
   dey
   bne EL_A563
-  jmp EL_A141
+  jmp vm_fetch
+vm_B8_udiv:
   jsr EL_A58F
-  jmp EL_A141
+  jmp vm_fetch
+vm_B6_sdiv:
   jsr EL_A5C8
   jsr EL_A58F
   lda z:$0B
   bpl EL_A58C
-  jmp EL_A6CD
+  jmp vm_CB_neg
 EL_A58C:
-  jmp EL_A141
+  jmp vm_fetch
 EL_A58F:
   ldy #$00
   sty z:$00
@@ -4492,19 +4667,21 @@ EL_A5A6:
   dey
   bne EL_A597
   rts
+vm_B9_smod:
   jsr EL_A5C8
   jsr EL_A58F
   lda z:$00
   sta z:$0A
   lda z:$0C
   bpl EL_A5BB
-  jmp EL_A6CD
+  jmp vm_CB_neg
 EL_A5BB:
-  jmp EL_A141
+  jmp vm_fetch
+vm_BA_umod:
   jsr EL_A58F
   lda z:$00
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
 EL_A5C8:
   sep #$20
   lda z:$0B
@@ -4527,73 +4704,83 @@ EL_A5DE:
   sta z:$0E
 EL_A5E8:
   rts
+vm_BB_add:
   clc
   lda z:$0A
   adc z:$0E
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_BC_sub:
   sec
   lda z:$0A
   sbc z:$0E
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_BD_shl:
   ldx z:$0E
   bne EL_A604
 EL_A601:
-  jmp EL_A141
+  jmp vm_fetch
 EL_A604:
   asl z:$0A
   dex
   beq EL_A601
   bne EL_A604
+vm_BF_asr:
   lda z:$0A
-  bpl EL_A61E
+  bpl vm_BE_shr
   ldx z:$0E
   bne EL_A616
 EL_A613:
-  jmp EL_A141
+  jmp vm_fetch
 EL_A616:
   sec
   ror z:$0A
   dex
   beq EL_A613
   bne EL_A616
-EL_A61E:
+vm_BE_shr:
   ldx z:$0E
   bne EL_A625
 EL_A622:
-  jmp EL_A141
+  jmp vm_fetch
 EL_A625:
   lsr z:$0A
   dex
   beq EL_A622
   bne EL_A625
+vm_DA_and:
   lda z:$0A
   and z:$0E
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_DB_or:
   lda z:$0A
   ora z:$0E
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_DC_xor:
   lda z:$0A
   eor z:$0E
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_C0_eq:
   lda z:$0A
   cmp z:$0E
   bne EL_A64E
   iny
 EL_A64E:
   sty z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_C1_ne:
   lda z:$0A
   cmp z:$0E
   beq EL_A65A
   iny
 EL_A65A:
   sty z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_C2_lt:
   sec
   lda z:$0A
   sbc z:$0E
@@ -4601,7 +4788,8 @@ EL_A65A:
   iny
 EL_A667:
   sty z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_C4_gt:
   sec
   lda z:$0E
   sbc z:$0A
@@ -4609,7 +4797,8 @@ EL_A667:
   iny
 EL_A674:
   sty z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_C3_le:
   sec
   lda z:$0E
   sbc z:$0A
@@ -4617,7 +4806,8 @@ EL_A674:
   iny
 EL_A681:
   sty z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_C5_ge:
   sec
   lda z:$0A
   sbc z:$0E
@@ -4625,74 +4815,88 @@ EL_A681:
   iny
 EL_A68E:
   sty z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_C6_ult:
   lda z:$0A
   cmp z:$0E
   bcs EL_A69A
   iny
 EL_A69A:
   sty z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_C8_ugt:
   lda z:$0E
   cmp z:$0A
   bcs EL_A6A6
   iny
 EL_A6A6:
   sty z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_C7_ule:
   lda z:$0E
   cmp z:$0A
   bcc EL_A6B2
   iny
 EL_A6B2:
   sty z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_C9_uge:
   lda z:$0A
   cmp z:$0E
   bcc EL_A6BE
   iny
 EL_A6BE:
   sty z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_CA_not:
   lda z:$0A
   bne EL_A6C8
   iny
 EL_A6C8:
   sty z:$0A
-  jmp EL_A141
-EL_A6CD:
+  jmp vm_fetch
+vm_CB_neg:
   sec
   tya
   sbc z:$0A
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_CC_compl:
   lda z:$0A
   eor #$FFFF
   sta z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_CD_swap:
   lda z:$0A
   ldx z:$0E
   stx z:$0A
   sta z:$0E
-  jmp EL_A141
+  jmp vm_fetch
+vm_D0_inc:
   inc z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_D1_dec:
   dec z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_D2_shl1:
   asl z:$0A
-  jmp EL_A141
+  jmp vm_fetch
+vm_E0_bfext:
   jsr EL_A76D
   ldy #$0A
   jsr EL_AD49
-  jmp EL_A141
+  jmp vm_fetch
+vm_E1_bfextu:
   jsr EL_A76D
   ldy #$0A
   jsr EL_AD1A
-  jmp EL_A141
+  jmp vm_fetch
+vm_E2_bfins:
   jsr EL_A76D
   ldy #$0E
   jsr EL_AD61
-  jmp EL_A141
+  jmp vm_fetch
+vm_CF_return:
   ldx #$09
   lda z:$04
   tcs
@@ -4705,7 +4909,9 @@ EL_A726:
   rep #$20
   inc z:$00
   jml [$0000]
+vm_80_op80:
   .byte $00, $00
+vm_FF_opff:
   .byte $00, $00
   .byte $4C, $41, $A1
 EL_A73A:
@@ -4812,7 +5018,7 @@ EL_A78C:
   .byte $D2, $A4, $36, $A4, $2F, $A4, $33, $A7, $33, $A7, $33, $A7, $33, $A7, $33, $A7
   .byte $33, $A7, $33, $A7, $33, $A7, $33, $A7, $33, $A7, $33, $A7, $33, $A7, $33, $A7
   .byte $33, $A7, $33, $A7, $33, $A7, $33, $A7, $33, $A7, $33, $A7, $33, $A7, $35, $A7
-EL_A997:
+vm_b7_prefix:
   sep #$20
   lda [$06],y
   rep #$20
@@ -4832,6 +5038,7 @@ EL_A997:
   .byte $38, $AC, $72, $AC, $52, $AC, $4C, $AC, $7C, $AB, $9D, $AA, $D1, $AA, $EC, $AA
   .byte $2C, $AB, $3B, $AB, $49, $AB, $57, $AB, $20, $AC, $27, $AC, $29, $AC, $73, $AB
   .byte $B9, $AB, $E9, $AB, $D1, $AB, $01, $AC, $11, $AB, $40, $AA, $93, $AA
+vm_b7_01:
   sty z:$12
   sty z:$14
   ldy #$20
@@ -4856,12 +5063,14 @@ EL_AA29:
   dey
   bne EL_AA16
   rts
+vm_b7_02:
   jsr EL_AA43
   lda z:$1D
   bpl EL_AA3F
-  jmp EL_AB65
+  jmp vm_b7_05
 EL_AA3F:
   rts
+vm_b7_2E:
   jmp EL_AA68
 EL_AA43:
   sep #$20
@@ -4872,7 +5081,7 @@ EL_AA43:
   rep #$20
   lda z:$0C
   bpl EL_AA56
-  jsr EL_AB65
+  jsr vm_b7_05
 EL_AA56:
   lda z:$10
   bpl EL_AA68
@@ -4909,10 +5118,12 @@ EL_AA8F:
   dey
   bne EL_AA72
   rts
+vm_b7_2F:
   jsr EL_AA68
   sty z:$1E
   ldx #$02
   bne EL_AAA3
+vm_b7_1E:
   jsr EL_AA43
   ldx #$02
 EL_AAA3:
@@ -4925,7 +5136,8 @@ EL_AAA3:
   bmi EL_AAB0
   rts
 EL_AAB0:
-  jmp EL_AB65
+  jmp vm_b7_05
+vm_b7_03:
   clc
   ldx #$FFFC
 EL_AAB7:
@@ -4936,6 +5148,7 @@ EL_AAB7:
   inx
   bne EL_AAB7
   rts
+vm_b7_04:
   sec
   ldx #$FFFC
 EL_AAC6:
@@ -4946,7 +5159,7 @@ EL_AAC6:
   inx
   bne EL_AAC6
   rts
-EL_AAD1:
+vm_b7_1F:
   clc
   ldy #$FFFF
   ldx #$FFFC
@@ -4963,7 +5176,8 @@ EL_AAD8:
 EL_AAE5:
   asl z:$0A
   rol z:$0C
-  jmp EL_AAD1
+  jmp vm_b7_1F
+vm_b7_20:
   clc
   lda z:$0C
   bpl EL_AAF2
@@ -4991,7 +5205,7 @@ EL_AB08:
   ror z:$0C
   ror z:$0A
   jmp EL_AAF3
-EL_AB11:
+vm_b7_2D:
   clc
   ldy #$FFFF
   ldx #$FFFC
@@ -5008,7 +5222,8 @@ EL_AB18:
 EL_AB25:
   lsr z:$0C
   ror z:$0A
-  jmp EL_AB11
+  jmp vm_b7_2D
+vm_b7_21:
   ldx #$02
 EL_AB2F:
   lda z:$0A,x
@@ -5018,6 +5233,7 @@ EL_AB2F:
   dex
   bpl EL_AB2F
   rts
+vm_b7_22:
   ldx #$02
 EL_AB3E:
   lda z:$0A,x
@@ -5027,6 +5243,7 @@ EL_AB3E:
   dex
   bpl EL_AB3E
   rts
+vm_b7_23:
   ldx #$02
 EL_AB4C:
   lda z:$0A,x
@@ -5036,6 +5253,7 @@ EL_AB4C:
   dex
   bpl EL_AB4C
   rts
+vm_b7_24:
   ldx #$02
 EL_AB5A:
   lda z:$0A,x
@@ -5045,7 +5263,7 @@ EL_AB5A:
   dex
   bpl EL_AB5A
   rts
-EL_AB65:
+vm_b7_05:
   sec
   ldx #$FFFC
 EL_AB69:
@@ -5056,11 +5274,12 @@ EL_AB69:
   inx
   bne EL_AB69
   rts
-  jsr EL_AB7C
+vm_b7_28:
+  jsr vm_b7_1D
   lda z:$0A
   eor #$01
   rts
-EL_AB7C:
+vm_b7_1D:
   ldx #$02
 EL_AB7F:
   lda z:$0A,x
@@ -5069,6 +5288,7 @@ EL_AB7F:
   dex
   bpl EL_AB7F
   bmi EL_ABA7
+vm_b7_06:
   ldx #$02
 EL_AB8C:
   lda z:$0A,x
@@ -5081,6 +5301,7 @@ EL_AB96:
   iny
   sty z:$0A
   rts
+vm_b7_07:
   ldx #$02
 EL_AB9D:
   lda z:$0A,x
@@ -5092,6 +5313,7 @@ EL_AB9D:
 EL_ABA7:
   sty z:$0A
   rts
+vm_b7_08:
   jsr EL_AC0A
   bpl EL_ABB0
   iny
@@ -5102,12 +5324,14 @@ EL_ABB0:
 EL_ABB6:
   sta z:$0A
   rts
+vm_b7_29:
   jsr EL_AC0A
   bcs EL_ABBF
   iny
 EL_ABBF:
   sty z:$0A
   rts
+vm_b7_0A:
   jsr EL_AC15
   bpl EL_ABC8
   iny
@@ -5118,12 +5342,14 @@ EL_ABC8:
 EL_ABCE:
   sta z:$0A
   rts
+vm_b7_2B:
   jsr EL_AC15
   bcs EL_ABD7
   iny
 EL_ABD7:
   sty z:$0A
   rts
+vm_b7_09:
   jsr EL_AC15
   bmi EL_ABE0
   iny
@@ -5134,12 +5360,14 @@ EL_ABE0:
 EL_ABE6:
   sta z:$0A
   rts
+vm_b7_2A:
   jsr EL_AC15
   bcc EL_ABEF
   iny
 EL_ABEF:
   sty z:$0A
   rts
+vm_b7_0B:
   jsr EL_AC0A
   bmi EL_ABF8
   iny
@@ -5150,6 +5378,7 @@ EL_ABF8:
 EL_ABFE:
   sta z:$0A
   rts
+vm_b7_2C:
   jsr EL_AC0A
   bcc EL_AC07
   iny
@@ -5170,37 +5399,41 @@ EL_AC15:
   lda z:$10
   sbc z:$0C
   rts
+vm_b7_25:
   lda z:$0A
-  bpl EL_AC27
+  bpl vm_b7_26
   ldy #$FFFF
-EL_AC27:
+vm_b7_26:
   sty z:$0C
+vm_b7_27:
   rts
-EL_AC2A:
+vm_b7_18:
   tyx
   lda [$06],y
   sta z:$0A,x
   iny
   iny
   cpy #$04
-  bne EL_AC2A
+  bne vm_b7_18
   beq EL_AC44
-EL_AC38:
+vm_b7_19:
   tyx
   lda [$06],y
   sta z:$0E,x
   iny
   iny
   cpy #$04
-  bne EL_AC38
+  bne vm_b7_19
 EL_AC44:
   lda z:$06
   adc #$03
   sta z:$06
   rts
+vm_b7_1C:
   ldy #$FFFF
   tya
   bne EL_AC55
+vm_b7_1B:
   lda #$01
 EL_AC55:
   clc
@@ -5210,6 +5443,7 @@ EL_AC55:
   adc z:$0C
   sta z:$0C
   rts
+vm_b7_17:
   ply
   pla
   sta z:$0E
@@ -5223,6 +5457,7 @@ EL_AC68:
   dey
   bpl EL_AC68
   rts
+vm_b7_1A:
   ldx #$02
 EL_AC75:
   lda z:$0A,x
@@ -5233,6 +5468,7 @@ EL_AC75:
   dex
   bpl EL_AC75
   rts
+vm_b7_0C:
   jsr EL_A77F
   ldy #$02
 EL_AC88:
@@ -5243,6 +5479,7 @@ EL_AC88:
   dey
   bpl EL_AC88
   rts
+vm_b7_0D:
   jsr EL_A77F
   ldy #$02
 EL_AC98:
@@ -5253,6 +5490,7 @@ EL_AC98:
   dey
   bpl EL_AC98
   rts
+vm_b7_0E:
   jsr EL_A77F
   ldy #$02
 EL_ACA8:
@@ -5263,6 +5501,7 @@ EL_ACA8:
   dey
   bpl EL_ACA8
   rts
+vm_b7_0F:
   jsr EL_A77F
 EL_ACB5:
   ldy #$02
@@ -5275,6 +5514,7 @@ EL_ACB9:
   bpl EL_ACB9
   phx
   rts
+vm_b7_10:
   jsr EL_A775
 EL_ACC5:
   ldy #$02
@@ -5286,6 +5526,7 @@ EL_ACC8:
   dey
   bpl EL_ACC8
   rts
+vm_b7_11:
   jsr EL_A775
   ldy #$02
 EL_ACD8:
@@ -5296,6 +5537,7 @@ EL_ACD8:
   dey
   bpl EL_ACD8
   rts
+vm_b7_12:
   jsr EL_A775
   ldy #$02
 EL_ACE8:
@@ -5306,6 +5548,7 @@ EL_ACE8:
   dey
   bpl EL_ACE8
   rts
+vm_b7_13:
   jsr EL_A775
   ldy #$02
   plx
@@ -5317,9 +5560,11 @@ EL_ACF9:
   bpl EL_ACF9
   phx
   rts
+vm_b7_14:
   lda #$0A
   sta z:$00
   jmp EL_ACB5
+vm_b7_15:
   plx
   pla
   sta z:$0E
@@ -5327,6 +5572,7 @@ EL_ACF9:
   sta z:$10
   phx
   rts
+vm_b7_16:
   lda z:$0A
   sta z:$00
   jmp EL_ACC5
@@ -5413,6 +5659,7 @@ EL_AD9C:
   dey
   bne EL_AD9C
   rts
+sys_49:
   rep #$30
   lda #$FFFF
   sta z:$68
@@ -5452,6 +5699,7 @@ EL_AD9C:
   stz z:$68
 EL_ADE7:
   rts
+sys_50:
   rep #$30
   lda #$FFFF
   sta z:$68
@@ -6106,6 +6354,7 @@ EL_B239:
   pla
   plp
   rts
+sys_51:
   rep #$10
   sep #$20
   lda z:$5E
@@ -6114,6 +6363,7 @@ EL_B239:
   jsr EL_9C3D
   sty z:$64
   stx z:$66
+sys_52:
   sep #$20
   stz a:$0B87
   stz a:$0B88
@@ -6231,11 +6481,13 @@ EL_B32E:
   pla
   plp
   rts
+sys_53:
   rep #$10
   ldx z:$5E
   jsr EL_9C3D
   sty z:$5E
   stx z:$60
+sys_18:
   sep #$20
   stz a:$0B87
   stz a:$0B88
@@ -6424,11 +6676,13 @@ EL_B487:
   jmp EL_B3DB
 EL_B498:
   rts
+sys_54:
   rep #$10
   ldx z:$62
   jsr EL_9C3D
   sty z:$62
   stx z:$64
+sys_55:
   sep #$20
   stz a:$0B87
   stz a:$0B88
@@ -6588,6 +6842,7 @@ EL_B5AC:
   stz a:$0B87
   inc a:$0B88
   rts
+sys_56:
   sep #$20
   lda z:$54
 .a8
@@ -6600,6 +6855,7 @@ EL_B5D4:
   sta a:$0B87
   inc a:$0B88
   rts
+sys_57:
   rep #$30
   ldy z:$56
   lda z:$54
@@ -6691,6 +6947,7 @@ EL_B650:
   ora a:$0B56
   sta a:$0B56
   rts
+sys_58:
   rep #$30
   ldy z:$56
   lda z:$54
@@ -6711,6 +6968,7 @@ EL_B668:
   ora a:$0B56
   sta a:$0B56
   rts
+sys_59:
   sep #$20
   rep #$10
   lda z:$5C
@@ -6731,6 +6989,7 @@ EL_B668:
 EL_B6A4:
   sta a:$0DCC
   rts
+sys_66:
   sep #$30
   lda z:$54
   tax
@@ -6750,6 +7009,7 @@ EL_B6A4:
   lda a:$9A9A,x
   sta a:$0B40
   rts
+sys_72:
   rep #$10
   sep #$20
   lda z:$5A
@@ -6757,6 +7017,7 @@ EL_B6A4:
   ldy z:$58
   sty z:$3D
   jmp EL_B6E9
+sys_67:
   rep #$10
   ldx z:$58
   jsr EL_9C3D
@@ -6846,6 +7107,7 @@ EL_B755:
 EL_B778:
   inc a:$0B56
   rts
+sys_77:
   rep #$10
   sep #$20
   lda z:$58
@@ -6854,6 +7116,7 @@ EL_B778:
   jsr EL_9C3D
   sty z:$60
   stx z:$62
+sys_78:
   sep #$20
   stz a:$0B87
   stz a:$0B88
@@ -7080,6 +7343,7 @@ EL_B906:
   stz a:$2143
   plp
   rts
+sys_60:
   sep #$20
   lda z:$54
   sta a:$0E05
@@ -7088,6 +7352,7 @@ EL_B906:
   lda #$01
   sta a:$0E04
   rts
+sys_61:
   sep #$20
   lda #$00
   sta a:$0E05
@@ -7095,12 +7360,14 @@ EL_B906:
   inc a
   sta a:$0E04
   rts
+sys_62:
   sep #$20
   lda a:$2140
   sta z:$68
   lda a:$2142
   sta z:$69
   rts
+sys_63:
   sep #$20
   stz a:$0E07
   inc a:$0B55
@@ -7112,11 +7379,13 @@ EL_B94C:
   lda z:$55
   sta a:$0E08
   rts
+sys_64:
   rep #$10
   ldx z:$54
   jsr EL_9C3D
   sty z:$54
   stx z:$56
+sys_65:
   rep #$10
   sep #$20
   ldy z:$54
