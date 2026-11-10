@@ -1,0 +1,10 @@
+local f = io.open("/home/claude/uncharted-waters/emu/t1.log","w")
+f:write("lua start\n")
+for i=1,600 do emu.frameadvance() end
+f:write("frame "..emu.framecount().."\n")
+local ok, err = pcall(function() gui.savescreenshotas("/home/claude/uncharted-waters/emu/t1.png") end)
+f:write("shot "..tostring(ok).." "..tostring(err).."\n")
+emu.frameadvance()
+f:write(string.format("ram 9C=%02X 9D=%02X\n", memory.readbyte(0x9C), memory.readbyte(0x9D)))
+f:close()
+emu.exit()

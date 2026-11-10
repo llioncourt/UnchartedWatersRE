@@ -1,0 +1,15 @@
+# ROMs and anything derived byte-for-byte from them stay out of the repo
+*.nes
+*.sfc
+*.smc
+*.gen
+*.bin
+*.zip
+*.state
+ports/**/rom/
+emu_md/*.md
+rom/
+rom_jp/
+extracted/
+extracted_jp/
+__pycache__/

@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editor de economia: Uncharted Waters (SNES, USA)</title>
+<style>
+:root {
+  --paper: #ECF1F0;
+  --surface: #F9FBFA;
+  --white: #FFFFFF;
+  --ink: #1C2A36;
+  --ink-soft: #566873;
+  --rule: #C9D3D3;
+  --rule-strong: #9AABAD;
+  --sea: #24675F;
+  --sea-dark: #1A4E48;
+  --sea-tint: #DBEAE6;
+  --brass: #8E6210;
+  --brass-tint: #F4E6C4;
+  --alarm: #A3392B;
+  --alarm-tint: #F7E0DC;
+  --grid: rgba(36, 103, 95, 0.07);
+  --grid-strong: rgba(36, 103, 95, 0.16);
+  --serif: "Palatino Linotype", Palatino, "Book Antiqua", "URW Palladio L", Georgia, serif;
+  --sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Roboto, Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 15px/1.45 var(--sans);
+  font-variant-numeric: tabular-nums;
+}
+h1, h2, h3 { font-family: var(--serif); font-weight: 600; margin: 0; }
+h2 { font-size: 1.5rem; line-height: 1.2; }
+h3 { font-size: 1.2rem; line-height: 1.25; margin: 28px 0 6px; }
+p { margin: 0 0 8px; max-width: 72ch; }
+button, input, select { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* Masthead: a sheet of chart paper */
+.masthead {
+  background-color: var(--surface);
+  background-image:
+    linear-gradient(var(--grid-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-strong) 1px, transparent 1px),
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+  background-position: -1px -1px;
+  border-bottom: 2px solid var(--ink);
+}
+.masthead-inner, .status, main { max-width: 1440px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+.masthead-inner { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; padding-top: 22px; padding-bottom: 16px; }
+.brand h1 { font-size: 2.25rem; line-height: 1.05; letter-spacing: -0.01em; }
+.brand .sub { margin: 6px 0 0; color: var(--ink-soft); font-family: var(--serif); font-size: 1.05rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+.export-help { margin: 8px 0 0; font-size: 13px; color: var(--ink-soft); text-align: right; max-width: none; }
+.btn[disabled] { cursor: progress; opacity: 0.75; }
+.modal { position: fixed; inset: 0; z-index: 60; background: rgba(28, 42, 54, 0.45); display: flex; align-items: center; justify-content: center; padding: 16px; }
+.modal-box { background: var(--surface); border: 1px solid var(--ink); border-radius: 6px; padding: 20px 22px; width: min(460px, 100%); box-shadow: 0 12px 32px rgba(28, 42, 54, 0.3); }
+.modal-box p { margin: 0 0 18px; font-size: 15px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
+.status { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding-bottom: 14px; font-size: 14px; }
+.pill { display: inline-block; padding: 3px 10px; border: 1px solid var(--rule-strong); border-radius: 999px; background: var(--white); }
+.pill.file { font-weight: 600; border-color: var(--ink); }
+.pill.good { border-color: var(--sea); color: var(--sea-dark); }
+.pill.bad { border-color: var(--alarm); color: var(--alarm); background: var(--alarm-tint); }
+.pill.edits { border-color: var(--brass); color: var(--brass); background: var(--brass-tint); font-weight: 600; }
+.changes { width: 100%; }
+.changes summary { cursor: pointer; color: var(--sea-dark); font-weight: 600; width: max-content; }
+.changes ol { margin: 8px 0 0; padding-left: 22px; max-height: 260px; overflow: auto; background: var(--white); border: 1px solid var(--rule); border-radius: 4px; padding-top: 8px; padding-bottom: 8px; }
+.changes li { padding: 1px 0; }
+.changes s { color: var(--ink-soft); }
+
+/* Buttons */
+.btn {
+  border: 1px solid var(--ink);
+  background: var(--white);
+  border-radius: 4px;
+  padding: 7px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 1.2;
+}
+.btn:hover { background: var(--sea-tint); }
+.btn.primary { background: var(--sea); border-color: var(--sea); color: var(--white); font-weight: 600; }
+.btn.primary:hover { background: var(--sea-dark); }
+.btn.quiet { border-color: var(--rule-strong); }
+.linkish { border: 0; background: none; padding: 0; color: var(--sea-dark); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; font: inherit; text-align: left; }
+
+main { padding-top: 22px; padding-bottom: 64px; }
+
+/* Welcome */
+.welcome { max-width: 760px; }
+.dropzone {
+  display: block;
+  border: 2px dashed var(--sea);
+  border-radius: 6px;
+  background: var(--surface);
+  padding: 36px 28px;
+  cursor: pointer;
+}
+.dropzone.over, body.dragging .dropzone { background: var(--sea-tint); border-style: solid; }
+.dropzone h2 { font-size: 1.9rem; margin-bottom: 8px; }
+.dropzone p { color: var(--ink-soft); margin-bottom: 18px; }
+.facts { margin: 22px 0 0; padding-left: 20px; color: var(--ink-soft); max-width: 68ch; }
+.facts li { margin-bottom: 6px; }
+.load-error { margin-top: 18px; padding: 12px 14px; border-left: 4px solid var(--alarm); background: var(--alarm-tint); color: var(--ink); }
+
+/* Tabs */
+.tabs { display: flex; gap: 28px; border-bottom: 1px solid var(--rule-strong); margin-bottom: 18px; overflow-x: auto; }
+.tab {
+  border: 0; background: none; cursor: pointer;
+  padding: 8px 0 9px; margin-bottom: -1px;
+  font-family: var(--serif); font-size: 1.2rem; color: var(--ink-soft);
+  border-bottom: 3px solid transparent; white-space: nowrap;
+}
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.badge { font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--brass); background: var(--brass-tint); border-radius: 999px; padding: 1px 7px; margin-left: 4px; vertical-align: 2px; }
+.badge:empty { display: none; }
+
+.panel-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; margin-bottom: 12px; }
+.note { color: var(--ink-soft); font-size: 14px; }
+.note.warn { color: var(--ink); border-left: 3px solid var(--brass); padding-left: 10px; }
+.field-inline { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.field-inline input, .field-inline select { padding: 6px 8px; border: 1px solid var(--rule-strong); border-radius: 4px; background: var(--white); }
+.field-inline input { width: 13em; }
+
+/* Data tables */
+.table-wrap { overflow: auto; max-height: calc(100vh - 230px); min-height: 280px; border: 1px solid var(--rule-strong); border-radius: 4px; background: var(--surface); }
+.table-wrap.auto { max-height: none; min-height: 0; }
+table.grid { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 14px; }
+.grid th, .grid td { padding: 6px 8px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.grid thead th { position: sticky; top: 0; background: var(--surface); z-index: 2; text-align: right; font-weight: 600; color: var(--ink-soft); font-size: 13px; line-height: 1.25; white-space: nowrap; border-bottom: 1px solid var(--rule-strong); }
+.grid thead tr.group th { text-align: left; color: var(--ink); font-family: var(--serif); font-size: 14px; border-bottom: 1px solid var(--rule); top: 0; }
+.grid thead tr.cols th { top: 29px; }
+.grid thead th.left, .grid td.left { text-align: left; }
+.grid td { text-align: right; background: var(--surface); }
+.grid tbody tr:hover td { background: var(--white); }
+.grid .sticky { position: sticky; left: 0; z-index: 1; text-align: left; border-right: 1px solid var(--rule); }
+.grid thead .sticky { z-index: 3; }
+.grid tbody td.sticky { padding-top: 10px; }
+.grid th[title] { cursor: help; }
+.port-name { font-family: var(--serif); font-size: 15px; font-weight: 600; white-space: nowrap; }
+.port-id { color: var(--ink-soft); font-size: 12px; margin-right: 6px; font-family: var(--sans); font-weight: 400; }
+.dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--brass); margin-left: 6px; vertical-align: 2px; }
+.dot[hidden] { display: none; }
+
+.cell { display: inline-flex; flex-direction: column; align-items: flex-end; gap: 2px; }
+.cell.left { align-items: flex-start; }
+.num {
+  width: 5.4em; text-align: right; padding: 4px 6px;
+  border: 1px solid var(--rule-strong); border-radius: 3px; background: var(--white);
+}
+.num.u8 { width: 4em; }
+select.pick { padding: 4px 4px; border: 1px solid var(--rule-strong); border-radius: 3px; background: var(--white); max-width: 11em; }
+.num.changed, select.pick.changed { background: var(--brass-tint); border-color: var(--brass); font-weight: 600; }
+.num.invalid { border-color: var(--alarm); background: var(--alarm-tint); }
+.hint { font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
+.hint.warn { color: var(--alarm); }
+.was { font-size: 12px; color: var(--brass); white-space: nowrap; }
+.was s { text-decoration-thickness: 1px; }
+.was:empty, .hint:empty { display: none; }
+th .warn-mark { color: var(--brass); }
+
+/* Markets */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.chip { border: 1px solid var(--rule-strong); background: var(--white); border-radius: 999px; padding: 5px 14px; cursor: pointer; font-size: 14px; }
+.chip[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--white); }
+.chip[aria-pressed="true"] .badge { background: var(--white); }
+.used-by { font-size: 14px; color: var(--ink-soft); margin-bottom: 4px; }
+.used-by b { color: var(--ink); font-weight: 600; }
+tr.empty-slot td { color: var(--ink-soft); }
+tr.empty-slot .num { background: var(--surface); }
+.grid.slots { width: auto; min-width: 560px; }
+.table-wrap.fit { width: max-content; max-width: 100%; }
+.sell-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; }
+.sell-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; padding: 8px 10px; background: var(--surface); border: 1px solid var(--rule); border-radius: 4px; min-width: 0; }
+.sell-item label { padding-top: 5px; font-size: 14px; flex: 1 1 auto; min-width: 0; }
+.sell-item .cell { flex: 0 0 auto; }
+.sell-item .gid { color: var(--ink-soft); font-size: 12px; margin-right: 4px; }
+
+/* Preview */
+.summary { display: flex; flex-wrap: wrap; gap: 8px 28px; margin: 14px 0 4px; padding: 0; list-style: none; }
+.summary li { font-size: 14px; color: var(--ink-soft); }
+.summary b { display: block; color: var(--ink); font-size: 1.15rem; font-family: var(--serif); }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; align-items: start; }
+.unavailable td { color: var(--ink-soft); }
+.tag { display: inline-block; font-size: 12px; padding: 0 7px; border-radius: 999px; border: 1px solid var(--rule-strong); color: var(--ink-soft); white-space: nowrap; }
+.tag.ok { border-color: var(--sea); color: var(--sea-dark); background: var(--sea-tint); }
+.tag.special { border-color: var(--brass); color: var(--brass); }
+.price { font-weight: 600; }
+.neg { color: var(--alarm); }
+.sub-line { display: block; font-size: 12px; color: var(--ink-soft); }
+
+/* Toasts */
+.toasts { position: fixed; left: 50%; bottom: 18px; transform: translateX(-50%); width: min(600px, calc(100vw - 24px)); display: flex; flex-direction: column; gap: 8px; z-index: 50; pointer-events: none; }
+.toast { pointer-events: auto; background: var(--ink); color: var(--white); padding: 10px 14px; border-radius: 5px; font-size: 14px; box-shadow: 0 6px 18px rgba(28, 42, 54, 0.22); cursor: pointer; animation: rise 160ms ease-out; }
+.toast.erro { background: var(--alarm); }
+.toast.aviso { background: var(--brass); }
+.toast.ok { background: var(--sea-dark); }
+@keyframes rise { from { transform: translateY(8px); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .toast { animation: none; } }
+
+/* Narrow screens: rows become cards */
+@media (max-width: 760px) {
+  body { font-size: 15px; }
+  .masthead-inner, .status, main { padding-left: 14px; padding-right: 14px; }
+  .brand h1 { font-size: 1.85rem; }
+  .actions-wrap, .actions { width: 100%; }
+  .actions .btn { flex: 1 1 auto; }
+  .export-help { text-align: left; }
+  .num, select.pick, .field-inline input, .field-inline select { font-size: 16px; }
+  .two-col { grid-template-columns: 1fr; }
+  .table-wrap.cards { max-height: none; overflow: visible; border: 0; background: none; }
+  .cards table.grid, .cards .grid tbody, .cards .grid tr, .cards .grid td { display: block; }
+  .cards .grid thead { display: none; }
+  .cards .grid tr { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 14px; padding: 12px; margin-bottom: 10px; border: 1px solid var(--rule-strong); border-radius: 6px; background: var(--surface); }
+  .cards .grid tr[hidden] { display: none; }
+  .cards .grid td { padding: 0; border: 0; text-align: left; background: none; }
+  .cards .grid tbody tr:hover td { background: none; }
+  .cards .grid td::before { content: attr(data-label); display: block; font-size: 12px; color: var(--ink-soft); margin-bottom: 2px; }
+  .cards .grid td.sticky { grid-column: 1 / -1; position: static; border: 0; }
+  .cards .grid tbody td.sticky { padding-top: 0; }
+  .cards .grid td.sticky::before { display: none; }
+  .cards .cell { align-items: flex-start; }
+  .cards .num { width: 100%; text-align: left; }
+  .cards select.pick { width: 100%; max-width: none; }
+  .table-wrap { max-height: none; }
+  .grid.slots { min-width: 0; }
+  .table-wrap.fit { width: auto; }
+  .desk-only { display: none; }
+}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <h1>Editor de economia</h1>
+      <p class="sub">Uncharted Waters para Super Nintendo, versão americana (USA)</p>
+    </div>
+    <div class="actions-wrap" id="actions" hidden>
+      <div class="actions">
+        <button type="button" class="btn primary" id="btn-export-rom">Exportar ROM</button>
+        <button type="button" class="btn" id="btn-export-json">Exportar JSON</button>
+        <button type="button" class="btn" id="btn-import-json">Importar JSON</button>
+        <button type="button" class="btn" id="btn-undo-all">Desfazer tudo</button>
+        <button type="button" class="btn quiet" id="btn-open-other">Abrir outra ROM</button>
+      </div>
+      <p class="export-help" id="export-help">Dentro do Claude, a ROM vem num .zip: extraia o .sfc. Com a página aberta como arquivo local, o .sfc baixa direto.</p>
+    </div>
+  </div>
+  <div class="status" id="status" hidden></div>
+</header>
+
+<main>
+  <section class="welcome" id="welcome">
+    <div class="dropzone" id="dropzone">
+      <h2>Abra a ROM do jogo</h2>
+      <p>Arraste o arquivo <b>Uncharted Waters (USA).sfc</b> para esta área ou escolha o arquivo no aparelho.</p>
+      <button type="button" class="btn primary" id="btn-pick-rom">Escolher ROM</button>
+    </div>
+    <ul class="facts">
+      <li>Só a versão americana é aceita. A página confere o título interno da ROM e os nomes dos três primeiros portos.</li>
+      <li>Tudo roda neste navegador. A ROM não sai do aparelho e o arquivo original não é alterado: a exportação gera um arquivo novo, com o checksum recalculado.</li>
+      <li>As tabelas são as de início de jogo. Saves existentes guardam a própria cópia e não mudam.</li>
+    </ul>
+    <p class="load-error" id="load-error" role="alert" hidden></p>
+  </section>
+
+  <section id="editor" hidden>
+    <div class="tabs" role="tablist" aria-label="Tabelas">
+      <button type="button" class="tab" role="tab" id="tab-portos" data-tab="portos" aria-controls="panel-portos" aria-selected="true">Portos <span class="badge" id="badge-portos"></span></button>
+      <button type="button" class="tab" role="tab" id="tab-mercados" data-tab="mercados" aria-controls="panel-mercados" aria-selected="false">Mercados <span class="badge" id="badge-mercados"></span></button>
+      <button type="button" class="tab" role="tab" id="tab-previa" data-tab="previa" aria-controls="panel-previa" aria-selected="false">Prévia de preços</button>
+    </div>
+    <div id="panel-portos" role="tabpanel" aria-labelledby="tab-portos"></div>
+    <div id="panel-mercados" role="tabpanel" aria-labelledby="tab-mercados" hidden></div>
+    <div id="panel-previa" role="tabpanel" aria-labelledby="tab-previa" hidden></div>
+  </section>
+</main>
+
+<input type="file" id="rom-input" class="vh" tabindex="-1" aria-hidden="true">
+<input type="file" id="json-input" class="vh" tabindex="-1" aria-hidden="true">
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<div class="modal" id="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-text">
+    <p id="modal-text"></p>
+    <div class="modal-actions">
+      <button type="button" class="btn" id="modal-cancel">Cancelar</button>
+      <button type="button" class="btn primary" id="modal-ok">Confirmar</button>
+    </div>
+  </div>
+</div>
+
+<script id="uw-core">
+/*
+ * UWCore: leitura, escrita, checksum e JSON das tabelas de economia de
+ * Uncharted Waters (SNES, USA). Sem DOM: os testes em test/ carregam este
+ * bloco direto do HTML.
+ */
+var UWCore = (function () {
+  'use strict';
+
+  var ROM_SIZE = 0x100000;            // 1.048.576 bytes
+  var COPIER_HEADER = 512;
+  var FDATA = 0x10836;
+  var SGDATA = 0xF5AE;
+  var OFF = {
+    TITLE: 0x7FC0,
+    COMPLEMENT: 0x7FDC,
+    CHECKSUM: 0x7FDE,
+    PORT_ECON: SGDATA + 0x7B4,        // 0xFD62, 50 x 14 bytes
+    PORT_MKT: FDATA + 0x150A,         // 0x11D40, 50 x 5 bytes
+    MARKETS: FDATA + 0x1864,          // 0x1209A, 8 x 88 bytes
+    GOODS_PTR: FDATA + 0x1B49,        // 26 x u16, relativos a FDATA
+    PORT_NAMES: FDATA + 0x0FD8        // registros de 19 bytes
+  };
+  var N_PORTS = 50, N_MARKETS = 8, N_GOODS = 26, N_SLOTS = 9;
+  var PORT_ECON_SIZE = 14, PORT_MKT_SIZE = 5, MARKET_SIZE = 88, PORT_NAME_SIZE = 19;
+  var GOOD_NAME_MAX = 20;
+  var NONE = 0xFF;
+  var TITLE = 'UNCHARTED WATERS     ';   // 21 bytes
+  var EXPECTED_FIRST_PORTS = ['Lisbon', 'Seville', 'Istanbul'];
+  var JSON_FORMAT = 'uw-snes-economia';
+  var JSON_VERSION = 1;
+  var ROM_FILE_NAME = 'Uncharted Waters (USA) [economia].sfc';
+  var ZIP_FILE_NAME = 'Uncharted Waters (USA) [economia].zip';
+  var JSON_FILE_NAME = 'Uncharted Waters (USA) [economia].json';
+
+  var PORT_FIELDS = [
+    { key: 'econ_worth', table: 'econ', off: 0, size: 2 },
+    { key: 'econ_invest', table: 'econ', off: 2, size: 2 },
+    { key: 'ind_worth', table: 'econ', off: 4, size: 2 },
+    { key: 'ind_invest', table: 'econ', off: 6, size: 2 },
+    { key: 'support_pt', table: 'econ', off: 8, size: 1 },
+    { key: 'support_es', table: 'econ', off: 9, size: 1 },
+    { key: 'support_tr', table: 'econ', off: 10, size: 1 },
+    { key: 'price_index', table: 'econ', off: 11, size: 1 },
+    { key: 'field12', table: 'econ', off: 12, size: 2 },
+    { key: 'market', table: 'mkt', off: 0, size: 1, domain: 'market' },
+    { key: 'mkt_b1', table: 'mkt', off: 1, size: 1, domain: 'goodOrNone' },
+    { key: 'mkt_b2', table: 'mkt', off: 2, size: 1 },
+    { key: 'mkt_b3', table: 'mkt', off: 3, size: 1 },
+    { key: 'mkt_b4', table: 'mkt', off: 4, size: 1 }
+  ];
+  var MARKET_ARRAYS = [
+    { key: 'req', off: 0, count: N_SLOTS, size: 1 },
+    { key: 'goods', off: 9, count: N_SLOTS, size: 1, domain: 'goodOrNone' },
+    { key: 'buy', off: 18, count: N_SLOTS, size: 2 },
+    { key: 'sell', off: 36, count: N_GOODS, size: 2 }
+  ];
+  var PORT_LABELS = {
+    econ_worth: 'Valor econômico',
+    econ_invest: 'Investimento econômico',
+    ind_worth: 'Valor industrial',
+    ind_invest: 'Investimento industrial',
+    support_pt: 'Apoio a Portugal (%)',
+    support_es: 'Apoio à Espanha (%)',
+    support_tr: 'Apoio à Turquia (%)',
+    price_index: 'Índice de preço base',
+    field12: 'Preço base da especial',
+    market: 'Tipo de mercado',
+    mkt_b1: 'Mercadoria especial',
+    mkt_b2: 'Requisito da especial',
+    mkt_b3: 'b3 (desconhecido)',
+    mkt_b4: 'Região (provável)'
+  };
+  var MARKET_LABELS = { req: 'requisito', goods: 'mercadoria', buy: 'preço de compra' };
+
+  function fail(msg) {
+    var e = new Error(msg);
+    e.uw = true;
+    throw e;
+  }
+
+  function hex(v, digits) {
+    var s = v.toString(16).toUpperCase();
+    while (s.length < digits) s = '0' + s;
+    return '0x' + s;
+  }
+
+  function clone(o) { return JSON.parse(JSON.stringify(o)); }
+
+  function toBytes(input) {
+    if (input && Object.prototype.toString.call(input) === '[object ArrayBuffer]') return new Uint8Array(input);
+    if (input && ArrayBuffer.isView(input)) return new Uint8Array(input.buffer, input.byteOffset, input.byteLength);
+    fail('Entrada inválida: esperava os bytes do arquivo.');
+  }
+
+  function u16(b, o) { return b[o] | (b[o + 1] << 8); }
+  function w16(b, o, v) { b[o] = v & 0xFF; b[o + 1] = (v >>> 8) & 0xFF; }
+
+  function cstr(b, o, max) {
+    var s = '';
+    for (var i = 0; i < max && o + i < b.length; i++) {
+      var c = b[o + i];
+      if (c === 0) break;
+      s += String.fromCharCode(c);
+    }
+    return s;
+  }
+
+  function printable(b, o, n) {
+    var s = '';
+    for (var i = 0; i < n && o + i < b.length; i++) {
+      var c = b[o + i];
+      s += (c >= 0x20 && c < 0x7F) ? String.fromCharCode(c) : '?';
+    }
+    return s;
+  }
+
+  /* ---------- Campos editáveis (fonte única para parse, escrita, JSON e diff) ---------- */
+
+  var FIELD_LIST = null, FIELD_MAP = null;
+
+  function makeField(path, offset, size, domain) {
+    return { id: path.join('.'), path: path, offset: offset, size: size, max: size === 2 ? 0xFFFF : 0xFF, domain: domain || null };
+  }
+
+  function fields() {
+    if (FIELD_LIST) return FIELD_LIST;
+    var list = [];
+    var i, k, j, f, a, base;
+    for (i = 0; i < N_PORTS; i++) {
+      for (k = 0; k < PORT_FIELDS.length; k++) {
+        f = PORT_FIELDS[k];
+        base = f.table === 'econ' ? OFF.PORT_ECON + PORT_ECON_SIZE * i : OFF.PORT_MKT + PORT_MKT_SIZE * i;
+        list.push(makeField(['ports', i, f.key], base + f.off, f.size, f.domain));
+      }
+    }
+    for (i = 0; i < N_MARKETS; i++) {
+      for (k = 0; k < MARKET_ARRAYS.length; k++) {
+        a = MARKET_ARRAYS[k];
+        for (j = 0; j < a.count; j++) {
+          list.push(makeField(['markets', i, a.key, j], OFF.MARKETS + MARKET_SIZE * i + a.off + a.size * j, a.size, a.domain));
+        }
+      }
+    }
+    FIELD_LIST = list;
+    FIELD_MAP = {};
+    for (i = 0; i < list.length; i++) FIELD_MAP[list[i].id] = list[i];
+    return list;
+  }
+
+  function fieldMap() { fields(); return FIELD_MAP; }
+
+  function getPath(obj, path) {
+    var cur = obj;
+    for (var i = 0; i < path.length; i++) {
+      if (cur === null || typeof cur !== 'object') return undefined;
+      cur = cur[path[i]];
+    }
+    return cur;
+  }
+
+  function setPath(obj, path, value) {
+    var cur = obj;
+    for (var i = 0; i < path.length - 1; i++) cur = cur[path[i]];
+    cur[path[path.length - 1]] = value;
+  }
+
+  function goodName(state, g) {
+    if (g === NONE) return null;
+    return (state && state.goods && state.goods[g] !== undefined) ? state.goods[g] : null;
+  }
+
+  function describeField(f, state) {
+    var p = f.path;
+    if (p[0] === 'ports') {
+      var name = state && state.ports && state.ports[p[1]] ? state.ports[p[1]].name : '?';
+      return 'Porto ' + p[1] + ' (' + name + '), ' + PORT_LABELS[p[2]];
+    }
+    if (p[2] === 'sell') {
+      return 'Mercado ' + p[1] + ', preço de venda de ' + (goodName(state, p[3]) || ('mercadoria ' + p[3]));
+    }
+    return 'Mercado ' + p[1] + ', vaga ' + p[3] + ', ' + MARKET_LABELS[p[2]];
+  }
+
+  /* Valida um valor. Limites u8/u16 sempre; o domínio (mercado 0..7,
+     mercadoria 0..25 ou 255) só para valores novos: um valor que já veio
+     assim da ROM é mantido. Devolve null se ok, ou o motivo. */
+  function checkValue(f, v, original) {
+    if (typeof v !== 'number' || !isFinite(v) || Math.floor(v) !== v) return 'precisa ser um número inteiro';
+    if (v < 0 || v > f.max) return 'fora do limite (0 a ' + f.max + ')';
+    if (v === original) return null;
+    if (f.domain === 'market' && v >= N_MARKETS) return 'o tipo de mercado vai de 0 a 7';
+    if (f.domain === 'goodOrNone' && v >= N_GOODS && v !== NONE) return 'a mercadoria vai de 0 a 25, ou 255 para nenhuma';
+    return null;
+  }
+
+  function validateState(state, original) {
+    var errs = [];
+    var list = fields();
+    for (var i = 0; i < list.length; i++) {
+      var f = list[i];
+      var msg = checkValue(f, getPath(state, f.path), original ? getPath(original, f.path) : undefined);
+      if (msg) errs.push(describeField(f, state) + ': ' + msg);
+    }
+    return errs;
+  }
+
+  /* ---------- ROM ---------- */
+
+  function headerSizeFor(length) {
+    if (length === ROM_SIZE) return 0;
+    if (length === ROM_SIZE + COPIER_HEADER) return COPIER_HEADER;
+    fail('Tamanho inesperado: ' + length + ' bytes. A ROM americana tem 1048576 bytes (ou 1049088 com header de copiador de 512 bytes).');
+  }
+
+  function validateRom(rom) {
+    if (rom.length !== ROM_SIZE) fail('Tamanho inesperado da ROM: ' + rom.length + ' bytes.');
+    var title = '';
+    for (var i = 0; i < TITLE.length; i++) title += String.fromCharCode(rom[OFF.TITLE + i]);
+    if (title !== TITLE) {
+      fail('O título interno da ROM é "' + printable(rom, OFF.TITLE, TITLE.length).replace(/\s+$/, '') +
+        '", e não "UNCHARTED WATERS". Só a ROM americana de Uncharted Waters é suportada.');
+    }
+    for (var p = 0; p < EXPECTED_FIRST_PORTS.length; p++) {
+      var name = cstr(rom, OFF.PORT_NAMES + PORT_NAME_SIZE * p, PORT_NAME_SIZE);
+      if (name !== EXPECTED_FIRST_PORTS[p]) {
+        fail('Esta não parece ser a versão americana: o porto ' + p + ' se chama "' + name +
+          '", e o esperado é "' + EXPECTED_FIRST_PORTS[p] + '". Só a ROM USA é suportada.');
+      }
+    }
+  }
+
+  function computeChecksum(rom) {
+    var sum = 0;
+    for (var i = 0; i < rom.length; i++) sum += rom[i];
+    // Os 4 bytes de checksum valem FF FF 00 00 durante a soma.
+    sum -= rom[OFF.COMPLEMENT] + rom[OFF.COMPLEMENT + 1] + rom[OFF.CHECKSUM] + rom[OFF.CHECKSUM + 1];
+    sum += 0xFF + 0xFF;
+    return sum & 0xFFFF;
+  }
+
+  function readChecksum(rom) {
+    return { checksum: u16(rom, OFF.CHECKSUM), complement: u16(rom, OFF.COMPLEMENT) };
+  }
+
+  function writeChecksum(rom) {
+    var c = computeChecksum(rom);
+    w16(rom, OFF.COMPLEMENT, c ^ 0xFFFF);
+    w16(rom, OFF.CHECKSUM, c);
+    return c;
+  }
+
+  function verifyChecksum(rom) {
+    var c = computeChecksum(rom);
+    var s = readChecksum(rom);
+    return s.checksum === c && s.complement === (c ^ 0xFFFF);
+  }
+
+  function parse(rom) {
+    var goods = [], ports = [], markets = [];
+    var i, j, o, e, m, nm;
+    for (i = 0; i < N_GOODS; i++) {
+      var p = FDATA + u16(rom, OFF.GOODS_PTR + 2 * i);
+      goods.push(cstr(rom, p, GOOD_NAME_MAX));
+    }
+    for (i = 0; i < N_PORTS; i++) {
+      nm = OFF.PORT_NAMES + PORT_NAME_SIZE * i;
+      e = OFF.PORT_ECON + PORT_ECON_SIZE * i;
+      m = OFF.PORT_MKT + PORT_MKT_SIZE * i;
+      ports.push({
+        id: i,
+        name: cstr(rom, nm, PORT_NAME_SIZE),
+        coord: [rom[nm + 15], rom[nm + 16], rom[nm + 17], rom[nm + 18]],
+        econ_worth: u16(rom, e),
+        econ_invest: u16(rom, e + 2),
+        ind_worth: u16(rom, e + 4),
+        ind_invest: u16(rom, e + 6),
+        support_pt: rom[e + 8],
+        support_es: rom[e + 9],
+        support_tr: rom[e + 10],
+        price_index: rom[e + 11],
+        field12: u16(rom, e + 12),
+        market: rom[m],
+        mkt_b1: rom[m + 1],
+        mkt_b2: rom[m + 2],
+        mkt_b3: rom[m + 3],
+        mkt_b4: rom[m + 4]
+      });
+    }
+    for (i = 0; i < N_MARKETS; i++) {
+      o = OFF.MARKETS + MARKET_SIZE * i;
+      var req = [], gd = [], buy = [], sell = [];
+      for (j = 0; j < N_SLOTS; j++) {
+        req.push(rom[o + j]);
+        gd.push(rom[o + 9 + j]);
+        buy.push(u16(rom, o + 18 + 2 * j));
+      }
+      for (j = 0; j < N_GOODS; j++) sell.push(u16(rom, o + 36 + 2 * j));
+      markets.push({ id: i, req: req, goods: gd, buy: buy, sell: sell });
+    }
+    return { goods: goods, ports: ports, markets: markets };
+  }
+
+  /* Abre o arquivo inteiro (com ou sem header de 512 bytes). */
+  function openRom(input) {
+    var bytes = toBytes(input);
+    var headerSize = headerSizeFor(bytes.length);
+    var file = new Uint8Array(bytes.length);
+    file.set(bytes);
+    var rom = file.subarray(headerSize);
+    validateRom(rom);
+    var stored = readChecksum(rom);
+    var computed = computeChecksum(rom);
+    return {
+      file: file,
+      headerSize: headerSize,
+      rom: rom,
+      state: parse(rom),
+      checksum: {
+        stored: stored.checksum,
+        complement: stored.complement,
+        computed: computed,
+        valid: stored.checksum === computed && stored.complement === (computed ^ 0xFFFF)
+      }
+    };
+  }
+
+  /* Gera o arquivo exportado: cópia do arquivo aberto, campos gravados,
+     checksum recalculado. O header de copiador, se havia, é mantido. */
+  function exportRom(file, headerSize, state, original) {
+    var errs = validateState(state, original);
+    if (errs.length) {
+      fail('Não foi possível exportar. ' + errs.slice(0, 5).join('; ') +
+        (errs.length > 5 ? ' (e mais ' + (errs.length - 5) + ')' : '') + '.');
+    }
+    var src = toBytes(file);
+    var out = new Uint8Array(src.length);
+    out.set(src);
+    var rom = out.subarray(headerSize);
+    var list = fields();
+    for (var i = 0; i < list.length; i++) {
+      var f = list[i];
+      var v = getPath(state, f.path);
+      if (f.size === 2) w16(rom, f.offset, v); else rom[f.offset] = v;
+    }
+    writeChecksum(rom);
+    return out;
+  }
+
+  function diff(original, state) {
+    var out = [];
+    var list = fields();
+    for (var i = 0; i < list.length; i++) {
+      var f = list[i];
+      var a = getPath(original, f.path), b = getPath(state, f.path);
+      if (a !== b) out.push({ field: f, from: a, to: b });
+    }
+    return out;
+  }
+
+  /* ---------- JSON ---------- */
+
+  function exportJSON(state) {
+    return JSON.stringify({
+      formato: JSON_FORMAT,
+      versao: JSON_VERSION,
+      jogo: 'Uncharted Waters (SNES, USA)',
+      goods: clone(state.goods),
+      ports: clone(state.ports),
+      markets: clone(state.markets)
+    }, null, 1);
+  }
+
+  /* Lê um JSON exportado (ou o reference_us.json) e devolve um estado novo.
+     Nomes e coordenadas vêm sempre da ROM (base); os campos editáveis vêm
+     do JSON. Tudo ou nada: qualquer erro recusa a importação inteira. */
+  function importJSON(text, base, original) {
+    var doc;
+    if (typeof text === 'string') {
+      try { doc = JSON.parse(text.replace(/^﻿/, '')); }
+      catch (err) { fail('O arquivo não é um JSON válido (' + err.message + ').'); }
+    } else {
+      doc = text;
+    }
+    if (!doc || typeof doc !== 'object' || Array.isArray(doc)) fail('O JSON não tem o formato do editor.');
+    if (doc.formato !== undefined && doc.formato !== JSON_FORMAT) fail('Formato de JSON desconhecido: "' + doc.formato + '".');
+    if (typeof doc.versao === 'number' && doc.versao > JSON_VERSION) fail('Este JSON foi gerado por uma versão mais nova do editor (versão ' + doc.versao + ').');
+    if (!Array.isArray(doc.ports) || doc.ports.length !== N_PORTS) fail('O JSON precisa ter exatamente 50 portos.');
+    if (!Array.isArray(doc.markets) || doc.markets.length !== N_MARKETS) fail('O JSON precisa ter exatamente 8 tipos de mercado.');
+    for (var p = 0; p < N_PORTS; p++) {
+      var jp = doc.ports[p];
+      if (jp && typeof jp.name === 'string' && jp.name !== base.ports[p].name) {
+        fail('O JSON não corresponde a esta ROM: o porto ' + p + ' é "' + jp.name + '" no JSON e "' + base.ports[p].name + '" na ROM.');
+      }
+    }
+    var next = clone(base);
+    var errs = [];
+    var list = fields();
+    for (var i = 0; i < list.length; i++) {
+      var f = list[i];
+      var v = getPath(doc, f.path);
+      var msg = v === undefined ? 'valor ausente' : checkValue(f, v, getPath(original || base, f.path));
+      if (msg) errs.push(describeField(f, base) + ': ' + msg);
+      else setPath(next, f.path, v);
+    }
+    if (errs.length) {
+      fail('JSON recusado, nada foi alterado. ' + errs.slice(0, 5).join('; ') +
+        (errs.length > 5 ? ' (e mais ' + (errs.length - 5) + ' problemas)' : '') + '.');
+    }
+    return next;
+  }
+
+  /* ---------- Fórmula de preço ---------- */
+
+  function effectiveIndex(port) { return port.price_index + 50; }
+  function applyIndex(index, base) { return Math.floor(index * base / 100); }
+
+  function portOffers(state, portId) {
+    var port = state.ports[portId];
+    var idx = effectiveIndex(port);
+    var market = state.markets[port.market];
+    var slots = [];
+    if (market) {
+      for (var j = 0; j < N_SLOTS; j++) {
+        var g = market.goods[j];
+        var empty = g === NONE;
+        var known = !empty && g < N_GOODS;
+        var reqWorth = market.req[j] * 50;
+        slots.push({
+          slot: j, good: g, empty: empty, known: known,
+          req: market.req[j], reqWorth: reqWorth,
+          base: market.buy[j], price: applyIndex(idx, market.buy[j]),
+          available: known && reqWorth <= port.econ_worth
+        });
+      }
+    }
+    var special = null;
+    if (port.mkt_b1 !== NONE) {
+      var sReq = port.mkt_b2 * 50;
+      special = {
+        good: port.mkt_b1, known: port.mkt_b1 < N_GOODS,
+        req: port.mkt_b2, reqWorth: sReq,
+        base: port.field12, price: applyIndex(idx, port.field12),
+        available: port.mkt_b1 < N_GOODS && sReq <= port.econ_worth
+      };
+    }
+    return { port: portId, index: idx, market: port.market, marketKnown: !!market, slots: slots, special: special };
+  }
+
+  /* A especial do porto está à venda nele (b1 == g e b2 x 50 <= valor econômico)? */
+  function ownSpecialAvailable(port, g) {
+    return port.mkt_b1 === g && g < N_GOODS && port.mkt_b2 * 50 <= port.econ_worth;
+  }
+
+  /* Quanto o porto paga. Regra do código de venda de carga: se a mercadoria
+     é a especial do próprio porto (e está à venda), ele paga
+     floor(floor(índice efetivo x campo +12 / 100) / 2) + 1, e não o preço normal. */
+  function portBids(state, portId) {
+    var port = state.ports[portId];
+    var idx = effectiveIndex(port);
+    var market = state.markets[port.market];
+    var out = [];
+    if (!market) return out;
+    for (var g = 0; g < N_GOODS; g++) {
+      var normal = applyIndex(idx, market.sell[g]);
+      if (ownSpecialAvailable(port, g)) {
+        out.push({ good: g, base: port.field12, price: Math.floor(applyIndex(idx, port.field12) / 2) + 1,
+          ownSpecial: true, normalBase: market.sell[g], normalPrice: normal });
+      } else {
+        out.push({ good: g, base: market.sell[g], price: normal, ownSpecial: false });
+      }
+    }
+    return out;
+  }
+
+  function bestProfit(state) {
+    var rows = [];
+    var g, i, j;
+    for (g = 0; g < N_GOODS; g++) rows.push({ good: g, name: state.goods[g], buy: null, sell: null, profit: null });
+    for (i = 0; i < N_PORTS; i++) {
+      var offers = portOffers(state, i);
+      var cands = [];
+      for (j = 0; j < offers.slots.length; j++) {
+        var s = offers.slots[j];
+        if (s.available) cands.push({ port: i, price: s.price, source: 'vaga', slot: s.slot, good: s.good });
+      }
+      if (offers.special && offers.special.available) {
+        cands.push({ port: i, price: offers.special.price, source: 'especial', slot: null, good: offers.special.good });
+      }
+      for (j = 0; j < cands.length; j++) {
+        var c = cands[j], row = rows[c.good];
+        if (!row.buy || c.price < row.buy.price) row.buy = { port: c.port, price: c.price, source: c.source, slot: c.slot };
+      }
+      var bids = portBids(state, i);
+      for (j = 0; j < bids.length; j++) {
+        var b = bids[j], r = rows[b.good];
+        if (!r.sell || b.price > r.sell.price) r.sell = { port: i, price: b.price };
+      }
+    }
+    for (g = 0; g < N_GOODS; g++) {
+      if (rows[g].buy && rows[g].sell) rows[g].profit = rows[g].sell.price - rows[g].buy.price;
+    }
+    return rows;
+  }
+
+  /* ---------- ZIP (método store, sem compressão) ---------- */
+
+  var CRC_TABLE = null;
+
+  function crc32(bytes) {
+    if (!CRC_TABLE) {
+      CRC_TABLE = new Uint32Array(256);
+      for (var n = 0; n < 256; n++) {
+        var c = n;
+        for (var k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
+        CRC_TABLE[n] = c >>> 0;
+      }
+    }
+    var crc = 0xFFFFFFFF;
+    for (var i = 0; i < bytes.length; i++) crc = CRC_TABLE[(crc ^ bytes[i]) & 0xFF] ^ (crc >>> 8);
+    return (crc ^ 0xFFFFFFFF) >>> 0;
+  }
+
+  function utf8Bytes(s) {
+    var out = [];
+    for (var i = 0; i < s.length; i++) {
+      var c = s.charCodeAt(i);
+      if (c < 0x80) out.push(c);
+      else if (c < 0x800) out.push(0xC0 | (c >> 6), 0x80 | (c & 63));
+      else if (c >= 0xD800 && c < 0xDC00 && i + 1 < s.length) {
+        var cp = 0x10000 + ((c - 0xD800) << 10) + (s.charCodeAt(++i) - 0xDC00);
+        out.push(0xF0 | (cp >> 18), 0x80 | ((cp >> 12) & 63), 0x80 | ((cp >> 6) & 63), 0x80 | (cp & 63));
+      } else out.push(0xE0 | (c >> 12), 0x80 | ((c >> 6) & 63), 0x80 | (c & 63));
+    }
+    return new Uint8Array(out);
+  }
+
+  function dosDateTime(d) {
+    var year = Math.min(2107, Math.max(1980, d.getFullYear()));
+    return {
+      time: (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1),
+      date: ((year - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate()
+    };
+  }
+
+  /* entries: [{ name, data: Uint8Array }]. Devolve os bytes do .zip. */
+  function makeZip(entries, date) {
+    var dt = dosDateTime(date || new Date());
+    var items = entries.map(function (e) {
+      var name = utf8Bytes(e.name);
+      var data = toBytes(e.data);
+      var ascii = true;
+      for (var i = 0; i < e.name.length; i++) if (e.name.charCodeAt(i) > 0x7E) ascii = false;
+      return { name: name, data: data, crc: crc32(data), flags: ascii ? 0 : 0x0800 };
+    });
+    var size = 22, i;
+    for (i = 0; i < items.length; i++) size += 30 + 46 + 2 * items[i].name.length + items[i].data.length;
+    var out = new Uint8Array(size);
+    var v = new DataView(out.buffer);
+    var pos = 0, cdStart, cdSize;
+    for (i = 0; i < items.length; i++) {
+      var it = items[i];
+      it.offset = pos;
+      v.setUint32(pos, 0x04034B50, true);
+      v.setUint16(pos + 4, 20, true);              // versão necessária
+      v.setUint16(pos + 6, it.flags, true);
+      v.setUint16(pos + 8, 0, true);               // método 0 = store
+      v.setUint16(pos + 10, dt.time, true);
+      v.setUint16(pos + 12, dt.date, true);
+      v.setUint32(pos + 14, it.crc, true);
+      v.setUint32(pos + 18, it.data.length, true); // tamanho comprimido
+      v.setUint32(pos + 22, it.data.length, true); // tamanho original
+      v.setUint16(pos + 26, it.name.length, true);
+      v.setUint16(pos + 28, 0, true);
+      out.set(it.name, pos + 30);
+      out.set(it.data, pos + 30 + it.name.length);
+      pos += 30 + it.name.length + it.data.length;
+    }
+    cdStart = pos;
+    for (i = 0; i < items.length; i++) {
+      var c = items[i];
+      v.setUint32(pos, 0x02014B50, true);
+      v.setUint16(pos + 4, 20, true);              // feito por (MS-DOS, 2.0)
+      v.setUint16(pos + 6, 20, true);
+      v.setUint16(pos + 8, c.flags, true);
+      v.setUint16(pos + 10, 0, true);
+      v.setUint16(pos + 12, dt.time, true);
+      v.setUint16(pos + 14, dt.date, true);
+      v.setUint32(pos + 16, c.crc, true);
+      v.setUint32(pos + 20, c.data.length, true);
+      v.setUint32(pos + 24, c.data.length, true);
+      v.setUint16(pos + 28, c.name.length, true);
+      v.setUint16(pos + 30, 0, true);              // extra
+      v.setUint16(pos + 32, 0, true);              // comentário
+      v.setUint16(pos + 34, 0, true);              // disco
+      v.setUint16(pos + 36, 0, true);              // atributos internos
+      v.setUint32(pos + 38, 0, true);              // atributos externos
+      v.setUint32(pos + 42, c.offset, true);
+      out.set(c.name, pos + 46);
+      pos += 46 + c.name.length;
+    }
+    cdSize = pos - cdStart;
+    v.setUint32(pos, 0x06054B50, true);
+    v.setUint16(pos + 4, 0, true);
+    v.setUint16(pos + 6, 0, true);
+    v.setUint16(pos + 8, items.length, true);
+    v.setUint16(pos + 10, items.length, true);
+    v.setUint32(pos + 12, cdSize, true);
+    v.setUint32(pos + 16, cdStart, true);
+    v.setUint16(pos + 20, 0, true);
+    return out;
+  }
+
+  /* O .zip com a ROM exportada (inteira, com o header de 512 bytes se havia). */
+  function romZip(fileBytes, date) {
+    return makeZip([{ name: ROM_FILE_NAME, data: fileBytes }], date);
+  }
+
+  return {
+    ROM_SIZE: ROM_SIZE, COPIER_HEADER: COPIER_HEADER, FDATA: FDATA, SGDATA: SGDATA, OFF: OFF,
+    N_PORTS: N_PORTS, N_MARKETS: N_MARKETS, N_GOODS: N_GOODS, N_SLOTS: N_SLOTS, NONE: NONE,
+    JSON_FORMAT: JSON_FORMAT, JSON_VERSION: JSON_VERSION,
+    ROM_FILE_NAME: ROM_FILE_NAME, ZIP_FILE_NAME: ZIP_FILE_NAME, JSON_FILE_NAME: JSON_FILE_NAME,
+    crc32: crc32, makeZip: makeZip, romZip: romZip,
+    PORT_LABELS: PORT_LABELS,
+    hex: hex, clone: clone, fields: fields, fieldMap: fieldMap, getPath: getPath, setPath: setPath,
+    goodName: goodName, describeField: describeField, checkValue: checkValue, validateState: validateState,
+    computeChecksum: computeChecksum, readChecksum: readChecksum, writeChecksum: writeChecksum, verifyChecksum: verifyChecksum,
+    validateRom: validateRom, parse: parse, openRom: openRom, exportRom: exportRom, diff: diff,
+    exportJSON: exportJSON, importJSON: importJSON,
+    effectiveIndex: effectiveIndex, applyIndex: applyIndex, ownSpecialAvailable: ownSpecialAvailable,
+    portOffers: portOffers, portBids: portBids, bestProfit: bestProfit
+  };
+})();
+</script>
+
+<script id="uw-ui">
+(function () {
+  'use strict';
+  var C = UWCore;
+  var FIELD = C.fieldMap();
+  var ROM_NAME = C.ROM_FILE_NAME;
+  var ZIP_NAME = C.ZIP_FILE_NAME;
+  var JSON_NAME = C.JSON_FILE_NAME;
+  // Região (b4): rótulos prováveis, deduzidos dos portos de cada valor.
+  var REGIONS = ['Mediterrâneo e Europa', 'África Ocidental', 'África Oriental e Índico', 'Sudeste Asiático', 'Extremo Oriente', 'Caribe', 'América do Sul'];
+
+  var PORT_COLUMNS = [
+    { group: 'Economia inicial', key: 'econ_worth', short: 'Valor econ.', tip: 'Tabela 1, +0, u16. Também decide quais vagas do mercado e a especial aparecem.' },
+    { group: 'Economia inicial', key: 'econ_invest', short: 'Invest. econ.', tip: 'Tabela 1, +2, u16.' },
+    { group: 'Economia inicial', key: 'ind_worth', short: 'Valor ind.', tip: 'Tabela 1, +4, u16.' },
+    { group: 'Economia inicial', key: 'ind_invest', short: 'Invest. ind.', tip: 'Tabela 1, +6, u16.' },
+    { group: 'Economia inicial', key: 'support_pt', short: 'Portugal %', tip: 'Tabela 1, +8, u8. Apoio a Portugal.' },
+    { group: 'Economia inicial', key: 'support_es', short: 'Espanha %', tip: 'Tabela 1, +9, u8. Apoio à Espanha.' },
+    { group: 'Economia inicial', key: 'support_tr', short: 'Turquia %', tip: 'Tabela 1, +10, u8. Apoio à Turquia.' },
+    { group: 'Economia inicial', key: 'price_index', short: 'Índice', tip: 'Tabela 1, +11, u8. O preço efetivo usa (índice + 50) %.' },
+    { group: 'Mercadoria especial', key: 'mkt_b1', short: 'Especial', tip: 'Tabela 2, b1. Mercadoria especial do porto (255 = nenhuma).' },
+    { group: 'Mercadoria especial', key: 'mkt_b2', short: 'Requisito', tip: 'Tabela 2, b2. A especial aparece se b2 x 50 for menor ou igual ao valor econômico.' },
+    { group: 'Mercadoria especial', key: 'field12', short: 'Preço base', tip: 'Tabela 1, +12, u16. Preço base de compra da especial.' },
+    { group: 'Mercado do porto', key: 'market', short: 'Mercado', tip: 'Tabela 2, b0. Tipo de mercado (0 a 7).' },
+    { group: 'Mercado do porto', key: 'mkt_b3', short: 'b3', warn: true, tip: 'Tabela 2, b3. Significado desconhecido. Nos dados originais, 20 portos têm valores únicos de 0 a 19 e os outros 30 têm 255, o que sugere um índice para outra tabela. Edite com cuidado.' },
+    { group: 'Mercado do porto', key: 'mkt_b4', short: 'Região (provável)', tip: 'Tabela 2, b4. Região provável: 0 Mediterrâneo e Europa, 1 África Ocidental, 2 África Oriental e Índico, 3 Sudeste Asiático, 4 Extremo Oriente, 5 Caribe, 6 América do Sul.' }
+  ];
+
+  var app = {
+    file: null, headerSize: 0, fileName: '', checksum: null,
+    original: null, state: null, savedSig: '',
+    tab: 'portos', market: 0, previewPort: 0, profitSort: 'mercadoria', filter: '',
+    b3Warned: false
+  };
+
+  /* ---------- utilitários ---------- */
+
+  function $(id) { return document.getElementById(id); }
+
+  function el(tag, attrs, children) {
+    var n = document.createElement(tag);
+    if (attrs) {
+      for (var k in attrs) {
+        if (!Object.prototype.hasOwnProperty.call(attrs, k) || attrs[k] === null || attrs[k] === undefined || attrs[k] === false) continue;
+        if (k === 'class') n.className = attrs[k];
+        else if (k === 'text') n.textContent = attrs[k];
+        else if (k === 'hidden') n.hidden = true;
+        else n.setAttribute(k, attrs[k]);
+      }
+    }
+    if (children) {
+      for (var i = 0; i < children.length; i++) {
+        var c = children[i];
+        if (c === null || c === undefined || c === false) continue;
+        n.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+      }
+    }
+    return n;
+  }
+
+  function fmt(v) {
+    try { return v.toLocaleString('pt-BR'); } catch (e) { return String(v); }
+  }
+
+  function plural(n, one, many) { return n + ' ' + (n === 1 ? one : many); }
+
+  function toast(msg, kind) {
+    var t = el('div', { class: 'toast' + (kind ? ' ' + kind : ''), text: msg });
+    var box = $('toasts');
+    box.appendChild(t);
+    while (box.children.length > 3) box.removeChild(box.firstChild);
+    var remove = function () { if (t.parentNode) t.parentNode.removeChild(t); };
+    t.addEventListener('click', remove);
+    setTimeout(remove, kind === 'erro' ? 12000 : 6000);
+  }
+
+  function readFile(file) {
+    return new Promise(function (resolve, reject) {
+      var r = new FileReader();
+      r.onload = function () { resolve(new Uint8Array(r.result)); };
+      r.onerror = function () { reject(new Error('Não foi possível ler o arquivo "' + file.name + '".')); };
+      r.readAsArrayBuffer(file);
+    });
+  }
+
+  /* Confirmação dentro da página (o frame do Claude recusa os diálogos nativos). */
+  var modalState = null;
+
+  function askConfirm(text, okLabel) {
+    if (modalState) closeModal(false);
+    return new Promise(function (resolve) {
+      modalState = { resolve: resolve, returnFocus: document.activeElement };
+      $('modal-text').textContent = text;
+      $('modal-ok').textContent = okLabel || 'Confirmar';
+      $('modal').hidden = false;
+      $('modal-cancel').focus();
+    });
+  }
+
+  function closeModal(answer) {
+    if (!modalState) return;
+    var st = modalState;
+    modalState = null;
+    $('modal').hidden = true;
+    if (st.returnFocus && st.returnFocus.focus && document.contains(st.returnFocus)) st.returnFocus.focus();
+    st.resolve(answer);
+  }
+
+  /* ---------- downloads ---------- */
+
+  // Capacidade "downloads" do Claude, pedida só no clique. null = página local.
+  function getDownloads() {
+    if (window.claude && typeof window.claude.use === 'function') return Promise.resolve(window.claude.use('downloads'));
+    return Promise.resolve(null);
+  }
+
+  function downloadProblem(err) {
+    var code = err && err.code;
+    if (code === 'declined') return { text: 'Download cancelado.', kind: '' };
+    if (code === 'rate_limited') return { text: 'Já existe uma confirmação aberta; tente de novo em instantes.', kind: 'aviso' };
+    return { text: 'Download indisponível nesta visualização.', kind: 'erro' };
+  }
+
+  // Roda fn com o botão em "Preparando download..." (claude.use pode levar até 10 s).
+  function withBusy(btn, fn) {
+    if (btn.disabled) return Promise.resolve();
+    var label = btn.textContent;
+    btn.disabled = true;
+    btn.setAttribute('aria-busy', 'true');
+    btn.textContent = 'Preparando download...';
+    var done = function () { btn.disabled = false; btn.removeAttribute('aria-busy'); btn.textContent = label; };
+    return Promise.resolve().then(fn).then(done, function (err) { done(); throw err; });
+  }
+
+  /* Entrega um arquivo: pelo Claude (dl.save) se houver, senão download direto.
+     direct: { bytes, name, mime }; hosted: { blob, name }. Devolve 'host', 'direto' ou null (falhou). */
+  function deliver(direct, hosted) {
+    return getDownloads().then(function (dl) {
+      if (!dl) {
+        download(direct.bytes, direct.name, direct.mime);
+        return 'direto';
+      }
+      return Promise.resolve(dl.save({ filename: hosted.name, data: hosted.blob() })).then(function () { return 'host'; });
+    }).catch(function (err) {
+      var p = downloadProblem(err);
+      toast(p.text, p.kind);
+      return null;
+    });
+  }
+
+  function download(bytes, name, mime) {
+    var blob = new Blob([bytes], { type: mime });
+    if (window.navigator && window.navigator.msSaveOrOpenBlob) { window.navigator.msSaveOrOpenBlob(blob, name); return; }
+    var url = URL.createObjectURL(blob);
+    var a = el('a', { href: url, download: name });
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(url); if (a.parentNode) a.parentNode.removeChild(a); }, 2000);
+  }
+
+  function signature() { return app.state ? JSON.stringify(app.state) : ''; }
+  function unsaved() { return !!app.state && signature() !== app.savedSig; }
+
+  function valueLabel(f, v) {
+    if (f.domain === 'market') return 'Mercado ' + v;
+    if (f.domain === 'goodOrNone') {
+      if (v === C.NONE) return f.path[2] === 'mkt_b1' ? 'nenhuma' : 'vaga vazia';
+      return C.goodName(app.state, v) || ('valor ' + v);
+    }
+    return fmt(v);
+  }
+
+  function portLabel(i) { return '#' + i + ' ' + app.state.ports[i].name; }
+
+  /* ---------- campos de edição ---------- */
+
+  function hintFor(id) {
+    var p = id.split('.');
+    if (p[0] === 'ports') {
+      var port = app.state.ports[+p[1]];
+      if (p[2] === 'price_index') return { text: 'efetivo ' + (port.price_index + 50) + ' %' };
+      if (p[2] === 'mkt_b4') return { text: REGIONS[port.mkt_b4] || 'região ?' };
+      if (p[2] === 'mkt_b2') {
+        if (port.mkt_b1 === C.NONE) return { text: 'sem especial' };
+        var need = port.mkt_b2 * 50;
+        var ok = need <= port.econ_worth;
+        return { text: (ok ? 'valor econ. ≥ ' : 'não aparece: ≥ ') + fmt(need), warn: !ok,
+          title: ok ? 'A especial aparece no início do jogo.' : 'A especial não aparece: o valor econômico (' + fmt(port.econ_worth) + ') é menor que ' + fmt(need) + '.' };
+      }
+      return null;
+    }
+    if (p[2] === 'req') {
+      var mk = app.state.markets[+p[1]];
+      if (mk.goods[+p[3]] === C.NONE) return null;
+      return { text: 'valor econ. ≥ ' + fmt(mk.req[+p[3]] * 50) };
+    }
+    return null;
+  }
+
+  function hasHint(id) {
+    return /\.(price_index|mkt_b4|mkt_b2)$/.test(id) || /^markets\.\d+\.req\./.test(id);
+  }
+
+  function makeEditor(id, label) {
+    var f = FIELD[id];
+    var cur = C.getPath(app.state, f.path);
+    var control;
+    if (f.domain) {
+      control = el('select', { class: 'pick', 'data-field': id, 'aria-label': label });
+      var opts = [];
+      var k;
+      if (f.domain === 'market') {
+        for (k = 0; k < C.N_MARKETS; k++) opts.push([k, 'Mercado ' + k]);
+      } else {
+        for (k = 0; k < C.N_GOODS; k++) opts.push([k, k + ' ' + app.state.goods[k]]);
+        opts.push([C.NONE, f.path[2] === 'mkt_b1' ? 'nenhuma' : 'vaga vazia']);
+      }
+      var orig = C.getPath(app.original, f.path);
+      [cur, orig].forEach(function (v) {
+        var found = opts.some(function (o) { return o[0] === v; });
+        if (!found) opts.push([v, 'fora do padrão (' + v + ')']);
+      });
+      opts.forEach(function (o) { control.appendChild(el('option', { value: String(o[0]), text: o[1] })); });
+      control.value = String(cur);
+    } else {
+      control = el('input', {
+        class: 'num' + (f.size === 1 ? ' u8' : ''), type: 'text', inputmode: 'numeric', autocomplete: 'off',
+        spellcheck: 'false', 'data-field': id, 'aria-label': label, value: String(cur)
+      });
+    }
+    var hint = hasHint(id) ? el('span', { class: 'hint', 'data-hint': id }) : null;
+    var was = el('span', { class: 'was', 'data-was': id });
+    var wrap = el('span', { class: 'cell' + (f.domain ? ' left' : '') }, [control, hint, was]);
+    paintField(control, was);
+    if (hint) paintHint(hint);
+    return wrap;
+  }
+
+  function paintField(control, wasEl) {
+    var f = FIELD[control.getAttribute('data-field')];
+    var cur = C.getPath(app.state, f.path), orig = C.getPath(app.original, f.path);
+    var changed = cur !== orig;
+    control.classList.toggle('changed', changed);
+    control.classList.remove('invalid');
+    control.title = changed ? 'Original: ' + valueLabel(f, orig) : '';
+    if (!wasEl) wasEl = control.parentNode && control.parentNode.querySelector('.was');
+    if (wasEl) {
+      wasEl.textContent = '';
+      if (changed) { wasEl.appendChild(document.createTextNode('era ')); wasEl.appendChild(el('s', { text: valueLabel(f, orig) })); }
+    }
+  }
+
+  function paintHint(h) {
+    var r = hintFor(h.getAttribute('data-hint'));
+    h.textContent = r ? r.text : '';
+    h.classList.toggle('warn', !!(r && r.warn));
+    h.title = r && r.title ? r.title : '';
+  }
+
+  function refreshScope(scope) {
+    if (!scope) return;
+    var hs = scope.querySelectorAll('[data-hint]');
+    for (var i = 0; i < hs.length; i++) paintHint(hs[i]);
+  }
+
+  function parseNumber(raw) {
+    raw = String(raw).trim();
+    return /^\d{1,6}$/.test(raw) ? parseInt(raw, 10) : NaN;
+  }
+
+  function onFieldChange(target) {
+    var id = target.getAttribute('data-field');
+    var f = FIELD[id];
+    if (!f || !app.state) return;
+    var v = parseNumber(target.value);
+    var cur = C.getPath(app.state, f.path), orig = C.getPath(app.original, f.path);
+    var msg = C.checkValue(f, v, orig);
+    if (msg) {
+      toast(C.describeField(f, app.state) + ': ' + msg + '. O valor anterior foi mantido.', 'erro');
+      target.value = String(cur);
+      paintField(target);
+      return;
+    }
+    if (f.path[2] === 'mkt_b3' && v !== cur && !app.b3Warned) {
+      app.b3Warned = true;
+      toast('b3 tem significado desconhecido. A alteração foi aceita, mas o efeito no jogo não foi verificado.', 'aviso');
+    }
+    C.setPath(app.state, f.path, v);
+    target.value = String(v);
+    paintField(target);
+    afterEdit(f, target);
+  }
+
+  function onFieldInput(target) {
+    var f = FIELD[target.getAttribute('data-field')];
+    if (!f || target.tagName !== 'INPUT') return;
+    var v = parseNumber(target.value);
+    target.classList.toggle('invalid', !(v >= 0 && v <= f.max));
+  }
+
+  function afterEdit(f, target) {
+    var row = target.closest('tr');
+    refreshScope(row);
+    if (f.path[0] === 'markets' && f.path[2] === 'goods') {
+      if (row) row.classList.toggle('empty-slot', C.getPath(app.state, f.path) === C.NONE);
+      var reqHint = document.querySelector('[data-hint="markets.' + f.path[1] + '.req.' + f.path[3] + '"]');
+      if (reqHint) paintHint(reqHint);
+    }
+    if (f.path[0] === 'ports') {
+      var dot = document.querySelector('[data-dot="' + f.path[1] + '"]');
+      if (dot) dot.hidden = !portChanged(f.path[1]);
+    }
+    renderStatus();
+  }
+
+  function portChanged(i) {
+    var a = app.original.ports[i], b = app.state.ports[i];
+    for (var k in C.PORT_LABELS) if (a[k] !== b[k]) return true;
+    return false;
+  }
+
+  /* ---------- status e alterações ---------- */
+
+  function renderStatus() {
+    var s = $('status');
+    s.textContent = '';
+    if (!app.state) { s.hidden = true; return; }
+    s.hidden = false;
+    var changes = C.diff(app.original, app.state);
+    s.appendChild(el('span', { class: 'pill file', text: app.fileName, title: 'Arquivo aberto' }));
+    if (app.headerSize) s.appendChild(el('span', { class: 'pill', text: 'Header de copiador de 512 bytes, mantido na exportação' }));
+    if (app.checksum.valid) {
+      s.appendChild(el('span', { class: 'pill good', text: 'Checksum da ROM aberta válido (' + C.hex(app.checksum.stored, 4) + ')' }));
+    } else {
+      s.appendChild(el('span', { class: 'pill bad', text: 'Checksum da ROM aberta inválido: gravado ' + C.hex(app.checksum.stored, 4) + ', calculado ' + C.hex(app.checksum.computed, 4) + '. A exportação grava o valor correto.' }));
+    }
+    s.appendChild(el('span', { class: 'pill' + (changes.length ? ' edits' : ''), text: changes.length ? plural(changes.length, 'alteração', 'alterações') : 'Nenhuma alteração' }));
+    if (changes.length) {
+      var list = el('ol');
+      changes.forEach(function (c) {
+        list.appendChild(el('li', null, [C.describeField(c.field, app.state) + ': ', el('s', { text: valueLabel(c.field, c.from) }), ' para ', el('b', { text: valueLabel(c.field, c.to) })]));
+      });
+      var det = el('details', { class: 'changes' }, [el('summary', { text: 'Ver alterações' }), list]);
+      if (app.changesOpen) det.open = true;
+      det.addEventListener('toggle', function () { app.changesOpen = det.open; });
+      s.appendChild(det);
+    }
+    var nPorts = 0, nMarkets = 0;
+    changes.forEach(function (c) { if (c.field.path[0] === 'ports') nPorts++; else nMarkets++; });
+    $('badge-portos').textContent = nPorts ? String(nPorts) : '';
+    $('badge-mercados').textContent = nMarkets ? String(nMarkets) : '';
+    var chips = document.querySelectorAll('[data-market-badge]');
+    for (var i = 0; i < chips.length; i++) {
+      var k = +chips[i].getAttribute('data-market-badge');
+      var n = changes.filter(function (c) { return c.field.path[0] === 'markets' && c.field.path[1] === k; }).length;
+      chips[i].textContent = n ? String(n) : '';
+    }
+  }
+
+  /* ---------- aba Portos ---------- */
+
+  function renderPortos() {
+    var panel = $('panel-portos');
+    panel.textContent = '';
+    var filter = el('input', { type: 'search', id: 'port-filter', placeholder: 'nome ou número', value: app.filter, autocomplete: 'off' });
+    panel.appendChild(el('div', { class: 'panel-head' }, [
+      el('div', null, [
+        el('p', { class: 'note' }, ['Valores de início de jogo. Saves existentes guardam a própria cópia e não mudam.',
+          el('span', { class: 'desk-only', text: ' Passe o mouse no título de cada coluna para ver o campo e o offset.' })]),
+        el('p', { class: 'note warn', text: 'b3 tem significado desconhecido. Dá para editar, mas o efeito no jogo não foi verificado.' })
+      ]),
+      el('label', { class: 'field-inline', for: 'port-filter' }, ['Filtrar portos', filter])
+    ]));
+
+    var groupRow = el('tr', { class: 'group' }, [el('th', { class: 'sticky left', scope: 'col' })]);
+    var colRow = el('tr', { class: 'cols' }, [el('th', { class: 'sticky left', scope: 'col', text: 'Porto' })]);
+    var lastGroup = null, span = null;
+    PORT_COLUMNS.forEach(function (c) {
+      if (c.group !== lastGroup) {
+        span = el('th', { class: 'left', scope: 'colgroup', colspan: '1', text: c.group });
+        groupRow.appendChild(span);
+        lastGroup = c.group;
+      } else {
+        span.setAttribute('colspan', String(+span.getAttribute('colspan') + 1));
+      }
+      var th = el('th', { scope: 'col', title: c.tip, class: (c.key === 'market' || c.key === 'mkt_b1') ? 'left' : null }, [c.short]);
+      if (c.warn) th.appendChild(el('span', { class: 'warn-mark', text: ' (desconhecido)' }));
+      colRow.appendChild(th);
+    });
+
+    var tbody = el('tbody');
+    for (var i = 0; i < C.N_PORTS; i++) {
+      var p = app.state.ports[i];
+      var tr = el('tr', { 'data-port': String(i) });
+      tr.appendChild(el('td', { class: 'sticky', title: 'Coordenadas no mapa: bloco ' + p.coord[0] + ', ' + p.coord[1] + '; sub ' + p.coord[2] + ', ' + p.coord[3] }, [
+        el('span', { class: 'port-name' }, [el('span', { class: 'port-id', text: '#' + i }), p.name]),
+        el('span', { class: 'dot', 'data-dot': String(i), title: 'Porto alterado', hidden: !portChanged(i) })
+      ]));
+      PORT_COLUMNS.forEach(function (c) {
+        var label = C.PORT_LABELS[c.key];
+        tr.appendChild(el('td', { 'data-label': label, class: (c.key === 'market' || c.key === 'mkt_b1') ? 'left' : null }, [makeEditor('ports.' + i + '.' + c.key, p.name + ': ' + label)]));
+      });
+      tbody.appendChild(tr);
+    }
+    var table = el('table', { class: 'grid ports' }, [el('thead', null, [groupRow, colRow]), tbody]);
+    panel.appendChild(el('div', { class: 'table-wrap cards' }, [table]));
+    filter.addEventListener('input', function () { app.filter = filter.value; applyFilter(tbody); });
+    applyFilter(tbody);
+  }
+
+  function applyFilter(tbody) {
+    var q = app.filter.trim().toLowerCase();
+    var rows = tbody.querySelectorAll('tr');
+    for (var i = 0; i < rows.length; i++) {
+      var idx = +rows[i].getAttribute('data-port');
+      var name = app.state.ports[idx].name.toLowerCase();
+      rows[i].hidden = !!q && name.indexOf(q) < 0 && String(idx) !== q.replace('#', '');
+    }
+  }
+
+  /* ---------- aba Mercados ---------- */
+
+  function renderMercados() {
+    var panel = $('panel-mercados');
+    panel.textContent = '';
+    var k = app.market;
+    var chips = el('div', { class: 'chips', role: 'group', 'aria-label': 'Tipo de mercado' });
+    for (var m = 0; m < C.N_MARKETS; m++) {
+      var chip = el('button', { type: 'button', class: 'chip', 'data-market': String(m), 'aria-pressed': m === k ? 'true' : 'false' }, ['Mercado ' + m, el('span', { class: 'badge', 'data-market-badge': String(m) })]);
+      chips.appendChild(chip);
+    }
+    panel.appendChild(chips);
+
+    var users = [];
+    app.state.ports.forEach(function (p) { if (p.market === k) users.push(p); });
+    var used = el('p', { class: 'used-by' });
+    if (users.length) {
+      used.appendChild(el('b', { text: 'Usado por ' + plural(users.length, 'porto', 'portos') + ': ' }));
+      used.appendChild(document.createTextNode(users.map(function (p) { return p.name; }).join(', ') + '.'));
+    } else {
+      used.appendChild(el('b', { text: 'Nenhum porto usa este mercado agora.' }));
+    }
+    panel.appendChild(used);
+
+    panel.appendChild(el('h3', { text: 'Vagas de venda' }));
+    panel.appendChild(el('p', { class: 'note', text: 'O que os portos com este mercado vendem ao jogador. Uma vaga aparece quando requisito x 50 for menor ou igual ao valor econômico do porto.' }));
+    var tbody = el('tbody');
+    var mk = app.state.markets[k];
+    for (var j = 0; j < C.N_SLOTS; j++) {
+      tbody.appendChild(el('tr', { class: mk.goods[j] === C.NONE ? 'empty-slot' : null }, [
+        el('td', { class: 'sticky', 'data-label': 'Vaga' }, [el('span', { class: 'port-name', text: 'Vaga ' + j })]),
+        el('td', { class: 'left', 'data-label': 'Mercadoria' }, [makeEditor('markets.' + k + '.goods.' + j, 'Vaga ' + j + ': mercadoria')]),
+        el('td', { 'data-label': 'Requisito' }, [makeEditor('markets.' + k + '.req.' + j, 'Vaga ' + j + ': requisito')]),
+        el('td', { 'data-label': 'Preço base de compra' }, [makeEditor('markets.' + k + '.buy.' + j, 'Vaga ' + j + ': preço base de compra')])
+      ]));
+    }
+    var head = el('thead', null, [el('tr', null, [
+      el('th', { class: 'sticky left', scope: 'col', text: 'Vaga' }),
+      el('th', { class: 'left', scope: 'col', text: 'Mercadoria', title: 'Tabela 3, bytes 9 a 17 (255 = vaga vazia).' }),
+      el('th', { scope: 'col', text: 'Requisito', title: 'Tabela 3, bytes 0 a 8.' }),
+      el('th', { scope: 'col', text: 'Preço base de compra', title: 'Tabela 3, bytes 18 a 35 (u16). O que o jogador paga, antes do índice do porto.' })
+    ])]);
+    panel.appendChild(el('div', { class: 'table-wrap auto cards fit' }, [el('table', { class: 'grid slots' }, [head, tbody])]));
+
+    panel.appendChild(el('h3', { text: 'Preços de venda' }));
+    panel.appendChild(el('p', { class: 'note', text: 'Preço base que o mercado paga ao jogador por cada mercadoria, antes do índice do porto (tabela 3, bytes 36 a 87).' }));
+    var grid = el('div', { class: 'sell-grid' });
+    for (var g = 0; g < C.N_GOODS; g++) {
+      var id = 'markets.' + k + '.sell.' + g;
+      var editor = makeEditor(id, 'Preço de venda de ' + app.state.goods[g]);
+      var inputId = 'sell-' + k + '-' + g;
+      editor.querySelector('[data-field]').id = inputId;
+      grid.appendChild(el('div', { class: 'sell-item' }, [
+        el('label', { for: inputId }, [el('span', { class: 'gid', text: String(g) }), app.state.goods[g]]),
+        editor
+      ]));
+    }
+    panel.appendChild(grid);
+    renderStatus();
+  }
+
+  /* ---------- aba Prévia ---------- */
+
+  function portButton(i) {
+    return el('button', { type: 'button', class: 'linkish', 'data-preview-port': String(i), text: app.state.ports[i].name });
+  }
+
+  function renderPrevia() {
+    var panel = $('panel-previa');
+    panel.textContent = '';
+    var i = app.previewPort;
+    var port = app.state.ports[i];
+    var select = el('select', { id: 'preview-port' });
+    app.state.ports.forEach(function (p, idx) { select.appendChild(el('option', { value: String(idx), text: portLabel(idx) })); });
+    select.value = String(i);
+    select.addEventListener('change', function () { app.previewPort = +select.value; renderPrevia(); });
+    panel.appendChild(el('div', { class: 'panel-head' }, [
+      el('label', { class: 'field-inline', for: 'preview-port' }, ['Porto', select])
+    ]));
+    panel.appendChild(el('p', { class: 'note', text: 'Preços com os valores atuais do editor e o índice inicial do porto. No jogo, o índice muda com o tempo e com o comércio.' }));
+    panel.appendChild(el('p', { class: 'note', text: 'Fórmula: preço = base x (índice + 50) / 100, arredondado para baixo. Exceção: quando o porto compra a própria especial (se ela estiver à venda nele), paga a metade do preço de compra dela, arredondada para baixo, mais 1.' }));
+
+    var offers = C.portOffers(app.state, i);
+    panel.appendChild(el('ul', { class: 'summary' }, [
+      el('li', null, ['Valor econômico', el('b', { text: fmt(port.econ_worth) })]),
+      el('li', null, ['Índice de preço', el('b', { text: port.price_index + ' (efetivo ' + offers.index + ' %)' })]),
+      el('li', null, ['Mercado', el('b', { text: offers.marketKnown ? String(port.market) : port.market + ' (fora do padrão)' })]),
+      el('li', null, ['Região (provável)', el('b', { text: REGIONS[port.mkt_b4] || String(port.mkt_b4) })])
+    ]));
+
+    // O que vende
+    var sellRows = [];
+    offers.slots.forEach(function (s) {
+      if (s.empty) return;
+      sellRows.push({ good: s.good, origin: 'Vaga ' + s.slot, base: s.base, price: s.price, available: s.available, reqWorth: s.reqWorth, known: s.known, special: false });
+    });
+    if (offers.special) {
+      var sp = offers.special;
+      sellRows.push({ good: sp.good, origin: 'Especial', base: sp.base, price: sp.price, available: sp.available, reqWorth: sp.reqWorth, known: sp.known, special: true });
+    }
+    var vb = el('tbody');
+    if (!sellRows.length) vb.appendChild(el('tr', null, [el('td', { class: 'left', colspan: '4', text: 'Este porto não vende nada.' })]));
+    sellRows.forEach(function (r) {
+      var status = r.available ? el('span', { class: 'tag ok', text: 'à venda' })
+        : el('span', { class: 'tag', text: r.known ? 'requer valor econ. ≥ ' + fmt(r.reqWorth) : 'mercadoria fora do padrão' });
+      vb.appendChild(el('tr', { class: r.available ? null : 'unavailable' }, [
+        el('td', { class: 'left' }, [C.goodName(app.state, r.good) || ('valor ' + r.good), ' ',
+          r.special ? el('span', { class: 'tag special', text: 'especial' }) : el('span', { class: 'sub-line', text: r.origin })]),
+        el('td', { text: fmt(r.base) }),
+        el('td', null, [el('span', { class: 'price', text: fmt(r.price) })]),
+        el('td', { class: 'left' }, [status])
+      ]));
+    });
+    var vendeTable = el('table', { class: 'grid' }, [el('thead', null, [el('tr', null, [
+      el('th', { class: 'left', scope: 'col', text: 'Mercadoria' }),
+      el('th', { scope: 'col', text: 'Base' }),
+      el('th', { scope: 'col', text: 'Preço' }),
+      el('th', { class: 'left', scope: 'col', text: 'Situação' })
+    ])]), vb]);
+
+    // Quanto paga
+    var pb = el('tbody');
+    var bids = C.portBids(app.state, i);
+    if (!bids.length) pb.appendChild(el('tr', null, [el('td', { class: 'left', colspan: '3', text: 'Mercado fora do padrão: sem preços de venda.' })]));
+    bids.forEach(function (b) {
+      pb.appendChild(el('tr', { 'data-good': String(b.good), class: b.ownSpecial ? 'own-special' : null }, [
+        el('td', { class: 'left' }, [app.state.goods[b.good],
+          b.ownSpecial ? el('span', { class: 'sub-line', text: 'especial do porto: metade do preço de compra + 1' }) : null]),
+        el('td', { text: fmt(b.base),
+          title: b.ownSpecial ? 'Preço base da especial (campo +12). Pelo preço de venda normal, pagaria ' + fmt(b.normalPrice) + '.' : null }),
+        el('td', null, [el('span', { class: 'price', text: fmt(b.price) })])
+      ]));
+    });
+    var pagaTable = el('table', { class: 'grid' }, [el('thead', null, [el('tr', null, [
+      el('th', { class: 'left', scope: 'col', text: 'Mercadoria' }),
+      el('th', { scope: 'col', text: 'Base' }),
+      el('th', { scope: 'col', text: 'Preço' })
+    ])]), pb]);
+
+    panel.appendChild(el('div', { class: 'two-col' }, [
+      el('div', null, [el('h3', { text: 'O que ' + port.name + ' vende' }), el('div', { class: 'table-wrap auto' }, [vendeTable])]),
+      el('div', null, [el('h3', { text: 'Quanto ' + port.name + ' paga' }), el('div', { class: 'table-wrap auto' }, [pagaTable])])
+    ]));
+
+    // Melhor lucro
+    var sortSel = el('select', { id: 'profit-sort' }, [
+      el('option', { value: 'mercadoria', text: 'mercadoria' }),
+      el('option', { value: 'lucro', text: 'maior lucro' })
+    ]);
+    sortSel.value = app.profitSort;
+    sortSel.addEventListener('change', function () { app.profitSort = sortSel.value; renderPrevia(); });
+    panel.appendChild(el('div', { class: 'panel-head' }, [
+      el('div', null, [
+        el('h3', { text: 'Melhor lucro' }),
+        el('p', { class: 'note', text: 'Para cada mercadoria, o porto mais barato para comprar e o porto que paga mais, todos no início do jogo e já com a regra da especial do porto. Toque no nome de um porto para abrir a prévia dele.' })
+      ]),
+      el('label', { class: 'field-inline', for: 'profit-sort' }, ['Ordenar por', sortSel])
+    ]));
+    var rows = C.bestProfit(app.state);
+    if (app.profitSort === 'lucro') {
+      rows = rows.slice().sort(function (a, b) {
+        var pa = a.profit === null ? -Infinity : a.profit, pb2 = b.profit === null ? -Infinity : b.profit;
+        return pb2 - pa || a.good - b.good;
+      });
+    }
+    var lb = el('tbody');
+    rows.forEach(function (r) {
+      var buyCell = r.buy
+        ? [portButton(r.buy.port), el('span', { class: 'sub-line', text: fmt(r.buy.price) + (r.buy.source === 'especial' ? ' (especial)' : ' (vaga ' + r.buy.slot + ')') })]
+        : [el('span', { class: 'note', text: 'nenhum porto vende' })];
+      var sellCell = r.sell ? [portButton(r.sell.port), el('span', { class: 'sub-line', text: fmt(r.sell.price) })] : ['?'];
+      lb.appendChild(el('tr', null, [
+        el('td', { class: 'left', text: r.name }),
+        el('td', { class: 'left' }, buyCell),
+        el('td', { class: 'left' }, sellCell),
+        el('td', null, [r.profit === null ? '' : el('span', { class: 'price' + (r.profit < 0 ? ' neg' : ''), text: fmt(r.profit) })])
+      ]));
+    });
+    panel.appendChild(el('div', { class: 'table-wrap auto' }, [el('table', { class: 'grid profit' }, [el('thead', null, [el('tr', null, [
+      el('th', { class: 'left', scope: 'col', text: 'Mercadoria' }),
+      el('th', { class: 'left', scope: 'col', text: 'Compra mais barata' }),
+      el('th', { class: 'left', scope: 'col', text: 'Venda mais cara' }),
+      el('th', { scope: 'col', text: 'Lucro por unidade' })
+    ])]), lb])]));
+  }
+
+  /* ---------- navegação ---------- */
+
+  function setTab(name) {
+    app.tab = name;
+    ['portos', 'mercados', 'previa'].forEach(function (t) {
+      $('tab-' + t).setAttribute('aria-selected', t === name ? 'true' : 'false');
+      $('panel-' + t).hidden = t !== name;
+    });
+    renderTab();
+  }
+
+  function renderTab() {
+    if (!app.state) return;
+    if (app.tab === 'portos') renderPortos();
+    else if (app.tab === 'mercados') renderMercados();
+    else renderPrevia();
+    renderStatus();
+  }
+
+  /* ---------- abrir, exportar, importar ---------- */
+
+  function showLoadError(msg) {
+    if (app.state) { toast(msg, 'erro'); return; }
+    var e = $('load-error');
+    e.textContent = msg;
+    e.hidden = false;
+  }
+
+  function loadRomFile(file) {
+    if (!unsaved()) { openRomNow(file); return; }
+    askConfirm('Há alterações não exportadas. Abrir "' + file.name + '" descarta essas alterações.', 'Descartar e abrir').then(function (ok) {
+      if (ok) openRomNow(file);
+    });
+  }
+
+  function openRomNow(file) {
+    readFile(file).then(function (bytes) {
+      var r;
+      try { r = C.openRom(bytes); }
+      catch (err) { showLoadError('Não foi possível abrir "' + file.name + '". ' + err.message); return; }
+      app.file = r.file;
+      app.headerSize = r.headerSize;
+      app.fileName = file.name;
+      app.checksum = r.checksum;
+      app.original = C.clone(r.state);
+      app.state = C.clone(r.state);
+      app.savedSig = signature();
+      app.previewPort = 0;
+      app.market = 0;
+      app.filter = '';
+      $('load-error').hidden = true;
+      $('welcome').hidden = true;
+      $('editor').hidden = false;
+      $('actions').hidden = false;
+      setTab(app.tab);
+      toast('ROM aberta: ' + file.name + '.', 'ok');
+    }, function (err) { showLoadError(err.message); });
+  }
+
+  function importJsonFile(file) {
+    if (!app.state) { showLoadError('Abra a ROM antes de importar um JSON.'); return; }
+    readFile(file).then(function (bytes) {
+      var text;
+      try { text = new TextDecoder('utf-8').decode(bytes); }
+      catch (err) { toast('Não foi possível ler "' + file.name + '" como texto.', 'erro'); return; }
+      var next;
+      try { next = C.importJSON(text, app.original, app.original); }
+      catch (err) { toast('Não foi possível importar "' + file.name + '". ' + err.message, 'erro'); return; }
+      app.state = next;
+      app.savedSig = signature();
+      renderTab();
+      var n = C.diff(app.original, app.state).length;
+      toast('JSON importado: ' + plural(n, 'alteração', 'alterações') + ' em relação à ROM aberta.', 'ok');
+    }, function (err) { toast(err.message, 'erro'); });
+  }
+
+  function exportRom() {
+    var out;
+    try { out = C.exportRom(app.file, app.headerSize, app.state, app.original); }
+    catch (err) { toast(err.message, 'erro'); return Promise.resolve(); }
+    var rom = out.subarray(app.headerSize);
+    if (!C.verifyChecksum(rom)) { toast('O checksum do arquivo gerado não confere. Nada foi baixado.', 'erro'); return Promise.resolve(); }
+    var sig = signature();
+    var n = C.diff(app.original, app.state).length;
+    var checksum = C.hex(C.readChecksum(rom).checksum, 4);
+    var header = app.headerSize ? ', header de 512 bytes mantido' : '';
+    return withBusy($('btn-export-rom'), function () {
+      return deliver(
+        { bytes: out, name: ROM_NAME, mime: 'application/octet-stream' },
+        { name: ZIP_NAME, blob: function () { return new Blob([C.romZip(out)], { type: 'application/zip' }); } }
+      ).then(function (how) {
+        if (!how) return;
+        app.savedSig = sig;
+        toast((how === 'host' ? 'ROM exportada em ' + ZIP_NAME + ' (extraia o .sfc) com ' : 'ROM exportada com ') +
+          plural(n, 'alteração', 'alterações') + '. Checksum ' + checksum + header + '.', 'ok');
+      });
+    });
+  }
+
+  function exportJson() {
+    var text = C.exportJSON(app.state);
+    var sig = signature();
+    return withBusy($('btn-export-json'), function () {
+      return deliver(
+        { bytes: text, name: JSON_NAME, mime: 'application/json' },
+        { name: JSON_NAME, blob: function () { return new Blob([text], { type: 'application/json' }); } }
+      ).then(function (how) {
+        if (!how) return;
+        app.savedSig = sig;
+        toast('JSON exportado: ' + JSON_NAME + '.', 'ok');
+      });
+    });
+  }
+
+  function undoAll() {
+    var n = C.diff(app.original, app.state).length;
+    if (!n) { toast('Nada para desfazer.'); return; }
+    askConfirm('Desfazer ' + plural(n, 'alteração', 'alterações') + ' e voltar aos valores da ROM aberta?', 'Desfazer tudo').then(function (ok) {
+      if (!ok) return;
+      app.state = C.clone(app.original);
+      renderTab();
+      toast('Alterações desfeitas. Os valores são os da ROM aberta.', 'ok');
+    });
+  }
+
+  function isJsonFile(file) { return /\.json$/i.test(file.name) || file.type === 'application/json'; }
+
+  function handleDroppedFile(file) {
+    if (isJsonFile(file)) importJsonFile(file); else loadRomFile(file);
+  }
+
+  /* ---------- eventos ---------- */
+
+  document.addEventListener('change', function (e) {
+    if (e.target && e.target.hasAttribute && e.target.hasAttribute('data-field')) onFieldChange(e.target);
+  });
+  document.addEventListener('input', function (e) {
+    if (e.target && e.target.hasAttribute && e.target.hasAttribute('data-field')) onFieldInput(e.target);
+  });
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest('[data-tab],[data-market],[data-preview-port]') : null;
+    if (!t) return;
+    if (t.hasAttribute('data-tab')) setTab(t.getAttribute('data-tab'));
+    else if (t.hasAttribute('data-market')) { app.market = +t.getAttribute('data-market'); renderMercados(); }
+    else if (t.hasAttribute('data-preview-port')) {
+      app.previewPort = +t.getAttribute('data-preview-port');
+      renderPrevia();
+      $('panel-previa').scrollIntoView({ block: 'start' });
+    }
+  });
+  document.querySelector('.tabs').addEventListener('keydown', function (e) {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    var order = ['portos', 'mercados', 'previa'];
+    var next = order[(order.indexOf(app.tab) + (e.key === 'ArrowRight' ? 1 : 2)) % 3];
+    setTab(next);
+    $('tab-' + next).focus();
+  });
+
+  $('btn-pick-rom').addEventListener('click', function (e) { e.stopPropagation(); $('rom-input').click(); });
+  $('dropzone').addEventListener('click', function () { $('rom-input').click(); });
+  $('btn-open-other').addEventListener('click', function () { $('rom-input').click(); });
+  $('btn-import-json').addEventListener('click', function () { $('json-input').click(); });
+  $('btn-export-rom').addEventListener('click', exportRom);
+  $('btn-export-json').addEventListener('click', exportJson);
+  $('btn-undo-all').addEventListener('click', undoAll);
+  $('modal-ok').addEventListener('click', function () { closeModal(true); });
+  $('modal-cancel').addEventListener('click', function () { closeModal(false); });
+  $('modal').addEventListener('click', function (e) { if (e.target === $('modal')) closeModal(false); });
+  $('modal').addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') { e.preventDefault(); closeModal(false); return; }
+    if (e.key === 'Tab') {   // foco preso nos dois botões
+      var first = $('modal-cancel'), last = $('modal-ok');
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+  $('rom-input').addEventListener('change', function () {
+    var f = this.files && this.files[0];
+    this.value = '';
+    if (f) loadRomFile(f);
+  });
+  $('json-input').addEventListener('change', function () {
+    var f = this.files && this.files[0];
+    this.value = '';
+    if (f) importJsonFile(f);
+  });
+
+  var dragDepth = 0;
+  document.addEventListener('dragenter', function (e) { e.preventDefault(); dragDepth++; document.body.classList.add('dragging'); });
+  document.addEventListener('dragleave', function () { dragDepth = Math.max(0, dragDepth - 1); if (!dragDepth) document.body.classList.remove('dragging'); });
+  document.addEventListener('dragover', function (e) { e.preventDefault(); });
+  document.addEventListener('drop', function (e) {
+    e.preventDefault();
+    dragDepth = 0;
+    document.body.classList.remove('dragging');
+    var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (f) handleDroppedFile(f);
+  });
+  window.addEventListener('beforeunload', function (e) {
+    if (unsaved()) { e.preventDefault(); e.returnValue = ''; }
+  });
+})();
+</script>
+</body>
+</html>

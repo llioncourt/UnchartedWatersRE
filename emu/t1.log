@@ -1,0 +1,4 @@
+lua start
+frame 599
+shot true nil
+ram 9C=00 9D=00
