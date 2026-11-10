@@ -52,3 +52,24 @@ Base para o walkthrough Master Play. Cada regra aponta a função de onde saiu.
 
 ## Itens citados pela tripulação (`uminato2`)
 - Figurehead (proteção contra desastre), telescope, sextant, speculum. Falta decodificar onde se obtêm e o efeito.
+
+## Itens (`fdata $1604`, 17 bytes: nome[15] + preço; tipo/poder em `fdata $1824`)
+Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o maior poder entre os itens daquele tipo.
+
+| Tipo | Itens (poder, preço) | Efeito |
+| --- | --- | --- |
+| 0 instrumentos | Telescope (1, 1.000), Sextant (2, 800), Speculum (3, 12.000) | navegação (a decodificar em `ucom`) |
+| 1 amuletos | Nymph (1, 1.500), Sun (2, 3.000), Angel (3, 7.500), Shining (4, 12.000) | na batalha, dano recebido −10% por nível (`senmain AAB0`) |
+| 2 armas | Dagger (1, 750), Sword (2, 2.000), Sabre (3, 3.500), Chinese Sword (4, 8.000) | força do capitânia +12,5% por nível (`senmain A90C`) |
+| 3 ícones | Falcon (1, 1.200), Hawk (2, 4.800), Eagle (3, 9.600), Dragon (4, 15.000) | valor de combate +12,5% por nível, máx. 100 (`senmain AA3F`) |
+| 4 objetos de valor | Coral Ring, Ivory Box, Candlestick, Gold Nugget, Silver Rosary, Pearl/Coral/Gold Bracelet, Sapphire, Ruby, Opal, Emerald, Crown, Jewelled Ladle, Ring, Silver Comb (800 a 15.000) | presentes/venda (a decodificar em `s_onna`) |
+
+## Estaleiro (`zousen`, `z_tyuuko`, `z_sinzou`)
+- Serviços: consertar, vender, comprar usado, construir, remodelar (canhões Culverin/Cannon, velas de 3 ou 4 pontas), carranca (Unicorn, Dragon, Neptune; Venus rara), renomear (10 de ouro), investir (indústria; em porto estrangeiro precisa do consentimento do rei/sultão).
+- Classes (`fdata $0418`, 21 bytes): Latin, Redonda (capacidade 70), Bergantin (105), Nao (310), Carrack (420), Galleon (490). Para construir: casco Teak, Beach ou Mahogany; mastros; velas 3 pontas (bolina) ou 4 pontas (popa); canhões e beliches. Heavy Galleon só em poucos portos.
+- O Hermes do início é uma Latin (capacidade 70).
+
+## Porto (`um_sub`, `uminato2`, `hantei`)
+- Hospedagem (inn), informação sobre nações (pago), loja de itens (compra e venda de tesouros), encomendas de mercadores.
+- Cais: Sail, Restock (água, comida, madeira), Transfer.
+- Em porto hostil, oficiais podem confiscar a carga; dá para subornar (`hantei`).
