@@ -19,7 +19,7 @@ S_TOBAKU_F_B80F:
   k_callx RF_60CE, 4
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $B9F6
+  k_pushiw S_TOBAKU_D_B9F6
   k_callx RF_4B44, 2
   k_ldlba $EF69
   k_ldri 14
@@ -76,12 +76,12 @@ S_TOBAKU_L_B883:
   k_jumpf S_TOBAKU_L_B895
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BA17
+  k_pushiw S_TOBAKU_D_BA17
   k_jump S_TOBAKU_L_B89C
 S_TOBAKU_L_B895:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BA43
+  k_pushiw S_TOBAKU_D_BA43
 S_TOBAKU_L_B89C:
   k_callx RF_2FB9, 4
   k_pushi 1
@@ -95,7 +95,7 @@ S_TOBAKU_L_B8A7:
   k_jump S_TOBAKU_L_B8CB
 S_TOBAKU_L_B8AF:
   k_ldlbf -2
-  k_ldriw $B9F0
+  k_ldriw S_TOBAKU_D_B9F0
   k_add
   k_derefb
   k_pushl
@@ -138,7 +138,7 @@ S_TOBAKU_L_B8FB:
   k_call RF_60B2
   k_ldlbf -1
   k_pushl
-  k_pushiw $BA7D
+  k_pushiw S_TOBAKU_D_BA7D
   k_callx RF_3619, 4
   k_pushi 1
   k_callx RF_3DDF, 2
@@ -156,7 +156,7 @@ S_TOBAKU_F_B91A:
   k_callx RF_60CE, 4
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $BAA5
+  k_pushiw S_TOBAKU_D_BAA5
   k_callx RF_4B44, 2
   k_ldlba $EF69
   k_ldri 14
@@ -198,12 +198,12 @@ S_TOBAKU_L_B974:
   k_jumpf S_TOBAKU_L_B986
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BAD7
+  k_pushiw S_TOBAKU_D_BAD7
   k_jump S_TOBAKU_L_B98D
 S_TOBAKU_L_B986:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BB02
+  k_pushiw S_TOBAKU_D_BB02
 S_TOBAKU_L_B98D:
   k_callx RF_2FB9, 4
   k_pushi 1
@@ -221,11 +221,11 @@ S_TOBAKU_F_B99F:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $BB4B
+  k_pushiw S_TOBAKU_D_BB4B
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushi 2
-  k_pushiw $BB32
+  k_pushiw S_TOBAKU_D_BB32
   k_pushi 1
   k_pushi 8
   k_pushib 23
@@ -238,7 +238,7 @@ S_TOBAKU_F_B99F:
   k_jumpf S_TOBAKU_L_B9EB
   k_ldlbf -2
   k_shl1
-  k_ldriw $BB36
+  k_ldriw S_TOBAKU_D_BB36
   k_add
   k_deref
   k_callptr
@@ -252,40 +252,31 @@ S_TOBAKU_L_B9E5:
 S_TOBAKU_L_B9EB:
   k_ldlbf -2
   k_return
-  .byte $00, $02, $04, $10, $20, $40, $80
-  .byte "Anyone care for a"
-  .byte $0A
-  .byte "game of Poker?"
   .byte $00
-  .byte "I must have pocketed"
-  .byte $0A
-  .byte "too much in this port!"
+S_TOBAKU_D_B9F0:
+  .byte $02, $04, $10, $20, $40, $80
+S_TOBAKU_D_B9F6:
+  .byte "Anyone care for a", $0A, "game of Poker?", $00
+S_TOBAKU_D_BA17:
+  .byte "I must have pocketed", $0A, "too much in this port!", $00
+S_TOBAKU_D_BA43:
+  .byte "This blasted port! Nota man here will play", $0A, "cards with us!", $00
+S_TOBAKU_D_BA7D:
+  .byte "What's this?  Only %d", $0A, "of you will play?", $00
+S_TOBAKU_D_BAA5:
+  .byte "Anyone around here", $0A, "care for a game of", $0A, "Black Jack?", $00
+S_TOBAKU_D_BAD7:
+  .byte "I must have cleaned", $0A, "them out in this port!", $00
+S_TOBAKU_D_BB02:
+  .byte "Confounded port!", $0A, "There's no one willingto play!", $00
+S_TOBAKU_D_BB32:
+  .word S_TOBAKU_D_BB3A, S_TOBAKU_D_BB40
+S_TOBAKU_D_BB36:
+  .word S_TOBAKU_F_B80F, S_TOBAKU_F_B91A
+S_TOBAKU_D_BB3A:
+  .byte "Poker", $00
+S_TOBAKU_D_BB40:
+  .byte "Black Jack", $00
+S_TOBAKU_D_BB4B:
+  .byte "Which game?", $00
   .byte $00
-  .byte "This blasted port! Nota man here will play"
-  .byte $0A
-  .byte "cards with us!"
-  .byte $00
-  .byte "What's this?  Only %d"
-  .byte $0A
-  .byte "of you will play?"
-  .byte $00
-  .byte "Anyone around here"
-  .byte $0A
-  .byte "care for a game of"
-  .byte $0A
-  .byte "Black Jack?"
-  .byte $00
-  .byte "I must have cleaned"
-  .byte $0A
-  .byte "them out in this port!"
-  .byte $00
-  .byte "Confounded port!"
-  .byte $0A
-  .byte "There's no one willingto play!"
-  .byte $00, $3A, $BB, $40, $BB, $0F, $B8, $1A, $B9
-  .byte "Poker"
-  .byte $00
-  .byte "Black Jack"
-  .byte $00
-  .byte "Which game?"
-  .byte $00, $00

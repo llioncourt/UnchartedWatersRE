@@ -85,7 +85,7 @@ SAKABA_F_B080:
   k_stla $F9A8
   k_ldlarg 11
   k_shl1
-  k_ldriw $B1B0
+  k_ldriw SAKABA_D_B1B0
   k_add
   k_deref
   k_pushl
@@ -133,7 +133,7 @@ SAKABA_L_B0DA:
   k_pushi 7
   k_callx RF_60CE, 4
   k_call RF_60B2
-  k_pushiw $B297
+  k_pushiw SAKABA_D_B297
   k_callx RF_4B44, 2
   k_ldlba $EF69
   k_ldri 5
@@ -160,7 +160,7 @@ SAKABA_L_B0DA:
   k_ldrib 45
   k_udiv
   k_shl1
-  k_ldriw $B200
+  k_ldriw SAKABA_D_B200
   k_add
   k_deref
   k_pushl
@@ -171,12 +171,12 @@ SAKABA_L_B135:
   k_call RF_60EE
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $B2B4
+  k_pushiw SAKABA_D_B2B4
   k_callx RF_4B44, 2
   k_call RF_6080
   k_pushi 3
   k_pushi 6
-  k_pushiw $B1F4
+  k_pushiw SAKABA_D_B1F4
   k_pushi 2
   k_pushi 12
   k_pushib 21
@@ -230,51 +230,51 @@ SAKABA_L_B1A3:
 SAKABA_L_B1AD:
   k_ldl -6
   k_return
-  .byte $00, $BE, $B1, $C5, $B1, $CD, $B1, $D5, $B1, $DC, $B1, $E3, $B1, $EC, $B1
-  .byte "s_nori"
   .byte $00
-  .byte "s_nsaso"
+SAKABA_D_B1B0:
+  .word SAKABA_D_B1BE, SAKABA_D_B1C5, SAKABA_D_B1CD, SAKABA_D_B1D5, SAKABA_D_B1DC, SAKABA_D_B1E3, SAKABA_D_B1EC
+SAKABA_D_B1BE:
+  .byte "s_nori", $00
+SAKABA_D_B1C5:
+  .byte "s_nsaso", $00
+SAKABA_D_B1CD:
+  .byte "s_nwaka", $00
+SAKABA_D_B1D5:
+  .byte "s_sake", $00
+SAKABA_D_B1DC:
+  .byte "s_onna", $00
+SAKABA_D_B1E3:
+  .byte "s_tobaku", $00
+SAKABA_D_B1EC:
+  .byte "s_ibent", $00
+SAKABA_D_B1F4:
+  .word SAKABA_D_B20A, SAKABA_D_B20F, SAKABA_D_B21A, SAKABA_D_B225, SAKABA_D_B22C, SAKABA_D_B230
+SAKABA_D_B200:
+  .word SAKABA_D_B237, SAKABA_D_B240, SAKABA_D_B249, SAKABA_D_B261, SAKABA_D_B27F
+SAKABA_D_B20A:
+  .byte "Crew", $00
+SAKABA_D_B20F:
+  .byte "Find mates", $00
+SAKABA_D_B21A:
+  .byte "Quit mates", $00
+SAKABA_D_B225:
+  .byte "Gossip", $00
+SAKABA_D_B22C:
+  .byte "Tip", $00
+SAKABA_D_B230:
+  .byte "Gamble", $00
+SAKABA_D_B237:
+  .byte "Hi there", $00
+SAKABA_D_B240:
+  .byte "Welcome!", $00
+SAKABA_D_B249:
+  .byte "Oh, you came after", $0A, "all!", $00
+SAKABA_D_B261:
+  .byte "Tell me about your", $0A, "adventures", $00
+SAKABA_D_B27F:
+  .byte "I'm so happy to see", $0A, "you", $00
+SAKABA_D_B297:
+  .byte "Make yerself at home,", $0A, "friend", $00
+SAKABA_D_B2B4:
+  .byte "What shall we do,", $0A, "Captain?", $00
   .byte $00
-  .byte "s_nwaka"
-  .byte $00
-  .byte "s_sake"
-  .byte $00
-  .byte "s_onna"
-  .byte $00
-  .byte "s_tobaku"
-  .byte $00
-  .byte "s_ibent"
-  .byte $00, $0A, $B2, $0F, $B2, $1A, $B2, $25, $B2, $2C, $B2, $30, $B2, $37, $B2, $40
-  .byte $B2, $49, $B2, $61, $B2, $7F, $B2
-  .byte "Crew"
-  .byte $00
-  .byte "Find mates"
-  .byte $00
-  .byte "Quit mates"
-  .byte $00
-  .byte "Gossip"
-  .byte $00, $54, $69, $70, $00
-  .byte "Gamble"
-  .byte $00
-  .byte "Hi there"
-  .byte $00
-  .byte "Welcome!"
-  .byte $00
-  .byte "Oh, you came after"
-  .byte $0A
-  .byte "all!"
-  .byte $00
-  .byte "Tell me about your"
-  .byte $0A
-  .byte "adventures"
-  .byte $00
-  .byte "I'm so happy to see"
-  .byte $0A, $79, $6F, $75, $00
-  .byte "Make yerself at home,"
-  .byte $0A
-  .byte "friend"
-  .byte $00
-  .byte "What shall we do,"
-  .byte $0A
-  .byte "Captain?"
-  .byte $00, $00

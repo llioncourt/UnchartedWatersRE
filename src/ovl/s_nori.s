@@ -30,7 +30,7 @@ S_NORI_F_B80F:
   k_eq
   k_jumpf S_NORI_L_B83D
   k_call RF_60B2
-  k_pushiw $B9B0
+  k_pushiw S_NORI_D_B9B0
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -40,7 +40,7 @@ S_NORI_L_B83D:
   k_ult
   k_jumpf S_NORI_L_B852
   k_call RF_60B2
-  k_pushiw $B9CE
+  k_pushiw S_NORI_D_B9CE
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -55,7 +55,7 @@ S_NORI_L_B852:
   k_callx RF_609A, 2
   k_push -10
   k_pushib 50
-  k_pushiw $B9E8
+  k_pushiw S_NORI_D_B9E8
   k_callx RF_3C6D, 6
   k_stl -2
   k_ldl -2
@@ -72,12 +72,12 @@ S_NORI_L_B878:
   k_stla $E56D
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $B9F8
+  k_pushiw S_NORI_D_B9F8
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $BA20
+  k_pushiw S_NORI_D_BA20
   k_callx RF_2FB9, 4
   k_pushi 1
   k_callx RF_3DDF, 2
@@ -139,14 +139,14 @@ S_NORI_L_B878:
   k_pushi 1
   k_callx RF_609A, 2
   k_push -6
-  k_pushiw $BA22
+  k_pushiw S_NORI_D_BA22
   k_callx RF_3608, 4
   k_ldl -6
   k_ldr -12
   k_gt
   k_jumpf S_NORI_L_B90A
   k_push -8
-  k_pushiw $BA33
+  k_pushiw S_NORI_D_BA33
   k_callx RF_3608, 4
 S_NORI_L_B90A:
   k_pushi 2
@@ -203,11 +203,11 @@ S_NORI_L_B969:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $BA65
+  k_pushiw S_NORI_D_BA65
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushi 2
-  k_pushiw $BA4E
+  k_pushiw S_NORI_D_BA4E
   k_pushi 1
   k_pushi 9
   k_pushib 23
@@ -220,7 +220,7 @@ S_NORI_L_B969:
   k_jumpf S_NORI_L_B99F
   k_ldlbf -1
   k_shl1
-  k_ldriw $BA52
+  k_ldriw S_NORI_D_BA52
   k_add
   k_deref
   k_callptr
@@ -236,29 +236,27 @@ S_NORI_L_B9AD:
   k_ldl -4
   k_return
   .byte $00
-  .byte "There's no room for"
-  .byte $0A
-  .byte "more crew"
-  .byte $00
-  .byte "We don't have enough"
-  .byte $0A
-  .byte "gold"
-  .byte $00
-  .byte "Spend how much"
-  .byte $0A, $00, $0A
-  .byte "Hey! Anyone want to"
-  .byte $0A, $0A
-  .byte "sail with Cap'n"
-  .byte $0A, $0A, $00, $3F, $00, $0A
-  .byte "We found %d men"
-  .byte $00
-  .byte ", but"
-  .byte $0A, $0A
-  .byte "only %d can join us"
-  .byte $00, $56, $BA, $5E, $BA, $0F, $B8, $3B, $B9
-  .byte "Recruit"
-  .byte $00
-  .byte "Assign"
-  .byte $00
-  .byte "Which one?"
-  .byte $00
+S_NORI_D_B9B0:
+  .byte "There's no room for", $0A, "more crew", $00
+S_NORI_D_B9CE:
+  .byte "We don't have enough", $0A, "gold", $00
+S_NORI_D_B9E8:
+  .byte "Spend how much", $0A, $00
+S_NORI_D_B9F8:
+  .byte $0A, "Hey! Anyone want to", $0A, $0A, "sail with Cap'n", $0A, $0A, $00
+S_NORI_D_BA20:
+  .byte $3F, $00
+S_NORI_D_BA22:
+  .byte $0A, "We found %d men", $00
+S_NORI_D_BA33:
+  .byte ", but", $0A, $0A, "only %d can join us", $00
+S_NORI_D_BA4E:
+  .word S_NORI_D_BA56, S_NORI_D_BA5E
+S_NORI_D_BA52:
+  .word S_NORI_F_B80F, S_NORI_F_B93B
+S_NORI_D_BA56:
+  .byte "Recruit", $00
+S_NORI_D_BA5E:
+  .byte "Assign", $00
+S_NORI_D_BA65:
+  .byte "Which one?", $00

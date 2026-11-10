@@ -350,21 +350,21 @@ S_SAKE_F_BA0A:
   k_callx RF_3F3E, 2
   k_jumpf S_SAKE_L_BA2D
   k_pushi 0
-  k_pushiw $C680
+  k_pushiw S_SAKE_D_C680
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C689
+  k_pushiw S_SAKE_D_C689
   k_jump S_SAKE_L_BA40
 S_SAKE_L_BA2D:
   k_pushi 0
-  k_pushiw $C698
+  k_pushiw S_SAKE_D_C698
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C6B4
+  k_pushiw S_SAKE_D_C6B4
 S_SAKE_L_BA40:
   k_callx RF_2FB9, 4
   k_return
@@ -415,18 +415,18 @@ S_SAKE_L_BA7C:
   k_push -8
   k_ldl -4
   k_shl1
-  k_ldriw $C6BB
+  k_ldriw S_SAKE_D_C6BB
   k_add
   k_deref
   k_pushl
   k_push -6
   k_ldl -2
   k_shl1
-  k_ldriw $C6B7
+  k_ldriw S_SAKE_D_C6B7
   k_add
   k_deref
   k_pushl
-  k_pushiw $C6C7
+  k_pushiw S_SAKE_D_C6C7
   k_callx RF_3608, 10
   k_return
 S_SAKE_F_BA99:
@@ -440,7 +440,7 @@ S_SAKE_F_BA99:
   k_push -2
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C6D5
+  k_pushiw S_SAKE_D_C6D5
   k_callx RF_2FB9, 4
   k_ldl -2
   k_addlib 16
@@ -475,11 +475,11 @@ S_SAKE_F_BACA:
   k_eq
   k_jumpf S_SAKE_L_BAF0
   k_pushi 0
-  k_pushiw $C6DA
+  k_pushiw S_SAKE_D_C6DA
   k_jump S_SAKE_L_BAF4
 S_SAKE_L_BAF0:
   k_pushi 0
-  k_pushiw $C6E0
+  k_pushiw S_SAKE_D_C6E0
 S_SAKE_L_BAF4:
   k_callx RF_2FB9, 4
   k_ldl -2
@@ -495,7 +495,7 @@ S_SAKE_F_BB09:
   k_func 8
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $C6E7
+  k_pushiw S_SAKE_D_C6E7
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_addlib 20
@@ -507,7 +507,7 @@ S_SAKE_F_BB09:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C6E9
+  k_pushiw S_SAKE_D_C6E9
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_dec
@@ -532,7 +532,7 @@ S_SAKE_F_BB09:
   k_eq
   k_jumpf S_SAKE_L_BB5F
   k_pushi 0
-  k_pushiw $C6F2
+  k_pushiw S_SAKE_D_C6F2
 S_SAKE_L_BB58:
   k_callx RF_2FB9, 4
   k_jump S_SAKE_L_BBC6
@@ -544,12 +544,12 @@ S_SAKE_L_BB5F:
   k_add
   k_stl -6
   k_pushi 0
-  k_pushiw $C70E
+  k_pushiw S_SAKE_D_C70E
   k_callx RF_2FB9, 4
   k_push -6
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C724
+  k_pushiw S_SAKE_D_C724
   k_callx RF_2FB9, 4
   k_ldl -6
   k_addlib 16
@@ -565,11 +565,11 @@ S_SAKE_L_BB90:
   k_ldl -2
   k_jumpt S_SAKE_L_BB9B
   k_pushi 0
-  k_pushiw $C729
+  k_pushiw S_SAKE_D_C729
   k_jump S_SAKE_L_BB58
 S_SAKE_L_BB9B:
   k_pushi 0
-  k_pushiw $C742
+  k_pushiw S_SAKE_D_C742
   k_callx RF_2FB9, 4
   k_push -2
   k_callx S_SAKE_F_BACA, 2
@@ -582,7 +582,7 @@ S_SAKE_L_BBAB:
   k_add
   k_stl -8
   k_pushi 0
-  k_pushiw $C74E
+  k_pushiw S_SAKE_D_C74E
   k_callx RF_2FB9, 4
   k_ldl -8
   k_inc
@@ -610,7 +610,7 @@ S_SAKE_F_BBC7:
   k_jumpf S_SAKE_L_BBF3
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C76B
+  k_pushiw S_SAKE_D_C76B
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_return
@@ -653,7 +653,7 @@ S_SAKE_L_BC16:
   k_jumpf S_SAKE_L_BC4A
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $C792
+  k_pushiw S_SAKE_D_C792
   k_callx RF_2FB9, 4
   k_push -4
   k_callx S_SAKE_F_BA99, 2
@@ -672,7 +672,7 @@ S_SAKE_L_BC4A:
   k_jumpt S_SAKE_L_BBF5
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C7BC
+  k_pushiw S_SAKE_D_C7BC
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_return
@@ -687,11 +687,11 @@ S_SAKE_F_BC63:
   k_ldlba $EF55
   k_jumpt S_SAKE_L_BC92
   k_pushi 0
-  k_pushiw $C7DC
+  k_pushiw S_SAKE_D_C7DC
   k_jump S_SAKE_L_BC8B
 S_SAKE_L_BC87:
   k_pushi 0
-  k_pushiw $C803
+  k_pushiw S_SAKE_D_C803
 S_SAKE_L_BC8B:
   k_callx RF_2FB9, 4
   k_jump S_SAKE_L_BCA8
@@ -699,7 +699,7 @@ S_SAKE_L_BC92:
   k_call S_SAKE_F_B966
   k_jumpt S_SAKE_L_BC87
   k_pushi 0
-  k_pushiw $C82A
+  k_pushiw S_SAKE_D_C82A
   k_callx RF_2FB9, 4
   k_ldlba $EF54
   k_pushl
@@ -720,7 +720,7 @@ S_SAKE_L_BCB2:
   k_jumpt S_SAKE_L_BD00
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $C847
+  k_pushiw S_SAKE_D_C847
   k_callx RF_2FB9, 4
   k_ldlba $EF57
   k_shl1
@@ -731,7 +731,7 @@ S_SAKE_L_BCB2:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C86E
+  k_pushiw S_SAKE_D_C86E
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -754,11 +754,11 @@ S_SAKE_L_BD00:
   k_ldlba $EF55
   k_jumpt S_SAKE_L_BD35
   k_pushi 0
-  k_pushiw $C87A
+  k_pushiw S_SAKE_D_C87A
   k_jump S_SAKE_L_BD2E
 S_SAKE_L_BD2A:
   k_pushi 0
-  k_pushiw $C896
+  k_pushiw S_SAKE_D_C896
 S_SAKE_L_BD2E:
   k_callx RF_2FB9, 4
   k_jump S_SAKE_L_BD52
@@ -766,7 +766,7 @@ S_SAKE_L_BD35:
   k_call S_SAKE_F_B966
   k_jumpt S_SAKE_L_BD2A
   k_pushi 0
-  k_pushiw $C8BE
+  k_pushiw S_SAKE_D_C8BE
   k_callx RF_2FB9, 4
   k_ldlba $EF54
   k_ldrib 19
@@ -793,11 +793,11 @@ S_SAKE_F_BD5D:
   k_ldlba $EF55
   k_jumpt S_SAKE_L_BD8C
   k_pushi 0
-  k_pushiw $C92F
+  k_pushiw S_SAKE_D_C92F
   k_jump S_SAKE_L_BD85
 S_SAKE_L_BD81:
   k_pushi 0
-  k_pushiw $C956
+  k_pushiw S_SAKE_D_C956
 S_SAKE_L_BD85:
   k_callx RF_2FB9, 4
   k_jump S_SAKE_L_BDA2
@@ -805,7 +805,7 @@ S_SAKE_L_BD8C:
   k_call S_SAKE_F_B966
   k_jumpt S_SAKE_L_BD81
   k_pushi 0
-  k_pushiw $C97E
+  k_pushiw S_SAKE_D_C97E
   k_callx RF_2FB9, 4
   k_ldlba $EF54
   k_pushl
@@ -838,7 +838,7 @@ S_SAKE_L_BDAC:
 S_SAKE_L_BDDC:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C99B
+  k_pushiw S_SAKE_D_C99B
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
@@ -860,7 +860,7 @@ S_SAKE_L_BDDC:
   k_eq
   k_jumpf S_SAKE_L_BE13
   k_pushi 1
-  k_pushiw $C9C4
+  k_pushiw S_SAKE_D_C9C4
   k_callx RF_2FB9, 4
   k_jump S_SAKE_L_C122
 S_SAKE_L_BE13:
@@ -916,15 +916,15 @@ S_SAKE_L_BE3C:
   k_mul
   k_popr
   k_add
-  k_ldriw $C8E9
+  k_ldriw S_SAKE_D_C8E9
   k_add
   k_derefb
   k_shl1
-  k_ldriw $C8D8
+  k_ldriw S_SAKE_D_C8D8
   k_add
   k_deref
   k_pushl
-  k_pushiw $C9E8
+  k_pushiw S_SAKE_D_C9E8
   k_callx RF_3619, 4
   k_jump S_SAKE_L_C122
 S_SAKE_L_BE6A:
@@ -938,14 +938,14 @@ S_SAKE_L_BE6A:
   k_stla $EF52
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CA08
+  k_pushiw S_SAKE_D_CA08
   k_callx RF_2FB9, 4
   k_pushib 31
   k_callx RF_40C3, 2
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CA21
+  k_pushiw S_SAKE_D_CA21
   k_callx RF_2FB9, 4
   k_ldla $EF52
   k_derefb
@@ -973,7 +973,7 @@ S_SAKE_L_BEBD:
   k_push -2
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CA24
+  k_pushiw S_SAKE_D_CA24
 S_SAKE_L_BEC7:
   k_callx RF_2FB9, 4
   k_jump S_SAKE_L_C11B
@@ -1018,12 +1018,12 @@ S_SAKE_L_BF0B:
   k_stl -2
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CA43
+  k_pushiw S_SAKE_D_CA43
   k_callx RF_2FB9, 4
   k_push -2
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CA5D
+  k_pushiw S_SAKE_D_CA5D
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -1038,18 +1038,18 @@ S_SAKE_L_BF0B:
   k_eq
   k_jumpf S_SAKE_L_BF47
   k_pushi 0
-  k_pushiw $CA63
+  k_pushiw S_SAKE_D_CA63
   k_jump S_SAKE_L_BEC7
 S_SAKE_L_BF47:
   k_pushi 0
-  k_pushiw $CAA8
+  k_pushiw S_SAKE_D_CAA8
   k_jump S_SAKE_L_C112
 S_SAKE_L_BF4E:
   k_ldlba $EF69
   k_ldr -6
   k_eq
   k_jumpf S_SAKE_L_C10E
-  k_pushiw $CAD4
+  k_pushiw S_SAKE_D_CAD4
   k_callx RF_4B44, 2
   k_pushi 0
   k_ldla $EF52
@@ -1068,7 +1068,7 @@ S_SAKE_L_BF4E:
   k_jumpf S_SAKE_L_C033
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CAFC
+  k_pushiw S_SAKE_D_CAFC
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldla $EF52
@@ -1081,27 +1081,27 @@ S_SAKE_L_BF4E:
   k_jumpf S_SAKE_L_BFC6
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CB33
+  k_pushiw S_SAKE_D_CB33
   k_callx RF_2FB9, 4
   k_pushib 31
   k_callx RF_40C3, 2
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CB39
+  k_pushiw S_SAKE_D_CB39
   k_callx RF_2FB9, 4
   k_ldlba $EF5C
   k_pushl
   k_callx S_SAKE_F_BACA, 2
   k_pushi 0
-  k_pushiw $CB45
+  k_pushiw S_SAKE_D_CB45
 S_SAKE_L_BFBF:
   k_callx RF_2FB9, 4
   k_jump S_SAKE_L_C014
 S_SAKE_L_BFC6:
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CB61
+  k_pushiw S_SAKE_D_CB61
 S_SAKE_L_BFCD:
   k_callx RF_2FB9, 4
   k_ldli 4
@@ -1113,7 +1113,7 @@ S_SAKE_L_BFCD:
 S_SAKE_L_BFDD:
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CBAB
+  k_pushiw S_SAKE_D_CBAB
   k_callx RF_2FB9, 4
   k_ldla $EF52
   k_addli 2
@@ -1164,7 +1164,7 @@ S_SAKE_L_C014:
 S_SAKE_L_C033:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CBDC
+  k_pushiw S_SAKE_D_CBDC
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldla $EF52
@@ -1177,20 +1177,20 @@ S_SAKE_L_C033:
   k_jumpf S_SAKE_L_C07E
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CC08
+  k_pushiw S_SAKE_D_CC08
   k_callx RF_2FB9, 4
   k_pushib 31
   k_callx RF_40C3, 2
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CC0E
+  k_pushiw S_SAKE_D_CC0E
   k_callx RF_2FB9, 4
   k_ldlba $EF5C
   k_pushl
   k_callx S_SAKE_F_BACA, 2
   k_pushi 0
-  k_pushiw $CC1A
+  k_pushiw S_SAKE_D_CC1A
   k_jump S_SAKE_L_BFBF
 S_SAKE_L_C07E:
   k_pushi 2
@@ -1207,7 +1207,7 @@ S_SAKE_L_C07E:
   k_stl -20
   k_call RF_60B2
   k_push -20
-  k_pushiw $CC36
+  k_pushiw S_SAKE_D_CC36
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpf S_SAKE_L_C0BC
@@ -1218,22 +1218,22 @@ S_SAKE_L_C07E:
   k_sub
   k_stla $E56D
   k_pushi 0
-  k_pushiw $CC68
+  k_pushiw S_SAKE_D_CC68
   k_jump S_SAKE_L_BFCD
 S_SAKE_L_C0BC:
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CC8D
+  k_pushiw S_SAKE_D_CC8D
   k_jump S_SAKE_L_BEC7
 S_SAKE_L_C0C6:
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CCA5
+  k_pushiw S_SAKE_D_CCA5
   k_jump S_SAKE_L_BEC7
 S_SAKE_L_C0D0:
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CCF0
+  k_pushiw S_SAKE_D_CCF0
   k_callx RF_2FB9, 4
   k_ldla $EF52
   k_addli 2
@@ -1262,11 +1262,11 @@ S_SAKE_L_C101:
   k_push -4
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CD0D
+  k_pushiw S_SAKE_D_CD0D
   k_jump S_SAKE_L_BFBF
 S_SAKE_L_C10E:
   k_pushi 0
-  k_pushiw $CD1A
+  k_pushiw S_SAKE_D_CD1A
 S_SAKE_L_C112:
   k_callx RF_2FB9, 4
   k_push -6
@@ -1291,17 +1291,17 @@ S_SAKE_L_C125:
   k_ldlba $EF55
   k_jumpt S_SAKE_L_C14E
   k_pushi 0
-  k_pushiw $CD41
+  k_pushiw S_SAKE_D_CD41
   k_jump S_SAKE_L_C176
 S_SAKE_L_C14E:
   k_call S_SAKE_F_B966
   k_jumpf S_SAKE_L_C15B
   k_pushi 0
-  k_pushiw $CD5D
+  k_pushiw S_SAKE_D_CD5D
   k_jump S_SAKE_L_C176
 S_SAKE_L_C15B:
   k_pushi 0
-  k_pushiw $CD7F
+  k_pushiw S_SAKE_D_CD7F
   k_callx RF_2FB9, 4
   k_ldlba $EF54
   k_ldrib 19
@@ -1311,7 +1311,7 @@ S_SAKE_L_C15B:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CD94
+  k_pushiw S_SAKE_D_CD94
 S_SAKE_L_C176:
   k_callx RF_2FB9, 4
   k_ldla $F18A
@@ -1331,11 +1331,11 @@ S_SAKE_F_C185:
   k_ldlba $EF55
   k_jumpt S_SAKE_L_C1B4
   k_pushi 0
-  k_pushiw $CDA7
+  k_pushiw S_SAKE_D_CDA7
   k_jump S_SAKE_L_C1AD
 S_SAKE_L_C1A9:
   k_pushi 0
-  k_pushiw $CDC3
+  k_pushiw S_SAKE_D_CDC3
 S_SAKE_L_C1AD:
   k_callx RF_2FB9, 4
   k_jump S_SAKE_L_C1CA
@@ -1343,7 +1343,7 @@ S_SAKE_L_C1B4:
   k_call S_SAKE_F_B966
   k_jumpt S_SAKE_L_C1A9
   k_pushi 0
-  k_pushiw $CDE5
+  k_pushiw S_SAKE_D_CDE5
   k_callx RF_2FB9, 4
   k_ldlba $EF54
   k_pushl
@@ -1379,17 +1379,17 @@ S_SAKE_L_C1F8:
   k_ldlba $EF55
   k_jumpt S_SAKE_L_C21D
   k_pushi 0
-  k_pushiw $CE02
+  k_pushiw S_SAKE_D_CE02
   k_jump S_SAKE_L_C245
 S_SAKE_L_C21D:
   k_call S_SAKE_F_B966
   k_jumpf S_SAKE_L_C22A
   k_pushi 0
-  k_pushiw $CE1C
+  k_pushiw S_SAKE_D_CE1C
   k_jump S_SAKE_L_C245
 S_SAKE_L_C22A:
   k_pushi 0
-  k_pushiw $CE3E
+  k_pushiw S_SAKE_D_CE3E
   k_callx RF_2FB9, 4
   k_ldlba $EF54
   k_ldrib 19
@@ -1399,7 +1399,7 @@ S_SAKE_L_C22A:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CE51
+  k_pushiw S_SAKE_D_CE51
 S_SAKE_L_C245:
   k_callx RF_2FB9, 4
   k_ldla $F18A
@@ -1417,7 +1417,7 @@ S_SAKE_F_C254:
   k_call RF_60B2
   k_call S_SAKE_F_BA0A
   k_pushi 0
-  k_pushiw $CE67
+  k_pushiw S_SAKE_D_CE67
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -1440,18 +1440,18 @@ S_SAKE_L_C27D:
   k_stla $EF52
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CE8F
+  k_pushiw S_SAKE_D_CE8F
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CEC9
+  k_pushiw S_SAKE_D_CEC9
   k_callx RF_2FB9, 4
   k_ldlba $EF57
   k_pushl
   k_callx S_SAKE_F_BACA, 2
   k_pushi 0
-  k_pushiw $CEE3
+  k_pushiw S_SAKE_D_CEE3
   k_callx RF_2FB9, 4
   k_jump S_SAKE_L_C2D3
 S_SAKE_L_C2CB:
@@ -1473,7 +1473,7 @@ S_SAKE_L_C2DD:
   k_call RF_60B2
   k_call S_SAKE_F_BA0A
   k_pushi 0
-  k_pushiw $CEF3
+  k_pushiw S_SAKE_D_CEF3
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -1490,7 +1490,7 @@ S_SAKE_F_C308:
   k_call RF_60B2
   k_call S_SAKE_F_BA0A
   k_pushi 0
-  k_pushiw $CF0F
+  k_pushiw S_SAKE_D_CF0F
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -1511,7 +1511,7 @@ S_SAKE_L_C331:
   k_ne
   k_jumpf S_SAKE_L_C37E
   k_pushi 0
-  k_pushiw $CF37
+  k_pushiw S_SAKE_D_CF37
   k_callx RF_2FB9, 4
   k_ldlba $EF57
   k_shl1
@@ -1522,7 +1522,7 @@ S_SAKE_L_C331:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CF53
+  k_pushiw S_SAKE_D_CF53
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -1531,7 +1531,7 @@ S_SAKE_L_C331:
 S_SAKE_L_C37E:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CF71
+  k_pushiw S_SAKE_D_CF71
   k_callx RF_2FB9, 4
 S_SAKE_L_C389:
   k_call RF_472D
@@ -1545,7 +1545,7 @@ S_SAKE_L_C38C:
   k_call RF_60B2
   k_call S_SAKE_F_BA0A
   k_pushi 0
-  k_pushiw $CF99
+  k_pushiw S_SAKE_D_CF99
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -1617,12 +1617,12 @@ S_SAKE_L_C432:
   k_stln -37
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CFC0
+  k_pushiw S_SAKE_D_CFC0
   k_callx RF_2FB9, 4
   k_pushn -31
   k_callx S_SAKE_F_BA99, 2
   k_pushi 0
-  k_pushiw $CFC9
+  k_pushiw S_SAKE_D_CFC9
   k_callx RF_2FB9, 4
   k_ldln -29
   k_shl1
@@ -1693,7 +1693,7 @@ S_SAKE_L_C4B5:
   k_callx RL_884E, 2
   k_stln -33
   k_pushi 0
-  k_pushiw $CFE8
+  k_pushiw S_SAKE_D_CFE8
   k_callx RF_2FB9, 4
   k_push -2
   k_callx RF_40DE, 2
@@ -1702,7 +1702,7 @@ S_SAKE_L_C4B5:
   k_eq
   k_jumpf S_SAKE_L_C503
   k_pushi 0
-  k_pushiw $CFFD
+  k_pushiw S_SAKE_D_CFFD
 S_SAKE_L_C4FC:
   k_callx RF_2FB9, 4
   k_jump S_SAKE_L_C5AF
@@ -1724,7 +1724,7 @@ S_SAKE_L_C503:
   k_le
   k_jumpf S_SAKE_L_C52E
   k_pushi 0
-  k_pushiw $D021
+  k_pushiw S_SAKE_D_D021
   k_callx RF_2FB9, 4
   k_ldln -33
   k_shl1
@@ -1732,7 +1732,7 @@ S_SAKE_L_C503:
   k_jump S_SAKE_L_C5A4
 S_SAKE_L_C52E:
   k_pushi 0
-  k_pushiw $D03A
+  k_pushiw S_SAKE_D_D03A
   k_jump S_SAKE_L_C4FC
 S_SAKE_L_C535:
   k_ldln -31
@@ -1742,7 +1742,7 @@ S_SAKE_L_C535:
   k_add
   k_stln -37
   k_pushi 0
-  k_pushiw $D069
+  k_pushiw S_SAKE_D_D069
   k_callx RF_2FB9, 4
   k_ldln -31
   k_ldrib 19
@@ -1752,7 +1752,7 @@ S_SAKE_L_C535:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $D084
+  k_pushiw S_SAKE_D_D084
   k_callx RF_2FB9, 4
   k_ldln -37
   k_addlib 16
@@ -1777,7 +1777,7 @@ S_SAKE_L_C578:
     .word S_SAKE_L_C596, S_SAKE_L_C596, S_SAKE_L_C596, S_SAKE_L_C5BA
 S_SAKE_L_C596:
   k_pushi 0
-  k_pushiw $D08A
+  k_pushiw S_SAKE_D_D08A
   k_callx RF_2FB9, 4
   k_ldln -29
   k_shl1
@@ -1797,13 +1797,13 @@ S_SAKE_L_C5B6:
   k_return
 S_SAKE_L_C5BA:
   k_pushi 1
-  k_pushiw $D0C1
+  k_pushiw S_SAKE_D_D0C1
 S_SAKE_L_C5BE:
   k_callx RF_2FB9, 4
   k_jump S_SAKE_L_C5B6
 S_SAKE_L_C5C5:
   k_pushi 1
-  k_pushiw $D0F0
+  k_pushiw S_SAKE_D_D0F0
   k_jump S_SAKE_L_C5BE
 S_SAKE_F_C5CC:
   k_func 4
@@ -1813,7 +1813,7 @@ S_SAKE_F_C5CC:
   k_jumpf S_SAKE_L_C5E9
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $D11C
+  k_pushiw S_SAKE_D_D11C
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -1822,7 +1822,7 @@ S_SAKE_L_C5E9:
   k_pushi 0
   k_callx RF_60CE, 4
   k_call RF_60B2
-  k_pushiw $D13A
+  k_pushiw S_SAKE_D_D13A
   k_callx RF_4B44, 2
   k_ldlba $EF69
   k_ldri 14
@@ -1853,7 +1853,7 @@ S_SAKE_L_C5E9:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_push -2
-  k_pushiw $D165
+  k_pushiw S_SAKE_D_D165
   k_callx RF_3619, 4
   k_pushi 1
   k_callx RF_3DDF, 2
@@ -1872,13 +1872,13 @@ S_SAKE_L_C5E9:
   k_ugt
   k_jumpf S_SAKE_L_C65B
   k_call RF_60B2
-  k_pushiw $D1A1
+  k_pushiw S_SAKE_D_D1A1
   k_callx RF_4B44, 2
   k_ldli 1
   k_return
 S_SAKE_L_C65B:
   k_call RF_60B2
-  k_pushiw $D1C9
+  k_pushiw S_SAKE_D_D1C9
   k_callx RF_4B44, 2
   k_ldlba $EF61
   k_ldri 1
@@ -1894,366 +1894,226 @@ S_SAKE_L_C67B:
 S_SAKE_L_C67E:
   k_ldli 1
   k_return
-  .byte $0A
-  .byte "You're "
-  .byte $00, $2C, $0A
-  .byte "aren't you?"
-  .byte $0A, $00, $0A
-  .byte "Are you the one they"
-  .byte $0A
-  .byte "call "
-  .byte $00, $3F, $0A, $00, $BF, $C6, $C1, $C6, $C3, $C6, $C5, $C6, $4E, $00, $53, $00
-  .byte $45, $00, $57, $00
+S_SAKE_D_C680:
+  .byte $0A, "You're ", $00
+S_SAKE_D_C689:
+  .byte ",", $0A, "aren't you?", $0A, $00
+S_SAKE_D_C698:
+  .byte $0A, "Are you the one they", $0A, "call ", $00
+S_SAKE_D_C6B4:
+  .byte "?", $0A, $00
+S_SAKE_D_C6B7:
+  .byte $BF, $C6, $C1, $C6
+S_SAKE_D_C6BB:
+  .byte $C3, $C6, $C5, $C6, $4E, $00, $53, $00, $45, $00, $57, $00
+S_SAKE_D_C6C7:
   .byte "%s %d"
   .byte $DF
   .byte " %s %d"
-  .byte $DF, $00, $0A, $61, $74, $20, $00, $0A
-  .byte "the "
-  .byte $00, $0A
-  .byte "from "
-  .byte $00, $0A, $00
-  .byte "?  He's"
-  .byte $0A, $00, $0A
-  .byte "on his way here,"
-  .byte $0A, $0A
-  .byte "m'thinks"
-  .byte $00
-  .byte "probably sailing"
-  .byte $0A
-  .byte "for "
-  .byte $00, $0A, $61, $74, $20, $00, $0A
-  .byte "seeking out your"
-  .byte $0A, $0A
-  .byte "ship!"
-  .byte $00
-  .byte "out to get"
-  .byte $0A, $00, $0A
-  .byte "been prowling around"
-  .byte $0A, $0A
-  .byte "near "
-  .byte $00
-  .byte "That's the specialty"
-  .byte $0A
-  .byte "of this here port"
-  .byte $00, $0A
-  .byte "If that's the case,"
-  .byte $0A
-  .byte "it can be bought"
-  .byte $0A, $69, $6E, $20, $00
-  .byte "You won't find that"
-  .byte $0A
-  .byte "around here"
-  .byte $00
-  .byte "The King of Portugal"
-  .byte $0A
-  .byte "is looking for ye"
-  .byte $00
-  .byte "The head trader here"
-  .byte $0A
-  .byte "is looking for ye"
-  .byte $00
-  .byte "Someone's looking for"
-  .byte $0A
-  .byte "ye in "
-  .byte $00, $0A
-  .byte "You want to know"
-  .byte $0A, $0A
-  .byte "where you can buy"
-  .byte $0A, $0A, $00
-  .byte ", don't ye?"
-  .byte $00
-  .byte "The King is waiting"
-  .byte $0A
-  .byte "for you"
-  .byte $00
-  .byte "The head trader here"
-  .byte $0A
-  .byte "is waiting for you"
-  .byte $00
-  .byte "Be careful on yer way"
-  .byte $0A, $74, $6F, $20, $00, $F1, $C8, $F7, $C8, $01, $C9, $06, $C9, $10, $C9, $16
-  .byte $C9, $20, $C9, $25, $C9, $07, $06, $05, $00, $FF, $04, $01, $02, $03
-  .byte "north"
-  .byte $00
-  .byte "northeast"
-  .byte $00
-  .byte "east"
-  .byte $00
-  .byte "southeast"
-  .byte $00
-  .byte "south"
-  .byte $00
-  .byte "southwest"
-  .byte $00
-  .byte "west"
-  .byte $00
-  .byte "northwest"
-  .byte $00
-  .byte "The King of Portugal"
-  .byte $0A
-  .byte "is looking for ye"
-  .byte $00
-  .byte "The guild master here"
-  .byte $0A
-  .byte "is looking for ye"
-  .byte $00
-  .byte "Someone's looking for"
-  .byte $0A
-  .byte "ye in "
-  .byte $00
-  .byte "Are ye searching for"
-  .byte $0A
-  .byte "a place on yer map?"
-  .byte $00
-  .byte "That looks like a map"
-  .byte $0A
-  .byte "of this area!"
-  .byte $00
-  .byte "My guess is it's more"
-  .byte $0A
-  .byte "to the %s"
-  .byte $00, $0A
-  .byte "You're looking for"
-  .byte $0A
-  .byte "the "
-  .byte $00, $3F, $0A, $00
-  .byte " may know"
-  .byte $0A
-  .byte "something about that"
-  .byte $00, $0A
-  .byte "So, ye want to talk"
-  .byte $0A, $0A, $74, $6F, $20, $00
-  .byte ", eh?"
-  .byte $00, $0A
-  .byte "Well, she's right"
-  .byte $0A
-  .byte "over there. Hurry up"
-  .byte $0A
-  .byte "with yer business,"
-  .byte $0A
-  .byte "won't ye?"
-  .byte $00, $0A
-  .byte "In that case, you'd"
-  .byte $0A
-  .byte "better get yerself"
-  .byte $0A, $74, $6F, $20, $00
-  .byte "He's out back. I'll"
-  .byte $0A
-  .byte "call him out for ye"
-  .byte $00
-  .byte "It's been a long"
-  .byte $0A
-  .byte "time, Cap'n. What do"
-  .byte $0A
-  .byte "you need me for?"
-  .byte $00, $0A
-  .byte "The "
-  .byte $00, $3F, $0A
-  .byte "They say "
-  .byte $00
-  .byte " has it"
-  .byte $0A
-  .byte "on one of his ships"
-  .byte $00, $0A
-  .byte "You're looking for"
-  .byte $0A
-  .byte "this map? If that's"
-  .byte $0A
-  .byte "what you need I'll"
-  .byte $0A
-  .byte "give it to you"
-  .byte $00, $0A
-  .byte "Sorry, but the person"
-  .byte $0A, $0A
-  .byte "you need to talk to"
-  .byte $0A, $0A, $69, $73, $20, $00
-  .byte "So you're the rat"
-  .byte $0A
-  .byte "who's looking for"
-  .byte $0A
-  .byte "me, eh?"
-  .byte $00, $0A
-  .byte "The "
-  .byte $00, $3F, $0A
-  .byte "They say "
-  .byte $00
-  .byte " has it"
-  .byte $0A
-  .byte "on one of his ships"
-  .byte $00
-  .byte "I'll sell ye this map"
-  .byte $0A
-  .byte "for %d gold. Will ye"
-  .byte $0A
-  .byte "buy it"
-  .byte $00, $0A
-  .byte "You're sure to find"
-  .byte $0A, $0A
-  .byte "it. Good luck!"
-  .byte $00, $0A
-  .byte "Ye confounded"
-  .byte $0A, $0A
-  .byte "rascal!"
-  .byte $00, $0A
-  .byte "Ye need a map? Ye"
-  .byte $0A
-  .byte "won't get one so"
-  .byte $0A
-  .byte "easily from me. Come"
-  .byte $0A
-  .byte "back another time"
-  .byte $00, $0A
-  .byte "Sorry, you'll have to"
-  .byte $0A, $0A
-  .byte "ask "
-  .byte $00
-  .byte " about"
-  .byte $0A, $0A
-  .byte "that"
-  .byte $00, $0A
-  .byte "He's been hanging"
-  .byte $0A
-  .byte "around the port"
-  .byte $0A, $6F, $66, $20, $00
-  .byte "The King is waiting"
-  .byte $0A
-  .byte "for you"
-  .byte $00
-  .byte "The guild master is"
-  .byte $0A
-  .byte "expecting you"
-  .byte $00
-  .byte "The guild master in"
-  .byte $0A, $00, $20, $69, $73, $0A
-  .byte "looking for ye"
-  .byte $00
-  .byte "The King is looking"
-  .byte $0A
-  .byte "for you"
-  .byte $00
-  .byte "The inn master is"
-  .byte $0A
-  .byte "looking for you"
-  .byte $00
-  .byte "Someone's looking for"
-  .byte $0A
-  .byte "ye in "
-  .byte $00
-  .byte "The King is expecting"
-  .byte $0A, $79, $6F, $75, $00
-  .byte "The inn master is"
-  .byte $0A
-  .byte "waiting for you"
-  .byte $00
-  .byte "The inn master in"
-  .byte $0A, $00, $20, $69, $73, $0A
-  .byte "worried about you"
-  .byte $00
-  .byte "The King of Portugal"
-  .byte $0A
-  .byte "is looking for you"
-  .byte $00
-  .byte "Are you the brave soulwho's going to rescue"
-  .byte $0A
-  .byte "the princess?"
-  .byte $00, $0A
-  .byte "Well, rumor has it"
-  .byte $0A
-  .byte "that "
-  .byte $00
-  .byte " stole"
-  .byte $0A
-  .byte "her away"
-  .byte $00
-  .byte "The King is waiting"
-  .byte $0A
-  .byte "for you"
-  .byte $00
-  .byte "The King of Portugal"
-  .byte $0A
-  .byte "is looking for you"
-  .byte $00, $0A
-  .byte "I hear you're heading"
-  .byte $0A
-  .byte "for "
-  .byte $00, $2E, $0A
-  .byte "Steady on matey, be"
-  .byte $0A
-  .byte "careful"
-  .byte $00
-  .byte "Hmm, so you're going"
-  .byte $0A
-  .byte "to the palace, eh?"
-  .byte $00
-  .byte "The King of Portugal"
-  .byte $0A
-  .byte "is waiting for ye"
-  .byte $00, $0A
-  .byte "I hear "
-  .byte $00
-  .byte " will"
-  .byte $0A
-  .byte "pay ye a fine price"
-  .byte $0A
-  .byte "for "
-  .byte $00, $0A
-  .byte "The marketplace in"
+  .byte $DF, $00
+S_SAKE_D_C6D5:
+  .byte $0A, "at ", $00
+S_SAKE_D_C6DA:
+  .byte $0A, "the ", $00
+S_SAKE_D_C6E0:
+  .byte $0A, "from ", $00
+S_SAKE_D_C6E7:
   .byte $0A, $00
-  .byte " doesn't"
-  .byte $0A
-  .byte "have anything worth"
-  .byte $0A
-  .byte "buying"
+S_SAKE_D_C6E9:
+  .byte "?  He's", $0A, $00
+S_SAKE_D_C6F2:
+  .byte $0A, "on his way here,", $0A, $0A, "m'thinks", $00
+S_SAKE_D_C70E:
+  .byte "probably sailing", $0A, "for ", $00
+S_SAKE_D_C724:
+  .byte $0A, "at ", $00
+S_SAKE_D_C729:
+  .byte $0A, "seeking out your", $0A, $0A, "ship!", $00
+S_SAKE_D_C742:
+  .byte "out to get", $0A, $00
+S_SAKE_D_C74E:
+  .byte $0A, "been prowling around", $0A, $0A, "near ", $00
+S_SAKE_D_C76B:
+  .byte "That's the specialty", $0A, "of this here port", $00
+S_SAKE_D_C792:
+  .byte $0A, "If that's the case,", $0A, "it can be bought", $0A, "in ", $00
+S_SAKE_D_C7BC:
+  .byte "You won't find that", $0A, "around here", $00
+S_SAKE_D_C7DC:
+  .byte "The King of Portugal", $0A, "is looking for ye", $00
+S_SAKE_D_C803:
+  .byte "The head trader here", $0A, "is looking for ye", $00
+S_SAKE_D_C82A:
+  .byte "Someone's looking for", $0A, "ye in ", $00
+S_SAKE_D_C847:
+  .byte $0A, "You want to know", $0A, $0A, "where you can buy", $0A, $0A, $00
+S_SAKE_D_C86E:
+  .byte ", don't ye?", $00
+S_SAKE_D_C87A:
+  .byte "The King is waiting", $0A, "for you", $00
+S_SAKE_D_C896:
+  .byte "The head trader here", $0A, "is waiting for you", $00
+S_SAKE_D_C8BE:
+  .byte "Be careful on yer way", $0A, "to ", $00
+S_SAKE_D_C8D8:
+  .word S_SAKE_D_C8F1, S_SAKE_D_C8F7, S_SAKE_D_C901, S_SAKE_D_C906, S_SAKE_D_C910, S_SAKE_D_C916, S_SAKE_D_C920, S_SAKE_D_C925
+  .byte $07
+S_SAKE_D_C8E9:
+  .byte $06, $05, $00, $FF, $04, $01, $02
+  .byte $03
+S_SAKE_D_C8F1:
+  .byte "north", $00
+S_SAKE_D_C8F7:
+  .byte "northeast", $00
+S_SAKE_D_C901:
+  .byte "east", $00
+S_SAKE_D_C906:
+  .byte "southeast", $00
+S_SAKE_D_C910:
+  .byte "south", $00
+S_SAKE_D_C916:
+  .byte "southwest", $00
+S_SAKE_D_C920:
+  .byte "west", $00
+S_SAKE_D_C925:
+  .byte "northwest", $00
+S_SAKE_D_C92F:
+  .byte "The King of Portugal", $0A, "is looking for ye", $00
+S_SAKE_D_C956:
+  .byte "The guild master here", $0A, "is looking for ye", $00
+S_SAKE_D_C97E:
+  .byte "Someone's looking for", $0A, "ye in ", $00
+S_SAKE_D_C99B:
+  .byte "Are ye searching for", $0A, "a place on yer map?", $00
+S_SAKE_D_C9C4:
+  .byte "That looks like a map", $0A, "of this area!", $00
+S_SAKE_D_C9E8:
+  .byte "My guess is it's more", $0A, "to the %s", $00
+S_SAKE_D_CA08:
+  .byte $0A, "You're looking for", $0A, "the ", $00
+S_SAKE_D_CA21:
+  .byte "?", $0A, $00
+S_SAKE_D_CA24:
+  .byte " may know", $0A, "something about that", $00
+S_SAKE_D_CA43:
+  .byte $0A, "So, ye want to talk", $0A, $0A, "to ", $00
+S_SAKE_D_CA5D:
+  .byte ", eh?", $00
+S_SAKE_D_CA63:
+  .byte $0A, "Well, she's right", $0A, "over there. Hurry up", $0A, "with yer business,", $0A
+  .byte "won't ye?", $00
+S_SAKE_D_CAA8:
+  .byte $0A, "In that case, you'd", $0A, "better get yerself", $0A, "to ", $00
+S_SAKE_D_CAD4:
+  .byte "He's out back. I'll", $0A, "call him out for ye", $00
+S_SAKE_D_CAFC:
+  .byte "It's been a long", $0A, "time, Cap'n. What do", $0A, "you need me for?", $00
+S_SAKE_D_CB33:
+  .byte $0A, "The ", $00
+S_SAKE_D_CB39:
+  .byte "?", $0A, "They say ", $00
+S_SAKE_D_CB45:
+  .byte " has it", $0A, "on one of his ships", $00
+S_SAKE_D_CB61:
+  .byte $0A, "You're looking for", $0A, "this map? If that's", $0A, "what you need I'll", $0A
+  .byte "give it to you", $00
+S_SAKE_D_CBAB:
+  .byte $0A, "Sorry, but the person", $0A, $0A, "you need to talk to", $0A, $0A, "is ", $00
+S_SAKE_D_CBDC:
+  .byte "So you're the rat", $0A, "who's looking for", $0A, "me, eh?", $00
+S_SAKE_D_CC08:
+  .byte $0A, "The ", $00
+S_SAKE_D_CC0E:
+  .byte "?", $0A, "They say ", $00
+S_SAKE_D_CC1A:
+  .byte " has it", $0A, "on one of his ships", $00
+S_SAKE_D_CC36:
+  .byte "I'll sell ye this map", $0A, "for %d gold. Will ye", $0A, "buy it", $00
+S_SAKE_D_CC68:
+  .byte $0A, "You're sure to find", $0A, $0A, "it. Good luck!", $00
+S_SAKE_D_CC8D:
+  .byte $0A, "Ye confounded", $0A, $0A, "rascal!", $00
+S_SAKE_D_CCA5:
+  .byte $0A, "Ye need a map? Ye", $0A, "won't get one so", $0A, "easily from me. Come", $0A
+  .byte "back another time", $00
+S_SAKE_D_CCF0:
+  .byte $0A, "Sorry, you'll have to", $0A, $0A, "ask ", $00
+S_SAKE_D_CD0D:
+  .byte " about", $0A, $0A, "that", $00
+S_SAKE_D_CD1A:
+  .byte $0A, "He's been hanging", $0A, "around the port", $0A, "of ", $00
+S_SAKE_D_CD41:
+  .byte "The King is waiting", $0A, "for you", $00
+S_SAKE_D_CD5D:
+  .byte "The guild master is", $0A, "expecting you", $00
+S_SAKE_D_CD7F:
+  .byte "The guild master in", $0A, $00
+S_SAKE_D_CD94:
+  .byte " is", $0A, "looking for ye", $00
+S_SAKE_D_CDA7:
+  .byte "The King is looking", $0A, "for you", $00
+S_SAKE_D_CDC3:
+  .byte "The inn master is", $0A, "looking for you", $00
+S_SAKE_D_CDE5:
+  .byte "Someone's looking for", $0A, "ye in ", $00
+S_SAKE_D_CE02:
+  .byte "The King is expecting", $0A, "you", $00
+S_SAKE_D_CE1C:
+  .byte "The inn master is", $0A, "waiting for you", $00
+S_SAKE_D_CE3E:
+  .byte "The inn master in", $0A, $00
+S_SAKE_D_CE51:
+  .byte " is", $0A, "worried about you", $00
+S_SAKE_D_CE67:
+  .byte "The King of Portugal", $0A, "is looking for you", $00
+S_SAKE_D_CE8F:
+  .byte "Are you the brave soulwho's going to rescue", $0A, "the princess?", $00
+S_SAKE_D_CEC9:
+  .byte $0A, "Well, rumor has it", $0A, "that ", $00
+S_SAKE_D_CEE3:
+  .byte " stole", $0A, "her away", $00
+S_SAKE_D_CEF3:
+  .byte "The King is waiting", $0A, "for you", $00
+S_SAKE_D_CF0F:
+  .byte "The King of Portugal", $0A, "is looking for you", $00
+S_SAKE_D_CF37:
+  .byte $0A, "I hear you're heading", $0A, "for ", $00
+S_SAKE_D_CF53:
+  .byte ".", $0A, "Steady on matey, be", $0A, "careful", $00
+S_SAKE_D_CF71:
+  .byte "Hmm, so you're going", $0A, "to the palace, eh?", $00
+S_SAKE_D_CF99:
+  .byte "The King of Portugal", $0A, "is waiting for ye", $00
+S_SAKE_D_CFC0:
+  .byte $0A, "I hear ", $00
+S_SAKE_D_CFC9:
+  .byte " will", $0A, "pay ye a fine price", $0A, "for ", $00
+S_SAKE_D_CFE8:
+  .byte $0A, "The marketplace in", $0A, $00
+S_SAKE_D_CFFD:
+  .byte " doesn't", $0A, "have anything worth", $0A, "buying", $00
+S_SAKE_D_D021:
+  .byte " is a", $0A, "good place to buy", $0A, $00
+S_SAKE_D_D03A:
+  .byte " is in a", $0A, "miserable way. Be sureto invest there", $00
+S_SAKE_D_D069:
+  .byte $0A, "You'll find the port", $0A, $0A, "of ", $00
+S_SAKE_D_D084:
+  .byte " at", $0A, $0A, $00
+S_SAKE_D_D08A:
+  .byte $0A, "I've got news for ye.", $0A, $0A, "We're out to get", $0A, $0A, "anyone from ", $00
+S_SAKE_D_D0C1:
+  .byte "Let me warn ye. Yer", $0A, "not well liked around", $0A, "here", $00
+S_SAKE_D_D0F0:
+  .byte "Ha ha ha! We don't", $0A, "keep ties with any", $0A, "port!", $00
+S_SAKE_D_D11C:
+  .byte "We can't afford to", $0A, "stay here!", $00
+S_SAKE_D_D13A:
+  .byte "Let's stay a while", $0A, "and find out what's", $0A, "new", $00
+S_SAKE_D_D165:
+  .byte "You'll have to order", $0A, "something. That'll be", $0A, "%d gold pieces", $1B, "W"
   .byte $00
-  .byte " is a"
-  .byte $0A
-  .byte "good place to buy"
-  .byte $0A, $00
-  .byte " is in a"
-  .byte $0A
-  .byte "miserable way. Be sureto invest there"
-  .byte $00, $0A
-  .byte "You'll find the port"
-  .byte $0A, $0A, $6F, $66, $20, $00, $20, $61, $74, $0A, $0A, $00, $0A
-  .byte "I've got news for ye."
-  .byte $0A, $0A
-  .byte "We're out to get"
-  .byte $0A, $0A
-  .byte "anyone from "
-  .byte $00
-  .byte "Let me warn ye. Yer"
-  .byte $0A
-  .byte "not well liked around"
-  .byte $0A
-  .byte "here"
-  .byte $00
-  .byte "Ha ha ha! We don't"
-  .byte $0A
-  .byte "keep ties with any"
-  .byte $0A
-  .byte "port!"
-  .byte $00
-  .byte "We can't afford to"
-  .byte $0A
-  .byte "stay here!"
-  .byte $00
-  .byte "Let's stay a while"
-  .byte $0A
-  .byte "and find out what's"
-  .byte $0A, $6E, $65, $77, $00
-  .byte "You'll have to order"
-  .byte $0A
-  .byte "something. That'll be"
-  .byte $0A
-  .byte "%d gold pieces"
-  .byte $1B, $57, $00
-  .byte "There doesn't seem to"
-  .byte $0A
-  .byte "be much happening"
-  .byte $00
-  .byte "Say, that fellow's"
-  .byte $0A
-  .byte "trying to tell us"
-  .byte $0A
-  .byte "something"
-  .byte $00
+S_SAKE_D_D1A1:
+  .byte "There doesn't seem to", $0A, "be much happening", $00
+S_SAKE_D_D1C9:
+  .byte "Say, that fellow's", $0A, "trying to tell us", $0A, "something", $00

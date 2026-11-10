@@ -23,7 +23,7 @@ S_NSASO_F_B80F:
   k_ldri 10
   k_eq
   k_jumpf S_NSASO_L_B832
-  k_pushiw $BADC
+  k_pushiw S_NSASO_D_BADC
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -82,7 +82,7 @@ S_NSASO_L_B886:
   k_jumpt S_NSASO_L_B83F
   k_ldlbf -34
   k_jumpt S_NSASO_L_B8A1
-  k_pushiw $BAF6
+  k_pushiw S_NSASO_D_BAF6
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -114,7 +114,7 @@ S_NSASO_L_B8B0:
   k_jump S_NSASO_L_B907
 S_NSASO_L_B8CE:
   k_pushi 1
-  k_pushiw $BB13
+  k_pushiw S_NSASO_D_BB13
   k_callx RF_2FB9, 4
   k_ldlbf -1
   k_shl1
@@ -165,7 +165,7 @@ S_NSASO_L_B907:
   k_callx RF_609A, 2
   k_call RF_60EE
   k_pushi 1
-  k_pushiw $BB17
+  k_pushiw S_NSASO_D_BB17
   k_callx RF_2FB9, 4
   k_ldli 0
   k_stln -64
@@ -184,7 +184,7 @@ S_NSASO_L_B907:
   k_pushi 0
   k_callx RF_60CE, 4
   k_call RF_60B2
-  k_pushiw $BB26
+  k_pushiw S_NSASO_D_BB26
   k_callx RF_4B44, 2
   k_pushi 0
   k_leal -31
@@ -320,18 +320,18 @@ S_NSASO_L_BA03:
   k_jumpf S_NSASO_L_BA57
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $BB46
+  k_pushiw S_NSASO_D_BB46
   k_callx RF_4B44, 2
   k_ldli 0
   k_jump S_NSASO_L_BA6D
 S_NSASO_L_BA57:
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $BB6E
+  k_pushiw S_NSASO_D_BB6E
   k_jump S_NSASO_L_BA68
 S_NSASO_L_BA62:
   k_call RF_60B2
-  k_pushiw $BB78
+  k_pushiw S_NSASO_D_BB78
 S_NSASO_L_BA68:
   k_callx RF_4B44, 2
   k_ldli 1
@@ -404,23 +404,21 @@ S_NSASO_L_BACB:
 S_NSASO_L_BADA:
   k_ldli 1
   k_return
-  .byte "We can't use any more"
-  .byte $0A, $6D, $65, $6E, $00
-  .byte "I don't see any"
-  .byte $0A
-  .byte "sailors here"
-  .byte $00, $1B, $43, $30, $00
-  .byte "Approach whom?"
+S_NSASO_D_BADC:
+  .byte "We can't use any more", $0A, "men", $00
+S_NSASO_D_BAF6:
+  .byte "I don't see any", $0A, "sailors here", $00
+S_NSASO_D_BB13:
+  .byte $1B
+  .byte "C0", $00
+S_NSASO_D_BB17:
+  .byte "Approach whom?", $00
+S_NSASO_D_BB26:
+  .byte "How'd you like to", $0A, "join my crew?", $00
+S_NSASO_D_BB46:
+  .byte "You don't know who", $0A, "you're dealing with!", $00
+S_NSASO_D_BB6E:
+  .byte "All right", $00
+S_NSASO_D_BB78:
+  .byte "So we meet again", $00
   .byte $00
-  .byte "How'd you like to"
-  .byte $0A
-  .byte "join my crew?"
-  .byte $00
-  .byte "You don't know who"
-  .byte $0A
-  .byte "you're dealing with!"
-  .byte $00
-  .byte "All right"
-  .byte $00
-  .byte "So we meet again"
-  .byte $00, $00

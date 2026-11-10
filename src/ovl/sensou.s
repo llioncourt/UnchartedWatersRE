@@ -15,7 +15,7 @@ SENSOU_F_960C:
   k_func 2
   k_ldlarg 11
   k_shl1
-  k_ldriw $A058
+  k_ldriw SENSOU_D_A058
   k_add
   k_deref
   k_pushl
@@ -61,7 +61,7 @@ SENSOU_F_9662:
   k_mul
   k_popr
   k_add
-  k_ldriw $A06A
+  k_ldriw SENSOU_D_A06A
   k_add
   k_deref
   k_pushl
@@ -115,7 +115,7 @@ SENSOU_F_96B7:
   k_ne
   k_jumpf SENSOU_L_9772
   k_pushib 28
-  k_pushiw $9220
+  k_pushiw RD_9220
   k_pushi 0
   k_pushib 40
   k_pushi 4
@@ -126,7 +126,7 @@ SENSOU_F_96B7:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 28
-  k_pushiw $92A0
+  k_pushiw RD_92A0
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -137,7 +137,7 @@ SENSOU_F_96B7:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 28
-  k_pushiw $9320
+  k_pushiw RD_9320
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -148,7 +148,7 @@ SENSOU_F_96B7:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 28
-  k_pushiw $93A0
+  k_pushiw RD_93A0
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -159,7 +159,7 @@ SENSOU_F_96B7:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 28
-  k_pushiw $9420
+  k_pushiw RD_9420
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -170,7 +170,7 @@ SENSOU_F_96B7:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 28
-  k_pushiw $94A0
+  k_pushiw RD_94A0
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -181,7 +181,7 @@ SENSOU_F_96B7:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 28
-  k_pushiw $9520
+  k_pushiw RD_9520
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -192,7 +192,7 @@ SENSOU_F_96B7:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 28
-  k_pushiw $95A0
+  k_pushiw RD_95A0
   k_pushiw $00FF
   k_pushi 0
   k_pushi 0
@@ -225,7 +225,7 @@ SENSOU_L_9784:
   k_pushi 0
   k_ldl -2
   k_shl1
-  k_ldriw $A09A
+  k_ldriw SENSOU_D_A09A
   k_add
   k_deref
   k_pushl
@@ -242,7 +242,7 @@ SENSOU_F_9793:
   k_pushi 5
   k_callx RL_21BE, 14
   k_pushi 1
-  k_pushiw $A0C0
+  k_pushiw SENSOU_D_A0C0
   k_callx RF_2FB9, 4
   k_pushib 26
   k_pushi 13
@@ -317,12 +317,12 @@ SENSOU_F_9816:
   k_pushib 24
   k_pushi 3
   k_callx RF_2F8F, 4
-  k_pushiw $A0CA
+  k_pushiw SENSOU_D_A0CA
   k_callx RF_3608, 2
   k_pushib 24
   k_pushib 25
   k_callx RF_2F8F, 4
-  k_pushiw $A0CF
+  k_pushiw SENSOU_D_A0CF
   k_callx RF_3608, 2
   k_pushib 25
   k_pushi 3
@@ -330,7 +330,7 @@ SENSOU_F_9816:
   k_ldl -2
   k_derefb
   k_pushl
-  k_pushiw $A0D4
+  k_pushiw SENSOU_D_A0D4
   k_callx RF_3608, 4
   k_pushib 25
   k_pushib 25
@@ -338,17 +338,17 @@ SENSOU_F_9816:
   k_ldl -4
   k_derefb
   k_pushl
-  k_pushiw $A0D8
+  k_pushiw SENSOU_D_A0D8
   k_callx RF_3608, 4
   k_pushib 26
   k_pushi 3
   k_callx RF_2F8F, 4
-  k_pushiw $A0DC
+  k_pushiw SENSOU_D_A0DC
   k_callx RF_3608, 2
   k_pushib 26
   k_pushib 25
   k_callx RF_2F8F, 4
-  k_pushiw $A0E1
+  k_pushiw SENSOU_D_A0E1
   k_callx RF_3608, 2
   k_pushib 27
   k_pushi 3
@@ -357,7 +357,7 @@ SENSOU_F_9816:
   k_addli 4
   k_deref
   k_pushl
-  k_pushiw $A0E6
+  k_pushiw SENSOU_D_A0E6
   k_callx RF_3608, 4
   k_pushib 27
   k_pushib 25
@@ -366,7 +366,7 @@ SENSOU_F_9816:
   k_addli 4
   k_deref
   k_pushl
-  k_pushiw $A0EA
+  k_pushiw SENSOU_D_A0EA
   k_callx RF_3608, 4
   k_return
 SENSOU_F_98AE:
@@ -701,11 +701,11 @@ SENSOU_F_9AB7:
   k_jump SENSOU_L_9AE8
 SENSOU_L_9AD9:
   k_pushi 1
-  k_pushiw $A0EE
+  k_pushiw SENSOU_D_A0EE
   k_jump SENSOU_L_9AE4
 SENSOU_L_9AE0:
   k_pushi 1
-  k_pushiw $A0F1
+  k_pushiw SENSOU_D_A0F1
 SENSOU_L_9AE4:
   k_callx RF_2FB9, 4
 SENSOU_L_9AE8:
@@ -835,7 +835,7 @@ SENSOU_L_9B6F:
   k_deref
   k_jumpf SENSOU_L_9BC2
   k_pushi 0
-  k_pusha $A0F4
+  k_pusha SENSOU_D_A0F4
   k_leal -18
   k_pushl
   k_ldl -4
@@ -1139,7 +1139,7 @@ SENSOU_L_9D61:
   k_pusha $F280
   k_ldl -20
   k_shl1
-  k_ldriw $A0F6
+  k_ldriw SENSOU_D_A0F6
   k_add
   k_deref
   k_pushl
@@ -1224,7 +1224,7 @@ SENSOU_L_9DD6:
   k_pusha $F280
   k_ldl -20
   k_shl1
-  k_ldriw $A0F6
+  k_ldriw SENSOU_D_A0F6
   k_add
   k_deref
   k_pushl
@@ -1553,28 +1553,50 @@ SENSOU_L_9F0B:
   k_pushib 16
   k_callx RL_21BE, 4
   k_return
-  .byte $5C, $A0, $64, $A0
-  .byte "senmain"
-  .byte $00
-  .byte "senfe"
-  .byte $00, $C8, $04, $D8, $04, $E0, $04, $D0, $04, $F0, $04, $E8, $04, $98, $04, $A8
-  .byte $04, $B0, $04, $A0, $04, $C0, $04, $B8, $04, $28, $05, $38, $05, $40, $05, $30
-  .byte $05, $50, $05, $48, $05, $F8, $04, $08, $05, $10, $05, $00, $05, $20, $05, $18
-  .byte $05, $A2, $A0, $AB, $A0, $B1, $A0, $B9, $A0
-  .byte "Portugal"
-  .byte $00
-  .byte "Spain"
-  .byte $00
-  .byte "Turkish"
-  .byte $00
-  .byte "Pirate"
-  .byte $00, $1B, $52, $2D, $1B, $45, $3E, $1B, $43, $30, $00
-  .byte "Hull"
-  .byte $00
-  .byte "Hull"
-  .byte $00, $25, $33, $64, $00, $25, $33, $64, $00
-  .byte "Crew"
-  .byte $00
-  .byte "Crew"
-  .byte $00, $25, $33, $64, $00, $25, $33, $64, $00, $1B, $57, $00, $1B, $57, $00, $58
-  .byte $29, $BA, $18, $C6, $18, $D2, $18, $DE, $18, $EA, $18, $F6, $18
+SENSOU_D_A058:
+  .word SENSOU_D_A05C, SENSOU_D_A064
+SENSOU_D_A05C:
+  .byte "senmain", $00
+SENSOU_D_A064:
+  .byte "senfe", $00
+SENSOU_D_A06A:
+  .byte $C8, $04, $D8, $04, $E0, $04, $D0, $04, $F0, $04, $E8, $04, $98, $04, $A8, $04
+  .byte $B0, $04, $A0, $04, $C0, $04, $B8, $04, $28, $05, $38, $05, $40, $05, $30, $05
+  .byte $50, $05, $48, $05, $F8, $04, $08, $05, $10, $05, $00, $05, $20, $05, $18, $05
+SENSOU_D_A09A:
+  .word SENSOU_D_A0A2, SENSOU_D_A0AB, SENSOU_D_A0B1, SENSOU_D_A0B9
+SENSOU_D_A0A2:
+  .byte "Portugal", $00
+SENSOU_D_A0AB:
+  .byte "Spain", $00
+SENSOU_D_A0B1:
+  .byte "Turkish", $00
+SENSOU_D_A0B9:
+  .byte "Pirate", $00
+SENSOU_D_A0C0:
+  .byte $1B, $52, $2D, $1B
+  .byte "E>", $1B, "C0", $00
+SENSOU_D_A0CA:
+  .byte "Hull", $00
+SENSOU_D_A0CF:
+  .byte "Hull", $00
+SENSOU_D_A0D4:
+  .byte "%3d", $00
+SENSOU_D_A0D8:
+  .byte "%3d", $00
+SENSOU_D_A0DC:
+  .byte "Crew", $00
+SENSOU_D_A0E1:
+  .byte "Crew", $00
+SENSOU_D_A0E6:
+  .byte "%3d", $00
+SENSOU_D_A0EA:
+  .byte "%3d", $00
+SENSOU_D_A0EE:
+  .byte $1B, $57, $00
+SENSOU_D_A0F1:
+  .byte $1B, $57, $00
+SENSOU_D_A0F4:
+  .byte $58, $29
+SENSOU_D_A0F6:
+  .byte $BA, $18, $C6, $18, $D2, $18, $DE, $18, $EA, $18, $F6, $18

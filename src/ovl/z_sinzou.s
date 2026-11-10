@@ -62,7 +62,7 @@ Z_SINZOU_L_D038:
   k_pushi 0
   k_ldl -2
   k_shl1
-  k_ldriw $D810
+  k_ldriw Z_SINZOU_D_D810
   k_add
   k_deref
   k_pushl
@@ -100,7 +100,7 @@ Z_SINZOU_F_D085:
   k_pusharg 11
   k_callx Z_SINZOU_F_D071, 2
   k_pushl
-  k_pushiw $D857
+  k_pushiw Z_SINZOU_D_D857
   k_callx RF_3608, 4
   k_return
 Z_SINZOU_F_D09E:
@@ -149,7 +149,7 @@ Z_SINZOU_F_D0CA:
   k_pusharg 11
   k_callx Z_SINZOU_F_D09E, 2
   k_pushl
-  k_pushiw $D867
+  k_pushiw Z_SINZOU_D_D867
   k_callx RF_3608, 4
   k_return
 Z_SINZOU_F_D0E3:
@@ -199,7 +199,7 @@ Z_SINZOU_F_D111:
   k_pusharg 11
   k_callx Z_SINZOU_F_D0E3, 2
   k_pushl
-  k_pushiw $D877
+  k_pushiw Z_SINZOU_D_D877
   k_callx RF_3608, 4
   k_return
 Z_SINZOU_F_D12A:
@@ -240,7 +240,7 @@ Z_SINZOU_F_D151:
   k_pusharg 11
   k_callx Z_SINZOU_F_D12A, 2
   k_pushl
-  k_pushiw $D887
+  k_pushiw Z_SINZOU_D_D887
   k_callx RF_3608, 4
   k_return
 Z_SINZOU_F_D16B:
@@ -249,7 +249,7 @@ Z_SINZOU_F_D16B:
   k_pushi 3
   k_callx RF_2F8F, 4
   k_pusharg 11
-  k_pushiw $D896
+  k_pushiw Z_SINZOU_D_D896
   k_callx RF_3608, 4
   k_return
 Z_SINZOU_F_D17F:
@@ -258,7 +258,7 @@ Z_SINZOU_F_D17F:
   k_pushi 3
   k_callx RF_2F8F, 4
   k_pusharg 11
-  k_pushiw $D8A0
+  k_pushiw Z_SINZOU_D_D8A0
   k_callx RF_3608, 4
   k_return
 Z_SINZOU_F_D193:
@@ -267,7 +267,7 @@ Z_SINZOU_F_D193:
   k_pushi 3
   k_callx RF_2F8F, 4
   k_pusharg 11
-  k_pushiw $D8AA
+  k_pushiw Z_SINZOU_D_D8AA
   k_callx RF_3608, 4
   k_return
 Z_SINZOU_F_D1A8:
@@ -277,7 +277,7 @@ Z_SINZOU_F_D1A8:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D8B4
+  k_pushiw Z_SINZOU_D_D8B4
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_stl -2
@@ -520,7 +520,7 @@ Z_SINZOU_L_D282:
   k_pushi 5
   k_callx RF_60CE, 4
   k_call RF_60B2
-  k_pushiw $D8CF
+  k_pushiw Z_SINZOU_D_D8CF
   k_callx RF_4B44, 2
   k_pushi 3
   k_callx RF_3D5C, 2
@@ -531,10 +531,10 @@ Z_SINZOU_L_D313:
   k_pushi 6
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $D8FD
+  k_pushiw Z_SINZOU_D_D8FD
   k_callx RF_2FB9, 4
   k_pushi 1
-  k_pushiw $D914
+  k_pushiw Z_SINZOU_D_D914
   k_callx RF_2FB9, 4
 Z_SINZOU_L_D32A:
   k_pushi 1
@@ -546,7 +546,7 @@ Z_SINZOU_L_D32A:
   k_pushi 6
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $D918
+  k_pushiw Z_SINZOU_D_D918
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf Z_SINZOU_L_D354
@@ -592,7 +592,7 @@ Z_SINZOU_L_D36F:
   k_stl -4
   k_push -4
   k_pushi 0
-  k_pushiw $D928
+  k_pushiw Z_SINZOU_D_D928
   k_callx RF_3C6D, 6
   k_stl -2
   k_ldl -2
@@ -634,7 +634,7 @@ Z_SINZOU_L_D3C2:
   k_call RF_60B2
   k_push -6
   k_pushib 20
-  k_pushiw $D959
+  k_pushiw Z_SINZOU_D_D959
   k_callx RF_3C6D, 6
   k_stl -2
   k_ldl -2
@@ -717,16 +717,16 @@ Z_SINZOU_F_D41F:
   k_pushib 19
   k_callx RF_2F8F, 4
   k_pusha $E56D
-  k_pushiw $D9B5
+  k_pushiw Z_SINZOU_D_D9B5
   k_callx RF_3608, 4
 Z_SINZOU_L_D45A:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D9BE
+  k_pushiw Z_SINZOU_D_D9BE
   k_callx RF_2FB9, 4
   k_pushi 2
   k_pushi 4
-  k_pushiw $D975
+  k_pushiw Z_SINZOU_D_D975
   k_pushi 2
   k_pushi 7
   k_pushib 23
@@ -776,7 +776,7 @@ Z_SINZOU_L_D482:
   k_longw $0C, $FFEF
   k_long $27
   k_pushl
-  k_pushiw $D9D1
+  k_pushiw Z_SINZOU_D_D9D1
   k_callx RF_3619, 4
   k_call Z_SINZOU_F_D1A8
   k_jumpf Z_SINZOU_L_D45A
@@ -806,16 +806,16 @@ Z_SINZOU_L_D4DC:
   k_ldri 4
   k_ult
   k_jumpf Z_SINZOU_L_D4EC
-  k_ldliw $D97D
+  k_ldliw Z_SINZOU_D_D97D
   k_jump Z_SINZOU_L_D4EF
 Z_SINZOU_L_D4EC:
-  k_ldliw $D97F
+  k_ldliw Z_SINZOU_D_D97F
 Z_SINZOU_L_D4EF:
   k_stln -3
   k_call RF_6080
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D9DB
+  k_pushiw Z_SINZOU_D_D9DB
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushn -7
@@ -851,16 +851,16 @@ Z_SINZOU_L_D52B:
   k_call RF_6080
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D9EB
+  k_pushiw Z_SINZOU_D_D9EB
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $DA27
+  k_pushiw Z_SINZOU_D_DA27
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushi 2
-  k_pushiw $D983
+  k_pushiw Z_SINZOU_D_D983
   k_pushi 1
   k_pushi 9
   k_pushib 25
@@ -962,7 +962,7 @@ Z_SINZOU_L_D5E4:
   k_longw $0C, $FFEF
   k_long $27
   k_pushl
-  k_pushiw $DA47
+  k_pushiw Z_SINZOU_D_DA47
   k_callx RF_3619, 4
   k_call Z_SINZOU_F_D1A8
   k_jumpf Z_SINZOU_L_D4C7
@@ -970,7 +970,7 @@ Z_SINZOU_L_D5E4:
   k_longw $0C, $FFEF
   k_long $27
   k_pushl
-  k_pushiw $DA51
+  k_pushiw Z_SINZOU_D_DA51
   k_callx RF_3619, 4
   k_ldla $E56D
   k_stln -9
@@ -983,7 +983,7 @@ Z_SINZOU_L_D5E4:
   k_jumpf Z_SINZOU_L_D636
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $DA7E
+  k_pushiw Z_SINZOU_D_DA7E
   k_callx RF_4B44, 2
 Z_SINZOU_L_D634:
   k_ldli 0
@@ -1017,7 +1017,7 @@ Z_SINZOU_L_D651:
   k_pushi 1
   k_pushn -11
   k_pushi 1
-  k_pushiw $DA91
+  k_pushiw Z_SINZOU_D_DA91
   k_callx RF_3C4E, 8
   k_stln -5
   k_ldln -5
@@ -1061,7 +1061,7 @@ Z_SINZOU_L_D651:
   k_ult
   k_jumpf Z_SINZOU_L_D6E4
   k_call RF_60B2
-  k_pushiw $DAA6
+  k_pushiw Z_SINZOU_D_DAA6
   k_callx RF_4B44, 2
   k_ldli 1
   k_return
@@ -1085,11 +1085,11 @@ Z_SINZOU_F_D6FD:
   k_call RF_60B2
   k_ldlbf 11
   k_shl1
-  k_ldriw $DAD5
+  k_ldriw Z_SINZOU_D_DAD5
   k_add
   k_deref
   k_pushl
-  k_pushiw $DCA0
+  k_pushiw Z_SINZOU_D_DCA0
   k_callx RF_3608, 4
   k_ldla $F18A
   k_dec
@@ -1097,7 +1097,7 @@ Z_SINZOU_F_D6FD:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $DCA4
+  k_pushiw Z_SINZOU_D_DCA4
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf Z_SINZOU_L_D747
@@ -1119,7 +1119,7 @@ Z_SINZOU_L_D747:
   k_pushi 5
   k_callx RF_60CE, 4
   k_call RF_60B2
-  k_pushiw $DCBD
+  k_pushiw Z_SINZOU_D_DCBD
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -1129,7 +1129,7 @@ Z_SINZOU_F_D759:
   k_pushi 5
   k_callx RF_60CE, 4
   k_call RF_60B2
-  k_pushiw $DCD9
+  k_pushiw Z_SINZOU_D_DCD9
   k_callx RF_4B44, 2
   k_ldlba $EF69
   k_ldri 14
@@ -1169,7 +1169,7 @@ Z_SINZOU_L_D78E:
 Z_SINZOU_L_D7B0:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $DD04
+  k_pushiw Z_SINZOU_D_DD04
   k_callx RF_2FB9, 4
   k_ldlbf -1
   k_inc
@@ -1199,7 +1199,7 @@ Z_SINZOU_L_D7B0:
 Z_SINZOU_L_D7F0:
   k_pushi 2
   k_callx RF_609A, 2
-  k_pushiw $DD14
+  k_pushiw Z_SINZOU_D_DD14
   k_callx RF_4B44, 2
   k_call $9662
 Z_SINZOU_L_D7FF:
@@ -1212,154 +1212,124 @@ Z_SINZOU_L_D7FF:
 Z_SINZOU_L_D80D:
   k_ldl -18
   k_return
-  .byte $00, $1C, $D8, $25, $D8, $32, $D8, $37, $D8, $40, $D8, $49, $D8, $0A
-  .byte "Caravel"
   .byte $00
-  .byte "Bergan-"
-  .byte $0A
-  .byte " tin"
-  .byte $00, $0A, $4E, $61, $6F, $00, $0A
-  .byte "Carrack"
-  .byte $00, $0A
-  .byte "Galleon"
+Z_SINZOU_D_D810:
+  .word Z_SINZOU_D_D81C, Z_SINZOU_D_D825, Z_SINZOU_D_D832, Z_SINZOU_D_D837, Z_SINZOU_D_D840, Z_SINZOU_D_D849
+Z_SINZOU_D_D81C:
+  .byte $0A, "Caravel", $00
+Z_SINZOU_D_D825:
+  .byte "Bergan-", $0A, " tin", $00
+Z_SINZOU_D_D832:
+  .byte $0A, "Nao", $00
+Z_SINZOU_D_D837:
+  .byte $0A, "Carrack", $00
+Z_SINZOU_D_D840:
+  .byte $0A, "Galleon", $00
+Z_SINZOU_D_D849:
+  .byte "Heavy", $0A, "Galleon", $00
+Z_SINZOU_D_D857:
+  .byte "Durability: %3d", $00
+Z_SINZOU_D_D867:
+  .byte "Handling:   %3d", $00
+Z_SINZOU_D_D877:
+  .byte "Power:      %3d", $00
+Z_SINZOU_D_D887:
+  .byte "Capacity:  %4d", $00
+Z_SINZOU_D_D896:
+  .byte "Cargo:%3d", $00
+Z_SINZOU_D_D8A0:
+  .byte "Crew: %3d", $00
+Z_SINZOU_D_D8AA:
+  .byte "Arms: %3d", $00
+Z_SINZOU_D_D8B4:
+  .byte "Is this OK", $00
+  .byte $0F, $16, "00", $0F, $12, $22, "1", $0F, $1A, "7", $12, $0F, $18, "(8"
+Z_SINZOU_D_D8CF:
+  .byte "All right, she's", $0A, "yours! Name your", $0A, "ship, matey", $00
+Z_SINZOU_D_D8FD:
+  .byte "                      ", $00
+Z_SINZOU_D_D914:
+  .byte $1B
+  .byte "C2", $00
+Z_SINZOU_D_D918:
+  .byte "Is this name OK", $00
+Z_SINZOU_D_D928:
+  .byte "All right, how many", $0A, "gun placements will", $0A, "you need", $00
+Z_SINZOU_D_D959:
+  .byte "How many bunks for", $0A, "the crew", $00
+Z_SINZOU_D_D975:
+  .word Z_SINZOU_D_D987, Z_SINZOU_D_D98C, Z_SINZOU_D_D992, Z_SINZOU_D_D996
+Z_SINZOU_D_D97D:
+  .byte $9F, $D9
+Z_SINZOU_D_D97F:
+  .byte $A1, $D9, $A3, $D9
+Z_SINZOU_D_D983:
+  .word Z_SINZOU_D_D9A5, Z_SINZOU_D_D9AD
+Z_SINZOU_D_D987:
+  .byte "Teak", $00
+Z_SINZOU_D_D98C:
+  .byte "Beach", $00
+Z_SINZOU_D_D992:
+  .byte "Oak", $00
+Z_SINZOU_D_D996:
+  .byte "Mahogany", $00
+  .byte $31, $00, $32, $00, $33, $00
+Z_SINZOU_D_D9A5:
+  .byte "3-point", $00
+Z_SINZOU_D_D9AD:
+  .byte "4-point", $00
+Z_SINZOU_D_D9B5:
+  .byte "Gold:%5d", $00
+Z_SINZOU_D_D9BE:
+  .byte "What kind of hull?", $00
+Z_SINZOU_D_D9D1:
+  .byte "Cost: %5d", $00
+Z_SINZOU_D_D9DB:
+  .byte "How many masts?", $00
+Z_SINZOU_D_D9EB:
+  .byte "3-point sails are for", $0A, "tacking, 4-point sailsare for running", $00
+Z_SINZOU_D_DA27:
+  .byte "Which type of sails", $0A, "do ye want?", $00
+Z_SINZOU_D_DA47:
+  .byte "Cost: %5d", $00
+Z_SINZOU_D_DA51:
+  .byte "All this would cost", $0A, "ye %d gold. Is it", $0A, "a deal", $00
+Z_SINZOU_D_DA7E:
+  .byte "We can't afford it", $00
+Z_SINZOU_D_DA91:
+  .byte "Then name yer price", $0A, $00
+Z_SINZOU_D_DAA6:
+  .byte "You don't know one", $0A, "ship from another!", $0A, "Get out!", $00
+Z_SINZOU_D_DAD5:
+  .word Z_SINZOU_D_DAE1, Z_SINZOU_D_DB34, Z_SINZOU_D_DB7F, Z_SINZOU_D_DBCA, Z_SINZOU_D_DC16, Z_SINZOU_D_DC57
+Z_SINZOU_D_DAE1:
+  .byte "This one's small with", $0A, "a shallow hull. It's", $0A, "fast, but may not farewell on open seas"
   .byte $00
-  .byte "Heavy"
-  .byte $0A
-  .byte "Galleon"
+Z_SINZOU_D_DB34:
+  .byte "This small craft has", $0A, "a deep hull. It's goodfor trading over shortdistances"
   .byte $00
-  .byte "Durability: %3d"
+Z_SINZOU_D_DB7F:
+  .byte "This mid-sized craft", $0A, "is easy to handle. Ye", $0A, "can't go wrong with"
+  .byte $0A, "one o'these", $00
+Z_SINZOU_D_DBCA:
+  .byte "This model's a large", $0A, "merchant ship. But shecan be converted into", $0A
+  .byte "a warship!", $00
+Z_SINZOU_D_DC16:
+  .byte "If ye want to build a", $0A, "large warship, ye'd", $0A, "best choose this", $0A
+  .byte "model", $00
+Z_SINZOU_D_DC57:
+  .byte "It's hard to find a", $0A, "port where ye can", $0A, "build power ships", $0A, "like this, matey"
   .byte $00
-  .byte "Handling:   %3d"
+Z_SINZOU_D_DCA0:
+  .byte $0A, "%s", $00
+Z_SINZOU_D_DCA4:
+  .byte "Shall I build one for", $0A, "ye", $00
+Z_SINZOU_D_DCBD:
+  .byte "No? Then choose", $0A, "another one", $00
+Z_SINZOU_D_DCD9:
+  .byte "Ye want to build? Now", $0A, "that makes me happy!", $00
+Z_SINZOU_D_DD04:
+  .byte "Choose yer hull", $00
+Z_SINZOU_D_DD14:
+  .byte "Cold feet, eh?", $00
   .byte $00
-  .byte "Power:      %3d"
-  .byte $00
-  .byte "Capacity:  %4d"
-  .byte $00
-  .byte "Cargo:%3d"
-  .byte $00
-  .byte "Crew: %3d"
-  .byte $00
-  .byte "Arms: %3d"
-  .byte $00
-  .byte "Is this OK"
-  .byte $00, $0F, $16, $30, $30, $0F, $12, $22, $31, $0F, $1A, $37, $12, $0F, $18
-  .byte "(8All right, she's"
-  .byte $0A
-  .byte "yours! Name your"
-  .byte $0A
-  .byte "ship, matey"
-  .byte $00
-  .byte "                      "
-  .byte $00, $1B, $43, $32, $00
-  .byte "Is this name OK"
-  .byte $00
-  .byte "All right, how many"
-  .byte $0A
-  .byte "gun placements will"
-  .byte $0A
-  .byte "you need"
-  .byte $00
-  .byte "How many bunks for"
-  .byte $0A
-  .byte "the crew"
-  .byte $00, $87, $D9, $8C, $D9, $92, $D9, $96, $D9, $9F, $D9, $A1, $D9, $A3, $D9, $A5
-  .byte $D9, $AD, $D9
-  .byte "Teak"
-  .byte $00
-  .byte "Beach"
-  .byte $00, $4F, $61, $6B, $00
-  .byte "Mahogany"
-  .byte $00, $31, $00, $32, $00, $33, $00
-  .byte "3-point"
-  .byte $00
-  .byte "4-point"
-  .byte $00
-  .byte "Gold:%5d"
-  .byte $00
-  .byte "What kind of hull?"
-  .byte $00
-  .byte "Cost: %5d"
-  .byte $00
-  .byte "How many masts?"
-  .byte $00
-  .byte "3-point sails are for"
-  .byte $0A
-  .byte "tacking, 4-point sailsare for running"
-  .byte $00
-  .byte "Which type of sails"
-  .byte $0A
-  .byte "do ye want?"
-  .byte $00
-  .byte "Cost: %5d"
-  .byte $00
-  .byte "All this would cost"
-  .byte $0A
-  .byte "ye %d gold. Is it"
-  .byte $0A
-  .byte "a deal"
-  .byte $00
-  .byte "We can't afford it"
-  .byte $00
-  .byte "Then name yer price"
-  .byte $0A, $00
-  .byte "You don't know one"
-  .byte $0A
-  .byte "ship from another!"
-  .byte $0A
-  .byte "Get out!"
-  .byte $00, $E1, $DA, $34, $DB, $7F, $DB, $CA, $DB, $16, $DC, $57, $DC
-  .byte "This one's small with"
-  .byte $0A
-  .byte "a shallow hull. It's"
-  .byte $0A
-  .byte "fast, but may not farewell on open seas"
-  .byte $00
-  .byte "This small craft has"
-  .byte $0A
-  .byte "a deep hull. It's goodfor trading over shortdist"
-  .byte "ances"
-  .byte $00
-  .byte "This mid-sized craft"
-  .byte $0A
-  .byte "is easy to handle. Ye"
-  .byte $0A
-  .byte "can't go wrong with"
-  .byte $0A
-  .byte "one o'these"
-  .byte $00
-  .byte "This model's a large"
-  .byte $0A
-  .byte "merchant ship. But shecan be converted into"
-  .byte $0A
-  .byte "a warship!"
-  .byte $00
-  .byte "If ye want to build a"
-  .byte $0A
-  .byte "large warship, ye'd"
-  .byte $0A
-  .byte "best choose this"
-  .byte $0A
-  .byte "model"
-  .byte $00
-  .byte "It's hard to find a"
-  .byte $0A
-  .byte "port where ye can"
-  .byte $0A
-  .byte "build power ships"
-  .byte $0A
-  .byte "like this, matey"
-  .byte $00, $0A, $25, $73, $00
-  .byte "Shall I build one for"
-  .byte $0A, $79, $65, $00
-  .byte "No? Then choose"
-  .byte $0A
-  .byte "another one"
-  .byte $00
-  .byte "Ye want to build? Now"
-  .byte $0A
-  .byte "that makes me happy!"
-  .byte $00
-  .byte "Choose yer hull"
-  .byte $00
-  .byte "Cold feet, eh?"
-  .byte $00, $00

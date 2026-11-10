@@ -144,7 +144,7 @@ IBENTO_F_96A4:
   k_ldlarg 11
   k_ldri 1
   k_shr
-  k_ldriw $9DCE
+  k_ldriw IBENTO_D_9DCE
   k_add
   k_derefb
   k_popr
@@ -185,19 +185,19 @@ IBENTO_F_96D3:
   k_pushi 12
   k_callx RF_3F3E, 2
   k_shl1
-  k_ldriw $9DE9
+  k_ldriw IBENTO_D_9DE9
   k_add
   k_deref
   k_pushl
   k_push -4
   k_callx $8979, 4
-  k_pushiw $9EBB
+  k_pushiw IBENTO_D_9EBB
   k_push -4
   k_callx $89A1, 4
   k_pushi 13
   k_callx RF_3F3E, 2
   k_shl1
-  k_ldriw $9E01
+  k_ldriw IBENTO_D_9E01
   k_add
   k_deref
   k_pushl
@@ -360,7 +360,7 @@ IBENTO_F_983A:
   k_add
   k_stl -2
   k_ldl -2
-  k_ldriw $9EBD
+  k_ldriw IBENTO_D_9EBD
   k_add
   k_derefb
   k_stlba $EF57
@@ -425,7 +425,7 @@ IBENTO_L_98AF:
   k_shl1
   k_ldr -14
   k_add
-  k_ldriw $9EC9
+  k_ldriw IBENTO_D_9EC9
   k_add
   k_derefb
   k_ldr -2
@@ -441,7 +441,7 @@ IBENTO_L_98AF:
   k_shl1
   k_ldr -14
   k_add
-  k_ldriw $9EC9
+  k_ldriw IBENTO_D_9EC9
   k_add
   k_derefb
   k_ldr -2
@@ -906,7 +906,7 @@ IBENTO_F_9B5D:
   k_jump IBENTO_L_9B9A
 IBENTO_L_9B7E:
   k_ldl -12
-  k_ldriw $9ED9
+  k_ldriw IBENTO_D_9ED9
   k_add
   k_derefb
   k_ldr -2
@@ -918,7 +918,7 @@ IBENTO_L_9B7E:
   k_ldl -12
   k_stl -8
   k_ldl -12
-  k_ldriw $9ED9
+  k_ldriw IBENTO_D_9ED9
   k_add
   k_derefb
   k_ldr -2
@@ -1180,7 +1180,7 @@ IBENTO_L_9D11:
 IBENTO_L_9D1C:
   k_ldl -4
   k_shl1
-  k_ldriw $9EE9
+  k_ldriw IBENTO_D_9EE9
   k_add
   k_deref
 IBENTO_L_9D23:
@@ -1200,7 +1200,7 @@ IBENTO_L_9D2B:
   k_stlba $EF54
   k_ldli 1
   k_stlba $EF55
-  k_ldla $9EE9
+  k_ldla IBENTO_D_9EE9
   k_jump IBENTO_L_9D23
 IBENTO_L_9D45:
   k_call IBENTO_F_9C32
@@ -1213,7 +1213,7 @@ IBENTO_L_9D45:
   k_stlba $EF54
   k_ldli 2
   k_stlba $EF55
-  k_ldla $9EEF
+  k_ldla IBENTO_D_9EEF
   k_jump IBENTO_L_9D23
 IBENTO_L_9D5F:
   k_call IBENTO_F_9C57
@@ -1226,7 +1226,7 @@ IBENTO_L_9D5F:
   k_stlba $EF54
   k_ldli 3
   k_stlba $EF55
-  k_ldla $9EED
+  k_ldla IBENTO_D_9EED
   k_jump IBENTO_L_9D23
 IBENTO_F_9D79:
   k_func 2
@@ -1276,61 +1276,77 @@ IBENTO_L_9DC8:
   k_callx IBENTO_F_9C71, 2
 IBENTO_L_9DCD:
   k_return
+IBENTO_D_9DCE:
   .byte $0F, $FF, $01, $24, $8A, $53, $CE, $DB, $7F, $FF, $FE, $DB, $7F, $FF, $F4, $82
-  .byte $8E, $DB, $7E, $DB, $7F, $FF, $FF, $FF, $F0, $00, $00, $1B, $9E, $20, $9E, $27
-  .byte $9E, $2D, $9E, $33, $9E, $3A, $9E, $42, $9E, $49, $9E, $4E, $9E, $54, $9E, $5A
-  .byte $9E, $61, $9E, $69, $9E, $70, $9E, $76, $9E, $7C, $9E, $83, $9E, $8A, $9E, $8F
-  .byte $9E, $96, $9E, $9C, $9E, $A3, $9E, $A9, $9E, $AF, $9E, $B6, $9E
-  .byte "Lion"
+  .byte $8E, $DB, $7E, $DB, $7F, $FF, $FF, $FF, $F0, $00, $00
+IBENTO_D_9DE9:
+  .word IBENTO_D_9E1B, IBENTO_D_9E20, IBENTO_D_9E27, IBENTO_D_9E2D, IBENTO_D_9E33, IBENTO_D_9E3A, IBENTO_D_9E42, IBENTO_D_9E49
+  .word IBENTO_D_9E4E, IBENTO_D_9E54, IBENTO_D_9E5A, IBENTO_D_9E61
+IBENTO_D_9E01:
+  .word IBENTO_D_9E69, IBENTO_D_9E70, IBENTO_D_9E76, IBENTO_D_9E7C, IBENTO_D_9E83, IBENTO_D_9E8A, IBENTO_D_9E8F, IBENTO_D_9E96
+  .word IBENTO_D_9E9C, IBENTO_D_9EA3, IBENTO_D_9EA9, IBENTO_D_9EAF, IBENTO_D_9EB6
+IBENTO_D_9E1B:
+  .byte "Lion", $00
+IBENTO_D_9E20:
+  .byte "Dragon", $00
+IBENTO_D_9E27:
+  .byte "Hydra", $00
+IBENTO_D_9E2D:
+  .byte "Ebony", $00
+IBENTO_D_9E33:
+  .byte "Bronze", $00
+IBENTO_D_9E3A:
+  .byte "Crystal", $00
+IBENTO_D_9E42:
+  .byte "Silver", $00
+IBENTO_D_9E49:
+  .byte "Ruby", $00
+IBENTO_D_9E4E:
+  .byte "Magic", $00
+IBENTO_D_9E54:
+  .byte "Royal", $00
+IBENTO_D_9E5A:
+  .byte "Golden", $00
+IBENTO_D_9E61:
+  .byte "Emerald", $00
+IBENTO_D_9E69:
+  .byte "Dagger", $00
+IBENTO_D_9E70:
+  .byte "Charm", $00
+IBENTO_D_9E76:
+  .byte "Crown", $00
+IBENTO_D_9E7C:
+  .byte "Goblet", $00
+IBENTO_D_9E83:
+  .byte "Statue", $00
+IBENTO_D_9E8A:
+  .byte "Harp", $00
+IBENTO_D_9E8F:
+  .byte "Mirror", $00
+IBENTO_D_9E96:
+  .byte "Ladle", $00
+IBENTO_D_9E9C:
+  .byte "Shield", $00
+IBENTO_D_9EA3:
+  .byte "Armor", $00
+IBENTO_D_9EA9:
+  .byte "Sword", $00
+IBENTO_D_9EAF:
+  .byte "Helmet", $00
+IBENTO_D_9EB6:
+  .byte "Ring", $00
+IBENTO_D_9EBB:
+  .byte $20, $00
+IBENTO_D_9EBD:
+  .byte $17, $12, $09, $0D, $0E, $0C, $03, $00, $01, $02, $04, $11
+IBENTO_D_9EC9:
+  .byte $FF, $00, $02, $03, $00, $FF, $0B, $04, $02, $01, $FF, $05, $03, $04, $05, $FF
+IBENTO_D_9ED9:
+  .byte $FF, $00, $02, $03, $00, $FF, $01, $04, $02, $01, $FF, $05, $03, $04, $05, $FF
+IBENTO_D_9EE9:
+  .word IBENTO_F_983A, IBENTO_F_985D
+IBENTO_D_9EED:
+  .word IBENTO_F_987A
+IBENTO_D_9EEF:
+  .word IBENTO_F_9A97, IBENTO_F_9B5D
   .byte $00
-  .byte "Dragon"
-  .byte $00
-  .byte "Hydra"
-  .byte $00
-  .byte "Ebony"
-  .byte $00
-  .byte "Bronze"
-  .byte $00
-  .byte "Crystal"
-  .byte $00
-  .byte "Silver"
-  .byte $00
-  .byte "Ruby"
-  .byte $00
-  .byte "Magic"
-  .byte $00
-  .byte "Royal"
-  .byte $00
-  .byte "Golden"
-  .byte $00
-  .byte "Emerald"
-  .byte $00
-  .byte "Dagger"
-  .byte $00
-  .byte "Charm"
-  .byte $00
-  .byte "Crown"
-  .byte $00
-  .byte "Goblet"
-  .byte $00
-  .byte "Statue"
-  .byte $00
-  .byte "Harp"
-  .byte $00
-  .byte "Mirror"
-  .byte $00
-  .byte "Ladle"
-  .byte $00
-  .byte "Shield"
-  .byte $00
-  .byte "Armor"
-  .byte $00
-  .byte "Sword"
-  .byte $00
-  .byte "Helmet"
-  .byte $00
-  .byte "Ring"
-  .byte $00, $20, $00, $17, $12, $09, $0D, $0E, $0C, $03, $00, $01, $02, $04, $11, $FF
-  .byte $00, $02, $03, $00, $FF, $0B, $04, $02, $01, $FF, $05, $03, $04, $05, $FF, $FF
-  .byte $00, $02, $03, $00, $FF, $01, $04, $02, $01, $FF, $05, $03, $04, $05, $FF, $3A
-  .byte $98, $5D, $98, $7A, $98, $97, $9A, $5D, $9B, $00

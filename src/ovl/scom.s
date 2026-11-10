@@ -509,7 +509,7 @@ SCOM_F_98DB:
   k_pushl
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8EC0
+  k_ldriw RD_8EC0
   k_add
   k_deref
   k_popr
@@ -540,7 +540,7 @@ SCOM_F_991B:
   k_pushib 32
   k_pushiw $00D0
   k_pushib 126
-  k_pushiw $9A14
+  k_pushiw SCOM_D_9A14
   k_pushi 3
   k_callx RL_21BE, 10
   k_ldlarg 11
@@ -557,7 +557,7 @@ SCOM_F_991B:
   k_pushl
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8EC0
+  k_ldriw RD_8EC0
   k_add
   k_deref
   k_popr
@@ -683,5 +683,6 @@ SCOM_L_99F7:
   k_call RF_229B
 SCOM_L_9A13:
   k_return
+SCOM_D_9A14:
   .byte $00, $00, $42, $08, $91, $08, $D7, $29, $3D, $4F, $BF, $02, $EE, $66, $FF, $7F
   .byte $F9, $4E, $7D, $77, $C0, $01, $EA, $1A, $F3, $23, $E4, $12, $73, $4E, $7F, $1B

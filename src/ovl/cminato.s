@@ -63,7 +63,7 @@ CMINATO_F_9612:
   k_derefb
   k_dec
   k_shl1
-  k_ldriw $A1B4
+  k_ldriw CMINATO_D_A1B4
   k_add
   k_deref
   k_callptrn 4
@@ -474,7 +474,7 @@ CMINATO_L_984B:
   k_shl
   k_popr
   k_add
-  k_ldriw $A1BC
+  k_ldriw CMINATO_D_A1BC
   k_add
   k_deref
   k_ldrn -27
@@ -491,7 +491,7 @@ CMINATO_L_984B:
   k_shl
   k_popr
   k_add
-  k_ldriw $A1BC
+  k_ldriw CMINATO_D_A1BC
   k_add
   k_deref
   k_ldrn -27
@@ -2103,6 +2103,8 @@ CMINATO_L_A1AE:
   k_callx CMINATO_F_A000, 2
 CMINATO_L_A1B3:
   k_return
-  .byte $0A, $9D, $CA, $96, $CB, $98, $FF, $9A, $FF, $00, $00, $00, $02, $00, $03, $00
-  .byte $00, $00, $FF, $00, $01, $00, $04, $00, $02, $00, $01, $00, $FF, $00, $05, $00
-  .byte $03, $00, $04, $00, $05, $00, $FF, $00
+CMINATO_D_A1B4:
+  .word CMINATO_F_9D0A, CMINATO_F_96CA, CMINATO_F_98CB, CMINATO_F_9AFF
+CMINATO_D_A1BC:
+  .byte $FF, $00, $00, $00, $02, $00, $03, $00, $00, $00, $FF, $00, $01, $00, $04, $00
+  .byte $02, $00, $01, $00, $FF, $00, $05, $00, $03, $00, $04, $00, $05, $00, $FF, $00

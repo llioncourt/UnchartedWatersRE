@@ -15,7 +15,7 @@ S_CARD_F_B00C:
   k_func 2
   k_ldlarg 11
   k_shl1
-  k_ldriw $B222
+  k_ldriw S_CARD_D_B222
   k_add
   k_deref
   k_pushl
@@ -220,7 +220,7 @@ S_CARD_F_B1C3:
   k_pusha $F280
   k_ldlarg 17
   k_shl1
-  k_ldriw $B230
+  k_ldriw S_CARD_D_B230
   k_add
   k_deref
   k_pushl
@@ -235,14 +235,14 @@ S_CARD_F_B1C3:
   k_shl1
   k_pushl
   k_ldlarg 17
-  k_ldriw $B274
+  k_ldriw S_CARD_D_B274
   k_add
   k_derefb
   k_ldrib 26
   k_mul
   k_popr
   k_add
-  k_ldriw $B240
+  k_ldriw S_CARD_D_B240
   k_add
   k_deref
   k_pushl
@@ -257,7 +257,7 @@ S_CARD_F_B1C3:
   k_pusha $F280
   k_ldlarg 17
   k_shl1
-  k_ldriw $B238
+  k_ldriw S_CARD_D_B238
   k_add
   k_deref
   k_pushl
@@ -280,13 +280,19 @@ S_CARD_F_B1C3:
   k_pushi 5
   k_callx RL_21BE, 14
   k_return
-  .byte $26, $B2, $2B, $B2
-  .byte "s_pk"
+S_CARD_D_B222:
+  .word S_CARD_D_B226, S_CARD_D_B22B
+S_CARD_D_B226:
+  .byte "s_pk", $00
+S_CARD_D_B22B:
+  .byte "s_bj", $00
+S_CARD_D_B230:
+  .byte "ls\sTsds"
+S_CARD_D_B238:
+  .byte "ps`sXshs"
+S_CARD_D_B240:
+  .byte $EC, $72, $F0, $72, $F4, $72, $F8, $72, $FC, $72, $00
+  .byte "s", $04, "s", $08, "s", $0C, "s", $10, "s", $14, "s", $18, "s", $1C, "s s$s(s,s0s4s8s<s@sDsHsLsPs"
+S_CARD_D_B274:
   .byte $00
-  .byte "s_bj"
-  .byte $00
-  .byte "ls\sTsdsps`sXshs"
-  .byte $EC, $72, $F0, $72, $F4, $72, $F8, $72, $FC, $72, $00, $73, $04, $73, $08, $73
-  .byte $0C, $73, $10, $73, $14, $73, $18, $73, $1C
-  .byte "s s$s(s,s0s4s8s<s@sDsHsLsPs"
-  .byte $00, $01, $01, $00
+  .byte $01, $01, $00

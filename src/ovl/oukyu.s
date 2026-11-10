@@ -16,11 +16,11 @@ OUKYU_F_B00F:
   k_func 1
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C73D
+  k_pushiw OUKYU_D_C73D
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushi 2
-  k_pushiw $C72A
+  k_pushiw OUKYU_D_C72A
   k_pushi 1
   k_pushi 7
   k_pushib 23
@@ -33,7 +33,7 @@ OUKYU_F_B00F:
   k_jumpf OUKYU_L_B045
   k_ldlbf -1
   k_shl1
-  k_ldriw $C72E
+  k_ldriw OUKYU_D_C72E
   k_add
   k_deref
   k_callptr
@@ -65,12 +65,12 @@ OUKYU_F_B047:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 0
-  k_pushiw $C785
+  k_pushiw OUKYU_D_C785
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C797
+  k_pushiw OUKYU_D_C797
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -84,7 +84,7 @@ OUKYU_L_B09E:
   k_jumpt OUKYU_L_B09A
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $C799
+  k_pushiw OUKYU_D_C799
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -109,7 +109,7 @@ OUKYU_L_B0B2:
 OUKYU_L_B0D4:
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $C7CA
+  k_pushiw OUKYU_D_C7CA
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -126,12 +126,12 @@ OUKYU_L_B0E6:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C809
+  k_pushiw OUKYU_D_C809
   k_callx RF_2FB9, 4
   k_pushi 2
   k_ldlbf -2
   k_pushl
-  k_pushiw $C74F
+  k_pushiw OUKYU_D_C74F
   k_pushi 2
   k_pushi 13
   k_pushib 23
@@ -144,7 +144,7 @@ OUKYU_L_B0E6:
   k_jumpf OUKYU_L_B126
   k_ldlbf -1
   k_shl1
-  k_ldriw $C757
+  k_ldriw OUKYU_D_C757
   k_add
   k_deref
   k_callptr
@@ -407,7 +407,7 @@ OUKYU_L_B2EA:
   k_call OUKYU_F_B2C7
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $C820
+  k_pushiw OUKYU_D_C820
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -421,7 +421,7 @@ OUKYU_L_B30A:
   k_call OUKYU_F_B2C7
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $C860
+  k_pushiw OUKYU_D_C860
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -429,7 +429,7 @@ OUKYU_L_B30A:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $C8AC
+  k_pushiw OUKYU_D_C8AC
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -437,7 +437,7 @@ OUKYU_L_B30A:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C8FD
+  k_pushiw OUKYU_D_C8FD
   k_callx RF_2FB9, 4
   k_ldli 8
   k_swap
@@ -480,7 +480,7 @@ OUKYU_F_B356:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 0
-  k_pushiw $C917
+  k_pushiw OUKYU_D_C917
   k_callx RF_2FB9, 4
   k_ldlba $EF57
   k_pushl
@@ -488,7 +488,7 @@ OUKYU_F_B356:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C92C
+  k_pushiw OUKYU_D_C92C
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -500,7 +500,7 @@ OUKYU_F_B356:
   k_jumpf OUKYU_L_B3DD
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C944
+  k_pushiw OUKYU_D_C944
   k_callx RF_2FB9, 4
   k_ldli 1
   k_swap
@@ -521,7 +521,7 @@ OUKYU_L_B3DD:
   k_stla $EF5A
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C965
+  k_pushiw OUKYU_D_C965
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushiw $2710
@@ -585,13 +585,13 @@ OUKYU_L_B434:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $C990
+  k_pushiw OUKYU_D_C990
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf OUKYU_L_B486
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C9C6
+  k_pushiw OUKYU_D_C9C6
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 1
@@ -599,7 +599,7 @@ OUKYU_L_B434:
 OUKYU_L_B486:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C9E6
+  k_pushiw OUKYU_D_C9E6
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 0
@@ -642,12 +642,12 @@ OUKYU_L_B4B0:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $CA0A
+  k_pushiw OUKYU_D_CA0A
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CA39
+  k_pushiw OUKYU_D_CA39
   k_callx RF_2FB9, 4
   k_pushib 26
   k_pushi 8
@@ -663,18 +663,18 @@ OUKYU_L_B4B0:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CA62
+  k_pushiw OUKYU_D_CA62
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CA92
+  k_pushiw OUKYU_D_CA92
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf OUKYU_L_B546
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CABE
+  k_pushiw OUKYU_D_CABE
   k_callx RF_2FB9, 4
   k_ldli 8
   k_swap
@@ -688,7 +688,7 @@ OUKYU_L_B544:
 OUKYU_L_B546:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CADA
+  k_pushiw OUKYU_D_CADA
   k_callx RF_2FB9, 4
   k_ldl -4
   k_ldri 10
@@ -731,11 +731,11 @@ OUKYU_F_B570:
   k_eq
   k_jumpf OUKYU_L_B59E
   k_pushi 0
-  k_pushiw $CAE6
+  k_pushiw OUKYU_D_CAE6
   k_jump OUKYU_L_B5A2
 OUKYU_L_B59E:
   k_pushi 0
-  k_pushiw $CAEC
+  k_pushiw OUKYU_D_CAEC
 OUKYU_L_B5A2:
   k_callx RF_2FB9, 4
   k_ldlbf -1
@@ -756,7 +756,7 @@ OUKYU_F_B5B9:
   k_call OUKYU_F_B2C7
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CAF3
+  k_pushiw OUKYU_D_CAF3
   k_callx RF_2FB9, 4
   k_ldlba $EE76
   k_ldri 9
@@ -765,7 +765,7 @@ OUKYU_F_B5B9:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CB1B
+  k_pushiw OUKYU_D_CB1B
   k_callx RF_2FB9, 4
   k_ldli 1
   k_swap
@@ -786,7 +786,7 @@ OUKYU_L_B5F5:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CB3B
+  k_pushiw OUKYU_D_CB3B
   k_callx RF_2FB9, 4
   k_pushiw $2710
   k_ldla $EF5A
@@ -808,13 +808,13 @@ OUKYU_L_B635:
   k_call OUKYU_F_B2C7
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CB66
+  k_pushiw OUKYU_D_CB66
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf OUKYU_L_B65F
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CB9A
+  k_pushiw OUKYU_D_CB9A
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 1
@@ -822,7 +822,7 @@ OUKYU_L_B635:
 OUKYU_L_B65F:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CBCB
+  k_pushiw OUKYU_D_CBCB
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 0
@@ -850,18 +850,18 @@ OUKYU_L_B689:
   k_call OUKYU_F_B2C7
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CBE7
+  k_pushiw OUKYU_D_CBE7
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CC16
+  k_pushiw OUKYU_D_CC16
   k_callx RF_2FB9, 4
   k_ldlba $EF57
   k_pushl
   k_callx OUKYU_F_B570, 2
   k_pushi 0
-  k_pushiw $CC21
+  k_pushiw OUKYU_D_CC21
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -869,13 +869,13 @@ OUKYU_L_B689:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CC40
+  k_pushiw OUKYU_D_CC40
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf OUKYU_L_B6EF
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CC7A
+  k_pushiw OUKYU_D_CC7A
   k_callx RF_2FB9, 4
   k_ldli 8
   k_swap
@@ -889,7 +889,7 @@ OUKYU_L_B6ED:
 OUKYU_L_B6EF:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CC90
+  k_pushiw OUKYU_D_CC90
   k_callx RF_2FB9, 4
   k_ldli 0
   k_stlba $EF61
@@ -921,13 +921,13 @@ OUKYU_F_B719:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 0
-  k_pushiw $CCA5
+  k_pushiw OUKYU_D_CCA5
   k_callx RF_2FB9, 4
   k_call OUKYU_F_B22C
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CCBC
+  k_pushiw OUKYU_D_CCBC
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -939,12 +939,12 @@ OUKYU_F_B719:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $CCD5
+  k_pushiw OUKYU_D_CCD5
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CD0E
+  k_pushiw OUKYU_D_CD0E
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushi 1
@@ -954,7 +954,7 @@ OUKYU_F_B719:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CD3D
+  k_pushiw OUKYU_D_CD3D
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -975,7 +975,7 @@ OUKYU_F_B79C:
   k_call OUKYU_F_B2C7
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CD7F
+  k_pushiw OUKYU_D_CD7F
   k_callx RF_2FB9, 4
   k_ldlba $EE76
   k_ldri 9
@@ -984,7 +984,7 @@ OUKYU_F_B79C:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CDAB
+  k_pushiw OUKYU_D_CDAB
   k_callx RF_2FB9, 4
   k_ldli 1
   k_swap
@@ -1005,7 +1005,7 @@ OUKYU_L_B7D8:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CDCA
+  k_pushiw OUKYU_D_CDCA
   k_callx RF_2FB9, 4
   k_pushiw $2710
   k_ldla $EF5A
@@ -1027,13 +1027,13 @@ OUKYU_L_B818:
   k_call OUKYU_F_B2C7
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CDFA
+  k_pushiw OUKYU_D_CDFA
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf OUKYU_L_B842
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CE33
+  k_pushiw OUKYU_D_CE33
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 1
@@ -1041,7 +1041,7 @@ OUKYU_L_B818:
 OUKYU_L_B842:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CE4C
+  k_pushiw OUKYU_D_CE4C
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 0
@@ -1069,27 +1069,27 @@ OUKYU_L_B86C:
   k_call OUKYU_F_B2C7
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CE7A
+  k_pushiw OUKYU_D_CE7A
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CEAF
+  k_pushiw OUKYU_D_CEAF
   k_callx RF_2FB9, 4
   k_pushi 0
   k_ldlba $EF57
   k_ldri 2
   k_eq
   k_jumpf OUKYU_L_B89D
-  k_ldliw $CEE3
+  k_ldliw OUKYU_D_CEE3
   k_jump OUKYU_L_B8A0
 OUKYU_L_B89D:
-  k_ldliw $CEEA
+  k_ldliw OUKYU_D_CEEA
 OUKYU_L_B8A0:
   k_pushl
   k_callx RF_2FB9, 4
   k_pushi 0
-  k_pushiw $CEEF
+  k_pushiw OUKYU_D_CEEF
   k_callx RF_2FB9, 4
   k_ldlba $EF57
   k_shl1
@@ -1105,13 +1105,13 @@ OUKYU_L_B8A0:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CEF4
+  k_pushiw OUKYU_D_CEF4
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf OUKYU_L_B8F3
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CF13
+  k_pushiw OUKYU_D_CF13
   k_callx RF_2FB9, 4
   k_ldli 8
   k_swap
@@ -1125,7 +1125,7 @@ OUKYU_L_B8F1:
 OUKYU_L_B8F3:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CF2B
+  k_pushiw OUKYU_D_CF2B
   k_callx RF_2FB9, 4
   k_ldli 0
   k_stlba $EF61
@@ -1249,7 +1249,7 @@ OUKYU_F_B9B3:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CF48
+  k_pushiw OUKYU_D_CF48
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
@@ -1260,20 +1260,20 @@ OUKYU_F_B9B3:
   k_ult
   k_jumpf OUKYU_L_BA3A
   k_pushi 1
-  k_pushiw $CF6F
+  k_pushiw OUKYU_D_CF6F
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf OUKYU_L_BA10
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CFA5
+  k_pushiw OUKYU_D_CFA5
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_return
 OUKYU_L_BA10:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CFC7
+  k_pushiw OUKYU_D_CFC7
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldl -6
@@ -1301,7 +1301,7 @@ OUKYU_L_BA3A:
   k_pushl
   k_callx OUKYU_F_B91D, 4
   k_pushi 1
-  k_pushiw $CFF1
+  k_pushiw OUKYU_D_CFF1
   k_callx RF_2FB9, 4
   k_ldlba $EE76
   k_ldri 9
@@ -1316,7 +1316,7 @@ OUKYU_L_BA5E:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D015
+  k_pushiw OUKYU_D_D015
   k_callx RF_2FB9, 4
   k_pushiw $2710
   k_ldla $EF5A
@@ -1338,13 +1338,13 @@ OUKYU_L_BA8B:
   k_call OUKYU_F_B2C7
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D04A
+  k_pushiw OUKYU_D_D04A
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf OUKYU_L_BAB5
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D07C
+  k_pushiw OUKYU_D_D07C
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 1
@@ -1352,7 +1352,7 @@ OUKYU_L_BA8B:
 OUKYU_L_BAB5:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D08E
+  k_pushiw OUKYU_D_D08E
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldl -6
@@ -1382,12 +1382,12 @@ OUKYU_L_BADF:
   k_call OUKYU_F_B2C7
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D0B3
+  k_pushiw OUKYU_D_D0B3
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $D0EB
+  k_pushiw OUKYU_D_D0EB
   k_callx RF_2FB9, 4
   k_ldlba $EF57
   k_shl1
@@ -1448,23 +1448,23 @@ OUKYU_L_BADF:
   k_pushl
   k_callx OUKYU_F_B140, 2
   k_pushl
-  k_pushiw $D117
+  k_pushiw OUKYU_D_D117
   k_callx RF_3619, 4
   k_call RF_472D
   k_call RF_60B2
   k_push -2
-  k_pushiw $D14D
+  k_pushiw OUKYU_D_D14D
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpf OUKYU_L_BC4A
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D182
+  k_pushiw OUKYU_D_D182
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D1BF
+  k_pushiw OUKYU_D_D1BF
   k_callx RF_2FB9, 4
   k_ldla $E56D
   k_long $26
@@ -1536,7 +1536,7 @@ OUKYU_L_BC48:
 OUKYU_L_BC4A:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D1EC
+  k_pushiw OUKYU_D_D1EC
   k_callx RF_2FB9, 4
   k_ldli 0
   k_stlba $EF61
@@ -1561,24 +1561,24 @@ OUKYU_L_BC4A:
 OUKYU_L_BC74:
   k_call RF_60B2
   k_push -2
-  k_pushiw $D21A
+  k_pushiw OUKYU_D_D21A
   k_callx RF_3619, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D23D
+  k_pushiw OUKYU_D_D23D
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf OUKYU_L_BCA1
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D269
+  k_pushiw OUKYU_D_D269
   k_callx RF_2FB9, 4
   k_jump OUKYU_L_BC3C
 OUKYU_L_BCA1:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D293
+  k_pushiw OUKYU_D_D293
   k_callx RF_2FB9, 4
   k_ldli 0
   k_stlba $EF61
@@ -1620,19 +1620,19 @@ OUKYU_F_BCCB:
   k_callx RF_4F65, 12
 OUKYU_L_BCEC:
   k_pushi 1
-  k_pushiw $D2C9
+  k_pushiw OUKYU_D_D2C9
   k_callx RF_2FB9, 4
   k_pushi 7
   k_pushib 22
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $D2CD
+  k_pushiw OUKYU_D_D2CD
   k_callx RF_2FB9, 4
   k_pushi 8
   k_pushi 4
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $D2D5
+  k_pushiw OUKYU_D_D2D5
   k_callx RF_2FB9, 4
   k_return
 OUKYU_F_BD12:
@@ -1736,7 +1736,7 @@ OUKYU_L_BD7D:
   k_add
   k_derefb
   k_pushl
-  k_pushiw $D2EE
+  k_pushiw OUKYU_D_D2EE
   k_callx RF_3608, 4
   k_ldln -56
   k_ldri 3
@@ -1765,7 +1765,7 @@ OUKYU_L_BDD6:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $D2F2
+  k_pushiw OUKYU_D_D2F2
   k_callx RF_2FB9, 4
   k_ldln -60
   k_dec
@@ -1854,7 +1854,7 @@ OUKYU_L_BE84:
 OUKYU_L_BE8A:
   k_ldlba $EF56
   k_shl1
-  k_ldriw $D303
+  k_ldriw OUKYU_D_D303
   k_add
   k_deref
   k_callptr
@@ -1885,7 +1885,7 @@ OUKYU_L_BEBD:
   k_pushi 10
   k_callx RF_60CE, 4
   k_call RF_60B2
-  k_pushiw $D30D
+  k_pushiw OUKYU_D_D30D
   k_callx RF_4B44, 2
   k_call RF_60B2
   k_ldlbf -1
@@ -1897,12 +1897,12 @@ OUKYU_L_BEBD:
   k_pushl
   k_callx RF_3F3E, 2
   k_jumpt OUKYU_L_BEED
-  k_pushiw $D322
+  k_pushiw OUKYU_D_D322
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
 OUKYU_L_BEED:
-  k_pushiw $D35D
+  k_pushiw OUKYU_D_D35D
   k_callx RF_4B44, 2
   k_pushib 18
   k_pushib 28
@@ -1916,13 +1916,13 @@ OUKYU_L_BEED:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $D37A
+  k_pushiw OUKYU_D_D37A
   k_callx RF_2FB9, 4
   k_call OUKYU_F_B22C
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $D384
+  k_pushiw OUKYU_D_D384
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -1930,12 +1930,12 @@ OUKYU_L_BEED:
   k_call RF_472D
 OUKYU_L_BF2D:
   k_call RF_60B2
-  k_pushiw $D38F
+  k_pushiw OUKYU_D_D38F
   k_callx RF_4B44, 2
   k_call OUKYU_F_BD12
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D3C5
+  k_pushiw OUKYU_D_D3C5
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call $97BE
@@ -1952,7 +1952,7 @@ OUKYU_F_BF53:
   k_le
   k_jumpf OUKYU_L_BF72
   k_call RF_60B2
-  k_pushiw $D3EA
+  k_pushiw OUKYU_D_D3EA
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -1964,13 +1964,13 @@ OUKYU_L_BF72:
   k_call RF_60EE
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $D402
+  k_pushiw OUKYU_D_D402
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
 OUKYU_L_BF8B:
   k_call RF_60B2
-  k_pushiw $D41B
+  k_pushiw OUKYU_D_D41B
   k_callx RF_4B44, 2
   k_ldl -2
   k_ldriw $03E8
@@ -1978,7 +1978,7 @@ OUKYU_L_BF8B:
   k_stl -6
   k_call RF_60B2
   k_push -6
-  k_pushiw $D43D
+  k_pushiw OUKYU_D_D43D
   k_callx RF_3619, 4
   k_ldl -6
   k_ldri 9
@@ -1987,13 +1987,13 @@ OUKYU_L_BF8B:
   k_ldli 1
   k_stl -8
   k_pushi 1
-  k_pushiw $D466
+  k_pushiw OUKYU_D_D466
   k_jump OUKYU_L_BFBB
 OUKYU_L_BFB5:
   k_ldli 0
   k_stl -8
   k_pushi 1
-  k_pushiw $D46C
+  k_pushiw OUKYU_D_D46C
 OUKYU_L_BFBB:
   k_callx RF_2FB9, 4
   k_pushib 25
@@ -2030,10 +2030,10 @@ OUKYU_L_BFDA:
   k_gt
   k_jumpf OUKYU_L_C01E
   k_call RF_60B2
-  k_pushiw $D471
+  k_pushiw OUKYU_D_D471
   k_callx RF_4B44, 2
   k_ldla $EE72
-  k_addliw $D8F0
+  k_addliw OUKYU_D_D8F0
   k_stl -4
   k_ldliw $2710
   k_stla $EE72
@@ -2046,7 +2046,7 @@ OUKYU_L_BFDA:
   k_stla $E56D
 OUKYU_L_C01E:
   k_call RF_60B2
-  k_pushiw $D489
+  k_pushiw OUKYU_D_D489
   k_callx RF_4B44, 2
   k_ldli 1
   k_return
@@ -2062,7 +2062,7 @@ OUKYU_F_C02A:
   k_call RF_60EE
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $D4A9
+  k_pushiw OUKYU_D_D4A9
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -2072,7 +2072,7 @@ OUKYU_L_C052:
   k_callx RF_60CE, 4
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $D4C1
+  k_pushiw OUKYU_D_D4C1
   k_callx RF_4B44, 2
   k_pusha $EE72
   k_ldl -2
@@ -2102,7 +2102,7 @@ OUKYU_L_C08B:
   k_stl -6
   k_call RF_60B2
   k_push -6
-  k_pushiw $D4E5
+  k_pushiw OUKYU_D_D4E5
   k_callx RF_3619, 4
   k_ldl -6
   k_ldri 9
@@ -2111,13 +2111,13 @@ OUKYU_L_C08B:
   k_ldli 1
   k_stl -8
   k_pushi 1
-  k_pushiw $D50F
+  k_pushiw OUKYU_D_D50F
   k_jump OUKYU_L_C0AC
 OUKYU_L_C0A6:
   k_ldli 0
   k_stl -8
   k_pushi 1
-  k_pushiw $D515
+  k_pushiw OUKYU_D_D515
 OUKYU_L_C0AC:
   k_callx RF_2FB9, 4
   k_pushib 25
@@ -2153,19 +2153,19 @@ OUKYU_L_C0CB:
   k_jumpt OUKYU_L_C0F5
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D51A
+  k_pushiw OUKYU_D_D51A
   k_callx RF_2FB9, 4
   k_jump OUKYU_L_C102
 OUKYU_L_C0F5:
   k_call RF_60B2
   k_pusha $EE72
-  k_pushiw $D537
+  k_pushiw OUKYU_D_D537
   k_callx RF_3619, 4
 OUKYU_L_C102:
   k_pushi 2
   k_callx RF_3DDF, 2
   k_call RF_60B2
-  k_pushiw $D556
+  k_pushiw OUKYU_D_D556
   k_callx RF_4B44, 2
   k_ldli 1
   k_return
@@ -2184,7 +2184,7 @@ OUKYU_F_C113:
   k_jumpt OUKYU_L_C13C
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $D591
+  k_pushiw OUKYU_D_D591
   k_callx RF_4B44, 2
   k_ldli 1
   k_jump OUKYU_L_C14F
@@ -2192,7 +2192,7 @@ OUKYU_L_C13C:
   k_pushi 1
   k_callx RF_609A, 2
   k_push -2
-  k_pushiw $D5B3
+  k_pushiw OUKYU_D_D5B3
   k_callx RF_3619, 4
   k_pushi 2
   k_callx RF_3DDF, 2
@@ -2205,12 +2205,12 @@ OUKYU_L_C152:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D5D3
+  k_pushiw OUKYU_D_D5D3
   k_callx RF_2FB9, 4
   k_pushi 1
   k_ldlbf -3
   k_pushl
-  k_pushiw $D57C
+  k_pushiw OUKYU_D_D57C
   k_pushi 1
   k_pushi 9
   k_pushib 23
@@ -2256,7 +2256,7 @@ OUKYU_F_C1A1:
   k_call RF_60EE
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $D5E6
+  k_pushiw OUKYU_D_D5E6
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -2270,7 +2270,7 @@ OUKYU_L_C1CD:
   k_ldri 10
   k_le
   k_jumpf OUKYU_L_C1E7
-  k_pushiw $D602
+  k_pushiw OUKYU_D_D602
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -2284,11 +2284,11 @@ OUKYU_L_C1E7:
   k_callx RL_8962, 4
   k_stl -4
   k_push -4
-  k_pushiw $D635
+  k_pushiw OUKYU_D_D635
   k_callx RF_3619, 4
   k_push -4
   k_pushi 1
-  k_pushiw $D660
+  k_pushiw OUKYU_D_D660
   k_callx RF_3C6D, 6
   k_stl -12
   k_ldl -12
@@ -2304,11 +2304,11 @@ OUKYU_L_C20D:
   k_sub
   k_stla $EED0
   k_call RF_60B2
-  k_pushiw $D669
+  k_pushiw OUKYU_D_D669
   k_callx RF_4B44, 2
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $D68C
+  k_pushiw OUKYU_D_D68C
   k_callx RF_4B44, 2
   k_pushib 18
   k_pushib 28
@@ -2350,7 +2350,7 @@ OUKYU_F_C261:
   k_jumpf OUKYU_L_C285
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $D6AC
+  k_pushiw OUKYU_D_D6AC
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -2364,7 +2364,7 @@ OUKYU_L_C285:
   k_ldrib 100
   k_le
   k_jumpf OUKYU_L_C2A0
-  k_pushiw $D6C9
+  k_pushiw OUKYU_D_D6C9
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -2396,13 +2396,13 @@ OUKYU_L_C2BE:
   k_mul
   k_stl -4
   k_push -4
-  k_pushiw $D6FB
+  k_pushiw OUKYU_D_D6FB
   k_callx RF_3619, 4
   k_call RF_472D
   k_call RF_60B2
   k_push -4
   k_pushi 1
-  k_pushiw $D729
+  k_pushiw OUKYU_D_D729
   k_callx RF_3C6D, 6
   k_stl -8
   k_ldl -8
@@ -2426,7 +2426,7 @@ OUKYU_L_C2EA:
   k_sub
   k_stla $EECE
   k_call RF_60B2
-  k_pushiw $D73D
+  k_pushiw OUKYU_D_D73D
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -2474,7 +2474,7 @@ OUKYU_L_C33C:
   k_ldl -2
   k_ldriw $00F7
   k_mul
-  k_ldriw $D945
+  k_ldriw OUKYU_D_D945
   k_add
   k_pushl
   k_pushib 38
@@ -2524,7 +2524,7 @@ OUKYU_F_C38C:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $DC2A
+  k_pushiw OUKYU_D_DC2A
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 1
@@ -2551,14 +2551,14 @@ OUKYU_L_C3D1:
   k_callx RF_60CE, 4
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $DC59
+  k_pushiw OUKYU_D_DC59
   k_callx RF_4B44, 2
   k_pushi 0
   k_pushi 0
   k_callx RF_60CE, 4
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $DC9B
+  k_pushiw OUKYU_D_DC9B
   k_callx RF_4B44, 2
   k_ldli 1
   k_return
@@ -2582,12 +2582,12 @@ OUKYU_L_C416:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 0
-  k_pushiw $DCC3
+  k_pushiw OUKYU_D_DCC3
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $DCC9
+  k_pushiw OUKYU_D_DCC9
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -2599,7 +2599,7 @@ OUKYU_L_C416:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $DCE7
+  k_pushiw OUKYU_D_DCE7
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldlbf -1
@@ -2646,7 +2646,7 @@ OUKYU_L_C4B0:
   k_pushi 1
   k_ldlbf -1
   k_shl1
-  k_ldriw $D762
+  k_ldriw OUKYU_D_D762
   k_add
   k_deref
   k_pushl
@@ -2660,7 +2660,7 @@ OUKYU_L_C4B0:
   k_pushi 1
   k_ldlbf -1
   k_shl1
-  k_ldriw $D821
+  k_ldriw OUKYU_D_D821
   k_add
   k_deref
   k_pushl
@@ -2681,7 +2681,7 @@ OUKYU_L_C500:
   k_pushi 3
   k_ldlbf -3
   k_pushl
-  k_pushiw $D925
+  k_pushiw OUKYU_D_D925
   k_pushi 2
   k_pushi 0
   k_pushib 21
@@ -2700,7 +2700,7 @@ OUKYU_L_C500:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $DD0B
+  k_pushiw OUKYU_D_DD0B
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldlba $EAC3
@@ -2711,7 +2711,7 @@ OUKYU_L_C540:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $DD2C
+  k_pushiw OUKYU_D_DD2C
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushi 1
@@ -2720,7 +2720,7 @@ OUKYU_L_C540:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $DD4E
+  k_pushiw OUKYU_D_DD4E
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldlba $EAC2
@@ -2781,7 +2781,7 @@ OUKYU_L_C5B1:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 0
-  k_pushiw $DD66
+  k_pushiw OUKYU_D_DD66
   k_callx RF_2FB9, 4
   k_ldlbf -8
   k_pushl
@@ -2789,7 +2789,7 @@ OUKYU_L_C5B1:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $DD83
+  k_pushiw OUKYU_D_DD83
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -2800,7 +2800,7 @@ OUKYU_L_C5B1:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $DD93
+  k_pushiw OUKYU_D_DD93
   k_callx RF_2FB9, 4
   k_ldlbf -3
   k_shl1
@@ -2839,7 +2839,7 @@ OUKYU_L_C637:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $DDB1
+  k_pushiw OUKYU_D_DDB1
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldliw $012C
@@ -2855,7 +2855,7 @@ OUKYU_L_C637:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $DDD1
+  k_pushiw OUKYU_D_DDD1
   k_callx RF_2FB9, 4
   k_ldlib 20
   k_jump OUKYU_L_C682
@@ -2863,7 +2863,7 @@ OUKYU_L_C674:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $DDE0
+  k_pushiw OUKYU_D_DDE0
   k_callx RF_2FB9, 4
   k_ldli 0
 OUKYU_L_C682:
@@ -2907,7 +2907,7 @@ OUKYU_L_C6C9:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $DE0B
+  k_pushiw OUKYU_D_DE0B
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -2916,7 +2916,7 @@ OUKYU_L_C6C9:
 OUKYU_L_C6E4:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $DE4C
+  k_pushiw OUKYU_D_DE4C
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushib 74
@@ -2945,645 +2945,389 @@ OUKYU_L_C718:
   sta f:$00212B
   plp
   rtl
-  .byte $00, $32, $C7, $38, $C7, $61, $C2, $A1, $C1
-  .byte "Funds"
   .byte $00
-  .byte "Crew"
-  .byte $00
-  .byte "What do you need?"
-  .byte $00, $5F, $C7, $69, $C7, $75, $C7, $7D, $C7, $25, $BE, $8C, $C3, $0F, $B0, $13
-  .byte $C1
-  .byte "Meet King"
-  .byte $00
-  .byte "Secret Call"
-  .byte $00
-  .byte "Request"
-  .byte $00
-  .byte "Savings"
-  .byte $00, $0A
-  .byte "Announcing Sir"
-  .byte $0A, $0A, $00, $21, $00
-  .byte "Commoners are not"
-  .byte $0A
-  .byte "allowed in the palace.Get out!"
-  .byte $00
-  .byte "His Majesty does not"
-  .byte $0A
-  .byte "meet with foreigners."
-  .byte $0A
-  .byte "Leave here at once!"
-  .byte $00
-  .byte "What brings you here?"
-  .byte $00, $00, $0A
-  .byte "Haven't you rescued"
-  .byte $0A
-  .byte "the princess yet?"
-  .byte $0A
-  .byte "Go find her"
-  .byte $0A
-  .byte "immediately!"
-  .byte $00, $0A
-  .byte "Thank you for coming."
-  .byte $0A
-  .byte "Something terrible hashappened, and I need"
-  .byte $0A
-  .byte "your help"
-  .byte $00, $0A
-  .byte "The princess has been"
-  .byte $0A
-  .byte "kidnapped! I think"
-  .byte $0A
-  .byte "the villains will"
-  .byte $0A
-  .byte "demand a ransom soon"
-  .byte $00
-  .byte "You've got to rescue"
-  .byte $0A
-  .byte "her!"
-  .byte $00, $0A
-  .byte "Ah, the legendary"
-  .byte $0A, $0A, $00, $21, $20, $49, $0A, $0A
-  .byte "knew you'd find it"
-  .byte $00
-  .byte "Bestow this man with"
-  .byte $0A
-  .byte "a new title"
-  .byte $00
-  .byte "I'll deposit your"
-  .byte $0A
-  .byte "reward into your"
-  .byte $0A
-  .byte "savings"
-  .byte $00
-  .byte "Welcome back. What, notreasure? Will you"
-  .byte $0A
-  .byte "search again"
-  .byte $00
-  .byte "Then get going! I'll"
-  .byte $0A
-  .byte "be waiting"
-  .byte $00
-  .byte "Giving up already?"
-  .byte $0A
-  .byte "How unfortunate!"
-  .byte $00
-  .byte "Thank you for coming."
-  .byte $0A
-  .byte "I have a request to"
-  .byte $0A
-  .byte "make"
-  .byte $00
-  .byte "You see, I'm searchingfor the celebrated"
-  .byte $00
-  .byte "I thought you might"
-  .byte $0A
-  .byte "be able to locate it"
-  .byte $0A
-  .byte "for me"
-  .byte $00
-  .byte "I'll reward you"
-  .byte $0A
-  .byte "handsomely. What do"
-  .byte $0A
-  .byte "you say"
-  .byte $00
-  .byte "Good! I know you'll"
-  .byte $0A
-  .byte "succeed"
-  .byte $00
-  .byte "What a pity"
-  .byte $00, $0A
-  .byte "the "
-  .byte $00, $0A
-  .byte "from "
-  .byte $00
-  .byte "Well done!  At last"
-  .byte $0A
-  .byte "there will be peace"
-  .byte $00
-  .byte "Bestow this man with anew title"
-  .byte $00
-  .byte "I'll deposit your"
-  .byte $0A
-  .byte "reward into your"
-  .byte $0A
-  .byte "savings"
-  .byte $00
-  .byte "You haven't caught"
-  .byte $0A
-  .byte "him yet? You'll try"
-  .byte $0A
-  .byte "again, right"
-  .byte $00
-  .byte "Then hurry! The"
-  .byte $0A
-  .byte "commotion is troublingthe people"
-  .byte $00
-  .byte "No? I'm disappointed"
-  .byte $0A
-  .byte "in you"
-  .byte $00
-  .byte "I'm glad you came."
-  .byte $0A
-  .byte "I have something to"
-  .byte $0A
-  .byte "request"
-  .byte $00, $0A
-  .byte "You see, "
-  .byte $00, $20, $69, $73, $0A
-  .byte "wreaking havoc in"
-  .byte $0A
-  .byte "the area"
-  .byte $00
-  .byte "If you can stop him,"
-  .byte $0A
-  .byte "I'll reward you well."
-  .byte $0A
-  .byte "Will you do it"
-  .byte $00
-  .byte "Good. I wish you"
-  .byte $0A
-  .byte "luck"
-  .byte $00
-  .byte "No? I'm disappointed"
-  .byte $00, $0A
-  .byte "So, it's the famous"
-  .byte $0A, $0A, $00
-  .byte ". What"
-  .byte $0A, $0A
-  .byte "brings you here?"
-  .byte $00
-  .byte "Your Majesty, I bring"
-  .byte $0A
-  .byte "a letter from the"
-  .byte $0A
-  .byte "King of Portugal"
-  .byte $00
-  .byte "I hope the contents"
-  .byte $0A
-  .byte "will be protected"
-  .byte $0A
-  .byte "with you"
-  .byte $00, $0A
-  .byte "Yes, I understand."
-  .byte $0A
-  .byte "Please give my regardsto the King of"
-  .byte $0A
-  .byte "Portugal"
-  .byte $00
-  .byte "Thank you, you've"
-  .byte $0A
-  .byte "done an excellent"
-  .byte $0A
-  .byte "service"
-  .byte $00
-  .byte "I hereby award you a"
-  .byte $0A
-  .byte "new title"
-  .byte $00
-  .byte "Your reward will be"
-  .byte $0A
-  .byte "deposited into your"
-  .byte $0A
-  .byte "savings"
-  .byte $00
-  .byte "You haven't delivered"
-  .byte $0A
-  .byte "the letter yet? Will"
-  .byte $0A
-  .byte "you try again"
-  .byte $00
-  .byte "I'm still relying on"
-  .byte $0A, $79, $6F, $75, $00
-  .byte "Quitting already?"
-  .byte $0A
-  .byte "I thought I could"
-  .byte $0A
-  .byte "trust you"
-  .byte $00
-  .byte "Thank you for coming."
-  .byte $0A
-  .byte "You see, I have a"
-  .byte $0A
-  .byte "favor to ask"
-  .byte $00, $0A
-  .byte "I'd like you to"
-  .byte $0A
-  .byte "deliver this secret"
-  .byte $0A
-  .byte "letter to the "
-  .byte $00
-  .byte "Sultan"
-  .byte $00
-  .byte "King"
-  .byte $00, $0A, $6F, $66, $20, $00
-  .byte "Will you please do"
-  .byte $0A
-  .byte "this for me"
-  .byte $00
-  .byte "Good. Please be"
-  .byte $0A
-  .byte "careful"
-  .byte $00
-  .byte "No? I expected more"
-  .byte $0A
-  .byte "from you"
-  .byte $00
-  .byte "Well done! I knew I"
-  .byte $0A
-  .byte "could count on you"
-  .byte $00
-  .byte "Wait a minute, this"
-  .byte $0A
-  .byte "isn't enough! Will yougo buy more"
-  .byte $00
-  .byte "Well then, you'd best"
-  .byte $0A
-  .byte "get started"
-  .byte $00
-  .byte "No? You're a disgrace"
-  .byte $0A
-  .byte "to your family name"
-  .byte $00
-  .byte "I shall bestow you"
-  .byte $0A
-  .byte "with a new title"
-  .byte $00
-  .byte "Also, your reward willbe deposited into"
-  .byte $0A
-  .byte "your savings"
-  .byte $00
-  .byte "You don't have the"
-  .byte $0A
-  .byte "goods yet? Will you"
-  .byte $0A
-  .byte "look again"
-  .byte $00
-  .byte "On your way then!"
-  .byte $00
-  .byte "You're a disgrace to"
-  .byte $0A
-  .byte "your noble name"
-  .byte $00
-  .byte "I'm glad you came. I"
-  .byte $0A
-  .byte "have something to"
-  .byte $0A
-  .byte "discuss with you"
-  .byte $00, $0A
-  .byte "You see, I've been"
-  .byte $0A, $0A
-  .byte "looking all over for"
-  .byte $0A, $0A, $00
-  .byte "You already have"
-  .byte $0A
-  .byte "%d crates, but I"
-  .byte $0A
-  .byte "need more than that"
-  .byte $00
-  .byte "I'm still in need of"
-  .byte $0A
-  .byte "%d. Can you get the"
-  .byte $0A
-  .byte "rest for me"
-  .byte $00
-  .byte "Good. I'll take what"
-  .byte $0A
-  .byte "you have now and wait"
-  .byte $0A
-  .byte "for the new stock"
-  .byte $00
-  .byte "I'll reward you upon"
-  .byte $0A
-  .byte "your return. Good"
-  .byte $0A
-  .byte "luck!"
-  .byte $00
-  .byte "You refuse? I'll have"
-  .byte $0A
-  .byte "to rely on someone"
-  .byte $0A
-  .byte "else"
-  .byte $00
-  .byte "I need you to buy"
-  .byte $0A
-  .byte "%d crates for me"
-  .byte $00
-  .byte "I'll pay you grandly."
-  .byte $0A
-  .byte "Will you take the"
-  .byte $0A, $6A, $6F, $62, $00
-  .byte "Then it's settled."
-  .byte $0A
-  .byte "I'll be relying on"
-  .byte $0A, $79, $6F, $75, $00
-  .byte "You refuse? Then I"
-  .byte $0A
-  .byte "shall have to rely on"
-  .byte $0A
-  .byte "someone else"
-  .byte $00, $1B, $43, $30, $00
-  .byte "Support"
-  .byte $00
-  .byte "Port               Index"
-  .byte $00, $25, $33, $64, $00
-  .byte "A-more  B-cancel"
-  .byte $00, $B3, $B9, $9C, $B7, $B9, $B5, $56, $B3, $D3, $B2
-  .byte "Please wait a moment"
-  .byte $00
-  .byte "His Majesty is not"
-  .byte $0A
-  .byte "available. Please comeback another time"
-  .byte $00
-  .byte "His Majesty will see"
-  .byte $0A
-  .byte "you now"
-  .byte $00, $0A
-  .byte "Ah, Sir "
-  .byte $00, $2E, $0A, $0A
-  .byte "Welcome"
-  .byte $00
-  .byte "Let me explain to you"
-  .byte $0A
-  .byte "our nation's sphere ofinfluence"
-  .byte $00
-  .byte "I hope this was of"
-  .byte $0A
-  .byte "some help to you"
-  .byte $00, $00
-  .byte "You cannot deposit"
-  .byte $0A
-  .byte "more"
-  .byte $00
-  .byte "We've no gold to"
-  .byte $0A
-  .byte "deposit"
-  .byte $00
-  .byte "Deposits must be in"
-  .byte $0A
-  .byte "units of 1000"
-  .byte $00
-  .byte "How much will you"
-  .byte $0A
-  .byte "deposit"
-  .byte $0A
-  .byte "(1000-%d000)? "
-  .byte $00
-  .byte "  000"
-  .byte $00
-  .byte " 000"
-  .byte $00
-  .byte "The limit is 10"
-  .byte $0A
-  .byte "million"
-  .byte $00
-  .byte "Your money will be"
-  .byte $0A
-  .byte "well guarded"
-  .byte $00
-  .byte "We don't need more"
-  .byte $0A
-  .byte "gold"
-  .byte $00
-  .byte "Withdrawals must be inunits of 1000"
-  .byte $00
-  .byte "How much will you"
-  .byte $0A
-  .byte "withdraw"
-  .byte $0A
-  .byte "(1000-%d000)? "
-  .byte $00
-  .byte "  000"
-  .byte $00
-  .byte " 000"
-  .byte $00
-  .byte "Now you've no more"
-  .byte $0A
-  .byte "gold here"
-  .byte $00
-  .byte "%d000 gold is now"
-  .byte $0A
-  .byte "in your name"
-  .byte $00
-  .byte "Go forth for the good"
-  .byte $0A
-  .byte "of your nation!"
-  .byte $00, $80, $D5, $88, $D5
-  .byte "Deposit"
-  .byte $00
-  .byte "Withdraw"
-  .byte $00
-  .byte "There's no gold in"
-  .byte $0A
-  .byte "your name here"
-  .byte $00
-  .byte "We have %d000 gold"
-  .byte $0A
-  .byte "in your name"
-  .byte $00
-  .byte "What is your wish?"
-  .byte $00
-  .byte "We don't need any"
-  .byte $0A
-  .byte "more crew"
-  .byte $00
-  .byte "His Majesty hopes"
-  .byte $0A
-  .byte "that you will manage"
-  .byte $0A
-  .byte "on your own"
-  .byte $00
-  .byte "His Majesty can supply%d men. How many do"
-  .byte $0A, $00
-  .byte "you need"
-  .byte $00
-  .byte "Do not betray His"
-  .byte $0A
-  .byte "Majesty's wishes"
-  .byte $00
-  .byte "Captain, assign men"
-  .byte $0A
-  .byte "to the crew"
-  .byte $00
-  .byte "We don't need any"
-  .byte $0A
-  .byte "more gold!"
-  .byte $00
-  .byte "His Majesty hopes thatyou will manage on"
-  .byte $0A
-  .byte "your own"
-  .byte $00
-  .byte "His Majesty will"
-  .byte $0A
-  .byte "provide up to %d"
-  .byte $0A
-  .byte "gold pieces"
-  .byte $00
-  .byte "How much is needed"
-  .byte $0A, $00
-  .byte "Do not betray His"
-  .byte $0A
-  .byte "Majesty's wishes!"
-  .byte $00, $00, $6C, $D7, $80, $D7, $B0, $D7, $D1, $D7, $FE, $D7
-  .byte "I have faith in you"
-  .byte $00
-  .byte "Nothing but your safe"
-  .byte $0A
-  .byte "return will calm my"
-  .byte $0A
-  .byte "fears"
-  .byte $00
-  .byte "Please take care to"
-  .byte $0A
-  .byte "avoid danger"
-  .byte $00
-  .byte "Remember, you said"
-  .byte $0A
-  .byte "you would never"
-  .byte $0A
-  .byte "forget me"
-  .byte $00
-  .byte "I've long awaited a"
-  .byte $0A
-  .byte "visit from you"
-  .byte $00, $2B, $D8, $5B, $D8, $8F, $D8, $C2, $D8, $E7, $D8
-  .byte "I'll do my best to"
-  .byte $0A
-  .byte "live up to your"
-  .byte $0A
-  .byte "expectations"
-  .byte $00
-  .byte "I'll be praying for"
-  .byte $0A
-  .byte "your good health,"
-  .byte $0A
-  .byte "dear Princess"
-  .byte $00
-  .byte "Just put your trust inme and you will feel"
-  .byte $0A
-  .byte "at ease"
-  .byte $00
-  .byte "I've never let you outof my thoughts"
-  .byte $00
-  .byte "There will soon be a"
-  .byte $0A
-  .byte "day when I will earn arank worthy of you"
-  .byte $00, $2B, $D9, $38, $D9, $40, $D9
-  .byte "Profess love"
-  .byte $00
-  .byte "Flowers"
-  .byte $00
-  .byte "Gift"
-  .byte $00, $35, $FF, $00, $FF, $00, $A3, $C8, $CC, $DC, $E0, $C6, $CE, $DA, $E2, $C4
-  .byte $CF, $D9, $E4, $C4, $D0, $D8, $E4, $C3, $D1, $D7, $E5, $C3, $D2, $D6, $E5, $C2
-  .byte $D3, $D5, $E6, $C2, $D3, $D5, $E6, $C2, $D4, $D4, $E6, $C2, $E6, $FF, $00, $C2
-  .byte $E6, $FF, $00, $C2, $E6, $FF, $00, $C2, $E6, $FF, $00, $C3, $E5, $FF, $00, $C3
-  .byte $E5, $FF, $00, $C4, $E4, $FF, $00, $C4, $E4, $FF, $00, $C5, $E3, $FF, $00, $C5
-  .byte $E3, $FF, $00, $C6, $E2, $FF, $00, $C6, $E2, $FF, $00, $C7, $E1, $FF, $00, $C8
-  .byte $E0, $FF, $00, $C9, $DF, $FF, $00, $CA, $DE, $FF, $00, $CB, $DD, $FF, $00, $CC
-  .byte $DC, $FF, $00, $CD, $DB, $FF, $00, $CE, $DA, $FF, $00, $CF, $D9, $FF, $00, $D0
-  .byte $D8, $FF, $00, $D1, $D7, $FF, $00, $D3, $D5, $FF, $00, $D4, $D4, $FF, $00, $FF
-  .byte $00, $FF, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-  .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-  .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-  .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-  .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-  .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-  .byte $00, $00, $00, $00, $00, $00, $00, $00, $2D, $FF, $00, $FF, $00, $B0, $C7, $C9
-  .byte $DF, $E1, $C6, $CB, $DD, $E2, $C3, $CC, $DC, $E5, $C2, $CD, $DB, $E6, $C1, $CF
-  .byte $D9, $E7, $C0, $D0, $D8, $E8, $BF, $D0, $D8, $E9, $BE, $D1, $D7, $EA, $BE, $D1
-  .byte $D7, $EA, $BD, $D2, $D6, $EB, $BD, $D2, $D6, $EB, $BC, $D3, $D5, $EC, $BC, $D4
-  .byte $D4, $EC, $BC, $EC, $FF, $00, $BB, $ED, $FF, $00, $BB, $ED, $FF, $00, $BC, $EC
-  .byte $FF, $00, $BC, $EC, $FF, $00, $BC, $EC, $FF, $00, $BD, $EB, $FF, $00, $BD, $EB
-  .byte $FF, $00, $BD, $EB, $FF, $00, $BE, $EA, $FF, $00, $BE, $EA, $FF, $00, $BE, $EA
-  .byte $FF, $00, $BF, $E9, $FF, $00, $BF, $E9, $FF, $00, $C0, $E8, $FF, $00, $C0, $E8
-  .byte $FF, $00, $C1, $E7, $FF, $00, $C1, $E7, $FF, $00, $C2, $E6, $FF, $00, $C3, $E5
-  .byte $FF, $00, $C3, $E5, $FF, $00, $C4, $E4, $FF, $00, $C5, $E3, $FF, $00, $C6, $E2
-  .byte $FF, $00, $C8, $E0, $FF, $00, $C9, $DF, $FF, $00, $CA, $DE, $FF, $00, $CB, $DD
-  .byte $FF, $00, $CC, $DC, $FF, $00, $CD, $DB, $FF, $00, $CF, $D8, $FF, $00, $D1, $D6
-  .byte $FF, $00, $D2, $D5, $FF, $00, $D4, $D4, $FF, $00, $FF, $00, $FF, $00, $00, $00
-  .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-  .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-  .byte $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $27
-  .byte $FF, $00, $FF, $00, $BC, $FF, $00, $FF, $00, $FF, $00, $FF, $00, $C1, $C9, $DF
-  .byte $E7, $C0, $CB, $DD, $E8, $BF, $CD, $DA, $E9, $BE, $CD, $DA, $EA, $BD, $CF, $D9
-  .byte $EB, $BC, $CF, $D9, $EC, $BC, $D1, $D7, $EC, $BB, $D1, $D7, $ED, $BB, $D2, $D6
-  .byte $ED, $BB, $D2, $D6, $ED, $BA, $D2, $D6, $EE, $BA, $D3, $D5, $EE, $BA, $D3, $D5
-  .byte $EE, $B9, $D4, $D4, $EF, $B9, $EF, $FF, $00, $B9, $EF, $FF, $00, $B8, $F0, $FF
-  .byte $00, $B8, $F0, $FF, $00, $B8, $F0, $FF, $00, $B8, $F0, $FF, $00, $B8, $F0, $FF
-  .byte $00, $B8, $F0, $FF, $00, $B9, $EF, $FF, $00, $B9, $EF, $FF, $00, $B9, $EF, $FF
-  .byte $00, $B9, $EF, $FF, $00, $BA, $EE, $FF, $00, $BA, $EE, $FF, $00, $BB, $ED, $FF
-  .byte $00, $BB, $ED, $FF, $00, $BB, $ED, $FF, $00, $BC, $EC, $FF, $00, $BC, $EC, $FF
-  .byte $00, $BC, $EC, $FF, $00, $BD, $EB, $FF, $00, $BE, $EA, $FF, $00, $BE, $EA, $FF
-  .byte $00, $BF, $E9, $FF, $00, $BF, $E9, $FF, $00, $C0, $E8, $FF, $00, $C1, $E7, $FF
-  .byte $00, $C2, $E6, $FF, $00, $C3, $E5, $FF, $00, $C4, $E4, $FF, $00, $C5, $E3, $FF
-  .byte $00, $C6, $E2, $FF, $00, $C7, $E1, $FF, $00, $C8, $E0, $FF, $00, $CA, $DE, $FF
-  .byte $00, $CB, $DD, $FF, $00, $CC, $DC, $FF, $00, $CD, $DB, $FF, $00, $D0, $D8, $FF
-  .byte $00, $D2, $D6, $FF, $00, $D3, $D5, $FF, $00, $D4, $D4, $FF, $00, $D4, $D4, $FF
-  .byte $00, $FF, $00, $FF, $00, $00
-  .byte "The princess is gone!"
-  .byte $0A
-  .byte "Please, rush to her"
-  .byte $0A
-  .byte "aid!"
-  .byte $00
-  .byte "You make me suspicioushanging around here."
-  .byte $0A
-  .byte "Get out of the palace!"
-  .byte $00
-  .byte "It's a pity I couldn'tmeet the princess"
-  .byte $00, $0A
-  .byte "Oh, "
-  .byte $00
-  .byte "! I'm"
-  .byte $0A, $0A
-  .byte "so glad we could"
-  .byte $0A, $0A
-  .byte "meet"
-  .byte $00
-  .byte "Your words are such a"
-  .byte $0A
-  .byte "comfort to me"
-  .byte $00
-  .byte "Your kindnesses fill"
-  .byte $0A
-  .byte "me with joy"
-  .byte $00
-  .byte "I hope that you will"
-  .byte $0A
-  .byte "accept these"
-  .byte $00
-  .byte "What beautiful"
-  .byte $0A
-  .byte "flowers!"
-  .byte $00, $0A
-  .byte "I wanted to give you"
-  .byte $0A, $0A
-  .byte "this "
-  .byte $00, $0A, $0A
-  .byte "from overseas"
-  .byte $00
-  .byte "How lovely! Thank you"
-  .byte $0A
-  .byte "so much"
-  .byte $00
-  .byte "Please accept this"
-  .byte $0A
-  .byte "gift from me"
-  .byte $00
-  .byte "Oh, thank you!"
-  .byte $00
-  .byte "I could never accept"
-  .byte $0A
-  .byte "such a gift from you!"
-  .byte $00, $0A
-  .byte "I'm so grateful for"
-  .byte $0A
-  .byte "your care. Please"
-  .byte $0A
-  .byte "ask my father for"
-  .byte $0A
-  .byte "support"
-  .byte $00
-  .byte "Fare thee well!"
-  .byte $00
+OUKYU_D_C72A:
+  .word OUKYU_D_C732, OUKYU_D_C738
+OUKYU_D_C72E:
+  .word OUKYU_F_C261, OUKYU_F_C1A1
+OUKYU_D_C732:
+  .byte "Funds", $00
+OUKYU_D_C738:
+  .byte "Crew", $00
+OUKYU_D_C73D:
+  .byte "What do you need?", $00
+OUKYU_D_C74F:
+  .word OUKYU_D_C75F, OUKYU_D_C769, OUKYU_D_C775, OUKYU_D_C77D
+OUKYU_D_C757:
+  .word OUKYU_F_BE25, OUKYU_F_C38C, OUKYU_F_B00F, OUKYU_F_C113
+OUKYU_D_C75F:
+  .byte "Meet King", $00
+OUKYU_D_C769:
+  .byte "Secret Call", $00
+OUKYU_D_C775:
+  .byte "Request", $00
+OUKYU_D_C77D:
+  .byte "Savings", $00
+OUKYU_D_C785:
+  .byte $0A, "Announcing Sir", $0A, $0A, $00
+OUKYU_D_C797:
+  .byte $21, $00
+OUKYU_D_C799:
+  .byte "Commoners are not", $0A, "allowed in the palace.Get out!", $00
+OUKYU_D_C7CA:
+  .byte "His Majesty does not", $0A, "meet with foreigners.", $0A, "Leave here at once!"
+  .byte $00
+OUKYU_D_C809:
+  .byte "What brings you here?", $00
+  .byte $00
+OUKYU_D_C820:
+  .byte $0A, "Haven't you rescued", $0A, "the princess yet?", $0A, "Go find her", $0A, "immediately!"
+  .byte $00
+OUKYU_D_C860:
+  .byte $0A, "Thank you for coming.", $0A, "Something terrible hashappened, and I need"
+  .byte $0A, "your help", $00
+OUKYU_D_C8AC:
+  .byte $0A, "The princess has been", $0A, "kidnapped! I think", $0A, "the villains will"
+  .byte $0A, "demand a ransom soon", $00
+OUKYU_D_C8FD:
+  .byte "You've got to rescue", $0A, "her!", $00
+OUKYU_D_C917:
+  .byte $0A, "Ah, the legendary", $0A, $0A, $00
+OUKYU_D_C92C:
+  .byte "! I", $0A, $0A, "knew you'd find it", $00
+OUKYU_D_C944:
+  .byte "Bestow this man with", $0A, "a new title", $00
+OUKYU_D_C965:
+  .byte "I'll deposit your", $0A, "reward into your", $0A, "savings", $00
+OUKYU_D_C990:
+  .byte "Welcome back. What, notreasure? Will you", $0A, "search again", $00
+OUKYU_D_C9C6:
+  .byte "Then get going! I'll", $0A, "be waiting", $00
+OUKYU_D_C9E6:
+  .byte "Giving up already?", $0A, "How unfortunate!", $00
+OUKYU_D_CA0A:
+  .byte "Thank you for coming.", $0A, "I have a request to", $0A, "make", $00
+OUKYU_D_CA39:
+  .byte "You see, I'm searchingfor the celebrated", $00
+OUKYU_D_CA62:
+  .byte "I thought you might", $0A, "be able to locate it", $0A, "for me", $00
+OUKYU_D_CA92:
+  .byte "I'll reward you", $0A, "handsomely. What do", $0A, "you say", $00
+OUKYU_D_CABE:
+  .byte "Good! I know you'll", $0A, "succeed", $00
+OUKYU_D_CADA:
+  .byte "What a pity", $00
+OUKYU_D_CAE6:
+  .byte $0A, "the ", $00
+OUKYU_D_CAEC:
+  .byte $0A, "from ", $00
+OUKYU_D_CAF3:
+  .byte "Well done!  At last", $0A, "there will be peace", $00
+OUKYU_D_CB1B:
+  .byte "Bestow this man with anew title", $00
+OUKYU_D_CB3B:
+  .byte "I'll deposit your", $0A, "reward into your", $0A, "savings", $00
+OUKYU_D_CB66:
+  .byte "You haven't caught", $0A, "him yet? You'll try", $0A, "again, right", $00
+OUKYU_D_CB9A:
+  .byte "Then hurry! The", $0A, "commotion is troublingthe people", $00
+OUKYU_D_CBCB:
+  .byte "No? I'm disappointed", $0A, "in you", $00
+OUKYU_D_CBE7:
+  .byte "I'm glad you came.", $0A, "I have something to", $0A, "request", $00
+OUKYU_D_CC16:
+  .byte $0A, "You see, ", $00
+OUKYU_D_CC21:
+  .byte " is", $0A, "wreaking havoc in", $0A, "the area", $00
+OUKYU_D_CC40:
+  .byte "If you can stop him,", $0A, "I'll reward you well.", $0A, "Will you do it", $00
+OUKYU_D_CC7A:
+  .byte "Good. I wish you", $0A, "luck", $00
+OUKYU_D_CC90:
+  .byte "No? I'm disappointed", $00
+OUKYU_D_CCA5:
+  .byte $0A, "So, it's the famous", $0A, $0A, $00
+OUKYU_D_CCBC:
+  .byte ". What", $0A, $0A, "brings you here?", $00
+OUKYU_D_CCD5:
+  .byte "Your Majesty, I bring", $0A, "a letter from the", $0A, "King of Portugal", $00
+OUKYU_D_CD0E:
+  .byte "I hope the contents", $0A, "will be protected", $0A, "with you", $00
+OUKYU_D_CD3D:
+  .byte $0A, "Yes, I understand.", $0A, "Please give my regardsto the King of", $0A, "Portugal"
+  .byte $00
+OUKYU_D_CD7F:
+  .byte "Thank you, you've", $0A, "done an excellent", $0A, "service", $00
+OUKYU_D_CDAB:
+  .byte "I hereby award you a", $0A, "new title", $00
+OUKYU_D_CDCA:
+  .byte "Your reward will be", $0A, "deposited into your", $0A, "savings", $00
+OUKYU_D_CDFA:
+  .byte "You haven't delivered", $0A, "the letter yet? Will", $0A, "you try again", $00
+OUKYU_D_CE33:
+  .byte "I'm still relying on", $0A, "you", $00
+OUKYU_D_CE4C:
+  .byte "Quitting already?", $0A, "I thought I could", $0A, "trust you", $00
+OUKYU_D_CE7A:
+  .byte "Thank you for coming.", $0A, "You see, I have a", $0A, "favor to ask", $00
+OUKYU_D_CEAF:
+  .byte $0A, "I'd like you to", $0A, "deliver this secret", $0A, "letter to the ", $00
+OUKYU_D_CEE3:
+  .byte "Sultan", $00
+OUKYU_D_CEEA:
+  .byte "King", $00
+OUKYU_D_CEEF:
+  .byte $0A, "of ", $00
+OUKYU_D_CEF4:
+  .byte "Will you please do", $0A, "this for me", $00
+OUKYU_D_CF13:
+  .byte "Good. Please be", $0A, "careful", $00
+OUKYU_D_CF2B:
+  .byte "No? I expected more", $0A, "from you", $00
+OUKYU_D_CF48:
+  .byte "Well done! I knew I", $0A, "could count on you", $00
+OUKYU_D_CF6F:
+  .byte "Wait a minute, this", $0A, "isn't enough! Will yougo buy more", $00
+OUKYU_D_CFA5:
+  .byte "Well then, you'd best", $0A, "get started", $00
+OUKYU_D_CFC7:
+  .byte "No? You're a disgrace", $0A, "to your family name", $00
+OUKYU_D_CFF1:
+  .byte "I shall bestow you", $0A, "with a new title", $00
+OUKYU_D_D015:
+  .byte "Also, your reward willbe deposited into", $0A, "your savings", $00
+OUKYU_D_D04A:
+  .byte "You don't have the", $0A, "goods yet? Will you", $0A, "look again", $00
+OUKYU_D_D07C:
+  .byte "On your way then!", $00
+OUKYU_D_D08E:
+  .byte "You're a disgrace to", $0A, "your noble name", $00
+OUKYU_D_D0B3:
+  .byte "I'm glad you came. I", $0A, "have something to", $0A, "discuss with you", $00
+OUKYU_D_D0EB:
+  .byte $0A, "You see, I've been", $0A, $0A, "looking all over for", $0A, $0A, $00
+OUKYU_D_D117:
+  .byte "You already have", $0A, "%d crates, but I", $0A, "need more than that", $00
+OUKYU_D_D14D:
+  .byte "I'm still in need of", $0A, "%d. Can you get the", $0A, "rest for me", $00
+OUKYU_D_D182:
+  .byte "Good. I'll take what", $0A, "you have now and wait", $0A, "for the new stock", $00
+OUKYU_D_D1BF:
+  .byte "I'll reward you upon", $0A, "your return. Good", $0A, "luck!", $00
+OUKYU_D_D1EC:
+  .byte "You refuse? I'll have", $0A, "to rely on someone", $0A, "else", $00
+OUKYU_D_D21A:
+  .byte "I need you to buy", $0A, "%d crates for me", $00
+OUKYU_D_D23D:
+  .byte "I'll pay you grandly.", $0A, "Will you take the", $0A, "job", $00
+OUKYU_D_D269:
+  .byte "Then it's settled.", $0A, "I'll be relying on", $0A, "you", $00
+OUKYU_D_D293:
+  .byte "You refuse? Then I", $0A, "shall have to rely on", $0A, "someone else", $00
+OUKYU_D_D2C9:
+  .byte $1B
+  .byte "C0", $00
+OUKYU_D_D2CD:
+  .byte "Support", $00
+OUKYU_D_D2D5:
+  .byte "Port               Index", $00
+OUKYU_D_D2EE:
+  .byte "%3d", $00
+OUKYU_D_D2F2:
+  .byte "A-more  B-cancel", $00
+OUKYU_D_D303:
+  .word OUKYU_F_B9B3, OUKYU_F_B79C, OUKYU_F_B5B9, OUKYU_F_B356, OUKYU_F_B2D3
+OUKYU_D_D30D:
+  .byte "Please wait a moment", $00
+OUKYU_D_D322:
+  .byte "His Majesty is not", $0A, "available. Please comeback another time", $00
+OUKYU_D_D35D:
+  .byte "His Majesty will see", $0A, "you now", $00
+OUKYU_D_D37A:
+  .byte $0A, "Ah, Sir ", $00
+OUKYU_D_D384:
+  .byte ".", $0A, $0A, "Welcome", $00
+OUKYU_D_D38F:
+  .byte "Let me explain to you", $0A, "our nation's sphere ofinfluence", $00
+OUKYU_D_D3C5:
+  .byte "I hope this was of", $0A, "some help to you", $00
+  .byte $00
+OUKYU_D_D3EA:
+  .byte "You cannot deposit", $0A, "more", $00
+OUKYU_D_D402:
+  .byte "We've no gold to", $0A, "deposit", $00
+OUKYU_D_D41B:
+  .byte "Deposits must be in", $0A, "units of 1000", $00
+OUKYU_D_D43D:
+  .byte "How much will you", $0A, "deposit", $0A, "(1000-%d000)? ", $00
+OUKYU_D_D466:
+  .byte "  000", $00
+OUKYU_D_D46C:
+  .byte " 000", $00
+OUKYU_D_D471:
+  .byte "The limit is 10", $0A, "million", $00
+OUKYU_D_D489:
+  .byte "Your money will be", $0A, "well guarded", $00
+OUKYU_D_D4A9:
+  .byte "We don't need more", $0A, "gold", $00
+OUKYU_D_D4C1:
+  .byte "Withdrawals must be inunits of 1000", $00
+OUKYU_D_D4E5:
+  .byte "How much will you", $0A, "withdraw", $0A, "(1000-%d000)? ", $00
+OUKYU_D_D50F:
+  .byte "  000", $00
+OUKYU_D_D515:
+  .byte " 000", $00
+OUKYU_D_D51A:
+  .byte "Now you've no more", $0A, "gold here", $00
+OUKYU_D_D537:
+  .byte "%d000 gold is now", $0A, "in your name", $00
+OUKYU_D_D556:
+  .byte "Go forth for the good", $0A, "of your nation!", $00
+OUKYU_D_D57C:
+  .word OUKYU_D_D580, OUKYU_D_D588
+OUKYU_D_D580:
+  .byte "Deposit", $00
+OUKYU_D_D588:
+  .byte "Withdraw", $00
+OUKYU_D_D591:
+  .byte "There's no gold in", $0A, "your name here", $00
+OUKYU_D_D5B3:
+  .byte "We have %d000 gold", $0A, "in your name", $00
+OUKYU_D_D5D3:
+  .byte "What is your wish?", $00
+OUKYU_D_D5E6:
+  .byte "We don't need any", $0A, "more crew", $00
+OUKYU_D_D602:
+  .byte "His Majesty hopes", $0A, "that you will manage", $0A, "on your own", $00
+OUKYU_D_D635:
+  .byte "His Majesty can supply%d men. How many do", $0A, $00
+OUKYU_D_D660:
+  .byte "you need", $00
+OUKYU_D_D669:
+  .byte "Do not betray His", $0A, "Majesty's wishes", $00
+OUKYU_D_D68C:
+  .byte "Captain, assign men", $0A, "to the crew", $00
+OUKYU_D_D6AC:
+  .byte "We don't need any", $0A, "more gold!", $00
+OUKYU_D_D6C9:
+  .byte "His Majesty hopes thatyou will manage on", $0A, "your own", $00
+OUKYU_D_D6FB:
+  .byte "His Majesty will", $0A, "provide up to %d", $0A, "gold pieces", $00
+OUKYU_D_D729:
+  .byte "How much is needed", $0A, $00
+OUKYU_D_D73D:
+  .byte "Do not betray His", $0A, "Majesty's wishes!", $00
+  .byte $00
+OUKYU_D_D762:
+  .word OUKYU_D_D76C, OUKYU_D_D780, OUKYU_D_D7B0, OUKYU_D_D7D1, OUKYU_D_D7FE
+OUKYU_D_D76C:
+  .byte "I have faith in you", $00
+OUKYU_D_D780:
+  .byte "Nothing but your safe", $0A, "return will calm my", $0A, "fears", $00
+OUKYU_D_D7B0:
+  .byte "Please take care to", $0A, "avoid danger", $00
+OUKYU_D_D7D1:
+  .byte "Remember, you said", $0A, "you would never", $0A, "forget me", $00
+OUKYU_D_D7FE:
+  .byte "I've long awaited a", $0A, "visit from you", $00
+OUKYU_D_D821:
+  .word OUKYU_D_D82B, OUKYU_D_D85B, OUKYU_D_D88F, OUKYU_D_D8C2, OUKYU_D_D8E7
+OUKYU_D_D82B:
+  .byte "I'll do my best to", $0A, "live up to your", $0A, "expectations", $00
+OUKYU_D_D85B:
+  .byte "I'll be praying for", $0A, "your good health,", $0A, "dear Princess", $00
+OUKYU_D_D88F:
+  .byte "Just put your trust inme and you will feel", $0A, "at ease", $00
+OUKYU_D_D8C2:
+  .byte "I've never let you outof my thoughts", $00
+OUKYU_D_D8E7:
+  .byte "There wil"
+OUKYU_D_D8F0:
+  .byte "l soon be a", $0A, "day when I will earn arank worthy of you", $00
+OUKYU_D_D925:
+  .word OUKYU_D_D92B, OUKYU_D_D938, OUKYU_D_D940
+OUKYU_D_D92B:
+  .byte "Profess love", $00
+OUKYU_D_D938:
+  .byte "Flowers", $00
+OUKYU_D_D940:
+  .byte "Gift", $00
+OUKYU_D_D945:
+  .byte $35, $FF, $00, $FF, $00, $A3, $C8, $CC, $DC, $E0, $C6, $CE, $DA, $E2, $C4, $CF
+  .byte $D9, $E4, $C4, $D0, $D8, $E4, $C3, $D1, $D7, $E5, $C3, $D2, $D6, $E5, $C2, $D3
+  .byte $D5, $E6, $C2, $D3, $D5, $E6, $C2, $D4, $D4, $E6, $C2, $E6, $FF, $00, $C2, $E6
+  .byte $FF, $00, $C2, $E6, $FF, $00, $C2, $E6, $FF, $00, $C3, $E5, $FF, $00, $C3, $E5
+  .byte $FF, $00, $C4, $E4, $FF, $00, $C4, $E4, $FF, $00, $C5, $E3, $FF, $00, $C5, $E3
+  .byte $FF, $00, $C6, $E2, $FF, $00, $C6, $E2, $FF, $00, $C7, $E1, $FF, $00, $C8, $E0
+  .byte $FF, $00, $C9, $DF, $FF, $00, $CA, $DE, $FF, $00, $CB, $DD, $FF, $00, $CC, $DC
+  .byte $FF, $00, $CD, $DB, $FF, $00, $CE, $DA, $FF, $00, $CF, $D9, $FF, $00, $D0, $D8
+  .byte $FF, $00, $D1, $D7, $FF, $00, $D3, $D5, $FF, $00, $D4, $D4, $FF, $00, $FF, $00
+  .byte $FF
+  .res 102, $00
+  .byte $2D, $FF, $00, $FF, $00, $B0, $C7, $C9, $DF, $E1, $C6, $CB, $DD, $E2, $C3, $CC
+  .byte $DC, $E5, $C2, $CD, $DB, $E6, $C1, $CF, $D9, $E7, $C0, $D0, $D8, $E8, $BF, $D0
+  .byte $D8, $E9, $BE, $D1, $D7, $EA, $BE, $D1, $D7, $EA, $BD, $D2, $D6, $EB, $BD, $D2
+  .byte $D6, $EB, $BC, $D3, $D5, $EC, $BC, $D4, $D4, $EC, $BC, $EC, $FF, $00, $BB, $ED
+  .byte $FF, $00, $BB, $ED, $FF, $00, $BC, $EC, $FF, $00, $BC, $EC, $FF, $00, $BC, $EC
+  .byte $FF, $00, $BD, $EB, $FF, $00, $BD, $EB, $FF, $00, $BD, $EB, $FF, $00, $BE, $EA
+  .byte $FF, $00, $BE, $EA, $FF, $00, $BE, $EA, $FF, $00, $BF, $E9, $FF, $00, $BF, $E9
+  .byte $FF, $00, $C0, $E8, $FF, $00, $C0, $E8, $FF, $00, $C1, $E7, $FF, $00, $C1, $E7
+  .byte $FF, $00, $C2, $E6, $FF, $00, $C3, $E5, $FF, $00, $C3, $E5, $FF, $00, $C4, $E4
+  .byte $FF, $00, $C5, $E3, $FF, $00, $C6, $E2, $FF, $00, $C8, $E0, $FF, $00, $C9, $DF
+  .byte $FF, $00, $CA, $DE, $FF, $00, $CB, $DD, $FF, $00, $CC, $DC, $FF, $00, $CD, $DB
+  .byte $FF, $00, $CF, $D8, $FF, $00, $D1, $D6, $FF, $00, $D2, $D5, $FF, $00, $D4, $D4
+  .byte $FF, $00, $FF, $00, $FF
+  .res 50, $00
+  .byte $27, $FF, $00, $FF, $00, $BC, $FF, $00, $FF, $00, $FF, $00, $FF, $00, $C1, $C9
+  .byte $DF, $E7, $C0, $CB, $DD, $E8, $BF, $CD, $DA, $E9, $BE, $CD, $DA, $EA, $BD, $CF
+  .byte $D9, $EB, $BC, $CF, $D9, $EC, $BC, $D1, $D7, $EC, $BB, $D1, $D7, $ED, $BB, $D2
+  .byte $D6, $ED, $BB, $D2, $D6, $ED, $BA, $D2, $D6, $EE, $BA, $D3, $D5, $EE, $BA, $D3
+  .byte $D5, $EE, $B9, $D4, $D4, $EF, $B9, $EF, $FF, $00, $B9, $EF, $FF, $00, $B8, $F0
+  .byte $FF, $00, $B8, $F0, $FF, $00, $B8, $F0, $FF, $00, $B8, $F0, $FF, $00, $B8, $F0
+  .byte $FF, $00, $B8, $F0, $FF, $00, $B9, $EF, $FF, $00, $B9, $EF, $FF, $00, $B9, $EF
+  .byte $FF, $00, $B9, $EF, $FF, $00, $BA, $EE, $FF, $00, $BA, $EE, $FF, $00, $BB, $ED
+  .byte $FF, $00, $BB, $ED, $FF, $00, $BB, $ED, $FF, $00, $BC, $EC, $FF, $00, $BC, $EC
+  .byte $FF, $00, $BC, $EC, $FF, $00, $BD, $EB, $FF, $00, $BE, $EA, $FF, $00, $BE, $EA
+  .byte $FF, $00, $BF, $E9, $FF, $00, $BF, $E9, $FF, $00, $C0, $E8, $FF, $00, $C1, $E7
+  .byte $FF, $00, $C2, $E6, $FF, $00, $C3, $E5, $FF, $00, $C4, $E4, $FF, $00, $C5, $E3
+  .byte $FF, $00, $C6, $E2, $FF, $00, $C7, $E1, $FF, $00, $C8, $E0, $FF, $00, $CA, $DE
+  .byte $FF, $00, $CB, $DD, $FF, $00, $CC, $DC, $FF, $00, $CD, $DB, $FF, $00, $D0, $D8
+  .byte $FF, $00, $D2, $D6, $FF, $00, $D3, $D5, $FF, $00, $D4, $D4, $FF, $00, $D4, $D4
+  .byte $FF, $00, $FF, $00, $FF, $00, $00
+OUKYU_D_DC2A:
+  .byte "The princess is gone!", $0A, "Please, rush to her", $0A, "aid!", $00
+OUKYU_D_DC59:
+  .byte "You make me suspicioushanging around here.", $0A, "Get out of the palace!"
+  .byte $00
+OUKYU_D_DC9B:
+  .byte "It's a pity I couldn'tmeet the princess", $00
+OUKYU_D_DCC3:
+  .byte $0A, "Oh, ", $00
+OUKYU_D_DCC9:
+  .byte "! I'm", $0A, $0A, "so glad we could", $0A, $0A, "meet", $00
+OUKYU_D_DCE7:
+  .byte "Your words are such a", $0A, "comfort to me", $00
+OUKYU_D_DD0B:
+  .byte "Your kindnesses fill", $0A, "me with joy", $00
+OUKYU_D_DD2C:
+  .byte "I hope that you will", $0A, "accept these", $00
+OUKYU_D_DD4E:
+  .byte "What beautiful", $0A, "flowers!", $00
+OUKYU_D_DD66:
+  .byte $0A, "I wanted to give you", $0A, $0A, "this ", $00
+OUKYU_D_DD83:
+  .byte $0A, $0A, "from overseas", $00
+OUKYU_D_DD93:
+  .byte "How lovely! Thank you", $0A, "so much", $00
+OUKYU_D_DDB1:
+  .byte "Please accept this", $0A, "gift from me", $00
+OUKYU_D_DDD1:
+  .byte "Oh, thank you!", $00
+OUKYU_D_DDE0:
+  .byte "I could never accept", $0A, "such a gift from you!", $00
+OUKYU_D_DE0B:
+  .byte $0A, "I'm so grateful for", $0A, "your care. Please", $0A, "ask my father for", $0A
+  .byte "support", $00
+OUKYU_D_DE4C:
+  .byte "Fare thee well!", $00

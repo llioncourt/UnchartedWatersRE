@@ -35,7 +35,7 @@ JOURIKU_F_961F:
   k_ult
   k_jumpf JOURIKU_L_9642
   k_call RF_5C91
-  k_pushiw $A42A
+  k_pushiw JOURIKU_D_A42A
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -116,7 +116,7 @@ JOURIKU_F_96D7:
 JOURIKU_L_96DE:
   k_pushi 2
   k_pushi 2
-  k_pushiw $A441
+  k_pushiw JOURIKU_D_A441
   k_pushi 2
   k_pushi 0
   k_callx RF_47E1, 10
@@ -127,7 +127,7 @@ JOURIKU_L_96DE:
   k_jumpf JOURIKU_L_96FB
   k_ldl -2
   k_shl1
-  k_ldriw $A445
+  k_ldriw JOURIKU_D_A445
   k_add
   k_deref
   k_callptr
@@ -191,18 +191,18 @@ JOURIKU_F_974A:
   k_call JOURIKU_F_970B
   k_jumpf JOURIKU_L_9764
   k_pushi 1
-  k_pushiw $A454
+  k_pushiw JOURIKU_D_A454
   k_callx RF_2FB9, 4
 JOURIKU_L_9764:
   k_pushi 1
-  k_pushiw $A46F
+  k_pushiw JOURIKU_D_A46F
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf JOURIKU_L_9793
   k_pushi 0
   k_pushi 0
   k_callx RF_5C5A, 4
-  k_pushiw $A474
+  k_pushiw JOURIKU_D_A474
   k_callx RF_4B44, 2
   k_pushiw $00CF
   k_ldl -2
@@ -231,7 +231,7 @@ JOURIKU_F_9795:
   k_ldliw $E564
   k_stl -2
   k_pushi 1
-  k_pushiw $A487
+  k_pushiw JOURIKU_D_A487
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf JOURIKU_L_97BA
@@ -255,7 +255,7 @@ JOURIKU_F_97BC:
 JOURIKU_L_97C7:
   k_pushi 3
   k_pushi 5
-  k_pushiw $A4AB
+  k_pushiw JOURIKU_D_A4AB
   k_pushi 2
   k_pushi 5
   k_callx RF_47E1, 10
@@ -266,7 +266,7 @@ JOURIKU_L_97C7:
   k_jumpt JOURIKU_L_97E6
   k_ldl -2
   k_shl1
-  k_ldriw $A4B5
+  k_ldriw JOURIKU_D_A4B5
   k_add
   k_deref
   k_callptr
@@ -614,7 +614,7 @@ JOURIKU_L_99DB:
   k_pushl
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8EC0
+  k_ldriw RD_8EC0
   k_add
   k_deref
   k_popr
@@ -834,7 +834,7 @@ JOURIKU_L_9B45:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $A4DE
+  k_pushiw JOURIKU_D_A4DE
   k_callx RF_2FB9, 4
   k_return
 JOURIKU_F_9B55:
@@ -843,7 +843,7 @@ JOURIKU_F_9B55:
   k_callx RL_21BE, 2
   k_call JOURIKU_F_9B16
   k_pushi 1
-  k_pushiw $A4E5
+  k_pushiw JOURIKU_D_A4E5
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_return
@@ -868,12 +868,12 @@ JOURIKU_F_9B6E:
   k_jumpf JOURIKU_L_9B9A
   k_push -4
   k_push -2
-  k_pushiw $A4F0
+  k_pushiw JOURIKU_D_A4F0
   k_callx RF_3619, 6
   k_jump JOURIKU_L_9BA2
 JOURIKU_L_9B9A:
   k_pushi 1
-  k_pushiw $A4F8
+  k_pushiw JOURIKU_D_A4F8
   k_callx RF_2FB9, 4
 JOURIKU_L_9BA2:
   k_return
@@ -898,12 +898,12 @@ JOURIKU_F_9BA3:
   k_jumpf JOURIKU_L_9BD0
   k_push -4
   k_push -2
-  k_pushiw $A500
+  k_pushiw JOURIKU_D_A500
   k_callx RF_3619, 6
   k_jump JOURIKU_L_9BD8
 JOURIKU_L_9BD0:
   k_pushi 1
-  k_pushiw $A508
+  k_pushiw JOURIKU_D_A508
   k_callx RF_2FB9, 4
 JOURIKU_L_9BD8:
   k_return
@@ -928,19 +928,19 @@ JOURIKU_F_9BD9:
   k_jumpf JOURIKU_L_9C06
   k_push -4
   k_push -2
-  k_pushiw $A510
+  k_pushiw JOURIKU_D_A510
   k_callx RF_3619, 6
   k_jump JOURIKU_L_9C0E
 JOURIKU_L_9C06:
   k_pushi 1
-  k_pushiw $A518
+  k_pushiw JOURIKU_D_A518
   k_callx RF_2FB9, 4
 JOURIKU_L_9C0E:
   k_return
 JOURIKU_F_9C0F:
   k_func 0
   k_pushi 1
-  k_pushiw $A520
+  k_pushiw JOURIKU_D_A520
   k_callx RF_2FB9, 4
   k_pusharg 13
   k_pusharg 11
@@ -960,13 +960,13 @@ JOURIKU_F_9C2F:
   k_pushib 20
   k_callx RF_2F8F, 4
   k_pusharg 13
-  k_pushiw $A52A
+  k_pushiw JOURIKU_D_A52A
   k_callx RF_3619, 4
   k_return
 JOURIKU_F_9C46:
   k_func 0
   k_pushi 0
-  k_pushiw $A531
+  k_pushiw JOURIKU_D_A531
   k_callx RF_2FB9, 4
   k_pushi 0
   k_pushi 0
@@ -981,7 +981,7 @@ JOURIKU_F_9C46:
   k_pushi 3
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $A538
+  k_pushiw JOURIKU_D_A538
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_inc
@@ -989,7 +989,7 @@ JOURIKU_F_9C46:
   k_pushi 10
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $A53D
+  k_pushiw JOURIKU_D_A53D
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_inc
@@ -997,7 +997,7 @@ JOURIKU_F_9C46:
   k_pushib 17
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $A542
+  k_pushiw JOURIKU_D_A542
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_inc
@@ -1005,7 +1005,7 @@ JOURIKU_F_9C46:
   k_pushib 23
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $A547
+  k_pushiw JOURIKU_D_A547
   k_callx RF_2FB9, 4
   k_pushi 2
   k_ldlarg 11
@@ -1024,7 +1024,7 @@ JOURIKU_F_9C46:
   k_pushib 24
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $A54E
+  k_pushiw JOURIKU_D_A54E
   k_callx RF_2FB9, 4
   k_return
 JOURIKU_F_9CC5:
@@ -1088,7 +1088,7 @@ JOURIKU_L_9D18:
   k_call JOURIKU_F_9B16
 JOURIKU_L_9D1B:
   k_pushi 1
-  k_pushiw $A567
+  k_pushiw JOURIKU_D_A567
   k_callx RF_2FB9, 4
   k_pusharg 15
   k_pushi 2
@@ -1119,14 +1119,14 @@ JOURIKU_L_9D1B:
   k_callx JOURIKU_F_982D, 2
   k_jumpt JOURIKU_L_9D56
   k_call JOURIKU_F_9B16
-  k_pushiw $A57E
+  k_pushiw JOURIKU_D_A57E
   k_callx RF_4B44, 2
   k_jump JOURIKU_L_9CD9
 JOURIKU_L_9D56:
   k_push -4
   k_ldl -6
   k_shl1
-  k_ldriw $A55B
+  k_ldriw JOURIKU_D_A55B
   k_add
   k_deref
   k_callptrn 2
@@ -1134,7 +1134,7 @@ JOURIKU_L_9D56:
   k_push -4
   k_ldl -6
   k_shl1
-  k_ldriw $A561
+  k_ldriw JOURIKU_D_A561
   k_add
   k_deref
   k_callptrn 2
@@ -1144,7 +1144,7 @@ JOURIKU_L_9D56:
   k_push -4
   k_ldl -6
   k_shl1
-  k_ldriw $A55B
+  k_ldriw JOURIKU_D_A55B
   k_add
   k_deref
   k_callptrn 2
@@ -1152,7 +1152,7 @@ JOURIKU_L_9D56:
   k_push -4
   k_ldl -6
   k_shl1
-  k_ldriw $A561
+  k_ldriw JOURIKU_D_A561
   k_add
   k_deref
   k_callptrn 2
@@ -1164,7 +1164,7 @@ JOURIKU_L_9D56:
   k_push -4
   k_ldl -6
   k_shl1
-  k_ldriw $A55B
+  k_ldriw JOURIKU_D_A55B
   k_add
   k_deref
   k_callptrn 2
@@ -1172,7 +1172,7 @@ JOURIKU_L_9D56:
   k_push -4
   k_ldl -6
   k_shl1
-  k_ldriw $A561
+  k_ldriw JOURIKU_D_A561
   k_add
   k_deref
   k_callptrn 2
@@ -1204,7 +1204,7 @@ JOURIKU_L_9DBB:
   k_call JOURIKU_F_9B16
   k_push -12
   k_pushi 0
-  k_pushiw $A59D
+  k_pushiw JOURIKU_D_A59D
   k_callx RF_3C4E, 6
   k_stl -8
   k_ldl -8
@@ -1215,7 +1215,7 @@ JOURIKU_L_9DBB:
   k_push -4
   k_ldl -6
   k_shl1
-  k_ldriw $A555
+  k_ldriw JOURIKU_D_A555
   k_add
   k_deref
   k_callptrn 4
@@ -1244,7 +1244,7 @@ JOURIKU_L_9DBB:
   k_deref
   k_jumpt JOURIKU_L_9CD9
   k_call JOURIKU_F_9B16
-  k_pushiw $A5B2
+  k_pushiw JOURIKU_D_A5B2
   k_callx RF_4B44, 2
   k_call JOURIKU_F_9B55
   k_return
@@ -1608,11 +1608,11 @@ JOURIKU_L_9FF0:
   k_ult
   k_jumpt JOURIKU_L_9F8D
   k_call JOURIKU_F_9B16
-  k_pushiw $A5C6
+  k_pushiw JOURIKU_D_A5C6
   k_jump JOURIKU_L_A006
 JOURIKU_L_A000:
   k_call JOURIKU_F_9B16
-  k_pushiw $A5DC
+  k_pushiw JOURIKU_D_A5DC
 JOURIKU_L_A006:
   k_callx RF_4B44, 2
   k_call RF_5F56
@@ -1663,7 +1663,7 @@ JOURIKU_L_A044:
   k_ldl -2
   k_jumpf JOURIKU_L_A05B
   k_call RF_5C91
-  k_pushiw $A5F1
+  k_pushiw JOURIKU_D_A5F1
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -1671,7 +1671,7 @@ JOURIKU_L_A05B:
   k_ldl -6
   k_jumpt JOURIKU_L_A06B
   k_call RF_5C91
-  k_pushiw $A609
+  k_pushiw JOURIKU_D_A609
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -1699,11 +1699,11 @@ JOURIKU_F_A073:
   k_uge
   k_jumpf JOURIKU_L_A099
 JOURIKU_L_A091:
-  k_pushiw $A628
+  k_pushiw JOURIKU_D_A628
   k_callx RF_4B44, 2
   k_return
 JOURIKU_L_A099:
-  k_pushiw $A644
+  k_pushiw JOURIKU_D_A644
   k_callx RF_4B44, 2
   k_ldli 0
   k_stl -2
@@ -1821,7 +1821,7 @@ JOURIKU_L_A143:
   k_ldrn -13
   k_eq
   k_jumpf JOURIKU_L_A15D
-  k_pushiw $A65D
+  k_pushiw JOURIKU_D_A65D
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -1846,7 +1846,7 @@ JOURIKU_L_A15D:
   k_jumpf JOURIKU_L_A184
 JOURIKU_L_A17D:
   k_pushi 1
-  k_pushiw $A689
+  k_pushiw JOURIKU_D_A689
   k_jump JOURIKU_L_A1A8
 JOURIKU_L_A184:
   k_ldlba $EF86
@@ -1858,7 +1858,7 @@ JOURIKU_L_A184:
   k_ult
   k_jumpf JOURIKU_L_A197
   k_pushi 1
-  k_pushiw $A699
+  k_pushiw JOURIKU_D_A699
   k_jump JOURIKU_L_A1A8
 JOURIKU_L_A197:
   k_ldl -4
@@ -1866,15 +1866,15 @@ JOURIKU_L_A197:
   k_ult
   k_jumpf JOURIKU_L_A1A4
   k_pushi 1
-  k_pushiw $A6B8
+  k_pushiw JOURIKU_D_A6B8
   k_jump JOURIKU_L_A1A8
 JOURIKU_L_A1A4:
   k_pushi 1
-  k_pushiw $A6CF
+  k_pushiw JOURIKU_D_A6CF
 JOURIKU_L_A1A8:
   k_callx RF_2FB9, 4
   k_pushi 1
-  k_pushiw $A6ED
+  k_pushiw JOURIKU_D_A6ED
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf JOURIKU_L_A1C5
@@ -1935,18 +1935,18 @@ JOURIKU_L_A1FE:
   k_push -8
   k_ldl -4
   k_shl1
-  k_ldriw $A6F9
+  k_ldriw JOURIKU_D_A6F9
   k_add
   k_deref
   k_pushl
   k_push -6
   k_ldl -2
   k_shl1
-  k_ldriw $A6F5
+  k_ldriw JOURIKU_D_A6F5
   k_add
   k_deref
   k_pushl
-  k_pushiw $A705
+  k_pushiw JOURIKU_D_A705
   k_callx RF_3619, 10
   k_ldli 1
   k_return
@@ -2007,12 +2007,12 @@ JOURIKU_F_A21F:
   k_pushib 26
   k_callx RF_21CA, 2
   k_pushi 0
-  k_pushiw $A75D
+  k_pushiw JOURIKU_D_A75D
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $A767
+  k_pushiw JOURIKU_D_A767
   k_callx RF_2FB9, 4
   k_ldlba $EF57
   k_pushl
@@ -2020,7 +2020,7 @@ JOURIKU_F_A21F:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $A775
+  k_pushiw JOURIKU_D_A775
   k_callx RF_2FB9, 4
   k_call RF_2F18
   k_pushi 1
@@ -2081,12 +2081,12 @@ JOURIKU_F_A21F:
 JOURIKU_L_A315:
   k_call RF_5C91
   k_pushi 1
-  k_pushiw $A777
+  k_pushiw JOURIKU_D_A777
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_5C91
   k_pushi 0
-  k_pushiw $A79F
+  k_pushiw JOURIKU_D_A79F
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -2117,7 +2117,7 @@ JOURIKU_L_A35A:
   k_pushn -32
   k_callx RF_5C5A, 4
   k_pushi 1
-  k_pushiw $A7D4
+  k_pushiw JOURIKU_D_A7D4
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldln -32
@@ -2184,20 +2184,20 @@ JOURIKU_L_A3B8:
   k_mul
   k_popr
   k_add
-  k_ldriw $A741
+  k_ldriw JOURIKU_D_A741
   k_add
   k_derefb
   k_shl1
-  k_ldriw $A730
+  k_ldriw JOURIKU_D_A730
   k_add
   k_deref
   k_pushl
-  k_pushiw $A7FB
+  k_pushiw JOURIKU_D_A7FB
   k_callx RF_3619, 4
   k_jump JOURIKU_L_A335
 JOURIKU_L_A3EA:
   k_call RF_5C91
-  k_pushiw $A814
+  k_pushiw JOURIKU_D_A814
   k_callx RF_4B44, 2
 JOURIKU_L_A3F4:
   k_ldli 0
@@ -2209,7 +2209,7 @@ JOURIKU_F_A3F6:
 JOURIKU_L_A3FD:
   k_pushi 2
   k_pushi 2
-  k_pushiw $A830
+  k_pushiw JOURIKU_D_A830
   k_pushi 2
   k_pushi 0
   k_callx RF_47E1, 10
@@ -2220,7 +2220,7 @@ JOURIKU_L_A3FD:
   k_jumpf JOURIKU_L_A41A
   k_ldl -2
   k_shl1
-  k_ldriw $A834
+  k_ldriw JOURIKU_D_A834
   k_add
   k_deref
   k_callptr
@@ -2237,133 +2237,118 @@ JOURIKU_L_A41A:
 JOURIKU_L_A428:
   k_ldl -4
   k_return
-  .byte "We only have"
-  .byte $0A
-  .byte "one ship!"
-  .byte $00, $49, $A4, $4E, $A4, $1F, $96, $A0, $96
-  .byte "Crew"
+JOURIKU_D_A42A:
+  .byte "We only have", $0A, "one ship!", $00
+JOURIKU_D_A441:
+  .word JOURIKU_D_A449, JOURIKU_D_A44E
+JOURIKU_D_A445:
+  .word JOURIKU_F_961F, JOURIKU_F_96A0
+JOURIKU_D_A449:
+  .byte "Crew", $00
+JOURIKU_D_A44E:
+  .byte "Cargo", $00
+JOURIKU_D_A454:
+  .byte "I've got scant", $0A, "crew here.", $0A, $00
+JOURIKU_D_A46F:
+  .byte "Sail", $00
+JOURIKU_D_A474:
+  .byte "All hands on", $0A, "deck!", $00
+JOURIKU_D_A487:
+  .byte "OK to stand by", $0A, "until further", $0A, "orders", $00
+JOURIKU_D_A4AB:
+  .word JOURIKU_D_A4BF, JOURIKU_D_A4C4, JOURIKU_D_A4C8, JOURIKU_D_A4D1, JOURIKU_D_A4D8
+JOURIKU_D_A4B5:
+  .word JOURIKU_F_974A, JOURIKU_F_A010, JOURIKU_F_96D7, JOURIKU_F_A3F6, JOURIKU_F_9795
+JOURIKU_D_A4BF:
+  .byte "Sail", $00
+JOURIKU_D_A4C4:
+  .byte "Fix", $00
+JOURIKU_D_A4C8:
+  .byte "Transfer", $00
+JOURIKU_D_A4D1:
+  .byte "Search", $00
+JOURIKU_D_A4D8:
+  .byte "Wait", $00
   .byte $00
-  .byte "Cargo"
+JOURIKU_D_A4DE:
+  .byte $1B
+  .byte "C2", $1B, "R(", $00
+JOURIKU_D_A4E5:
+  .byte "Is this", $0A, "OK", $00
+JOURIKU_D_A4F0:
+  .byte "%3d/%3d", $00
+JOURIKU_D_A4F8:
+  .byte " -OK-  ", $00
+JOURIKU_D_A500:
+  .byte "%3d/%3d", $00
+JOURIKU_D_A508:
+  .byte " -OK-  ", $00
+JOURIKU_D_A510:
+  .byte "%3d/%3d", $00
+JOURIKU_D_A518:
+  .byte " -OK-  ", $00
+JOURIKU_D_A520:
+  .byte $1B, $52, $22, $1B
+  .byte "E?", $1B, "C0", $00
+JOURIKU_D_A52A:
+  .byte $1B, "C0%4d", $00
+JOURIKU_D_A531:
+  .byte $1B
+  .byte "R", $22, $1B, "E?", $00
+JOURIKU_D_A538:
+  .byte "Ship", $00
+JOURIKU_D_A53D:
+  .byte "Hull", $00
+JOURIKU_D_A542:
+  .byte "Mast", $00
+JOURIKU_D_A547:
+  .byte "Rudder", $00
+JOURIKU_D_A54E:
+  .byte " bales", $00
+JOURIKU_D_A555:
+  .word JOURIKU_F_9875, JOURIKU_F_98AC, JOURIKU_F_98E3
+JOURIKU_D_A55B:
+  .word JOURIKU_F_9962, JOURIKU_F_9970, JOURIKU_F_997E
+JOURIKU_D_A561:
+  .word JOURIKU_F_998C, JOURIKU_F_9997, JOURIKU_F_99A2
+JOURIKU_D_A567:
+  .byte "Choose repairs", $0A, "(B-end)", $00
+JOURIKU_D_A57E:
+  .byte "That ship", $0A, "doesn't need", $0A, "repairs", $00
+JOURIKU_D_A59D:
+  .byte "Use how much", $0A, "lumber", $0A, $00
+JOURIKU_D_A5B2:
+  .byte "We're out of", $0A, "lumber", $00
+JOURIKU_D_A5C6:
+  .byte "Repairs are", $0A, "cancelled", $00
+JOURIKU_D_A5DC:
+  .byte "Repairs are", $0A, "finished", $00
+JOURIKU_D_A5F1:
+  .byte "There's nothing", $0A, "to mend", $00
+JOURIKU_D_A609:
+  .byte "There's no", $0A, "lumber for", $0A, "repairs", $00
   .byte $00
-  .byte "I've got scant"
-  .byte $0A
-  .byte "crew here."
-  .byte $0A, $00
-  .byte "Sail"
-  .byte $00
-  .byte "All hands on"
-  .byte $0A
-  .byte "deck!"
-  .byte $00
-  .byte "OK to stand by"
-  .byte $0A
-  .byte "until further"
-  .byte $0A
-  .byte "orders"
-  .byte $00, $BF, $A4, $C4, $A4, $C8, $A4, $D1, $A4, $D8, $A4, $4A, $97, $10, $A0, $D7
-  .byte $96, $F6, $A3, $95, $97
-  .byte "Sail"
-  .byte $00, $46, $69, $78, $00
-  .byte "Transfer"
-  .byte $00
-  .byte "Search"
-  .byte $00
-  .byte "Wait"
-  .byte $00, $00, $1B, $43, $32, $1B, $52, $28, $00
-  .byte "Is this"
-  .byte $0A, $4F, $4B, $00
-  .byte "%3d/%3d"
-  .byte $00
-  .byte " -OK-  "
-  .byte $00
-  .byte "%3d/%3d"
-  .byte $00
-  .byte " -OK-  "
-  .byte $00
-  .byte "%3d/%3d"
-  .byte $00
-  .byte " -OK-  "
-  .byte $00, $1B, $52, $22, $1B, $45, $3F, $1B, $43, $30, $00, $1B
-  .byte "C0%4d"
-  .byte $00, $1B, $52, $22, $1B, $45, $3F, $00
-  .byte "Ship"
-  .byte $00
-  .byte "Hull"
-  .byte $00
-  .byte "Mast"
-  .byte $00
-  .byte "Rudder"
-  .byte $00
-  .byte " bales"
-  .byte $00, $75, $98, $AC, $98, $E3, $98, $62, $99, $70, $99, $7E, $99, $8C, $99, $97
-  .byte $99, $A2, $99
-  .byte "Choose repairs"
-  .byte $0A
-  .byte "(B-end)"
-  .byte $00
-  .byte "That ship"
-  .byte $0A
-  .byte "doesn't need"
-  .byte $0A
-  .byte "repairs"
-  .byte $00
-  .byte "Use how much"
-  .byte $0A
-  .byte "lumber"
-  .byte $0A, $00
-  .byte "We're out of"
-  .byte $0A
-  .byte "lumber"
-  .byte $00
-  .byte "Repairs are"
-  .byte $0A
-  .byte "cancelled"
-  .byte $00
-  .byte "Repairs are"
-  .byte $0A
-  .byte "finished"
-  .byte $00
-  .byte "There's nothing"
-  .byte $0A
-  .byte "to mend"
-  .byte $00
-  .byte "There's no"
-  .byte $0A
-  .byte "lumber for"
-  .byte $0A
-  .byte "repairs"
-  .byte $00, $00
-  .byte "Our search was"
-  .byte $0A
-  .byte "unsuccessful"
-  .byte $00
-  .byte "We found a clear"
-  .byte $0A
-  .byte "spring!"
-  .byte $00
-  .byte "There's not"
-  .byte $0A
-  .byte "enough space to"
-  .byte $0A
-  .byte "store the water"
-  .byte $00
-  .byte "It's up to you."
-  .byte $00
-  .byte "We're bound to"
-  .byte $0A
-  .byte "find something!"
-  .byte $00
-  .byte "I have nothing"
-  .byte $0A
-  .byte "to say."
-  .byte $00
-  .byte "There couldn't"
-  .byte $0A
-  .byte "be water here."
-  .byte $00, $0A
-  .byte "Search"
-  .byte $00, $FD, $A6, $FF, $A6, $01, $A7, $03, $A7, $4E, $00, $53, $00, $45, $00, $57
-  .byte $00
+JOURIKU_D_A628:
+  .byte "Our search was", $0A, "unsuccessful", $00
+JOURIKU_D_A644:
+  .byte "We found a clear", $0A, "spring!", $00
+JOURIKU_D_A65D:
+  .byte "There's not", $0A, "enough space to", $0A, "store the water", $00
+JOURIKU_D_A689:
+  .byte "It's up to you.", $00
+JOURIKU_D_A699:
+  .byte "We're bound to", $0A, "find something!", $00
+JOURIKU_D_A6B8:
+  .byte "I have nothing", $0A, "to say.", $00
+JOURIKU_D_A6CF:
+  .byte "There couldn't", $0A, "be water here.", $00
+JOURIKU_D_A6ED:
+  .byte $0A, "Search", $00
+JOURIKU_D_A6F5:
+  .byte $FD, $A6, $FF, $A6
+JOURIKU_D_A6F9:
+  .byte $01, $A7, $03, $A7, $4E, $00, $53, $00, $45, $00, $57, $00
+JOURIKU_D_A705:
   .byte "Looks like the"
   .byte $0A
   .byte "treasure's at"
@@ -2371,42 +2356,41 @@ JOURIKU_L_A428:
   .byte "%s %d"
   .byte $DF
   .byte " %s %d"
-  .byte $DF, $00, $49, $A7, $4B, $A7, $4E, $A7, $50, $A7, $53, $A7, $55, $A7, $58, $A7
-  .byte $5A, $A7, $07, $06, $05, $00, $FF, $04, $01, $02, $03, $4E, $00, $4E, $45, $00
-  .byte $45, $00, $53, $45, $00, $53, $00, $53, $57, $00, $57, $00, $4E, $57, $00, $0A
-  .byte "Captain "
-  .byte $00, $0A, $0A
-  .byte "found the"
-  .byte $0A, $0A, $00, $21, $00
-  .byte "This doesn't"
-  .byte $0A
-  .byte "seem to be the"
-  .byte $0A
-  .byte "spot, Cap'n"
-  .byte $00, $0A
-  .byte "We'd better"
-  .byte $0A
-  .byte "confirm the"
-  .byte $0A
-  .byte "shape of the"
-  .byte $0A
-  .byte "coast from sea"
+  .byte $DF, $00
+JOURIKU_D_A730:
+  .byte $49, $A7, $4B, $A7, $4E, $A7, $50, $A7, $53, $A7, $55, $A7, $58, $A7, $5A, $A7
+  .byte $07
+JOURIKU_D_A741:
+  .byte $06, $05, $00, $FF, $04, $01, $02, $03, $4E, $00
+  .byte "NE", $00
+  .byte $45, $00
+  .byte "SE", $00
+  .byte $53, $00
+  .byte "SW", $00
+  .byte $57, $00
+  .byte "NW", $00
+JOURIKU_D_A75D:
+  .byte $0A, "Captain ", $00
+JOURIKU_D_A767:
+  .byte $0A, $0A, "found the", $0A, $0A, $00
+JOURIKU_D_A775:
+  .byte $21, $00
+JOURIKU_D_A777:
+  .byte "This doesn't", $0A, "seem to be the", $0A, "spot, Cap'n", $00
+JOURIKU_D_A79F:
+  .byte $0A, "We'd better", $0A, "confirm the", $0A, "shape of the", $0A, "coast from sea", $00
+JOURIKU_D_A7D4:
+  .byte "Let me have a", $0A, "look at the", $0A, "treasure map", $00
+JOURIKU_D_A7FB:
+  .byte "I reckon it's", $0A, "further %s", $00
+JOURIKU_D_A814:
+  .byte "There's nothing", $0A, "to be found", $00
+JOURIKU_D_A830:
+  .word JOURIKU_D_A838, JOURIKU_D_A83E
+JOURIKU_D_A834:
+  .word JOURIKU_F_A0F3, JOURIKU_F_A21F
+JOURIKU_D_A838:
+  .byte "Water", $00
+JOURIKU_D_A83E:
+  .byte "Treasure", $00
   .byte $00
-  .byte "Let me have a"
-  .byte $0A
-  .byte "look at the"
-  .byte $0A
-  .byte "treasure map"
-  .byte $00
-  .byte "I reckon it's"
-  .byte $0A
-  .byte "further %s"
-  .byte $00
-  .byte "There's nothing"
-  .byte $0A
-  .byte "to be found"
-  .byte $00, $38, $A8, $3E, $A8, $F3, $A0, $1F, $A2
-  .byte "Water"
-  .byte $00
-  .byte "Treasure"
-  .byte $00, $00

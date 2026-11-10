@@ -33,7 +33,7 @@ S_NWAKA_F_B81B:
   k_pushi 6
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $BA62
+  k_pushiw S_NWAKA_D_BA62
   k_callx RF_2FB9, 4
   k_pushiw $20FA
   k_pushi 9
@@ -98,7 +98,7 @@ S_NWAKA_F_B898:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 0
-  k_pushiw $BA79
+  k_pushiw S_NWAKA_D_BA79
   k_callx RF_2FB9, 4
   k_pusharg 13
   k_callx RF_40DE, 2
@@ -229,7 +229,7 @@ S_NWAKA_L_B98C:
   k_call S_NWAKA_F_B80F
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $BA8C
+  k_pushiw S_NWAKA_D_BA8C
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -255,7 +255,7 @@ S_NWAKA_L_B9C0:
   k_call S_NWAKA_F_B80F
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BAA8
+  k_pushiw S_NWAKA_D_BAA8
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushi 5
@@ -265,7 +265,7 @@ S_NWAKA_L_B9C0:
   k_pushi 3
   k_ldlbf -63
   k_pushl
-  k_pushiw $BAC1
+  k_pushiw S_NWAKA_D_BAC1
   k_callx RF_3787, 16
   k_stl -2
   k_ldl -2
@@ -311,7 +311,7 @@ S_NWAKA_L_BA21:
   k_call S_NWAKA_F_B80F
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $BAC2
+  k_pushiw S_NWAKA_D_BAC2
   k_callx RF_2FB9, 4
   k_leal -62
   k_pushl
@@ -323,7 +323,7 @@ S_NWAKA_L_BA21:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $BAD6
+  k_pushiw S_NWAKA_D_BAD6
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -340,22 +340,18 @@ S_NWAKA_L_BA5B:
   k_call $97BE
   k_ldln -66
   k_return
-  .byte $00, $1B
-  .byte "C0<Mates at a glance>"
-  .byte $00, $0A
-  .byte "OK to part from"
-  .byte $0A, $0A, $00
-  .byte "We can't spare a"
-  .byte $0A
-  .byte "navigator!"
   .byte $00
-  .byte "Who are ye parting"
-  .byte $0A
-  .byte "from?"
-  .byte $00, $00, $0A
-  .byte "You've entrusted"
-  .byte $0A, $0A, $00
-  .byte " with"
-  .byte $0A, $0A
-  .byte "a vessel"
+S_NWAKA_D_BA62:
+  .byte $1B, "C0<Mates at a glance>", $00
+S_NWAKA_D_BA79:
+  .byte $0A, "OK to part from", $0A, $0A, $00
+S_NWAKA_D_BA8C:
+  .byte "We can't spare a", $0A, "navigator!", $00
+S_NWAKA_D_BAA8:
+  .byte "Who are ye parting", $0A, "from?", $00
+S_NWAKA_D_BAC1:
   .byte $00
+S_NWAKA_D_BAC2:
+  .byte $0A, "You've entrusted", $0A, $0A, $00
+S_NWAKA_D_BAD6:
+  .byte " with", $0A, $0A, "a vessel", $00

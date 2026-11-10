@@ -62,7 +62,7 @@ MDISP1_F_B03F:
   k_pushi 2
   k_callx RF_3DF1, 14
   k_pushi 1
-  k_pushiw $BB1A
+  k_pushiw MDISP1_D_BB1A
   k_callx RF_2FB9, 4
   k_pushi 3
   k_pushib 16
@@ -73,7 +73,7 @@ MDISP1_F_B03F:
   k_call RF_4AC6
   k_call RF_4AF7
   k_pushi 1
-  k_pushiw $BB1E
+  k_pushiw MDISP1_D_BB1E
   k_callx RF_2FB9, 4
   k_return
 MDISP1_F_B098:
@@ -88,7 +88,7 @@ MDISP1_F_B098:
   k_ldlarg 11
   k_ldri 5
   k_shl
-  k_ldriw $2790
+  k_ldriw RL_2790
   k_add
   k_long $26
   k_long $14
@@ -150,26 +150,26 @@ MDISP1_L_B10A:
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $BB2F
+  k_ldriw MDISP1_D_BB2F
   k_add
   k_derefb
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $BB2E
+  k_ldriw MDISP1_D_BB2E
   k_add
   k_derefb
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $BB23
+  k_ldriw MDISP1_D_BB23
   k_add
   k_derefb
   k_dec
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $BB22
+  k_ldriw MDISP1_D_BB22
   k_add
   k_derefb
   k_pushl
@@ -190,26 +190,26 @@ MDISP1_L_B10A:
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $BB2F
+  k_ldriw MDISP1_D_BB2F
   k_add
   k_derefb
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $BB2E
+  k_ldriw MDISP1_D_BB2E
   k_add
   k_derefb
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $BB23
+  k_ldriw MDISP1_D_BB23
   k_add
   k_derefb
   k_addlib 31
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $BB22
+  k_ldriw MDISP1_D_BB22
   k_add
   k_derefb
   k_pushl
@@ -222,7 +222,7 @@ MDISP1_F_B17A:
   k_pusha $F280
   k_ldlarg 11
   k_shl1
-  k_ldriw $BB3A
+  k_ldriw MDISP1_D_BB3A
   k_add
   k_deref
   k_pushl
@@ -235,7 +235,7 @@ MDISP1_F_B17A:
   k_pusha $F280
   k_ldlarg 11
   k_shl1
-  k_ldriw $BB4A
+  k_ldriw MDISP1_D_BB4A
   k_add
   k_deref
   k_pushl
@@ -371,7 +371,7 @@ MDISP1_F_B21F:
   k_pushi 1
   k_callx RF_3DF1, 14
   k_pusha $F280
-  k_pushiw $8AEC
+  k_pushiw RD_8AEC
   k_pushi 2
   k_pushi 3
   k_pushib 18
@@ -465,19 +465,19 @@ MDISP1_L_B305:
   k_add
   k_popr
   k_add
-  k_ldriw $BB66
+  k_ldriw MDISP1_D_BB66
   k_add
   k_deref
   k_stln -9
   k_ldln -3
   k_shl1
-  k_ldriw $BB5B
+  k_ldriw MDISP1_D_BB5B
   k_add
   k_derefb
   k_pushl
   k_ldln -3
   k_shl1
-  k_ldriw $BB5A
+  k_ldriw MDISP1_D_BB5A
   k_add
   k_derefb
   k_popr
@@ -485,13 +485,13 @@ MDISP1_L_B305:
   k_stln -13
   k_ldln -3
   k_shl1
-  k_ldriw $BB5A
+  k_ldriw MDISP1_D_BB5A
   k_add
   k_derefb
   k_stlba $FB82
   k_ldln -3
   k_shl1
-  k_ldriw $BB5B
+  k_ldriw MDISP1_D_BB5B
   k_add
   k_derefb
   k_stlba $FB83
@@ -516,16 +516,16 @@ MDISP1_L_B37E:
   k_return
 MDISP1_L_B397:
   k_pusha $F280
-  k_pushiw $8B04
+  k_pushiw RD_8B04
   k_ldln -3
   k_shl1
-  k_ldriw $BB5B
+  k_ldriw MDISP1_D_BB5B
   k_add
   k_derefb
   k_pushl
   k_ldln -3
   k_shl1
-  k_ldriw $BB5A
+  k_ldriw MDISP1_D_BB5A
   k_add
   k_derefb
   k_pushl
@@ -566,7 +566,7 @@ MDISP1_L_B3DB:
   k_mul
   k_popr
   k_add
-  k_ldriw $BC62
+  k_ldriw MDISP1_D_BC62
   k_add
   k_deref
   k_stln -9
@@ -582,7 +582,7 @@ MDISP1_L_B3DB:
   k_mul
   k_popr
   k_add
-  k_ldriw $BC08
+  k_ldriw MDISP1_D_BC08
   k_add
   k_derefb
   k_pushl
@@ -594,7 +594,7 @@ MDISP1_L_B3DB:
   k_mul
   k_popr
   k_add
-  k_ldriw $BBAE
+  k_ldriw MDISP1_D_BBAE
   k_add
   k_derefb
   k_popr
@@ -611,7 +611,7 @@ MDISP1_L_B3DB:
   k_pushi 11
   k_callx RL_21BE, 12
   k_pusha $F280
-  k_pushiw $8BC4
+  k_pushiw RD_8BC4
   k_ldln -5
   k_shl1
   k_pushl
@@ -620,7 +620,7 @@ MDISP1_L_B3DB:
   k_mul
   k_popr
   k_add
-  k_ldriw $BC08
+  k_ldriw MDISP1_D_BC08
   k_add
   k_derefb
   k_pushl
@@ -632,7 +632,7 @@ MDISP1_L_B3DB:
   k_mul
   k_popr
   k_add
-  k_ldriw $BBAE
+  k_ldriw MDISP1_D_BBAE
   k_add
   k_derefb
   k_pushl
@@ -649,7 +649,7 @@ MDISP1_L_B3DB:
   k_mul
   k_popr
   k_add
-  k_ldriw $BC64
+  k_ldriw MDISP1_D_BC64
   k_add
   k_deref
   k_stln -11
@@ -662,7 +662,7 @@ MDISP1_L_B3DB:
   k_eq
   k_jumpf MDISP1_L_B528
   k_pusha $F280
-  k_pushiw $8BC4
+  k_pushiw RD_8BC4
   k_ldln -5
   k_shl1
   k_pushl
@@ -671,7 +671,7 @@ MDISP1_L_B3DB:
   k_mul
   k_popr
   k_add
-  k_ldriw $BC08
+  k_ldriw MDISP1_D_BC08
   k_add
   k_derefb
   k_pushl
@@ -683,7 +683,7 @@ MDISP1_L_B3DB:
   k_mul
   k_popr
   k_add
-  k_ldriw $BBAE
+  k_ldriw MDISP1_D_BBAE
   k_jump MDISP1_L_B580
 MDISP1_L_B4A9:
   k_ldlbf 11
@@ -762,7 +762,7 @@ MDISP1_L_B528:
   k_mul
   k_popr
   k_add
-  k_ldriw $BC09
+  k_ldriw MDISP1_D_BC09
   k_add
   k_derefb
   k_pushl
@@ -774,7 +774,7 @@ MDISP1_L_B528:
   k_mul
   k_popr
   k_add
-  k_ldriw $BBAF
+  k_ldriw MDISP1_D_BBAF
   k_add
   k_derefb
   k_popr
@@ -791,7 +791,7 @@ MDISP1_L_B528:
   k_pushi 11
   k_callx RL_21BE, 12
   k_pusha $F280
-  k_pushiw $8C18
+  k_pushiw RD_8C18
   k_ldln -5
   k_shl1
   k_pushl
@@ -800,7 +800,7 @@ MDISP1_L_B528:
   k_mul
   k_popr
   k_add
-  k_ldriw $BC09
+  k_ldriw MDISP1_D_BC09
   k_add
   k_derefb
   k_pushl
@@ -812,7 +812,7 @@ MDISP1_L_B528:
   k_mul
   k_popr
   k_add
-  k_ldriw $BBAF
+  k_ldriw MDISP1_D_BBAF
 MDISP1_L_B580:
   k_add
   k_derefb
@@ -839,14 +839,14 @@ MDISP1_F_B58D:
   k_ldlbf 11
   k_shl1
   k_shl1
-  k_ldriw $BD16
+  k_ldriw MDISP1_D_BD16
   k_add
   k_deref
   k_pushl
   k_ldlbf 11
   k_shl1
   k_shl1
-  k_ldriw $BD18
+  k_ldriw MDISP1_D_BD18
   k_add
   k_deref
   k_pushl
@@ -875,7 +875,7 @@ MDISP1_L_B5E1:
   k_callx $9762, 2
   k_pushi 1
   k_pushib 22
-  k_pushiw $8B6D
+  k_pushiw RD_8B6D
   k_pushib 32
   k_pushib 119
   k_pushi 11
@@ -922,7 +922,7 @@ MDISP1_F_B65B:
   k_jump MDISP1_L_B749
 MDISP1_L_B664:
   k_ldl -2
-  k_ldriw $BD2A
+  k_ldriw MDISP1_D_BD2A
   k_add
   k_derefb
   k_ldriw $009A
@@ -979,7 +979,7 @@ MDISP1_L_B6B9:
 MDISP1_L_B6BD:
   k_pushi 3
   k_callx RF_3F3E, 2
-  k_ldriw $BD2D
+  k_ldriw MDISP1_D_BD2D
   k_add
   k_derefb
   k_stlbf -21
@@ -1158,7 +1158,7 @@ MDISP1_L_B79B:
   k_pushi 1
   k_callx RF_532F, 14
   k_pushib 126
-  k_pushiw $BD30
+  k_pushiw MDISP1_D_BD30
   k_pushi 9
   k_pushi 2
   k_pushib 19
@@ -1185,7 +1185,7 @@ MDISP1_L_B7F5:
   k_pushi 0
   k_ldl -2
   k_shl1
-  k_ldriw $8B64
+  k_ldriw RD_8B64
   k_add
   k_long $26
   k_long $14
@@ -1287,7 +1287,7 @@ MDISP1_L_B86F:
   k_pushi 5
   k_callx RL_21BE, 14
   k_pusha $F280
-  k_pushiw $8AF8
+  k_pushiw RD_8AF8
   k_pushi 2
   k_pushi 3
   k_pushiw $008F
@@ -1339,7 +1339,7 @@ MDISP1_L_B8D2:
   k_jump MDISP1_L_B9AD
 MDISP1_L_B8EA:
   k_pusha $F280
-  k_pushiw $8AF8
+  k_pushiw RD_8AF8
   k_pushi 2
   k_pushi 3
   k_pushi 2
@@ -1365,7 +1365,7 @@ MDISP1_L_B8EA:
   k_inc
   k_stl -6
   k_dec
-  k_ldriw $BD57
+  k_ldriw MDISP1_D_BD57
   k_add
   k_derefb
   k_stlbf -145
@@ -1380,7 +1380,7 @@ MDISP1_L_B92C:
   k_jump MDISP1_L_B985
 MDISP1_L_B930:
   k_ldl -2
-  k_ldriw $BD54
+  k_ldriw MDISP1_D_BD54
   k_add
   k_derefb
   k_ldriw $009A
@@ -1632,12 +1632,12 @@ MDISP1_F_BA88:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $BD5A
+  k_pushiw MDISP1_D_BD5A
   k_callx RF_2FB9, 4
   k_push -2
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $BD68
+  k_pushiw MDISP1_D_BD68
   k_callx RF_2FB9, 4
   k_pushi 1
   k_callx RF_3DDF, 2
@@ -1666,7 +1666,7 @@ MDISP1_L_BAF4:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $BD6C
+  k_pushiw MDISP1_D_BD6C
   k_callx RF_2FB9, 4
   k_pushi 1
   k_callx RF_3DDF, 2
@@ -1680,47 +1680,94 @@ MDISP1_L_BAF4:
   k_callx RL_21BE, 14
   k_call $978F
   k_return
-  .byte $00, $1B, $43, $32, $00, $1B, $43, $30, $00, $02, $06, $17, $06, $02, $0C, $10
-  .byte $06, $09, $06, $18, $0E, $07, $04, $07, $05, $07, $04, $07, $04, $07, $04, $06
-  .byte $06, $C2
+  .byte $00
+MDISP1_D_BB1A:
+  .byte $1B
+  .byte "C2", $00
+MDISP1_D_BB1E:
+  .byte $1B
+  .byte "C0", $00
+MDISP1_D_BB22:
+  .byte $02
+MDISP1_D_BB23:
+  .byte $06, $17, $06, $02, $0C, $10, $06, $09, $06, $18, $0E
+MDISP1_D_BB2E:
+  .byte $07
+MDISP1_D_BB2F:
+  .byte $04, $07, $05, $07, $04, $07, $04, $07, $04, $06, $06
+MDISP1_D_BB3A:
+  .byte $C2
   .byte "!x&X/"
   .byte $E8, $2A, $C8
   .byte "388^A"
-  .byte $EE, $3C, $DA, $C4, $90, $C9, $70, $D2, $00, $CE, $E0, $D6, $30, $E4, $C0, $DF
-  .byte $50, $DB, $04, $04, $04, $05, $06, $05, $06, $05, $07, $06, $08, $06, $00, $00
-  .byte $10, $00, $00, $04, $20, $00, $30, $00, $00, $04, $40, $00, $54, $00, $00, $04
-  .byte $68, $00, $7C, $00, $00, $04, $90, $00, $AE, $00, $CC, $00, $EA, $00, $08, $01
-  .byte $26, $01, $44, $01, $62, $01, $80, $01, $9E, $01, $BC, $01, $DA, $01, $00, $04
-  .byte $F8, $01, $22, $02, $00, $04, $4C, $02, $76, $02, $00, $04, $A0, $02, $D0, $02
-  .byte $00, $04, $00, $03, $30, $03, $06, $06, $06, $04, $06, $06, $04, $04, $04, $04
-  .byte $04, $04, $04, $04, $04, $06, $06, $06, $06, $06, $07, $06, $07, $07, $04, $04
-  .byte $04, $04, $04, $04, $06, $06, $06, $06, $06, $06, $06, $FF, $06, $FF, $FF, $FF
-  .byte $06, $FF, $06, $FF, $07, $FF, $06, $FF, $07, $FF, $FF, $FF, $06, $FF, $07, $FF
-  .byte $FF, $FF, $04, $04, $04, $06, $06, $06, $06, $06, $06, $06, $06, $06, $04, $04
-  .byte $06, $04, $07, $04, $05, $05, $06, $05, $07, $05, $07, $FF, $FF, $FF, $FF, $FF
-  .byte $05, $05, $05, $05, $05, $05, $04, $04, $04, $05, $05, $05, $05, $05, $05, $05
-  .byte $05, $05, $05, $05, $06, $05, $06, $06, $04, $04, $04, $05, $05, $05, $05, $05
-  .byte $05, $05, $05, $05, $05, $FF, $05, $FF, $FF, $FF, $05, $FF, $05, $FF, $06, $FF
-  .byte $05, $FF, $06, $FF, $FF, $FF, $05, $FF, $06, $FF, $FF, $FF, $05, $05, $05, $05
-  .byte $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $06, $05, $05, $05
-  .byte $05, $05, $06, $05, $06, $FF, $FF, $FF, $FF, $FF, $74, $03, $74, $03, $74, $03
-  .byte $54, $00, $74, $03, $AE, $00, $10, $00, $10, $00, $10, $00, $54, $00, $54, $00
-  .byte $54, $00, $54, $00, $54, $00, $68, $00, $AE, $00, $AE, $00, $AE, $00, $DA, $01
-  .byte $DA, $01, $76, $02, $DA, $01, $76, $02, $76, $02, $00, $00, $00, $00, $00, $00
-  .byte $54, $00, $54, $00, $54, $00, $EA, $00, $EA, $00, $EA, $00, $BC, $01, $BC, $01
-  .byte $BC, $01, $26, $01, $00, $04, $DA, $01, $00, $04, $00, $04, $00, $04, $26, $01
-  .byte $00, $04, $DA, $01, $00, $04, $76, $02, $00, $04, $DA, $01, $00, $04, $76, $02
-  .byte $00, $04, $00, $04, $00, $04, $DA, $01, $00, $04, $76, $02, $00, $04, $00, $04
-  .byte $00, $04, $54, $00, $54, $00, $54, $00, $AE, $00, $AE, $00, $AE, $00, $26, $01
-  .byte $26, $01, $26, $01, $DA, $01, $DA, $01, $DA, $01, $60, $03, $60, $03, $DA, $01
-  .byte $60, $03, $76, $02, $60, $03, $92, $03, $92, $03, $DA, $01, $92, $03, $76, $02
-  .byte $92, $03, $76, $02, $00, $04, $00, $04, $00, $04, $00, $04, $00, $04, $80, $87
+  .byte $EE, $3C
+MDISP1_D_BB4A:
+  .byte $DA, $C4, $90, $C9, $70, $D2, $00, $CE, $E0, $D6, $30, $E4, $C0, $DF, $50, $DB
+MDISP1_D_BB5A:
+  .byte $04
+MDISP1_D_BB5B:
+  .byte $04, $04, $05, $06, $05, $06, $05, $07, $06, $08, $06
+MDISP1_D_BB66:
+  .byte $00, $00, $10, $00, $00, $04, $20, $00, $30, $00, $00, $04, $40, $00, $54, $00
+  .byte $00, $04, $68, $00, $7C, $00, $00, $04, $90, $00, $AE, $00, $CC, $00, $EA, $00
+  .byte $08, $01, $26, $01, $44, $01, $62, $01, $80, $01, $9E, $01, $BC, $01, $DA, $01
+  .byte $00, $04, $F8, $01, $22, $02, $00, $04, $4C, $02, $76, $02, $00, $04, $A0, $02
+  .byte $D0, $02, $00, $04, $00, $03, $30, $03
+MDISP1_D_BBAE:
+  .byte $06
+MDISP1_D_BBAF:
+  .byte $06, $06, $04, $06, $06, $04, $04, $04, $04, $04, $04, $04, $04, $04, $06, $06
+  .byte $06, $06, $06, $07, $06, $07, $07, $04, $04, $04, $04, $04, $04, $06, $06, $06
+  .byte $06, $06, $06, $06, $FF, $06, $FF, $FF, $FF, $06, $FF, $06, $FF, $07, $FF, $06
+  .byte $FF, $07, $FF, $FF, $FF, $06, $FF, $07, $FF, $FF, $FF, $04, $04, $04, $06, $06
+  .byte $06, $06, $06, $06, $06, $06, $06, $04, $04, $06, $04, $07, $04, $05, $05, $06
+  .byte $05, $07, $05, $07, $FF, $FF, $FF, $FF, $FF
+MDISP1_D_BC08:
+  .byte $05
+MDISP1_D_BC09:
+  .byte $05, $05, $05, $05, $05, $04, $04, $04, $05, $05, $05, $05, $05, $05, $05, $05
+  .byte $05, $05, $05, $06, $05, $06, $06, $04, $04, $04, $05, $05, $05, $05, $05, $05
+  .byte $05, $05, $05, $05, $FF, $05, $FF, $FF, $FF, $05, $FF, $05, $FF, $06, $FF, $05
+  .byte $FF, $06, $FF, $FF, $FF, $05, $FF, $06, $FF, $FF, $FF, $05, $05, $05, $05, $05
+  .byte $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $05, $06, $05, $05, $05, $05
+  .byte $05, $06, $05, $06, $FF, $FF, $FF, $FF, $FF
+MDISP1_D_BC62:
+  .byte $74, $03
+MDISP1_D_BC64:
+  .byte $74, $03, $74, $03, $54, $00, $74, $03, $AE, $00, $10, $00, $10, $00, $10, $00
+  .byte $54, $00, $54, $00, $54, $00, $54, $00, $54, $00, $68, $00, $AE, $00, $AE, $00
+  .byte $AE, $00, $DA, $01, $DA, $01, $76, $02, $DA, $01, $76, $02, $76, $02, $00, $00
+  .byte $00, $00, $00, $00, $54, $00, $54, $00, $54, $00, $EA, $00, $EA, $00, $EA, $00
+  .byte $BC, $01, $BC, $01, $BC, $01, $26, $01, $00, $04, $DA, $01, $00, $04, $00, $04
+  .byte $00, $04, $26, $01, $00, $04, $DA, $01, $00, $04, $76, $02, $00, $04, $DA, $01
+  .byte $00, $04, $76, $02, $00, $04, $00, $04, $00, $04, $DA, $01, $00, $04, $76, $02
+  .byte $00, $04, $00, $04, $00, $04, $54, $00, $54, $00, $54, $00, $AE, $00, $AE, $00
+  .byte $AE, $00, $26, $01, $26, $01, $26, $01, $DA, $01, $DA, $01, $DA, $01, $60, $03
+  .byte $60, $03, $DA, $01, $60, $03, $76, $02, $60, $03, $92, $03, $92, $03, $DA, $01
+  .byte $92, $03, $76, $02, $92, $03, $76, $02, $00, $04, $00, $04, $00, $04, $00, $04
+  .byte $00, $04
+MDISP1_D_BD16:
+  .byte $80, $87
+MDISP1_D_BD18:
   .byte $AB, $00, $E0, $9C, $B4, $00, $60, $B3, $A6, $00, $20, $C8, $95, $00, $C0, $DA
-  .byte $3C, $00, $02, $00, $01, $00, $04, $08, $09, $38, $09, $38, $09, $38, $09, $38
-  .byte $09, $38, $09, $38, $09, $38, $09, $38, $09, $38, $09, $38, $09, $38, $09, $38
-  .byte $09, $38, $09, $38, $09, $38, $09, $38, $09, $38, $09, $38, $02, $00, $01, $00
-  .byte $04, $08
-  .byte "Now leaving"
-  .byte $0A, $0A, $00, $2E, $2E, $2E, $00
-  .byte "The next day..."
+  .byte $3C, $00
+MDISP1_D_BD2A:
+  .byte $02, $00, $01
+MDISP1_D_BD2D:
   .byte $00
+  .byte $04, $08
+MDISP1_D_BD30:
+  .byte $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8"
+  .byte $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8"
+MDISP1_D_BD54:
+  .byte $02, $00
+  .byte $01
+MDISP1_D_BD57:
+  .byte $00
+  .byte $04, $08
+MDISP1_D_BD5A:
+  .byte "Now leaving", $0A, $0A, $00
+MDISP1_D_BD68:
+  .byte "...", $00
+MDISP1_D_BD6C:
+  .byte "The next day...", $00

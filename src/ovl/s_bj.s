@@ -31,7 +31,7 @@ S_BJ_L_B819:
   k_ne
   k_jumpf S_BJ_L_B854
   k_ldln -11
-  k_ldriw $C467
+  k_ldriw S_BJ_D_C467
   k_add
   k_derefb
   k_pushl
@@ -46,7 +46,7 @@ S_BJ_L_B819:
   k_add
   k_pushl
   k_ldln -11
-  k_ldriw $C46D
+  k_ldriw S_BJ_D_C46D
   k_add
   k_derefb
   k_popstoreb
@@ -364,7 +364,7 @@ S_BJ_F_BA80:
   k_callx $97B0, 8
 S_BJ_L_BA8D:
   k_pushi 2
-  k_pushiw $C473
+  k_pushiw S_BJ_D_C473
   k_pushi 2
   k_pushi 10
   k_pushi 1
@@ -386,7 +386,7 @@ S_BJ_L_BAB9:
   k_stlbf -2
 S_BJ_L_BABC:
   k_pushi 1
-  k_pushiw $C481
+  k_pushiw S_BJ_D_C481
   k_callx RF_2FB9, 4
   k_ldlbf -2
   k_return
@@ -451,10 +451,10 @@ S_BJ_F_BB12:
   k_ldli 11
   k_stla $F18C
   k_pushi 1
-  k_pushiw $C485
+  k_pushiw S_BJ_D_C485
   k_callx RF_2FB9, 4
   k_pusharg 11
-  k_pushiw $C489
+  k_pushiw S_BJ_D_C489
   k_callx RF_3619, 4
   k_ldli 0
   k_stla $F18C
@@ -512,7 +512,7 @@ S_BJ_F_BB7D:
   k_stln -115
 S_BJ_L_BBA5:
   k_pushi 1
-  k_pushiw $C494
+  k_pushiw S_BJ_D_C494
   k_callx RF_2FB9, 4
   k_call S_BJ_F_BB41
   k_ldli 0
@@ -525,7 +525,7 @@ S_BJ_L_BBA5:
   k_pushi 12
   k_callx RF_2F8F, 4
   k_pushn -115
-  k_pushiw $C498
+  k_pushiw S_BJ_D_C498
   k_callx RF_3619, 4
   k_ldln -115
   k_ldri 5
@@ -534,7 +534,7 @@ S_BJ_L_BBA5:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_shl1
-  k_ldriw $C38F
+  k_ldriw S_BJ_D_C38F
   k_add
   k_deref
   k_pushl
@@ -599,8 +599,8 @@ S_BJ_L_BBFC:
   k_popstoreb
   k_ldln -120
   k_jumpt S_BJ_L_BC54
-  k_pusha $C492
-  k_pusha $C490
+  k_pusha S_BJ_D_C492
+  k_pusha S_BJ_D_C490
   k_ldlbf -54
   k_pushl
   k_callx S_BJ_F_B896, 6
@@ -609,7 +609,7 @@ S_BJ_L_BC54:
   k_ldri 1
   k_eq
   k_jumpf S_BJ_L_BD3F
-  k_pusha $C2E6
+  k_pusha S_BJ_D_C2E6
   k_callx S_BJ_F_BB12, 2
   k_ldln -115
   k_jumpf S_BJ_L_BD3F
@@ -628,7 +628,7 @@ S_BJ_L_BC7A:
 S_BJ_L_BC7C:
   k_pushl
   k_pushi 5
-  k_pushiw $C4A7
+  k_pushiw S_BJ_D_C4A7
   k_callx RF_3C6D, 6
   k_stln -117
   k_ldln -117
@@ -639,17 +639,17 @@ S_BJ_L_BC7C:
   k_ldri 10
   k_ule
   k_jumpf S_BJ_L_BC9C
-  k_pusha $C311
+  k_pusha S_BJ_D_C311
   k_jump S_BJ_L_BCAD
 S_BJ_L_BC9C:
   k_ldlib 41
   k_ldrn -117
   k_ule
   k_jumpf S_BJ_L_BCAA
-  k_pusha $C315
+  k_pusha S_BJ_D_C315
   k_jump S_BJ_L_BCAD
 S_BJ_L_BCAA:
-  k_pusha $C313
+  k_pusha S_BJ_D_C313
 S_BJ_L_BCAD:
   k_callx S_BJ_F_BB12, 2
   k_pushi 1
@@ -663,13 +663,13 @@ S_BJ_L_BCAD:
   k_pushi 11
   k_callx RF_2F8F, 4
   k_pushn -117
-  k_pushiw $C4A8
+  k_pushiw S_BJ_D_C4A8
   k_callx RF_3619, 4
   k_pushib 23
   k_pushi 12
   k_callx RF_2F8F, 4
   k_pushn -115
-  k_pushiw $C4B0
+  k_pushiw S_BJ_D_C4B0
   k_callx RF_3619, 4
   k_jump S_BJ_L_BD3F
 S_BJ_L_BCE1:
@@ -701,10 +701,10 @@ S_BJ_L_BCE1:
   k_ldri 1
   k_eq
   k_jumpf S_BJ_L_BD30
-  k_pusha $C48E
+  k_pusha S_BJ_D_C48E
   k_ldln -120
   k_shl1
-  k_ldra $C48C
+  k_ldra S_BJ_D_C48C
   k_add
   k_pushl
   k_leal -56
@@ -720,10 +720,10 @@ S_BJ_L_BCE1:
   k_callx S_BJ_F_B896, 6
   k_jump S_BJ_L_BD3F
 S_BJ_L_BD30:
-  k_pusha $C48E
+  k_pusha S_BJ_D_C48E
   k_ldln -120
   k_shl1
-  k_ldra $C48C
+  k_ldra S_BJ_D_C48C
   k_add
   k_pushl
   k_callx $B14C, 4
@@ -790,19 +790,19 @@ S_BJ_L_BD86:
   k_ldrib 21
   k_eq
   k_jumpf S_BJ_L_BE00
-  k_pusha $C48E
-  k_pusha $C48C
+  k_pusha S_BJ_D_C48E
+  k_pusha S_BJ_D_C48C
   k_ldlbf -56
   k_pushl
   k_callx S_BJ_F_B896, 6
-  k_pusha $C40D
+  k_pusha S_BJ_D_C40D
   k_callx S_BJ_F_BB12, 2
   k_pushi 1
   k_callx RF_3DDF, 2
   k_pushi 2
   k_callx RF_3F3E, 2
   k_shl1
-  k_ldriw $C219
+  k_ldriw S_BJ_D_C219
   k_add
   k_deref
   k_pushl
@@ -827,8 +827,8 @@ S_BJ_L_BDF7:
   k_sub
   k_jump S_BJ_L_BDF2
 S_BJ_L_BE00:
-  k_pusha $C492
-  k_ldla $C490
+  k_pusha S_BJ_D_C492
+  k_ldla S_BJ_D_C490
   k_addli 2
   k_pushl
   k_ldlbf -53
@@ -864,19 +864,19 @@ S_BJ_L_BE17:
   k_ldrib 21
   k_eq
   k_jumpf S_BJ_L_BE88
-  k_pusha $C48E
-  k_pusha $C48C
+  k_pusha S_BJ_D_C48E
+  k_pusha S_BJ_D_C48C
   k_ldlbf -56
   k_pushl
   k_callx S_BJ_F_B896, 6
-  k_pusha $C40B
+  k_pusha S_BJ_D_C40B
   k_callx S_BJ_F_BB12, 2
   k_pushi 1
   k_callx RF_3DDF, 2
   k_pushi 2
   k_callx RF_3F3E, 2
   k_shl1
-  k_ldriw $C1E8
+  k_ldriw S_BJ_D_C1E8
   k_add
   k_deref
   k_pushl
@@ -898,7 +898,7 @@ S_BJ_L_BE88:
   k_ldli 0
   k_stlbf -78
 S_BJ_L_BE8F:
-  k_pusha $C2E8
+  k_pusha S_BJ_D_C2E8
   k_callx S_BJ_F_BB12, 2
   k_call S_BJ_F_BA80
   k_stlbf -83
@@ -928,10 +928,10 @@ S_BJ_L_BE8F:
   k_ldri 15
   k_and
   k_popstoreb
-  k_pusha $C492
+  k_pusha S_BJ_D_C492
   k_ldln -120
   k_shl1
-  k_ldra $C490
+  k_ldra S_BJ_D_C490
   k_add
   k_pushl
   k_ldlbf -81
@@ -993,7 +993,7 @@ S_BJ_L_BF1A:
   k_stlbf -79
   k_jump S_BJ_L_BF4B
 S_BJ_L_BF3F:
-  k_pusha $C432
+  k_pusha S_BJ_D_C432
   k_callx S_BJ_F_BB12, 2
   k_pushi 1
   k_callx RF_3DDF, 2
@@ -1054,10 +1054,10 @@ S_BJ_L_BF86:
   k_ldri 15
   k_and
   k_popstoreb
-  k_pusha $C48E
+  k_pusha S_BJ_D_C48E
   k_ldln -120
   k_shl1
-  k_ldra $C48C
+  k_ldra S_BJ_D_C48C
   k_add
   k_pushl
   k_ldlbf -82
@@ -1142,7 +1142,7 @@ S_BJ_L_C03B:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_shl1
-  k_ldriw $C1B4
+  k_ldriw S_BJ_D_C1B4
   k_add
   k_deref
   k_pushl
@@ -1150,8 +1150,8 @@ S_BJ_L_C03B:
   k_pushi 1
   k_callx RF_3DDF, 2
 S_BJ_L_C062:
-  k_pusha $C48E
-  k_pusha $C48C
+  k_pusha S_BJ_D_C48E
+  k_pusha S_BJ_D_C48C
   k_ldlbf -56
   k_pushl
   k_callx S_BJ_F_B896, 6
@@ -1160,14 +1160,14 @@ S_BJ_L_C062:
   k_callx RF_2F8F, 4
   k_ldlbf -79
   k_pushl
-  k_pushiw $C4BF
+  k_pushiw S_BJ_D_C4BF
   k_callx RF_3619, 4
   k_pushi 10
   k_pushib 25
   k_callx RF_2F8F, 4
   k_ldlbf -80
   k_pushl
-  k_pushiw $C4C3
+  k_pushiw S_BJ_D_C4C3
   k_callx RF_3619, 4
   k_ldlbf -80
   k_ldrib 21
@@ -1192,20 +1192,20 @@ S_BJ_L_C0B3:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_shl1
-  k_ldriw $C2BE
+  k_ldriw S_BJ_D_C2BE
   k_jump S_BJ_L_C0D1
 S_BJ_L_C0C8:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_shl1
-  k_ldriw $C287
+  k_ldriw S_BJ_D_C287
 S_BJ_L_C0D1:
   k_add
   k_deref
   k_pushl
   k_jump S_BJ_L_C0DA
 S_BJ_L_C0D7:
-  k_pusha $C430
+  k_pusha S_BJ_D_C430
 S_BJ_L_C0DA:
   k_callx S_BJ_F_BB12, 2
   k_jump S_BJ_L_C10D
@@ -1219,7 +1219,7 @@ S_BJ_L_C0E1:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_shl1
-  k_ldriw $C248
+  k_ldriw S_BJ_D_C248
   k_add
   k_deref
   k_pushl
@@ -1262,7 +1262,7 @@ S_BJ_L_C13A:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_shl1
-  k_ldriw $C3D0
+  k_ldriw S_BJ_D_C3D0
   k_add
   k_deref
   k_pushl
@@ -1295,14 +1295,14 @@ S_BJ_L_C15C:
   k_pushi 2
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $C4C7
+  k_pushiw S_BJ_D_C4C7
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_stlbf -83
   k_ldli 0
   k_stla $F18C
   k_pushi 1
-  k_pushiw $C4D1
+  k_pushiw S_BJ_D_C4D1
   k_callx RF_2FB9, 4
   k_call $97BE
   k_ldlbf -83
@@ -1310,7 +1310,7 @@ S_BJ_L_C15C:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_shl1
-  k_ldriw $C355
+  k_ldriw S_BJ_D_C355
   k_add
   k_deref
   k_pushl
@@ -1318,114 +1318,140 @@ S_BJ_L_C15C:
   k_pushi 1
   k_callx RF_3DDF, 2
   k_jump S_BJ_L_C156
-  .byte $00, $B8, $C1, $D0, $C1
-  .byte "All right, let's"
-  .byte $0A
-  .byte "gamble"
   .byte $00
-  .byte "Let's see what"
-  .byte $0A
-  .byte "I've got"
-  .byte $00, $EC, $C1, $04, $C2
-  .byte "So ye've played"
-  .byte $0A
-  .byte "before?"
+S_BJ_D_C1B4:
+  .word S_BJ_D_C1B8, S_BJ_D_C1D0
+S_BJ_D_C1B8:
+  .byte "All right, let's", $0A, "gamble", $00
+S_BJ_D_C1D0:
+  .byte "Let's see what", $0A, "I've got", $00
+S_BJ_D_C1E8:
+  .word S_BJ_D_C1EC, S_BJ_D_C204
+S_BJ_D_C1EC:
+  .byte "So ye've played", $0A, "before?", $00
+S_BJ_D_C204:
+  .byte "I'm no match", $0A, "for you", $00
+S_BJ_D_C219:
+  .word S_BJ_D_C21D, S_BJ_D_C239
+S_BJ_D_C21D:
+  .byte "I'll take twice", $0A, "the stakes!", $00
+S_BJ_D_C239:
+  .byte "Too bad, matey", $00
+S_BJ_D_C248:
+  .word S_BJ_D_C24C, S_BJ_D_C26C
+S_BJ_D_C24C:
+  .byte "I have to let ye", $0A, "win sometimes!", $00
+S_BJ_D_C26C:
+  .byte "Don't get", $0A, "carried away now", $00
+S_BJ_D_C287:
+  .word S_BJ_D_C28B, S_BJ_D_C2A8
+S_BJ_D_C28B:
+  .byte "Yer not as good", $0A, "as ye think!", $00
+S_BJ_D_C2A8:
+  .byte "This is no", $0A, "challenge!", $00
+S_BJ_D_C2BE:
+  .word S_BJ_D_C2C2, S_BJ_D_C2D7
+S_BJ_D_C2C2:
+  .byte "Yer a greedy", $0A, "rascal!", $00
+S_BJ_D_C2D7:
+  .byte "Foolish rogue!", $00
+S_BJ_D_C2E6:
+  .word S_BJ_D_C2EA
+S_BJ_D_C2E8:
+  .word S_BJ_D_C2F8
+S_BJ_D_C2EA:
+  .byte "Place yer bet", $00
+S_BJ_D_C2F8:
+  .byte "Do ye want", $0A, "another card?", $00
+S_BJ_D_C311:
+  .word S_BJ_D_C317
+S_BJ_D_C313:
+  .word S_BJ_D_C32F
+S_BJ_D_C315:
+  .byte $39, $C3
+S_BJ_D_C317:
+  .byte "Hmm. Scared,", $0A, "aren't ye?", $00
+S_BJ_D_C32F:
+  .byte "I'll deal", $00
+  .byte "Don't take", $0A, "advantage of me!", $00
+S_BJ_D_C355:
+  .word S_BJ_D_C359, S_BJ_D_C373
+S_BJ_D_C359:
+  .byte "What? We've just", $0A, "started!", $00
+S_BJ_D_C373:
+  .byte "Come again any", $0A, "time, matey!", $00
+S_BJ_D_C38F:
+  .word S_BJ_D_C393, S_BJ_D_C3AE
+S_BJ_D_C393:
+  .byte "Ye've emptied", $0A, "yer pockets!", $00
+S_BJ_D_C3AE:
+  .byte "Better earn more", $0A, "gold by trading!", $00
+S_BJ_D_C3D0:
+  .word S_BJ_D_C3D4, S_BJ_D_C3F1
+S_BJ_D_C3D4:
+  .byte "Please excuse me", $0A, "for the day", $00
+S_BJ_D_C3F1:
+  .byte "The game's over", $0A, "for today", $00
+S_BJ_D_C40B:
+  .word S_BJ_D_C40F
+S_BJ_D_C40D:
+  .word S_BJ_D_C424
+S_BJ_D_C40F:
+  .byte "Ye 'ave Black", $0A, "Jack?!", $00
+S_BJ_D_C424:
+  .byte "Black Jack!", $00
+S_BJ_D_C430:
+  .word S_BJ_D_C434
+S_BJ_D_C432:
+  .word S_BJ_D_C448
+S_BJ_D_C434:
+  .byte "Too bad, it's", $0A, "a tie", $00
+S_BJ_D_C448:
+  .byte "You can't draw", $0A, "more than those", $00
+S_BJ_D_C467:
+  .byte $02, $04, $10, $20, $40, $80
+S_BJ_D_C46D:
+  .byte $04, $00, $06, $00, $05, $00
+S_BJ_D_C473:
+  .word S_BJ_D_C477, S_BJ_D_C47B
+S_BJ_D_C477:
+  .byte "Hit", $00
+S_BJ_D_C47B:
+  .byte "Stand", $00
+S_BJ_D_C481:
+  .byte $1B
+  .byte "C2", $00
+S_BJ_D_C485:
+  .byte $1B
+  .byte "C2", $00
+S_BJ_D_C489:
+  .byte "%s", $00
+S_BJ_D_C48C:
+  .byte $0B, $00
+S_BJ_D_C48E:
+  .byte $0A, $00
+S_BJ_D_C490:
+  .byte $0B, $00
+S_BJ_D_C492:
+  .byte $12, $00
+S_BJ_D_C494:
+  .byte $1B
+  .byte "C2", $00
+S_BJ_D_C498:
+  .byte "Total gold:%5d", $00
+S_BJ_D_C4A7:
   .byte $00
-  .byte "I'm no match"
-  .byte $0A
-  .byte "for you"
-  .byte $00, $1D, $C2, $39, $C2
-  .byte "I'll take twice"
-  .byte $0A
-  .byte "the stakes!"
+S_BJ_D_C4A8:
+  .byte "Bet: %d", $00
+S_BJ_D_C4B0:
+  .byte "Total gold:%5d", $00
+S_BJ_D_C4BF:
+  .byte "%2d", $00
+S_BJ_D_C4C3:
+  .byte "%2d", $00
+S_BJ_D_C4C7:
+  .byte "Continue", $0A, $00
+S_BJ_D_C4D1:
+  .byte $1B
+  .byte "C2", $00
   .byte $00
-  .byte "Too bad, matey"
-  .byte $00, $4C, $C2, $6C, $C2
-  .byte "I have to let ye"
-  .byte $0A
-  .byte "win sometimes!"
-  .byte $00
-  .byte "Don't get"
-  .byte $0A
-  .byte "carried away now"
-  .byte $00, $8B, $C2, $A8, $C2
-  .byte "Yer not as good"
-  .byte $0A
-  .byte "as ye think!"
-  .byte $00
-  .byte "This is no"
-  .byte $0A
-  .byte "challenge!"
-  .byte $00, $C2, $C2, $D7, $C2
-  .byte "Yer a greedy"
-  .byte $0A
-  .byte "rascal!"
-  .byte $00
-  .byte "Foolish rogue!"
-  .byte $00, $EA, $C2, $F8, $C2
-  .byte "Place yer bet"
-  .byte $00
-  .byte "Do ye want"
-  .byte $0A
-  .byte "another card?"
-  .byte $00, $17, $C3, $2F, $C3, $39, $C3
-  .byte "Hmm. Scared,"
-  .byte $0A
-  .byte "aren't ye?"
-  .byte $00
-  .byte "I'll deal"
-  .byte $00
-  .byte "Don't take"
-  .byte $0A
-  .byte "advantage of me!"
-  .byte $00, $59, $C3, $73, $C3
-  .byte "What? We've just"
-  .byte $0A
-  .byte "started!"
-  .byte $00
-  .byte "Come again any"
-  .byte $0A
-  .byte "time, matey!"
-  .byte $00, $93, $C3, $AE, $C3
-  .byte "Ye've emptied"
-  .byte $0A
-  .byte "yer pockets!"
-  .byte $00
-  .byte "Better earn more"
-  .byte $0A
-  .byte "gold by trading!"
-  .byte $00, $D4, $C3, $F1, $C3
-  .byte "Please excuse me"
-  .byte $0A
-  .byte "for the day"
-  .byte $00
-  .byte "The game's over"
-  .byte $0A
-  .byte "for today"
-  .byte $00, $0F, $C4, $24, $C4
-  .byte "Ye 'ave Black"
-  .byte $0A
-  .byte "Jack?!"
-  .byte $00
-  .byte "Black Jack!"
-  .byte $00, $34, $C4, $48, $C4
-  .byte "Too bad, it's"
-  .byte $0A
-  .byte "a tie"
-  .byte $00
-  .byte "You can't draw"
-  .byte $0A
-  .byte "more than those"
-  .byte $00, $02, $04, $10, $20, $40, $80, $04, $00, $06, $00, $05, $00, $77, $C4, $7B
-  .byte $C4, $48, $69, $74, $00
-  .byte "Stand"
-  .byte $00, $1B, $43, $32, $00, $1B, $43, $32, $00, $25, $73, $00, $0B, $00, $0A, $00
-  .byte $0B, $00, $12, $00, $1B, $43, $32, $00
-  .byte "Total gold:%5d"
-  .byte $00, $00
-  .byte "Bet: %d"
-  .byte $00
-  .byte "Total gold:%5d"
-  .byte $00, $25, $32, $64, $00, $25, $32, $64, $00
-  .byte "Continue"
-  .byte $0A, $00, $1B, $43, $32, $00, $00

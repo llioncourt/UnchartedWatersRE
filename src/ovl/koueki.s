@@ -81,7 +81,7 @@ KOUEKI_F_B038:
 KOUEKI_F_B065:
   k_func 0
   k_pushi 1
-  k_pushiw $C57A
+  k_pushiw KOUEKI_D_C57A
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_shl1
@@ -98,13 +98,13 @@ KOUEKI_F_B065:
   k_pusharg 13
   k_callx RF_4565, 2
   k_pushl
-  k_pushiw $C57E
+  k_pushiw KOUEKI_D_C57E
   k_callx RF_3619, 6
   k_pushib 17
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pusha $E56D
-  k_pushiw $C586
+  k_pushiw KOUEKI_D_C586
   k_callx RF_3619, 4
   k_return
 KOUEKI_F_B0A8:
@@ -139,7 +139,7 @@ KOUEKI_L_B0CF:
   k_pushi 7
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $C596
+  k_pushiw KOUEKI_D_C596
   k_callx RF_2FB9, 4
   k_ldli 0
   k_jump KOUEKI_L_B12D
@@ -271,7 +271,7 @@ KOUEKI_L_B170:
   k_stl -2
 KOUEKI_L_B1B6:
   k_pushi 1
-  k_pushiw $C696
+  k_pushiw KOUEKI_D_C696
   k_callx RF_2FB9, 4
   k_ldl -6
   k_shl1
@@ -350,7 +350,7 @@ KOUEKI_L_B223:
   k_ldl -8
   k_derefb
   k_shl1
-  k_ldriw $C5AC
+  k_ldriw KOUEKI_D_C5AC
   k_add
   k_deref
   k_popstore
@@ -366,7 +366,7 @@ KOUEKI_L_B223:
   k_add
   k_deref
   k_pushl
-  k_pushiw $C69A
+  k_pushiw KOUEKI_D_C69A
   k_callx RF_3619, 4
   k_ldl -6
   k_shl1
@@ -377,7 +377,7 @@ KOUEKI_L_B223:
   k_ldln -15
   k_deref
   k_pushl
-  k_pushiw $C69D
+  k_pushiw KOUEKI_D_C69D
   k_callx RF_3619, 4
   k_ldl -6
   k_shl1
@@ -386,7 +386,7 @@ KOUEKI_L_B223:
   k_pushib 22
   k_callx RF_2F8F, 4
   k_pushn -13
-  k_pushiw $C6A1
+  k_pushiw KOUEKI_D_C6A1
   k_callx RF_3619, 4
   k_ldl -6
   k_inc
@@ -415,7 +415,7 @@ KOUEKI_F_B294:
   k_jumpt KOUEKI_L_B2B0
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $C6A5
+  k_pushiw KOUEKI_D_C6A5
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -426,7 +426,7 @@ KOUEKI_L_B2B0:
   k_jumpf KOUEKI_L_B2C9
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $C6C4
+  k_pushiw KOUEKI_D_C6C4
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -441,13 +441,13 @@ KOUEKI_L_B2C9:
   k_pushi 3
   k_callx RF_604A, 12
   k_pushi 1
-  k_pushiw $C6F3
+  k_pushiw KOUEKI_D_C6F3
   k_callx RF_2FB9, 4
   k_pushi 4
   k_pushi 7
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $C6F7
+  k_pushiw KOUEKI_D_C6F7
   k_callx RF_2FB9, 4
   k_pushiw $20F9
   k_pushi 1
@@ -460,14 +460,14 @@ KOUEKI_L_B2C9:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pusha $E56D
-  k_pushiw $C70B
+  k_pushiw KOUEKI_D_C70B
   k_callx RF_3619, 4
   k_ldli 1
   k_stln -47
 KOUEKI_L_B310:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C71B
+  k_pushiw KOUEKI_D_C71B
   k_callx RF_2FB9, 4
   k_ldln -47
   k_jumpf KOUEKI_L_B336
@@ -575,11 +575,11 @@ KOUEKI_L_B3B5:
   k_add
   k_deref
   k_pushl
-  k_pushiw $C730
+  k_pushiw KOUEKI_D_C730
   k_callx RF_3619, 4
   k_pushn -41
   k_pushi 1
-  k_pushiw $C74A
+  k_pushiw KOUEKI_D_C74A
   k_callx RF_3C6D, 6
   k_stln -43
   k_ldln -43
@@ -630,13 +630,13 @@ KOUEKI_L_B3B5:
   k_stla $E56D
 KOUEKI_L_B421:
   k_pushi 1
-  k_pushiw $C74B
+  k_pushiw KOUEKI_D_C74B
   k_callx RF_2FB9, 4
   k_pushib 17
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pusha $E56D
-  k_pushiw $C74F
+  k_pushiw KOUEKI_D_C74F
   k_callx RF_3619, 4
   k_leal -29
   k_pushl
@@ -676,7 +676,7 @@ KOUEKI_L_B465:
   k_jumpf KOUEKI_L_B480
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $C75F
+  k_pushiw KOUEKI_D_C75F
   k_callx RF_4B44, 2
   k_ldln -45
   k_return
@@ -686,7 +686,7 @@ KOUEKI_L_B480:
   k_jumpt KOUEKI_L_B498
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $C77F
+  k_pushiw KOUEKI_D_C77F
   k_callx RF_4B44, 2
   k_ldln -45
   k_return
@@ -755,7 +755,7 @@ KOUEKI_L_B4EE:
   k_call RF_60EE
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $C79A
+  k_pushiw KOUEKI_D_C79A
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -767,7 +767,7 @@ KOUEKI_L_B50E:
   k_call RF_60EE
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $C7B7
+  k_pushiw KOUEKI_D_C7B7
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -791,7 +791,7 @@ KOUEKI_L_B543:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $C7D6
+  k_pushiw KOUEKI_D_C7D6
   k_callx RF_2FB9, 4
   k_ldln -29
   k_jumpf KOUEKI_L_B56D
@@ -1212,25 +1212,25 @@ KOUEKI_L_B7B1:
 KOUEKI_F_B7BC:
   k_func 4
   k_pushi 1
-  k_pushiw $C7F6
+  k_pushiw KOUEKI_D_C7F6
   k_callx RF_2FB9, 4
   k_pushib 16
   k_pushib 22
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C7FA
+  k_pushiw KOUEKI_D_C7FA
   k_callx RF_2FB9, 4
   k_pushib 17
   k_pushib 22
   k_callx RF_2F8F, 4
   k_pusha $E56D
-  k_pushiw $C800
+  k_pushiw KOUEKI_D_C800
   k_callx RF_3608, 4
   k_pushi 8
   k_pushib 22
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C804
+  k_pushiw KOUEKI_D_C804
   k_callx RF_2FB9, 4
   k_pushi 9
   k_pushib 22
@@ -1238,13 +1238,13 @@ KOUEKI_F_B7BC:
   k_pusharg 17
   k_callx KOUEKI_F_B5FA, 2
   k_pushl
-  k_pushiw $C80D
+  k_pushiw KOUEKI_D_C80D
   k_callx RF_3608, 4
   k_pushi 12
   k_pushib 22
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C817
+  k_pushiw KOUEKI_D_C817
   k_callx RF_2FB9, 4
   k_pushi 13
   k_pushib 22
@@ -1268,7 +1268,7 @@ KOUEKI_F_B7BC:
   k_popr
   k_sub
   k_pushl
-  k_pushiw $C81D
+  k_pushiw KOUEKI_D_C81D
   k_callx RF_3608, 4
   k_ldln 19
   k_ldri 6
@@ -1337,7 +1337,7 @@ KOUEKI_L_B87B:
   k_pusharg 17
   k_callx KOUEKI_F_B760, 4
   k_pushl
-  k_pushiw $C826
+  k_pushiw KOUEKI_D_C826
   k_callx RF_3619, 4
   k_ldl -2
   k_shl1
@@ -1355,7 +1355,7 @@ KOUEKI_L_B87B:
   k_add
   k_deref
   k_pushl
-  k_pushiw $C82A
+  k_pushiw KOUEKI_D_C82A
   k_callx RF_3619, 4
   k_ldl -2
   k_inc
@@ -1698,7 +1698,7 @@ KOUEKI_L_BAB4:
 KOUEKI_L_BAD5:
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $C82E
+  k_pushiw KOUEKI_D_C82E
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -1714,7 +1714,7 @@ KOUEKI_L_BAE4:
   k_deref
   k_stl -10
   k_pushi 0
-  k_pushiw $C84D
+  k_pushiw KOUEKI_D_C84D
   k_callx RF_2FB9, 4
   k_ldlarg 13
   k_ldrarg 11
@@ -1728,13 +1728,13 @@ KOUEKI_L_BAE4:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C84F
+  k_pushiw KOUEKI_D_C84F
   k_callx RF_2FB9, 4
   k_pushib 23
   k_pushi 8
   k_callx RF_2F8F, 4
   k_push -10
-  k_pushiw $C85D
+  k_pushiw KOUEKI_D_C85D
   k_callx RF_3619, 4
   k_ldla $E56D
   k_stl -6
@@ -1749,7 +1749,7 @@ KOUEKI_L_BAE4:
   k_call RF_60EE
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $C876
+  k_pushiw KOUEKI_D_C876
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -1779,7 +1779,7 @@ KOUEKI_L_BB48:
   k_pushi 1
   k_push -8
   k_pushi 1
-  k_pushiw $C894
+  k_pushiw KOUEKI_D_C894
   k_callx RF_3C6D, 8
   k_stl -2
   k_ldl -10
@@ -1805,7 +1805,7 @@ KOUEKI_L_BB48:
   k_pushi 6
   k_callx RF_60CE, 4
   k_call RF_60B2
-  k_pushiw $C8B0
+  k_pushiw KOUEKI_D_C8B0
   k_callx RF_4B44, 2
   k_ldli 1
   k_return
@@ -1815,7 +1815,7 @@ KOUEKI_L_BBA5:
   k_eq
   k_jumpf KOUEKI_L_BBB8
   k_call RF_60B2
-  k_pushiw $C8CB
+  k_pushiw KOUEKI_D_C8CB
   k_callx RF_4B44, 2
   k_ldli 3
   k_return
@@ -1854,7 +1854,7 @@ KOUEKI_L_BBBA:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $C904
+  k_pushiw KOUEKI_D_C904
   k_callx RF_2FB9, 4
   k_ldlarg 13
   k_ldrarg 11
@@ -1871,12 +1871,12 @@ KOUEKI_L_BBBA:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $C90F
+  k_pushiw KOUEKI_D_C90F
   k_callx RF_2FB9, 4
   k_pushi 1
   k_push -4
   k_pushi 1
-  k_pushiw $C921
+  k_pushiw KOUEKI_D_C921
   k_callx RF_3C4E, 8
   k_stl -2
   k_ldl -2
@@ -1884,7 +1884,7 @@ KOUEKI_L_BBBA:
   k_eq
   k_jumpf KOUEKI_L_BC48
   k_call RF_60B2
-  k_pushiw $C922
+  k_pushiw KOUEKI_D_C922
   k_callx RF_4B44, 2
   k_ldli 3
   k_return
@@ -1893,7 +1893,7 @@ KOUEKI_L_BC36:
   k_pushi 6
   k_callx RF_60CE, 4
   k_call RF_60B2
-  k_pushiw $C8E5
+  k_pushiw KOUEKI_D_C8E5
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -2083,7 +2083,7 @@ KOUEKI_F_BD2A:
 KOUEKI_L_BD6D:
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $C949
+  k_pushiw KOUEKI_D_C949
   k_callx RF_4B44, 2
   k_ldliw $00FF
   k_return
@@ -2114,7 +2114,7 @@ KOUEKI_L_BD7E:
   k_pushi 3
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $C95C
+  k_pushiw KOUEKI_D_C95C
   k_callx RF_2FB9, 4
   k_ldli 1
   k_stln -40
@@ -2137,7 +2137,7 @@ KOUEKI_L_BDCD:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C972
+  k_pushiw KOUEKI_D_C972
   k_callx RF_2FB9, 4
   k_push -16
   k_pusharg 11
@@ -2190,7 +2190,7 @@ KOUEKI_L_BE25:
   k_jumpf KOUEKI_L_BE4B
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $C991
+  k_pushiw KOUEKI_D_C991
   k_callx RF_4B44, 2
   k_ldli 1
   k_return
@@ -2284,7 +2284,7 @@ KOUEKI_L_BEDC:
   k_jumpf KOUEKI_L_BEEF
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $C9A9
+  k_pushiw KOUEKI_D_C9A9
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -2293,7 +2293,7 @@ KOUEKI_L_BEEF:
   k_jumpt KOUEKI_L_BF04
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $C9C8
+  k_pushiw KOUEKI_D_C9C8
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -2320,7 +2320,7 @@ KOUEKI_L_BF16:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C9E8
+  k_pushiw KOUEKI_D_C9E8
   k_callx RF_2FB9, 4
   k_ldl -24
   k_jumpt KOUEKI_L_BF4E
@@ -2513,13 +2513,13 @@ KOUEKI_F_C002:
   k_pushi 6
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $CA58
+  k_pushiw KOUEKI_D_CA58
   k_callx RF_2FB9, 4
   k_pushi 5
   k_pushi 6
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $CA6D
+  k_pushiw KOUEKI_D_CA6D
   k_callx RF_2FB9, 4
   k_pushiw $20F9
   k_pushi 1
@@ -2542,7 +2542,7 @@ KOUEKI_L_C0A0:
   k_jump KOUEKI_L_C1E6
 KOUEKI_L_C0A4:
   k_pushi 1
-  k_pushiw $CA82
+  k_pushiw KOUEKI_D_CA82
   k_callx RF_2FB9, 4
   k_ldl -12
   k_shl1
@@ -2551,7 +2551,7 @@ KOUEKI_L_C0A4:
   k_pushi 6
   k_callx RF_2F8F, 4
   k_ldlarg 11
-  k_ldriw $CA15
+  k_ldriw KOUEKI_D_CA15
   k_add
   k_derefb
   k_ldr -12
@@ -2564,7 +2564,7 @@ KOUEKI_L_C0A4:
   k_pushl
   k_callx RF_40DE, 2
   k_ldlarg 11
-  k_ldriw $CA15
+  k_ldriw KOUEKI_D_CA15
   k_add
   k_derefb
   k_ldr -12
@@ -2611,7 +2611,7 @@ KOUEKI_L_C0A4:
   k_long $02
   k_long $27
   k_pushl
-  k_pushiw $CA86
+  k_pushiw KOUEKI_D_CA86
 KOUEKI_L_C124:
   k_callx RF_3619, 4
   k_jump KOUEKI_L_C177
@@ -2621,7 +2621,7 @@ KOUEKI_L_C12B:
   k_ne
   k_jumpf KOUEKI_L_C16F
   k_ldlarg 11
-  k_ldriw $CA15
+  k_ldriw KOUEKI_D_CA15
   k_add
   k_derefb
   k_ldr -12
@@ -2646,15 +2646,15 @@ KOUEKI_L_C12B:
   k_long $02
   k_long $27
   k_pushl
-  k_pushiw $CA8A
+  k_pushiw KOUEKI_D_CA8A
   k_jump KOUEKI_L_C124
 KOUEKI_L_C168:
   k_pushi 1
-  k_pushiw $CA8E
+  k_pushiw KOUEKI_D_CA8E
   k_jump KOUEKI_L_C173
 KOUEKI_L_C16F:
   k_pushi 1
-  k_pushiw $CA93
+  k_pushiw KOUEKI_D_CA93
 KOUEKI_L_C173:
   k_callx RF_2FB9, 4
 KOUEKI_L_C177:
@@ -2668,7 +2668,7 @@ KOUEKI_L_C177:
   k_long $25
   k_long $14
   k_ldlarg 11
-  k_ldriw $CA15
+  k_ldriw KOUEKI_D_CA15
   k_add
   k_derefb
   k_ldr -12
@@ -2686,7 +2686,7 @@ KOUEKI_L_C177:
   k_long $27
   k_stln -26
   k_ldlarg 11
-  k_ldriw $CA15
+  k_ldriw KOUEKI_D_CA15
   k_add
   k_derefb
   k_ldr -12
@@ -2716,14 +2716,14 @@ KOUEKI_L_C177:
   k_stln -26
 KOUEKI_L_C1DB:
   k_pushn -26
-  k_pushiw $CA98
+  k_pushiw KOUEKI_D_CA98
   k_callx RF_3619, 4
   k_ldl -12
   k_inc
 KOUEKI_L_C1E6:
   k_stl -12
   k_ldlarg 11
-  k_ldriw $CA1B
+  k_ldriw KOUEKI_D_CA1B
   k_add
   k_derefb
   k_pushl
@@ -2736,17 +2736,17 @@ KOUEKI_L_C1E6:
   k_callx RF_2F8F, 4
   k_ldlarg 11
   k_shl1
-  k_ldriw $CA09
+  k_ldriw KOUEKI_D_CA09
   k_add
   k_deref
   k_pushl
-  k_pushiw $CA9C
+  k_pushiw KOUEKI_D_CA9C
   k_callx RF_3619, 4
   k_ldlarg 11
   k_ldri 5
   k_ult
   k_jumpf KOUEKI_L_C217
-  k_pushiw $CA9F
+  k_pushiw KOUEKI_D_CA9F
   k_callx RF_3619, 2
 KOUEKI_L_C217:
   k_return
@@ -2803,7 +2803,7 @@ KOUEKI_L_C255:
   k_pushl
   k_pusharg 11
   k_pushn 21
-  k_pushiw $CAA7
+  k_pushiw KOUEKI_D_CAA7
   k_callx RF_3787, 16
   k_stl -6
   k_ldl -6
@@ -2832,13 +2832,13 @@ KOUEKI_L_C281:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $CAD8
+  k_pushiw KOUEKI_D_CAD8
   k_callx RF_2FB9, 4
 KOUEKI_L_C298:
   k_push -6
   k_pushi 2
   k_pushi 6
-  k_pushiw $CAA8
+  k_pushiw KOUEKI_D_CAA8
   k_pushi 2
   k_pushi 7
   k_pushib 23
@@ -2966,7 +2966,7 @@ KOUEKI_F_C35E:
   k_jumpt KOUEKI_L_C378
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $CAE3
+  k_pushiw KOUEKI_D_CAE3
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -2983,13 +2983,13 @@ KOUEKI_L_C378:
   k_ldri 2
   k_eq
   k_jumpf KOUEKI_L_C397
-  k_ldliw $CB2F
+  k_ldliw KOUEKI_D_CB2F
   k_jump KOUEKI_L_C39A
 KOUEKI_L_C397:
-  k_ldliw $CB36
+  k_ldliw KOUEKI_D_CB36
 KOUEKI_L_C39A:
   k_pushl
-  k_pushiw $CAF6
+  k_pushiw KOUEKI_D_CAF6
   k_callx RF_3619, 4
   k_ldli 0
   k_return
@@ -3007,7 +3007,7 @@ KOUEKI_L_C3A4:
   k_pushi 6
   k_callx RF_60CE, 4
   k_call RF_60B2
-  k_pushiw $CB3B
+  k_pushiw KOUEKI_D_CB3B
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -3017,7 +3017,7 @@ KOUEKI_L_C3C7:
   k_callx RF_60CE, 4
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $CB5B
+  k_pushiw KOUEKI_D_CB5B
   k_callx RF_4B44, 2
   k_ldlba $EF69
   k_ldri 14
@@ -3042,7 +3042,7 @@ KOUEKI_L_C3F6:
   k_pushi 1
   k_push -2
   k_pushi 1
-  k_pushiw $CB7B
+  k_pushiw KOUEKI_D_CB7B
   k_callx RF_3C4E, 8
   k_stl -4
   k_ldl -4
@@ -3053,7 +3053,7 @@ KOUEKI_L_C3F6:
   k_pushi 6
   k_callx RF_60CE, 4
   k_call RF_60B2
-  k_pushiw $CB94
+  k_pushiw KOUEKI_D_CB94
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -3101,7 +3101,7 @@ KOUEKI_L_C420:
   k_udiv
   k_stl -6
   k_pushi 1
-  k_pushiw $CBBE
+  k_pushiw KOUEKI_D_CBBE
   k_jump KOUEKI_L_C48F
 KOUEKI_L_C46C:
   k_ldl -4
@@ -3114,7 +3114,7 @@ KOUEKI_L_C46C:
   k_addliw $0096
   k_stl -6
   k_pushi 1
-  k_pushiw $CBCF
+  k_pushiw KOUEKI_D_CBCF
   k_jump KOUEKI_L_C48F
 KOUEKI_L_C484:
   k_ldl -4
@@ -3123,7 +3123,7 @@ KOUEKI_L_C484:
   k_addlib 50
   k_stl -6
   k_pushi 1
-  k_pushiw $CBF4
+  k_pushiw KOUEKI_D_CBF4
 KOUEKI_L_C48F:
   k_callx RF_2FB9, 4
   k_pushi 1
@@ -3234,11 +3234,11 @@ KOUEKI_L_C532:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CC34
+  k_pushiw KOUEKI_D_CC34
   k_callx RF_2FB9, 4
   k_pushi 2
   k_pushi 4
-  k_pushiw $CC08
+  k_pushiw KOUEKI_D_CC08
   k_pushi 2
   k_pushi 10
   k_pushib 23
@@ -3253,7 +3253,7 @@ KOUEKI_L_C532:
   k_pushl
   k_ldlbf -1
   k_shl1
-  k_ldriw $CC10
+  k_ldriw KOUEKI_D_CC10
   k_add
   k_deref
   k_callptrn 2
@@ -3265,259 +3265,264 @@ KOUEKI_L_C56E:
   k_jumpt KOUEKI_L_C532
   k_ldl -4
   k_return
-  .byte $1B, $43, $30, $00
-  .byte "%3d/%3d"
+KOUEKI_D_C57A:
+  .byte $1B
+  .byte "C0", $00
+KOUEKI_D_C57E:
+  .byte "%3d/%3d", $00
+KOUEKI_D_C586:
+  .byte "Total gold: %5d", $00
+KOUEKI_D_C596:
+  .byte $1B, "C0Ship      Load/Max", $00
+KOUEKI_D_C5AC:
+  .word KOUEKI_D_C5E0, KOUEKI_D_C5E7, KOUEKI_D_C5F0, KOUEKI_D_C5F7, KOUEKI_D_C5FF, KOUEKI_D_C606, KOUEKI_D_C610, KOUEKI_D_C617
+  .word KOUEKI_D_C61D, KOUEKI_D_C624, KOUEKI_D_C62A, KOUEKI_D_C62F, KOUEKI_D_C636, KOUEKI_D_C63D, KOUEKI_D_C643, KOUEKI_D_C649
+  .word KOUEKI_D_C64F, KOUEKI_D_C656, KOUEKI_D_C65F, KOUEKI_D_C664, KOUEKI_D_C66A, KOUEKI_D_C66F, KOUEKI_D_C678, KOUEKI_D_C67D
+  .word KOUEKI_D_C687, KOUEKI_D_C68F
+KOUEKI_D_C5E0:
+  .byte "Pepper", $00
+KOUEKI_D_C5E7:
+  .byte "Cinnamon", $00
+KOUEKI_D_C5F0:
+  .byte "Nutmeg", $00
+KOUEKI_D_C5F7:
+  .byte "Pimento", $00
+KOUEKI_D_C5FF:
+  .byte "Cloves", $00
+KOUEKI_D_C606:
+  .byte "Olive Oil", $00
+KOUEKI_D_C610:
+  .byte "Grapes", $00
+KOUEKI_D_C617:
+  .byte "Sugar", $00
+KOUEKI_D_C61D:
+  .byte "Cheese", $00
+KOUEKI_D_C624:
+  .byte "Grain", $00
+KOUEKI_D_C62A:
+  .byte "Gold", $00
+KOUEKI_D_C62F:
+  .byte "Silver", $00
+KOUEKI_D_C636:
+  .byte "Quartz", $00
+KOUEKI_D_C63D:
+  .byte "Coral", $00
+KOUEKI_D_C643:
+  .byte "Ivory", $00
+KOUEKI_D_C649:
+  .byte "Pearl", $00
+KOUEKI_D_C64F:
+  .byte "Cotton", $00
+KOUEKI_D_C656:
+  .byte "Raw Silk", $00
+KOUEKI_D_C65F:
+  .byte "Wool", $00
+KOUEKI_D_C664:
+  .byte "Cloth", $00
+KOUEKI_D_C66A:
+  .byte "Silk", $00
+KOUEKI_D_C66F:
+  .byte "Firearms", $00
+KOUEKI_D_C678:
+  .byte "Wood", $00
+KOUEKI_D_C67D:
+  .byte "Porcelain", $00
+KOUEKI_D_C687:
+  .byte "Artwork", $00
+KOUEKI_D_C68F:
+  .byte "Carpet", $00
+KOUEKI_D_C696:
+  .byte $1B
+  .byte "C0", $00
+KOUEKI_D_C69A:
+  .byte "%s", $00
+KOUEKI_D_C69D:
+  .byte "%3d", $00
+KOUEKI_D_C6A1:
+  .byte "%4d", $00
+KOUEKI_D_C6A5:
+  .byte "No goods on that", $0A, "vessel, Cap'n", $00
+KOUEKI_D_C6C4:
+  .byte "We have more than", $0A, "enough gold already,", $0A, "Captain", $00
+KOUEKI_D_C6F3:
+  .byte $1B
+  .byte "C0", $00
+KOUEKI_D_C6F7:
+  .byte "Variety    Amt Rate", $00
+KOUEKI_D_C70B:
+  .byte "Total gold: %5d", $00
+KOUEKI_D_C71B:
+  .byte "What can ye sell me?", $00
+KOUEKI_D_C730:
+  .byte "How much %s", $0A, "will ye sell", $0A, $00
+KOUEKI_D_C74A:
+  .byte $00
+KOUEKI_D_C74B:
+  .byte $1B
+  .byte "C0", $00
+KOUEKI_D_C74F:
+  .byte "Total gold: %5d", $00
+KOUEKI_D_C75F:
+  .byte "We've got a wealth", $0A, "of gold now!", $00
+KOUEKI_D_C77F:
+  .byte "No more goods on that", $0A, "ship", $00
+KOUEKI_D_C79A:
+  .byte "We 'aven't any goods", $0A, "to sell", $00
+KOUEKI_D_C7B7:
+  .byte "We've got enough gold", $0A, "already!", $00
+KOUEKI_D_C7D6:
+  .byte "Which ship's cargo is", $0A, "for sale?", $00
+KOUEKI_D_C7F6:
+  .byte $1B
+  .byte "C0", $00
+KOUEKI_D_C7FA:
+  .byte "Gold:", $00
+KOUEKI_D_C800:
+  .byte "%5d", $00
+KOUEKI_D_C804:
+  .byte "Types of", $00
+KOUEKI_D_C80D:
+  .byte "cargo:%2d", $00
+KOUEKI_D_C817:
+  .byte "Space", $00
+KOUEKI_D_C81D:
+  .byte "left:%3d", $00
+KOUEKI_D_C826:
+  .byte "%3d", $00
+KOUEKI_D_C82A:
+  .byte "%4d", $00
+KOUEKI_D_C82E:
+  .byte "There isn't enough", $0A, "room for it", $00
+KOUEKI_D_C84D:
+  .byte $0A, $00
+KOUEKI_D_C84F:
+  .byte " will cost ye", $00
+KOUEKI_D_C85D:
+  .byte "%d gold here.", $0A, "Interested", $00
+KOUEKI_D_C876:
+  .byte "We can't buy at those", $0A, "prices!", $00
+KOUEKI_D_C894:
+  .byte "Well then, what's yer", $0A, "range", $00
+KOUEKI_D_C8B0:
+  .byte "I can't sell at that", $0A, "price", $00
+KOUEKI_D_C8CB:
+  .byte "Hmph. Yer wasting my", $0A, "time", $00
+KOUEKI_D_C8E5:
+  .byte "Any other goods", $0A, "catch yer eye?", $00
+KOUEKI_D_C904:
+  .byte $0A, "How much ", $00
+KOUEKI_D_C90F:
+  .byte "will ye purchase", $0A, $00
+KOUEKI_D_C921:
+  .byte $00
+KOUEKI_D_C922:
+  .byte "Don't waste my time", $0A, "with yer browsing!", $00
+KOUEKI_D_C949:
+  .byte "That ship is full!", $00
+KOUEKI_D_C95C:
+  .byte $1B, "C0Variety   Amt Cost", $00
+KOUEKI_D_C972:
+  .byte "What are ye looking", $0A, "for today?", $00
+KOUEKI_D_C991:
+  .byte "The ship is at", $0A, "capacity", $00
+KOUEKI_D_C9A9:
+  .byte "No more goods will fitin store", $00
+KOUEKI_D_C9C8:
+  .byte "We 'aven't a penny to", $0A, "our name!", $00
+KOUEKI_D_C9E8:
+  .byte "Which ship will carry", $0A, "the goods?", $00
+KOUEKI_D_CA09:
+  .word KOUEKI_D_CA21, KOUEKI_D_CA29, KOUEKI_D_CA31, KOUEKI_D_CA39, KOUEKI_D_CA41, KOUEKI_D_CA49
+KOUEKI_D_CA15:
+  .byte $00, $05, $0A, $0C, $10, $15
+KOUEKI_D_CA1B:
+  .byte $05, $05, $02, $04, $05
+  .byte $05
+KOUEKI_D_CA21:
+  .byte "  Spice", $00
+KOUEKI_D_CA29:
+  .byte "   Food", $00
+KOUEKI_D_CA31:
+  .byte "  Metal", $00
+KOUEKI_D_CA39:
+  .byte "    Gem", $00
+KOUEKI_D_CA41:
+  .byte "Textile", $00
+KOUEKI_D_CA49:
+  .byte " Miscellaneous", $00
+KOUEKI_D_CA58:
+  .byte "          Sell   Buy", $00
+KOUEKI_D_CA6D:
+  .byte "Variety    for   for", $00
+KOUEKI_D_CA82:
+  .byte $1B
+  .byte "C0", $00
+KOUEKI_D_CA86:
+  .byte "%4d", $00
+KOUEKI_D_CA8A:
+  .byte "%4d", $00
+KOUEKI_D_CA8E:
+  .byte "----", $00
+KOUEKI_D_CA93:
+  .byte "----", $00
+KOUEKI_D_CA98:
+  .byte "%4d", $00
+KOUEKI_D_CA9C:
+  .byte "%s", $00
+KOUEKI_D_CA9F:
+  .byte " market", $00
+KOUEKI_D_CAA7:
+  .byte $00
+KOUEKI_D_CAA8:
+  .word KOUEKI_D_CAB4, KOUEKI_D_CABA, KOUEKI_D_CABF, KOUEKI_D_CAC5, KOUEKI_D_CACA, KOUEKI_D_CAD2
+KOUEKI_D_CAB4:
+  .byte "Spice", $00
+KOUEKI_D_CABA:
+  .byte "Food", $00
+KOUEKI_D_CABF:
+  .byte "Metal", $00
+KOUEKI_D_CAC5:
+  .byte "Gems", $00
+KOUEKI_D_CACA:
+  .byte "Textile", $00
+KOUEKI_D_CAD2:
+  .byte "Other", $00
+KOUEKI_D_CAD8:
+  .byte "Which one?", $00
+KOUEKI_D_CAE3:
+  .byte "We're out of gold!", $00
+KOUEKI_D_CAF6:
+  .byte "Ye can't invest in", $0A, "this port without the", $0A, "%s's approval", $1B, "W", $00
+KOUEKI_D_CB2F:
+  .byte "Sultan", $00
+KOUEKI_D_CB36:
+  .byte "King", $00
+KOUEKI_D_CB3B:
+  .byte "I can't accept any", $0A, "more from ye", $00
+KOUEKI_D_CB5B:
+  .byte "What! Yer going to", $0A, "invest here?", $00
+KOUEKI_D_CB7B:
+  .byte "How much shall we", $0A, "invest", $00
+KOUEKI_D_CB94:
+  .byte "Oh well. Be sure to", $0A, "invest here next time", $00
+KOUEKI_D_CBBE:
+  .byte "Thank you kindly", $00
+KOUEKI_D_CBCF:
+  .byte "Your charity will", $0A, "never be forgotten", $00
+KOUEKI_D_CBF4:
+  .byte "Thank you very much", $00
+KOUEKI_D_CC08:
+  .word KOUEKI_D_CC18, KOUEKI_D_CC1D, KOUEKI_D_CC21, KOUEKI_D_CC2D
+KOUEKI_D_CC10:
+  .word KOUEKI_F_B4BA, KOUEKI_F_BE5E, KOUEKI_F_C278, KOUEKI_F_C35E
+KOUEKI_D_CC18:
+  .byte "Sell", $00
+KOUEKI_D_CC1D:
+  .byte "Buy", $00
+KOUEKI_D_CC21:
+  .byte "View market", $00
+KOUEKI_D_CC2D:
+  .byte "Invest", $00
+KOUEKI_D_CC34:
+  .byte "How can I help ye?", $00
   .byte $00
-  .byte "Total gold: %5d"
-  .byte $00, $1B
-  .byte "C0Ship      Load/Max"
-  .byte $00, $E0, $C5, $E7, $C5, $F0, $C5, $F7, $C5, $FF, $C5, $06, $C6, $10, $C6, $17
-  .byte $C6, $1D, $C6, $24, $C6, $2A, $C6, $2F, $C6, $36, $C6, $3D, $C6, $43, $C6, $49
-  .byte $C6, $4F, $C6, $56, $C6, $5F, $C6, $64, $C6, $6A, $C6, $6F, $C6, $78, $C6, $7D
-  .byte $C6, $87, $C6, $8F, $C6
-  .byte "Pepper"
-  .byte $00
-  .byte "Cinnamon"
-  .byte $00
-  .byte "Nutmeg"
-  .byte $00
-  .byte "Pimento"
-  .byte $00
-  .byte "Cloves"
-  .byte $00
-  .byte "Olive Oil"
-  .byte $00
-  .byte "Grapes"
-  .byte $00
-  .byte "Sugar"
-  .byte $00
-  .byte "Cheese"
-  .byte $00
-  .byte "Grain"
-  .byte $00
-  .byte "Gold"
-  .byte $00
-  .byte "Silver"
-  .byte $00
-  .byte "Quartz"
-  .byte $00
-  .byte "Coral"
-  .byte $00
-  .byte "Ivory"
-  .byte $00
-  .byte "Pearl"
-  .byte $00
-  .byte "Cotton"
-  .byte $00
-  .byte "Raw Silk"
-  .byte $00
-  .byte "Wool"
-  .byte $00
-  .byte "Cloth"
-  .byte $00
-  .byte "Silk"
-  .byte $00
-  .byte "Firearms"
-  .byte $00
-  .byte "Wood"
-  .byte $00
-  .byte "Porcelain"
-  .byte $00
-  .byte "Artwork"
-  .byte $00
-  .byte "Carpet"
-  .byte $00, $1B, $43, $30, $00, $25, $73, $00, $25, $33, $64, $00, $25, $34, $64, $00
-  .byte "No goods on that"
-  .byte $0A
-  .byte "vessel, Cap'n"
-  .byte $00
-  .byte "We have more than"
-  .byte $0A
-  .byte "enough gold already,"
-  .byte $0A
-  .byte "Captain"
-  .byte $00, $1B, $43, $30, $00
-  .byte "Variety    Amt Rate"
-  .byte $00
-  .byte "Total gold: %5d"
-  .byte $00
-  .byte "What can ye sell me?"
-  .byte $00
-  .byte "How much %s"
-  .byte $0A
-  .byte "will ye sell"
-  .byte $0A, $00, $00, $1B, $43, $30, $00
-  .byte "Total gold: %5d"
-  .byte $00
-  .byte "We've got a wealth"
-  .byte $0A
-  .byte "of gold now!"
-  .byte $00
-  .byte "No more goods on that"
-  .byte $0A
-  .byte "ship"
-  .byte $00
-  .byte "We 'aven't any goods"
-  .byte $0A
-  .byte "to sell"
-  .byte $00
-  .byte "We've got enough gold"
-  .byte $0A
-  .byte "already!"
-  .byte $00
-  .byte "Which ship's cargo is"
-  .byte $0A
-  .byte "for sale?"
-  .byte $00, $1B, $43, $30, $00
-  .byte "Gold:"
-  .byte $00, $25, $35, $64, $00
-  .byte "Types of"
-  .byte $00
-  .byte "cargo:%2d"
-  .byte $00
-  .byte "Space"
-  .byte $00
-  .byte "left:%3d"
-  .byte $00, $25, $33, $64, $00, $25, $34, $64, $00
-  .byte "There isn't enough"
-  .byte $0A
-  .byte "room for it"
-  .byte $00, $0A, $00
-  .byte " will cost ye"
-  .byte $00
-  .byte "%d gold here."
-  .byte $0A
-  .byte "Interested"
-  .byte $00
-  .byte "We can't buy at those"
-  .byte $0A
-  .byte "prices!"
-  .byte $00
-  .byte "Well then, what's yer"
-  .byte $0A
-  .byte "range"
-  .byte $00
-  .byte "I can't sell at that"
-  .byte $0A
-  .byte "price"
-  .byte $00
-  .byte "Hmph. Yer wasting my"
-  .byte $0A
-  .byte "time"
-  .byte $00
-  .byte "Any other goods"
-  .byte $0A
-  .byte "catch yer eye?"
-  .byte $00, $0A
-  .byte "How much "
-  .byte $00
-  .byte "will ye purchase"
-  .byte $0A, $00, $00
-  .byte "Don't waste my time"
-  .byte $0A
-  .byte "with yer browsing!"
-  .byte $00
-  .byte "That ship is full!"
-  .byte $00, $1B
-  .byte "C0Variety   Amt Cost"
-  .byte $00
-  .byte "What are ye looking"
-  .byte $0A
-  .byte "for today?"
-  .byte $00
-  .byte "The ship is at"
-  .byte $0A
-  .byte "capacity"
-  .byte $00
-  .byte "No more goods will fitin store"
-  .byte $00
-  .byte "We 'aven't a penny to"
-  .byte $0A
-  .byte "our name!"
-  .byte $00
-  .byte "Which ship will carry"
-  .byte $0A
-  .byte "the goods?"
-  .byte $00, $21, $CA, $29, $CA, $31, $CA, $39, $CA, $41, $CA, $49, $CA, $00, $05, $0A
-  .byte $0C, $10, $15, $05, $05, $02, $04, $05, $05
-  .byte "  Spice"
-  .byte $00
-  .byte "   Food"
-  .byte $00
-  .byte "  Metal"
-  .byte $00
-  .byte "    Gem"
-  .byte $00
-  .byte "Textile"
-  .byte $00
-  .byte " Miscellaneous"
-  .byte $00
-  .byte "          Sell   Buy"
-  .byte $00
-  .byte "Variety    for   for"
-  .byte $00, $1B, $43, $30, $00, $25, $34, $64, $00, $25, $34, $64, $00
-  .byte "----"
-  .byte $00
-  .byte "----"
-  .byte $00, $25, $34, $64, $00, $25, $73, $00
-  .byte " market"
-  .byte $00, $00, $B4, $CA, $BA, $CA, $BF, $CA, $C5, $CA, $CA, $CA, $D2, $CA
-  .byte "Spice"
-  .byte $00
-  .byte "Food"
-  .byte $00
-  .byte "Metal"
-  .byte $00
-  .byte "Gems"
-  .byte $00
-  .byte "Textile"
-  .byte $00
-  .byte "Other"
-  .byte $00
-  .byte "Which one?"
-  .byte $00
-  .byte "We're out of gold!"
-  .byte $00
-  .byte "Ye can't invest in"
-  .byte $0A
-  .byte "this port without the"
-  .byte $0A
-  .byte "%s's approval"
-  .byte $1B, $57, $00
-  .byte "Sultan"
-  .byte $00
-  .byte "King"
-  .byte $00
-  .byte "I can't accept any"
-  .byte $0A
-  .byte "more from ye"
-  .byte $00
-  .byte "What! Yer going to"
-  .byte $0A
-  .byte "invest here?"
-  .byte $00
-  .byte "How much shall we"
-  .byte $0A
-  .byte "invest"
-  .byte $00
-  .byte "Oh well. Be sure to"
-  .byte $0A
-  .byte "invest here next time"
-  .byte $00
-  .byte "Thank you kindly"
-  .byte $00
-  .byte "Your charity will"
-  .byte $0A
-  .byte "never be forgotten"
-  .byte $00
-  .byte "Thank you very much"
-  .byte $00, $18, $CC, $1D, $CC, $21, $CC, $2D, $CC, $BA, $B4, $5E, $BE, $78, $C2, $5E
-  .byte $C3
-  .byte "Sell"
-  .byte $00, $42, $75, $79, $00
-  .byte "View market"
-  .byte $00
-  .byte "Invest"
-  .byte $00
-  .byte "How can I help ye?"
-  .byte $00, $00

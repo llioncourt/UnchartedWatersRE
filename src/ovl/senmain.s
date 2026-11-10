@@ -113,7 +113,7 @@ SENMAIN_L_A5A9:
   k_shl1
   k_popr
   k_add
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_ldra $F308
@@ -122,7 +122,7 @@ SENMAIN_L_A5A9:
   k_ldlarg 13
   k_ldri 6
   k_mul
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_ldra $F304
@@ -209,7 +209,7 @@ SENMAIN_F_A621:
   k_pusha $F280
   k_ldlarg 17
   k_shl1
-  k_ldriw $CA9A
+  k_ldriw SENMAIN_D_CA9A
   k_add
   k_deref
   k_pushl
@@ -297,7 +297,7 @@ SENMAIN_L_A69F:
   k_jumpt SENMAIN_L_A6CA
   k_ldlarg 17
   k_shl1
-  k_ldriw $CA8E
+  k_ldriw SENMAIN_D_CA8E
   k_add
   k_deref
   k_stl -8
@@ -1844,7 +1844,7 @@ SENMAIN_L_AFA4:
   k_return
 SENMAIN_F_AFB9:
   k_func 2
-  k_ldliw $370E
+  k_ldliw RL_370E
   k_stl -2
   k_pushi 0
   k_pushi 2
@@ -2086,7 +2086,7 @@ SENMAIN_L_B147:
   k_mul
   k_popr
   k_add
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_ldrarg 13
@@ -2095,7 +2095,7 @@ SENMAIN_L_B147:
   k_ldl -2
   k_ldri 6
   k_mul
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_ldrarg 11
@@ -2122,7 +2122,7 @@ SENMAIN_F_B170:
 SENMAIN_L_B183:
   k_call $9793
   k_pushi 1
-  k_pushiw $CAA6
+  k_pushiw SENMAIN_D_CAA6
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pusharg 11
@@ -2269,7 +2269,7 @@ SENMAIN_L_B26A:
   k_ldl -8
   k_ldri 14
   k_mul
-  k_ldriw $CA54
+  k_ldriw SENMAIN_D_CA54
   k_add
   k_stl -2
   k_ldr -10
@@ -2286,7 +2286,7 @@ SENMAIN_L_B278:
   k_mul
   k_popr
   k_add
-  k_ldriw $C9A0
+  k_ldriw SENMAIN_D_C9A0
   k_add
   k_deref
   k_ldrarg 15
@@ -2296,7 +2296,7 @@ SENMAIN_L_B278:
   k_derefb
   k_ldri 6
   k_mul
-  k_ldriw $C9A0
+  k_ldriw SENMAIN_D_C9A0
   k_add
   k_deref
   k_ldrarg 13
@@ -2325,7 +2325,7 @@ SENMAIN_F_B2A3:
 SENMAIN_L_B2B7:
   k_call $9793
   k_pushi 0
-  k_pushiw $CAB8
+  k_pushiw SENMAIN_D_CAB8
   k_callx RF_2FB9, 4
   k_pushi 0
   k_pusharg 11
@@ -2716,7 +2716,7 @@ SENMAIN_L_B51E:
   k_ldl -10
   k_ldri 6
   k_mul
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_ldra $F304
@@ -2730,7 +2730,7 @@ SENMAIN_L_B51E:
   k_mul
   k_popr
   k_add
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_ldra $F308
@@ -2842,7 +2842,7 @@ SENMAIN_L_B5EF:
   k_pushi 13
   k_callx RF_2F8F, 4
   k_pusha $F458
-  k_pushiw $CACC
+  k_pushiw SENMAIN_D_CACC
   k_callx RF_3619, 4
   k_pusha $F458
   k_pusharg 11
@@ -3017,7 +3017,7 @@ SENMAIN_F_B6FF:
   k_pushib 48
   k_callx RL_21BE, 8
   k_pushi 1
-  k_pushiw $CAD9
+  k_pushiw SENMAIN_D_CAD9
   k_callx RF_2FB9, 4
   k_return
 SENMAIN_F_B743:
@@ -3100,7 +3100,7 @@ SENMAIN_L_B79F:
   k_pusha $F280
   k_ldlbf 11
   k_shl1
-  k_ldriw $CAE0
+  k_ldriw SENMAIN_D_CAE0
   k_add
   k_deref
   k_pushl
@@ -3255,7 +3255,7 @@ SENMAIN_L_B8B1:
   k_pushi 14
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $CAE4
+  k_pushiw SENMAIN_D_CAE4
   k_callx RF_2FB9, 4
   k_pushi 8
   k_pushi 14
@@ -3264,7 +3264,7 @@ SENMAIN_L_B8B1:
   k_addli 2
   k_derefb
   k_pushl
-  k_pushiw $CAEB
+  k_pushiw SENMAIN_D_CAEB
   k_callx RF_3608, 4
 SENMAIN_L_B8EE:
   k_pushi 10
@@ -3291,7 +3291,7 @@ SENMAIN_L_B913:
   k_pushi 15
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $CAF5
+  k_pushiw SENMAIN_D_CAF5
   k_callx RF_2FB9, 4
 SENMAIN_L_B921:
   k_pushi 11
@@ -3313,13 +3313,13 @@ SENMAIN_L_B921:
   k_addli 4
   k_deref
   k_pushl
-  k_pushiw $CB00
+  k_pushiw SENMAIN_D_CB00
   k_callx RF_3608, 4
   k_pushi 14
   k_pushi 7
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $CB09
+  k_pushiw SENMAIN_D_CB09
   k_callx RF_2FB9, 4
   k_pushi 14
   k_pushi 13
@@ -3346,7 +3346,7 @@ SENMAIN_L_B921:
   k_addli 3
   k_derefb
   k_pushl
-  k_pushiw $CB10
+  k_pushiw SENMAIN_D_CB10
   k_callx RF_3608, 4
 SENMAIN_L_B982:
   k_pushib 16
@@ -3355,7 +3355,7 @@ SENMAIN_L_B982:
   k_push -6
   k_callx SENMAIN_F_AE19, 2
   k_pushl
-  k_pushiw $CB19
+  k_pushiw SENMAIN_D_CB19
   k_callx RF_3608, 4
   k_pushib 17
   k_pushi 7
@@ -3363,7 +3363,7 @@ SENMAIN_L_B982:
   k_ldl -2
   k_derefb
   k_pushl
-  k_pushiw $CB26
+  k_pushiw SENMAIN_D_CB26
   k_callx RF_3608, 4
   k_pushib 18
   k_pushi 7
@@ -3379,11 +3379,11 @@ SENMAIN_L_B982:
   k_udiv
   k_inc
   k_pushl
-  k_pushiw $CB35
+  k_pushiw SENMAIN_D_CB35
   k_callx RF_3608, 4
   k_call $9793
   k_pushi 1
-  k_pushiw $CB47
+  k_pushiw SENMAIN_D_CB47
   k_callx RF_2FB9, 4
 SENMAIN_L_B9CD:
   k_pushi 0
@@ -3413,7 +3413,7 @@ SENMAIN_L_B9FA:
   k_call $9793
   k_call $97F5
   k_pushi 1
-  k_pushiw $CB54
+  k_pushiw SENMAIN_D_CB54
   k_callx RF_2FB9, 4
   k_pushi 0
   k_pusharg 11
@@ -3589,7 +3589,7 @@ SENMAIN_L_BB08:
   k_jumpt SENMAIN_L_BA80
   k_call $9793
   k_pushi 1
-  k_pushiw $CB67
+  k_pushiw SENMAIN_D_CB67
   k_callx RF_2FB9, 4
   k_ldl -8
   k_return
@@ -3911,7 +3911,7 @@ SENMAIN_L_BCBA:
   k_add
   k_deref
   k_shl1
-  k_ldriw $CB75
+  k_ldriw SENMAIN_D_CB75
   k_add
   k_deref
   k_callptrn 2
@@ -4068,14 +4068,14 @@ SENMAIN_L_BDD1:
   k_mul
   k_popr
   k_add
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_pushl
   k_ldln -7
   k_ldri 6
   k_mul
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_pushl
@@ -4155,7 +4155,7 @@ SENMAIN_L_BE57:
   k_ldln -15
   k_ldri 14
   k_mul
-  k_ldriw $CA54
+  k_ldriw SENMAIN_D_CA54
   k_add
   k_stl -2
   k_ldrn -19
@@ -4172,7 +4172,7 @@ SENMAIN_L_BE6C:
   k_mul
   k_popr
   k_add
-  k_ldriw $C9A0
+  k_ldriw SENMAIN_D_C9A0
   k_add
   k_deref
   k_pushl
@@ -4180,7 +4180,7 @@ SENMAIN_L_BE6C:
   k_derefb
   k_ldri 6
   k_mul
-  k_ldriw $C9A0
+  k_ldriw SENMAIN_D_C9A0
   k_add
   k_deref
   k_pushl
@@ -4357,7 +4357,7 @@ SENMAIN_L_BFAD:
   k_ldl -6
   k_ldri 6
   k_mul
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_ldr -8
@@ -4379,7 +4379,7 @@ SENMAIN_L_BFC7:
   k_shl1
   k_popr
   k_add
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_ldr -10
@@ -4495,7 +4495,7 @@ SENMAIN_L_C05D:
   k_ldl -2
   k_ldri 6
   k_mul
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_ldra $F304
@@ -4517,7 +4517,7 @@ SENMAIN_L_C07B:
   k_shl1
   k_popr
   k_add
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_ldra $F308
@@ -4603,7 +4603,7 @@ SENMAIN_L_C0EE:
   k_ldl -10
   k_ldri 14
   k_mul
-  k_ldriw $CA54
+  k_ldriw SENMAIN_D_CA54
   k_add
   k_stl -2
   k_ldr -14
@@ -4615,7 +4615,7 @@ SENMAIN_L_C0FD:
   k_derefb
   k_ldri 6
   k_mul
-  k_ldriw $C9A0
+  k_ldriw SENMAIN_D_C9A0
   k_add
   k_deref
   k_ldra $F304
@@ -4638,7 +4638,7 @@ SENMAIN_L_C118:
   k_mul
   k_popr
   k_add
-  k_ldriw $C9A0
+  k_ldriw SENMAIN_D_C9A0
   k_add
   k_deref
   k_ldra $F308
@@ -4714,7 +4714,7 @@ SENMAIN_L_C17B:
   k_ldl -6
   k_ldri 6
   k_mul
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_ldra $F304
@@ -4736,7 +4736,7 @@ SENMAIN_L_C1A0:
   k_shl1
   k_popr
   k_add
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_ldra $F308
@@ -5150,7 +5150,7 @@ SENMAIN_L_C3E9:
   k_ldl -6
   k_ldri 14
   k_mul
-  k_ldriw $CA54
+  k_ldriw SENMAIN_D_CA54
   k_add
   k_stl -2
   k_ldr -10
@@ -5167,7 +5167,7 @@ SENMAIN_L_C3F8:
   k_mul
   k_popr
   k_add
-  k_ldriw $C9A0
+  k_ldriw SENMAIN_D_C9A0
   k_add
   k_deref
   k_pushl
@@ -5175,7 +5175,7 @@ SENMAIN_L_C3F8:
   k_derefb
   k_ldri 6
   k_mul
-  k_ldriw $C9A0
+  k_ldriw SENMAIN_D_C9A0
   k_add
   k_deref
   k_pushl
@@ -5218,14 +5218,14 @@ SENMAIN_L_C43A:
   k_mul
   k_popr
   k_add
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_pushl
   k_ldl -2
   k_ldri 6
   k_mul
-  k_ldriw $C97C
+  k_ldriw SENMAIN_D_C97C
   k_add
   k_deref
   k_pushl
@@ -5333,7 +5333,7 @@ SENMAIN_L_C4DB:
   k_shl1
   k_popr
   k_add
-  k_ldriw $CB82
+  k_ldriw SENMAIN_D_CB82
   k_add
   k_deref
   k_ldrarg 13
@@ -5342,7 +5342,7 @@ SENMAIN_L_C4DB:
   k_ldl -2
   k_ldri 6
   k_mul
-  k_ldriw $CB82
+  k_ldriw SENMAIN_D_CB82
   k_add
   k_deref
   k_ldrarg 11
@@ -5457,7 +5457,7 @@ SENMAIN_L_C58C:
   k_ldl -6
   k_ldri 6
   k_mul
-  k_ldriw $CB82
+  k_ldriw SENMAIN_D_CB82
   k_add
   k_deref
   k_ldr -8
@@ -5479,7 +5479,7 @@ SENMAIN_L_C5A6:
   k_shl1
   k_popr
   k_add
-  k_ldriw $CB82
+  k_ldriw SENMAIN_D_CB82
   k_add
   k_deref
   k_ldr -10
@@ -5773,7 +5773,7 @@ SENMAIN_L_C743:
   k_ldl -2
   k_ldri 6
   k_mul
-  k_ldriw $CB82
+  k_ldriw SENMAIN_D_CB82
   k_add
   k_deref
   k_ldrarg 11
@@ -5787,7 +5787,7 @@ SENMAIN_L_C743:
   k_mul
   k_popr
   k_add
-  k_ldriw $CB82
+  k_ldriw SENMAIN_D_CB82
   k_add
   k_deref
   k_ldrarg 13
@@ -5990,7 +5990,7 @@ SENMAIN_L_C87C:
   k_ldl -12
   k_ldri 4
   k_shl
-  k_ldriw $CC5A
+  k_ldriw SENMAIN_D_CC5A
   k_add
   k_stl -2
   k_ldr -8
@@ -6002,7 +6002,7 @@ SENMAIN_L_C894:
   k_derefb
   k_ldri 6
   k_mul
-  k_ldriw $CBA6
+  k_ldriw SENMAIN_D_CBA6
   k_add
   k_deref
   k_ldr -14
@@ -6025,7 +6025,7 @@ SENMAIN_L_C8AB:
   k_mul
   k_popr
   k_add
-  k_ldriw $CBA6
+  k_ldriw SENMAIN_D_CBA6
   k_add
   k_deref
   k_ldr -16
@@ -6167,71 +6167,89 @@ SENMAIN_L_C974:
   k_push -10
   k_callx SENMAIN_F_C794, 4
   k_return
-  .byte $00, $00, $00, $FF, $FF, $FF, $FF, $01, $00, $FF, $FF, $00, $00, $01, $00, $00
-  .byte $00, $01, $00, $00, $00, $01, $00, $01, $00, $FF, $FF, $00, $00, $01, $00, $FF
-  .byte $FF, $FF, $FF, $00, $00, $00, $00, $FE, $FF, $FE, $FF, $01, $00, $FE, $FF, $FF
-  .byte $FF, $02, $00, $FF, $FF, $FF, $FF, $02, $00, $00, $00, $00, $00, $02, $00, $01
-  .byte $00, $01, $00, $01, $00, $01, $00, $02, $00, $00, $00, $02, $00, $02, $00, $FF
-  .byte $FF, $01, $00, $02, $00, $FE, $FF, $01, $00, $01, $00, $FE, $FF, $00, $00, $00
-  .byte $00, $FE, $FF, $FF, $FF, $FF, $FF, $FF, $FF, $FE, $FF, $FF, $FF, $00, $00, $FD
-  .byte $FF, $FD, $FF, $01, $00, $FD, $FF, $FE, $FF, $02, $00, $FE, $FF, $FE, $FF, $03
-  .byte $00, $FE, $FF, $FF, $FF, $03, $00, $FF, $FF, $00, $00, $03, $00, $00, $00, $01
-  .byte $00, $03, $00, $01, $00, $02, $00, $02, $00, $02, $00, $02, $00, $01, $00, $02
-  .byte $00, $03, $00, $00, $00, $03, $00, $03, $00, $FF, $FF, $02, $00, $03, $00, $FE
-  .byte $FF, $02, $00, $02, $00, $FD, $FF, $01, $00, $02, $00, $FD, $FF, $00, $00, $01
-  .byte $00, $FD, $FF, $FF, $FF, $00, $00, $FD, $FF, $FE, $FF, $FF, $FF, $FE, $FF, $FE
-  .byte $FF, $FE, $FF, $FF, $FF, $FD, $FF, $FE, $FF, $02, $03, $04, $08, $09, $0A, $0F
-  .byte $10, $11, $12, $18, $19, $1A, $1B, $04, $05, $06, $0A, $0B, $00, $12, $13, $14
-  .byte $15, $1B, $1C, $1D, $0C, $00, $01, $02, $06, $07, $08, $0C, $0D, $0E, $0F, $15
-  .byte $16, $17, $18, $00, $E0, $03, $00, $00, $E0, $03, $08, $08, $E0, $03, $00, $08
-  .byte $E0, $03, $08, $58, $05, $70, $05, $88, $05, $B0, $05, $9C, $05, $C4, $05, $6C
-  .byte $05, $84, $05, $00, $00, $00, $00, $00, $00, $00, $00
-  .byte "Board which ship?"
   .byte $00
-  .byte "Fire on which"
-  .byte $0A
-  .byte "ship?"
+SENMAIN_D_C97C:
+  .byte $00, $00, $FF, $FF, $FF, $FF, $01, $00, $FF, $FF, $00, $00, $01, $00, $00, $00
+  .byte $01, $00, $00, $00, $01, $00, $01, $00, $FF, $FF, $00, $00, $01, $00, $FF, $FF
+  .byte $FF, $FF, $00, $00
+SENMAIN_D_C9A0:
+  .byte $00, $00, $FE, $FF, $FE, $FF, $01, $00, $FE, $FF, $FF, $FF, $02, $00, $FF, $FF
+  .byte $FF, $FF, $02, $00, $00, $00, $00, $00, $02, $00, $01, $00, $01, $00, $01, $00
+  .byte $01, $00, $02, $00, $00, $00, $02, $00, $02, $00, $FF, $FF, $01, $00, $02, $00
+  .byte $FE, $FF, $01, $00, $01, $00, $FE, $FF, $00, $00, $00, $00, $FE, $FF, $FF, $FF
+  .byte $FF, $FF, $FF, $FF, $FE, $FF, $FF, $FF, $00, $00, $FD, $FF, $FD, $FF, $01, $00
+  .byte $FD, $FF, $FE, $FF, $02, $00, $FE, $FF, $FE, $FF, $03, $00, $FE, $FF, $FF, $FF
+  .byte $03, $00, $FF, $FF, $00, $00, $03, $00, $00, $00, $01, $00, $03, $00, $01, $00
+  .byte $02, $00, $02, $00, $02, $00, $02, $00, $01, $00, $02, $00, $03, $00, $00, $00
+  .byte $03, $00, $03, $00, $FF, $FF, $02, $00, $03, $00, $FE, $FF, $02, $00, $02, $00
+  .byte $FD, $FF, $01, $00, $02, $00, $FD, $FF, $00, $00, $01, $00, $FD, $FF, $FF, $FF
+  .byte $00, $00, $FD, $FF, $FE, $FF, $FF, $FF, $FE, $FF, $FE, $FF, $FE, $FF, $FF, $FF
+  .byte $FD, $FF, $FE, $FF
+SENMAIN_D_CA54:
+  .byte $02, $03, $04, $08, $09, $0A, $0F, $10, $11, $12, $18, $19, $1A, $1B, $04, $05
+  .byte $06, $0A, $0B, $00, $12, $13, $14, $15, $1B, $1C, $1D, $0C, $00, $01, $02, $06
+  .byte $07, $08, $0C, $0D, $0E, $0F, $15, $16, $17, $18, $00, $E0, $03, $00, $00, $E0
+  .byte $03, $08, $08, $E0, $03, $00, $08, $E0, $03, $08
+SENMAIN_D_CA8E:
+  .byte $58, $05, $70, $05, $88, $05, $B0, $05, $9C, $05, $C4, $05
+SENMAIN_D_CA9A:
+  .byte $6C, $05, $84, $05, $00, $00, $00, $00, $00, $00, $00, $00
+SENMAIN_D_CAA6:
+  .byte "Board which ship?", $00
+SENMAIN_D_CAB8:
+  .byte "Fire on which", $0A, "ship?", $00
+SENMAIN_D_CACC:
+  .byte "Mobility:%2d", $00
+SENMAIN_D_CAD9:
+  .byte $1B
+  .byte "R-", $1B, "E>", $00
+SENMAIN_D_CAE0:
+  .byte "p", $11, "P", $0E
+SENMAIN_D_CAE4:
+  .byte "Battle", $00
+SENMAIN_D_CAEB:
+  .byte "level:%2d", $00
+SENMAIN_D_CAF5:
+  .byte "(flagship)", $00
+SENMAIN_D_CB00:
+  .byte "Crew:%2d", $00
+SENMAIN_D_CB09:
+  .byte "Arms: ", $00
+SENMAIN_D_CB10:
+  .byte $0A, "%d guns", $00
+SENMAIN_D_CB19:
+  .byte "Mobility:%3d", $00
+SENMAIN_D_CB26:
+  .byte "Durability:%3d", $00
+SENMAIN_D_CB35:
+  .byte "Tacking power:%2d", $00
+SENMAIN_D_CB47:
+  .byte "Press button", $00
+SENMAIN_D_CB54:
+  .byte "View which vessel?", $00
+SENMAIN_D_CB67:
+  .byte "Your orders ?", $00
+SENMAIN_D_CB75:
+  .word SENMAIN_F_B5AF, SENMAIN_F_B694, SENMAIN_F_B9ED, SENMAIN_F_B170, SENMAIN_F_B2A3, SENMAIN_F_BA65
   .byte $00
-  .byte "Mobility:%2d"
-  .byte $00, $1B, $52, $2D, $1B, $45, $3E, $00, $70, $11, $50, $0E
-  .byte "Battle"
-  .byte $00
-  .byte "level:%2d"
-  .byte $00
-  .byte "(flagship)"
-  .byte $00
-  .byte "Crew:%2d"
-  .byte $00
-  .byte "Arms: "
-  .byte $00, $0A
-  .byte "%d guns"
-  .byte $00
-  .byte "Mobility:%3d"
-  .byte $00
-  .byte "Durability:%3d"
-  .byte $00
-  .byte "Tacking power:%2d"
-  .byte $00
-  .byte "Press button"
-  .byte $00
-  .byte "View which vessel?"
-  .byte $00
-  .byte "Your orders ?"
-  .byte $00, $AF, $B5, $94, $B6, $ED, $B9, $70, $B1, $A3, $B2, $65, $BA, $00, $00, $00
-  .byte $FF, $FF, $FF, $FF, $01, $00, $FF, $FF, $00, $00, $01, $00, $00, $00, $01, $00
-  .byte $00, $00, $01, $00, $01, $00, $FF, $FF, $00, $00, $01, $00, $FF, $FF, $FF, $FF
-  .byte $00, $00, $00, $00, $FE, $FF, $FE, $FF, $01, $00, $FE, $FF, $FF, $FF, $02, $00
-  .byte $FF, $FF, $FF, $FF, $02, $00, $00, $00, $00, $00, $02, $00, $01, $00, $01, $00
-  .byte $01, $00, $01, $00, $02, $00, $00, $00, $02, $00, $02, $00, $FF, $FF, $01, $00
-  .byte $02, $00, $FE, $FF, $01, $00, $01, $00, $FE, $FF, $00, $00, $00, $00, $FE, $FF
-  .byte $FF, $FF, $FF, $FF, $FF, $FF, $FE, $FF, $FF, $FF, $00, $00, $FD, $FF, $FD, $FF
-  .byte $01, $00, $FD, $FF, $FE, $FF, $02, $00, $FE, $FF, $FE, $FF, $03, $00, $FE, $FF
-  .byte $FF, $FF, $03, $00, $FF, $FF, $00, $00, $03, $00, $00, $00, $01, $00, $03, $00
-  .byte $01, $00, $02, $00, $02, $00, $02, $00, $02, $00, $01, $00, $02, $00, $03, $00
-  .byte $00, $00, $03, $00, $03, $00, $FF, $FF, $02, $00, $03, $00, $FE, $FF, $02, $00
-  .byte $02, $00, $FD, $FF, $01, $00, $02, $00, $FD, $FF, $00, $00, $01, $00, $FD, $FF
-  .byte $FF, $FF, $00, $00, $FD, $FF, $FE, $FF, $FF, $FF, $FE, $FF, $FE, $FF, $FE, $FF
-  .byte $FF, $FF, $FD, $FF, $FE, $FF, $0B, $00, $01, $05, $06, $07, $1C, $1D, $0C, $0D
-  .byte $0E, $13, $14, $15, $16, $17, $01, $02, $03, $07, $08, $09, $0D, $0E, $0F, $10
-  .byte $11, $16, $17, $18, $19, $1A, $03, $04, $05, $09, $0A, $0B, $10, $11, $12, $13
-  .byte $14, $19, $1A, $1B, $1C, $1D
+SENMAIN_D_CB82:
+  .byte $00, $00, $FF, $FF, $FF, $FF, $01, $00, $FF, $FF, $00, $00, $01, $00, $00, $00
+  .byte $01, $00, $00, $00, $01, $00, $01, $00, $FF, $FF, $00, $00, $01, $00, $FF, $FF
+  .byte $FF, $FF, $00, $00
+SENMAIN_D_CBA6:
+  .byte $00, $00, $FE, $FF, $FE, $FF, $01, $00, $FE, $FF, $FF, $FF, $02, $00, $FF, $FF
+  .byte $FF, $FF, $02, $00, $00, $00, $00, $00, $02, $00, $01, $00, $01, $00, $01, $00
+  .byte $01, $00, $02, $00, $00, $00, $02, $00, $02, $00, $FF, $FF, $01, $00, $02, $00
+  .byte $FE, $FF, $01, $00, $01, $00, $FE, $FF, $00, $00, $00, $00, $FE, $FF, $FF, $FF
+  .byte $FF, $FF, $FF, $FF, $FE, $FF, $FF, $FF, $00, $00, $FD, $FF, $FD, $FF, $01, $00
+  .byte $FD, $FF, $FE, $FF, $02, $00, $FE, $FF, $FE, $FF, $03, $00, $FE, $FF, $FF, $FF
+  .byte $03, $00, $FF, $FF, $00, $00, $03, $00, $00, $00, $01, $00, $03, $00, $01, $00
+  .byte $02, $00, $02, $00, $02, $00, $02, $00, $01, $00, $02, $00, $03, $00, $00, $00
+  .byte $03, $00, $03, $00, $FF, $FF, $02, $00, $03, $00, $FE, $FF, $02, $00, $02, $00
+  .byte $FD, $FF, $01, $00, $02, $00, $FD, $FF, $00, $00, $01, $00, $FD, $FF, $FF, $FF
+  .byte $00, $00, $FD, $FF, $FE, $FF, $FF, $FF, $FE, $FF, $FE, $FF, $FE, $FF, $FF, $FF
+  .byte $FD, $FF, $FE, $FF
+SENMAIN_D_CC5A:
+  .byte $0B, $00, $01, $05, $06, $07, $1C, $1D, $0C, $0D, $0E, $13, $14, $15, $16, $17
+  .byte $01, $02, $03, $07, $08, $09, $0D, $0E, $0F, $10, $11, $16, $17, $18, $19, $1A
+  .byte $03, $04, $05, $09, $0A, $0B, $10, $11, $12, $13, $14, $19, $1A, $1B, $1C, $1D

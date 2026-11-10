@@ -258,7 +258,7 @@ SENFE_L_A649:
   k_add
   k_ldr -2
   k_add
-  k_ldriw $BBDE
+  k_ldriw SENFE_D_BBDE
   k_add
   k_derefb
   k_popstoreb
@@ -725,7 +725,7 @@ SENFE_F_A8FC:
   k_stl -6
   k_ldli 5
   k_stl -8
-  k_ldliw $BC56
+  k_ldliw SENFE_D_BC56
   k_stl -2
   k_ldlarg 11
   k_jumpf SENFE_L_A91A
@@ -735,7 +735,7 @@ SENFE_F_A8FC:
   k_stl -6
   k_ldli 6
   k_stl -8
-  k_ldliw $BC60
+  k_ldliw SENFE_D_BC60
   k_stl -2
 SENFE_L_A91A:
   k_pushi 0
@@ -799,11 +799,11 @@ SENFE_F_A973:
   k_ldlbf 13
   k_jumpt SENFE_L_A985
   k_pushi 1
-  k_pushiw $BF42
+  k_pushiw SENFE_D_BF42
   k_jump SENFE_L_A989
 SENFE_L_A985:
   k_pushi 1
-  k_pushiw $BF46
+  k_pushiw SENFE_D_BF46
 SENFE_L_A989:
   k_callx RF_2FB9, 4
   k_ldlarg 11
@@ -816,17 +816,17 @@ SENFE_L_A989:
   k_uge
   k_jumpf SENFE_L_A99F
   k_pushi 0
-  k_pushiw $BF4A
+  k_pushiw SENFE_D_BF4A
   k_jump SENFE_L_A9A3
 SENFE_L_A99F:
   k_pushi 0
-  k_pushiw $BF4F
+  k_pushiw SENFE_D_BF4F
 SENFE_L_A9A3:
   k_callx RF_2FB9, 4
   k_pushi 0
   k_ldl -2
   k_shl1
-  k_ldriw $BF1F
+  k_ldriw SENFE_D_BF1F
   k_add
   k_deref
   k_pushl
@@ -897,15 +897,15 @@ SENFE_L_AA1F:
   k_pushib 19
   k_pushib 25
   k_callx RF_4E29, 8
-  k_pushiw $BF55
+  k_pushiw SENFE_D_BF55
   k_pushi 1
   k_callx SENFE_F_A92C, 4
   k_call RF_472D
-  k_pushiw $BF77
+  k_pushiw SENFE_D_BF77
   k_pushi 0
   k_callx SENFE_F_A92C, 4
   k_pushi 0
-  k_pushiw $BF78
+  k_pushiw SENFE_D_BF78
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_addlib 20
@@ -916,8 +916,8 @@ SENFE_L_AA1F:
   k_deref
   k_pushl
   k_callx RF_40DE, 2
-  k_pusha $BC6A
-  k_pushiw $BF7E
+  k_pusha SENFE_D_BC6A
+  k_pushiw SENFE_D_BF7E
   k_callx RF_3608, 4
   k_ldla $F18A
   k_dec
@@ -928,7 +928,7 @@ SENFE_L_AA1F:
   k_pushib 19
   k_pushib 25
   k_callx RF_4E29, 8
-  k_pusha $BC6C
+  k_pusha SENFE_D_BC6C
   k_pushi 1
 SENFE_L_AA7E:
   k_callx SENFE_F_A92C, 4
@@ -949,27 +949,27 @@ SENFE_L_AA86:
     .word $0002, SENFE_L_AACA
     .word SENFE_L_AA82
 SENFE_L_AAA7:
-  k_pusha $BC6E
+  k_pusha SENFE_D_BC6E
   k_pushi 1
   k_callx SENFE_F_A92C, 4
   k_call RF_472D
-  k_pusha $BC70
+  k_pusha SENFE_D_BC70
 SENFE_L_AAB5:
   k_pushi 0
   k_jump SENFE_L_AA7E
 SENFE_L_AAB9:
-  k_pusha $BC72
+  k_pusha SENFE_D_BC72
   k_pushi 1
   k_callx SENFE_F_A92C, 4
   k_call RF_472D
-  k_pusha $BC74
+  k_pusha SENFE_D_BC74
   k_jump SENFE_L_AAB5
 SENFE_L_AACA:
-  k_pusha $BC76
+  k_pusha SENFE_D_BC76
   k_pushi 1
   k_callx SENFE_F_A92C, 4
   k_call RF_472D
-  k_pusha $BC78
+  k_pusha SENFE_D_BC78
   k_jump SENFE_L_AAB5
 SENFE_L_AADB:
   k_pushib 16
@@ -981,11 +981,11 @@ SENFE_L_AADB:
   k_ldri 2
   k_eq
   k_jumpf SENFE_L_AB37
-  k_pushiw $BF83
+  k_pushiw SENFE_D_BF83
   k_pushi 1
   k_callx SENFE_F_A92C, 4
   k_pushi 0
-  k_pushiw $BF84
+  k_pushiw SENFE_D_BF84
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_jumpf SENFE_L_AB06
@@ -1003,16 +1003,16 @@ SENFE_L_AB07:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $BF97
+  k_pushiw SENFE_D_BF97
   k_callx RF_2FB9, 4
   k_pushi 0
-  k_pusha $BC7A
+  k_pusha SENFE_D_BC7A
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
   k_stla $F18A
   k_call RF_472D
-  k_pusha $BC7C
+  k_pusha SENFE_D_BC7C
   k_pushi 0
   k_callx SENFE_F_A92C, 4
 SENFE_L_AB37:
@@ -1020,21 +1020,21 @@ SENFE_L_AB37:
   k_ldri 3
   k_eq
   k_jumpf SENFE_L_AB6D
-  k_pushiw $BF9A
+  k_pushiw SENFE_D_BF9A
   k_pushi 1
   k_callx SENFE_F_A92C, 4
   k_pushib 31
   k_callx RF_40C3, 2
   k_pushl
-  k_pusha $BC80
-  k_pusha $BC7E
-  k_pushiw $BF9B
+  k_pusha SENFE_D_BC80
+  k_pusha SENFE_D_BC7E
+  k_pushiw SENFE_D_BF9B
   k_callx RF_3608, 8
   k_ldla $F18A
   k_dec
   k_stla $F18A
   k_call RF_472D
-  k_pusha $BC82
+  k_pusha SENFE_D_BC82
   k_pushi 0
   k_callx SENFE_F_A92C, 4
 SENFE_L_AB6D:
@@ -1042,11 +1042,11 @@ SENFE_L_AB6D:
   k_ldri 4
   k_eq
   k_jumpf SENFE_L_ABC3
-  k_pusha $BC84
+  k_pusha SENFE_D_BC84
   k_pushi 0
   k_callx SENFE_F_A92C, 4
   k_call RF_472D
-  k_pusha $BC86
+  k_pusha SENFE_D_BC86
   k_pushi 1
   k_callx SENFE_F_A92C, 4
   k_call RF_472D
@@ -1057,18 +1057,18 @@ SENFE_L_AB6D:
   k_pushi 4
   k_pushi 2
   k_callx RF_4E29, 8
-  k_pushiw $BFB6
+  k_pushiw SENFE_D_BFB6
   k_pushi 0
   k_callx SENFE_F_A92C, 4
   k_pushi 0
-  k_pushiw $BFB7
+  k_pushiw SENFE_D_BFB7
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
-  k_pusha $BC88
-  k_pushiw $BFBD
+  k_pusha SENFE_D_BC88
+  k_pushiw SENFE_D_BFBD
   k_callx RF_3608, 4
-  k_pusha $BC8A
+  k_pusha SENFE_D_BC8A
   k_pushi 1
   k_callx SENFE_F_A92C, 4
 SENFE_L_ABC3:
@@ -1094,7 +1094,7 @@ SENFE_L_ABDE:
   k_pushi 3
   k_callx RF_3F3E, 2
   k_shl1
-  k_ldriw $BFC3
+  k_ldriw SENFE_D_BFC3
   k_add
   k_deref
   k_pushl
@@ -1375,7 +1375,7 @@ SENFE_L_AD91:
   k_pushi 2
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C02D
+  k_pushiw SENFE_D_C02D
   k_callx RF_2FB9, 4
   k_ldl -2
   k_addlib 20
@@ -1387,13 +1387,13 @@ SENFE_L_AD91:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C038
+  k_pushiw SENFE_D_C038
   k_callx RF_2FB9, 4
   k_pushi 0
   k_push -2
   k_callx SENFE_F_A973, 4
   k_pushi 0
-  k_pushiw $C03A
+  k_pushiw SENFE_D_C03A
   k_callx RF_2FB9, 4
   k_pushib 23
   k_pushiw $8000
@@ -1408,7 +1408,7 @@ SENFE_L_AD91:
   k_pushi 11
   k_callx RL_21BE, 12
   k_pusha $F280
-  k_pushiw $8C54
+  k_pushiw RD_8C54
   k_pushi 2
   k_pushi 2
   k_pushi 14
@@ -1419,7 +1419,7 @@ SENFE_L_AD91:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C03C
+  k_pushiw SENFE_D_C03C
   k_callx RF_2FB9, 4
   k_ldlba $EE76
   k_shl1
@@ -1432,17 +1432,17 @@ SENFE_L_AD91:
   k_ldlba $EE76
   k_jumpf SENFE_L_AE1C
   k_pushi 1
-  k_pushiw $C03E
+  k_pushiw SENFE_D_C03E
   k_jump SENFE_L_AE20
 SENFE_L_AE1C:
   k_pushi 0
-  k_pushiw $C040
+  k_pushiw SENFE_D_C040
 SENFE_L_AE20:
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C049
+  k_pushiw SENFE_D_C049
   k_callx RF_2FB9, 4
   k_return
 SENFE_F_AE34:
@@ -1568,7 +1568,7 @@ SENFE_F_AF45:
   k_pushi 4
   k_pushi 2
   k_callx RF_4E29, 8
-  k_pusha $C092
+  k_pusha SENFE_D_C092
   k_pushi 0
   k_callx SENFE_F_A92C, 4
   k_pushi 1
@@ -1581,7 +1581,7 @@ SENFE_F_AF45:
   k_pushi 4
   k_pushi 2
   k_callx RF_4E29, 8
-  k_pusha $C094
+  k_pusha SENFE_D_C094
   k_pushi 0
   k_callx SENFE_F_A92C, 4
   k_call RF_472D
@@ -1600,7 +1600,7 @@ SENFE_F_AF7E:
   k_stl -2
   k_ldl -2
   k_shl1
-  k_ldriw $C04C
+  k_ldriw SENFE_D_C04C
   k_add
   k_deref
   k_pushl
@@ -1617,13 +1617,13 @@ SENFE_F_AF7E:
   k_ldri 2
   k_eq
   k_jumpf SENFE_L_AFB7
-  k_ldliw $C3D4
+  k_ldliw SENFE_D_C3D4
   k_jump SENFE_L_AFBA
 SENFE_L_AFB7:
-  k_ldliw $C3DB
+  k_ldliw SENFE_D_C3DB
 SENFE_L_AFBA:
   k_pushl
-  k_pushiw $C3B7
+  k_pushiw SENFE_D_C3B7
   k_callx RF_3619, 4
 SENFE_L_AFC2:
   k_pushi 1
@@ -1632,12 +1632,12 @@ SENFE_L_AFC2:
   k_pushi 6
   k_callx RF_28CC, 2
   k_pushi 0
-  k_pusha $C29C
+  k_pusha SENFE_D_C29C
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pusha $C29E
+  k_pusha SENFE_D_C29E
   k_callx RF_2FB9, 4
   k_pushi 8
   k_callx RF_3DDF, 2
@@ -1654,7 +1654,7 @@ SENFE_F_AFEF:
   k_pushib 19
   k_pushib 25
   k_callx RF_4E29, 8
-  k_pusha $C096
+  k_pusha SENFE_D_C096
   k_pushi 1
   k_callx SENFE_F_A92C, 4
   k_pushi 1
@@ -1668,7 +1668,7 @@ SENFE_F_AFEF:
   k_pushi 4
   k_pushi 2
   k_callx RF_4E29, 8
-  k_pusha $C098
+  k_pusha SENFE_D_C098
   k_pushi 0
   k_callx SENFE_F_A92C, 4
   k_call RF_472D
@@ -1813,10 +1813,10 @@ SENFE_L_B0EE:
   k_jumpt SENFE_L_B048
   k_ldl -12
   k_jumpf SENFE_L_B0FE
-  k_pushiw $C3E0
+  k_pushiw SENFE_D_C3E0
   k_jump SENFE_L_B101
 SENFE_L_B0FE:
-  k_pushiw $C3F9
+  k_pushiw SENFE_D_C3F9
 SENFE_L_B101:
   k_pushi 0
   k_callx SENFE_F_A92C, 4
@@ -1825,12 +1825,12 @@ SENFE_L_B101:
   k_pushi 4
   k_callx RF_28CC, 2
   k_pushi 0
-  k_pushiw $C439
+  k_pushiw SENFE_D_C439
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pusha $C2A4
+  k_pusha SENFE_D_C2A4
   k_callx RF_2FB9, 4
   k_pushi 8
   k_callx RF_3DDF, 2
@@ -1865,7 +1865,7 @@ SENFE_F_B14A:
   k_stl -4
   k_ldl -4
   k_shl1
-  k_ldriw $C08C
+  k_ldriw SENFE_D_C08C
   k_add
   k_deref
   k_pushl
@@ -1876,7 +1876,7 @@ SENFE_F_B14A:
   k_eq
   k_jumpf SENFE_L_B1AB
   k_pushi 0
-  k_pushiw $C45E
+  k_pushiw SENFE_D_C45E
   k_callx RF_2FB9, 4
   k_ldlarg 13
   k_dec
@@ -1888,18 +1888,18 @@ SENFE_F_B14A:
   k_ult
   k_jumpf SENFE_L_B1A4
   k_pushi 0
-  k_pushiw $C478
+  k_pushiw SENFE_D_C478
   k_callx RF_2FB9, 4
   k_pushi 0
   k_ldl -6
   k_shl1
-  k_ldriw $C43B
+  k_ldriw SENFE_D_C43B
   k_add
   k_deref
   k_pushl
   k_callx RF_2FB9, 4
   k_pushi 0
-  k_pushiw $C484
+  k_pushiw SENFE_D_C484
   k_callx RF_2FB9, 4
 SENFE_L_B1A4:
   k_ldla $F18A
@@ -1912,12 +1912,12 @@ SENFE_L_B1AB:
   k_pushi 3
   k_callx RF_28CC, 2
   k_pushi 0
-  k_pusha $C2A0
+  k_pusha SENFE_D_C2A0
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pusha $C2A2
+  k_pusha SENFE_D_C2A2
   k_callx RF_2FB9, 4
   k_pushi 8
   k_callx RF_3DDF, 2
@@ -1942,7 +1942,7 @@ SENFE_L_B1AB:
   k_pushib 19
   k_pushib 25
   k_callx RF_4E29, 8
-  k_pusha $C09A
+  k_pusha SENFE_D_C09A
   k_pushi 1
   k_callx SENFE_F_A92C, 4
   k_ldli 2
@@ -1963,7 +1963,7 @@ SENFE_L_B219:
   k_pushib 19
   k_pushib 25
   k_callx RF_4E29, 8
-  k_pushiw $C486
+  k_pushiw SENFE_D_C486
   k_pushi 1
   k_callx SENFE_F_A92C, 4
   k_ldli 2
@@ -1984,7 +1984,7 @@ SENFE_L_B245:
   k_pushib 19
   k_pushib 25
   k_callx RF_4E29, 8
-  k_pusha $C09C
+  k_pusha SENFE_D_C09C
   k_pushi 1
   k_callx SENFE_F_A92C, 4
   k_pushi 1
@@ -1998,7 +1998,7 @@ SENFE_L_B245:
   k_pushi 4
   k_pushi 2
   k_callx RF_4E29, 8
-  k_pusha $C09E
+  k_pusha SENFE_D_C09E
   k_pushi 0
   k_callx SENFE_F_A92C, 4
   k_call RF_472D
@@ -2006,12 +2006,12 @@ SENFE_L_B245:
   k_pushi 1
   k_callx RF_28CC, 2
   k_pushi 0
-  k_pusha $C2A8
+  k_pusha SENFE_D_C2A8
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pusha $C2AA
+  k_pusha SENFE_D_C2AA
   k_callx RF_2FB9, 4
   k_pushi 8
   k_callx RF_3DDF, 2
@@ -2021,11 +2021,11 @@ SENFE_L_B245:
   k_pushi 4
   k_pushi 2
   k_callx RF_4E29, 8
-  k_pushiw $C4A6
+  k_pushiw SENFE_D_C4A6
   k_pushi 0
   k_callx SENFE_F_A92C, 4
   k_pushi 0
-  k_pushiw $C4A7
+  k_pushiw SENFE_D_C4A7
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
@@ -2033,7 +2033,7 @@ SENFE_L_B245:
   k_dec
   k_stla $F18A
   k_pushi 1
-  k_pusha $C0A0
+  k_pusha SENFE_D_C0A0
   k_callx RF_2FB9, 4
   k_pushi 1
   k_callx RF_4F2A, 2
@@ -2047,7 +2047,7 @@ SENFE_L_B245:
   k_pushib 19
   k_pushib 25
   k_callx RF_4E29, 8
-  k_pusha $C0A2
+  k_pusha SENFE_D_C0A2
   k_pushi 1
   k_callx SENFE_F_A92C, 4
   k_call RF_472D
@@ -2059,7 +2059,7 @@ SENFE_L_B245:
   k_pushi 4
   k_pushi 2
   k_callx RF_4E29, 8
-  k_pusha $C0A4
+  k_pusha SENFE_D_C0A4
   k_pushi 0
   k_callx SENFE_F_A92C, 4
   k_call RF_472D
@@ -2116,24 +2116,24 @@ SENFE_F_B35E:
   k_ldli 0
   k_stlba $EF6A
   k_pushi 0
-  k_pushiw $C4A9
+  k_pushiw SENFE_D_C4A9
   k_callx RF_2FB9, 4
   k_call RF_4AC6
   k_pushi 0
-  k_pushiw $C4AE
+  k_pushiw SENFE_D_C4AE
   k_callx RF_2FB9, 4
   k_call RF_4AF7
   k_pushi 0
-  k_pushiw $C4B0
+  k_pushiw SENFE_D_C4B0
   k_callx RF_2FB9, 4
   k_call RF_4A99
   k_pushi 0
-  k_pushiw $C4B3
+  k_pushiw SENFE_D_C4B3
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C4BF
+  k_pushiw SENFE_D_C4BF
   k_callx RF_2FB9, 4
   k_ldl -2
   k_stlba $EF6A
@@ -2144,7 +2144,7 @@ SENFE_F_B3A8:
   k_callx RF_28CC, 2
   k_call SENFE_F_B35E
   k_pushi 0
-  k_pushiw $C4C2
+  k_pushiw SENFE_D_C4C2
   k_callx RF_2FB9, 4
   k_return
 SENFE_F_B3BE:
@@ -2706,7 +2706,7 @@ SENFE_F_B6BA:
   k_pushi 15
   k_callx RF_3EC3, 6
   k_pusha $F280
-  k_pushiw $8D74
+  k_pushiw RD_8D74
   k_pushib 30
   k_pushib 32
   k_pushi 0
@@ -2719,7 +2719,7 @@ SENFE_F_B6BA:
   k_pushi 4
   k_pushi 2
   k_callx RF_4E29, 8
-  k_pushiw $C4EB
+  k_pushiw SENFE_D_C4EB
   k_pushi 0
   k_callx SENFE_F_A92C, 4
   k_pushi 15
@@ -2733,7 +2733,7 @@ SENFE_F_B6BA:
   k_pushi 2
   k_callx RF_4F65, 12
   k_pushi 1
-  k_pushiw $C502
+  k_pushiw SENFE_D_C502
   k_callx RF_2FB9, 4
   k_ldli 3
   k_stl -6
@@ -2750,7 +2750,7 @@ SENFE_F_B6BA:
   k_ldlarg 11
   k_jumpf SENFE_L_B731
   k_pusharg 11
-  k_pushiw $C509
+  k_pushiw SENFE_D_C509
   k_callx RF_3619, 4
   k_ldli 1
   k_stl -16
@@ -2767,7 +2767,7 @@ SENFE_L_B731:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $C512
+  k_pushiw SENFE_D_C512
   k_callx RF_2FB9, 4
   k_ldli 11
   k_swap
@@ -2797,7 +2797,7 @@ SENFE_L_B763:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $C51C
+  k_pushiw SENFE_D_C51C
   k_callx RF_2FB9, 4
 SENFE_L_B776:
   k_ldlarg 15
@@ -2824,7 +2824,7 @@ SENFE_L_B77E:
   k_push -10
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $C532
+  k_pushiw SENFE_D_C532
   k_callx RF_2FB9, 4
   k_ldl -2
   k_derefb
@@ -2875,7 +2875,7 @@ SENFE_L_B7CD:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $C4EB
+  k_pushiw SENFE_D_C4EB
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call SENFE_F_AF17
@@ -2902,7 +2902,7 @@ SENFE_L_B805:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $C4EB
+  k_pushiw SENFE_D_C4EB
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call SENFE_F_AF17
@@ -3011,11 +3011,11 @@ SENFE_L_B849:
   k_pushi 4
   k_pushi 2
   k_callx RF_4E29, 8
-  k_pushiw $C53A
+  k_pushiw SENFE_D_C53A
   k_pushi 0
   k_callx SENFE_F_A92C, 4
   k_pushi 0
-  k_pushiw $C53B
+  k_pushiw SENFE_D_C53B
   k_callx RF_2FB9, 4
   k_ldli 0
   k_stln -58
@@ -3029,16 +3029,16 @@ SENFE_L_B8D6:
   k_pushi 3
   k_callx RF_604A, 12
   k_pushi 1
-  k_pushiw $C53D
+  k_pushiw SENFE_D_C53D
   k_callx RF_2FB9, 4
   k_pushi 4
   k_pushi 8
   k_callx RF_2F8F, 4
-  k_pushiw $C547
+  k_pushiw SENFE_D_C547
   k_pushi 0
   k_callx SENFE_F_A92C, 4
   k_pushi 0
-  k_pushiw $C548
+  k_pushiw SENFE_D_C548
   k_callx RF_2FB9, 4
 SENFE_L_B901:
   k_ldl -18
@@ -3048,15 +3048,15 @@ SENFE_L_B901:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C54A
+  k_pushiw SENFE_D_C54A
   k_jump SENFE_L_B917
 SENFE_L_B913:
   k_pushi 0
-  k_pushiw $C54F
+  k_pushiw SENFE_D_C54F
 SENFE_L_B917:
   k_callx RF_2FB9, 4
   k_pushi 0
-  k_pushiw $C55F
+  k_pushiw SENFE_D_C55F
   k_callx RF_2FB9, 4
   k_ldl -14
   k_pushl
@@ -3100,7 +3100,7 @@ SENFE_L_B955:
   k_callx RF_28CC, 2
   k_call SENFE_F_B35E
   k_pushi 0
-  k_pushiw $C57D
+  k_pushiw SENFE_D_C57D
   k_callx RF_2FB9, 4
   k_pushi 8
   k_callx RF_3DDF, 2
@@ -3134,7 +3134,7 @@ SENFE_L_B955:
   k_ldl -16
   k_jumpf SENFE_L_B9B8
   k_ldl -16
-  k_ldriw $C536
+  k_ldriw SENFE_D_C536
   k_add
   k_derefb
   k_stl -14
@@ -3276,7 +3276,7 @@ SENFE_L_BA57:
   k_stla $F428
   k_call SENFE_F_AF17
   k_pushi 1
-  k_pushiw $C599
+  k_pushiw SENFE_D_C599
   k_callx RF_2FB9, 4
   k_pushi 0
   k_pushi 2
@@ -3290,7 +3290,7 @@ SENFE_L_BA57:
   k_pushi 15
   k_callx RF_3EC3, 6
   k_pusha $F280
-  k_pushiw $8D74
+  k_pushiw RD_8D74
   k_pushib 30
   k_pushib 32
   k_pushi 0
@@ -3390,7 +3390,7 @@ SENFE_L_BB41:
   k_popr
   k_add
   k_pushl
-  k_ldliw $C350
+  k_ldliw SENFE_D_C350
   k_ldra $EE74
   k_sub
   k_pushl
@@ -3459,7 +3459,7 @@ SENFE_L_BBC5:
   k_callx RF_46C6, 2
   k_call SENFE_F_AF17
   k_pushi 1
-  k_pushiw $C5A0
+  k_pushiw SENFE_D_C5A0
   k_callx RF_2FB9, 4
   k_jump SENFE_L_BBDC
 SENFE_L_BBD8:
@@ -3468,6 +3468,7 @@ SENFE_L_BBD8:
 SENFE_L_BBDC:
   k_ldli 1
   k_return
+SENFE_D_BBDE:
   .byte $00, $04, $02, $02, $00, $00, $04, $04, $04, $00, $00, $00, $00, $00, $00, $00
   .byte $03, $02, $02, $00, $00, $03, $03, $02, $00, $00, $00, $00, $00, $00, $00, $00
   .byte $00, $00, $00, $00, $03, $04, $02, $00, $00, $00, $04, $02, $00, $00, $00, $00
@@ -3475,293 +3476,317 @@ SENFE_L_BBDC:
   .byte $00, $00, $03, $04, $03, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
   .byte $00, $04, $03, $04, $00, $00, $02, $02, $02, $00, $03, $03, $00, $00, $00, $02
   .byte $02, $03, $03, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $02, $00, $04
-  .byte $04, $04, $02, $00, $00, $00, $00, $00, $1B, $43, $32, $1B, $52, $28, $1B, $45
-  .byte $3E, $00, $1B, $43, $32, $1B, $52, $23, $1B, $45, $38, $00, $8C, $BC, $B1, $BC
-  .byte $CE, $BC, $F4, $BC, $21, $BD, $48, $BD, $64, $BD, $93, $BD, $C8, $BD, $E9, $BD
-  .byte $1D, $BE, $36, $BE, $48, $BE, $7D, $BE, $B7, $BE, $F5, $BE, $05, $BF, $4E, $6F
-  .byte $77, $0A, $0A
-  .byte "that we've met,"
-  .byte $0A, $0A
-  .byte "you're doomed!"
+  .byte $04, $04, $02, $00, $00, $00, $00, $00
+SENFE_D_BC56:
+  .byte $1B, $43, $32, $1B
+  .byte "R(", $1B, "E>", $00
+SENFE_D_BC60:
+  .byte $1B, $43, $32, $1B
+  .byte "R#", $1B, "E8", $00
+SENFE_D_BC6A:
+  .word SENFE_D_BC8C
+SENFE_D_BC6C:
+  .word SENFE_D_BCB1
+SENFE_D_BC6E:
+  .word SENFE_D_BCCE
+SENFE_D_BC70:
+  .word SENFE_D_BCF4
+SENFE_D_BC72:
+  .word SENFE_D_BD21
+SENFE_D_BC74:
+  .word SENFE_D_BD48
+SENFE_D_BC76:
+  .word SENFE_D_BD64
+SENFE_D_BC78:
+  .word SENFE_D_BD93
+SENFE_D_BC7A:
+  .word SENFE_D_BDC8
+SENFE_D_BC7C:
+  .word SENFE_D_BDE9
+SENFE_D_BC7E:
+  .word SENFE_D_BE1D
+SENFE_D_BC80:
+  .word SENFE_D_BE36
+SENFE_D_BC82:
+  .word SENFE_D_BE48
+SENFE_D_BC84:
+  .word SENFE_D_BE7D
+SENFE_D_BC86:
+  .word SENFE_D_BEB7
+SENFE_D_BC88:
+  .word SENFE_D_BEF5
+SENFE_D_BC8A:
+  .byte $05, $BF
+SENFE_D_BC8C:
+  .byte "Now", $0A, $0A, "that we've met,", $0A, $0A, "you're doomed!", $00
+SENFE_D_BCB1:
+  .byte "You won't throw me", $0A, "so easily", $00
+SENFE_D_BCCE:
+  .byte "How about a taste of", $0A, "justice, pirate!", $00
+SENFE_D_BCF4:
+  .byte "Let's show the boy", $0A, "what pirates are made", $0A, "of!", $00
+SENFE_D_BD21:
+  .byte "This is where I see", $0A, "you to your death!", $00
+SENFE_D_BD48:
+  .byte "Soon you will beg", $0A, "for mercy", $00
+SENFE_D_BD64:
+  .byte "Hand over your goods", $0A, "and I'll spare your", $0A, "life!", $00
+SENFE_D_BD93:
+  .byte "You pirate! You think", $0A, "we'll give in without", $0A, "a fight?", $00
+SENFE_D_BDC8:
+  .byte "Your", $0A, "devilry ends here,", $0A, "you rat!", $00
+SENFE_D_BDE9:
+  .byte "Ha! I'll slash ye", $0A, "down before ye make", $0A, "another move!", $00
+SENFE_D_BE1D:
+  .byte $0A, "I didn't come to", $0A, "fight.", $00
+SENFE_D_BE36:
+  .byte " Just give me", $0A, "the", $00
+SENFE_D_BE48:
+  .byte "Never! You'll have to", $0A, "fight for it, ye", $0A, "yellow-belly!", $00
+SENFE_D_BE7D:
+  .byte "Ye made it this far,", $0A, "youngster, but this", $0A, "is where ye die!", $00
+SENFE_D_BEB7:
+  .byte "So you're the rat who", $0A, "kidnapped Christiana!", $0A, "Prepare to fight!"
   .byte $00
-  .byte "You won't throw me"
-  .byte $0A
-  .byte "so easily"
+SENFE_D_BEF5:
+  .byte "Please save me!", $00
+  .byte "Hold on, I'll", $0A, "rescue you!", $00
+SENFE_D_BF1F:
+  .word SENFE_D_BF27, SENFE_D_BF30, SENFE_D_BF36, SENFE_D_BF3B
+SENFE_D_BF27:
+  .byte "Portugal", $00
+SENFE_D_BF30:
+  .byte "Spain", $00
+SENFE_D_BF36:
+  .byte "Turk", $00
+SENFE_D_BF3B:
+  .byte "pirate", $00
+SENFE_D_BF42:
+  .byte $1B
+  .byte "C0", $00
+SENFE_D_BF46:
+  .byte $1B
+  .byte "C2", $00
+SENFE_D_BF4A:
+  .byte "the ", $00
+SENFE_D_BF4F:
+  .byte "from ", $00
+SENFE_D_BF55:
+  .byte "They're challenging", $0A, "us to battle!", $00
+SENFE_D_BF77:
   .byte $00
-  .byte "How about a taste of"
-  .byte $0A
-  .byte "justice, pirate!"
+SENFE_D_BF78:
+  .byte $0A, "I'm ", $00
+SENFE_D_BF7E:
+  .byte "! %s", $00
+SENFE_D_BF83:
   .byte $00
-  .byte "Let's show the boy"
-  .byte $0A
-  .byte "what pirates are made"
-  .byte $0A, $6F, $66, $21, $00
-  .byte "This is where I see"
-  .byte $0A
-  .byte "you to your death!"
+SENFE_D_BF84:
+  .byte $0A, "We've found you,", $0A, $00
+SENFE_D_BF97:
+  .byte "! ", $00
+SENFE_D_BF9A:
   .byte $00
-  .byte "Soon you will beg"
-  .byte $0A
-  .byte "for mercy"
+SENFE_D_BF9B:
+  .byte "%s%s %s", $0A, "and I'll spare you", $00
+SENFE_D_BFB6:
   .byte $00
-  .byte "Hand over your goods"
-  .byte $0A
-  .byte "and I'll spare your"
-  .byte $0A
-  .byte "life!"
+SENFE_D_BFB7:
+  .byte $0A, "Oh, ", $00
+SENFE_D_BFBD:
+  .byte "!", $0A, $0A, "%s", $00
+SENFE_D_BFC3:
+  .word SENFE_D_BFC9, SENFE_D_BFE3, SENFE_D_BFF9
+SENFE_D_BFC9:
+  .byte "I'm not staying for", $0A, "this!", $00
+SENFE_D_BFE3:
+  .byte "Time for me to", $0A, "leave!", $00
+SENFE_D_BFF9:
+  .byte "So long! You'll have", $0A, "to fight this out", $0A, "on your own!", $00
+SENFE_D_C02D:
+  .byte $1B, $52, $22, $1B
+  .byte "E>", $1B, "C0[", $00
+SENFE_D_C038:
+  .byte $20, $00
+SENFE_D_C03A:
+  .byte $5D, $00
+SENFE_D_C03C:
+  .byte $5B, $00
+SENFE_D_C03E:
+  .byte $20, $00
+SENFE_D_C040:
+  .byte "Captain ", $00
+SENFE_D_C049:
+  .byte $5D, $00, $00
+SENFE_D_C04C:
+  .word SENFE_D_C052, SENFE_D_C073
+  .byte $8B, $C0
+SENFE_D_C052:
+  .byte "Blasted curs!", $0A, "Pull away, maties!", $00
+SENFE_D_C073:
+  .byte "I'll never forget", $0A, "this!", $00
   .byte $00
-  .byte "You pirate! You think"
-  .byte $0A
-  .byte "we'll give in without"
-  .byte $0A
-  .byte "a fight?"
+SENFE_D_C08C:
+  .byte $A6, $C0, $C4, $C0, $C5, $C0
+SENFE_D_C092:
+  .word SENFE_D_C0EA
+SENFE_D_C094:
+  .word SENFE_D_C11C
+SENFE_D_C096:
+  .word SENFE_D_C13C
+SENFE_D_C098:
+  .word SENFE_D_C171
+SENFE_D_C09A:
+  .word SENFE_D_C19F
+SENFE_D_C09C:
+  .word SENFE_D_C1DA
+SENFE_D_C09E:
+  .word SENFE_D_C1F0
+SENFE_D_C0A0:
+  .word SENFE_D_C20C
+SENFE_D_C0A2:
+  .word SENFE_D_C228
+SENFE_D_C0A4:
+  .word SENFE_D_C261
+  .byte "Blast! We're through,", $0A, "maties!", $00
   .byte $00
-  .byte "Your"
-  .byte $0A
-  .byte "devilry ends here,"
-  .byte $0A
-  .byte "you rat!"
+  .byte "Im-impossible! I'm", $0A, "not ready to die!", $00
+SENFE_D_C0EA:
+  .byte "Cap'n, the sun's", $0A, "setting. We can't go", $0A, "on fighting", $00
+SENFE_D_C11C:
+  .byte "Are ye running away,", $0A, "youngster?", $00
+SENFE_D_C13C:
+  .byte "At this rate we're", $0A, "finished for sure.", $0A, "Let's pull out", $00
+SENFE_D_C171:
+  .byte "Now there's a bit o'", $0A, "wisdom! Let's sail", $0A, "away!", $00
+SENFE_D_C19F:
+  .byte "Now things should be", $0A, "a bit quieter in this", $0A, "part of the sea", $00
+SENFE_D_C1DA:
+  .byte "Where's the", $0A, "princess?", $00
+SENFE_D_C1F0:
+  .byte "Don't worry, she's", $0A, "safe now", $00
+SENFE_D_C20C:
+  .byte ", how", $0A, "can I ever thank", $0A, "you!", $00
+SENFE_D_C228:
+  .byte "We're thankful for", $0A, "your safe return,", $0A, "Princess Christiana", $00
+SENFE_D_C261:
+  .byte "Captain, restrain", $0A, "yourself until we've", $0A, "seized the treasure", $00
+SENFE_D_C29C:
+  .word SENFE_D_C2AC
+SENFE_D_C29E:
+  .word SENFE_D_C2D7
+SENFE_D_C2A0:
+  .word SENFE_D_C2ED
+SENFE_D_C2A2:
+  .word SENFE_D_C307
+SENFE_D_C2A4:
+  .byte $35, $C3, $76, $C3
+SENFE_D_C2A8:
+  .word SENFE_D_C377
+SENFE_D_C2AA:
+  .word SENFE_D_C389
+SENFE_D_C2AC:
+  .byte $0A, "Unable to withstand", $0A, $0A, "the bold attack by", $0A, $0A, $00
+SENFE_D_C2D7:
+  .byte ", the", $0A, $0A, "enemy withdrew", $00
+SENFE_D_C2ED:
+  .byte $0A, "Victory smiled down", $0A, $0A, "on ", $00
+SENFE_D_C307:
+  .byte " as", $0A, $0A, "the enemy's flagship", $0A, $0A, "roared into flames", $00
+  .byte " withdrew", $0A, $0A, "as the enemy's", $0A, $0A
+SENFE_D_C350:
+  .byte "scornful laughter", $0A, $0A, "echoed from behind", $00
   .byte $00
-  .byte "Ha! I'll slash ye"
-  .byte $0A
-  .byte "down before ye make"
-  .byte $0A
-  .byte "another move!"
-  .byte $00, $0A
-  .byte "I didn't come to"
-  .byte $0A
-  .byte "fight."
+SENFE_D_C377:
+  .byte $0A, "Heroic Captain", $0A, $0A, $00
+SENFE_D_C389:
+  .byte " rescued", $0A, $0A, "Princess Christiana", $0A, $0A, "from the enemy", $00
+SENFE_D_C3B7:
+  .byte "The %s will hear", $0A, "about this!", $00
+SENFE_D_C3D4:
+  .byte "Sultan", $00
+SENFE_D_C3DB:
+  .byte "King", $00
+SENFE_D_C3E0:
+  .byte "We were lucky to", $0A, "escape!", $00
+SENFE_D_C3F9:
+  .byte "Cap'n, the head count", $0A, "doesn't tally. I fear", $0A, "we lost a few mates"
   .byte $00
-  .byte " Just give me"
-  .byte $0A, $74, $68, $65, $00
-  .byte "Never! You'll have to"
-  .byte $0A
-  .byte "fight for it, ye"
-  .byte $0A
-  .byte "yellow-belly!"
+SENFE_D_C439:
+  .byte $0A, $00
+SENFE_D_C43B:
+  .word SENFE_D_C443, SENFE_D_C44C, SENFE_D_C452
+  .byte $5D, $C4
+SENFE_D_C443:
+  .byte "Portugal", $00
+SENFE_D_C44C:
+  .byte "Spain", $00
+SENFE_D_C452:
+  .byte "the Empire", $00
   .byte $00
-  .byte "Ye made it this far,"
-  .byte $0A
-  .byte "youngster, but this"
-  .byte $0A
-  .byte "is where ye die!"
+SENFE_D_C45E:
+  .byte $0A, "This is the end", $0A, $0A, "for us!", $00
+SENFE_D_C478:
+  .byte " Glory to", $0A, $0A, $00
+SENFE_D_C484:
+  .byte $21, $00
+SENFE_D_C486:
+  .byte "All hands aided in", $0A, "our success!", $00
+SENFE_D_C4A6:
   .byte $00
-  .byte "So you're the rat who"
-  .byte $0A
-  .byte "kidnapped Christiana!"
-  .byte $0A
-  .byte "Prepare to fight!"
-  .byte $00
-  .byte "Please save me!"
-  .byte $00
-  .byte "Hold on, I'll"
-  .byte $0A
-  .byte "rescue you!"
-  .byte $00, $27, $BF, $30, $BF, $36, $BF, $3B, $BF
-  .byte "Portugal"
-  .byte $00
-  .byte "Spain"
-  .byte $00
-  .byte "Turk"
-  .byte $00
-  .byte "pirate"
-  .byte $00, $1B, $43, $30, $00, $1B, $43, $32, $00
-  .byte "the "
-  .byte $00
-  .byte "from "
-  .byte $00
-  .byte "They're challenging"
-  .byte $0A
-  .byte "us to battle!"
-  .byte $00, $00, $0A
-  .byte "I'm "
-  .byte $00
-  .byte "! %s"
-  .byte $00, $00, $0A
-  .byte "We've found you,"
-  .byte $0A, $00, $21, $20, $00, $00
-  .byte "%s%s %s"
-  .byte $0A
-  .byte "and I'll spare you"
-  .byte $00, $00, $0A
-  .byte "Oh, "
-  .byte $00, $21, $0A, $0A, $25, $73, $00, $C9, $BF, $E3, $BF, $F9, $BF
-  .byte "I'm not staying for"
-  .byte $0A
-  .byte "this!"
-  .byte $00
-  .byte "Time for me to"
-  .byte $0A
-  .byte "leave!"
-  .byte $00
-  .byte "So long! You'll have"
-  .byte $0A
-  .byte "to fight this out"
-  .byte $0A
-  .byte "on your own!"
-  .byte $00, $1B, $52, $22, $1B, $45, $3E, $1B, $43, $30, $5B, $00, $20, $00, $5D, $00
-  .byte $5B, $00, $20, $00
-  .byte "Captain "
-  .byte $00, $5D, $00, $00, $52, $C0, $73, $C0, $8B, $C0
-  .byte "Blasted curs!"
-  .byte $0A
-  .byte "Pull away, maties!"
-  .byte $00
-  .byte "I'll never forget"
-  .byte $0A
-  .byte "this!"
-  .byte $00, $00, $A6, $C0, $C4, $C0, $C5, $C0, $EA, $C0, $1C, $C1, $3C, $C1, $71, $C1
-  .byte $9F, $C1, $DA, $C1, $F0, $C1, $0C, $C2, $28, $C2, $61, $C2
-  .byte "Blast! We're through,"
-  .byte $0A
-  .byte "maties!"
-  .byte $00, $00
-  .byte "Im-impossible! I'm"
-  .byte $0A
-  .byte "not ready to die!"
-  .byte $00
-  .byte "Cap'n, the sun's"
-  .byte $0A
-  .byte "setting. We can't go"
-  .byte $0A
-  .byte "on fighting"
-  .byte $00
-  .byte "Are ye running away,"
-  .byte $0A
-  .byte "youngster?"
-  .byte $00
-  .byte "At this rate we're"
-  .byte $0A
-  .byte "finished for sure."
-  .byte $0A
-  .byte "Let's pull out"
-  .byte $00
-  .byte "Now there's a bit o'"
-  .byte $0A
-  .byte "wisdom! Let's sail"
-  .byte $0A
-  .byte "away!"
-  .byte $00
-  .byte "Now things should be"
-  .byte $0A
-  .byte "a bit quieter in this"
-  .byte $0A
-  .byte "part of the sea"
-  .byte $00
-  .byte "Where's the"
-  .byte $0A
-  .byte "princess?"
-  .byte $00
-  .byte "Don't worry, she's"
-  .byte $0A
-  .byte "safe now"
-  .byte $00
-  .byte ", how"
-  .byte $0A
-  .byte "can I ever thank"
-  .byte $0A
-  .byte "you!"
-  .byte $00
-  .byte "We're thankful for"
-  .byte $0A
-  .byte "your safe return,"
-  .byte $0A
-  .byte "Princess Christiana"
-  .byte $00
-  .byte "Captain, restrain"
-  .byte $0A
-  .byte "yourself until we've"
-  .byte $0A
-  .byte "seized the treasure"
-  .byte $00, $AC, $C2, $D7, $C2, $ED, $C2, $07, $C3, $35, $C3, $76, $C3, $77, $C3, $89
-  .byte $C3, $0A
-  .byte "Unable to withstand"
-  .byte $0A, $0A
-  .byte "the bold attack by"
+SENFE_D_C4A7:
+  .byte $0A, $00
+SENFE_D_C4A9:
+  .byte $0A, "On ", $00
+SENFE_D_C4AE:
+  .byte $20, $00
+SENFE_D_C4B0:
+  .byte ", ", $00
+SENFE_D_C4B3:
+  .byte ",", $0A, $0A, "Captain ", $00
+SENFE_D_C4BF:
   .byte $0A, $0A, $00
-  .byte ", the"
-  .byte $0A, $0A
-  .byte "enemy withdrew"
-  .byte $00, $0A
-  .byte "Victory smiled down"
-  .byte $0A, $0A, $6F, $6E, $20, $00, $20, $61, $73, $0A, $0A
-  .byte "the enemy's flagship"
-  .byte $0A, $0A
-  .byte "roared into flames"
+SENFE_D_C4C2:
+  .byte "lost his life in a", $0A, $0A, "stormy battle at sea", $00
+SENFE_D_C4EB:
+  .byte $1B, "C2Here are our spoils", $00
+SENFE_D_C502:
+  .byte $1B
+  .byte "R", $22, $1B, "E>", $00
+SENFE_D_C509:
+  .byte "Gold: %d", $00
+SENFE_D_C512:
+  .byte "Treasure:", $00
+SENFE_D_C51C:
+  .byte $1B, "C2(A-more  B-cancel)", $00
+SENFE_D_C532:
+  .byte $1B
+  .byte "C0", $00
+SENFE_D_C536:
+  .byte $FF, $00, $02, $03
+SENFE_D_C53A:
   .byte $00
-  .byte " withdrew"
-  .byte $0A, $0A
-  .byte "as the enemy's"
-  .byte $0A, $0A
-  .byte "scornful laughter"
-  .byte $0A, $0A
-  .byte "echoed from behind"
-  .byte $00, $00, $0A
-  .byte "Heroic Captain"
-  .byte $0A, $0A, $00
-  .byte " rescued"
-  .byte $0A, $0A
-  .byte "Princess Christiana"
-  .byte $0A, $0A
-  .byte "from the enemy"
+SENFE_D_C53B:
+  .byte $0A, $00
+SENFE_D_C53D:
+  .byte $1B, $43, $32, $1B
+  .byte "R(", $1B, "E>", $00
+SENFE_D_C547:
   .byte $00
-  .byte "The %s will hear"
-  .byte $0A
-  .byte "about this!"
+SENFE_D_C548:
+  .byte $0A, $00
+SENFE_D_C54A:
+  .byte "'s", $0A, $0A, $00
+SENFE_D_C54F:
+  .byte "Captain, your", $0A, $0A, $00
+SENFE_D_C55F:
+  .byte "battle skill has", $0A, $0A, "improved!", $1B, "W", $00
+SENFE_D_C57D:
+  .byte "won a great victory", $0A, $0A, "at sea", $00
+SENFE_D_C599:
+  .byte $1B
+  .byte "R ", $1B, "E?", $00
+SENFE_D_C5A0:
+  .byte $1B
+  .byte "R ", $1B, "E?", $00
   .byte $00
-  .byte "Sultan"
-  .byte $00
-  .byte "King"
-  .byte $00
-  .byte "We were lucky to"
-  .byte $0A
-  .byte "escape!"
-  .byte $00
-  .byte "Cap'n, the head count"
-  .byte $0A
-  .byte "doesn't tally. I fear"
-  .byte $0A
-  .byte "we lost a few mates"
-  .byte $00, $0A, $00, $43, $C4, $4C, $C4, $52, $C4, $5D, $C4
-  .byte "Portugal"
-  .byte $00
-  .byte "Spain"
-  .byte $00
-  .byte "the Empire"
-  .byte $00, $00, $0A
-  .byte "This is the end"
-  .byte $0A, $0A
-  .byte "for us!"
-  .byte $00
-  .byte " Glory to"
-  .byte $0A, $0A, $00, $21, $00
-  .byte "All hands aided in"
-  .byte $0A
-  .byte "our success!"
-  .byte $00, $00, $0A, $00, $0A, $4F, $6E, $20, $00, $20, $00, $2C, $20, $00, $2C, $0A
-  .byte $0A
-  .byte "Captain "
-  .byte $00, $0A, $0A, $00
-  .byte "lost his life in a"
-  .byte $0A, $0A
-  .byte "stormy battle at sea"
-  .byte $00, $1B
-  .byte "C2Here are our spoils"
-  .byte $00, $1B, $52, $22, $1B, $45, $3E, $00
-  .byte "Gold: %d"
-  .byte $00
-  .byte "Treasure:"
-  .byte $00, $1B
-  .byte "C2(A-more  B-cancel)"
-  .byte $00, $1B, $43, $30, $00, $FF, $00, $02, $03, $00, $0A, $00, $1B, $43, $32, $1B
-  .byte $52, $28, $1B, $45, $3E, $00, $00, $0A, $00, $27, $73, $0A, $0A, $00
-  .byte "Captain, your"
-  .byte $0A, $0A, $00
-  .byte "battle skill has"
-  .byte $0A, $0A
-  .byte "improved!"
-  .byte $1B, $57, $00
-  .byte "won a great victory"
-  .byte $0A, $0A
-  .byte "at sea"
-  .byte $00, $1B, $52, $20, $1B, $45, $3F, $00, $1B, $52, $20, $1B, $45, $3F, $00, $00

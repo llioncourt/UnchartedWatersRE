@@ -31,7 +31,7 @@ UCOM_F_9615:
   k_pushl
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8EC0
+  k_ldriw RD_8EC0
   k_add
   k_deref
   k_popr
@@ -53,7 +53,7 @@ UCOM_L_9634:
   k_pushl
   k_ldl -2
   k_shl1
-  k_ldriw $BF42
+  k_ldriw UCOM_D_BF42
   k_add
   k_deref
   k_popr
@@ -94,14 +94,14 @@ UCOM_F_9675:
   k_callx RF_3F3E, 2
   k_jumpt UCOM_L_9695
   k_call RF_5C91
-  k_pushiw $BF87
+  k_pushiw UCOM_D_BF87
   k_callx RF_4B44, 2
 UCOM_L_9695:
   k_call RF_5F0F
 UCOM_L_9698:
   k_pushi 3
   k_pushi 6
-  k_pushiw $BF4A
+  k_pushiw UCOM_D_BF4A
   k_pushi 2
   k_pushi 5
   k_callx RF_48A7, 10
@@ -115,7 +115,7 @@ UCOM_L_9698:
 UCOM_L_96AD:
   k_ldl -2
   k_shl1
-  k_ldriw $BF56
+  k_ldriw UCOM_D_BF56
   k_add
   k_deref
   k_callptr
@@ -141,7 +141,7 @@ UCOM_F_96C6:
   k_and
   k_jumpf UCOM_L_9716
   k_pushi 1
-  k_pushiw $C006
+  k_pushiw UCOM_D_C006
   k_callx RF_2FB9, 4
   k_call RF_49B5
   k_stl -2
@@ -162,17 +162,17 @@ UCOM_F_96C6:
   k_addli 8
   k_derefb
   k_shl1
-  k_ldriw $BFB8
+  k_ldriw UCOM_D_BFB8
   k_add
   k_deref
   k_pushl
-  k_pushiw $C01E
+  k_pushiw UCOM_D_C01E
   k_callx RF_3619, 4
 UCOM_L_9714:
   k_ldl -2
   k_return
 UCOM_L_9716:
-  k_pushiw $C040
+  k_pushiw UCOM_D_C040
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -189,7 +189,7 @@ UCOM_F_971F:
   k_ldri 1
   k_and
   k_jumpf UCOM_L_9749
-  k_pushiw $C05B
+  k_pushiw UCOM_D_C05B
   k_callx RF_4B44, 2
   k_pushiw $00FE
   k_ldl -2
@@ -200,7 +200,7 @@ UCOM_F_971F:
   k_and
   k_jump UCOM_L_9757
 UCOM_L_9749:
-  k_pushiw $C072
+  k_pushiw UCOM_D_C072
   k_callx RF_4B44, 2
   k_pushi 1
   k_ldl -2
@@ -228,7 +228,7 @@ UCOM_F_9773:
   k_func 2
   k_pushi 2
   k_pushi 2
-  k_pushiw $C092
+  k_pushiw UCOM_D_C092
   k_pushi 2
   k_pushi 0
   k_callx RF_47E1, 10
@@ -242,7 +242,7 @@ UCOM_F_9773:
 UCOM_L_978E:
   k_ldl -2
   k_shl1
-  k_ldriw $C096
+  k_ldriw UCOM_D_C096
   k_add
   k_deref
   k_callptr
@@ -573,7 +573,7 @@ UCOM_L_995F:
   k_callx RF_5C13, 2
 UCOM_L_996C:
   k_pushi 0
-  k_pushiw $C0B0
+  k_pushiw UCOM_D_C0B0
   k_callx RF_2FB9, 4
   k_ldln -19
   k_derefb
@@ -588,15 +588,15 @@ UCOM_L_996C:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C0B2
+  k_pushiw UCOM_D_C0B2
   k_jump UCOM_L_9994
 UCOM_L_9990:
   k_pushi 0
-  k_pushiw $C0B5
+  k_pushiw UCOM_D_C0B5
 UCOM_L_9994:
   k_callx RF_2FB9, 4
   k_pushi 0
-  k_pushiw $C0C1
+  k_pushiw UCOM_D_C0C1
   k_callx RF_2FB9, 4
   k_ldl -6
   k_pushl
@@ -754,13 +754,13 @@ UCOM_L_9A89:
   k_ldriw $00FF
   k_eq
   k_jumpf UCOM_L_9A9E
-  k_pushiw $C0E1
+  k_pushiw UCOM_D_C0E1
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
 UCOM_L_9A9E:
   k_pushi 0
-  k_pushiw $C0F6
+  k_pushiw UCOM_D_C0F6
   k_callx RF_2FB9, 4
   k_ldln -74
   k_ldrib 19
@@ -770,7 +770,7 @@ UCOM_L_9A9E:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C107
+  k_pushiw UCOM_D_C107
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf UCOM_L_9B50
@@ -1157,7 +1157,7 @@ UCOM_F_9D00:
   k_stl -4
   k_call RF_5C91
   k_pushi 1
-  k_pushiw $C109
+  k_pushiw UCOM_D_C109
   k_callx RF_2FB9, 4
   k_leal -2
   k_pushl
@@ -1169,7 +1169,7 @@ UCOM_F_9D00:
   k_jumpf UCOM_L_9DB5
   k_call RF_5C3E
   k_pushi 1
-  k_pushiw $C120
+  k_pushiw UCOM_D_C120
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf UCOM_L_9DB3
@@ -1346,14 +1346,14 @@ UCOM_L_9E14:
   k_ldl -2
   k_jumpt UCOM_L_9E2B
   k_call RF_5C91
-  k_pushiw $C14D
+  k_pushiw UCOM_D_C14D
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
 UCOM_L_9E2B:
   k_pushi 2
   k_pushi 2
-  k_pushiw $C131
+  k_pushiw UCOM_D_C131
   k_pushi 2
   k_pushi 0
   k_callx RF_47E1, 10
@@ -1367,7 +1367,7 @@ UCOM_L_9E2B:
 UCOM_L_9E41:
   k_ldl -8
   k_shl1
-  k_ldriw $C135
+  k_ldriw UCOM_D_C135
   k_add
   k_deref
   k_callptr
@@ -1539,7 +1539,7 @@ UCOM_F_9F47:
   k_ldri 1
   k_ugt
   k_jumpf UCOM_L_9FAC
-  k_ldliw $C168
+  k_ldliw UCOM_D_C168
   k_stl -8
   k_ldlarg 13
   k_stl -2
@@ -1579,10 +1579,10 @@ UCOM_L_9F74:
   k_ugt
   k_jumpf UCOM_L_9FA5
   k_pusharg 11
-  k_pushiw $C169
+  k_pushiw UCOM_D_C169
   k_callx RF_3619, 4
   k_pusharg 11
-  k_pushiw $C185
+  k_pushiw UCOM_D_C185
   k_callx RF_3C7B, 4
   k_stl -10
   k_ldl -10
@@ -1599,7 +1599,7 @@ UCOM_L_9F9F:
   k_derefb
   k_return
 UCOM_L_9FA5:
-  k_pushiw $C18F
+  k_pushiw UCOM_D_C18F
   k_callx RF_4B44, 2
 UCOM_L_9FAC:
   k_ldlarg 13
@@ -1616,7 +1616,7 @@ UCOM_F_9FAF:
   k_and
   k_jumpt UCOM_L_9FCC
   k_call RF_5C91
-  k_pushiw $C1BE
+  k_pushiw UCOM_D_C1BE
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -1740,18 +1740,18 @@ UCOM_L_A06D:
   k_push -8
   k_ldl -4
   k_shl1
-  k_ldriw $C1B2
+  k_ldriw UCOM_D_C1B2
   k_add
   k_deref
   k_pushl
   k_push -6
   k_ldl -2
   k_shl1
-  k_ldriw $C1AE
+  k_ldriw UCOM_D_C1AE
   k_add
   k_deref
   k_pushl
-  k_pushiw $C1D6
+  k_pushiw UCOM_D_C1D6
   k_callx RF_3619, 10
   k_call RF_472D
   k_ldli 1
@@ -1842,11 +1842,11 @@ UCOM_F_A0C4:
   k_stln -23
   k_ldln -23
   k_shl1
-  k_ldriw $C1FC
+  k_ldriw UCOM_D_C1FC
   k_add
   k_deref
   k_pushl
-  k_pushiw $C2B9
+  k_pushiw UCOM_D_C2B9
   k_callx RF_3608, 4
   k_ldln -13
   k_inc
@@ -1863,11 +1863,11 @@ UCOM_F_A0C4:
   k_ldri 3
   k_udiv
   k_shl1
-  k_ldriw $C204
+  k_ldriw UCOM_D_C204
   k_add
   k_deref
   k_pushl
-  k_pushiw $C2C2
+  k_pushiw UCOM_D_C2C2
   k_callx RF_3608, 4
   k_ldln -13
   k_inc
@@ -1880,7 +1880,7 @@ UCOM_F_A0C4:
   k_pusharg 11
   k_callx RF_2AE0, 2
   k_pushl
-  k_pushiw $C2C5
+  k_pushiw UCOM_D_C2C5
   k_callx RF_3608, 4
   k_ldli 2
   k_swap
@@ -1898,11 +1898,11 @@ UCOM_F_A0C4:
   k_ldri 7
   k_and
   k_shl1
-  k_ldriw $C208
+  k_ldriw UCOM_D_C208
   k_add
   k_deref
   k_pushl
-  k_pushiw $C2CF
+  k_pushiw UCOM_D_C2CF
   k_callx RF_3608, 4
   k_ldli 2
   k_swap
@@ -1915,7 +1915,7 @@ UCOM_F_A0C4:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C2DA
+  k_pushiw UCOM_D_C2DA
   k_callx RF_2FB9, 4
   k_leal -9
   k_stl -2
@@ -1989,7 +1989,7 @@ UCOM_L_A217:
   k_stln -31
   k_ldln -31
   k_shl1
-  k_ldriw $C228
+  k_ldriw UCOM_D_C228
   k_add
   k_deref
   k_callptr
@@ -2002,7 +2002,7 @@ UCOM_L_A217:
   k_uge
   k_jumpf UCOM_L_A27D
   k_pushi 0
-  k_pushiw $C2E0
+  k_pushiw UCOM_D_C2E0
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_addlib 20
@@ -2014,7 +2014,7 @@ UCOM_L_A217:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C2EF
+  k_pushiw UCOM_D_C2EF
   k_callx RF_2FB9, 4
   k_ldli 1
   k_swap
@@ -2028,7 +2028,7 @@ UCOM_L_A217:
   k_jumpf UCOM_L_A294
   k_call RF_5C3E
   k_pushi 1
-  k_pushiw $C2FA
+  k_pushiw UCOM_D_C2FA
   k_callx RF_2FB9, 4
   k_jump UCOM_L_A291
 UCOM_L_A27D:
@@ -2038,11 +2038,11 @@ UCOM_L_A27D:
   k_ldri 7
   k_and
   k_shl1
-  k_ldriw $C218
+  k_ldriw UCOM_D_C218
   k_add
   k_deref
   k_pushl
-  k_pushiw $C315
+  k_pushiw UCOM_D_C315
   k_callx RF_3619, 4
 UCOM_L_A291:
   k_call RF_472D
@@ -2269,7 +2269,7 @@ UCOM_F_A3CD:
   k_ldl -14
   k_jumpt UCOM_L_A412
   k_call RF_5C91
-  k_pushiw $C32B
+  k_pushiw UCOM_D_C32B
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -2336,12 +2336,12 @@ UCOM_L_A453:
 UCOM_L_A461:
   k_ldln -28
   k_shl1
-  k_ldriw $C327
+  k_ldriw UCOM_D_C327
   k_add
   k_deref
   k_callptr
 UCOM_L_A46A:
-  k_pushiw $C340
+  k_pushiw UCOM_D_C340
   k_callx RF_4B44, 2
   k_ldln -28
   k_jumpf UCOM_L_A4C3
@@ -2430,12 +2430,12 @@ UCOM_L_A4C3:
   k_jumpt UCOM_L_A529
   k_ldln -28
   k_shl1
-  k_ldriw $C327
+  k_ldriw UCOM_D_C327
   k_add
   k_deref
   k_callptr
   k_call RF_5C3E
-  k_pushiw $C34C
+  k_pushiw UCOM_D_C34C
   k_callx RF_4B44, 2
   k_jump UCOM_L_A55B
 UCOM_L_A529:
@@ -2447,12 +2447,12 @@ UCOM_L_A529:
 UCOM_L_A534:
   k_ldln -28
   k_shl1
-  k_ldriw $C327
+  k_ldriw UCOM_D_C327
   k_add
   k_deref
   k_callptr
   k_pushi 0
-  k_pushiw $C35D
+  k_pushiw UCOM_D_C35D
   k_callx RF_2FB9, 4
   k_ldl -2
   k_dec
@@ -2463,7 +2463,7 @@ UCOM_L_A534:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C37B
+  k_pushiw UCOM_D_C37B
   k_callx RF_2FB9, 4
 UCOM_L_A55B:
   k_ldli 1
@@ -2754,7 +2754,7 @@ UCOM_F_A705:
   k_ugt
   k_jumpf UCOM_L_A724
   k_call RF_5C3E
-  k_pushiw $C380
+  k_pushiw UCOM_D_C380
   k_jump UCOM_L_A7F4
 UCOM_L_A724:
   k_ldlarg 11
@@ -2783,7 +2783,7 @@ UCOM_L_A724:
   k_stln -31
   k_call RF_5C3E
   k_pushi 0
-  k_pushiw $C39F
+  k_pushiw UCOM_D_C39F
   k_callx RF_2FB9, 4
   k_ldln -29
   k_shl1
@@ -2807,15 +2807,15 @@ UCOM_L_A724:
   k_jumpf UCOM_L_A78C
 UCOM_L_A785:
   k_pushi 0
-  k_pushiw $C3A1
+  k_pushiw UCOM_D_C3A1
   k_jump UCOM_L_A790
 UCOM_L_A78C:
   k_pushi 0
-  k_pushiw $C3A6
+  k_pushiw UCOM_D_C3A6
 UCOM_L_A790:
   k_callx RF_2FB9, 4
   k_pushi 0
-  k_pushiw $C3AA
+  k_pushiw UCOM_D_C3AA
   k_callx RF_2FB9, 4
   k_ldln -31
   k_ldrib 19
@@ -2824,11 +2824,11 @@ UCOM_L_A790:
   k_add
   k_pushl
   k_callx RF_40DE, 2
-  k_pushiw $C3BB
+  k_pushiw UCOM_D_C3BB
   k_jump UCOM_L_A7F4
 UCOM_L_A7B0:
   k_call RF_5C3E
-  k_pushiw $C3BC
+  k_pushiw UCOM_D_C3BC
   k_jump UCOM_L_A7F4
 UCOM_L_A7B9:
   k_call UCOM_F_A6DF
@@ -2839,7 +2839,7 @@ UCOM_L_A7B9:
   k_jumpf UCOM_L_A7EE
   k_call RF_5C3E
   k_pushi 0
-  k_pushiw $C3D6
+  k_pushiw UCOM_D_C3D6
   k_callx RF_2FB9, 4
   k_ldln -31
   k_ldrib 19
@@ -2849,13 +2849,13 @@ UCOM_L_A7B9:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $C3E0
+  k_pushiw UCOM_D_C3E0
   k_callx RF_2FB9, 4
-  k_pushiw $C3FD
+  k_pushiw UCOM_D_C3FD
   k_jump UCOM_L_A7F4
 UCOM_L_A7EE:
   k_call RF_5C3E
-  k_pushiw $C3FE
+  k_pushiw UCOM_D_C3FE
 UCOM_L_A7F4:
   k_callx RF_4B44, 2
   k_return
@@ -2894,9 +2894,9 @@ UCOM_F_A818:
   k_callx UCOM_F_A7F9, 2
   k_call RF_5C3E
   k_pushi 0
-  k_pushiw $C411
+  k_pushiw UCOM_D_C411
   k_callx RF_2FB9, 4
-  k_pushiw $C44B
+  k_pushiw UCOM_D_C44B
   k_callx RF_4B44, 2
   k_jump UCOM_L_A847
 UCOM_L_A83F:
@@ -2926,7 +2926,7 @@ UCOM_F_A848:
   k_ldri 1
   k_eq
   k_jumpf UCOM_L_A878
-  k_pushiw $C44C
+  k_pushiw UCOM_D_C44C
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -2981,7 +2981,7 @@ UCOM_L_A8B9:
 UCOM_L_A8C7:
   k_call RF_5C3E
 UCOM_L_A8CA:
-  k_pushiw $C468
+  k_pushiw UCOM_D_C468
   k_callx RF_4B44, 2
 UCOM_L_A8D1:
   k_pushi 0
@@ -3031,7 +3031,7 @@ UCOM_L_A8D1:
   k_ldln -31
   k_jumpt UCOM_L_A940
   k_call RF_5C3E
-  k_pushiw $C475
+  k_pushiw UCOM_D_C475
   k_callx RF_4B44, 2
   k_jump UCOM_L_A971
 UCOM_L_A940:
@@ -3072,7 +3072,7 @@ UCOM_F_A97F:
   k_func 2
   k_pushi 3
   k_pushi 3
-  k_pushiw $C486
+  k_pushiw UCOM_D_C486
   k_pushi 2
   k_pushi 0
   k_callx RF_47E1, 10
@@ -3086,7 +3086,7 @@ UCOM_F_A97F:
 UCOM_L_A99A:
   k_ldl -2
   k_shl1
-  k_ldriw $C48C
+  k_ldriw UCOM_D_C48C
   k_add
   k_deref
   k_callptr
@@ -3202,7 +3202,7 @@ UCOM_L_AA25:
   k_ldri 15
   k_uge
   k_jumpf UCOM_L_AA51
-  k_pushiw $C4F0
+  k_pushiw UCOM_D_C4F0
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -3229,7 +3229,7 @@ UCOM_L_AA51:
   k_stln -23
   k_ldln -23
   k_jumpt UCOM_L_AA86
-  k_pushiw $C51B
+  k_pushiw UCOM_D_C51B
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -3238,7 +3238,7 @@ UCOM_L_AA86:
   k_stln -29
 UCOM_L_AA89:
   k_call RF_5C3E
-  k_pushiw $C536
+  k_pushiw UCOM_D_C536
   k_callx RF_4B44, 2
   k_pushi 1
   k_pushn -41
@@ -3308,14 +3308,14 @@ UCOM_L_AA89:
   k_udiv
   k_stln -43
   k_pushi 1
-  k_pushiw $C543
+  k_pushiw UCOM_D_C543
   k_callx RF_2FB9, 4
   k_ldln -43
   k_ldri 3
   k_eq
   k_jumpf UCOM_L_AB30
   k_pushi 1
-  k_pushiw $C54F
+  k_pushiw UCOM_D_C54F
   k_jump UCOM_L_AB43
 UCOM_L_AB30:
   k_ldln -31
@@ -3328,7 +3328,7 @@ UCOM_L_AB30:
   k_pushi 1
   k_ldln -43
   k_shl1
-  k_ldriw $C4B4
+  k_ldriw UCOM_D_C4B4
   k_add
   k_deref
   k_pushl
@@ -3500,7 +3500,7 @@ UCOM_L_AC33:
   k_inc
   k_pushl
   k_pusharg 15
-  k_pushiw $C55E
+  k_pushiw UCOM_D_C55E
   k_callx RF_3787, 16
   k_stl -8
   k_call UCOM_F_AB9A
@@ -3567,13 +3567,13 @@ UCOM_L_ACA8:
   k_call RF_5C91
   k_ldl -24
   k_jumpt UCOM_L_ACBA
-  k_pushiw $C55F
+  k_pushiw UCOM_D_C55F
   k_callx RF_4B44, 2
   k_ldliw $00FF
   k_return
 UCOM_L_ACBA:
   k_pushi 1
-  k_pushiw $C57D
+  k_pushiw UCOM_D_C57D
   k_callx RF_2FB9, 4
   k_leal -22
   k_pushl
@@ -3652,7 +3652,7 @@ UCOM_L_AD1E:
   k_inc
   k_pushl
   k_pusharg 15
-  k_pushiw $C589
+  k_pushiw UCOM_D_C589
   k_callx RF_3787, 16
   k_stl -6
   k_call UCOM_F_AB9A
@@ -3686,7 +3686,7 @@ UCOM_F_AD5E:
 UCOM_L_AD67:
   k_pushi 2
   k_pushi 2
-  k_pushiw $C58A
+  k_pushiw UCOM_D_C58A
   k_pushi 2
   k_pushi 0
   k_callx RF_47E1, 10
@@ -3837,7 +3837,7 @@ UCOM_L_AE6B:
   k_jumpt UCOM_L_AE47
   k_call RF_5C91
   k_pushi 1
-  k_pushiw $C59C
+  k_pushiw UCOM_D_C59C
   k_callx RF_2FB9, 4
   k_leal -12
   k_pushl
@@ -3957,7 +3957,7 @@ UCOM_L_AF39:
   k_ldl -2
   k_jumpt UCOM_L_AF50
   k_call RF_5C91
-  k_pushiw $C5A8
+  k_pushiw UCOM_D_C5A8
   k_callx RF_4B44, 2
   k_jump UCOM_L_AFDA
 UCOM_L_AF50:
@@ -4018,7 +4018,7 @@ UCOM_L_AF70:
   k_addli 6
   k_deref
   k_pushl
-  k_pushiw $C5BE
+  k_pushiw UCOM_D_C5BE
   k_callx RF_3608, 4
   k_ldli 2
   k_swap
@@ -4039,7 +4039,7 @@ UCOM_L_AFB1:
   k_jumpt UCOM_L_AF70
   k_call RF_5C91
   k_pushi 0
-  k_pushiw $C5C2
+  k_pushiw UCOM_D_C5C2
   k_callx RF_2FB9, 4
   k_pusharg 15
   k_callx RF_40A5, 2
@@ -4172,7 +4172,7 @@ UCOM_F_B07D:
   k_callx UCOM_F_B01A, 2
   k_stl -10
   k_jumpt UCOM_L_B09A
-  k_pushiw $C5DF
+  k_pushiw UCOM_D_C5DF
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -4183,16 +4183,16 @@ UCOM_L_B09A:
   k_shr
   k_stl -8
   k_pushi 1
-  k_pushiw $C5F7
+  k_pushiw UCOM_D_C5F7
   k_callx RF_2FB9, 4
   k_ldl -8
   k_jumpf UCOM_L_B0B3
   k_pushi 1
-  k_pushiw $C60D
+  k_pushiw UCOM_D_C60D
   k_callx RF_2FB9, 4
 UCOM_L_B0B3:
   k_pushi 1
-  k_pushiw $C615
+  k_pushiw UCOM_D_C615
   k_callx RF_2FB9, 4
   k_call UCOM_F_B065
   k_stl -14
@@ -4358,7 +4358,7 @@ UCOM_L_B185:
   k_stl -4
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8EC0
+  k_ldriw RD_8EC0
   k_add
   k_deref
   k_pushl
@@ -4399,7 +4399,7 @@ UCOM_L_B1B1:
   k_stl -6
   k_pushib 126
   k_pushi 0
-  k_pushiw $C61C
+  k_pushiw UCOM_D_C61C
   k_pushi 2
   k_pushi 1
   k_push -6
@@ -4439,7 +4439,7 @@ UCOM_L_B1ED:
   k_stl -2
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8EC0
+  k_ldriw RD_8EC0
   k_add
   k_deref
   k_pushl
@@ -4473,7 +4473,7 @@ UCOM_L_B21B:
   k_add
   k_stl -4
   k_pushi 0
-  k_pusha $C620
+  k_pusha UCOM_D_C620
   k_push -4
   k_push -2
   k_pushi 14
@@ -4511,7 +4511,7 @@ UCOM_F_B273:
   k_and
   k_jumpt UCOM_L_B28C
   k_call RF_5C91
-  k_pushiw $C622
+  k_pushiw UCOM_D_C622
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -4668,7 +4668,7 @@ UCOM_L_B3A2:
   k_pushi 3
   k_pushi 5
 UCOM_L_B3A4:
-  k_pushiw $C63A
+  k_pushiw UCOM_D_C63A
   k_pushi 2
   k_pushi 6
   k_callx RF_47E1, 10
@@ -4683,7 +4683,7 @@ UCOM_L_B3A4:
 UCOM_L_B3BB:
   k_ldl -2
   k_shl1
-  k_ldriw $C646
+  k_ldriw UCOM_D_C646
   k_add
   k_deref
   k_callptr
@@ -4730,7 +4730,7 @@ UCOM_L_B3F5:
   k_pushl
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8EC0
+  k_ldriw RD_8EC0
   k_add
   k_deref
   k_pushl
@@ -4752,7 +4752,7 @@ UCOM_L_B3F5:
   k_add
   k_stlarg 13
   k_pushi 0
-  k_pusha $C674
+  k_pusha UCOM_D_C674
   k_pusharg 13
   k_pusharg 11
   k_pushn 19
@@ -4880,7 +4880,7 @@ UCOM_L_B4DA:
   k_stl -2
   k_ldl -10
   k_shl1
-  k_ldriw $C6E0
+  k_ldriw UCOM_D_C6E0
   k_add
   k_deref
   k_shl1
@@ -4897,7 +4897,7 @@ UCOM_L_B4F4:
   k_ldl -2
   k_derefb
   k_shl1
-  k_ldriw $C676
+  k_ldriw UCOM_D_C676
   k_add
   k_deref
   k_popstore
@@ -4985,7 +4985,7 @@ UCOM_L_B557:
   k_push -10
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C6F2
+  k_pushiw UCOM_D_C6F2
   k_callx RF_2FB9, 4
   k_ldlba $E99A
   k_stl -2
@@ -5011,7 +5011,7 @@ UCOM_L_B557:
   k_pushl
   k_callx RF_2F8F, 4
   k_push -2
-  k_pushiw $C700
+  k_pushiw UCOM_D_C700
   k_callx RF_3608, 4
   k_ldl -12
   k_addli 6
@@ -5021,11 +5021,11 @@ UCOM_L_B557:
   k_pushl
   k_callx RF_2F8F, 4
   k_push -4
-  k_pushiw $C706
+  k_pushiw UCOM_D_C706
   k_callx RF_3608, 4
   k_call RF_5C91
   k_pushi 1
-  k_pushiw $C70C
+  k_pushiw UCOM_D_C70C
   k_callx RF_2FB9, 4
   k_ldl -12
   k_addli 2
@@ -5051,7 +5051,7 @@ UCOM_L_B557:
   k_pushl
   k_callx RF_2F8F, 4
   k_push -2
-  k_pushiw $C736
+  k_pushiw UCOM_D_C736
   k_callx RF_3619, 4
   k_jump UCOM_L_B5FB
 UCOM_L_B5F5:
@@ -5084,7 +5084,7 @@ UCOM_L_B5FB:
   k_pushl
   k_callx RF_2F8F, 4
   k_push -4
-  k_pushiw $C73A
+  k_pushiw UCOM_D_C73A
   k_callx RF_3619, 4
   k_jump UCOM_L_B630
 UCOM_L_B62A:
@@ -5242,7 +5242,7 @@ UCOM_L_B6FB:
   k_pushi 0
   k_pusharg 11
   k_callx RF_5C5A, 4
-  k_pushiw $C73E
+  k_pushiw UCOM_D_C73E
   k_callx RF_4B44, 2
   k_return
 UCOM_F_B727:
@@ -5305,7 +5305,7 @@ UCOM_F_B73F:
   k_add
   k_derefb
   k_pushl
-  k_pushiw $C753
+  k_pushiw UCOM_D_C753
   k_callx RF_3619, 4
   k_ldla $E56D
   k_stl -4
@@ -5321,12 +5321,12 @@ UCOM_L_B79D:
   k_stl -8
   k_call RF_5C3E
   k_push -4
-  k_pushiw $C75F
+  k_pushiw UCOM_D_C75F
   k_callx RF_3619, 4
   k_pushi 1
   k_push -8
   k_pushi 1
-  k_pushiw $C768
+  k_pushiw UCOM_D_C768
   k_callx RF_3C4E, 8
   k_stl -6
   k_ldl -6
@@ -5351,7 +5351,7 @@ UCOM_L_B79D:
   k_add
   k_derefb
   k_pushl
-  k_pushiw $C778
+  k_pushiw UCOM_D_C778
   k_callx RF_3619, 4
   k_ldli 1
   k_stl -10
@@ -5375,7 +5375,7 @@ UCOM_F_B803:
   k_ldla $E56D
   k_jumpt UCOM_L_B81A
   k_call RF_5C91
-  k_pushiw $C78F
+  k_pushiw UCOM_D_C78F
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -5410,7 +5410,7 @@ UCOM_F_B843:
   k_func 20
   k_ldln 19
   k_shl1
-  k_ldriw $C7AD
+  k_ldriw UCOM_D_C7AD
   k_add
   k_deref
   k_stl -14
@@ -5430,7 +5430,7 @@ UCOM_F_B843:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C7BD
+  k_pushiw UCOM_D_C7BD
   k_callx RF_2FB9, 4
   k_ldlarg 13
   k_addlib 17
@@ -5440,7 +5440,7 @@ UCOM_F_B843:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C7C5
+  k_pushiw UCOM_D_C7C5
   k_callx RF_2FB9, 4
   k_ldlarg 13
   k_addlib 18
@@ -5450,7 +5450,7 @@ UCOM_F_B843:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C7CD
+  k_pushiw UCOM_D_C7CD
   k_jump UCOM_L_B8C9
 UCOM_L_B894:
   k_ldlarg 13
@@ -5461,7 +5461,7 @@ UCOM_L_B894:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C7D5
+  k_pushiw UCOM_D_C7D5
   k_callx RF_2FB9, 4
   k_ldlarg 13
   k_addlib 17
@@ -5471,7 +5471,7 @@ UCOM_L_B894:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C7DD
+  k_pushiw UCOM_D_C7DD
   k_callx RF_2FB9, 4
   k_ldlarg 13
   k_addlib 18
@@ -5481,7 +5481,7 @@ UCOM_L_B894:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C7E5
+  k_pushiw UCOM_D_C7E5
 UCOM_L_B8C9:
   k_callx RF_2FB9, 4
 UCOM_L_B8CD:
@@ -5493,7 +5493,7 @@ UCOM_L_B8CD:
   k_stl -2
   k_ldl -10
   k_shl1
-  k_ldriw $C7B1
+  k_ldriw UCOM_D_C7B1
   k_add
   k_deref
   k_ldrarg 11
@@ -5515,7 +5515,7 @@ UCOM_L_B8E8:
   k_pushl
   k_ldl -10
   k_shl1
-  k_ldriw $C7B7
+  k_ldriw UCOM_D_C7B7
   k_add
   k_deref
   k_popr
@@ -5529,7 +5529,7 @@ UCOM_L_B8E8:
   k_pushl
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8EC0
+  k_ldriw RD_8EC0
   k_add
   k_deref
   k_popr
@@ -5702,7 +5702,7 @@ UCOM_L_BA05:
   k_derefb
   k_jumpt UCOM_L_BA1A
   k_pushi 1
-  k_pushiw $C7ED
+  k_pushiw UCOM_D_C7ED
   k_callx RF_2FB9, 4
 UCOM_L_BA1A:
   k_ldlarg 17
@@ -5718,7 +5718,7 @@ UCOM_L_BA1A:
   k_derefb
   k_jumpt UCOM_L_BA35
   k_pushi 1
-  k_pushiw $C7F1
+  k_pushiw UCOM_D_C7F1
   k_callx RF_2FB9, 4
 UCOM_L_BA35:
   k_ldlarg 11
@@ -5822,13 +5822,13 @@ UCOM_F_BAAE:
   k_pushi 9
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C7F5
+  k_pushiw UCOM_D_C7F5
   k_callx RF_2FB9, 4
   k_push -12
   k_pushib 18
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C7FA
+  k_pushiw UCOM_D_C7FA
   k_callx RF_2FB9, 4
   k_pushiw $20F9
   k_pushi 1
@@ -5846,7 +5846,7 @@ UCOM_F_BAAE:
   k_pushib 18
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C804
+  k_pushiw UCOM_D_C804
   k_callx RF_2FB9, 4
   k_ldl -12
   k_addli 13
@@ -5854,7 +5854,7 @@ UCOM_F_BAAE:
   k_pushi 11
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $C80C
+  k_pushiw UCOM_D_C80C
   k_callx RF_2FB9, 4
   k_ldl -12
   k_addlib 20
@@ -5862,7 +5862,7 @@ UCOM_F_BAAE:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C811
+  k_pushiw UCOM_D_C811
   k_callx RF_2FB9, 4
   k_ldl -12
   k_addlib 21
@@ -5870,7 +5870,7 @@ UCOM_F_BAAE:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C81B
+  k_pushiw UCOM_D_C81B
   k_callx RF_2FB9, 4
   k_ldl -12
   k_addlib 22
@@ -5878,7 +5878,7 @@ UCOM_F_BAAE:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $C824
+  k_pushiw UCOM_D_C824
   k_callx RF_2FB9, 4
   k_pusharg 13
   k_pusharg 11
@@ -6249,12 +6249,12 @@ UCOM_F_BD9E:
   k_ldri 1
   k_eq
   k_jumpf UCOM_L_BDC1
-  k_pushiw $C82D
+  k_pushiw UCOM_D_C82D
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
 UCOM_L_BDC1:
-  k_pushiw $C845
+  k_pushiw UCOM_D_C845
   k_callx RF_4B44, 2
   k_call RF_4DD8
   k_call RF_5F56
@@ -6275,7 +6275,7 @@ UCOM_L_BDC1:
   k_call RF_5F56
   k_call RF_5C91
   k_pushi 1
-  k_pushiw $C85E
+  k_pushiw UCOM_D_C85E
   k_callx RF_2FB9, 4
   k_pushi 0
   k_callx RF_4190, 2
@@ -6286,7 +6286,7 @@ UCOM_L_BDC1:
   k_pushn -13
   k_callx UCOM_F_BA6A, 2
   k_pushi 1
-  k_pushiw $C873
+  k_pushiw UCOM_D_C873
   k_callx RF_2FB9, 4
   k_call RF_5FDB
   k_ldln -11
@@ -6348,7 +6348,7 @@ UCOM_F_BE5E:
   k_stln -30
   k_ldln -30
   k_jumpt UCOM_L_BE7E
-  k_pushiw $C876
+  k_pushiw UCOM_D_C876
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -6394,7 +6394,7 @@ UCOM_L_BEAF:
   k_ult
   k_jumpt UCOM_L_BE8E
   k_pushi 1
-  k_pushiw $C89B
+  k_pushiw UCOM_D_C89B
   k_callx RF_2FB9, 4
   k_leal -10
   k_pushl
@@ -6420,7 +6420,7 @@ UCOM_L_BEAF:
   k_add
   k_deref
   k_pushl
-  k_pushiw $C8B4
+  k_pushiw UCOM_D_C8B4
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_stln -34
@@ -6450,7 +6450,7 @@ UCOM_F_BF17:
 UCOM_L_BF1C:
   k_pushi 4
   k_pushi 4
-  k_pushiw $C8C6
+  k_pushiw UCOM_D_C8C6
   k_pushi 1
   k_pushi 0
   k_callx RF_47E1, 10
@@ -6464,7 +6464,7 @@ UCOM_L_BF1C:
 UCOM_L_BF32:
   k_ldl -2
   k_shl1
-  k_ldriw $C8CE
+  k_ldriw UCOM_D_C8CE
   k_add
   k_deref
   k_callptr
@@ -6474,111 +6474,107 @@ UCOM_L_BF32:
   k_ldli 1
   k_return
   .byte $00
-  .byte "0;1;2;3;d"
-  .byte $BF, $69, $BF, $6E, $BF, $73, $BF, $7A, $BF, $81, $BF, $73, $97, $7F, $A9, $8E
-  .byte $B3, $B7, $9D, $F5, $A9, $17, $BF, $0C, $96
-  .byte "Move"
+UCOM_D_BF42:
+  .byte "0;1;2;3;"
+UCOM_D_BF4A:
+  .word UCOM_D_BF64, UCOM_D_BF69, UCOM_D_BF6E, UCOM_D_BF73, UCOM_D_BF7A, UCOM_D_BF81
+UCOM_D_BF56:
+  .word UCOM_F_9773, UCOM_F_A97F, UCOM_F_B38E, UCOM_F_9DB7, UCOM_F_A9F5, UCOM_F_BF17, UCOM_F_960C
+UCOM_D_BF64:
+  .byte "Move", $00
+UCOM_D_BF69:
+  .byte "Look", $00
+UCOM_D_BF6E:
+  .byte "Info", $00
+UCOM_D_BF73:
+  .byte "Debark", $00
+UCOM_D_BF7A:
+  .byte "Battle", $00
+UCOM_D_BF81:
+  .byte "Order", $00
+UCOM_D_BF87:
+  .byte "Cap'n, a port is", $0A, "rumored to lie", $0A, "in these waters", $00
   .byte $00
-  .byte "Look"
-  .byte $00
-  .byte "Info"
-  .byte $00
-  .byte "Debark"
-  .byte $00
-  .byte "Battle"
-  .byte $00
-  .byte "Order"
-  .byte $00
-  .byte "Cap'n, a port is"
-  .byte $0A
-  .byte "rumored to lie"
-  .byte $0A
-  .byte "in these waters"
-  .byte $00, $00, $C8, $BF, $CE, $BF, $D8, $BF, $DD, $BF, $E7, $BF, $ED, $BF, $F7, $BF
-  .byte $FC, $BF
-  .byte "north"
-  .byte $00
-  .byte "northeast"
-  .byte $00
-  .byte "east"
-  .byte $00
-  .byte "southeast"
-  .byte $00
-  .byte "south"
-  .byte $00
-  .byte "southwest"
-  .byte $00
-  .byte "west"
-  .byte $00
-  .byte "northwest"
-  .byte $00
-  .byte "Set the compass"
-  .byte $0A
-  .byte "bearing"
-  .byte $00
-  .byte "All hands aloft!"
-  .byte $0A
-  .byte "Set to the"
-  .byte $0A, $25, $73, $21, $1B, $57, $00
-  .byte "We're anchored"
-  .byte $0A
-  .byte "down, Cap'n"
-  .byte $00
-  .byte "Heave to!"
-  .byte $0A
-  .byte "Anchor down!"
-  .byte $00
-  .byte "All hands up"
-  .byte $0A
-  .byte "anchor! We're"
-  .byte $0A
-  .byte "off!"
-  .byte $00, $9A, $C0, $A4, $C0, $C6, $96, $1F, $97
-  .byte "Direction"
-  .byte $00
-  .byte "Cast Anchor"
-  .byte $00, $0A, $00, $27, $73, $00
-  .byte "Cap'n, your"
-  .byte $00, $0A, $0A
-  .byte "sailing skill"
-  .byte $0A, $0A
-  .byte "has improved"
-  .byte $1B, $57, $00
-  .byte "There's no port"
-  .byte $0A
-  .byte "here"
-  .byte $00, $0A
-  .byte "OK to call at"
-  .byte $0A, $0A, $00, $0A, $00
-  .byte "Select a"
-  .byte $0A
-  .byte "landing point"
-  .byte $00
-  .byte "OK to go ashore"
-  .byte $0A, $00, $39, $C1, $43, $C1, $0D, $9A, $00, $9D
-  .byte "Port call"
-  .byte $00
-  .byte "Go ashore"
-  .byte $00
-  .byte "We can't drop"
-  .byte $0A
-  .byte "anchor here"
-  .byte $00, $00, $00
-  .byte "There are %d"
-  .byte $0A
-  .byte "fleets there."
+UCOM_D_BFB8:
+  .word UCOM_D_BFC8, UCOM_D_BFCE, UCOM_D_BFD8, UCOM_D_BFDD, UCOM_D_BFE7, UCOM_D_BFED, UCOM_D_BFF7, UCOM_D_BFFC
+UCOM_D_BFC8:
+  .byte "north", $00
+UCOM_D_BFCE:
+  .byte "northeast", $00
+UCOM_D_BFD8:
+  .byte "east", $00
+UCOM_D_BFDD:
+  .byte "southeast", $00
+UCOM_D_BFE7:
+  .byte "south", $00
+UCOM_D_BFED:
+  .byte "southwest", $00
+UCOM_D_BFF7:
+  .byte "west", $00
+UCOM_D_BFFC:
+  .byte "northwest", $00
+UCOM_D_C006:
+  .byte "Set the compass", $0A, "bearing", $00
+UCOM_D_C01E:
+  .byte "All hands aloft!", $0A, "Set to the", $0A, "%s!", $1B, "W", $00
+UCOM_D_C040:
+  .byte "We're anchored", $0A, "down, Cap'n", $00
+UCOM_D_C05B:
+  .byte "Heave to!", $0A, "Anchor down!", $00
+UCOM_D_C072:
+  .byte "All hands up", $0A, "anchor! We're", $0A, "off!", $00
+UCOM_D_C092:
+  .word UCOM_D_C09A, UCOM_D_C0A4
+UCOM_D_C096:
+  .word UCOM_F_96C6, UCOM_F_971F
+UCOM_D_C09A:
+  .byte "Direction", $00
+UCOM_D_C0A4:
+  .byte "Cast Anchor", $00
+UCOM_D_C0B0:
   .byte $0A, $00
-  .byte "Which one"
+UCOM_D_C0B2:
+  .byte "'s", $00
+UCOM_D_C0B5:
+  .byte "Cap'n, your", $00
+UCOM_D_C0C1:
+  .byte $0A, $0A, "sailing skill", $0A, $0A, "has improved", $1B, "W", $00
+UCOM_D_C0E1:
+  .byte "There's no port", $0A, "here", $00
+UCOM_D_C0F6:
+  .byte $0A, "OK to call at", $0A, $0A, $00
+UCOM_D_C107:
+  .byte $0A, $00
+UCOM_D_C109:
+  .byte "Select a", $0A, "landing point", $00
+UCOM_D_C120:
+  .byte "OK to go ashore", $0A, $00
+UCOM_D_C131:
+  .word UCOM_D_C139, UCOM_D_C143
+UCOM_D_C135:
+  .word UCOM_F_9A0D, UCOM_F_9D00
+UCOM_D_C139:
+  .byte "Port call", $00
+UCOM_D_C143:
+  .byte "Go ashore", $00
+UCOM_D_C14D:
+  .byte "We can't drop", $0A, "anchor here", $00
   .byte $00
-  .byte "That fleet's"
-  .byte $0A
-  .byte "right next to"
-  .byte $0A, $75, $73, $21, $00, $B6, $C1, $B8, $C1, $BA, $C1, $BC, $C1, $4E, $00, $53
-  .byte $00, $45, $00, $57, $00
-  .byte "We don't have a"
-  .byte $0A
-  .byte "sextant"
+UCOM_D_C168:
   .byte $00
+UCOM_D_C169:
+  .byte "There are %d", $0A, "fleets there.", $0A, $00
+UCOM_D_C185:
+  .byte "Which one", $00
+UCOM_D_C18F:
+  .byte "That fleet's", $0A, "right next to", $0A, "us!", $00
+UCOM_D_C1AE:
+  .byte $B6, $C1, $B8, $C1
+UCOM_D_C1B2:
+  .byte $BA, $C1, $BC, $C1, $4E, $00, $53, $00, $45, $00, $57, $00
+UCOM_D_C1BE:
+  .byte "We don't have a", $0A, "sextant", $00
+UCOM_D_C1D6:
   .byte "Our present"
   .byte $0A
   .byte "position is"
@@ -6586,277 +6582,301 @@ UCOM_L_BF32:
   .byte "%s %d"
   .byte $DF
   .byte " %s %d"
-  .byte $DF, $00, $2C, $C2, $37, $C2, $3F, $C2, $47, $C2, $52, $C2, $5E, $C2, $67, $C2
-  .byte $69, $C2, $6C, $C2, $6E, $C2, $71, $C2, $73, $C2, $76, $C2, $78, $C2, $7B, $C2
-  .byte $81, $C2, $8B, $C2, $90, $C2, $9A, $C2, $A0, $C2, $AA, $C2, $AF, $C2, $3E, $5C
-  .byte $B8, $A0
-  .byte "Portuguese"
-  .byte $00
-  .byte "Spanish"
-  .byte $00
-  .byte "Turkish"
-  .byte $00
-  .byte "Portuguese"
-  .byte $00
-  .byte "trade ships"
-  .byte $00
-  .byte "warships"
-  .byte $00, $4E, $00, $4E, $45, $00, $45, $00, $53, $45, $00, $53, $00, $53, $57, $00
-  .byte $57, $00, $4E, $57, $00
-  .byte "North"
-  .byte $00
-  .byte "Northeast"
-  .byte $00
-  .byte "East"
-  .byte $00
-  .byte "Southeast"
-  .byte $00
-  .byte "South"
-  .byte $00
-  .byte "Southwest"
-  .byte $00
-  .byte "West"
-  .byte $00
-  .byte "Northwest"
-  .byte $00, $1B, $52, $22, $1B
-  .byte "E>%s"
-  .byte $00, $25, $73, $00
-  .byte "Speed:%3d"
-  .byte $00
-  .byte "Course: %s"
-  .byte $00
-  .byte "Type:"
-  .byte $00, $0A
-  .byte "There sails"
-  .byte $0A, $0A, $00, $27, $73, $0A, $0A
-  .byte "fleet!"
-  .byte $00
-  .byte "They're pirates,"
-  .byte $0A
-  .byte "they are!"
-  .byte $00
-  .byte "They're headed"
-  .byte $0A, $25, $73, $00, $B8, $A0, $B8, $A0
-  .byte "No fleet within"
-  .byte $0A
-  .byte "view"
-  .byte $00
-  .byte "Look where?"
-  .byte $00
-  .byte "That's our fleet"
-  .byte $00, $0A
-  .byte "Cap'n, that's"
-  .byte $0A, $0A
-  .byte "the port of"
-  .byte $0A, $0A, $00, $1B, $57, $1B, $57, $00
-  .byte "I haven't a word"
-  .byte $0A
-  .byte "to say to you"
-  .byte $00, $0A, $00
-  .byte " are"
-  .byte $00, $20, $69, $73, $00, $0A, $0A
-  .byte "best sold in"
-  .byte $0A, $0A, $00, $00
-  .byte "Good luck on"
-  .byte $0A
-  .byte "your voyage!"
-  .byte $00, $0A
-  .byte "Back in"
-  .byte $0A, $00, $0A
-  .byte "there were some"
-  .byte $0A
-  .byte "skilled men"
-  .byte $00, $00
-  .byte "Beware of"
-  .byte $0A
-  .byte "pirates!"
-  .byte $00, $0A
-  .byte "Hmm, they're a"
-  .byte $0A
-  .byte "suspicious lot."
-  .byte $0A
-  .byte "They won't even"
-  .byte $0A
-  .byte "answer us"
-  .byte $00, $00
-  .byte "There's not a"
-  .byte $0A
-  .byte "fleet near us"
-  .byte $00
-  .byte "Which fleet?"
-  .byte $00
-  .byte "That's our fleet"
-  .byte $00, $92, $C4, $9A, $C4, $A1, $C4, $CD, $A3, $AF, $9F, $48, $A8
-  .byte "Inspect"
-  .byte $00
-  .byte "Survey"
-  .byte $00
-  .byte "Negotiate"
-  .byte $00, $00, $B8, $C4, $C1, $C4, $C7, $C4, $CF, $C4, $D6, $C4, $E6, $C4
-  .byte "Portugal"
-  .byte $00
-  .byte "Spain"
-  .byte $00
-  .byte "Turkish"
-  .byte $00
-  .byte "Pirate"
-  .byte $00
-  .byte "merchant fleet"
+  .byte $DF, $00
+UCOM_D_C1FC:
+  .word UCOM_D_C22C, UCOM_D_C237, UCOM_D_C23F, UCOM_D_C247
+UCOM_D_C204:
+  .word UCOM_D_C252, UCOM_D_C25E
+UCOM_D_C208:
+  .byte $67, $C2, $69, $C2, $6C, $C2, $6E, $C2, $71, $C2, $73, $C2, $76, $C2, $78, $C2
+UCOM_D_C218:
+  .word UCOM_D_C27B, UCOM_D_C281, UCOM_D_C28B, UCOM_D_C290, UCOM_D_C29A, UCOM_D_C2A0, UCOM_D_C2AA, UCOM_D_C2AF
+UCOM_D_C228:
+  .byte $3E, $5C, $B8, $A0
+UCOM_D_C22C:
+  .byte "Portuguese", $00
+UCOM_D_C237:
+  .byte "Spanish", $00
+UCOM_D_C23F:
+  .byte "Turkish", $00
+UCOM_D_C247:
+  .byte "Portuguese", $00
+UCOM_D_C252:
+  .byte "trade ships", $00
+UCOM_D_C25E:
+  .byte "warships", $00
+  .byte $4E, $00
+  .byte "NE", $00
+  .byte $45, $00
+  .byte "SE", $00
+  .byte $53, $00
+  .byte "SW", $00
+  .byte $57, $00
+  .byte "NW", $00
+UCOM_D_C27B:
+  .byte "North", $00
+UCOM_D_C281:
+  .byte "Northeast", $00
+UCOM_D_C28B:
+  .byte "East", $00
+UCOM_D_C290:
+  .byte "Southeast", $00
+UCOM_D_C29A:
+  .byte "South", $00
+UCOM_D_C2A0:
+  .byte "Southwest", $00
+UCOM_D_C2AA:
+  .byte "West", $00
+UCOM_D_C2AF:
+  .byte "Northwest", $00
+UCOM_D_C2B9:
+  .byte $1B
+  .byte "R", $22, $1B, "E>%s", $00
+UCOM_D_C2C2:
+  .byte "%s", $00
+UCOM_D_C2C5:
+  .byte "Speed:%3d", $00
+UCOM_D_C2CF:
+  .byte "Course: %s", $00
+UCOM_D_C2DA:
+  .byte "Type:", $00
+UCOM_D_C2E0:
+  .byte $0A, "There sails", $0A, $0A, $00
+UCOM_D_C2EF:
+  .byte "'s", $0A, $0A, "fleet!", $00
+UCOM_D_C2FA:
+  .byte "They're pirates,", $0A, "they are!", $00
+UCOM_D_C315:
+  .byte "They're headed", $0A, "%s", $00
+UCOM_D_C327:
+  .word UCOM_F_A0B8, UCOM_F_A0B8
+UCOM_D_C32B:
+  .byte "No fleet within", $0A, "view", $00
+UCOM_D_C340:
+  .byte "Look where?", $00
+UCOM_D_C34C:
+  .byte "That's our fleet", $00
+UCOM_D_C35D:
+  .byte $0A, "Cap'n, that's", $0A, $0A, "the port of", $0A, $0A, $00
+UCOM_D_C37B:
+  .byte $1B, $57, $1B, $57, $00
+UCOM_D_C380:
+  .byte "I haven't a word", $0A, "to say to you", $00
+UCOM_D_C39F:
   .byte $0A, $00
-  .byte "warships"
-  .byte $0A, $00
-  .byte "We can't fight"
-  .byte $0A
-  .byte "in the middle"
-  .byte $0A
-  .byte "of the night!"
+UCOM_D_C3A1:
+  .byte " are", $00
+UCOM_D_C3A6:
+  .byte " is", $00
+UCOM_D_C3AA:
+  .byte $0A, $0A, "best sold in", $0A, $0A, $00
+UCOM_D_C3BB:
   .byte $00
-  .byte "There's no"
-  .byte $0A
-  .byte "fleet to attack"
+UCOM_D_C3BC:
+  .byte "Good luck on", $0A, "your voyage!", $00
+UCOM_D_C3D6:
+  .byte $0A, "Back in", $0A, $00
+UCOM_D_C3E0:
+  .byte $0A, "there were some", $0A, "skilled men", $00
+UCOM_D_C3FD:
   .byte $00
-  .byte "Which fleet?"
+UCOM_D_C3FE:
+  .byte "Beware of", $0A, "pirates!", $00
+UCOM_D_C411:
+  .byte $0A, "Hmm, they're a", $0A, "suspicious lot.", $0A, "They won't even", $0A, "answer us"
   .byte $00
-  .byte "Attack the"
-  .byte $0A, $00
-  .byte "pirate fleet"
-  .byte $0A, $00, $00, $00
-  .byte "There's no one"
-  .byte $0A
-  .byte "but me with ye"
+UCOM_D_C44B:
   .byte $00
-  .byte "Which mate?"
-  .byte $00, $00, $8E, $C5, $97, $C5
-  .byte "Yourself"
+UCOM_D_C44C:
+  .byte "There's not a", $0A, "fleet near us", $00
+UCOM_D_C468:
+  .byte "Which fleet?", $00
+UCOM_D_C475:
+  .byte "That's our fleet", $00
+UCOM_D_C486:
+  .word UCOM_D_C492, UCOM_D_C49A, UCOM_D_C4A1
+UCOM_D_C48C:
+  .word UCOM_F_A3CD, UCOM_F_9FAF, UCOM_F_A848
+UCOM_D_C492:
+  .byte "Inspect", $00
+UCOM_D_C49A:
+  .byte "Survey", $00
+UCOM_D_C4A1:
+  .byte "Negotiate", $00
+  .byte $00, $B8, $C4, $C1, $C4, $C7, $C4, $CF, $C4
+UCOM_D_C4B4:
+  .word UCOM_D_C4D6, UCOM_D_C4E6
+  .byte "Portugal", $00
+  .byte "Spain", $00
+  .byte "Turkish", $00
+  .byte "Pirate", $00
+UCOM_D_C4D6:
+  .byte "merchant fleet", $0A, $00
+UCOM_D_C4E6:
+  .byte "warships", $0A, $00
+UCOM_D_C4F0:
+  .byte "We can't fight", $0A, "in the middle", $0A, "of the night!", $00
+UCOM_D_C51B:
+  .byte "There's no", $0A, "fleet to attack", $00
+UCOM_D_C536:
+  .byte "Which fleet?", $00
+UCOM_D_C543:
+  .byte "Attack the", $0A, $00
+UCOM_D_C54F:
+  .byte "pirate fleet", $0A, $00
   .byte $00
-  .byte "Mate"
+UCOM_D_C55E:
   .byte $00
-  .byte "Which ship?"
+UCOM_D_C55F:
+  .byte "There's no one", $0A, "but me with ye", $00
+UCOM_D_C57D:
+  .byte "Which mate?", $00
+UCOM_D_C589:
   .byte $00
-  .byte "No cargo on"
-  .byte $0A
-  .byte "that ship"
-  .byte $00, $25, $34, $64, $00, $0A
-  .byte "This is the"
-  .byte $0A, $0A
-  .byte "cargo of the"
-  .byte $0A, $0A, $00
-  .byte "We don't have"
-  .byte $0A
-  .byte "any items"
+UCOM_D_C58A:
+  .word UCOM_D_C58E, UCOM_D_C597
+UCOM_D_C58E:
+  .byte "Yourself", $00
+UCOM_D_C597:
+  .byte "Mate", $00
+UCOM_D_C59C:
+  .byte "Which ship?", $00
+UCOM_D_C5A8:
+  .byte "No cargo on", $0A, "that ship", $00
+UCOM_D_C5BE:
+  .byte "%4d", $00
+UCOM_D_C5C2:
+  .byte $0A, "This is the", $0A, $0A, "cargo of the", $0A, $0A, $00
+UCOM_D_C5DF:
+  .byte "We don't have", $0A, "any items", $00
+UCOM_D_C5F7:
+  .byte "We have these", $0A, "items", $0A, "(", $00
+UCOM_D_C60D:
+  .byte "A-more ", $00
+UCOM_D_C615:
+  .byte "B-end)", $00
+UCOM_D_C61C:
+  .byte "A9B9"
+UCOM_D_C620:
+  .byte "C9"
+UCOM_D_C622:
+  .byte "There's nothing", $0A, "unusual", $00
+UCOM_D_C63A:
+  .word UCOM_D_C652, UCOM_D_C658, UCOM_D_C65E, UCOM_D_C663, UCOM_D_C669, UCOM_D_C66F
+UCOM_D_C646:
+  .word UCOM_F_AEAB, UCOM_F_AFF3, UCOM_F_B273, UCOM_F_AD5E, UCOM_F_B07D, UCOM_F_B339
+UCOM_D_C652:
+  .byte "Fleet", $00
+UCOM_D_C658:
+  .byte "Cargo", $00
+UCOM_D_C65E:
+  .byte "Land", $00
+UCOM_D_C663:
+  .byte "Mates", $00
+UCOM_D_C669:
+  .byte "Items", $00
+UCOM_D_C66F:
+  .byte "Map", $00
   .byte $00
-  .byte "We have these"
-  .byte $0A
-  .byte "items"
-  .byte $0A, $28, $00
-  .byte "A-more "
-  .byte $00
-  .byte "B-end)"
-  .byte $00
-  .byte "A9B9C9There's nothing"
-  .byte $0A
-  .byte "unusual"
-  .byte $00, $52, $C6, $58, $C6, $5E, $C6, $63, $C6, $69, $C6, $6F, $C6, $AB, $AE, $F3
-  .byte $AF, $73, $B2, $5E, $AD, $7D, $B0, $39, $B3
-  .byte "Fleet"
-  .byte $00
-  .byte "Cargo"
-  .byte $00
-  .byte "Land"
-  .byte $00
-  .byte "Mates"
-  .byte $00
-  .byte "Items"
-  .byte $00, $4D, $61, $70, $00, $00, $40, $39, $20, $11, $21, $11, $22, $11, $23, $11
-  .byte $24, $11, $25, $11, $26, $11, $27, $11, $28, $11, $29, $11, $2A, $11, $2B, $11
-  .byte $2C, $11, $2D, $11, $2E, $11, $2F, $11, $30, $11, $31, $11, $32, $11, $33, $11
-  .byte $34, $11, $35, $11, $36, $11, $37, $11, $38, $11, $39, $11, $3A, $11, $3B, $11
-  .byte $3C, $11, $3D, $11, $3E, $11, $3F, $11, $40, $11, $41, $11, $42, $11, $43, $11
-  .byte $44, $11, $45, $11, $46, $11, $47, $11, $48, $11, $49, $11, $4A, $11, $4B, $11
-  .byte $4C, $11, $4D, $11, $4E, $11, $4F, $11, $50, $11, $51, $11, $52, $11, $53, $11
-  .byte $54, $11, $18, $00, $1F, $00, $26, $00, $B9, $00, $C0, $00, $C7, $00, $5A, $01
-  .byte $61, $01, $68, $01, $1B, $52, $22, $1B
-  .byte "E=Rations"
-  .byte $00, $25, $33, $64, $1B, $EF, $00, $25, $33, $64, $1B, $EF, $00
-  .byte "Set rations to"
-  .byte $0A
-  .byte "what (1-99)?"
-  .byte $0A
-  .byte "(B-cancel)"
-  .byte $1B, $43, $30, $00, $25, $32, $64, $00, $25, $32, $64, $00
-  .byte "Thank you very"
-  .byte $0A
-  .byte "much!"
-  .byte $00
-  .byte "Loyalty:%4d"
-  .byte $00
-  .byte "Gold: %d"
-  .byte $00, $0A
-  .byte "Give how much"
-  .byte $0A, $00, $1B, $52, $22, $1B, $45, $3E, $1B
-  .byte "C0Loyalty:%4d"
+UCOM_D_C674:
+  .byte $40, $39
+UCOM_D_C676:
+  .byte $20, $11, $21, $11, $22, $11, $23, $11, $24, $11, $25, $11, $26, $11, $27, $11
+  .byte $28, $11, $29, $11, $2A, $11, $2B, $11, $2C, $11, $2D, $11, $2E, $11, $2F, $11
+  .byte $30, $11, $31, $11, $32, $11, $33, $11, $34, $11, $35, $11, $36, $11, $37, $11
+  .byte $38, $11, $39, $11, $3A, $11, $3B, $11, $3C, $11, $3D, $11, $3E, $11, $3F, $11
+  .byte $40, $11, $41, $11, $42, $11, $43, $11, $44, $11, $45, $11, $46, $11, $47, $11
+  .byte $48, $11, $49, $11, $4A, $11, $4B, $11, $4C, $11, $4D, $11, $4E, $11, $4F, $11
+  .byte $50, $11, $51, $11, $52, $11, $53, $11, $54, $11
+UCOM_D_C6E0:
+  .byte $18, $00, $1F, $00, $26, $00, $B9, $00, $C0, $00, $C7, $00, $5A, $01, $61, $01
+  .byte "h", $01
+UCOM_D_C6F2:
+  .byte $1B, "R", $22, $1B, "E=Rations", $00
+UCOM_D_C700:
+  .byte $25, $33, $64, $1B, $EF, $00
+UCOM_D_C706:
+  .byte $25, $33, $64, $1B, $EF, $00
+UCOM_D_C70C:
+  .byte "Set rations to", $0A, "what (1-99)?", $0A, "(B-cancel)", $1B, "C0", $00
+UCOM_D_C736:
+  .byte "%2d", $00
+UCOM_D_C73A:
+  .byte "%2d", $00
+UCOM_D_C73E:
+  .byte "Thank you very", $0A, "much!", $00
+UCOM_D_C753:
+  .byte "Loyalty:%4d", $00
+UCOM_D_C75F:
+  .byte "Gold: %d", $00
+UCOM_D_C768:
+  .byte $0A, "Give how much", $0A, $00
+UCOM_D_C778:
+  .byte $1B, "R", $22, $1B, "E>", $1B, "C0Loyalty:%4d", $1B, "W", $00
+UCOM_D_C78F:
+  .byte "There's a limit", $0A, "to your gold!", $00
+UCOM_D_C7AD:
+  .byte $02, $00, $00, $00
+UCOM_D_C7B1:
+  .byte $03, $00, $0A, $00, $0A, $00
+UCOM_D_C7B7:
+  .byte $0E, $00, $02, $00, $0E, $00
+UCOM_D_C7BD:
+  .byte "Replace", $00
+UCOM_D_C7C5:
+  .byte "with   ", $00
+UCOM_D_C7CD:
+  .byte "whom?  ", $00
+UCOM_D_C7D5:
+  .byte "Choose ", $00
+UCOM_D_C7DD:
+  .byte "mate to", $00
+UCOM_D_C7E5:
+  .byte "replace", $00
+UCOM_D_C7ED:
+  .byte $1B
+  .byte "C1", $00
+UCOM_D_C7F1:
+  .byte $1B
+  .byte "C0", $00
+UCOM_D_C7F5:
+  .byte "Ship", $00
+UCOM_D_C7FA:
+  .byte "Navigator", $00
+UCOM_D_C804:
+  .byte "Sailors", $00
+UCOM_D_C80C:
+  .byte "Done", $00
+UCOM_D_C811:
+  .byte $1B, $F1
+  .byte "-Select", $00
+UCOM_D_C81B:
+  .byte "A-Decide", $00
+UCOM_D_C824:
+  .byte "B-Cancel", $00
+UCOM_D_C82D:
+  .byte "We only have", $0A, "one vessel", $00
+UCOM_D_C845:
+  .byte "Replace which", $0A, "navigator?", $00
+UCOM_D_C85E:
+  .byte "The flagship", $0A, "is the ", $00
+UCOM_D_C873:
   .byte $1B, $57, $00
-  .byte "There's a limit"
-  .byte $0A
-  .byte "to your gold!"
-  .byte $00, $02, $00, $00, $00, $03, $00, $0A, $00, $0A, $00, $0E, $00, $02, $00, $0E
-  .byte $00
-  .byte "Replace"
-  .byte $00
-  .byte "with   "
-  .byte $00
-  .byte "whom?  "
-  .byte $00
-  .byte "Choose "
-  .byte $00
-  .byte "mate to"
-  .byte $00
-  .byte "replace"
-  .byte $00, $1B, $43, $31, $00, $1B, $43, $30, $00
-  .byte "Ship"
-  .byte $00
-  .byte "Navigator"
-  .byte $00
-  .byte "Sailors"
-  .byte $00
-  .byte "Done"
-  .byte $00, $1B, $F1
-  .byte "-Select"
-  .byte $00
-  .byte "A-Decide"
-  .byte $00
-  .byte "B-Cancel"
-  .byte $00
-  .byte "We only have"
-  .byte $0A
-  .byte "one vessel"
-  .byte $00
-  .byte "Replace which"
-  .byte $0A
-  .byte "navigator?"
-  .byte $00
-  .byte "The flagship"
-  .byte $0A
-  .byte "is the "
-  .byte $00, $1B, $57, $00
-  .byte "Cap'n, we don't"
-  .byte $0A
-  .byte "have a ship to"
-  .byte $0A
-  .byte "spare"
-  .byte $00
-  .byte "Dispose of"
-  .byte $0A
-  .byte "which vessel?"
-  .byte $00
-  .byte "Dispose of the"
-  .byte $0A, $25, $73, $00, $D6, $C8, $DD, $C8, $E8, $C8, $F2, $C8, $3E, $B5, $03, $B8
-  .byte $9E, $BD, $5E, $BE
-  .byte "Ration"
-  .byte $00
-  .byte "Distribute"
-  .byte $00
-  .byte "Personnel"
-  .byte $00
-  .byte "Dispose"
-  .byte $00
+UCOM_D_C876:
+  .byte "Cap'n, we don't", $0A, "have a ship to", $0A, "spare", $00
+UCOM_D_C89B:
+  .byte "Dispose of", $0A, "which vessel?", $00
+UCOM_D_C8B4:
+  .byte "Dispose of the", $0A, "%s", $00
+UCOM_D_C8C6:
+  .word UCOM_D_C8D6, UCOM_D_C8DD, UCOM_D_C8E8, UCOM_D_C8F2
+UCOM_D_C8CE:
+  .word UCOM_F_B53E, UCOM_F_B803, UCOM_F_BD9E, UCOM_F_BE5E
+UCOM_D_C8D6:
+  .byte "Ration", $00
+UCOM_D_C8DD:
+  .byte "Distribute", $00
+UCOM_D_C8E8:
+  .byte "Personnel", $00
+UCOM_D_C8F2:
+  .byte "Dispose", $00

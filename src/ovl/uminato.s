@@ -318,21 +318,21 @@ UMINATO_F_97F5:
   k_ldla $F99C
   k_ldri 6
   k_mul
-  k_ldriw $AB58
+  k_ldriw UMINATO_D_AB58
   k_add
   k_deref
   k_pushl
   k_ldla $F99C
   k_ldri 6
   k_mul
-  k_ldriw $AB56
+  k_ldriw UMINATO_D_AB56
   k_add
   k_deref
   k_pushl
   k_ldla $F99C
   k_ldri 6
   k_mul
-  k_ldriw $AB54
+  k_ldriw UMINATO_D_AB54
   k_add
   k_deref
   k_pushl
@@ -343,7 +343,7 @@ UMINATO_F_97F5:
 UMINATO_F_9825:
   k_func 0
   k_pushib 22
-  k_pushiw $8B6D
+  k_pushiw RD_8B6D
   k_pushi 0
   k_pushib 20
   k_pushi 4
@@ -354,7 +354,7 @@ UMINATO_F_9825:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8BED
+  k_pushiw RD_8BED
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -365,7 +365,7 @@ UMINATO_F_9825:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8C6D
+  k_pushiw RD_8C6D
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -376,7 +376,7 @@ UMINATO_F_9825:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8CED
+  k_pushiw RD_8CED
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -387,7 +387,7 @@ UMINATO_F_9825:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8D6D
+  k_pushiw RD_8D6D
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -398,7 +398,7 @@ UMINATO_F_9825:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8DED
+  k_pushiw RD_8DED
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -409,7 +409,7 @@ UMINATO_F_9825:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8E6D
+  k_pushiw RD_8E6D
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -420,7 +420,7 @@ UMINATO_F_9825:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8EED
+  k_pushiw RD_8EED
   k_pushiw $00FF
   k_pushi 0
   k_pushi 0
@@ -648,7 +648,7 @@ UMINATO_L_99D8:
   k_add
   k_popr
   k_add
-  k_ldriw $AB9C
+  k_ldriw UMINATO_D_AB9C
   k_add
   k_deref
   k_long $26
@@ -1105,7 +1105,7 @@ UMINATO_F_9C39:
   k_mul
   k_popr
   k_add
-  k_ldriw $AB84
+  k_ldriw UMINATO_D_AB84
   k_add
   k_deref
   k_long $26
@@ -1150,7 +1150,7 @@ UMINATO_L_9CA0:
   k_stl -10
   k_pushi 3
   k_callx RF_3F3E, 2
-  k_ldriw $ACBC
+  k_ldriw UMINATO_D_ACBC
   k_add
   k_derefb
   k_stl -4
@@ -1616,7 +1616,7 @@ UMINATO_L_9F53:
 UMINATO_L_9F54:
   k_pushi 3
   k_callx RF_3F3E, 2
-  k_ldriw $ACBF
+  k_ldriw UMINATO_D_ACBF
   k_add
   k_derefb
   k_stlbf -1
@@ -1710,7 +1710,7 @@ UMINATO_L_A004:
   k_pushi 0
   k_ldlarg 15
   k_shl1
-  k_ldriw $AB84
+  k_ldriw UMINATO_D_AB84
   k_add
   k_deref
   k_long $26
@@ -1758,7 +1758,7 @@ UMINATO_L_A04D:
   k_pushi 0
   k_ldlarg 15
   k_shl1
-  k_ldriw $AB8A
+  k_ldriw UMINATO_D_AB8A
   k_add
   k_deref
   k_long $26
@@ -1793,7 +1793,7 @@ UMINATO_L_A084:
   k_pushi 0
   k_ldlarg 15
   k_shl1
-  k_ldriw $AB90
+  k_ldriw UMINATO_D_AB90
   k_add
   k_deref
   k_long $26
@@ -1828,7 +1828,7 @@ UMINATO_L_A0BC:
   k_pushi 0
   k_ldlarg 15
   k_shl1
-  k_ldriw $AB96
+  k_ldriw UMINATO_D_AB96
   k_add
   k_deref
   k_long $26
@@ -1974,7 +1974,7 @@ UMINATO_L_A18F:
   k_mul
   k_popr
   k_add
-  k_ldriw $AB84
+  k_ldriw UMINATO_D_AB84
   k_add
   k_deref
   k_long $26
@@ -2516,7 +2516,7 @@ UMINATO_F_A4F9:
   k_pushi 1
   k_callx RF_3DF1, 14
   k_pusha $F280
-  k_pushiw $8AEC
+  k_pushiw RD_8AEC
   k_pushi 2
   k_pushi 3
   k_pushib 18
@@ -2530,7 +2530,7 @@ UMINATO_F_A4F9:
   k_jump UMINATO_L_A591
 UMINATO_L_A547:
   k_pusha $F280
-  k_pushiw $8ADC
+  k_pushiw RD_8ADC
   k_pushi 2
   k_pushi 4
   k_pushib 18
@@ -2546,32 +2546,32 @@ UMINATO_L_A547:
   k_mul
   k_popr
   k_add
-  k_ldriw $ACC2
+  k_ldriw UMINATO_D_ACC2
   k_add
   k_deref
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $AD91
+  k_ldriw UMINATO_D_AD91
   k_add
   k_derefb
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $AD90
+  k_ldriw UMINATO_D_AD90
   k_add
   k_derefb
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $AD83
+  k_ldriw UMINATO_D_AD83
   k_add
   k_derefb
   k_dec
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $AD82
+  k_ldriw UMINATO_D_AD82
   k_add
   k_derefb
   k_pushl
@@ -2720,13 +2720,13 @@ UMINATO_L_A688:
 UMINATO_F_A696:
   k_func 0
   k_pushi 1
-  k_pushiw $AD9E
+  k_pushiw UMINATO_D_AD9E
   k_callx RF_2FB9, 4
   k_call RF_4A99
   k_call RF_4AC6
   k_call RF_4AF7
   k_pushi 1
-  k_pushiw $ADA2
+  k_pushiw UMINATO_D_ADA2
   k_callx RF_2FB9, 4
   k_return
 UMINATO_F_A6B5:
@@ -2800,7 +2800,7 @@ UMINATO_F_A726:
   k_func 0
   k_ldlarg 11
   k_shl1
-  k_ldriw $ADA6
+  k_ldriw UMINATO_D_ADA6
   k_add
   k_deref
   k_pushl
@@ -2815,7 +2815,7 @@ UMINATO_F_A726:
   k_callx RL_21BE, 10
   k_ldlarg 11
   k_shl1
-  k_ldriw $ADF8
+  k_ldriw UMINATO_D_ADF8
   k_add
   k_deref
   k_pushl
@@ -3005,7 +3005,7 @@ UMINATO_F_A89F:
   k_uge
   k_jumpf UMINATO_L_A8B8
   k_ldlbf 11
-  k_ldriw $ADD8
+  k_ldriw UMINATO_D_ADD8
   k_add
   k_derefb
   k_stl -2
@@ -3156,7 +3156,7 @@ UMINATO_L_A98F:
   k_call UMINATO_F_A617
   k_call UMINATO_F_99B5
   k_pushi 1
-  k_pushiw $AEFA
+  k_pushiw UMINATO_D_AEFA
   k_callx RF_2FB9, 4
   k_ldliw $8000
   k_stla $F16B
@@ -3180,13 +3180,13 @@ UMINATO_L_A9EB:
 UMINATO_L_A9FF:
   k_call UMINATO_F_A6B5
   k_pushi 1
-  k_pushiw $AF04
+  k_pushiw UMINATO_D_AF04
   k_callx RF_2FB9, 4
   k_call RF_4A99
   k_call RF_4AC6
   k_call RF_4AF7
   k_pushi 1
-  k_pushiw $AF08
+  k_pushiw UMINATO_D_AF08
   k_callx RF_2FB9, 4
 UMINATO_L_AA1B:
   k_ldliw $00FF
@@ -3222,7 +3222,7 @@ UMINATO_L_AA58:
   k_pushi 5
   k_callx RF_3F3E, 2
   k_shl1
-  k_ldriw $AE1E
+  k_ldriw UMINATO_D_AE1E
   k_add
   k_deref
   k_pushl
@@ -3238,7 +3238,7 @@ UMINATO_L_AA76:
   k_pusha $F308
   k_callx UMINATO_F_9C39, 6
   k_pushi 1
-  k_pushiw $AF0C
+  k_pushiw UMINATO_D_AF0C
   k_callx RF_2FB9, 4
   k_pushi 0
   k_callx UMINATO_F_97CD, 2
@@ -3330,7 +3330,7 @@ UMINATO_L_AB05:
   k_pushi 2
   k_callx UMINATO_F_A774, 6
   k_pushi 1
-  k_pushiw $AF0F
+  k_pushiw UMINATO_D_AF0F
   k_callx RF_2FB9, 4
   k_pushi 0
   k_callx UMINATO_F_97CD, 2
@@ -3359,13 +3359,26 @@ UMINATO_L_AB4E:
   k_ldli 0
   k_stlba $EA8E
   k_return
-  .byte $00, $C1, $01, $00, $80, $12, $00, $94, $01, $20, $B8, $12, $00, $F7, $01, $00
-  .byte $80, $13, $00, $8F, $01, $E0, $BE, $13, $00, $01, $02, $00, $80, $14, $00, $61
-  .byte $01, $20, $C0, $14, $00, $9A, $01, $00, $80, $15, $00, $B3, $01, $40, $B3, $15
-  .byte $00, $B8, $81, $C4, $81, $D0, $81, $DC, $81, $E8, $81, $F4, $81, $00, $82, $0C
-  .byte $82, $18, $82, $24, $82, $30, $82, $3C, $82, $68, $7A, $8C, $7A, $B0, $7A, $D4
-  .byte $7A, $74, $7A, $98, $7A, $BC, $7A, $E0, $7A, $80, $7A, $A4, $7A, $C8, $7A, $EC
-  .byte $7A, $F8, $7A, $1C
+  .byte $00
+UMINATO_D_AB54:
+  .byte $C1, $01
+UMINATO_D_AB56:
+  .byte $00, $80
+UMINATO_D_AB58:
+  .byte $12, $00, $94, $01, $20, $B8, $12, $00, $F7, $01, $00, $80, $13, $00, $8F, $01
+  .byte $E0, $BE, $13, $00, $01, $02, $00, $80, $14, $00, $61, $01, $20, $C0, $14, $00
+  .byte $9A, $01, $00, $80, $15, $00, $B3, $01, $40, $B3, $15, $00
+UMINATO_D_AB84:
+  .byte $B8, $81, $C4, $81, $D0, $81
+UMINATO_D_AB8A:
+  .byte $DC, $81, $E8, $81, $F4, $81
+UMINATO_D_AB90:
+  .byte $00, $82, $0C, $82, $18, $82
+UMINATO_D_AB96:
+  .byte $24, $82, $30, $82, $3C, $82
+UMINATO_D_AB9C:
+  .byte $68, $7A, $8C, $7A, $B0, $7A, $D4, $7A, $74, $7A, $98, $7A, $BC, $7A, $E0, $7A
+  .byte $80, $7A, $A4, $7A, $C8, $7A, $EC, $7A, $F8, $7A, $1C
   .byte "{@{d{"
   .byte $04
   .byte "{({L{p{"
@@ -3395,70 +3408,92 @@ UMINATO_L_AB4E:
   .byte $D8, $7F, $FC, $7F, $08, $80, $2C, $80, $50, $80, $74, $80, $14, $80, $38, $80
   .byte $5C, $80, $80, $80, $20, $80, $44, $80, $68, $80, $8C, $80, $98, $80, $BC, $80
   .byte $E0, $80, $04, $81, $A4, $80, $C8, $80, $EC, $80, $10, $81, $B0, $80, $D4, $80
-  .byte $F8, $80, $1C, $81, $00, $04, $08, $00, $04, $08, $0A, $25, $32, $26, $B2
+  .byte $F8, $80, $1C, $81
+UMINATO_D_ACBC:
+  .byte $00, $04, $08
+UMINATO_D_ACBF:
+  .byte $00, $04, $08
+UMINATO_D_ACC2:
+  .byte $0A, $25, $32, $26, $B2
   .byte "%z%B%"
   .byte $EA, $25, $C0, $29, $00, $00
   .byte "h*0*"
-  .byte $F8, $29, $A0, $2A, $A0, $32, $00, $00, $48, $33, $10, $33, $D8, $32, $80, $33
-  .byte $30, $2E, $00, $00, $D8, $2E, $A0, $2E, $68, $2E, $10, $2F, $10, $37, $00, $00
-  .byte $B8, $37, $80, $37, $48, $37, $F0, $37, $80, $3B, $A8, $3C, $28, $3C, $F0, $3B
-  .byte $B8, $3B, $60, $3C, $A6, $44, $00, $00, $4E, $45, $16, $45, $DE, $44, $86, $45
-  .byte $36, $40, $00, $00, $DE, $40, $A6, $40, $6E, $40, $16, $41, $22, $C8, $4A, $C9
-  .byte $CA, $C8, $92, $C8, $5A, $C8, $02, $C9, $D8, $CC, $00, $00, $80, $CD, $48, $CD
-  .byte $10, $CD, $B8, $CD, $B8, $D5, $00, $00, $60, $D6, $28, $D6, $F0, $D5, $98, $D6
-  .byte $48, $D1, $00, $00, $F0, $D1, $B8, $D1, $80, $D1, $28, $D2, $28, $DA, $00, $00
-  .byte $D0, $DA, $98, $DA, $60, $DA, $08, $DB, $78, $E7, $A0, $E8, $20, $E8, $E8, $E7
-  .byte $B0, $E7, $58, $E8, $08, $E3, $00, $00, $B0, $E3, $78, $E3, $40, $E3, $E8, $E3
-  .byte $98, $DE, $00, $00, $40, $DF, $08, $DF, $D0, $DE, $78, $DF, $02, $06, $17, $06
-  .byte $02, $0C, $10, $06, $09, $06, $18, $0E, $10, $13, $07, $04, $07, $05, $07, $04
-  .byte $07, $04, $07, $04, $06, $06, $04, $02, $1B, $43, $32, $00, $1B, $43, $30, $00
-  .byte $B8, $AD, $BF, $AD, $C6, $AD, $CF, $AD, $D6, $AD, $DC, $AD, $E3, $AD, $EA, $AD
-  .byte $F1, $AD
-  .byte "hantei"
-  .byte $00
-  .byte "mdisp1"
-  .byte $00
-  .byte "uminato2"
-  .byte $00
-  .byte "um_sub"
-  .byte $00
-  .byte "oukyu"
-  .byte $00
-  .byte "koueki"
-  .byte $00
-  .byte "sakaba"
-  .byte $00
-  .byte "s_card"
-  .byte $00
-  .byte "zousen"
-  .byte $00, $00, $2F, $00, $2F, $00, $2F, $00, $2F, $00, $2F, $00, $2F, $00, $08, $00
-  .byte $08, $00, $20, $04, $04, $06, $07, $07, $04, $04, $04, $04, $03, $02, $02, $01
-  .byte $07, $07, $06, $01, $04, $03, $04, $28, $AE, $43, $AE, $6F, $AE, $9B, $AE, $C1
-  .byte $AE
-  .byte "Blimey! This port's"
-  .byte $0A
-  .byte "empty!"
-  .byte $00
-  .byte "There's no inn here."
-  .byte $0A
-  .byte "What a waste of a"
-  .byte $0A
-  .byte "port"
-  .byte $00
-  .byte "It looks like we can"
-  .byte $0A
-  .byte "only get supplies"
-  .byte $0A
-  .byte "here"
-  .byte $00
-  .byte "Cap'n, this port"
-  .byte $0A
-  .byte "isn't worth our time"
-  .byte $00
-  .byte "There's nothing here!"
-  .byte $0A
-  .byte "Let's get our"
-  .byte $0A
-  .byte "supplies and move on"
-  .byte $00, $1B, $52, $28, $1B, $45, $3D, $1B, $43, $32, $00, $1B, $43, $32, $00, $1B
-  .byte $43, $30, $00, $1B, $57, $00, $1B, $57, $00
+  .byte $F8, $29, $A0, $2A, $A0, $32, $00, $00, $48, $33, $10, $33, $D8, $32, $80
+  .byte "30.", $00
+  .byte $00, $D8, $2E, $A0, $2E, $68, $2E, $10, $2F, $10, $37, $00, $00, $B8, $37, $80
+  .byte $37, $48, $37, $F0, $37, $80, $3B, $A8, $3C, $28, $3C, $F0, $3B, $B8, $3B, $60
+  .byte $3C, $A6, $44, $00, $00, $4E, $45, $16, $45, $DE, $44, $86
+  .byte "E6@", $00
+  .byte $00, $DE, $40, $A6, $40, $6E, $40, $16, $41, $22, $C8, $4A, $C9, $CA, $C8, $92
+  .byte $C8, $5A, $C8, $02, $C9, $D8, $CC, $00, $00, $80, $CD, $48, $CD, $10, $CD, $B8
+  .byte $CD, $B8, $D5, $00, $00, $60, $D6, $28, $D6, $F0, $D5, $98, $D6, $48, $D1, $00
+  .byte $00, $F0, $D1, $B8, $D1, $80, $D1, $28, $D2, $28, $DA, $00, $00, $D0, $DA, $98
+  .byte $DA, $60, $DA, $08, $DB, $78, $E7, $A0, $E8, $20, $E8, $E8, $E7, $B0, $E7, $58
+  .byte $E8, $08, $E3, $00, $00, $B0, $E3, $78, $E3, $40, $E3, $E8, $E3, $98, $DE, $00
+  .byte $00, $40, $DF, $08, $DF, $D0, $DE, $78, $DF
+UMINATO_D_AD82:
+  .byte $02
+UMINATO_D_AD83:
+  .byte $06, $17, $06, $02, $0C, $10, $06, $09, $06, $18, $0E, $10, $13
+UMINATO_D_AD90:
+  .byte $07
+UMINATO_D_AD91:
+  .byte $04, $07, $05, $07, $04, $07, $04, $07, $04, $06, $06, $04, $02
+UMINATO_D_AD9E:
+  .byte $1B
+  .byte "C2", $00
+UMINATO_D_ADA2:
+  .byte $1B
+  .byte "C0", $00
+UMINATO_D_ADA6:
+  .word UMINATO_D_ADB8, UMINATO_D_ADBF, UMINATO_D_ADC6, UMINATO_D_ADCF, UMINATO_D_ADD6, UMINATO_D_ADDC, UMINATO_D_ADE3, UMINATO_D_ADEA
+  .word UMINATO_D_ADF1
+UMINATO_D_ADB8:
+  .byte "hantei", $00
+UMINATO_D_ADBF:
+  .byte "mdisp1", $00
+UMINATO_D_ADC6:
+  .byte "uminato2", $00
+UMINATO_D_ADCF:
+  .byte "um_sub", $00
+UMINATO_D_ADD6:
+  .byte "ou"
+UMINATO_D_ADD8:
+  .byte "kyu", $00
+UMINATO_D_ADDC:
+  .byte "koueki", $00
+UMINATO_D_ADE3:
+  .byte "sakaba", $00
+UMINATO_D_ADEA:
+  .byte "s_card", $00
+UMINATO_D_ADF1:
+  .byte "zousen", $00
+UMINATO_D_ADF8:
+  .byte $00, $2F, $00, $2F, $00, $2F, $00, $2F, $00, $2F, $00, $2F, $00, $08, $00, $08
+  .byte $00, $20, $04, $04, $06, $07, $07, $04, $04, $04, $04, $03, $02, $02, $01, $07
+  .byte $07, $06, $01, $04, $03, $04
+UMINATO_D_AE1E:
+  .word UMINATO_D_AE28, UMINATO_D_AE43, UMINATO_D_AE6F, UMINATO_D_AE9B, UMINATO_D_AEC1
+UMINATO_D_AE28:
+  .byte "Blimey! This port's", $0A, "empty!", $00
+UMINATO_D_AE43:
+  .byte "There's no inn here.", $0A, "What a waste of a", $0A, "port", $00
+UMINATO_D_AE6F:
+  .byte "It looks like we can", $0A, "only get supplies", $0A, "here", $00
+UMINATO_D_AE9B:
+  .byte "Cap'n, this port", $0A, "isn't worth our time", $00
+UMINATO_D_AEC1:
+  .byte "There's nothing here!", $0A, "Let's get our", $0A, "supplies and move on", $00
+UMINATO_D_AEFA:
+  .byte $1B, $52, $28, $1B
+  .byte "E=", $1B, "C2", $00
+UMINATO_D_AF04:
+  .byte $1B
+  .byte "C2", $00
+UMINATO_D_AF08:
+  .byte $1B
+  .byte "C0", $00
+UMINATO_D_AF0C:
+  .byte $1B, $57, $00
+UMINATO_D_AF0F:
+  .byte $1B, $57, $00

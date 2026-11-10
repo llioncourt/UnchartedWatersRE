@@ -21,30 +21,30 @@ ENDING_F_960C:
   k_pushi 4
   k_callx RL_21BE, 8
   k_pushi 1
-  k_pushiw $A7DE
+  k_pushiw ENDING_D_A7DE
   k_callx RF_2FB9, 4
   k_return
 ENDING_F_962A:
   k_func 0
   k_pushi 0
-  k_pushiw $A7E9
+  k_pushiw ENDING_D_A7E9
   k_callx RF_2FB9, 4
   k_call RF_4AC6
   k_pushi 0
-  k_pushiw $A7EE
+  k_pushiw ENDING_D_A7EE
   k_callx RF_2FB9, 4
   k_call RF_4AF7
   k_pushi 0
-  k_pushiw $A7F0
+  k_pushiw ENDING_D_A7F0
   k_callx RF_2FB9, 4
   k_call RF_4A99
   k_pushi 0
-  k_pushiw $A7F3
+  k_pushiw ENDING_D_A7F3
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $A7FF
+  k_pushiw ENDING_D_A7FF
   k_callx RF_2FB9, 4
   k_call ENDING_F_960C
   k_return
@@ -81,45 +81,45 @@ ENDING_L_96AD:
   k_callx RF_28CC, 2
   k_call ENDING_F_962A
   k_pushi 1
-  k_pushiw $A81C
+  k_pushiw ENDING_D_A81C
   k_callx RF_2FB9, 4
   k_call ENDING_F_960C
   k_pushi 1
-  k_pushiw $A864
+  k_pushiw ENDING_D_A864
   k_callx RF_2FB9, 4
   k_call ENDING_F_960C
   k_pushi 1
-  k_pushiw $A8AE
+  k_pushiw ENDING_D_A8AE
   k_jump ENDING_L_971A
 ENDING_L_96D2:
   k_pushi 0
   k_callx RF_28CC, 2
   k_call ENDING_F_962A
   k_pushi 1
-  k_pushiw $A8FB
+  k_pushiw ENDING_D_A8FB
   k_callx RF_2FB9, 4
   k_call ENDING_F_960C
   k_pushi 1
-  k_pushiw $A932
+  k_pushiw ENDING_D_A932
   k_jump ENDING_L_971A
 ENDING_L_96EC:
   k_pushi 7
   k_callx RF_28CC, 2
   k_pushi 1
-  k_pushiw $A97F
+  k_pushiw ENDING_D_A97F
   k_callx RF_2FB9, 4
   k_pushi 0
-  k_pushiw $A983
+  k_pushiw ENDING_D_A983
   k_callx RF_2FB9, 4
   k_pusha $E444
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $A9B0
+  k_pushiw ENDING_D_A9B0
   k_callx RF_2FB9, 4
   k_call ENDING_F_960C
   k_call ENDING_F_962A
   k_pushi 1
-  k_pushiw $A9C2
+  k_pushiw ENDING_D_A9C2
 ENDING_L_971A:
   k_callx RF_2FB9, 4
 ENDING_L_971E:
@@ -135,7 +135,7 @@ ENDING_L_972D:
   k_jump ENDING_L_972C
 ENDING_F_9733:
   k_func 7
-  k_pushiw $B51D
+  k_pushiw ENDING_D_B51D
   k_leal -7
   k_pushl
   k_callx $8979, 4
@@ -148,7 +148,7 @@ ENDING_L_9743:
   k_jump ENDING_L_97DC
 ENDING_L_9751:
   k_pushi 1
-  k_pushiw $B520
+  k_pushiw ENDING_D_B520
   k_callx RF_2FB9, 4
   k_jump ENDING_L_97E9
 ENDING_L_975C:
@@ -254,13 +254,13 @@ ENDING_L_980B:
   k_pushl
   k_ldlbf -10
   k_shl1
-  k_ldriw $B529
+  k_ldriw ENDING_D_B529
   k_add
   k_derefb
   k_pushl
   k_ldlbf -10
   k_shl1
-  k_ldriw $B528
+  k_ldriw ENDING_D_B528
   k_add
   k_derefb
   k_pushl
@@ -277,7 +277,7 @@ ENDING_L_980B:
   k_deref
   k_pushl
   k_ldlbf -10
-  k_ldriw $B525
+  k_ldriw ENDING_D_B525
   k_add
   k_derefb
   k_pushl
@@ -299,7 +299,7 @@ ENDING_L_9861:
   k_dec
   k_derefb
   k_shl1
-  k_ldriw $B4F9
+  k_ldriw ENDING_D_B4F9
   k_add
   k_deref
   k_stl -4
@@ -424,7 +424,7 @@ ENDING_L_991F:
   k_dec
   k_derefb
   k_shl1
-  k_ldriw $AC0A
+  k_ldriw ENDING_D_AC0A
   k_add
   k_deref
   k_pushl
@@ -450,7 +450,7 @@ ENDING_L_9939:
   k_derefb
   k_stlbf -9
   k_ldlbf -5
-  k_ldriw $B522
+  k_ldriw ENDING_D_B522
   k_add
   k_derefb
   k_jumpt ENDING_L_9961
@@ -459,7 +459,7 @@ ENDING_L_9939:
 ENDING_L_9961:
   k_pushib 17
   k_ldlbf -5
-  k_ldriw $B522
+  k_ldriw ENDING_D_B522
   k_add
   k_derefb
   k_pushl
@@ -510,47 +510,47 @@ ENDING_L_99DC:
   .byte $CF
 ENDING_F_99E0:
   k_func 0
-  k_pushiw $B52E
+  k_pushiw ENDING_D_B52E
   k_callx ENDING_F_97F0, 2
   k_return
 ENDING_F_99ED:
   k_func 0
-  k_pushiw $B5C4
+  k_pushiw ENDING_D_B5C4
   k_callx ENDING_F_97F0, 2
   k_return
 ENDING_F_99FA:
   k_func 0
-  k_pushiw $B648
+  k_pushiw ENDING_D_B648
   k_callx ENDING_F_97F0, 2
   k_return
 ENDING_F_9A07:
   k_func 0
-  k_pushiw $B6AE
+  k_pushiw ENDING_D_B6AE
   k_callx ENDING_F_97F0, 2
   k_return
 ENDING_F_9A14:
   k_func 0
-  k_pushiw $B7DE
+  k_pushiw ENDING_D_B7DE
   k_callx ENDING_F_97F0, 2
   k_return
 ENDING_F_9A21:
   k_func 0
-  k_pushiw $B7FF
+  k_pushiw ENDING_D_B7FF
   k_callx ENDING_F_97F0, 2
   k_return
 ENDING_F_9A2E:
   k_func 0
-  k_pushiw $B874
+  k_pushiw ENDING_D_B874
   k_callx ENDING_F_97F0, 2
   k_return
 ENDING_F_9A3B:
   k_func 0
-  k_pushiw $B952
+  k_pushiw ENDING_D_B952
   k_callx ENDING_F_97F0, 2
   k_return
 ENDING_F_9A48:
   k_func 0
-  k_pushiw $BA70
+  k_pushiw ENDING_D_BA70
   k_callx ENDING_F_97F0, 2
   k_return
 ENDING_F_9A55:
@@ -574,7 +574,7 @@ ENDING_L_9A5C:
   k_pushi 1
   k_pushib 17
   k_callx RL_21BE, 8
-  k_pushiw $BC2E
+  k_pushiw ENDING_D_BC2E
   k_callx ENDING_F_97F0, 2
   k_ldl -2
   k_inc
@@ -583,7 +583,7 @@ ENDING_L_9A5C:
   k_ldrib 33
   k_ult
   k_jumpt ENDING_L_9A5C
-  k_pushiw $BC53
+  k_pushiw ENDING_D_BC53
   k_callx ENDING_F_97F0, 2
   k_pushi 0
   k_pushi 1
@@ -648,7 +648,7 @@ ENDING_L_9ABE:
   k_pushi 1
   k_callx RF_532F, 14
   k_pushib 126
-  k_pushiw $BCC9
+  k_pushiw ENDING_D_BCC9
   k_pushi 9
   k_pushi 2
   k_pushib 19
@@ -676,7 +676,7 @@ ENDING_L_9B19:
   k_pushi 0
   k_ldl -2
   k_shl1
-  k_ldriw $8B64
+  k_ldriw RD_8B64
   k_add
   k_long $26
   k_long $14
@@ -778,7 +778,7 @@ ENDING_L_9B93:
   k_pushi 5
   k_callx RL_21BE, 14
   k_pusha $F280
-  k_pushiw $8AF8
+  k_pushiw RD_8AF8
   k_pushi 2
   k_pushi 3
   k_pushiw $008F
@@ -807,7 +807,7 @@ ENDING_L_9B93:
   k_jump ENDING_L_9C10
 ENDING_L_9BDD:
   k_pusha $F280
-  k_pushiw $8AF8
+  k_pushiw RD_8AF8
   k_pushi 2
   k_pushi 3
   k_pushi 2
@@ -1021,7 +1021,7 @@ ENDING_F_9CF5:
   k_pushib 32
   k_pushiw $0080
   k_pushib 126
-  k_pushiw $ABEA
+  k_pushiw ENDING_D_ABEA
   k_pushi 3
   k_callx RL_21BE, 10
   k_pusha $F280
@@ -1067,7 +1067,7 @@ ENDING_F_9D6A:
   k_pushi 11
   k_callx RL_21BE, 12
   k_pushib 29
-  k_pushiw $8DA0
+  k_pushiw RD_8DA0
   k_pushib 120
   k_pushiw $00F0
   k_pushi 13
@@ -1082,23 +1082,23 @@ ENDING_F_9D6A:
   k_pushib 96
   k_pushib 32
   k_pushib 126
-  k_pushiw $AA0A
+  k_pushiw ENDING_D_AA0A
   k_pushi 3
   k_callx RL_21BE, 10
   k_pushib 32
   k_pushiw $00A0
   k_pushib 126
-  k_pushiw $AA6A
+  k_pushiw ENDING_D_AA6A
   k_pushi 3
   k_callx RL_21BE, 10
   k_pushib 32
   k_pushib 96
   k_pushib 126
-  k_pushiw $AA6A
+  k_pushiw ENDING_D_AA6A
   k_pushi 3
   k_callx RL_21BE, 10
   k_pusha $F280
-  k_pushiw $94F4
+  k_pushiw RD_94F4
   k_pushi 11
   k_pushib 32
   k_pushi 0
@@ -1114,7 +1114,7 @@ ENDING_F_9D6A:
   k_pushi 2
   k_callx RF_3DF1, 14
   k_pusha $F280
-  k_pushiw $BC5E
+  k_pushiw ENDING_D_BC5E
   k_pushi 4
   k_pushi 2
   k_pushib 37
@@ -1122,7 +1122,7 @@ ENDING_F_9D6A:
   k_pushi 1
   k_callx RF_3DF1, 14
   k_pusha $F280
-  k_pushiw $BC6E
+  k_pushiw ENDING_D_BC6E
   k_pushi 4
   k_pushi 3
   k_pushib 37
@@ -1141,7 +1141,7 @@ ENDING_F_9D6A:
   k_pushi 15
   k_pushi 10
   k_pushi 4
-  k_pushiw $BCED
+  k_pushiw ENDING_D_BCED
   k_callx RF_3787, 16
   k_stl -2
   k_jump ENDING_L_9E59
@@ -1173,7 +1173,7 @@ ENDING_L_9E68:
   k_pushib 17
   k_pushi 10
   k_pushi 2
-  k_pushiw $BCEE
+  k_pushiw ENDING_D_BCEE
   k_callx RF_3787, 16
   k_ldri 1
   k_eq
@@ -1189,7 +1189,7 @@ ENDING_L_9E8B:
   k_pushib 17
   k_pushi 10
   k_pushi 2
-  k_pushiw $BCEF
+  k_pushiw ENDING_D_BCEF
   k_callx RF_3787, 16
   k_ldri 1
   k_eq
@@ -1275,32 +1275,32 @@ ENDING_F_9F37:
   k_pusha $F280
   k_ldlarg 11
   k_shl1
-  k_ldriw $BD08
+  k_ldriw ENDING_D_BD08
   k_add
   k_deref
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $BCFD
+  k_ldriw ENDING_D_BCFD
   k_add
   k_derefb
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $BCFC
+  k_ldriw ENDING_D_BCFC
   k_add
   k_derefb
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $BCF1
+  k_ldriw ENDING_D_BCF1
   k_add
   k_derefb
   k_dec
   k_pushl
   k_ldlarg 11
   k_shl1
-  k_ldriw $BCF0
+  k_ldriw ENDING_D_BCF0
   k_add
   k_derefb
   k_pushl
@@ -1342,7 +1342,7 @@ ENDING_F_9F6E:
   k_pushi 1
   k_callx RF_3DF1, 14
   k_pusha $F280
-  k_pushiw $8AEC
+  k_pushiw RD_8AEC
   k_pushi 2
   k_pushi 3
   k_pushib 18
@@ -1421,19 +1421,19 @@ ENDING_L_A004:
   k_add
   k_popr
   k_add
-  k_ldriw $BD20
+  k_ldriw ENDING_D_BD20
   k_add
   k_deref
   k_stln -9
   k_ldln -3
   k_shl1
-  k_ldriw $BD15
+  k_ldriw ENDING_D_BD15
   k_add
   k_derefb
   k_pushl
   k_ldln -3
   k_shl1
-  k_ldriw $BD14
+  k_ldriw ENDING_D_BD14
   k_add
   k_derefb
   k_popr
@@ -1441,13 +1441,13 @@ ENDING_L_A004:
   k_stln -13
   k_ldln -3
   k_shl1
-  k_ldriw $BD14
+  k_ldriw ENDING_D_BD14
   k_add
   k_derefb
   k_stlba $F300
   k_ldln -3
   k_shl1
-  k_ldriw $BD15
+  k_ldriw ENDING_D_BD15
   k_add
   k_derefb
   k_stlba $F301
@@ -1466,16 +1466,16 @@ ENDING_L_A004:
   k_pushi 11
   k_callx RL_21BE, 12
   k_pusha $F280
-  k_pushiw $8B04
+  k_pushiw RD_8B04
   k_ldln -3
   k_shl1
-  k_ldriw $BD15
+  k_ldriw ENDING_D_BD15
   k_add
   k_derefb
   k_pushl
   k_ldln -3
   k_shl1
-  k_ldriw $BD14
+  k_ldriw ENDING_D_BD14
   k_add
   k_derefb
   k_pushl
@@ -1488,7 +1488,7 @@ ENDING_L_A0AF:
 ENDING_F_A0B0:
   k_func 0
   k_pushib 22
-  k_pushiw $8B6D
+  k_pushiw RD_8B6D
   k_pushi 0
   k_pushib 20
   k_pushi 4
@@ -1499,7 +1499,7 @@ ENDING_F_A0B0:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8BED
+  k_pushiw RD_8BED
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -1510,7 +1510,7 @@ ENDING_F_A0B0:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8C6D
+  k_pushiw RD_8C6D
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -1521,7 +1521,7 @@ ENDING_F_A0B0:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8CED
+  k_pushiw RD_8CED
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -1532,7 +1532,7 @@ ENDING_F_A0B0:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8D6D
+  k_pushiw RD_8D6D
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -1543,7 +1543,7 @@ ENDING_F_A0B0:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8DED
+  k_pushiw RD_8DED
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -1554,7 +1554,7 @@ ENDING_F_A0B0:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8E6D
+  k_pushiw RD_8E6D
   k_pushi 0
   k_pushi 0
   k_pushi 0
@@ -1565,7 +1565,7 @@ ENDING_F_A0B0:
   k_pushib 55
   k_callx RL_21BE, 20
   k_pushib 22
-  k_pushiw $8EED
+  k_pushiw RD_8EED
   k_pushiw $00FF
   k_pushi 0
   k_pushi 0
@@ -1585,7 +1585,7 @@ ENDING_F_A156:
   k_pushib 126
   k_pushib 36
   k_callx RL_21BE, 10
-  k_ldliw $BD68
+  k_ldliw ENDING_D_BD68
   k_stln -7
 ENDING_L_A16F:
   k_ldln -7
@@ -1722,7 +1722,7 @@ ENDING_L_A22E:
 ENDING_L_A248:
   k_ldlbf -4
   k_shl1
-  k_ldriw $C24F
+  k_ldriw ENDING_D_C24F
   k_add
   k_deref
   k_stln -11
@@ -1730,7 +1730,7 @@ ENDING_L_A248:
 ENDING_L_A256:
   k_ldlbf -4
   k_shl1
-  k_ldriw $C267
+  k_ldriw ENDING_D_C267
   k_add
   k_deref
   k_stln -11
@@ -1738,7 +1738,7 @@ ENDING_L_A256:
 ENDING_L_A264:
   k_ldlbf -4
   k_shl1
-  k_ldriw $C27F
+  k_ldriw ENDING_D_C27F
   k_add
   k_deref
   k_stln -11
@@ -1808,7 +1808,7 @@ ENDING_F_A2F5:
   k_func 2
   k_pushi 1
   k_pushib 22
-  k_pushiw $8B6D
+  k_pushiw RD_8B6D
   k_pushib 32
   k_pushib 119
   k_pushi 11
@@ -1860,19 +1860,19 @@ ENDING_F_A2F5:
   k_pushi 2
   k_callx RF_3DF1, 14
   k_pushi 1
-  k_pushiw $C2B7
+  k_pushiw ENDING_D_C2B7
   k_callx RF_2FB9, 4
   k_pushi 2
   k_pushib 16
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $C2BB
+  k_pushiw ENDING_D_C2BB
   k_callx RF_2FB9, 4
   k_call RF_4A99
   k_call RF_4AC6
   k_call RF_4AF7
   k_pushi 1
-  k_pushiw $C2C2
+  k_pushiw ENDING_D_C2C2
   k_callx RF_2FB9, 4
   k_pusha $F280
   k_pushiw $21C2
@@ -1907,7 +1907,7 @@ ENDING_L_A3AD:
   k_pushi 0
   k_callx RF_3E7E, 4
   k_pushi 0
-  k_ldliw $2790
+  k_ldliw RL_2790
   k_long $26
   k_long $14
   k_pusha $F282
@@ -1937,7 +1937,7 @@ ENDING_L_A3AD:
   k_pushib 32
   k_pushiw $00D0
   k_pushib 126
-  k_pushiw $C297
+  k_pushiw ENDING_D_C297
   k_pushi 3
   k_callx RL_21BE, 10
   k_pushi 1
@@ -1966,7 +1966,7 @@ ENDING_F_A42F:
   k_pushi 2
   k_callx RF_4F65, 12
   k_pushiw $F302
-  k_pusha $C2C6
+  k_pusha ENDING_D_C2C6
   k_callx RF_3619, 4
   k_pushiw $0168
   k_pushib 16
@@ -1980,7 +1980,7 @@ ENDING_F_A42F:
   k_pushi 5
   k_callx RL_21BE, 14
   k_pushi 1
-  k_pusha $C2C8
+  k_pusha ENDING_D_C2C8
   k_callx RF_2FB9, 4
   k_pushiw $0168
   k_pushib 16
@@ -2020,13 +2020,13 @@ ENDING_F_A4B9:
   k_pushib 32
   k_pushib 112
   k_pushib 126
-  k_pushiw $AA8A
+  k_pushiw ENDING_D_AA8A
   k_pushi 3
   k_callx RL_21BE, 10
   k_pushib 32
   k_pushib 80
   k_pushib 126
-  k_pushiw $AAAA
+  k_pushiw ENDING_D_AAAA
   k_pushi 3
   k_callx RL_21BE, 10
   k_pusha $F280
@@ -2071,23 +2071,23 @@ ENDING_F_A4B9:
   k_pushib 64
   k_pushib 96
   k_pushib 126
-  k_pushiw $AAEA
+  k_pushiw ENDING_D_AAEA
   k_pushi 3
   k_callx RL_21BE, 10
   k_pushib 32
   k_pushib 64
   k_pushib 126
-  k_pushiw $AACA
+  k_pushiw ENDING_D_AACA
   k_pushi 3
   k_callx RL_21BE, 10
   k_pushib 32
   k_pushiw $00C0
   k_pushib 126
-  k_pushiw $AACA
+  k_pushiw ENDING_D_AACA
   k_pushi 3
   k_callx RL_21BE, 10
   k_pusha $F280
-  k_pushiw $AD48
+  k_pushiw ENDING_D_AD48
   k_pushi 10
   k_pushib 30
   k_pushi 7
@@ -2108,7 +2108,7 @@ ENDING_F_A4B9:
   k_pushib 16
   k_callx RL_21BE, 4
   k_pusha $F280
-  k_pushiw $A898
+  k_pushiw ENDING_D_A898
   k_pushi 10
   k_pushib 30
   k_pushi 7
@@ -2119,7 +2119,7 @@ ENDING_F_A4B9:
   k_pushib 16
   k_callx RL_21BE, 4
   k_pusha $F280
-  k_pushiw $AAF0
+  k_pushiw ENDING_D_AAF0
   k_pushi 10
   k_pushib 30
   k_pushi 7
@@ -2132,7 +2132,7 @@ ENDING_F_A4B9:
   k_pushib 64
   k_pushib 96
   k_pushib 126
-  k_pushiw $AB2A
+  k_pushiw ENDING_D_AB2A
   k_pushi 3
   k_callx RL_21BE, 10
   k_pushib 120
@@ -2141,7 +2141,7 @@ ENDING_F_A4B9:
   k_pushib 64
   k_pushib 96
   k_pushib 126
-  k_pushiw $AB6A
+  k_pushiw ENDING_D_AB6A
   k_pushi 3
   k_callx RL_21BE, 10
   k_pushib 120
@@ -2150,7 +2150,7 @@ ENDING_F_A4B9:
   k_pushib 64
   k_pushib 96
   k_pushib 126
-  k_pushiw $ABAA
+  k_pushiw ENDING_D_ABAA
   k_pushi 3
   k_callx RL_21BE, 10
   k_pushiw $012C
@@ -2163,7 +2163,7 @@ ENDING_F_A4B9:
   k_callx RL_21BE, 4
   k_call RF_3D7C
   k_pusha $F280
-  k_pushiw $AFA0
+  k_pushiw ENDING_D_AFA0
   k_pushi 8
   k_pushi 10
   k_pushi 6
@@ -2178,11 +2178,11 @@ ENDING_F_A4B9:
   k_stl -2
 ENDING_L_A64F:
   k_pushi 1
-  k_pushiw $C3FD
+  k_pushiw ENDING_D_C3FD
   k_callx RF_2FB9, 4
   k_ldl -2
   k_shl1
-  k_ldriw $C35E
+  k_ldriw ENDING_D_C35E
   k_add
   k_deref
   k_pushl
@@ -2206,7 +2206,7 @@ ENDING_L_A64F:
   k_pushib 16
   k_callx RL_21BE, 4
   k_pusha $F280
-  k_pushiw $B040
+  k_pushiw ENDING_D_B040
   k_pushi 8
   k_pushi 10
   k_pushi 6
@@ -2217,7 +2217,7 @@ ENDING_L_A64F:
   k_pushib 16
   k_callx RL_21BE, 4
   k_pusha $F280
-  k_pushiw $B0E0
+  k_pushiw ENDING_D_B0E0
   k_pushi 8
   k_pushi 10
   k_pushi 6
@@ -2228,7 +2228,7 @@ ENDING_L_A64F:
   k_pushib 16
   k_callx RL_21BE, 4
   k_pusha $F280
-  k_pushiw $B180
+  k_pushiw ENDING_D_B180
   k_pushi 8
   k_pushi 10
   k_pushi 6
@@ -2256,11 +2256,11 @@ ENDING_F_A6E1:
   k_pushi 1
   k_callx RF_4F2A, 2
   k_pusha $F280
-  k_pushiw $BC40
+  k_pushiw ENDING_D_BC40
   k_pushi 5
   k_pushi 3
-  k_pusha $C473
-  k_pusha $C429
+  k_pusha ENDING_D_C473
+  k_pusha ENDING_D_C429
   k_pushi 10
   k_callx RF_3E5A, 14
   k_pushib 60
@@ -2270,14 +2270,14 @@ ENDING_F_A6E1:
   k_stl -2
 ENDING_L_A708:
   k_pusha $F280
-  k_pushiw $BC40
+  k_pushiw ENDING_D_BC40
   k_pushi 5
   k_pushi 3
   k_ldl -2
   k_shl1
   k_inc
   k_shl1
-  k_ldriw $C473
+  k_ldriw ENDING_D_C473
   k_add
   k_deref
   k_pushl
@@ -2285,7 +2285,7 @@ ENDING_L_A708:
   k_shl1
   k_inc
   k_shl1
-  k_ldriw $C429
+  k_ldriw ENDING_D_C429
   k_add
   k_deref
   k_pushl
@@ -2294,7 +2294,7 @@ ENDING_L_A708:
   k_pusha $F280
   k_ldl -2
   k_shl1
-  k_ldriw $C405
+  k_ldriw ENDING_D_C405
   k_add
   k_deref
   k_pushl
@@ -2308,14 +2308,14 @@ ENDING_L_A708:
   k_pushib 16
   k_callx RL_21BE, 4
   k_pusha $F280
-  k_pushiw $BC40
+  k_pushiw ENDING_D_BC40
   k_pushi 5
   k_pushi 3
   k_ldl -2
   k_shl1
   k_addli 2
   k_shl1
-  k_ldriw $C473
+  k_ldriw ENDING_D_C473
   k_add
   k_deref
   k_pushl
@@ -2323,7 +2323,7 @@ ENDING_L_A708:
   k_shl1
   k_addli 2
   k_shl1
-  k_ldriw $C429
+  k_ldriw ENDING_D_C429
   k_add
   k_deref
   k_pushl
@@ -2381,456 +2381,331 @@ ENDING_F_A797:
   k_call ENDING_F_A4B9
   k_call ENDING_F_A6E1
   k_return
-  .byte $1B, $52, $27, $1B, $45, $16, $1B, $3D, $31, $27, $00, $0A, $4F, $6E, $20, $00
-  .byte $20, $00, $2C, $20, $00, $2C, $0A, $0A
-  .byte "Captain "
-  .byte $00, $0A, $0A
-  .byte "was reported lost"
-  .byte $0A, $0A
-  .byte "at sea."
+ENDING_D_A7DE:
+  .byte $1B, $52, $27, $1B, $45, $16, $1B
+  .byte "=1'", $00
+ENDING_D_A7E9:
+  .byte $0A, "On ", $00
+ENDING_D_A7EE:
+  .byte $20, $00
+ENDING_D_A7F0:
+  .byte ", ", $00
+ENDING_D_A7F3:
+  .byte ",", $0A, $0A, "Captain ", $00
+ENDING_D_A7FF:
+  .byte $0A, $0A, "was reported lost", $0A, $0A, "at sea.", $00
+ENDING_D_A81C:
+  .byte "According to one", $0A, "story, the fleet", $0A, "used up all of its", $0A, "precious supplies."
   .byte $00
-  .byte "According to one"
-  .byte $0A
-  .byte "story, the fleet"
-  .byte $0A
-  .byte "used up all of its"
-  .byte $0A
-  .byte "precious supplies."
+ENDING_D_A864:
+  .byte "They say the crew", $0A, "lingered on bravely", $0A, "until their fa"
+ENDING_D_A898:
+  .byte "tes", $0A, "met up with them.", $00
+ENDING_D_A8AE:
+  .byte "The Captain perished", $0A, "boldly at sea, a", $0A, "common fate in the", $0A, "Age of Exploration."
   .byte $00
-  .byte "They say the crew"
-  .byte $0A
-  .byte "lingered on bravely"
-  .byte $0A
-  .byte "until their fates"
-  .byte $0A
-  .byte "met up with them."
+ENDING_D_A8FB:
+  .byte "A terrible storm", $0A, "ravaged his fleet", $0A, "beyond imagination.", $00
+ENDING_D_A932:
+  .byte "The Captain perished", $0A, "boldly at sea, a", $0A, "common fate in the", $0A, "Age of Exploration."
   .byte $00
-  .byte "The Captain perished"
-  .byte $0A
-  .byte "boldly at sea, a"
-  .byte $0A
-  .byte "common fate in the"
-  .byte $0A
-  .byte "Age of Exploration."
-  .byte $00
-  .byte "A terrible storm"
-  .byte $0A
-  .byte "ravaged his fleet"
-  .byte $0A
-  .byte "beyond imagination."
-  .byte $00
-  .byte "The Captain perished"
-  .byte $0A
-  .byte "boldly at sea, a"
-  .byte $0A
-  .byte "common fate in the"
-  .byte $0A
-  .byte "Age of Exploration."
-  .byte $00, $1B, $43, $30, $00, $0A
-  .byte "After 20 long years"
-  .byte $0A, $0A
-  .byte "of the sailor's life"
-  .byte $0A, $0A, $00
-  .byte " passed"
-  .byte $0A, $0A
-  .byte "away on "
-  .byte $00
-  .byte "He was just short of"
-  .byte $0A
-  .byte "reaching the goal he"
-  .byte $0A
-  .byte "had aspired for all"
-  .byte $0A
-  .byte "his life."
-  .byte $00, $00, $00, $00, $28, $80, $20, $C2, $28, $06, $31, $93, $09, $37, $0A, $FD
-  .byte $1A, $88, $45, $88, $55, $53, $00, $59, $00, $80, $28, $C2, $38, $46, $45, $FF
-  .byte $7F, $00, $00, $1D, $01, $DB, $7D, $64, $7E, $E0, $7E, $31, $7F, $BD, $46, $42
-  .byte $08
+ENDING_D_A97F:
+  .byte $1B
+  .byte "C0", $00
+ENDING_D_A983:
+  .byte $0A, "After 20 long years", $0A, $0A, "of the sailor's life", $0A, $0A, $00
+ENDING_D_A9B0:
+  .byte " passed", $0A, $0A, "away on ", $00
+ENDING_D_A9C2:
+  .byte "He was just short of", $0A, "reaching the goal he", $0A, "had aspired for all"
+  .byte $0A, "his life.", $00
+ENDING_D_AA0A:
+  .byte $00, $00, $00, $28, $80, $20, $C2, $28, $06, $31, $93, $09, $37, $0A, $FD, $1A
+  .byte $88, $45, $88
+  .byte "US", $00
+  .byte $59, $00, $80, $28, $C2, $38, $46, $45, $FF, $7F, $00, $00, $1D, $01, $DB, $7D
+  .byte $64, $7E, $E0, $7E, $31, $7F, $BD, $46, $42, $08
   .byte "Fe9*?_"
   .byte $FF, $6F, $57, $11, $7D, $2A, $7F, $4F, $FD, $7F, $00, $00, $4E, $55, $91, $5D
   .byte $33, $5E, $B7, $5E, $F9, $66, $7B, $67, $FF
   .byte "oFe9*?_"
-  .byte $FF, $6F, $57, $11, $7D, $2A, $7F, $4F, $42, $4C, $CA, $21, $00, $28, $D9, $29
-  .byte $BD, $46, $3F, $5F, $FF, $6F, $93, $00, $5B, $09, $02, $5D, $68, $6E, $B5, $7F
-  .byte $BF, $1A, $7F, $3B, $0E, $4D, $57, $65, $FF, $7F, $00, $00, $42, $08, $DB, $7D
-  .byte $64, $7E, $E0, $7E, $2A, $7F, $6E, $7F, $73, $7F
+  .byte $FF, $6F, $57, $11, $7D, $2A, $7F, $4F, $42, $4C
+ENDING_D_AA6A:
+  .byte $CA, $21, $00, $28, $D9, $29, $BD, $46, $3F, $5F, $FF, $6F, $93, $00, $5B, $09
+  .byte $02, $5D, $68, $6E, $B5, $7F, $BF, $1A, $7F, $3B, $0E, $4D, $57, $65, $FF, $7F
+ENDING_D_AA8A:
+  .byte $00, $00, $42, $08, $DB, $7D, $64, $7E, $E0, $7E, $2A, $7F, $6E, $7F, $73, $7F
   .byte "Fe9*?_"
-  .byte $FF, $6F, $5B, $11, $7D, $2A, $7F, $3B, $FD, $7F, $00, $00, $80
+  .byte $FF, $6F, $5B, $11, $7D, $2A, $7F, $3B, $FD, $7F
+ENDING_D_AAAA:
+  .byte $00, $00, $80
   .byte "DFed~"
   .byte $E0, $7E, $2A, $7F, $6E, $7F, $73, $7F, $CA, $08, $D5
   .byte "!y:=W"
-  .byte $CE, $39, $B5, $56, $39, $67, $FF, $7F, $00, $00, $C6, $18, $0C, $01, $91, $11
-  .byte $77, $32, $B9, $46, $7D, $57, $BF, $6F, $02, $5D, $68, $6E, $B5, $7F, $BF, $1A
-  .byte $7F, $3B, $0E, $4D, $57, $65, $FF, $7F, $00, $00, $42, $08, $CE, $39, $59, $00
+  .byte $CE, $39, $B5, $56, $39, $67, $FF, $7F
+ENDING_D_AACA:
+  .byte $00, $00, $C6, $18, $0C, $01, $91, $11, $77, $32, $B9, $46, $7D, $57, $BF, $6F
+  .byte $02, $5D, $68, $6E, $B5, $7F, $BF, $1A, $7F, $3B, $0E, $4D, $57, $65, $FF, $7F
+ENDING_D_AAEA:
+  .byte $00, $00, $42, $08, $CE
+  .byte "9"
+ENDING_D_AAF0:
+  .byte "Y", $00
   .byte $1F, $01, $7F, $02, $2A, $7F, $F7, $7F, $0E, $09, $93, $19
   .byte "y*=G"
   .byte $CE, $39, $B5, $56, $39, $67, $FF, $7F, $00, $00, $86, $6D, $64, $7E, $A0, $7E
   .byte $E0, $7E, $2A, $7F, $6E, $7F, $73, $7F, $46, $01, $13, $01, $D9, $01, $BD, $1A
-  .byte $A6, $02, $2E, $0B, $F5, $13, $FD, $7F, $00, $00, $42, $08, $4C, $29, $17, $11
-  .byte $59, $11, $DB, $11, $AE, $66, $33, $6F, $CC, $10
+  .byte $A6, $02, $2E, $0B, $F5, $13, $FD, $7F
+ENDING_D_AB2A:
+  .byte $00, $00, $42, $08, $4C, $29, $17, $11, $59, $11, $DB, $11, $AE, $66, $33, $6F
+  .byte $CC, $10
   .byte "Q!52"
-  .byte $B9, $3A, $8E, $29, $33, $46, $B7, $56, $3B, $5F, $00, $00, $06, $45, $84, $4D
-  .byte $C2, $4D, $C2
+  .byte $B9, $3A, $8E, $29, $33, $46, $B7
+  .byte "V;_", $00
+  .byte $00, $06, $45, $84, $4D, $C2, $4D, $C2
   .byte "M(N*N.N"
   .byte $C6, $00, $13, $01, $D9, $01, $BD, $1A, $A6, $02, $2E, $0B, $F5, $13, $B5, $4E
+ENDING_D_AB6A:
   .byte $00, $00, $42, $08, $0A, $11, $D3, $08, $15, $09, $57, $11, $CC, $4D, $6E, $4E
   .byte $8A, $08, $0E, $19, $91, $29, $35, $32, $0C, $19, $91, $29, $35, $3A, $F9, $4E
   .byte $00, $00, $C6, $18, $C6, $18, $06, $21, $06, $21, $08, $21, $08, $21, $0A, $21
-  .byte $C6, $00, $13, $01, $D9, $01, $BD, $1A, $A6, $02, $2E, $0B, $F5, $13, $4C, $21
-  .byte $00, $00, $42, $08, $88, $00, $4A, $00, $CE, $08, $13, $09, $4C, $29, $8E, $31
-  .byte $46, $00, $CA, $08, $0E, $19, $D3, $29, $CA, $10, $4E, $21, $D3, $29, $77, $3A
-  .byte $00, $00, $86, $08, $86, $08, $86, $08, $86, $08, $86, $08, $C8, $08, $88, $08
-  .byte $C6, $00, $13, $01, $D9, $01, $BD, $1A, $A6, $02, $2E, $0B, $F5, $13, $0A, $09
-  .byte $00, $00, $7B, $7F, $F7, $6E, $B5, $66, $73, $5E, $00, $00, $CE, $4D, $8C, $45
-  .byte $55, $19, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $F7, $6E, $FF, $7F
-  .byte $78, $AC, $A1, $AC, $CA, $AC, $F0, $AC, $01, $AD, $35, $AD, $6A, $AD, $9E, $AD
-  .byte $CD, $AD, $EC, $AD, $25, $AE, $58, $AE, $8C, $AE, $BF, $AE, $EB, $AE, $1D, $AF
-  .byte $54, $AF, $83, $AF, $89, $AF, $A1, $AF, $D1, $AF, $F6, $AF, $28, $B0, $5A, $B0
-  .byte $61, $B0, $9A, $B0, $BF, $B0, $F1, $B0, $21, $B1, $4E, $B1, $76, $B1, $AA, $B1
-  .byte $DD, $B1, $0D, $B2, $18, $B2, $43, $B2, $65, $B2, $92, $B2, $BD, $B2, $C4, $B2
-  .byte $F4, $B2, $0F, $B3, $3B, $B3, $4F, $B3, $70, $B3, $A6, $B3, $CE, $B3, $F3, $B3
-  .byte $28, $B4, $43, $B4, $61, $B4, $86, $B4, $90, $B4, $9C, $B4, $CE, $B4
-  .byte "Sir %s,"
-  .byte $0A
-  .byte "my thanks for"
-  .byte $0A
-  .byte "saving Christiana!"
+  .byte $C6, $00, $13, $01, $D9, $01, $BD, $1A, $A6, $02, $2E, $0B, $F5, $13
+  .byte "L!"
+ENDING_D_ABAA:
   .byte $00
-  .byte "In addition you"
-  .byte $0A
-  .byte "have routed the"
-  .byte $0A
-  .byte "pirates!"
+  .byte $00, $42, $08, $88, $00, $4A, $00, $CE, $08, $13, $09, $4C, $29, $8E
+  .byte "1F", $00
+  .byte $CA, $08, $0E, $19, $D3, $29, $CA, $10, $4E, $21, $D3
+  .byte ")w:", $00
+  .byte $00, $86, $08, $86, $08, $86, $08, $86, $08, $86, $08, $C8, $08, $88, $08, $C6
+  .byte $00, $13, $01, $D9, $01, $BD, $1A, $A6, $02, $2E, $0B, $F5, $13
+  .byte $0A, $09
+ENDING_D_ABEA:
   .byte $00
-  .byte "You are truly the"
-  .byte $0A
-  .byte "bravest of them"
-  .byte $0A, $61, $6C, $6C, $00
-  .byte "You are too kind"
+  .byte $00, $7B, $7F, $F7, $6E, $B5
+  .byte "fs^", $00
+  .byte $00, $CE, $4D, $8C, $45, $55, $19, $00, $00, $00, $00, $00, $00, $00, $00, $00
+  .byte $00, $F7, $6E, $FF, $7F
+ENDING_D_AC0A:
+  .word ENDING_D_AC78, ENDING_D_ACA1, ENDING_D_ACCA, ENDING_D_ACF0, ENDING_D_AD01, ENDING_D_AD35, ENDING_D_AD6A, ENDING_D_AD9E
+  .word ENDING_D_ADCD, ENDING_D_ADEC, ENDING_D_AE25, ENDING_D_AE58, ENDING_D_AE8C, ENDING_D_AEBF, ENDING_D_AEEB, ENDING_D_AF1D
+  .word ENDING_D_AF54, ENDING_D_AF83, ENDING_D_AF89, ENDING_D_AFA1, ENDING_D_AFD1, ENDING_D_AFF6, ENDING_D_B028, ENDING_D_B05A
+  .word ENDING_D_B061, ENDING_D_B09A, ENDING_D_B0BF, ENDING_D_B0F1, ENDING_D_B121, ENDING_D_B14E, ENDING_D_B176, ENDING_D_B1AA
+  .word ENDING_D_B1DD, ENDING_D_B20D, ENDING_D_B218, ENDING_D_B243, ENDING_D_B265, ENDING_D_B292, ENDING_D_B2BD, ENDING_D_B2C4
+  .word ENDING_D_B2F4, ENDING_D_B30F, ENDING_D_B33B, ENDING_D_B34F, ENDING_D_B370, ENDING_D_B3A6, ENDING_D_B3CE, ENDING_D_B3F3
+  .word ENDING_D_B428, ENDING_D_B443, ENDING_D_B461, ENDING_D_B486, ENDING_D_B490, ENDING_D_B49C, ENDING_D_B4CE
+ENDING_D_AC78:
+  .byte "Sir %s,", $0A, "my thanks for", $0A, "saving Christiana!", $00
+ENDING_D_ACA1:
+  .byte "In addition you", $0A, "have routed the", $0A, "pirates!", $00
+ENDING_D_ACCA:
+  .byte "You are truly the", $0A, "bravest of them", $0A, "all", $00
+ENDING_D_ACF0:
+  .byte "You are too kind", $00
+ENDING_D_AD01:
+  .byte "There are no words", $0A, "that can express", $0A, "my appreciation", $00
+ENDING_D_AD35:
+  .byte "I shall award you", $0A, "a"
+ENDING_D_AD48:
+  .byte "s you please. Ask", $0A, "me for anything", $00
+ENDING_D_AD6A:
+  .byte "What do you want?", $0A, "  Land   Princess", $0A, "  Honor  Refuse", $00
+ENDING_D_AD9E:
+  .byte "If I owned a", $0A, "piece of land in", $0A, "my home country,", $00
+ENDING_D_ADCD:
+  .byte "I would be more", $0A, "than satisfied", $00
+ENDING_D_ADEC:
+  .byte "You desire land to", $0A, "support your noble", $0A, "rank? Let's see...", $00
+ENDING_D_AE25:
+  .byte "I know! Alcobaca", $0A, "the land of you", $0A, "ancestors will do", $00
+ENDING_D_AE58:
+  .byte "From here on you", $0A, "shall be known as", $0A, "Lord of Alcobaca", $00
+ENDING_D_AE8C:
+  .byte "This honor is more", $0A, "than I deserve.", $0A, "I humbly accept", $00
+ENDING_D_AEBF:
+  .byte "This will restore", $0A, "dignity to my", $0A, "family name", $00
+ENDING_D_AEEB:
+  .byte "Yes. By the way,", $0A, "as you know, I do", $0A, "not have a son", $00
+ENDING_D_AF1D:
+  .byte "Thus there is no", $0A, "heir to my throne.", $0A, "But how about you?", $00
+ENDING_D_AF54:
+  .byte "Will you marry", $0A, "Christiana and be", $0A, "my successor?", $00
+ENDING_D_AF83:
+  .byte "Wha-?", $00
+ENDING_D_AF89:
+  .byte "How wonderful!", $0A, "(Blush!)"
+ENDING_D_AFA0:
   .byte $00
-  .byte "There are no words"
-  .byte $0A
-  .byte "that can express"
-  .byte $0A
-  .byte "my appreciation"
-  .byte $00
-  .byte "I shall award you"
-  .byte $0A
-  .byte "as you please. Ask"
-  .byte $0A
-  .byte "me for anything"
-  .byte $00
-  .byte "What do you want?"
-  .byte $0A
-  .byte "  Land   Princess"
-  .byte $0A
-  .byte "  Honor  Refuse"
-  .byte $00
-  .byte "If I owned a"
-  .byte $0A
-  .byte "piece of land in"
-  .byte $0A
-  .byte "my home country,"
-  .byte $00
-  .byte "I would be more"
-  .byte $0A
-  .byte "than satisfied"
-  .byte $00
-  .byte "You desire land to"
-  .byte $0A
-  .byte "support your noble"
-  .byte $0A
-  .byte "rank? Let's see..."
-  .byte $00
-  .byte "I know! Alcobaca"
-  .byte $0A
-  .byte "the land of you"
-  .byte $0A
-  .byte "ancestors will do"
-  .byte $00
-  .byte "From here on you"
-  .byte $0A
-  .byte "shall be known as"
-  .byte $0A
-  .byte "Lord of Alcobaca"
-  .byte $00
-  .byte "This honor is more"
-  .byte $0A
-  .byte "than I deserve."
-  .byte $0A
-  .byte "I humbly accept"
-  .byte $00
-  .byte "This will restore"
-  .byte $0A
-  .byte "dignity to my"
-  .byte $0A
-  .byte "family name"
-  .byte $00
-  .byte "Yes. By the way,"
-  .byte $0A
-  .byte "as you know, I do"
-  .byte $0A
-  .byte "not have a son"
-  .byte $00
-  .byte "Thus there is no"
-  .byte $0A
-  .byte "heir to my throne."
-  .byte $0A
-  .byte "But how about you?"
-  .byte $00
-  .byte "Will you marry"
-  .byte $0A
-  .byte "Christiana and be"
-  .byte $0A
-  .byte "my successor?"
-  .byte $00
+ENDING_D_AFA1:
+  .byte "You may decide.", $0A, "I hope you will", $0A, "accept my offer", $00
+ENDING_D_AFD1:
+  .byte "What is your", $0A, "reply?", $0A, "  Accept  Refuse", $00
+ENDING_D_AFF6:
+  .byte "I am incapable of", $0A, "such a task, but", $0A, "if you wish...", $00
+ENDING_D_B028:
+  .byte "To the Princess", $0A, "and to P"
+ENDING_D_B040:
+  .byte "ortugal I", $0A, "devote my life!", $00
+ENDING_D_B05A:
+  .byte "Oh %s!", $00
+ENDING_D_B061:
+  .byte "You two seem glad!", $0A, "There must be some", $0A, "hidden charm here!", $00
+ENDING_D_B09A:
+  .byte "Now I can retire", $0A, "in peace.", $0A, "Oh-ho-ho!", $00
+ENDING_D_B0BF:
+  .byte "Unfortunately I am", $0A, "incapable of s"
+ENDING_D_B0E0:
+  .byte "uch", $0A, "a great task", $00
+ENDING_D_B0F1:
+  .byte "Please, won't you", $0A, "think again?", $0A, "  Accept  Refuse", $00
+ENDING_D_B121:
+  .byte "I have long", $0A, "wanted to restore", $0A, "my family name", $00
+ENDING_D_B14E:
+  .byte "Easily done. I", $0A, "dub you Lord of", $0A, "Alcobaca", $00
+ENDING_D_B176:
+  .byte "Your title"
+ENDING_D_B180:
+  .byte " will", $0A, "restore the glory", $0A, "of your ancestors", $00
+ENDING_D_B1AA:
+  .byte "This is too great", $0A, "an honor for me.", $0A, "I humbly accept", $00
+ENDING_D_B1DD:
+  .byte "I desire Princess", $0A, "Christiana's hand", $0A, "in marriage", $00
+ENDING_D_B20D:
+  .byte "Oh my!", $0A, "%s!", $00
+ENDING_D_B218:
+  .byte "There mu"
+ENDING_D_B220:
+  .byte "st be a", $0A, "greater power at", $0A, "work here", $00
+ENDING_D_B243:
+  .byte "Yet, my daughter", $0A, "is my only child", $00
+ENDING_D_B265:
+  .byte "I had planned for", $0A, "her to marry into", $0A, "Spain...", $00
+ENDING_D_B292:
+  .byte "Father, please! I", $0A, "can marry no"
+ENDING_D_B2B0:
+  .byte " one", $0A, "but %s!", $00
+ENDING_D_B2BD:
+  .byte "Hmm...", $00
+ENDING_D_B2C4:
+  .byte "She will always", $0A, "be happy with me.", $0A, "Sire, please!", $00
+ENDING_D_B2F4:
+  .byte "Then it's settled.", $0A, "Sir %s,", $00
+ENDING_D_B30F:
+  .byte "I will transfer", $0A, "the reigns of", $0A, "power to you!", $00
+ENDING_D_B33B:
   .byte "Wha-?"
-  .byte $00
-  .byte "How wonderful!"
-  .byte $0A
-  .byte "(Blush!)"
-  .byte $00
-  .byte "You may decide."
-  .byte $0A
-  .byte "I hope you will"
-  .byte $0A
-  .byte "accept my offer"
-  .byte $00
-  .byte "What is your"
-  .byte $0A
-  .byte "reply?"
-  .byte $0A
-  .byte "  Accept  Refuse"
-  .byte $00
-  .byte "I am incapable of"
-  .byte $0A
-  .byte "such a task, but"
-  .byte $0A
-  .byte "if you wish..."
-  .byte $00
-  .byte "To the Princess"
-  .byte $0A
-  .byte "and to Portugal I"
-  .byte $0A
-  .byte "devote my life!"
-  .byte $00
-  .byte "Oh %s!"
-  .byte $00
-  .byte "You two seem glad!"
-  .byte $0A
-  .byte "There must be some"
-  .byte $0A
-  .byte "hidden charm here!"
-  .byte $00
-  .byte "Now I can retire"
-  .byte $0A
-  .byte "in peace."
-  .byte $0A
-  .byte "Oh-ho-ho!"
-  .byte $00
-  .byte "Unfortunately I am"
-  .byte $0A
-  .byte "incapable of such"
-  .byte $0A
-  .byte "a great task"
-  .byte $00
-  .byte "Please, won't you"
-  .byte $0A
-  .byte "think again?"
-  .byte $0A
-  .byte "  Accept  Refuse"
-  .byte $00
-  .byte "I have long"
-  .byte $0A
-  .byte "wanted to restore"
-  .byte $0A
-  .byte "my family name"
-  .byte $00
-  .byte "Easily done. I"
-  .byte $0A
-  .byte "dub you Lord of"
-  .byte $0A
-  .byte "Alcobaca"
-  .byte $00
-  .byte "Your title will"
-  .byte $0A
-  .byte "restore the glory"
-  .byte $0A
-  .byte "of your ancestors"
-  .byte $00
-  .byte "This is too great"
-  .byte $0A
-  .byte "an honor for me."
-  .byte $0A
-  .byte "I humbly accept"
-  .byte $00
-  .byte "I desire Princess"
-  .byte $0A
-  .byte "Christiana's hand"
-  .byte $0A
-  .byte "in marriage"
-  .byte $00
-  .byte "Oh my!"
-  .byte $0A, $25, $73, $21, $00
-  .byte "There must be a"
-  .byte $0A
-  .byte "greater power at"
-  .byte $0A
-  .byte "work here"
-  .byte $00
-  .byte "Yet, my daughter"
-  .byte $0A
-  .byte "is my only child"
-  .byte $00
-  .byte "I had planned for"
-  .byte $0A
-  .byte "her to marry into"
-  .byte $0A
-  .byte "Spain..."
-  .byte $00
-  .byte "Father, please! I"
-  .byte $0A
-  .byte "can marry no one"
-  .byte $0A
-  .byte "but %s!"
-  .byte $00
-  .byte "Hmm..."
-  .byte $00
-  .byte "She will always"
-  .byte $0A
-  .byte "be happy with me."
-  .byte $0A
-  .byte "Sire, please!"
-  .byte $00
-  .byte "Then it's settled."
-  .byte $0A
-  .byte "Sir %s,"
-  .byte $00
-  .byte "I will transfer"
-  .byte $0A
-  .byte "the reigns of"
-  .byte $0A
-  .byte "power to you!"
-  .byte $00
-  .byte "Wha-?"
-  .byte $0A
-  .byte "Your Majesty!"
-  .byte $00
-  .byte "I'm so happy!"
-  .byte $0A
-  .byte "Thank you, Father!"
-  .byte $00
-  .byte "I will strive for"
-  .byte $0A
-  .byte "Christiana and the"
-  .byte $0A
-  .byte "good of Portugal"
-  .byte $00
-  .byte "As of this day"
-  .byte $0A
-  .byte "you are King of"
-  .byte $0A
-  .byte "Portugal"
-  .byte $00
-  .byte "My blessings are"
-  .byte $0A
-  .byte "with you."
-  .byte $0A
-  .byte "Oh-ho-ho!"
-  .byte $00
-  .byte "My labors were for"
-  .byte $0A
-  .byte "my ancestors and"
-  .byte $0A
-  .byte "for the Princess"
-  .byte $00
-  .byte "I desire nothing"
-  .byte $0A
-  .byte "in return"
-  .byte $00
-  .byte "I see. You are a"
-  .byte $0A
-  .byte "generous man"
-  .byte $00
-  .byte "Thank you. I must"
-  .byte $0A
-  .byte "take my leave"
-  .byte $0A
-  .byte "here"
-  .byte $00, $25, $73, $21, $0A
-  .byte "Wait!"
-  .byte $00
-  .byte "Christiana!"
-  .byte $00
-  .byte "What's this? You"
-  .byte $0A
-  .byte "must be hiding"
-  .byte $0A
-  .byte "something from me"
-  .byte $00
-  .byte "Your Majesty, I"
-  .byte $0A
-  .byte "beg for your"
-  .byte $0A
-  .byte "understanding"
-  .byte $00, $04, $9B, $14, $9B, $24, $9B, $34, $9B, $44, $9B, $74, $9A, $84, $9A, $94
-  .byte $9A, $A4, $9A, $B4, $9A, $C4, $9A, $D4, $9A, $E4, $9A, $54, $9B, $6C, $9B, $84
-  .byte $9B, $9C, $9B, $F4, $9A, $1B, $48, $00, $0A, $00, $00, $0C, $01, $0A, $12, $1A
-  .byte $02, $04, $02, $04, $03, $04, $47, $05, $00, $00, $08, $50, $00
+ENDING_D_B340:
+  .byte $0A, "Your Majesty!", $00
+ENDING_D_B34F:
+  .byte "I'm so happy!", $0A, "Thank you, Father!", $00
+ENDING_D_B370:
+  .byte "I will strive for", $0A, "Christiana and the", $0A, "good of Portugal", $00
+ENDING_D_B3A6:
+  .byte "As of this day", $0A, "you are King of", $0A, "Portugal", $00
+ENDING_D_B3CE:
+  .byte "My"
+ENDING_D_B3D0:
+  .byte " blessings are", $0A, "with you.", $0A, "Oh-ho-ho!", $00
+ENDING_D_B3F3:
+  .byte "My labors were for", $0A, "my ancestors and", $0A, "for the Princess", $00
+ENDING_D_B428:
+  .byte "I desire nothing", $0A, "in return", $00
+ENDING_D_B443:
+  .byte "I see. You are a", $0A, "generous man", $00
+ENDING_D_B461:
+  .byte "Thank you. I must", $0A, "take my leave", $0A, "here", $00
+ENDING_D_B486:
+  .byte "%s!", $0A, "Wait!", $00
+ENDING_D_B490:
+  .byte "Christiana!", $00
+ENDING_D_B49C:
+  .byte "What's this? You", $0A, "must be hiding", $0A, "something from me", $00
+ENDING_D_B4CE:
+  .byte "Your Majesty, I", $0A, "beg for your", $0A, "understanding", $00
+ENDING_D_B4F9:
+  .word $9B04, $9B14, $9B24, $9B34, $9B44, $9A74
+  .byte $84, $9A, $94, $9A, $A4, $9A, $B4, $9A, $C4, $9A, $D4, $9A, $E4, $9A, $54, $9B
+  .byte $6C, $9B, $84, $9B, $9C, $9B, $F4, $9A
+ENDING_D_B51D:
+  .byte $1B, $48, $00
+ENDING_D_B520:
+  .byte $0A, $00
+ENDING_D_B522:
+  .byte $00, $0C, $01
+ENDING_D_B525:
+  .byte $0A, $12, $1A
+ENDING_D_B528:
+  .byte $02
+ENDING_D_B529:
+  .byte $04, $02, $04, $03, $04
+ENDING_D_B52E:
+  .byte $47, $05, $00, $00, $08, $50, $00
   .byte "X'OW"
   .byte $0A, $4B, $02, $03, $0C, $4D, $02, $00, $57, $B4, $4D, $02, $01, $57, $B4, $4D
   .byte $02, $02, $57, $64, $47, $0E, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0F
   .byte $47, $0D, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0F, $47, $0E, $02, $00
   .byte $0C, $50, $02, $D0, $27, $4F, $57, $0F, $47, $0D, $02, $00, $0C, $50, $02, $D0
-  .byte $27, $4F, $57, $0F, $4B, $00, $18, $15, $4D, $00, $03, $57, $14, $47, $06, $00
-  .byte $00, $08, $50, $00
+  .byte "'OW", $0F, "K", $00
+  .byte $18, $15, $4D, $00, $03, $57, $14, $47, $06, $00, $00, $08, $50, $00
   .byte "X'OW"
   .byte $14, $47, $05, $00, $00, $08, $50, $00
   .byte "X'OW"
   .byte $1E, $4D, $02, $04, $57, $1E, $47, $0E, $02, $00, $0C, $50, $02, $D0
   .byte "'OW<G"
   .byte $0D, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0A, $4D, $02, $05, $57, $B4
-  .byte $4D, $02, $06, $45, $4D, $00, $07, $57, $B4, $4D, $00, $08, $57, $1E, $47, $06
-  .byte $00, $00, $08, $50, $00
+  .byte $4D, $02, $06
+  .byte "E"
+ENDING_D_B5C4:
+  .byte "M", $00
+  .byte $07, $57, $B4, $4D, $00, $08, $57, $1E, $47, $06, $00, $00, $08, $50, $00
   .byte "X'OW"
   .byte $1E, $47, $0E, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0F, $47, $0D, $02
   .byte $00, $0C, $50, $02, $D0, $27, $4F, $57, $0F, $4D, $02, $09, $57, $3C, $47, $0F
   .byte $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $1E, $4D, $02, $0A, $57, $78, $47
   .byte $0D, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $1E, $4D, $02, $0B, $57, $3C
   .byte $47, $05, $00, $00, $08, $50, $00
-  .byte "X'OW"
-  .byte $0F, $4D, $00, $0C, $57, $B4, $47, $06, $00, $00, $08, $50, $00
+  .byte "X'OW", $0F, "M", $00
+  .byte $0C, $57, $B4, $47, $06, $00, $00, $08, $50, $00
   .byte "X'OW"
   .byte $1E, $47, $05, $00, $00, $08, $50, $00
+  .byte "X'OW", $14, "M", $00
+  .byte $0D, $57, $B4, $45
+ENDING_D_B648:
+  .byte $47, $0E, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0F, $47, $0D, $02, $00
+  .byte $0C, $50, $02, $D0, $27, $4F, $57, $0F, $4D, $02, $0E, $57, $B4, $4D, $02, $0F
+  .byte $57, $B4, $4D, $02, $10, $57, $1E, $47, $0E, $02, $00, $0C, $50, $02, $D0
+  .byte "'OW", $0F, "M", $00
+  .byte $11, $57, $B4, $4B, $01, $03, $0C, $4D, $01, $12, $57, $B4, $4B, $02, $03, $0C
+  .byte $4D, $02, $13, $57, $B4, $4D, $02, $14, $57, $1E, $47, $0D, $02, $00, $0C, $50
+  .byte $02, $D0
+  .byte "'OW", $0A, "G", $06, $00
+  .byte $00, $08, $50, $00
+  .byte "X'OE"
+ENDING_D_B6AE:
+  .byte "G", $05, $00
+  .byte $00, $08, $50, $00
+  .byte "X'OW", $0F, "M", $00
+  .byte $15, $57, $B4, $4D, $00, $16, $57, $B4, $4B, $01, $03, $0C, $4D, $01, $17, $57
+  .byte $B4, $47, $01, $01, $00, $08, $50, $01, $98, $27, $4F, $57, $0F, $47, $02, $01
+  .byte $00, $08, $50, $01, $96, $27, $4F, $57, $0F, $47, $01, $01, $00, $08, $50, $01
+  .byte $94, $27, $4F, $57, $1E, $47, $02, $01, $00, $08, $50, $01, $92, $27, $4F, $57
+  .byte $0A, $47, $01, $01, $00, $08, $50, $01, $90, $27, $4F, $57, $0A, $47, $02, $01
+  .byte $00, $08, $50, $01, $8E, $27, $47, $07, $00, $00, $08, $50, $00
   .byte "X'OW"
-  .byte $14, $4D, $00, $0D, $57, $B4, $45, $47, $0E, $02, $00, $0C, $50, $02, $D0, $27
-  .byte $4F, $57, $0F, $47, $0D, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0F, $4D
-  .byte $02, $0E, $57, $B4, $4D, $02, $0F, $57, $B4, $4D, $02, $10, $57, $1E, $47, $0E
-  .byte $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0F, $4D, $00, $11, $57, $B4, $4B
-  .byte $01, $03, $0C, $4D, $01, $12, $57, $B4, $4B, $02, $03, $0C, $4D, $02, $13, $57
-  .byte $B4, $4D, $02, $14, $57, $1E, $47, $0D, $02, $00, $0C, $50, $02, $D0, $27, $4F
-  .byte $57, $0A, $47, $06, $00, $00, $08, $50, $00
-  .byte "X'OEG"
-  .byte $05, $00, $00, $08, $50, $00
-  .byte "X'OW"
-  .byte $0F, $4D, $00, $15, $57, $B4, $4D, $00, $16, $57, $B4, $4B, $01, $03, $0C, $4D
-  .byte $01, $17, $57, $B4, $47, $01, $01, $00, $08, $50, $01, $98, $27, $4F, $57, $0F
-  .byte $47, $02, $01, $00, $08, $50, $01, $96, $27, $4F, $57, $0F, $47, $01, $01, $00
-  .byte $08, $50, $01, $94, $27, $4F, $57, $1E, $47, $02, $01, $00, $08, $50, $01, $92
-  .byte $27, $4F, $57, $0A, $47, $01, $01, $00, $08, $50, $01, $90, $27, $4F, $57, $0A
-  .byte $47, $02, $01, $00, $08, $50, $01, $8E, $27, $47, $07, $00, $00, $08, $50, $00
-  .byte "X'OW"
-  .byte $05, $47, $01, $01, $00, $08, $50, $01, $8C, $27, $47, $09, $00, $00, $08, $50
-  .byte $00
+  .byte $05, $47, $01, $01, $00, $08, $50, $01, $8C
+  .byte "'G", $09, $00
+  .byte $00, $08, $50, $00
   .byte "^'OW"
-  .byte $05, $47, $02, $01, $00, $08, $50, $01, $88, $27, $47, $0A, $00, $00, $08, $50
-  .byte $00
+  .byte $05, $47, $02, $01, $00, $08, $50, $01, $88
+  .byte "'G", $0A, $00
+  .byte $00, $08, $50, $00
   .byte "d'OW"
   .byte $05, $47, $01, $01, $00, $08, $50, $01, $84, $27, $47, $07, $00, $00, $08, $50
   .byte $00
   .byte "j'OW"
-  .byte $05, $47, $02, $01, $00, $08, $50, $01, $80, $27, $47, $09, $00, $00, $08, $50
-  .byte $00
+  .byte $05, $47, $02, $01, $00, $08, $50, $01, $80
+  .byte "'G", $09, $00
+  .byte $00, $08, $50, $00
   .byte "p'OW"
   .byte $05, $47, $03, $01, $00, $08, $50, $01, $80, $27, $47, $11, $00, $00, $08, $50
   .byte $00
@@ -2840,53 +2715,65 @@ ENDING_F_A797:
   .byte $57, $0A, $47, $0E, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0A, $47, $0D
   .byte $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0A, $47, $0E, $02, $00, $0C, $50
   .byte $02, $D0, $27, $4F, $57, $0A, $47, $0D, $02, $00, $0C, $50, $02, $D0, $27, $4F
-  .byte $57, $0A, $4D, $02, $19, $57, $B4, $45, $47, $05, $00, $00, $08, $50, $00
-  .byte "X'OW"
-  .byte $0F, $4D, $00, $1A, $57, $B4, $47, $06, $00, $00, $08, $50, $00
-  .byte "X'OW"
-  .byte $1E, $4D, $02, $1B, $45, $47, $06, $00, $00, $08, $50, $00
-  .byte "X'OW"
-  .byte $0F, $4D, $00, $1C, $57, $B4, $47, $0E, $02, $00, $0C, $50, $02, $D0, $27, $4F
-  .byte $57, $0F, $47, $0D, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0F, $4D, $02
-  .byte $1D, $57, $B4, $47, $0F, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $1E, $4D
-  .byte $02, $1E, $57, $B4, $47, $0D, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0A
+  .byte $57, $0A, $4D, $02, $19, $57, $B4, $45
+ENDING_D_B7DE:
   .byte $47, $05, $00, $00, $08, $50, $00
+  .byte "X'OW", $0F, "M", $00
+  .byte $1A, $57, $B4, $47, $06, $00, $00, $08, $50, $00
   .byte "X'OW"
-  .byte $0F, $4D, $00, $1F, $57, $3C, $47, $06, $00, $00, $08, $50, $00
-  .byte "X'OW(G"
-  .byte $05, $00, $00, $08, $50, $00
+  .byte $1E, $4D, $02, $1B, $45
+ENDING_D_B7FF:
+  .byte $47, $06, $00, $00, $08, $50, $00
+  .byte "X'OW", $0F, "M", $00
+  .byte $1C, $57, $B4, $47, $0E, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0F, $47
+  .byte $0D, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0F, $4D, $02, $1D, $57, $B4
+  .byte $47, $0F, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $1E, $4D, $02, $1E, $57
+  .byte $B4, $47, $0D, $02, $00, $0C, $50, $02, $D0
+  .byte "'OW", $0A, "G", $05, $00
+  .byte $00, $08, $50, $00
+  .byte "X'OW", $0F, "M", $00
+  .byte $1F, $57, $3C, $47, $06, $00, $00, $08, $50, $00
+  .byte "X'OW(G", $05, $00
+  .byte $00, $08, $50, $00
   .byte "X'OW"
-  .byte $0F, $45, $47, $06, $00, $00, $08, $50, $00
+  .byte $0F, $45
+ENDING_D_B874:
+  .byte $47, $06, $00, $00, $08, $50, $00
+  .byte "X'OW", $0F, "M", $00
+  .byte $20, $57, $B4, $4B, $01, $03, $0C, $4D, $01, $21, $57, $B4, $47, $01, $01, $00
+  .byte $08, $50, $01, $98, $27, $4F, $57, $0F, $47, $02, $01, $00, $08, $50, $01, $96
+  .byte $27, $4F, $57, $0F, $47, $01, $01, $00, $08, $50, $01, $94, $27, $4F, $57, $1E
+  .byte $47, $02, $01, $00, $08, $50, $01, $92, $27, $4F, $57, $0A, $47, $01, $01, $00
+  .byte $08, $50, $01, $90, $27, $4F, $57, $0A, $47, $02, $01, $00, $08, $50, $01, $8E
+  .byte $27, $47, $07, $00, $00, $08, $50, $00
   .byte "X'OW"
-  .byte $0F, $4D, $00, $20, $57, $B4, $4B, $01, $03, $0C, $4D, $01, $21, $57, $B4, $47
-  .byte $01, $01, $00, $08, $50, $01, $98, $27, $4F, $57, $0F, $47, $02, $01, $00, $08
-  .byte $50, $01, $96, $27, $4F, $57, $0F, $47, $01, $01, $00, $08, $50, $01, $94, $27
-  .byte $4F, $57, $1E, $47, $02, $01, $00, $08, $50, $01, $92, $27, $4F, $57, $0A, $47
-  .byte $01, $01, $00, $08, $50, $01, $90, $27, $4F, $57, $0A, $47, $02, $01, $00, $08
-  .byte $50, $01, $8E, $27, $47, $07, $00, $00, $08, $50, $00
-  .byte "X'OW"
-  .byte $05, $47, $01, $01, $00, $08, $50, $01, $8C, $27, $47, $09, $00, $00, $08, $50
-  .byte $00
+  .byte $05, $47, $01, $01, $00, $08, $50, $01, $8C
+  .byte "'G", $09, $00
+  .byte $00, $08, $50, $00
   .byte "^'OW"
-  .byte $05, $47, $02, $01, $00, $08, $50, $01, $88, $27, $47, $0A, $00, $00, $08, $50
-  .byte $00
+  .byte $05, $47, $02, $01, $00, $08, $50, $01, $88
+  .byte "'G", $0A, $00
+  .byte $00, $08, $50, $00
   .byte "d'OW"
   .byte $05, $47, $01, $01, $00, $08, $50, $01, $84, $27, $47, $07, $00, $00, $08, $50
   .byte $00
   .byte "j'OW"
-  .byte $05, $47, $02, $01, $00, $08, $50, $01, $80, $27, $47, $09, $00, $00, $08, $50
-  .byte $00
+  .byte $05, $47, $02, $01, $00, $08, $50, $01, $80
+  .byte "'G", $09, $00
+  .byte $00, $08, $50, $00
   .byte "p'OW"
   .byte $05, $47, $03, $01, $00, $08, $50, $01, $80, $27, $47, $11, $00, $00, $08, $50
   .byte $00
   .byte "p'OW"
-  .byte $0F, $4B, $02, $03, $0C, $4D, $02, $22, $57, $B4, $45, $4D, $02, $23, $57, $B4
-  .byte $4D, $02, $24, $57, $1E, $47, $0E, $02, $00, $0C, $50, $02, $D0
-  .byte "'OW<G"
-  .byte $05, $00, $00, $08, $50, $00
-  .byte "p'OW"
-  .byte $0F, $47, $00, $01, $00, $08, $50, $01, $80, $27, $4F, $57, $0F, $47, $04, $01
-  .byte $00, $08, $50, $01, $80, $27, $4F, $57, $0F, $4B, $01, $03, $0C, $4D, $01
+  .byte $0F, $4B, $02, $03, $0C, $4D, $02, $22, $57, $B4, $45
+ENDING_D_B952:
+  .byte $4D, $02, $23, $57, $B4, $4D, $02, $24, $57, $1E, $47, $0E, $02, $00, $0C, $50
+  .byte $02, $D0
+  .byte "'OW<G", $05, $00
+  .byte $00, $08, $50, $00
+  .byte "p'OW", $0F, "G", $00
+  .byte $01, $00, $08, $50, $01, $80, $27, $4F, $57, $0F, $47, $04, $01, $00, $08, $50
+  .byte $01, $80, $27, $4F, $57, $0F, $4B, $01, $03, $0C, $4D, $01
   .byte "%W<G"
   .byte $0D, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $1E, $47, $0E, $02, $00, $0C
   .byte $50, $02, $D0, $27, $4F, $57, $0F, $4B, $02, $03, $0C, $4D, $02, $26, $57, $B4
@@ -2896,22 +2783,24 @@ ENDING_F_A797:
   .byte $0F, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0F, $4D, $02, $28, $57, $B4
   .byte $4D, $02, $29, $57, $1E, $47, $0D, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57
   .byte $1E, $47, $07, $00, $00, $08, $50, $00
-  .byte "p'OW"
-  .byte $05, $4D, $00, $2A, $57, $B4, $4B, $01, $03, $0C, $4D, $01, $2B, $57, $1E, $47
-  .byte $04, $01, $00, $08, $50, $01, $80, $27, $4F, $57, $0F, $47, $06, $00, $00, $08
-  .byte $50, $00
-  .byte "p'OW"
-  .byte $0F, $4D, $00
-  .byte ",W<G"
-  .byte $07, $00, $00, $08, $50, $00, $70, $27, $57, $1E, $47, $00, $01, $00, $08, $50
-  .byte $01, $80, $27, $4F, $57, $0F, $47, $07, $00, $00, $08, $50, $00, $70, $27, $57
-  .byte $1E, $47, $11, $00, $00, $08, $50, $00, $70, $27, $47, $03, $01, $00, $08, $50
-  .byte $01, $80
+  .byte "p'OW", $05, "M", $00
+  .byte $2A, $57, $B4, $4B, $01, $03, $0C, $4D, $01, $2B, $57, $1E, $47, $04, $01, $00
+  .byte $08, $50, $01, $80, $27, $4F, $57, $0F, $47, $06, $00, $00, $08, $50, $00
+  .byte "p'OW", $0F, "M", $00
+  .byte ",W<G", $07, $00
+  .byte $00, $08, $50, $00
+  .byte "p'W", $1E, "G", $00
+  .byte $01, $00, $08, $50, $01, $80, $27, $4F, $57, $0F, $47, $07, $00, $00, $08, $50
+  .byte $00, $70, $27, $57, $1E, $47, $11, $00, $00, $08, $50, $00, $70, $27, $47, $03
+  .byte $01, $00, $08, $50, $01, $80
   .byte "'OW<K"
-  .byte $02, $03, $0C, $4D, $02, $2D, $57, $B4, $4D, $02, $2E, $57, $B4, $45, $4D, $00
+  .byte $02, $03, $0C, $4D, $02, $2D, $57, $B4, $4D, $02, $2E, $57, $B4
+  .byte "E"
+ENDING_D_BA70:
+  .byte "M", $00
   .byte $2F, $57, $B4, $4D, $00
-  .byte "0W<G"
-  .byte $06, $00, $00, $08, $50, $00
+  .byte "0W<G", $06, $00
+  .byte $00, $08, $50, $00
   .byte "X'OW"
   .byte $1E, $47, $0E, $02, $00, $0C, $50, $02, $D0, $27, $4F, $57, $0F, $47, $0D, $02
   .byte $00, $0C, $50, $02, $D0, $27, $4F, $57, $0F, $4D, $02, $31, $57, $B4, $4D, $00
@@ -2929,25 +2818,26 @@ ENDING_F_A797:
   .byte $01, $98, $27, $4F, $57, $05, $47, $02, $01, $00, $08, $50, $01, $96, $27, $4F
   .byte $57, $05, $47, $01, $01, $00, $08, $50, $01, $94, $27, $4F, $57, $05, $47, $07
   .byte $00, $00, $08, $50, $00
-  .byte "L'OW"
-  .byte $0F, $4D, $00
+  .byte "L'OW", $0F, "M", $00
   .byte "4W<G"
   .byte $02, $01, $00, $08, $50, $01, $94, $27, $4F, $57, $05, $47, $01, $01, $00, $08
   .byte $50, $01, $90, $27, $4F, $57, $05, $47, $02, $01, $00, $08, $50, $01, $8C, $27
   .byte $4F, $57, $05, $47, $01, $01, $00, $08, $50, $01, $88, $27, $4F, $57, $05, $47
-  .byte $02, $01, $00, $08, $50, $01, $84, $27, $4F, $57, $05, $47, $00, $01, $00, $08
-  .byte $50, $01, $80, $27, $4F, $57, $0F, $47, $09, $00, $00, $08, $50, $00
-  .byte "R'OW"
-  .byte $0A, $47, $0A, $00, $00, $08, $50, $00
-  .byte "X'OW"
-  .byte $0A, $47, $07, $00, $00, $08, $50, $00
-  .byte "^'OW"
-  .byte $0A, $47, $09, $00, $00, $08, $50, $00
-  .byte "d'OW"
-  .byte $0A, $47, $0A, $00, $00, $08, $50, $00
-  .byte "j'OW"
-  .byte $0A, $47, $11, $00, $00, $08, $50, $00, $70, $27, $47, $03, $01, $00, $08, $50
-  .byte $01, $80
+  .byte $02, $01, $00, $08, $50, $01, $84
+  .byte "'OW", $05, "G", $00
+  .byte $01, $00, $08, $50, $01, $80
+  .byte "'OW", $0F, "G", $09, $00
+  .byte $00, $08, $50, $00
+  .byte "R'OW", $0A, "G", $0A, $00
+  .byte $00, $08, $50, $00
+  .byte "X'OW", $0A, "G", $07, $00
+  .byte $00, $08, $50, $00
+  .byte "^'OW", $0A, "G", $09, $00
+  .byte $00, $08, $50, $00
+  .byte "d'OW", $0A, "G", $0A, $00
+  .byte $00, $08, $50, $00
+  .byte "j'OW", $0A, "G", $11, $00
+  .byte $00, $08, $50, $00, $70, $27, $47, $03, $01, $00, $08, $50, $01, $80
   .byte "'OW<K"
   .byte $02, $03, $0C, $4D, $02, $35, $57, $B4, $47, $04, $01, $00, $08, $50, $01, $80
   .byte $27, $47, $05, $00, $00, $08, $50, $00
@@ -2955,180 +2845,382 @@ ENDING_F_A797:
   .byte $0F, $47, $06, $00, $00, $08, $50, $00
   .byte "p'OW"
   .byte $14, $47, $05, $00, $00, $08, $50, $00
-  .byte "p'OW"
-  .byte $0F, $4D, $00
-  .byte "6W<G"
-  .byte $06, $00, $00, $08, $50, $00
-  .byte "p'OWPG"
-  .byte $00, $01, $00, $08, $50, $01, $80, $27, $4F, $47, $07, $00, $00, $08, $50, $00
+  .byte "p'OW", $0F, "M", $00
+  .byte "6W<G", $06, $00
+  .byte $00, $08, $50, $00
+  .byte "p'OWPG", $00
+  .byte $01, $00, $08, $50, $01, $80, $27, $4F, $47, $07, $00, $00, $08, $50, $00
   .byte "p'OW"
   .byte $0F, $47, $11, $00, $00, $08, $50, $00, $70, $27, $47, $03, $01, $00, $08, $50
   .byte $01, $80
-  .byte "'OW<EG"
-  .byte $07, $00, $00, $08, $50, $00
+  .byte "'OW<E"
+ENDING_D_BC2E:
+  .byte "G", $07, $00
+  .byte $00, $08, $50, $00
+  .byte "0'OW", $05, "G", $09, $00
+  .byte $00, $08, $50
+ENDING_D_BC40:
+  .byte $00
+  .byte "0'OW", $05, "G", $0A, $00
+  .byte $00, $08, $50, $00
   .byte "0'OW"
-  .byte $05, $47, $09, $00, $00, $08, $50, $00
+  .byte $05, $45
+ENDING_D_BC53:
+  .byte $47, $07, $00, $00, $08, $50, $00
   .byte "0'OW"
-  .byte $05, $47, $0A, $00, $00, $08, $50, $00
-  .byte "0'OW"
-  .byte $05, $45, $47, $07, $00, $00, $08, $50, $00
-  .byte "0'OW"
-  .byte $0A, $47, $09, $00, $00, $08, $50, $00
-  .byte "6'OW"
-  .byte $0A, $47, $0A, $00, $00, $08, $50, $00
-  .byte "<'OW"
-  .byte $0A, $47, $07, $00, $00, $08, $50, $00
-  .byte "B'OW"
-  .byte $0A, $47, $09, $00, $00, $08, $50, $00
-  .byte "H'OW"
-  .byte $0A, $47, $0A, $00, $00, $08, $50, $00
-  .byte "N'OW"
-  .byte $0A, $47, $07, $00, $00, $08, $50, $00
-  .byte "S'OW"
-  .byte $0A, $47, $09, $00, $00, $08, $50, $00
-  .byte "X'OW"
-  .byte $0A, $47, $00, $01, $00, $08, $50, $01, $98, $27, $47, $0D, $02, $00, $0C, $50
-  .byte $02, $D0, $27, $4F, $57, $0A, $45, $09, $38, $09, $38, $09, $38, $09, $38, $09
-  .byte $38, $09, $38, $09, $38, $09, $38, $09, $38, $09, $38, $09, $38, $09, $38, $09
-  .byte $38, $09, $38, $09, $38, $09, $38, $09, $38, $09, $38, $00, $00, $00, $02, $06
-  .byte $17, $06, $02, $0C, $10, $06, $09, $06, $18, $0E, $07, $04, $07, $05, $07, $04
-  .byte $07, $04, $07, $04, $06, $06, $0A, $25, $32, $26, $B2
+ENDING_D_BC5E:
+  .byte $0A, "G", $09, $00
+  .byte $00, $08, $50, $00
+  .byte "6'OW", $0A, "G", $0A, $00
+ENDING_D_BC6E:
+  .byte $00, $08, $50, $00
+  .byte "<'OW", $0A, "G", $07, $00
+  .byte $00, $08, $50, $00
+  .byte "B'OW", $0A, "G", $09, $00
+  .byte $00, $08, $50, $00
+  .byte "H'OW", $0A, "G", $0A, $00
+  .byte $00, $08, $50, $00
+  .byte "N'OW", $0A, "G", $07, $00
+  .byte $00, $08, $50, $00
+  .byte "S'OW", $0A, "G", $09, $00
+  .byte $00, $08, $50, $00
+  .byte "X'OW", $0A, "G", $00
+  .byte $01, $00, $08, $50, $01, $98, $27, $47, $0D, $02, $00, $0C, $50, $02, $D0
+  .byte "'OW", $0A, "E"
+ENDING_D_BCC9:
+  .byte $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8"
+  .byte $09, "8", $09, "8", $09, "8", $09, "8", $09, "8", $09, "8"
+ENDING_D_BCED:
+  .byte $00
+ENDING_D_BCEE:
+  .byte $00
+ENDING_D_BCEF:
+  .byte $00
+ENDING_D_BCF0:
+  .byte $02
+ENDING_D_BCF1:
+  .byte $06, $17, $06, $02, $0C, $10, $06, $09, $06, $18, $0E
+ENDING_D_BCFC:
+  .byte $07
+ENDING_D_BCFD:
+  .byte $04, $07, $05, $07, $04, $07, $04, $07, $04, $06, $06
+ENDING_D_BD08:
+  .byte $0A, $25, $32, $26, $B2
   .byte "%z%B%"
-  .byte $EA, $25, $04, $04, $04, $05, $06, $05, $06, $05, $07, $06, $08, $06, $00, $00
-  .byte $10, $00, $00, $04, $20, $00, $30, $00, $00, $04, $40, $00, $54, $00, $00, $04
-  .byte $68, $00, $7C, $00, $00, $04, $90, $00, $AE, $00, $CC, $00, $EA, $00, $08, $01
-  .byte $26, $01, $44, $01, $62, $01, $80, $01, $9E, $01, $BC, $01, $DA, $01, $00, $04
-  .byte $F8, $01, $22, $02, $00, $04, $4C, $02, $76, $02, $00, $04, $A0, $02, $D0, $02
-  .byte $00, $04, $00, $03, $30, $03, $5A, $00, $C0, $40, $50, $00, $00, $5A, $01, $D0
-  .byte $40, $50, $01, $00, $5A, $02, $90, $58, $50, $02, $01, $5A, $03, $90, $70, $50
-  .byte $03, $01, $5A, $04, $B0, $68, $50, $04, $02, $5A, $05, $B0, $80, $50, $05, $02
-  .byte "SW<Z"
-  .byte $00, $C0, $42, $50, $00, $01, $5A, $01, $D0, $42, $50, $01, $01, $53, $57, $0A
-  .byte $5A, $00, $C0, $44, $50, $00, $00, $5A, $01, $D0, $44, $50, $01, $00, $53, $57
-  .byte $0A, $5A, $00, $C0, $46, $50, $00, $02, $5A, $01, $D0, $46, $50, $01, $02, $53
-  .byte $57, $0A, $5A, $00, $C0, $48, $50, $00, $00, $5A, $01, $D0, $48, $50, $01, $00
-  .byte $53, $57, $0A, $5A, $00, $C0, $4A, $50, $00, $01, $5A, $01, $D0, $4A, $50, $01
-  .byte $01, $53, $57, $0A, $5A, $00, $C0, $4C, $50, $00, $00, $5A, $01, $D0, $4C, $50
-  .byte $01, $00, $53, $57, $0A, $5A, $00, $C0, $4E, $50, $00, $02, $5A, $01, $D0, $4E
-  .byte $50, $01, $02, $53, $57, $0A, $5A, $00, $C0, $50, $50, $00, $00, $5A, $01, $D0
-  .byte $50, $50, $01, $00, $53, $57, $0A, $5A, $00, $C0, $50, $50, $00, $03, $5A, $01
-  .byte $D0, $50, $50, $01, $03, $53, $57, $0A, $5A, $00, $BE, $50, $50, $00, $04, $5A
-  .byte $01, $CE, $50, $50, $01, $04, $53, $57, $0A, $5A, $00, $BC, $50, $50, $00, $03
-  .byte $5A, $01, $CC, $50, $50, $01, $03, $53, $57, $0A, $5A, $00, $BA, $50, $50, $00
-  .byte $05, $5A, $01, $CA, $50, $50, $01, $05, $53, $57, $0A, $5A, $00, $B8, $50, $50
-  .byte $00, $03, $5A, $01, $C8, $50, $50, $01, $03, $53, $57, $0A, $5A, $00, $B6, $50
-  .byte $50, $00, $04, $5A, $01, $C6, $50, $50, $01, $04, $53, $57, $0A, $5A, $00, $B4
-  .byte $50, $50, $00, $03, $5A, $01, $C4, $50, $50, $01, $03, $53, $57, $0A, $5A, $00
-  .byte $B2, $50, $50, $00, $05, $5A, $01, $C2, $50, $50, $01, $05, $53, $57, $0A, $5A
-  .byte $00, $B0, $50, $50, $00, $03, $5A, $01, $C0, $50, $50, $01, $03, $53, $57, $0A
-  .byte $5A, $00, $AE, $50, $50, $00, $04, $5A, $01, $BE, $50, $50, $01, $04, $53, $57
-  .byte $0A, $5A, $00, $AC, $50, $50, $00, $03, $5A, $01, $BC, $50, $50, $01, $03, $53
-  .byte $57, $0A, $5A, $00, $AA, $50, $50, $00, $05, $5A, $01, $BA, $50, $50, $01, $05
-  .byte $53, $57, $0A, $5A, $00, $A8, $50, $50, $00, $03, $5A, $01, $B8, $50, $50, $01
-  .byte $03, $53, $57, $0A, $5A, $00, $A6, $50, $50, $00, $04, $5A, $01, $B6, $50, $50
-  .byte $01, $04, $53, $57, $0A, $5A, $00, $A4, $50, $50, $00, $03, $5A, $01, $B4, $50
-  .byte $50, $01, $03, $53, $57, $0A, $5A, $00, $A2, $50, $50, $00, $05, $5A, $01, $B2
-  .byte $50, $50, $01, $05, $53, $57, $0A, $5A, $00, $A0, $50, $50, $00, $03, $5A, $01
-  .byte $B0, $50, $50, $01, $03, $53, $57, $0A, $5A, $00, $A0, $50, $50, $00, $00, $5A
-  .byte $01, $B0, $50, $50, $01, $04, $53, $57, $0A, $5A, $00, $A0, $52, $50, $00, $01
-  .byte $5A, $01, $AE, $50, $50, $01, $03, $53, $57, $0A, $5A, $00, $A0, $54, $50, $00
-  .byte $00, $5A, $01, $AC, $50, $50, $01, $05, $53, $57, $0A, $5A, $00, $A0, $56, $50
-  .byte $00, $02, $5A, $01, $AA, $50, $50, $01, $03, $53, $57, $0A, $5A, $00, $A0, $58
-  .byte $50, $00, $00, $5A, $01, $A8, $50, $50, $01, $04, $53, $57, $0A, $5A, $00, $A0
-  .byte $5A, $50, $00, $01, $5A, $01, $A6, $50, $50, $01, $03, $53, $57, $0A, $5A, $00
-  .byte $A0, $5C, $50, $00, $00, $5A, $01, $A4, $50, $50, $01, $05, $53, $57, $0A, $5A
-  .byte $00, $A0, $5E, $50, $00, $02, $5A, $01, $A2, $50, $50, $01, $03, $53, $57, $0A
-  .byte $5A, $00, $A0, $60, $50, $00, $00, $5A, $01, $A0, $50, $50, $01, $04, $53, $57
-  .byte $0A, $5A, $00, $A0, $60, $50, $00, $01, $5A, $01, $A0, $50, $50, $01, $00, $53
-  .byte $57, $0A, $5A, $00, $A0, $62, $50, $00, $00, $5A, $01, $A0, $52, $50, $01, $01
-  .byte $53, $57, $0A, $5A, $00, $A0, $64, $50, $00, $02, $5A, $01, $A0, $54, $50, $01
-  .byte $00, $53, $57, $0A, $5A, $00, $A0, $66, $50, $00, $00, $5A, $01, $A0, $56, $50
-  .byte $01, $02, $53, $57, $0A, $5A, $00, $A0, $68, $50, $00, $01, $5A, $01, $A0, $58
-  .byte $50, $01, $00, $53, $57, $0A, $5A, $00, $A0, $6A, $50, $00, $00, $5A, $01, $A0
-  .byte $5A, $50, $01, $01, $53, $57, $0A, $5A, $00, $A0, $6C, $50, $00, $02, $5A, $01
-  .byte $A0, $5C, $50, $01, $00, $53, $57, $0A, $5A, $00, $A0, $6E, $50, $00, $00, $5A
-  .byte $01, $A0, $5E, $50, $01, $02, $53, $57, $0A, $5A, $00, $A0, $70, $50, $00, $01
-  .byte $5A, $01, $A0, $60, $50, $01, $00, $53, $57, $0A, $5A, $00, $A0, $72, $50, $00
-  .byte $00, $5A, $01, $A0, $62, $50, $01, $01, $53, $57, $0A, $5A, $00, $A0, $74, $50
-  .byte $00, $02, $5A, $01, $A0, $64, $50, $01, $00, $53, $57, $0A, $5A, $00, $A0, $76
-  .byte $50, $00, $00, $5A, $01, $A0, $66, $50, $01, $02, $53, $57, $0A, $5A, $00, $A0
-  .byte $78, $50, $00, $01, $5A, $01, $A0, $68, $50, $01, $00, $53, $57, $0A, $5A, $00
-  .byte $A0, $7A, $50, $00, $00, $5A, $01, $A0, $6A, $50, $01, $01, $53, $57, $0A, $5A
-  .byte $00, $A0, $7C, $50, $00, $02, $5A, $01, $A0, $6C, $50, $01, $00, $53, $57, $0A
-  .byte $5A, $00, $A0, $7E, $50, $00, $00, $5A, $01, $A0, $6E, $50, $01, $02, $53, $57
-  .byte $0A, $5A, $00, $A0, $80, $50, $00, $01, $5A, $01, $A0, $70, $50, $01, $00, $50
-  .byte $02, $00, $53, $57, $0A, $5A, $00, $9E, $80, $50, $00, $03, $5A, $01, $A0, $72
-  .byte $50, $01, $01, $53, $57, $0A, $5A, $00, $9E, $80, $50, $00, $04, $5A, $01, $A0
-  .byte $72, $50, $01, $00, $53, $57, $0A, $5A, $00, $9C, $80, $50, $00, $03, $5A, $01
-  .byte $A0, $74, $50, $01, $02, $53, $57, $0A, $5A, $00, $9A, $80, $50, $00, $05, $5A
-  .byte $01, $A0, $76, $50, $01, $00, $53, $57, $0A, $5A, $00, $98, $80, $50, $00, $03
-  .byte $5A, $01, $A0, $78, $50, $01, $01, $53, $57, $0A, $5A, $00, $96, $80, $50, $00
-  .byte $04, $5A, $01, $A0, $7A, $50, $01, $00, $53, $57, $0A, $5A, $00, $94, $80, $50
-  .byte $00, $03, $5A, $01, $A0, $7C, $50, $01, $02, $53, $57, $0A, $5A, $00, $92, $80
-  .byte $50, $00, $05, $5A, $01, $A0, $7E, $50, $01, $00, $53, $57, $0A, $5A, $00, $90
-  .byte $80, $50, $00, $03, $5A, $01, $A0, $80, $50, $01, $01, $50, $03, $00, $53, $57
-  .byte $0A, $5A, $00, $8E, $80, $50, $00, $04, $5A, $01, $9E, $80, $50, $01, $03, $53
-  .byte $57, $0A, $5A, $00, $8C, $80, $50, $00, $03, $5A, $01, $9C, $80, $50, $01, $05
-  .byte $53, $57, $0A, $5A, $00, $8A, $80, $50, $00, $05, $5A, $01, $9A, $80, $50, $01
-  .byte $03, $53, $57, $0A, $5A, $00, $88, $80, $50, $00, $03, $5A, $01, $98, $80, $50
-  .byte $01, $04, $53, $57, $0A, $5A, $00, $86, $80, $50, $00, $04, $5A, $01, $96, $80
-  .byte $50, $01, $03, $53, $57, $0A, $5A, $00, $84, $80, $50, $00, $03, $5A, $01, $94
-  .byte $80, $50, $01, $05, $53, $57, $0A, $5A, $00, $82, $80, $50, $00, $05, $5A, $01
-  .byte $92, $80, $50, $01, $03, $53, $57, $0A, $5A, $00, $80, $80, $50, $00, $03, $5A
-  .byte $01, $90, $80, $50, $01, $04, $53, $57, $0A, $43, $00, $5A, $01, $86, $80, $50
-  .byte $01, $03, $53, $57, $0A, $5A, $01, $84, $80, $50, $01, $05, $53, $57, $0A, $5A
-  .byte $01, $82, $80, $50, $01, $03, $53, $57, $0A, $5A, $01, $80, $80, $50, $01, $04
-  .byte $53, $57, $0A, $43, $01, $53, $57, $01, $45, $B8, $81, $C4, $81, $D0, $81, $24
-  .byte $82, $30, $82, $3C, $82, $00, $82, $0C, $82, $18, $82, $DC, $81, $E8, $81, $F4
-  .byte $81, $8C, $A5, $98, $A5, $A4, $A5, $F8, $A5, $04, $A6, $10, $A6, $D4, $A5, $E0
-  .byte $A5, $EC, $A5, $B0, $A5, $BC, $A5, $C8, $A5, $1C, $A6, $28, $A6, $34, $A6, $1C
-  .byte $A6, $28, $A6, $34, $A6, $1C, $A6, $28, $A6, $34, $A6, $1C, $A6, $28, $A6, $34
-  .byte $A6, $CA, $21, $00, $28, $D9, $29, $BD, $46, $3F, $5F, $FF, $6F, $93, $00, $5B
-  .byte $09, $02, $5D, $68, $6E, $B5, $7F, $BF, $1A, $7F, $3B, $0E, $4D, $57, $65, $FF
-  .byte $7F, $1B, $43, $32, $00
-  .byte "Lisbon"
-  .byte $00, $1B, $43, $30, $00, $CA, $C2, $0F, $C3, $1B, $3D, $35, $23, $1B
-  .byte "R#King %s went on"
-  .byte $0A
-  .byte "to lead Portugal into a"
-  .byte $0A
-  .byte "new age of prosperity"
-  .byte $00, $1B, $3D, $35, $23, $1B
-  .byte "R#And those sailors with"
-  .byte $0A
-  .byte "ambitions still aglow"
-  .byte $0A
-  .byte "embarked for the high seas"
-  .byte $00, $66, $C3, $7C, $C3, $9B, $C3, $CC, $C3
-  .byte "Uncharted"
-  .byte $0A
-  .byte "Waters..."
-  .byte $1B, $57, $00
-  .byte "In the Age of"
-  .byte $0A
-  .byte "Exploration..."
-  .byte $1B, $57, $00
-  .byte "When those with"
-  .byte $0A
-  .byte "courage challenged"
-  .byte $0A
-  .byte "the unknown"
-  .byte $1B, $57, $00
-  .byte "A glorious page"
-  .byte $0A
-  .byte "in the great book"
-  .byte $0A
-  .byte "of history"
-  .byte $1B, $57, $1B, $57, $00, $1B, $3D, $30, $28, $1B, $52, $28, $00, $20, $B2, $B0
-  .byte $B2, $40, $B3, $D0, $B3, $60, $B4, $F0, $B4, $80, $B5, $10, $B6, $A0, $B6, $30
-  .byte $B7, $C0, $B7, $50, $B8, $E0, $B8, $70, $B9, $00, $BA, $90, $BA, $20, $BB, $B0
-  .byte $BB, $88, $00, $8C, $00, $96, $00, $9E, $00, $9A, $00, $8D, $00, $96, $00, $A1
-  .byte $00, $AE, $00, $BD, $00, $B0, $00, $A5, $00, $9B, $00, $90, $00, $85, $00, $85
-  .byte $00, $93, $00, $A8, $00, $A0, $00, $A1, $00, $AE, $00, $B4, $00, $B1, $00, $BB
-  .byte $00, $C5, $00, $C5, $00, $C1, $00, $C9, $00, $D2, $00, $D2, $00, $D4, $00, $DA
-  .byte $00, $DB, $00, $CB, $00, $C1, $00, $B5, $00, $BF, $00, $84, $00, $7C, $00, $76
-  .byte $00, $79, $00, $84, $00, $85, $00, $7B, $00, $77, $00, $79, $00, $78, $00, $7A
-  .byte $00, $80, $00, $8F, $00, $99, $00, $9A, $00, $92, $00, $8F, $00, $88, $00, $8F
-  .byte $00, $97, $00, $8E, $00, $8B, $00, $9A, $00, $92, $00, $8A, $00, $94, $00, $99
-  .byte $00, $91, $00, $89, $00, $92, $00, $99, $00, $95, $00, $86, $00, $83, $00, $83
-  .byte $00, $83, $00, $7A, $00, $00
+  .byte $EA, $25
+ENDING_D_BD14:
+  .byte $04
+ENDING_D_BD15:
+  .byte $04, $04, $05, $06, $05, $06, $05, $07, $06, $08, $06
+ENDING_D_BD20:
+  .byte $00, $00, $10, $00, $00, $04, $20, $00, $30, $00, $00, $04, $40, $00, $54, $00
+  .byte $00, $04, $68, $00, $7C, $00, $00, $04, $90, $00, $AE, $00, $CC, $00, $EA, $00
+  .byte $08, $01, $26, $01, $44, $01, $62, $01, $80, $01, $9E, $01, $BC, $01, $DA, $01
+  .byte $00, $04, $F8, $01, $22, $02, $00, $04, $4C, $02, $76, $02, $00, $04, $A0, $02
+  .byte $D0, $02, $00, $04, $00, $03, $30, $03
+ENDING_D_BD68:
+  .byte $5A, $00, $C0
+  .byte "@P", $00
+  .byte $00, $5A, $01, $D0, $40, $50, $01, $00, $5A, $02, $90, $58, $50, $02, $01, $5A
+  .byte $03, $90, $70, $50, $03, $01, $5A, $04, $B0, $68, $50, $04, $02, $5A, $05, $B0
+  .byte $80, $50, $05
+  .byte $02, "SW<Z", $00
+  .byte $C0
+  .byte "BP", $00
+  .byte $01, $5A, $01, $D0, $42, $50, $01
+  .byte $01, "SW", $0A, "Z", $00
+  .byte $C0
+  .byte "DP", $00
+  .byte $00, $5A, $01, $D0, $44, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $C0
+  .byte "FP", $00
+  .byte $02, $5A, $01, $D0, $46, $50, $01
+  .byte $02, "SW", $0A, "Z", $00
+  .byte $C0
+  .byte "HP", $00
+  .byte $00, $5A, $01, $D0, $48, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $C0
+  .byte "JP", $00
+  .byte $01, $5A, $01, $D0, $4A, $50, $01
+  .byte $01, "SW", $0A, "Z", $00
+  .byte $C0
+  .byte "LP", $00
+  .byte $00, $5A, $01, $D0, $4C, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $C0
+  .byte "NP", $00
+  .byte $02, $5A, $01, $D0, $4E, $50, $01
+  .byte $02, "SW", $0A, "Z", $00
+  .byte $C0
+  .byte "PP", $00
+  .byte $00, $5A, $01, $D0, $50, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $C0
+  .byte "PP", $00
+  .byte $03, $5A, $01, $D0, $50, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $BE
+  .byte "PP", $00
+  .byte $04, $5A, $01, $CE, $50, $50, $01
+  .byte $04, "SW", $0A, "Z", $00
+  .byte $BC
+  .byte "PP", $00
+  .byte $03, $5A, $01, $CC, $50, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $BA
+  .byte "PP", $00
+  .byte $05, $5A, $01, $CA, $50, $50, $01
+  .byte $05, "SW", $0A, "Z", $00
+  .byte $B8
+  .byte "PP", $00
+  .byte $03, $5A, $01, $C8, $50, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $B6
+  .byte "PP", $00
+  .byte $04, $5A, $01, $C6, $50, $50, $01
+  .byte $04, "SW", $0A, "Z", $00
+  .byte $B4
+  .byte "PP", $00
+  .byte $03, $5A, $01, $C4, $50, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $B2
+  .byte "PP", $00
+  .byte $05, $5A, $01, $C2, $50, $50, $01
+  .byte $05, "SW", $0A, "Z", $00
+  .byte $B0
+  .byte "PP", $00
+  .byte $03, $5A, $01, $C0, $50, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $AE
+  .byte "PP", $00
+  .byte $04, $5A, $01, $BE, $50, $50, $01
+  .byte $04, "SW", $0A, "Z", $00
+  .byte $AC
+  .byte "PP", $00
+  .byte $03, $5A, $01, $BC, $50, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $AA
+  .byte "PP", $00
+  .byte $05, $5A, $01, $BA, $50, $50, $01
+  .byte $05, "SW", $0A, "Z", $00
+  .byte $A8
+  .byte "PP", $00
+  .byte $03, $5A, $01, $B8, $50, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $A6
+  .byte "PP", $00
+  .byte $04, $5A, $01, $B6, $50, $50, $01
+  .byte $04, "SW", $0A, "Z", $00
+  .byte $A4
+  .byte "PP", $00
+  .byte $03, $5A, $01, $B4, $50, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $A2
+  .byte "PP", $00
+  .byte $05, $5A, $01, $B2, $50, $50, $01
+  .byte $05, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "PP", $00
+  .byte $03, $5A, $01, $B0, $50, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "PP", $00
+  .byte $00, $5A, $01, $B0, $50, $50, $01
+  .byte $04, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "RP", $00
+  .byte $01, $5A, $01, $AE, $50, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "TP", $00
+  .byte $00, $5A, $01, $AC, $50, $50, $01
+  .byte $05, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "VP", $00
+  .byte $02, $5A, $01, $AA, $50, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "XP", $00
+  .byte $00, $5A, $01, $A8, $50, $50, $01
+  .byte $04, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "ZP", $00
+  .byte $01, $5A, $01, $A6, $50, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "\P", $00
+  .byte $00, $5A, $01, $A4, $50, $50, $01
+  .byte $05, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "^P", $00
+  .byte $02, $5A, $01, $A2, $50, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "`P", $00
+  .byte $00, $5A, $01, $A0, $50, $50, $01
+  .byte $04, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "`P", $00
+  .byte $01, $5A, $01, $A0, $50, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "bP", $00
+  .byte $00, $5A, $01, $A0, $52, $50, $01
+  .byte $01, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "dP", $00
+  .byte $02, $5A, $01, $A0, $54, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "fP", $00
+  .byte $00, $5A, $01, $A0, $56, $50, $01
+  .byte $02, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "hP", $00
+  .byte $01, $5A, $01, $A0, $58, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "jP", $00
+  .byte $00, $5A, $01, $A0, $5A, $50, $01
+  .byte $01, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "lP", $00
+  .byte $02, $5A, $01, $A0, $5C, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "nP", $00
+  .byte $00, $5A, $01, $A0, $5E, $50, $01
+  .byte $02, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "pP", $00
+  .byte $01, $5A, $01, $A0, $60, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "rP", $00
+  .byte $00, $5A, $01, $A0, $62, $50, $01
+  .byte $01, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "tP", $00
+  .byte $02, $5A, $01, $A0, $64, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "vP", $00
+  .byte $00, $5A, $01, $A0, $66, $50, $01
+  .byte $02, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "xP", $00
+  .byte $01, $5A, $01, $A0, $68, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "zP", $00
+  .byte $00, $5A, $01, $A0, $6A, $50, $01
+  .byte $01, "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "|P", $00
+  .byte $02, $5A, $01, $A0, $6C, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $A0
+  .byte "~P", $00
+  .byte $00, $5A, $01, $A0, $6E, $50, $01
+  .byte $02, "SW", $0A, "Z", $00
+  .byte $A0, $80, $50, $00, $01, $5A, $01, $A0, $70, $50, $01, $00, $50, $02, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $9E, $80, $50, $00, $03, $5A, $01, $A0, $72, $50, $01
+  .byte $01, "SW", $0A, "Z", $00
+  .byte $9E, $80, $50, $00, $04, $5A, $01, $A0, $72, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $9C, $80, $50, $00, $03, $5A, $01, $A0, $74, $50, $01
+  .byte $02, "SW", $0A, "Z", $00
+  .byte $9A, $80, $50, $00, $05, $5A, $01, $A0, $76, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $98, $80, $50, $00, $03, $5A, $01, $A0, $78, $50, $01
+  .byte $01, "SW", $0A, "Z", $00
+  .byte $96, $80, $50, $00, $04, $5A, $01, $A0, $7A, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $94, $80, $50, $00, $03, $5A, $01, $A0, $7C, $50, $01
+  .byte $02, "SW", $0A, "Z", $00
+  .byte $92, $80, $50, $00, $05, $5A, $01, $A0, $7E, $50, $01, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $90, $80, $50, $00, $03, $5A, $01, $A0, $80, $50, $01, $01, $50, $03, $00
+  .byte "SW", $0A, "Z", $00
+  .byte $8E, $80, $50, $00, $04, $5A, $01, $9E, $80, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $8C, $80, $50, $00, $03, $5A, $01, $9C, $80, $50, $01
+  .byte $05, "SW", $0A, "Z", $00
+  .byte $8A, $80, $50, $00, $05, $5A, $01, $9A, $80, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $88, $80, $50, $00, $03, $5A, $01, $98, $80, $50, $01
+  .byte $04, "SW", $0A, "Z", $00
+  .byte $86, $80, $50, $00, $04, $5A, $01, $96, $80, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $84, $80, $50, $00, $03, $5A, $01, $94, $80, $50, $01
+  .byte $05, "SW", $0A, "Z", $00
+  .byte $82, $80, $50, $00, $05, $5A, $01, $92, $80, $50, $01
+  .byte $03, "SW", $0A, "Z", $00
+  .byte $80, $80, $50, $00, $03, $5A, $01, $90, $80, $50, $01
+  .byte $04, "SW", $0A, "C", $00
+  .byte $5A, $01, $86, $80, $50, $01, $03, $53, $57, $0A, $5A, $01, $84, $80, $50, $01
+  .byte $05, $53, $57, $0A, $5A, $01, $82, $80, $50, $01, $03, $53, $57, $0A, $5A, $01
+  .byte $80, $80, $50, $01, $04, $53, $57, $0A, $43, $01, $53, $57, $01, $45
+ENDING_D_C24F:
+  .byte $B8, $81, $C4, $81, $D0, $81, $24, $82, $30, $82, $3C, $82, $00, $82, $0C, $82
+  .byte $18, $82, $DC, $81, $E8, $81, $F4, $81
+ENDING_D_C267:
+  .word $A58C, $A598
+  .byte $A4, $A5, $F8, $A5, $04, $A6, $10, $A6, $D4, $A5, $E0, $A5, $EC, $A5, $B0, $A5
+  .byte $BC, $A5, $C8, $A5
+ENDING_D_C27F:
+  .byte $1C, $A6, $28, $A6, $34, $A6, $1C, $A6, $28, $A6, $34, $A6, $1C, $A6, $28, $A6
+  .byte $34, $A6, $1C, $A6, $28, $A6, $34, $A6
+ENDING_D_C297:
+  .byte $CA, $21, $00, $28, $D9, $29, $BD, $46, $3F, $5F, $FF, $6F, $93, $00, $5B, $09
+  .byte $02, $5D, $68, $6E, $B5, $7F, $BF, $1A, $7F, $3B, $0E, $4D, $57, $65, $FF, $7F
+ENDING_D_C2B7:
+  .byte $1B
+  .byte "C2", $00
+ENDING_D_C2BB:
+  .byte "Lisbon", $00
+ENDING_D_C2C2:
+  .byte $1B
+  .byte "C0", $00
+ENDING_D_C2C6:
+  .word ENDING_D_C2CA
+ENDING_D_C2C8:
+  .word ENDING_D_C30F
+ENDING_D_C2CA:
+  .byte $1B, "=5#", $1B, "R#King %s went on", $0A, "to lead Portugal into a", $0A, "new age of prosperity"
+  .byte $00
+ENDING_D_C30F:
+  .byte $1B, "=5#", $1B, "R#And those sailors with", $0A, "ambitions still aglow", $0A, "embarked for the high seas"
+  .byte $00
+ENDING_D_C35E:
+  .word ENDING_D_C366, ENDING_D_C37C, ENDING_D_C39B, ENDING_D_C3CC
+ENDING_D_C366:
+  .byte "Uncharted", $0A, "Waters...", $1B, "W", $00
+ENDING_D_C37C:
+  .byte "In the Age of", $0A, "Exploration...", $1B, "W", $00
+ENDING_D_C39B:
+  .byte "When those with", $0A, "courage challenged", $0A, "the unknown", $1B, "W", $00
+ENDING_D_C3CC:
+  .byte "A glorious page", $0A, "in the great book", $0A, "of history", $1B, "W", $1B, "W", $00
+ENDING_D_C3FD:
+  .byte $1B
+  .byte "=0(", $1B, "R(", $00
+ENDING_D_C405:
+  .word ENDING_D_B220, ENDING_D_B2B0, ENDING_D_B340, ENDING_D_B3D0
+  .byte $60, $B4, $F0, $B4, $80, $B5, $10, $B6, $A0, $B6, $30, $B7, $C0, $B7, $50, $B8
+  .byte $E0, $B8, $70, $B9, $00, $BA, $90, $BA, $20, $BB, $B0, $BB
+ENDING_D_C429:
+  .byte $88, $00, $8C, $00, $96, $00, $9E, $00, $9A, $00, $8D, $00, $96, $00, $A1, $00
+  .byte $AE, $00, $BD, $00, $B0, $00, $A5, $00, $9B, $00, $90, $00, $85, $00, $85, $00
+  .byte $93, $00, $A8, $00, $A0, $00, $A1, $00, $AE, $00, $B4, $00, $B1, $00, $BB, $00
+  .byte $C5, $00, $C5, $00, $C1, $00, $C9, $00, $D2, $00, $D2, $00, $D4, $00, $DA, $00
+  .byte $DB, $00, $CB, $00, $C1, $00, $B5, $00, $BF, $00
+ENDING_D_C473:
+  .byte $84, $00, $7C, $00, $76, $00, $79, $00, $84, $00, $85, $00, $7B, $00, $77, $00
+  .byte $79, $00, $78, $00, $7A, $00, $80, $00, $8F, $00, $99, $00, $9A, $00, $92, $00
+  .byte $8F, $00, $88, $00, $8F, $00, $97, $00, $8E, $00, $8B, $00, $9A, $00, $92, $00
+  .byte $8A, $00, $94, $00, $99, $00, $91, $00, $89, $00, $92, $00, $99, $00, $95, $00
+  .byte $86, $00, $83, $00, $83, $00, $83, $00, $7A, $00, $00

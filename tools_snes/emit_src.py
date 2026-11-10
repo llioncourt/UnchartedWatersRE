@@ -108,9 +108,39 @@ NAT_FMT = {
     'ind': '{mn} ({v4})', 'indx': '{mn} ({v4},x)', 'indl': '{mn} [{v4}]', 'absl': '{mn} f:{v6}', 'abslx': '{mn} f:{v6},x',
 }
 
-def native_text(mn, md, val, pc, labels, nxt):
+SYM_OPS = {0x8A, 0x8C, 0x8E, 0x90, 0xA4, 0xA5, 0xA6, 0xA7, 0xA8, 0xA9, 0xAA, 0xAB}
+
+def data_block(buf, start, a, n, k, syms):
+    b = buf[a - start:a - start + n]
+    if k == 'Z':
+        return [f'  .res {n}, ${b[0]:02X}']
+    if k == 'P' and n % 2 == 0:
+        ws = [b[i] | b[i + 1] << 8 for i in range(0, n, 2)]
+        return ['  .word ' + ', '.join(syms.get(w, hx(w, 4)) for w in ws[i:i + 8]) for i in range(0, len(ws), 8)]
+    if k == 'S':
+        parts = []; cur = ''
+        for c in b:
+            if 0x20 <= c < 0x7F and c != 0x22:
+                cur += chr(c)
+            else:
+                if cur: parts.append(f'"{cur}"'); cur = ''
+                parts.append(hx(c, 2))
+        if cur: parts.append(f'"{cur}"')
+        out = []; line = []
+        for p in parts:
+            line.append(p)
+            if sum(len(x) for x in line) > 70: out.append('  .byte ' + ', '.join(line)); line = []
+        if line: out.append('  .byte ' + ', '.join(line))
+        return out
+    return data_lines(b, a, n)
+
+def native_text(mn, md, val, pc, labels, nxt, syms=None):
     mnl = mn.lower()
     if mn in ('BRK', 'COP', 'WDM'): return f'.byte ${ {"BRK":0,"COP":2,"WDM":0x42}[mn]:02X}, ${val:02X}'
+    if syms and md in ('abs', 'absx', 'absy') and mn not in ('JSR', 'JMP') and val in syms:
+        return NAT_FMT[md].replace('{v4}', syms[val]).format(mn=mnl, v2='', v4='', v6='')
+    if syms and md in ('immM', 'immX') and val is not None and val > 0xFF and val in syms:
+        return f'{mnl} #{syms[val]}'
     if md in ('immM', 'immX', 'imm8'):
         return f'{mnl} #{hx(val, 4 if val > 255 else 2)}' if md != 'imm8' else f'{mnl} #{hx(val, 2)}'
     if md == 'rel':
@@ -130,7 +160,7 @@ def native_text(mn, md, val, pc, labels, nxt):
     if mn == 'JML' and md == 'indl': return f'jml [{hx(val, 4)}]'
     return NAT_FMT[md].format(mn=mnl, v2=hx(val, 2), v4=hx(val, 4), v6=hx(val, 6))
 
-def bc_text(buf, off, pc, labels, ins_len):
+def bc_text(buf, off, pc, labels, ins_len, syms=None):
     d = kinsn(buf, off, pc); op = buf[off]
     L = lambda a: labels.get(a, hx(a, 4))
     if op == 0xB7:
@@ -162,7 +192,9 @@ def bc_text(buf, off, pc, labels, ins_len):
     if k == 'b': return [f'{nm} {s8(buf[off+1])}']
     if k == 'ub': return [f'{nm} {buf[off+1]}']
     v = buf[off + 1] | buf[off + 2] << 8
-    if k == 'w': return [f'{nm} {hx(v, 4)}']
+    if k == 'w':
+        if syms and op in SYM_OPS and v in syms: return [f'{nm} {syms[v]}']
+        return [f'{nm} {hx(v, 4)}']
     if k == 'sw': return [f'{nm} {s16(v)}']
     if k == 'lbl': return [f'{nm} {L(v)}']
     if k == 'rel': return [f'{nm} {L(d["targets"][0])}']
@@ -170,9 +202,10 @@ def bc_text(buf, off, pc, labels, ins_len):
     raise ValueError(op)
 
 # ------------------------------------------------------------------ segment emitter
-def emit_segment(name, start, size, off, ins, prefix, globals_=None, header=''):
-    """ins: addr -> tuple from trace. Returns (text, labels)."""
+def emit_segment(name, start, size, off, ins, prefix, globals_=None, header='', dc=None, ext_syms=None):
+    """ins: addr -> tuple from trace. dc: data classification of this module. Returns (text, labels)."""
     buf = ROM[off:off + size]
+    blocks = {a: (n, k) for a, n, k in dc['blocks']} if dc else {}
     # canonical instruction starts: walk sequentially, prefer recorded instructions
     starts = {}
     for a, t in ins.items():
@@ -201,6 +234,18 @@ def emit_segment(name, start, size, off, ins, prefix, globals_=None, header=''):
     if globals_:
         for a, nm in globals_.items():
             if not (start <= a < start + size) or a in starts: labels[a] = nm if (start <= a < start + size) else labels.get(a, nm)
+    # data labels: referenced addresses and pointer-table targets that start a data block
+    dlab = set(dc['refs']) if dc else set()
+    for a, (n, k) in blocks.items():
+        if k == 'P':
+            for i in range(0, n, 2):
+                w = buf[a - start + i] | buf[a - start + i + 1] << 8
+                if start <= w < start + size and w not in starts: dlab.add(w)
+    for a in dlab:
+        if start <= a < start + size and a not in labels: labels[a] = f'{prefix}D_{a:04X}'
+    syms = dict(labels)
+    if ext_syms:
+        for a, nm in ext_syms.items(): syms.setdefault(a, nm)
     lines = [header, '.p816', '.smart -', f'.include "kvm.inc"', '']
     if name not in ('root', 'bank00') and globals_ is not None: lines.insert(4, '.include "root_syms.inc"')
     lines += ['.segment "CODE"', '']
@@ -210,28 +255,37 @@ def emit_segment(name, start, size, off, ins, prefix, globals_=None, header=''):
         nonlocal pend
         if pend:
             lines.extend(data_lines(bytes(pend), a - len(pend), len(pend))); stats['data'] += len(pend); pend = []
+    def label_here(x):
+        if x in labels: lines.append(f'{labels[x]}:')
     while a < start + size:
         t = starts.get(a)
         # an instruction must fit and not overlap the next recorded start
         if t is None or a + t[0] > start + size:
+            if a in blocks and not pend:
+                n, k = blocks[a]
+                # a data block may contain inner labels: split at them
+                cuts = [x for x in range(a + 1, a + n) if x in labels]
+                pos = a
+                for c in cuts + [a + n]:
+                    label_here(pos)
+                    lines.extend(data_block(buf, start, pos, c - pos, k, syms)); stats[k] += c - pos
+                    pos = c
+                a += n; continue
             pend.append(buf[a - start]); a += 1; continue
         flush()
-        if a in labels and not (globals_ and a in globals_ and name != 'root'):
-            lines.append(f'{labels[a]}:')
-        elif a in labels:
-            lines.append(f'{labels[a]}:')
+        label_here(a)
         n, kind = t[0], t[1]
         if kind == 'H':
             fr = buf[a - start + 3] | buf[a - start + 4] << 8
             lines.append(f'  k_func {(-s16(fr)) if fr else 0}'); stats['bc'] += 5
         elif kind == 'B':
-            for l in bc_text(buf, a - start, a, labels, n): lines.append('  ' + l)
+            for l in bc_text(buf, a - start, a, labels, n, syms): lines.append('  ' + l)
             stats['bc'] += n
         else:
             mn, md, val, m, x = t[2], t[3], t[4], t[5], t[6]
             if md == 'immM' and (not m) != m16: m16 = not m; lines.append('.a16' if m16 else '.a8')
             if md == 'immX' and (not x) != x16: x16 = not x; lines.append('.i16' if x16 else '.i8')
-            lines.append('  ' + native_text(mn, md, val, a, labels, (a + n) & 0xFFFF)); stats['nat'] += n
+            lines.append('  ' + native_text(mn, md, val, a, labels, (a + n) & 0xFFFF, syms)); stats['nat'] += n
         a += n
     flush()
     return '\n'.join(lines) + '\n', labels, stats
@@ -267,19 +321,21 @@ def main():
     os.makedirs(os.path.join(ROOT, 'include'), exist_ok=True)
     open(os.path.join(ROOT, 'include', 'kvm.inc'), 'w').write(kvm_inc())
     ram = pickle.load(open(os.path.join(ROOT, 'out', 'trace_ram.pickle'), 'rb'))
+    import datacls
+    DC = datacls.run()
     report = {}
     # bank 0
-    txt, lab0, st = emit_segment('bank00', 0x8000, 0x8000, 0, rom_ins_bank0(), 'E', globals_=table_labels(), header='; Uncharted Waters (SNES US) - engine bank $00')
+    txt, lab0, st = emit_segment('bank00', 0x8000, 0x8000, 0, rom_ins_bank0(), 'E', globals_=table_labels(), header='; Uncharted Waters (SNES US) - engine bank $00', dc=DC['bank00'])
     open(os.path.join(SRC, 'bank00.s'), 'w').write(txt); report['bank00'] = dict(st)
     # root
     start, off, size, ins = ram['root']
-    txt, labr, st = emit_segment('root', start, size, off, ins, 'R', header='; resident image, runs at $7E:2000')
+    txt, labr, st = emit_segment('root', start, size, off, ins, 'R', header='; resident image, runs at $7E:2000', dc=DC['root'])
     open(os.path.join(SRC, 'root.s'), 'w').write(txt); report['root'] = dict(st)
     syms = [f'{v} = ${k:04X}' for k, v in sorted(labr.items())]
     open(os.path.join(ROOT, 'include', 'root_syms.inc'), 'w').write('; root image symbols\n' + '\n'.join(syms) + '\n')
     for name, (start, off, size, ins) in ram.items():
         if name == 'root': continue
-        txt, _, st = emit_segment(name, start, size, off, ins, name.upper() + '_', globals_=labr, header=f'; overlay {name}, runs at $7E:{start:04X}')
+        txt, _, st = emit_segment(name, start, size, off, ins, name.upper() + '_', globals_=labr, header=f'; overlay {name}, runs at $7E:{start:04X}', dc=DC[name], ext_syms=labr)
         open(os.path.join(SRC, 'ovl', f'{name}.s'), 'w').write(txt); report[name] = dict(st)
     json.dump(report, open(os.path.join(ROOT, 'out', 'emit_report.json'), 'w'), indent=1)
     for k, v in report.items(): print(k, v)

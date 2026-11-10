@@ -279,7 +279,7 @@ UM_SUB_F_B19D:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $C6BA
+  k_pushiw UM_SUB_D_C6BA
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldlba $EF57
@@ -290,12 +290,12 @@ UM_SUB_F_B19D:
   k_jumpf UM_SUB_L_B22C
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C6F1
+  k_pushiw UM_SUB_D_C6F1
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C70D
+  k_pushiw UM_SUB_D_C70D
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldlba $EF57
@@ -313,7 +313,7 @@ UM_SUB_L_B22C:
   k_pushl
   k_callx UM_SUB_F_B11B, 4
   k_pushi 1
-  k_pushiw $C740
+  k_pushiw UM_SUB_D_C740
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldla $EF5A
@@ -344,7 +344,7 @@ UM_SUB_L_B22C:
   k_stla $E56D
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $C76A
+  k_pushiw UM_SUB_D_C76A
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -386,7 +386,7 @@ UM_SUB_L_B2C2:
 UM_SUB_L_B2EC:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C7B2
+  k_pushiw UM_SUB_D_C7B2
   k_callx RF_2FB9, 4
   k_call RF_472D
 UM_SUB_L_B2FA:
@@ -422,20 +422,20 @@ UM_SUB_L_B300:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $C7E4
+  k_pushiw UM_SUB_D_C7E4
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf UM_SUB_L_B354
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C816
+  k_pushiw UM_SUB_D_C816
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_jump UM_SUB_L_B3B7
 UM_SUB_L_B354:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C835
+  k_pushiw UM_SUB_D_C835
   k_callx RF_2FB9, 4
   k_ldla $E56D
   k_ldra $EF5A
@@ -446,7 +446,7 @@ UM_SUB_L_B354:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C85D
+  k_pushiw UM_SUB_D_C85D
   k_callx RF_2FB9, 4
   k_jump UM_SUB_L_B389
 UM_SUB_L_B37E:
@@ -459,7 +459,7 @@ UM_SUB_L_B389:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C88A
+  k_pushiw UM_SUB_D_C88A
   k_callx RF_2FB9, 4
   k_pushi 10
   k_callx RF_3F3E, 2
@@ -509,12 +509,12 @@ UM_SUB_L_B3B9:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $C8AC
+  k_pushiw UM_SUB_D_C8AC
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $C8DE
+  k_pushiw UM_SUB_D_C8DE
   k_callx RF_2FB9, 4
   k_ldlba $EF57
   k_shl1
@@ -574,17 +574,17 @@ UM_SUB_L_B3B9:
   k_pushl
   k_callx UM_SUB_F_B02F, 2
   k_pushl
-  k_pushiw $C90A
+  k_pushiw UM_SUB_D_C90A
   k_callx RF_3619, 4
   k_call RF_472D
   k_call RF_60B2
   k_push -2
-  k_pushiw $C92B
+  k_pushiw UM_SUB_D_C92B
   k_callx RF_3619, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C958
+  k_pushiw UM_SUB_D_C958
   k_callx RF_2FB9, 4
   k_ldl -4
   k_long $26
@@ -604,7 +604,7 @@ UM_SUB_L_B3B9:
   k_longd $19, $000003E8
   k_long $02
   k_long $14
-  k_pushiw $C973
+  k_pushiw UM_SUB_D_C973
   k_callx RF_3619, 6
   k_jump UM_SUB_L_B4ED
 UM_SUB_L_B4DB:
@@ -614,11 +614,11 @@ UM_SUB_L_B4DB:
   k_ldr -4
   k_mul
   k_pushl
-  k_pushiw $C979
+  k_pushiw UM_SUB_D_C979
   k_callx RF_3619, 4
 UM_SUB_L_B4ED:
   k_pushi 1
-  k_pushiw $C97C
+  k_pushiw UM_SUB_D_C97C
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
@@ -626,13 +626,13 @@ UM_SUB_L_B4ED:
   k_shl1
   k_pushl
   k_push -2
-  k_pushiw $C99B
+  k_pushiw UM_SUB_D_C99B
   k_callx RF_3619, 6
   k_call RF_3CFF
   k_jumpf UM_SUB_L_B5C3
   k_call RF_60B2
   k_pusha $EF5A
-  k_pushiw $C9C5
+  k_pushiw UM_SUB_D_C9C5
   k_callx RF_3619, 4
   k_ldla $EF5A
   k_long $26
@@ -652,7 +652,7 @@ UM_SUB_L_B4ED:
   k_jumpf UM_SUB_L_B57B
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $C9E6
+  k_pushiw UM_SUB_D_C9E6
   k_callx RF_2FB9, 4
   k_pushiw $2710
   k_longw $0C, $FFF8
@@ -671,7 +671,7 @@ UM_SUB_L_B4ED:
 UM_SUB_L_B57B:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CA1C
+  k_pushiw UM_SUB_D_CA1C
   k_callx RF_2FB9, 4
   k_ldlba $EF57
   k_pushl
@@ -706,24 +706,24 @@ UM_SUB_L_B5A6:
 UM_SUB_L_B5C3:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CA45
+  k_pushiw UM_SUB_D_CA45
   k_jump UM_SUB_L_B698
 UM_SUB_L_B5CD:
   k_push -2
-  k_pushiw $CA64
+  k_pushiw UM_SUB_D_CA64
   k_callx RF_3619, 4
   k_call RF_472D
   k_call RF_60B2
   k_ldla $EF5A
   k_shl1
   k_pushl
-  k_pushiw $CA88
+  k_pushiw UM_SUB_D_CA88
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpf UM_SUB_L_B691
   k_call RF_60B2
   k_pusha $EF5A
-  k_pushiw $CAA2
+  k_pushiw UM_SUB_D_CAA2
   k_callx RF_3619, 4
   k_call RF_472D
   k_ldla $EF5A
@@ -754,7 +754,7 @@ UM_SUB_L_B5CD:
   k_stla $E56D
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CACB
+  k_pushiw UM_SUB_D_CACB
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -780,13 +780,13 @@ UM_SUB_L_B67A:
   k_stlba $EF61
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CB13
+  k_pushiw UM_SUB_D_CB13
   k_callx RF_2FB9, 4
   k_jump UM_SUB_L_B6A0
 UM_SUB_L_B691:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $CB3C
+  k_pushiw UM_SUB_D_CB3C
 UM_SUB_L_B698:
   k_callx RF_2FB9, 4
   k_ldli 0
@@ -844,7 +844,7 @@ UM_SUB_F_B6E4:
 UM_SUB_F_B6F8:
   k_func 7
   k_pushi 1
-  k_pushiw $CBAB
+  k_pushiw UM_SUB_D_CBAB
   k_callx RF_2FB9, 4
   k_ldliw $00F0
   k_stlba $EF65
@@ -890,7 +890,7 @@ UM_SUB_F_B6F8:
   k_ldln -7
   k_deref
   k_pushl
-  k_pushiw $CBAF
+  k_pushiw UM_SUB_D_CBAF
   k_callx RF_3608, 4
   k_pushi 8
   k_pushi 2
@@ -899,7 +899,7 @@ UM_SUB_F_B6F8:
   k_addli 2
   k_deref
   k_pushl
-  k_pushiw $CBC3
+  k_pushiw UM_SUB_D_CBC3
   k_callx RF_3608, 4
   k_pushi 10
   k_pushi 2
@@ -908,7 +908,7 @@ UM_SUB_F_B6F8:
   k_addli 4
   k_deref
   k_pushl
-  k_pushiw $CBDC
+  k_pushiw UM_SUB_D_CBDC
   k_callx RF_3608, 4
   k_pushi 11
   k_pushi 2
@@ -917,12 +917,12 @@ UM_SUB_F_B6F8:
   k_addli 6
   k_deref
   k_pushl
-  k_pushiw $CBF2
+  k_pushiw UM_SUB_D_CBF2
   k_callx RF_3608, 4
   k_pushi 14
   k_pushi 2
   k_callx RF_2F8F, 4
-  k_pushiw $CC0D
+  k_pushiw UM_SUB_D_CC0D
   k_callx RF_3608, 2
   k_ldli 0
   k_jump UM_SUB_L_B7FF
@@ -937,7 +937,7 @@ UM_SUB_L_B7A7:
   k_eq
   k_jumpf UM_SUB_L_B7C0
   k_pushi 0
-  k_pushiw $CC16
+  k_pushiw UM_SUB_D_CC16
   k_jump UM_SUB_L_B7CC
 UM_SUB_L_B7C0:
   k_ldlbf -1
@@ -945,7 +945,7 @@ UM_SUB_L_B7C0:
   k_eq
   k_jumpf UM_SUB_L_B7D0
   k_pushi 0
-  k_pushiw $CC19
+  k_pushiw UM_SUB_D_CC19
 UM_SUB_L_B7CC:
   k_callx RF_2FB9, 4
 UM_SUB_L_B7D0:
@@ -967,7 +967,7 @@ UM_SUB_L_B7D0:
   k_add
   k_derefb
   k_pushl
-  k_pushiw $CC1B
+  k_pushiw UM_SUB_D_CC1B
   k_callx RF_3608, 4
   k_ldlbf -1
   k_inc
@@ -990,7 +990,7 @@ UM_SUB_L_B7FF:
   k_ldlbf -3
   k_addlib 50
   k_pushl
-  k_pushiw $CC1F
+  k_pushiw UM_SUB_D_CC1F
   k_callx RF_3608, 4
   k_pushi 14
   k_ldlib 19
@@ -999,16 +999,16 @@ UM_SUB_L_B7FF:
   k_callx RF_2F8F, 4
   k_ldlbf -2
   k_shl1
-  k_ldriw $CB5C
+  k_ldriw UM_SUB_D_CB5C
   k_add
   k_deref
   k_pushl
-  k_pushiw $CC2C
+  k_pushiw UM_SUB_D_CC2C
   k_callx RF_3608, 4
   k_call RF_2F18
   k_call $9662
   k_pushi 1
-  k_pushiw $CC2F
+  k_pushiw UM_SUB_D_CC2F
   k_callx RF_2FB9, 4
   k_call $97BE
   k_ldli 0
@@ -1103,7 +1103,7 @@ UM_SUB_L_B8BB:
   k_inc
   k_pushl
   k_pusharg 15
-  k_pushiw $CC33
+  k_pushiw UM_SUB_D_CC33
   k_callx RF_3787, 16
   k_stl -6
   k_call RF_4D8B
@@ -1160,13 +1160,13 @@ UM_SUB_L_B91C:
   k_call RF_60EE
   k_ldl -24
   k_jumpt UM_SUB_L_B92C
-  k_pushiw $CC34
+  k_pushiw UM_SUB_D_CC34
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
 UM_SUB_L_B92C:
   k_pushi 1
-  k_pushiw $CC52
+  k_pushiw UM_SUB_D_CC52
   k_callx RF_2FB9, 4
   k_leal -22
   k_pushl
@@ -1203,11 +1203,11 @@ UM_SUB_L_B963:
   k_callx RF_604A, 12
   k_call RF_60EE
   k_pushi 1
-  k_pushiw $CC71
+  k_pushiw UM_SUB_D_CC71
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushi 2
-  k_pushiw $CC5E
+  k_pushiw UM_SUB_D_CC5E
   k_pushi 0
   k_pushi 10
   k_pushib 23
@@ -1378,7 +1378,7 @@ UM_SUB_L_BAB5:
   k_jumpt UM_SUB_L_BA8E
   k_call RF_60EE
   k_pushi 1
-  k_pushiw $CC7C
+  k_pushiw UM_SUB_D_CC7C
   k_callx RF_2FB9, 4
   k_pushi 2
   k_leal -12
@@ -1472,11 +1472,11 @@ UM_SUB_F_BB67:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $CC99
+  k_pushiw UM_SUB_D_CC99
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushi 2
-  k_pushiw $CC88
+  k_pushiw UM_SUB_D_CC88
   k_pushi 1
   k_pushi 6
   k_pushib 25
@@ -1497,7 +1497,7 @@ UM_SUB_L_BB9A:
   k_callx RF_60CE, 4
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $CCB6
+  k_pushiw UM_SUB_D_CCB6
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -1524,7 +1524,7 @@ UM_SUB_L_BBC9:
   k_callx RF_60CE, 4
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $CCED
+  k_pushiw UM_SUB_D_CCED
   k_callx RF_4B44, 2
   k_ldli 1
   k_return
@@ -1533,11 +1533,11 @@ UM_SUB_L_BBE1:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $CD1B
+  k_pushiw UM_SUB_D_CD1B
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushi 3
-  k_pushiw $CCD0
+  k_pushiw UM_SUB_D_CCD0
   k_pushi 1
   k_pushi 7
   k_pushib 23
@@ -1550,7 +1550,7 @@ UM_SUB_L_BBE1:
   k_jumpf UM_SUB_L_BC11
   k_ldl -2
   k_shl1
-  k_ldriw $CCD6
+  k_ldriw UM_SUB_D_CCD6
   k_add
   k_deref
   k_callptr
@@ -1612,36 +1612,36 @@ UM_SUB_F_BC37:
   k_pushi 5
   k_callx RF_4F65, 12
   k_pushi 1
-  k_pushiw $CD4D
+  k_pushiw UM_SUB_D_CD4D
   k_callx RF_2FB9, 4
   k_pushi 7
   k_pushi 11
   k_callx RF_2F8F, 4
   k_ldlarg 11
   k_shl1
-  k_ldriw $CD28
+  k_ldriw UM_SUB_D_CD28
   k_add
   k_deref
   k_pushl
-  k_pushiw $CD51
+  k_pushiw UM_SUB_D_CD51
   k_callx RF_3608, 4
   k_pushi 9
   k_pushi 9
   k_callx RF_2F8F, 4
   k_push -16
-  k_pushiw $CD56
+  k_pushiw UM_SUB_D_CD56
   k_callx RF_3608, 4
   k_pushi 11
   k_pushi 9
   k_callx RF_2F8F, 4
   k_push -8
-  k_pushiw $CD62
+  k_pushiw UM_SUB_D_CD62
   k_callx RF_3608, 4
   k_pushi 13
   k_pushi 9
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $CD70
+  k_pushiw UM_SUB_D_CD70
   k_callx RF_2FB9, 4
   k_ldli 0
   k_stl -6
@@ -1678,14 +1678,14 @@ UM_SUB_L_BCBB:
   k_mul
   k_ldr -2
   k_add
-  k_ldriw $CD2E
+  k_ldriw UM_SUB_D_CD2E
   k_add
   k_derefb
   k_ldr -18
   k_add
   k_derefb
   k_pushl
-  k_pushiw $CD7E
+  k_pushiw UM_SUB_D_CD7E
   k_callx RF_3608, 4
   k_ldl -4
   k_inc
@@ -1710,7 +1710,7 @@ UM_SUB_L_BCBB:
   k_pushi 9
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $CD82
+  k_pushiw UM_SUB_D_CD82
   k_callx RF_2FB9, 4
   k_ldl -2
   k_shl1
@@ -1752,7 +1752,7 @@ UM_SUB_L_BD30:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CD8B
+  k_pushiw UM_SUB_D_CD8B
   k_callx RF_2FB9, 4
   k_ldl -6
   k_inc
@@ -1776,7 +1776,7 @@ UM_SUB_L_BD69:
   k_ule
   k_jumpf UM_SUB_L_BDDB
   k_pushi 0
-  k_pushiw $CD97
+  k_pushiw UM_SUB_D_CD97
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_shl1
@@ -1787,7 +1787,7 @@ UM_SUB_L_BD69:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CDB2
+  k_pushiw UM_SUB_D_CDB2
   k_callx RF_2FB9, 4
   k_ldl -14
   k_shl1
@@ -1800,7 +1800,7 @@ UM_SUB_L_BD69:
   k_jump UM_SUB_L_BDD1
 UM_SUB_L_BDB1:
   k_pushi 0
-  k_pushiw $CDB9
+  k_pushiw UM_SUB_D_CDB9
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_shl1
@@ -1811,7 +1811,7 @@ UM_SUB_L_BDB1:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CDBB
+  k_pushiw UM_SUB_D_CDBB
   k_callx RF_2FB9, 4
 UM_SUB_L_BDD1:
   k_ldla $F18A
@@ -1824,7 +1824,7 @@ UM_SUB_L_BDDB:
   k_eq
   k_jumpt UM_SUB_L_BDB1
   k_pushi 1
-  k_pushiw $CDDA
+  k_pushiw UM_SUB_D_CDDA
   k_callx RF_2FB9, 4
 UM_SUB_L_BDE9:
   k_call RF_472D
@@ -1853,7 +1853,7 @@ UM_SUB_F_BDED:
   k_stl -4
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CDF7
+  k_pushiw UM_SUB_D_CDF7
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_shl1
@@ -1864,13 +1864,13 @@ UM_SUB_F_BDED:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $CE09
+  k_pushiw UM_SUB_D_CE09
   k_callx RF_2FB9, 4
   k_pushib 25
   k_pushi 8
   k_callx RF_2F8F, 4
   k_push -4
-  k_pushiw $CE14
+  k_pushiw UM_SUB_D_CE14
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpf UM_SUB_L_BE7F
@@ -1881,7 +1881,7 @@ UM_SUB_F_BDED:
   k_call RF_60EE
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $CE20
+  k_pushiw UM_SUB_D_CE20
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -1903,7 +1903,7 @@ UM_SUB_L_BE5E:
   k_jump UM_SUB_L_BE89
 UM_SUB_L_BE7F:
   k_call RF_60B2
-  k_pushiw $CE35
+  k_pushiw UM_SUB_D_CE35
   k_callx RF_4B44, 2
 UM_SUB_L_BE89:
   k_ldli 0
@@ -1919,11 +1919,11 @@ UM_SUB_L_BE92:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $CE5D
+  k_pushiw UM_SUB_D_CE5D
   k_callx RF_2FB9, 4
   k_pushi 2
   k_pushi 3
-  k_pushiw $CE41
+  k_pushiw UM_SUB_D_CE41
   k_pushi 2
   k_pushi 10
   k_pushib 23
@@ -1974,7 +1974,7 @@ UM_SUB_L_BEF6:
   k_callx RF_40C3, 2
   k_stl -6
   k_pushi 1
-  k_pushiw $CE73
+  k_pushiw UM_SUB_D_CE73
   k_callx RF_2FB9, 4
   k_ldl -4
   k_shl1
@@ -1995,7 +1995,7 @@ UM_SUB_L_BEF6:
   k_pushl
   k_callx RL_8898, 2
   k_pushl
-  k_pushiw $CE77
+  k_pushiw UM_SUB_D_CE77
   k_callx RF_3608, 4
   k_ldl -4
   k_inc
@@ -2012,7 +2012,7 @@ UM_SUB_L_BF36:
   k_pushi 14
   k_callx RF_2F8F, 4
   k_pusha $E56D
-  k_pushiw $CE7B
+  k_pushiw UM_SUB_D_CE7B
   k_callx RF_3619, 4
   k_ldl -4
   k_return
@@ -2041,14 +2041,14 @@ UM_SUB_F_BF4F:
   k_call RF_60EE
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $CE85
+  k_pushiw UM_SUB_D_CE85
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
 UM_SUB_L_BF7D:
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $CE9A
+  k_pushiw UM_SUB_D_CE9A
   k_callx RF_2FB9, 4
   k_pusharg 11
   k_callx RF_40DE, 2
@@ -2056,7 +2056,7 @@ UM_SUB_L_BF7D:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pusharg 13
-  k_pushiw $CEA1
+  k_pushiw UM_SUB_D_CEA1
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpf UM_SUB_L_BFF0
@@ -2067,7 +2067,7 @@ UM_SUB_L_BF7D:
   k_call RF_60EE
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $CEBF
+  k_pushiw UM_SUB_D_CEBF
   k_jump UM_SUB_L_BFF6
 UM_SUB_L_BFB8:
   k_ldlarg 13
@@ -2098,16 +2098,16 @@ UM_SUB_L_BFB8:
   k_pushib 20
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $CED4
+  k_pushiw UM_SUB_D_CED4
   k_callx RF_2FB9, 4
   k_pusha $E56D
-  k_pushiw $CED8
+  k_pushiw UM_SUB_D_CED8
   k_callx RF_3619, 4
   k_ldli 1
   k_return
 UM_SUB_L_BFF0:
   k_call RF_60B2
-  k_pushiw $CEDC
+  k_pushiw UM_SUB_D_CEDC
 UM_SUB_L_BFF6:
   k_callx RF_4B44, 2
   k_ldli 0
@@ -2165,7 +2165,7 @@ UM_SUB_L_C047:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $CEE8
+  k_pushiw UM_SUB_D_CEE8
   k_callx RF_2FB9, 4
   k_push -14
   k_pushi 2
@@ -2327,7 +2327,7 @@ UM_SUB_L_C12E:
   k_jump UM_SUB_L_C157
 UM_SUB_L_C137:
   k_pushi 1
-  k_pushiw $CEFC
+  k_pushiw UM_SUB_D_CEFC
   k_callx RF_2FB9, 4
   k_ldl -2
   k_addli 4
@@ -2478,7 +2478,7 @@ UM_SUB_F_C1F2:
   k_popr
   k_gt
   k_jumpf UM_SUB_L_C23A
-  k_pushiw $CF00
+  k_pushiw UM_SUB_D_CF00
   k_callx RF_4B44, 2
   k_jump UM_SUB_L_C281
 UM_SUB_L_C23A:
@@ -2490,7 +2490,7 @@ UM_SUB_L_C23A:
   k_sdiv
   k_stl -8
   k_push -8
-  k_pushiw $CF2B
+  k_pushiw UM_SUB_D_CF2B
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpf UM_SUB_L_C281
@@ -2563,7 +2563,7 @@ UM_SUB_L_C2A8:
   k_call RF_60EE
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $CF56
+  k_pushiw UM_SUB_D_CF56
   k_callx RF_4B44, 2
   k_ldln -42
   k_jumpf UM_SUB_L_C2C9
@@ -2598,7 +2598,7 @@ UM_SUB_L_C2F2:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $CF6C
+  k_pushiw UM_SUB_D_CF6C
   k_callx RF_2FB9, 4
   k_pushn -36
   k_callx UM_SUB_F_C15F, 2
@@ -2640,7 +2640,7 @@ UM_SUB_L_C340:
   k_call RF_60EE
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $CF82
+  k_pushiw UM_SUB_D_CF82
   k_callx RF_4B44, 2
   k_ldln -40
   k_swap
@@ -2654,13 +2654,13 @@ UM_SUB_L_C365:
   k_call RF_60B2
   k_ldlarg 11
   k_jumpf UM_SUB_L_C377
-  k_ldliw $CFBC
+  k_ldliw UM_SUB_D_CFBC
   k_jump UM_SUB_L_C37A
 UM_SUB_L_C377:
-  k_ldliw $CFC5
+  k_ldliw UM_SUB_D_CFC5
 UM_SUB_L_C37A:
   k_pushl
-  k_pushiw $CFA2
+  k_pushiw UM_SUB_D_CFA2
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpt UM_SUB_L_C38D
@@ -2693,11 +2693,11 @@ UM_SUB_L_C3AF:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $CFDE
+  k_pushiw UM_SUB_D_CFDE
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushi 2
-  k_pushiw $CFCB
+  k_pushiw UM_SUB_D_CFCB
   k_pushi 1
   k_pushi 7
   k_pushib 23
@@ -2760,7 +2760,7 @@ UM_SUB_F_C3FF:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $D016
+  k_pushiw UM_SUB_D_D016
   k_callx RF_2FB9, 4
   k_ldlba $EF57
   k_pushl
@@ -2768,7 +2768,7 @@ UM_SUB_F_C3FF:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $D02D
+  k_pushiw UM_SUB_D_D02D
   k_callx RF_2FB9, 4
   k_ldla $EE74
   k_ldriw $C350
@@ -2798,7 +2798,7 @@ UM_SUB_L_C483:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D03B
+  k_pushiw UM_SUB_D_D03B
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldlba $EF57
@@ -2854,25 +2854,25 @@ UM_SUB_L_C4CD:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $D05B
+  k_pushiw UM_SUB_D_D05B
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D07D
+  k_pushiw UM_SUB_D_D07D
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf UM_SUB_L_C52F
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D0A0
+  k_pushiw UM_SUB_D_D0A0
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_jump UM_SUB_L_C585
 UM_SUB_L_C52F:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D0C1
+  k_pushiw UM_SUB_D_D0C1
   k_callx RF_2FB9, 4
   k_ldla $EE72
   k_ldra $EF5A
@@ -2883,7 +2883,7 @@ UM_SUB_L_C52F:
   k_stla $EE72
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D0E1
+  k_pushiw UM_SUB_D_D0E1
   k_callx RF_2FB9, 4
   k_jump UM_SUB_L_C564
 UM_SUB_L_C559:
@@ -2939,12 +2939,12 @@ UM_SUB_L_C587:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $D109
+  k_pushiw UM_SUB_D_D109
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $D13A
+  k_pushiw UM_SUB_D_D13A
   k_callx RF_2FB9, 4
   k_ldlba $EF57
   k_pushl
@@ -2952,7 +2952,7 @@ UM_SUB_L_C587:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $D154
+  k_pushiw UM_SUB_D_D154
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -2960,7 +2960,7 @@ UM_SUB_L_C587:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D165
+  k_pushiw UM_SUB_D_D165
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
@@ -2975,7 +2975,7 @@ UM_SUB_L_C587:
   k_mul
   k_stl -6
   k_push -6
-  k_pushiw $D18F
+  k_pushiw UM_SUB_D_D18F
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpf UM_SUB_L_C64F
@@ -2984,7 +2984,7 @@ UM_SUB_L_C587:
   k_ldri 1
   k_shr
   k_pushl
-  k_pushiw $D1AD
+  k_pushiw UM_SUB_D_D1AD
   k_callx RF_3619, 4
   k_pushiw $2710
   k_ldl -6
@@ -3007,7 +3007,7 @@ UM_SUB_L_C587:
 UM_SUB_L_C64F:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $D1E4
+  k_pushiw UM_SUB_D_D1E4
   k_callx RF_2FB9, 4
   k_ldli 0
 UM_SUB_L_C65B:
@@ -3022,11 +3022,11 @@ UM_SUB_L_C663:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $D1F6
+  k_pushiw UM_SUB_D_D1F6
   k_callx RF_2FB9, 4
   k_pushi 2
   k_pushi 3
-  k_pushiw $CFE9
+  k_pushiw UM_SUB_D_CFE9
   k_pushi 2
   k_pushi 10
   k_pushib 23
@@ -3039,7 +3039,7 @@ UM_SUB_L_C663:
   k_jumpf UM_SUB_L_C696
   k_ldl -2
   k_shl1
-  k_ldriw $CFEF
+  k_ldriw UM_SUB_D_CFEF
   k_add
   k_deref
   k_callptr
@@ -3058,373 +3058,300 @@ UM_SUB_L_C696:
   k_callx RF_60CE, 4
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $D20C
+  k_pushiw UM_SUB_D_D20C
   k_callx RF_4B44, 2
 UM_SUB_L_C6B8:
   k_ldli 0
   k_return
-  .byte "Ye came back with the"
-  .byte $0A
-  .byte "purchase! I'm glad I"
-  .byte $0A
-  .byte "trusted you"
-  .byte $00
-  .byte "Huh? You didn't get"
-  .byte $0A
-  .byte "enough!"
-  .byte $00
-  .byte "I'm keeping the"
-  .byte $0A
-  .byte "reward. I've lost"
-  .byte $0A
-  .byte "all faith in you"
-  .byte $00
-  .byte "Here's the rest of thereward, as promised"
-  .byte $00, $0A
-  .byte "Ye can't be carrying"
-  .byte $0A
-  .byte "all that money"
-  .byte $0A
-  .byte "around! I'll keep"
-  .byte $0A
-  .byte "some here for ye"
-  .byte $00
-  .byte "If anything else"
-  .byte $0A
-  .byte "comes up, I'll be"
-  .byte $0A
-  .byte "relying on you"
-  .byte $00
-  .byte "Welcome back.  What,"
-  .byte $0A
-  .byte "no goods? Will you"
-  .byte $0A
-  .byte "try again"
-  .byte $00
-  .byte "Then hurry up! I'll"
-  .byte $0A
-  .byte "be waiting"
-  .byte $00
-  .byte "Ye gave up mid way?"
-  .byte $0A
-  .byte "Hand back the gold!"
-  .byte $00
-  .byte "What, ye used it all?"
-  .byte $0A
-  .byte "Straighten up yer act!"
-  .byte $00
-  .byte "I never should have"
-  .byte $0A
-  .byte "relied on you"
-  .byte $00
-  .byte "I've been waiting for"
-  .byte $0A
-  .byte "you-- I have a favor"
-  .byte $0A
-  .byte "to ask"
-  .byte $00, $0A
-  .byte "I'm looking to make a"
-  .byte $0A, $0A
-  .byte "profit by trading"
-  .byte $0A, $0A, $00
-  .byte "I see you already"
-  .byte $0A
-  .byte "have %d crates"
-  .byte $00
-  .byte "I'm afraid that's not"
-  .byte $0A
-  .byte "enough. I need %d"
-  .byte $0A
-  .byte "more"
-  .byte $00
-  .byte "How about this? I'll"
-  .byte $0A
-  .byte "give "
-  .byte $00
-  .byte "%d000"
-  .byte $00, $25, $64, $00
-  .byte " gold for"
-  .byte $0A
-  .byte "what ye've got there"
-  .byte $00
-  .byte "Then will ye bring me"
-  .byte $0A
-  .byte "%d more for %d"
-  .byte $0A
-  .byte "gold"
-  .byte $00
-  .byte "Good. I'll give ye"
-  .byte $0A
-  .byte "%d in advance"
-  .byte $00
-  .byte "I'll deposit the extragold at the palace."
-  .byte $0A
-  .byte "Hurry back!"
-  .byte $00
-  .byte "Bring in the new stockas soon as ye can!"
-  .byte $00
-  .byte "Oh well, I'll ask ye"
-  .byte $0A
-  .byte "next time"
-  .byte $00
-  .byte "I'd like ye to get"
-  .byte $0A
-  .byte "%d crates for me"
-  .byte $00
-  .byte "Will ye do it for"
-  .byte $0A
-  .byte "%d gold"
-  .byte $00
-  .byte "Good. I'll give ye"
-  .byte $0A
-  .byte "%d as advance"
-  .byte $0A
-  .byte "payment"
-  .byte $00, $0A
-  .byte "Ye can't be carrying"
-  .byte $0A
-  .byte "all that money"
-  .byte $0A
-  .byte "around! I'll keep"
-  .byte $0A
-  .byte "some here for ye"
-  .byte $00
-  .byte "Bring in the new stockas soon as ye can!"
-  .byte $00
-  .byte "Oh well, I'll ask ye"
-  .byte $0A
-  .byte "next time"
-  .byte $00, $00, $64, $CB, $71, $CB, $86, $CB, $98, $CB
-  .byte "Neutral"
-  .byte $0A
-  .byte "port"
-  .byte $00
-  .byte "Allied with Portugal"
-  .byte $00
-  .byte "Allied with Spain"
-  .byte $00
-  .byte "Allied with Turkey"
-  .byte $00, $1B, $43, $30, $00
-  .byte "Economic worth: %4d"
-  .byte $00
-  .byte "Economic investment: %5d"
-  .byte $00
-  .byte "Industrial worth: %4d"
-  .byte $00
-  .byte "Industrial investment: %5d"
-  .byte $00
-  .byte "Support:"
-  .byte $00, $20, $20, $00, $20, $00, $25, $33, $64, $00
-  .byte "Prices:%3d%%"
-  .byte $00, $25, $73, $00, $1B, $43, $32, $00, $00
-  .byte "There's no one but"
-  .byte $0A
-  .byte "me with ye"
-  .byte $00
-  .byte "Which mate?"
-  .byte $00, $62, $CC, $6B, $CC
-  .byte "Yourself"
-  .byte $00
-  .byte "Mates"
-  .byte $00
-  .byte "View whom?"
-  .byte $00
-  .byte "Which ship?"
-  .byte $00, $8C, $CC, $91, $CC
-  .byte "View"
-  .byte $00
-  .byte "Lodging"
-  .byte $00
-  .byte "Welcome. How may I"
-  .byte $0A
-  .byte "help you?"
-  .byte $00
-  .byte "You may use the back"
-  .byte $0A
-  .byte "room"
-  .byte $00, $DC, $CC, $E2, $CC, $E8, $CC, $58, $B9, $F3, $BA, $F8, $B6
-  .byte "Mates"
-  .byte $00
-  .byte "Fleet"
-  .byte $00
-  .byte "Port"
-  .byte $00
-  .byte "You must be very"
-  .byte $0A
-  .byte "tired. Make yourself"
-  .byte $0A
-  .byte "at home"
-  .byte $00
-  .byte "View which?"
-  .byte $00, $00, $37, $CD, $40, $CD, $46, $CD, $FF, $00, $02, $00, $FF, $01, $02, $01
-  .byte $FF
-  .byte "Portugal"
-  .byte $00
-  .byte "Spain"
-  .byte $00
-  .byte "Turkey"
-  .byte $00, $1B, $43, $30, $00
-  .byte "[%s]"
-  .byte $00
-  .byte "Revenue:%5d"
-  .byte $00
-  .byte "Hostility:%3d"
-  .byte $00
-  .byte "Friendship to"
-  .byte $00, $25, $33, $64, $00
-  .byte "Ally of "
-  .byte $00
-  .byte " prohibited"
-  .byte $00, $0A
-  .byte "There's trouble"
-  .byte $0A, $0A
-  .byte "between "
-  .byte $00
-  .byte " and"
-  .byte $0A, $0A, $00, $0A, $00
-  .byte " has sent"
-  .byte $0A, $0A
-  .byte "warships after you!"
-  .byte $00
-  .byte "This is all I know"
-  .byte $0A
-  .byte "right now"
-  .byte $00, $0A
-  .byte "Information on"
-  .byte $0A, $0A, $00
-  .byte " will cost"
-  .byte $00
-  .byte "%d gold. OK"
-  .byte $00
-  .byte "We don't have enough"
-  .byte $00
-  .byte "As you wish"
-  .byte $00, $47, $CE, $50, $CE, $56, $CE
-  .byte "Portugal"
-  .byte $00
-  .byte "Spain"
-  .byte $00
-  .byte "Turkey"
-  .byte $00
-  .byte "Information on which?"
-  .byte $00, $1B, $43, $30, $00, $25, $35, $64, $00
-  .byte "Gold: %5d"
-  .byte $00
-  .byte "We already have one!"
-  .byte $00, $0A
-  .byte "That "
-  .byte $00
-  .byte "costs %d gold."
-  .byte $0A
-  .byte "Want to buy it"
-  .byte $00
-  .byte "We don't have enough"
-  .byte $00, $1B, $43, $30, $00, $25, $35, $64, $00
-  .byte "As you wish"
-  .byte $00
-  .byte "What interests you?"
-  .byte $00, $1B, $43, $30, $00
-  .byte "We don't deal in such"
-  .byte $0A
-  .byte "expensive goods here"
-  .byte $00
-  .byte "I'll give you %d"
-  .byte $0A
-  .byte "gold for it. Is it a"
-  .byte $0A
-  .byte "deal"
-  .byte $00
-  .byte "We've nothing to sell"
-  .byte $00
-  .byte "What are you selling?"
-  .byte $00
-  .byte "We've run out of"
-  .byte $0A
-  .byte "things to sell"
-  .byte $00
-  .byte "Will you sell any"
-  .byte $0A
-  .byte "more %s"
-  .byte $00
-  .byte "treasure"
-  .byte $00
-  .byte "items"
-  .byte $00, $CF, $CF, $D5, $CF
-  .byte "Items"
-  .byte $00
-  .byte "Treasure"
-  .byte $00
-  .byte "Which one?"
-  .byte $00, $F5, $CF, $FE, $CF, $11, $D0, $FC, $BF, $8B, $BE, $A7, $C3
-  .byte "Purchase"
-  .byte $00
-  .byte "Nation Information"
-  .byte $00
-  .byte "Sell"
-  .byte $00, $0A
-  .byte "Ahh, so this is the"
-  .byte $0A, $0A, $00
-  .byte "! Good"
-  .byte $0A, $0A
-  .byte "work!"
-  .byte $00
-  .byte "Now I know I can"
-  .byte $0A
-  .byte "depend on you!"
-  .byte $00
-  .byte "Back already, without"
-  .byte $0A
-  .byte "the goods?!"
-  .byte $00
-  .byte "Will ye make another"
-  .byte $0A
-  .byte "search for me"
-  .byte $00
-  .byte "Hurry up! My"
-  .byte $0A
-  .byte "customer can't wait"
-  .byte $00
-  .byte "No? Then give me back"
-  .byte $0A
-  .byte "the gold!"
-  .byte $00
-  .byte "You lost my gold!"
-  .byte $0A
-  .byte "I've had it with"
-  .byte $0A
-  .byte "you!"
-  .byte $00
-  .byte "I've been waiting for"
-  .byte $0A
-  .byte "you. I have a favor"
-  .byte $0A
-  .byte "to ask"
-  .byte $00, $0A
-  .byte "I'm trying to find"
-  .byte $0A, $0A
-  .byte "the "
-  .byte $00, $0A, $0A
-  .byte "for a customer"
-  .byte $00
-  .byte "I'd like you to go"
-  .byte $0A
-  .byte "out and find it for"
-  .byte $0A, $6D, $65, $00
-  .byte "Will you do it for"
-  .byte $0A
-  .byte "%d000 gold"
-  .byte $00
-  .byte "Good! I'll deposit"
-  .byte $0A
-  .byte "%d000 at the palace"
-  .byte $0A
-  .byte "as down payment"
-  .byte $00
-  .byte "No? Then get out!"
-  .byte $00
-  .byte "What brings you here?"
-  .byte $00
-  .byte "If you've nothing to"
-  .byte $0A
-  .byte "do then leave!"
-  .byte $00
+UM_SUB_D_C6BA:
+  .byte "Ye came back with the", $0A, "purchase! I'm glad I", $0A, "trusted you", $00
+UM_SUB_D_C6F1:
+  .byte "Huh? You didn't get", $0A, "enough!", $00
+UM_SUB_D_C70D:
+  .byte "I'm keeping the", $0A, "reward. I've lost", $0A, "all faith in you", $00
+UM_SUB_D_C740:
+  .byte "Here's the rest of thereward, as promised", $00
+UM_SUB_D_C76A:
+  .byte $0A, "Ye can't be carrying", $0A, "all that money", $0A, "around! I'll keep", $0A, "some here for ye"
+  .byte $00
+UM_SUB_D_C7B2:
+  .byte "If anything else", $0A, "comes up, I'll be", $0A, "relying on you", $00
+UM_SUB_D_C7E4:
+  .byte "Welcome back.  What,", $0A, "no goods? Will you", $0A, "try again", $00
+UM_SUB_D_C816:
+  .byte "Then hurry up! I'll", $0A, "be waiting", $00
+UM_SUB_D_C835:
+  .byte "Ye gave up mid way?", $0A, "Hand back the gold!", $00
+UM_SUB_D_C85D:
+  .byte "What, ye used it all?", $0A, "Straighten up yer act!", $00
+UM_SUB_D_C88A:
+  .byte "I never should have", $0A, "relied on you", $00
+UM_SUB_D_C8AC:
+  .byte "I've been waiting for", $0A, "you-- I have a favor", $0A, "to ask", $00
+UM_SUB_D_C8DE:
+  .byte $0A, "I'm looking to make a", $0A, $0A, "profit by trading", $0A, $0A, $00
+UM_SUB_D_C90A:
+  .byte "I see you already", $0A, "have %d crates", $00
+UM_SUB_D_C92B:
+  .byte "I'm afraid that's not", $0A, "enough. I need %d", $0A, "more", $00
+UM_SUB_D_C958:
+  .byte "How about this? I'll", $0A, "give ", $00
+UM_SUB_D_C973:
+  .byte "%d000", $00
+UM_SUB_D_C979:
+  .byte "%d", $00
+UM_SUB_D_C97C:
+  .byte " gold for", $0A, "what ye've got there", $00
+UM_SUB_D_C99B:
+  .byte "Then will ye bring me", $0A, "%d more for %d", $0A, "gold", $00
+UM_SUB_D_C9C5:
+  .byte "Good. I'll give ye", $0A, "%d in advance", $00
+UM_SUB_D_C9E6:
+  .byte "I'll deposit the extragold at the palace.", $0A, "Hurry back!", $00
+UM_SUB_D_CA1C:
+  .byte "Bring in the new stockas soon as ye can!", $00
+UM_SUB_D_CA45:
+  .byte "Oh well, I'll ask ye", $0A, "next time", $00
+UM_SUB_D_CA64:
+  .byte "I'd like ye to get", $0A, "%d crates for me", $00
+UM_SUB_D_CA88:
+  .byte "Will ye do it for", $0A, "%d gold", $00
+UM_SUB_D_CAA2:
+  .byte "Good. I'll give ye", $0A, "%d as advance", $0A, "payment", $00
+UM_SUB_D_CACB:
+  .byte $0A, "Ye can't be carrying", $0A, "all that money", $0A, "around! I'll keep", $0A, "some here for ye"
+  .byte $00
+UM_SUB_D_CB13:
+  .byte "Bring in the new stockas soon as ye can!", $00
+UM_SUB_D_CB3C:
+  .byte "Oh well, I'll ask ye", $0A, "next time", $00
+  .byte $00
+UM_SUB_D_CB5C:
+  .word UM_SUB_D_CB64, UM_SUB_D_CB71, UM_SUB_D_CB86, UM_SUB_D_CB98
+UM_SUB_D_CB64:
+  .byte "Neutral", $0A, "port", $00
+UM_SUB_D_CB71:
+  .byte "Allied with Portugal", $00
+UM_SUB_D_CB86:
+  .byte "Allied with Spain", $00
+UM_SUB_D_CB98:
+  .byte "Allied with Turkey", $00
+UM_SUB_D_CBAB:
+  .byte $1B
+  .byte "C0", $00
+UM_SUB_D_CBAF:
+  .byte "Economic worth: %4d", $00
+UM_SUB_D_CBC3:
+  .byte "Economic investment: %5d", $00
+UM_SUB_D_CBDC:
+  .byte "Industrial worth: %4d", $00
+UM_SUB_D_CBF2:
+  .byte "Industrial investment: %5d", $00
+UM_SUB_D_CC0D:
+  .byte "Support:", $00
+UM_SUB_D_CC16:
+  .byte "  ", $00
+UM_SUB_D_CC19:
+  .byte $20, $00
+UM_SUB_D_CC1B:
+  .byte "%3d", $00
+UM_SUB_D_CC1F:
+  .byte "Prices:%3d%%", $00
+UM_SUB_D_CC2C:
+  .byte "%s", $00
+UM_SUB_D_CC2F:
+  .byte $1B
+  .byte "C2", $00
+UM_SUB_D_CC33:
+  .byte $00
+UM_SUB_D_CC34:
+  .byte "There's no one but", $0A, "me with ye", $00
+UM_SUB_D_CC52:
+  .byte "Which mate?", $00
+UM_SUB_D_CC5E:
+  .word UM_SUB_D_CC62, UM_SUB_D_CC6B
+UM_SUB_D_CC62:
+  .byte "Yourself", $00
+UM_SUB_D_CC6B:
+  .byte "Mates", $00
+UM_SUB_D_CC71:
+  .byte "View whom?", $00
+UM_SUB_D_CC7C:
+  .byte "Which ship?", $00
+UM_SUB_D_CC88:
+  .word UM_SUB_D_CC8C, UM_SUB_D_CC91
+UM_SUB_D_CC8C:
+  .byte "View", $00
+UM_SUB_D_CC91:
+  .byte "Lodging", $00
+UM_SUB_D_CC99:
+  .byte "Welcome. How may I", $0A, "help you?", $00
+UM_SUB_D_CCB6:
+  .byte "You may use the back", $0A, "room", $00
+UM_SUB_D_CCD0:
+  .word UM_SUB_D_CCDC, UM_SUB_D_CCE2, UM_SUB_D_CCE8
+UM_SUB_D_CCD6:
+  .word UM_SUB_F_B958, UM_SUB_F_BAF3, UM_SUB_F_B6F8
+UM_SUB_D_CCDC:
+  .byte "Mates", $00
+UM_SUB_D_CCE2:
+  .byte "Fleet", $00
+UM_SUB_D_CCE8:
+  .byte "Port", $00
+UM_SUB_D_CCED:
+  .byte "You must be very", $0A, "tired. Make yourself", $0A, "at home", $00
+UM_SUB_D_CD1B:
+  .byte "View which?", $00
+  .byte $00
+UM_SUB_D_CD28:
+  .word UM_SUB_D_CD37, UM_SUB_D_CD40, UM_SUB_D_CD46
+UM_SUB_D_CD2E:
+  .byte $FF, $00, $02, $00, $FF, $01, $02, $01, $FF
+UM_SUB_D_CD37:
+  .byte "Portugal", $00
+UM_SUB_D_CD40:
+  .byte "Spain", $00
+UM_SUB_D_CD46:
+  .byte "Turkey", $00
+UM_SUB_D_CD4D:
+  .byte $1B
+  .byte "C0", $00
+UM_SUB_D_CD51:
+  .byte "[%s]", $00
+UM_SUB_D_CD56:
+  .byte "Revenue:%5d", $00
+UM_SUB_D_CD62:
+  .byte "Hostility:%3d", $00
+UM_SUB_D_CD70:
+  .byte "Friendship to", $00
+UM_SUB_D_CD7E:
+  .byte "%3d", $00
+UM_SUB_D_CD82:
+  .byte "Ally of ", $00
+UM_SUB_D_CD8B:
+  .byte " prohibited", $00
+UM_SUB_D_CD97:
+  .byte $0A, "There's trouble", $0A, $0A, "between ", $00
+UM_SUB_D_CDB2:
+  .byte " and", $0A, $0A, $00
+UM_SUB_D_CDB9:
+  .byte $0A, $00
+UM_SUB_D_CDBB:
+  .byte " has sent", $0A, $0A, "warships after you!", $00
+UM_SUB_D_CDDA:
+  .byte "This is all I know", $0A, "right now", $00
+UM_SUB_D_CDF7:
+  .byte $0A, "Information on", $0A, $0A, $00
+UM_SUB_D_CE09:
+  .byte " will cost", $00
+UM_SUB_D_CE14:
+  .byte "%d gold. OK", $00
+UM_SUB_D_CE20:
+  .byte "We don't have enough", $00
+UM_SUB_D_CE35:
+  .byte "As you wish", $00
+UM_SUB_D_CE41:
+  .word UM_SUB_D_CE47, UM_SUB_D_CE50, UM_SUB_D_CE56
+UM_SUB_D_CE47:
+  .byte "Portugal", $00
+UM_SUB_D_CE50:
+  .byte "Spain", $00
+UM_SUB_D_CE56:
+  .byte "Turkey", $00
+UM_SUB_D_CE5D:
+  .byte "Information on which?", $00
+UM_SUB_D_CE73:
+  .byte $1B
+  .byte "C0", $00
+UM_SUB_D_CE77:
+  .byte "%5d", $00
+UM_SUB_D_CE7B:
+  .byte "Gold: %5d", $00
+UM_SUB_D_CE85:
+  .byte "We already have one!", $00
+UM_SUB_D_CE9A:
+  .byte $0A, "That ", $00
+UM_SUB_D_CEA1:
+  .byte "costs %d gold.", $0A, "Want to buy it", $00
+UM_SUB_D_CEBF:
+  .byte "We don't have enough", $00
+UM_SUB_D_CED4:
+  .byte $1B
+  .byte "C0", $00
+UM_SUB_D_CED8:
+  .byte "%5d", $00
+UM_SUB_D_CEDC:
+  .byte "As you wish", $00
+UM_SUB_D_CEE8:
+  .byte "What interests you?", $00
+UM_SUB_D_CEFC:
+  .byte $1B
+  .byte "C0", $00
+UM_SUB_D_CF00:
+  .byte "We don't deal in such", $0A, "expensive goods here", $00
+UM_SUB_D_CF2B:
+  .byte "I'll give you %d", $0A, "gold for it. Is it a", $0A, "deal", $00
+UM_SUB_D_CF56:
+  .byte "We've nothing to sell", $00
+UM_SUB_D_CF6C:
+  .byte "What are you selling?", $00
+UM_SUB_D_CF82:
+  .byte "We've run out of", $0A, "things to sell", $00
+UM_SUB_D_CFA2:
+  .byte "Will you sell any", $0A, "more %s", $00
+UM_SUB_D_CFBC:
+  .byte "treasure", $00
+UM_SUB_D_CFC5:
+  .byte "items", $00
+UM_SUB_D_CFCB:
+  .word UM_SUB_D_CFCF, UM_SUB_D_CFD5
+UM_SUB_D_CFCF:
+  .byte "Items", $00
+UM_SUB_D_CFD5:
+  .byte "Treasure", $00
+UM_SUB_D_CFDE:
+  .byte "Which one?", $00
+UM_SUB_D_CFE9:
+  .word UM_SUB_D_CFF5, UM_SUB_D_CFFE, UM_SUB_D_D011
+UM_SUB_D_CFEF:
+  .word UM_SUB_F_BFFC, UM_SUB_F_BE8B, UM_SUB_F_C3A7
+UM_SUB_D_CFF5:
+  .byte "Purchase", $00
+UM_SUB_D_CFFE:
+  .byte "Nation Information", $00
+UM_SUB_D_D011:
+  .byte "Sell", $00
+UM_SUB_D_D016:
+  .byte $0A, "Ahh, so this is the", $0A, $0A, $00
+UM_SUB_D_D02D:
+  .byte "! Good", $0A, $0A, "work!", $00
+UM_SUB_D_D03B:
+  .byte "Now I know I can", $0A, "depend on you!", $00
+UM_SUB_D_D05B:
+  .byte "Back already, without", $0A, "the goods?!", $00
+UM_SUB_D_D07D:
+  .byte "Will ye make another", $0A, "search for me", $00
+UM_SUB_D_D0A0:
+  .byte "Hurry up! My", $0A, "customer can't wait", $00
+UM_SUB_D_D0C1:
+  .byte "No? Then give me back", $0A, "the gold!", $00
+UM_SUB_D_D0E1:
+  .byte "You lost my gold!", $0A, "I've had it with", $0A, "you!", $00
+UM_SUB_D_D109:
+  .byte "I've been waiting for", $0A, "you. I have a favor", $0A, "to ask", $00
+UM_SUB_D_D13A:
+  .byte $0A, "I'm trying to find", $0A, $0A, "the ", $00
+UM_SUB_D_D154:
+  .byte $0A, $0A, "for a customer", $00
+UM_SUB_D_D165:
+  .byte "I'd like you to go", $0A, "out and find it for", $0A, "me", $00
+UM_SUB_D_D18F:
+  .byte "Will you do it for", $0A, "%d000 gold", $00
+UM_SUB_D_D1AD:
+  .byte "Good! I'll deposit", $0A, "%d000 at the palace", $0A, "as down payment", $00
+UM_SUB_D_D1E4:
+  .byte "No? Then get out!", $00
+UM_SUB_D_D1F6:
+  .byte "What brings you here?", $00
+UM_SUB_D_D20C:
+  .byte "If you've nothing to", $0A, "do then leave!", $00

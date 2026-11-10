@@ -14,7 +14,7 @@ RF_200C:
   k_func 0
   k_ldlarg 11
   k_shl1
-  k_ldriw $8ACE
+  k_ldriw RD_8ACE
   k_add
   k_deref
   k_pushl
@@ -29,7 +29,7 @@ RF_200C:
   k_callx RL_21BE, 10
   k_ldlarg 11
   k_shl1
-  k_ldriw $8B31
+  k_ldriw RD_8B31
   k_add
   k_deref
   k_pushl
@@ -167,19 +167,19 @@ RF_20CC:
   k_return
 RF_2159:
   k_func 0
-  k_pushiw $8B47
+  k_pushiw RD_8B47
   k_pushib 24
   k_callx RL_21BE, 4
   k_stla $F27E
-  k_pushiw $8B4E
+  k_pushiw RD_8B4E
   k_pushib 24
   k_callx RL_21BE, 4
   k_stla $F280
-  k_pushiw $8B55
+  k_pushiw RD_8B55
   k_pushib 24
   k_callx RL_21BE, 4
   k_stla $F282
-  k_pushiw $8B5B
+  k_pushiw RD_8B5B
   k_pushib 24
   k_callx RL_21BE, 4
   k_stla $F284
@@ -203,6 +203,7 @@ RF_219E:
   k_pushi 10
   k_callx RF_200C, 4
   k_return
+RD_21BA:
   .byte $22, $00, $80, $00
 RL_21BE:
   jsl f:$008003
@@ -357,7 +358,7 @@ RL_22D6:
   k_pushi 0
   k_ldln 21
   k_shl1
-  k_ldriw $8B62
+  k_ldriw RD_8B62
   k_add
   k_deref
   k_long $26
@@ -402,7 +403,7 @@ RL_230D:
   k_add
   k_popr
   k_add
-  k_ldriw $8B7A
+  k_ldriw RD_8B7A
   k_add
   k_deref
   k_pushl
@@ -426,7 +427,7 @@ RL_2331:
   k_add
   k_popr
   k_add
-  k_ldriw $8B7A
+  k_ldriw RD_8B7A
   k_add
   k_deref
   k_pushl
@@ -443,7 +444,7 @@ RL_2354:
   k_pushi 0
   k_ldln 21
   k_shl1
-  k_ldriw $8B6E
+  k_ldriw RD_8B6E
   k_add
   k_deref
   k_long $26
@@ -562,7 +563,7 @@ RF_2401:
   k_stl -2
   k_call RF_4DD8
   k_pushi 1
-  k_pushiw $8BB0
+  k_pushiw RD_8BB0
   k_callx RF_2FB9, 4
   k_pushi 0
   k_pusharg 13
@@ -604,7 +605,7 @@ RF_2401:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $8BB4
+  k_pushiw RD_8BB4
   k_callx RF_2FB9, 4
   k_push -2
   k_callx RF_40DE, 2
@@ -618,7 +619,7 @@ RF_2401:
   k_pusharg 15
   k_callx RF_23C0, 2
   k_pushl
-  k_pushiw $8BBB
+  k_pushiw RD_8BBB
   k_callx RF_3608, 4
   k_ldlarg 13
   k_addli 6
@@ -628,7 +629,7 @@ RF_2401:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $8BCA
+  k_pushiw RD_8BCA
   k_callx RF_2FB9, 4
   k_ldlarg 15
   k_ldrib 24
@@ -660,7 +661,7 @@ RF_2401:
   k_add
   k_derefb
   k_pushl
-  k_pushiw $8BD6
+  k_pushiw RD_8BD6
   k_callx RF_3608, 6
   k_ldlarg 13
   k_addli 9
@@ -679,7 +680,7 @@ RF_2401:
   k_add
   k_derefb
   k_pushl
-  k_pushiw $8BF1
+  k_pushiw RD_8BF1
   k_callx RF_3608, 6
   k_ldlarg 13
   k_addli 10
@@ -698,7 +699,7 @@ RF_2401:
   k_add
   k_derefb
   k_pushl
-  k_pushiw $8C0C
+  k_pushiw RD_8C0C
   k_callx RF_3608, 6
   k_ldlarg 13
   k_addli 11
@@ -724,7 +725,7 @@ RF_2401:
   k_pusharg 15
   k_callx RF_45A5, 2
   k_pushl
-  k_pushiw $8C27
+  k_pushiw RD_8C27
   k_callx RF_3608, 6
   k_ldlarg 13
   k_addli 12
@@ -753,7 +754,7 @@ RF_2401:
   k_add
   k_deref
   k_pushl
-  k_pushiw $8C42
+  k_pushiw RD_8C42
   k_callx RF_3608, 6
   k_ldlarg 13
   k_addli 13
@@ -763,7 +764,7 @@ RF_2401:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $8C5D
+  k_pushiw RD_8C5D
   k_callx RF_2FB9, 4
   k_ldl -4
   k_addli 6
@@ -780,7 +781,7 @@ RF_2401:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $8C64
+  k_pushiw RD_8C64
   k_callx RF_2FB9, 4
   k_ldlarg 13
   k_addli 13
@@ -798,7 +799,7 @@ RF_2401:
   k_addli 3
   k_derefb
   k_pushl
-  k_pushiw $8C67
+  k_pushiw RD_8C67
   k_callx RF_3608, 6
   k_ldlarg 13
   k_addlib 18
@@ -823,7 +824,7 @@ RF_2401:
   k_ldri 10
   k_sdiv
   k_pushl
-  k_pushiw $8C6F
+  k_pushiw RD_8C6F
   k_callx RF_3608, 8
   k_pushi 0
   k_ldlarg 13
@@ -851,7 +852,7 @@ RF_2401:
   k_callx RF_4B2A, 6
   k_call RF_2F18
   k_pushi 1
-  k_pushiw $8C7F
+  k_pushiw RD_8C7F
   k_callx RF_2FB9, 4
   k_return
 RF_260E:
@@ -950,7 +951,7 @@ RF_2682:
   k_stl -4
   k_call RF_4DD8
   k_pushi 1
-  k_pushiw $8CA2
+  k_pushiw RD_8CA2
   k_callx RF_2FB9, 4
   k_pushi 0
   k_pusharg 13
@@ -1026,7 +1027,7 @@ RL_26DA:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $8CA6
+  k_pushiw RD_8CA6
   k_callx RF_2FB9, 4
 RL_271B:
   k_ldl -2
@@ -1041,7 +1042,7 @@ RL_271B:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $8CA8
+  k_pushiw RD_8CA8
   k_callx RF_2FB9, 4
   k_pusharg 15
   k_callx RF_4190, 2
@@ -1059,7 +1060,7 @@ RL_271B:
   k_ldl -4
   k_derefb
   k_pushl
-  k_pushiw $8CAF
+  k_pushiw RD_8CAF
   k_callx RF_3608, 4
   k_ldlarg 15
   k_jumpt RL_2776
@@ -1072,7 +1073,7 @@ RL_271B:
   k_callx RF_2F8F, 4
   k_pusha $E56D
   k_pusha $EE74
-  k_pushiw $8CB8
+  k_pushiw RD_8CB8
   k_callx RF_3608, 6
   k_jump RL_2790
 RL_2776:
@@ -1090,7 +1091,7 @@ RL_2776:
   k_add
   k_derefb
   k_pushl
-  k_pushiw $8CD0
+  k_pushiw RD_8CD0
   k_callx RF_3608, 4
 RL_2790:
   k_ldlarg 13
@@ -1108,7 +1109,7 @@ RL_2790:
   k_addli 6
   k_deref
   k_pushl
-  k_pushiw $8CDD
+  k_pushiw RD_8CDD
   k_callx RF_3608, 6
   k_ldlarg 13
   k_addli 13
@@ -1125,7 +1126,7 @@ RL_2790:
   k_addli 8
   k_deref
   k_pushl
-  k_pushiw $8CF8
+  k_pushiw RD_8CF8
   k_callx RF_3608, 6
   k_ldlarg 13
   k_addlib 16
@@ -1142,7 +1143,7 @@ RL_2790:
   k_inc
   k_derefb
   k_pushl
-  k_pushiw $8D13
+  k_pushiw RD_8D13
   k_callx RF_3608, 6
   k_ldlarg 13
   k_addlib 17
@@ -1159,7 +1160,7 @@ RL_2790:
   k_addli 5
   k_derefb
   k_pushl
-  k_pushiw $8D30
+  k_pushiw RD_8D30
   k_callx RF_3608, 6
   k_ldlarg 13
   k_addlib 18
@@ -1172,12 +1173,12 @@ RL_2790:
   k_addli 3
   k_derefb
   k_pushl
-  k_pushiw $8D4D
+  k_pushiw RD_8D4D
   k_callx RF_3608, 4
   k_call RF_2F18
   k_call RF_4DD8
   k_pushi 1
-  k_pushiw $8D5E
+  k_pushiw RD_8D5E
   k_callx RF_2FB9, 4
   k_return
 RF_281B:
@@ -1202,14 +1203,14 @@ RF_281B:
   k_pushi 11
   k_callx RL_21BE, 12
   k_pusha $F280
-  k_pushiw $8D74
+  k_pushiw RD_8D74
   k_pushib 30
   k_pushib 32
   k_pushi 0
   k_pushi 0
   k_pushi 2
   k_callx RF_3DF1, 14
-  k_pusha $8D6E
+  k_pusha RD_8D6E
   k_pushi 1
   k_pushi 1
   k_pushi 4
@@ -1217,7 +1218,7 @@ RF_281B:
   k_pushi 1
   k_pushi 5
   k_callx RL_21BE, 14
-  k_pusha $8D6A
+  k_pusha RD_8D6A
   k_pushi 1
   k_pushi 1
   k_pushi 4
@@ -1225,7 +1226,7 @@ RF_281B:
   k_pushi 1
   k_pushi 5
   k_callx RL_21BE, 14
-  k_pusha $8D70
+  k_pusha RD_8D70
   k_pushi 1
   k_pushi 1
   k_pushib 25
@@ -1233,7 +1234,7 @@ RF_281B:
   k_pushi 1
   k_pushi 5
   k_callx RL_21BE, 14
-  k_pusha $8D6C
+  k_pusha RD_8D6C
   k_pushi 1
   k_pushi 1
   k_pushib 25
@@ -1241,7 +1242,7 @@ RF_281B:
   k_pushi 1
   k_pushi 5
   k_callx RL_21BE, 14
-  k_pusha $8D64
+  k_pusha RD_8D64
   k_pushib 20
   k_pushi 1
   k_pushi 5
@@ -1249,7 +1250,7 @@ RF_281B:
   k_pushi 1
   k_pushi 5
   k_callx RL_21BE, 14
-  k_pusha $8D62
+  k_pusha RD_8D62
   k_pushib 20
   k_pushi 1
   k_pushi 5
@@ -1257,7 +1258,7 @@ RF_281B:
   k_pushi 1
   k_pushi 5
   k_callx RL_21BE, 14
-  k_pusha $8D66
+  k_pusha RD_8D66
   k_pushi 1
   k_pushib 24
   k_pushi 4
@@ -1265,7 +1266,7 @@ RF_281B:
   k_pushi 1
   k_pushi 5
   k_callx RL_21BE, 14
-  k_pusha $8D68
+  k_pusha RD_8D68
   k_pushi 1
   k_pushib 24
   k_pushib 25
@@ -1322,7 +1323,7 @@ RL_2911:
   k_pushib 23
   k_ldlarg 11
   k_shl1
-  k_ldriw $8D72
+  k_ldriw RD_8D72
   k_add
   k_deref
   k_pushl
@@ -1346,7 +1347,7 @@ RL_2935:
   k_pushi 11
   k_callx RL_21BE, 12
   k_pusha $F280
-  k_pushiw $8C5C
+  k_pushiw RD_8C5C
   k_push -8
   k_push -6
   k_push -4
@@ -1354,7 +1355,7 @@ RL_2935:
   k_pushi 2
   k_callx RF_3DF1, 14
   k_pushi 1
-  k_pushiw $8D82
+  k_pushiw RD_8D82
   k_callx RF_2FB9, 4
   k_pushi 0
   k_pushi 0
@@ -1376,7 +1377,7 @@ RL_2935:
   k_pushi 1
   k_callx RF_4F2A, 2
   k_pushi 1
-  k_pushiw $8D8D
+  k_pushiw RD_8D8D
   k_callx RF_2FB9, 4
   k_return
 RF_2980:
@@ -1792,11 +1793,11 @@ RF_2B94:
   k_pushl
   k_ldlarg 13
   k_shl1
-  k_ldriw $8DB2
+  k_ldriw RD_8DB2
   k_add
   k_deref
   k_pushl
-  k_pushiw $8DFA
+  k_pushiw RD_8DFA
   k_callx RF_3619, 8
   k_return
 RF_2BB1:
@@ -1833,7 +1834,7 @@ RL_2BB6:
   k_pushib 32
   k_pushiw $0080
   k_pushib 126
-  k_pushiw $8D92
+  k_pushiw RD_8D92
   k_pushi 3
   k_callx RL_21BE, 10
   k_pusha $F280
@@ -1897,7 +1898,7 @@ RF_2C36:
   k_pushib 23
   k_callx RL_21BE, 12
   k_pushi 1
-  k_pushiw $8E06
+  k_pushiw RD_8E06
   k_callx RF_2FB9, 4
   k_ldlbf -4
   k_pushl
@@ -1908,7 +1909,7 @@ RF_2C36:
   k_callx RF_2B94, 6
 RL_2CA4:
   k_pushi 1
-  k_pushiw $8E18
+  k_pushiw RD_8E18
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf RL_2CEC
@@ -1936,7 +1937,7 @@ RL_2CE1:
   k_call RF_60B2
 RL_2CE4:
   k_pushi 1
-  k_pushiw $8E22
+  k_pushiw RD_8E22
   k_callx RF_2FB9, 4
 RL_2CEC:
   k_ldlba $EF6A
@@ -1947,12 +1948,12 @@ RL_2CF8:
   k_call RF_60B2
 RL_2CFB:
   k_pushi 1
-  k_pushiw $8E32
+  k_pushiw RD_8E32
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf RL_2D37
   k_pushi 1
-  k_pushiw $8E3C
+  k_pushiw RD_8E3C
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf RL_2D37
@@ -1976,12 +1977,12 @@ RF_2D39:
   k_func 2
   k_ldlba $EA8A
   k_pushl
-  k_pushiw $8E4A
+  k_pushiw RD_8E4A
   k_callx RF_3619, 4
   k_pushi 1
   k_pushi 10
   k_pushi 1
-  k_pushiw $8E6A
+  k_pushiw RD_8E6A
   k_callx RF_3C4E, 8
   k_stl -2
   k_ldl -2
@@ -2037,21 +2038,21 @@ RF_2DA1:
   k_stl -2
   k_ldl -2
   k_jumpf RL_2DB6
-  k_ldliw $8E7E
+  k_ldliw RD_8E7E
   k_jump RL_2DB9
 RL_2DB6:
-  k_ldliw $8E81
+  k_ldliw RD_8E81
 RL_2DB9:
   k_pushl
-  k_pushiw $8E6B
+  k_pushiw RD_8E6B
   k_callx RF_3619, 4
   k_pushi 1
   k_ldl -2
   k_jumpf RL_2DCC
-  k_ldliw $8E85
+  k_ldliw RD_8E85
   k_jump RL_2DCF
 RL_2DCC:
-  k_ldliw $8E89
+  k_ldliw RD_8E89
 RL_2DCF:
   k_pushl
   k_callx RF_2FB9, 4
@@ -2157,7 +2158,7 @@ RL_2E73:
   k_pushi 1
   k_ldl -2
   k_shl1
-  k_ldriw $8E8C
+  k_ldriw RD_8E8C
   k_add
   k_deref
   k_pushl
@@ -2184,7 +2185,7 @@ RL_2EA2:
   k_call RF_60EE
 RL_2EA5:
   k_pushi 1
-  k_pushiw $8EA9
+  k_pushiw RD_8EA9
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushi 3
@@ -2197,7 +2198,7 @@ RL_2EA5:
   k_inc
   k_pushl
   k_pushi 3
-  k_pushiw $8EBF
+  k_pushiw RD_8EBF
   k_callx RF_3787, 16
   k_stl -2
   k_ldl -2
@@ -2218,7 +2219,7 @@ RL_2EDB:
   k_ldl -2
   k_dec
   k_shl1
-  k_ldriw $8E92
+  k_ldriw RD_8E92
   k_add
   k_deref
   k_callptr
@@ -3444,7 +3445,7 @@ RL_37A8:
   k_pushl
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8EC0
+  k_ldriw RD_8EC0
   k_add
   k_deref
   k_popr
@@ -3873,7 +3874,7 @@ RL_3A88:
   k_pushiw $30E4
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8EC0
+  k_ldriw RD_8EC0
   k_add
   k_deref
   k_ldrn -38
@@ -4116,7 +4117,7 @@ RF_3C4E:
   k_callx RF_2FB9, 4
   k_pusharg 15
   k_pusharg 13
-  k_pushiw $8EC6
+  k_pushiw RD_8EC6
   k_callx RF_3619, 6
   k_ldlbf 17
   k_pushl
@@ -4157,7 +4158,7 @@ RF_3C89:
   k_pushiw $30E6
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8EC0
+  k_ldriw RD_8EC0
   k_add
   k_deref
   k_ldrarg 11
@@ -4205,7 +4206,7 @@ RL_3CF0:
 RF_3CFF:
   k_func 2
   k_pushi 1
-  k_pushiw $8ECF
+  k_pushiw RD_8ECF
   k_callx RF_2FB9, 4
 RL_3D0C:
   k_pushi 0
@@ -4224,7 +4225,7 @@ RL_3D14:
   k_jumpf RL_3D3A
 RL_3D28:
   k_pushi 1
-  k_pushiw $8ED6
+  k_pushiw RD_8ED6
   k_callx RF_2FB9, 4
 RL_3D30:
   k_pushi 0
@@ -4243,7 +4244,7 @@ RL_3D3A:
   k_jumpf RL_3D14
 RL_3D4A:
   k_pushi 1
-  k_pushiw $8ED8
+  k_pushiw RD_8ED8
   k_callx RF_2FB9, 4
 RL_3D52:
   k_pushi 0
@@ -4621,12 +4622,12 @@ RF_3FE6:
   k_pusharg 13
   k_ldlarg 13
   k_shl1
-  k_ldriw $8EDA
+  k_ldriw RD_8EDA
   k_add
   k_deref
   k_pushl
   k_pusharg 11
-  k_pushiw $8F3D
+  k_pushiw RD_8F3D
   k_callx RF_3608, 8
   k_return
 RF_4004:
@@ -4636,11 +4637,11 @@ RF_4004:
   k_callx RF_2F8F, 4
   k_pushi 10
   k_pushi 0
-  k_pushiw $8F46
+  k_pushiw RD_8F46
   k_callx RF_3C6D, 6
   k_stl -2
   k_push -2
-  k_pushiw $8F52
+  k_pushiw RD_8F52
   k_callx RF_3FE6, 4
   k_ldl -2
   k_switch 0, 11, RL_4046
@@ -6054,7 +6055,7 @@ RL_47B6:
   k_inc
   k_pushl
   k_pusharg 15
-  k_pushiw $8F56
+  k_pushiw RD_8F56
   k_callx RF_3787, 16
   k_stl -4
   k_ldl -4
@@ -6130,7 +6131,7 @@ RL_4823:
   k_pushl
   k_push -2
   k_pusharg 17
-  k_pushiw $8F57
+  k_pushiw RD_8F57
   k_callx RF_3787, 16
   k_stl -8
   k_ldl -8
@@ -6194,7 +6195,7 @@ RL_487C:
   k_pushl
   k_pusharg 11
   k_pushn 21
-  k_pushiw $8F58
+  k_pushiw RD_8F58
   k_callx RF_3787, 16
   k_stl -6
   k_ldl -6
@@ -6269,7 +6270,7 @@ RL_48E8:
   k_pushl
   k_push -4
   k_pusharg 17
-  k_pushiw $8F59
+  k_pushiw RD_8F59
   k_callx RF_3787, 16
   k_stl -8
   k_ldl -8
@@ -6291,7 +6292,7 @@ RF_490C:
   k_pusharg 13
   k_pusharg 11
   k_pusharg 17
-  k_pushiw $8F5A
+  k_pushiw RD_8F5A
   k_callx RF_3787, 16
   k_stlbf -1
   k_ldlbf -1
@@ -6349,7 +6350,7 @@ RF_496B:
   k_stl -2
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8EC0
+  k_ldriw RD_8EC0
   k_add
   k_deref
   k_pushl
@@ -6548,7 +6549,7 @@ RL_4AB7:
   k_ldlba $EA8D
   k_addliw $05DC
   k_pushl
-  k_pushiw $8F5C
+  k_pushiw RD_8F5C
   k_callx RF_3608, 4
   k_return
 RF_4AC6:
@@ -6591,10 +6592,10 @@ RL_4B07:
   k_pushi 3
   k_pushi 7
   k_callx RF_2F8F, 4
-  k_ldliw $8F60
+  k_ldliw RD_8F60
   k_jump RL_4B1E
 RL_4B1B:
-  k_ldliw $8F65
+  k_ldliw RD_8F65
 RL_4B1E:
   k_stl -2
   k_ldlba $EA8B
@@ -6608,7 +6609,7 @@ RF_4B2A:
   k_pusha $F280
   k_ldlarg 15
   k_shl1
-  k_ldriw $8F69
+  k_ldriw RD_8F69
   k_add
   k_deref
   k_pushl
@@ -7467,7 +7468,7 @@ RL_5039:
   k_jumpt RL_5074
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8F70
+  k_ldriw RD_8F70
   k_add
   k_deref
   k_swap
@@ -7476,7 +7477,7 @@ RL_5039:
   k_stlarg 13
   k_ldlba $F28C
   k_shl1
-  k_ldriw $8F70
+  k_ldriw RD_8F70
   k_add
   k_deref
   k_swap
@@ -7516,7 +7517,7 @@ RL_5074:
   k_pushib 48
   k_callx RL_21BE, 8
   k_pushi 1
-  k_pushiw $8F76
+  k_pushiw RD_8F76
   k_callx RF_2FB9, 4
   k_return
 RF_50AB:
@@ -7532,7 +7533,7 @@ RL_50BA:
   k_pusha $F280
   k_ldlarg 15
   k_shl1
-  k_ldriw $8F7A
+  k_ldriw RD_8F7A
   k_add
   k_deref
   k_pushl
@@ -7570,7 +7571,7 @@ RL_50F8:
   k_pusha $F280
   k_ldln 19
   k_shl1
-  k_ldriw $8F7E
+  k_ldriw RD_8F7E
   k_add
   k_deref
   k_pushl
@@ -7585,7 +7586,7 @@ RL_5110:
   k_pusha $F280
   k_ldln 19
   k_shl1
-  k_ldriw $8F7E
+  k_ldriw RD_8F7E
   k_add
   k_deref
   k_pushl
@@ -8343,7 +8344,7 @@ RL_5602:
   k_shl
   k_pushl
   k_ldlba $F28C
-  k_ldriw $8F90
+  k_ldriw RD_8F90
   k_add
   k_derefb
   k_popr
@@ -8359,7 +8360,7 @@ RL_5602:
   k_callx RL_21BE, 6
   k_pushib 126
   k_pushi 0
-  k_pushiw $8F93
+  k_pushiw RD_8F93
   k_pushi 2
   k_pushi 2
   k_pusharg 13
@@ -8374,7 +8375,7 @@ RL_563D:
   k_and
   k_jumpt RL_5667
   k_pushi 0
-  k_ldliw $21BA
+  k_ldliw RD_21BA
   k_long $26
   k_long $14
   k_pusha $F280
@@ -8456,7 +8457,7 @@ RL_56BC:
   k_ldl -4
   k_ldri 3
   k_shl
-  k_ldriw $8F9B
+  k_ldriw RD_8F9B
   k_add
   k_pushl
   k_pushi 2
@@ -8934,7 +8935,7 @@ RL_599F:
 RF_59A3:
   k_func 0
   k_ldlarg 11
-  k_ldriw $8FDB
+  k_ldriw RD_8FDB
   k_add
   k_derefb
   k_return
@@ -8960,7 +8961,7 @@ RF_59AF:
   k_ldlarg 13
   k_ldri 6
   k_udiv
-  k_ldriw $8FDE
+  k_ldriw RD_8FDE
   k_add
   k_derefb
   k_stln -39
@@ -9228,7 +9229,7 @@ RF_5BBB:
   k_ldlarg 11
   k_ldri 6
   k_umod
-  k_ldriw $9154
+  k_ldriw RD_9154
   k_add
   k_derefb
   k_stl -2
@@ -9298,7 +9299,7 @@ RL_5C29:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $915A
+  k_pushiw RD_915A
   k_callx RF_2FB9, 4
   k_return
 RF_5C3E:
@@ -9341,7 +9342,7 @@ RL_5C71:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $9164
+  k_pushiw RD_9164
   k_callx RF_2FB9, 4
   k_return
 RF_5C91:
@@ -9356,7 +9357,7 @@ RF_5CA0:
   k_pusha $F280
   k_ldlarg 15
   k_shl1
-  k_ldriw $916B
+  k_ldriw RD_916B
   k_add
   k_deref
   k_pushl
@@ -9381,7 +9382,7 @@ RF_5CA0:
   k_pusha $F280
   k_ldlarg 17
   k_shl1
-  k_ldriw $917B
+  k_ldriw RD_917B
   k_add
   k_deref
   k_pushl
@@ -9561,7 +9562,7 @@ RL_5D8A:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushn -19
-  k_pushiw $9196
+  k_pushiw RD_9196
   k_callx RF_3608, 4
   k_ldlarg 13
   k_inc
@@ -9570,8 +9571,8 @@ RL_5D8A:
   k_addli 3
   k_pushl
   k_callx RF_2F8F, 4
-  k_pusha $918F
-  k_pushiw $9199
+  k_pusha RD_918F
+  k_pushiw RD_9199
   k_callx RF_3608, 4
   k_pushi 0
   k_ldlarg 13
@@ -9587,7 +9588,7 @@ RL_5D8A:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushn -21
-  k_pushiw $919C
+  k_pushiw RD_919C
   k_callx RF_3608, 4
   k_ldlarg 13
   k_addli 4
@@ -9596,8 +9597,8 @@ RL_5D8A:
   k_addli 3
   k_pushl
   k_callx RF_2F8F, 4
-  k_pusha $918F
-  k_pushiw $919F
+  k_pusha RD_918F
+  k_pushiw RD_919F
   k_callx RF_3608, 4
   k_return
 RF_5E4F:
@@ -9615,7 +9616,7 @@ RL_5E62:
 RL_5E64:
   k_stl -4
   k_pushi 0
-  k_pushiw $91A2
+  k_pushiw RD_91A2
   k_callx RF_2FB9, 4
   k_ldlba $F28F
   k_jumpt RL_5E79
@@ -9636,7 +9637,7 @@ RL_5E87:
   k_pushi 4
   k_callx RL_21BE, 8
   k_pushib 126
-  k_pushiw $8FE4
+  k_pushiw RD_8FE4
   k_pushi 8
   k_pushib 23
   k_push -4
@@ -9670,7 +9671,7 @@ RL_5E87:
   k_pushl
   k_callx RF_2F8F, 4
   k_pusha $E998
-  k_pushiw $91AC
+  k_pushiw RD_91AC
   k_callx RF_3608, 4
   k_ldl -4
   k_addli 2
@@ -9921,7 +9922,7 @@ RF_6080:
   k_pushi 7
   k_callx RF_50D1, 12
   k_pushi 1
-  k_pushiw $91B4
+  k_pushiw RD_91B4
   k_callx RF_2FB9, 4
   k_return
 RF_609A:
@@ -9933,7 +9934,7 @@ RF_609A:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $91BE
+  k_pushiw RD_91BE
   k_callx RF_2FB9, 4
   k_return
 RF_60B2:
@@ -9983,7 +9984,7 @@ RF_6105:
   k_pushi 10
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $91F5
+  k_pushiw RD_91F5
   k_callx RF_2FB9, 4
   k_return
 RF_611A:
@@ -10191,7 +10192,7 @@ RF_6261:
 RL_627B:
   k_ldl -4
   k_shl1
-  k_ldriw $91C8
+  k_ldriw RD_91C8
   k_add
   k_deref
   k_ldr -2
@@ -10262,7 +10263,7 @@ RL_62D8:
   k_ldlib 95
 RL_62DA:
   k_pushl
-  k_pushiw $91FA
+  k_pushiw RD_91FA
   k_callx RF_3608, 4
   k_ldl -2
   k_inc
@@ -10308,7 +10309,7 @@ RF_6306:
   k_pushi 3
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $9201
+  k_pushiw RD_9201
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_stl -2
@@ -10743,7 +10744,7 @@ RF_65BE:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $920A
+  k_pushiw RD_920A
   k_callx RF_2FB9, 4
   k_return
 RF_65D6:
@@ -10756,7 +10757,7 @@ RF_65D6:
   k_pushi 7
   k_callx RF_50D1, 12
   k_pushi 1
-  k_pushiw $9214
+  k_pushiw RD_9214
   k_callx RF_2FB9, 4
   k_return
 RF_65F0:
@@ -10933,7 +10934,7 @@ RF_6701:
   k_callx RF_604A, 12
 RL_6721:
   k_pushi 1
-  k_pushiw $9224
+  k_pushiw RD_9224
   k_callx RF_2FB9, 4
   k_pushi 0
   k_pushi 0
@@ -10962,7 +10963,7 @@ RL_6721:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $922E
+  k_pushiw RD_922E
   k_callx RF_2FB9, 4
   k_pusha $F280
   k_pushiw $45EE
@@ -11081,12 +11082,12 @@ RL_6782:
   k_push -2
   k_ldlarg 11
   k_shl1
-  k_ldriw $921E
+  k_ldriw RD_921E
   k_add
   k_deref
   k_callptrn 2
   k_pushl
-  k_pushiw $9233
+  k_pushiw RD_9233
   k_callx RF_3619, 4
   k_ldl -4
   k_shl1
@@ -11114,7 +11115,7 @@ RL_6782:
   k_add
   k_deref
   k_pushl
-  k_pushiw $9237
+  k_pushiw RD_9237
   k_callx RF_3619, 6
   k_ldl -4
   k_inc
@@ -11135,7 +11136,7 @@ RL_6842:
   k_addlib 21
   k_pushl
   k_callx RF_2F8F, 4
-  k_pushiw $923F
+  k_pushiw RD_923F
   k_callx RF_3619, 2
   k_ldlarg 15
   k_addli 11
@@ -11145,7 +11146,7 @@ RL_6842:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushn -28
-  k_pushiw $9245
+  k_pushiw RD_9245
   k_callx RF_3608, 4
   k_ldlarg 15
   k_addli 12
@@ -11155,7 +11156,7 @@ RL_6842:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushn -26
-  k_pushiw $9248
+  k_pushiw RD_9248
   k_callx RF_3608, 4
   k_return
 RF_6883:
@@ -11213,7 +11214,7 @@ RL_68C3:
   k_ult
   k_jumpt RL_6890
   k_pushi 1
-  k_pushiw $9253
+  k_pushiw RD_9253
   k_callx RF_2FB9, 4
   k_ldlarg 15
   k_shl1
@@ -11228,12 +11229,12 @@ RL_68C3:
   k_pusharg 13
   k_ldlarg 11
   k_shl1
-  k_ldriw $924D
+  k_ldriw RD_924D
   k_add
   k_deref
   k_callptrn 2
   k_pushl
-  k_pushiw $925D
+  k_pushiw RD_925D
   k_callx RF_3619, 4
   k_ldlarg 15
   k_shl1
@@ -11253,7 +11254,7 @@ RL_68C3:
   k_add
   k_deref
   k_pushl
-  k_pushiw $9261
+  k_pushiw RD_9261
   k_callx RF_3619, 4
   k_ldln 19
   k_addli 11
@@ -11263,7 +11264,7 @@ RL_68C3:
   k_pushl
   k_callx RF_2F8F, 4
   k_push -16
-  k_pushiw $9265
+  k_pushiw RD_9265
   k_callx RF_3608, 4
   k_return
 RF_6925:
@@ -11286,7 +11287,7 @@ RF_6925:
   k_pushi 1
   k_pushi 1
   k_callx RF_666D, 4
-  k_pushiw $9268
+  k_pushiw RD_9268
   k_callx RF_4B44, 2
   k_ldl -6
   k_return
@@ -11297,7 +11298,7 @@ RL_6954:
   k_pushi 1
   k_push -2
   k_pushi 0
-  k_pushiw $9279
+  k_pushiw RD_9279
   k_callx RF_3C4E, 8
   k_stl -4
   k_ldl -4
@@ -11353,7 +11354,7 @@ RL_69A5:
   k_ldli 0
   k_stl -8
   k_pushi 1
-  k_pushiw $9288
+  k_pushiw RD_9288
   k_callx RF_2FB9, 4
   k_pusharg 11
   k_pushi 2
@@ -11425,7 +11426,7 @@ RF_6A0E:
   k_add
   k_deref
   k_pushl
-  k_pushiw $929C
+  k_pushiw RD_929C
   k_callx RF_3619, 6
   k_return
 RF_6A2A:
@@ -11455,7 +11456,7 @@ RF_6A2A:
   k_pushi 1
   k_push -2
   k_pushi 0
-  k_pushiw $92A4
+  k_pushiw RD_92A4
   k_callx RF_3C4E, 8
   k_stl -4
   k_ldl -4
@@ -11596,7 +11597,7 @@ RL_6B32:
   k_ldl -4
   k_popstore
   k_pushi 1
-  k_pushiw $92B2
+  k_pushiw RD_92B2
   k_callx RF_2FB9, 4
   k_ldlarg 15
   k_shl1
@@ -11630,7 +11631,7 @@ RL_6B6C:
   k_ldlarg 11
   k_deref
   k_pushl
-  k_pushiw $92B6
+  k_pushiw RD_92B6
   k_callx RF_3619, 4
   k_return
 RF_6B80:
@@ -11739,7 +11740,7 @@ RL_6C00:
   k_pushl
   k_callx RF_2F8F, 4
   k_pusharg 17
-  k_pushiw $92BF
+  k_pushiw RD_92BF
   k_callx RF_3619, 4
   k_return
 RF_6C1E:
@@ -11810,7 +11811,7 @@ RL_6C84:
   k_ldli 0
   k_stln -45
   k_pushi 1
-  k_pushiw $92C8
+  k_pushiw RD_92C8
   k_callx RF_2FB9, 4
   k_pushn -21
   k_pushi 2
@@ -11852,7 +11853,7 @@ RL_6CCC:
   k_pushi 2
   k_callx RF_666D, 4
   k_pushi 1
-  k_pushiw $92D4
+  k_pushiw RD_92D4
   k_callx RF_2FB9, 4
   k_ldlba $F28C
   k_jumpt RL_6CEF
@@ -11873,7 +11874,7 @@ RL_6CFD:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $92F0
+  k_pushiw RD_92F0
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushi 1
@@ -11884,7 +11885,7 @@ RL_6CFD:
   k_pushl
   k_pushi 8
   k_pushi 2
-  k_pushiw $92FD
+  k_pushiw RD_92FD
   k_callx RF_3787, 16
   k_stln -43
   k_ldln -43
@@ -11920,7 +11921,7 @@ RL_6D56:
   k_pushi 1
   k_callx RF_666D, 4
   k_pushi 1
-  k_pushiw $92FE
+  k_pushiw RD_92FE
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf RL_6D52
@@ -12083,7 +12084,7 @@ RL_6E44:
   k_pushi 0
   k_callx RF_669A, 2
   k_pushi 1
-  k_pushiw $931F
+  k_pushiw RD_931F
   k_callx RF_2FB9, 4
   k_ldl -4
   k_inc
@@ -12105,7 +12106,7 @@ RL_6E44:
   k_pushi 1
   k_callx RF_65BE, 2
   k_pushi 0
-  k_pushiw $932F
+  k_pushiw RD_932F
   k_callx RF_2FB9, 4
   k_leal -14
   k_pushl
@@ -12287,7 +12288,7 @@ RF_6F5B:
   k_pusharg 11
   k_callx RF_6DB5, 2
   k_pushl
-  k_pushiw $934B
+  k_pushiw RD_934B
   k_callx RF_3619, 4
   k_return
 RF_6F74:
@@ -12295,7 +12296,7 @@ RF_6F74:
   k_ldli 0
   k_stl -10
   k_pushi 1
-  k_pushiw $935C
+  k_pushiw RD_935C
   k_callx RF_2FB9, 4
   k_ldli 0
   k_stl -2
@@ -12321,7 +12322,7 @@ RL_6F88:
   k_pushi 1
   k_ldl -4
   k_shl1
-  k_ldriw $9307
+  k_ldriw RD_9307
   k_add
   k_deref
   k_pushl
@@ -12358,7 +12359,7 @@ RL_6FCE:
   k_add
   k_deref
   k_pushl
-  k_pushiw $9360
+  k_pushiw RD_9360
   k_callx RF_3619, 4
   k_ldl -2
   k_inc
@@ -12417,7 +12418,7 @@ RL_7016:
   k_pushi 3
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $9364
+  k_pushiw RD_9364
   k_callx RF_2FB9, 4
   k_ldl -2
   k_inc
@@ -12448,7 +12449,7 @@ RL_7049:
   k_pushi 3
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $9372
+  k_pushiw RD_9372
   k_callx RF_2FB9, 4
   k_ldl -4
   k_inc
@@ -12764,7 +12765,7 @@ RF_71D3:
   k_ldli 0
   k_stl -4
   k_pushi 1
-  k_pushiw $9379
+  k_pushiw RD_9379
   k_callx RF_2FB9, 4
   k_ldli 0
   k_jump RL_7242
@@ -12782,7 +12783,7 @@ RL_71E6:
   k_pushi 1
   k_ldl -2
   k_shl1
-  k_ldriw $9307
+  k_ldriw RD_9307
   k_add
   k_deref
   k_pushl
@@ -12822,7 +12823,7 @@ RL_7223:
   k_add
   k_deref
   k_pushl
-  k_pushiw $937D
+  k_pushiw RD_937D
   k_callx RF_3619, 4
   k_ldl -4
   k_inc
@@ -12850,7 +12851,7 @@ RF_7255:
   k_pushi 1
   k_callx RF_6DE0, 4
   k_pushi 1
-  k_pushiw $9381
+  k_pushiw RD_9381
   k_callx RF_2FB9, 4
   k_ldli 0
   k_stl -6
@@ -12882,7 +12883,7 @@ RL_727F:
   k_eq
   k_jumpf RL_7295
   k_pushi 1
-  k_pushiw $9385
+  k_pushiw RD_9385
   k_callx RF_2FB9, 4
 RL_7295:
   k_ldl -4
@@ -12931,7 +12932,7 @@ RL_72A5:
   k_add
   k_deref
   k_pushl
-  k_pushiw $9389
+  k_pushiw RD_9389
   k_callx RF_3619, 4
   k_ldl -6
   k_inc
@@ -12955,7 +12956,7 @@ RL_72F0:
 RF_72F1:
   k_func 2
   k_pushi 1
-  k_pushiw $938D
+  k_pushiw RD_938D
   k_callx RF_2FB9, 4
   k_ldli 0
   k_stl -2
@@ -12987,7 +12988,7 @@ RL_7300:
   k_add
   k_deref
   k_pushl
-  k_pushiw $9391
+  k_pushiw RD_9391
   k_callx RF_3619, 4
 RL_7328:
   k_ldl -2
@@ -13278,7 +13279,7 @@ RL_74C6:
   k_ldl -12
   k_jumpf RL_7521
   k_pushi 1
-  k_pushiw $9395
+  k_pushiw RD_9395
   k_callx RF_2FB9, 4
   k_ldl -20
   k_inc
@@ -13314,7 +13315,7 @@ RL_74C6:
   k_add
   k_deref
   k_pushl
-  k_pushiw $9399
+  k_pushiw RD_9399
   k_callx RF_3619, 4
   k_leal -56
   k_pushl
@@ -13336,7 +13337,7 @@ RL_7521:
   k_stl -12
 RL_7523:
   k_pushi 1
-  k_pushiw $939D
+  k_pushiw RD_939D
   k_callx RF_2FB9, 4
   k_pusharg 17
   k_pusharg 15
@@ -13358,16 +13359,16 @@ RL_7523:
   k_add
   k_deref
   k_pushl
-  k_pushiw $93A1
+  k_pushiw RD_93A1
   k_callx RF_3619, 4
   k_pushi 1
-  k_pushiw $93A5
+  k_pushiw RD_93A5
   k_callx RF_2FB9, 4
   k_pushib 25
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushn -93
-  k_pushiw $93A9
+  k_pushiw RD_93A9
   k_callx RF_3619, 4
   k_ldli 1
   k_stl -6
@@ -13387,7 +13388,7 @@ RL_7523:
   k_pushi 1
   k_callx RF_666D, 4
   k_pushi 1
-  k_pushiw $93AD
+  k_pushiw RD_93AD
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushi 0
@@ -13653,13 +13654,13 @@ RL_76E9:
   k_add
   k_deref
   k_pushl
-  k_pushiw $93C3
+  k_pushiw RD_93C3
   k_callx RF_3619, 4
   k_pushib 25
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushn -93
-  k_pushiw $93CA
+  k_pushiw RD_93CA
   k_callx RF_3619, 4
   k_ldli 1
   k_stl -6
@@ -13693,7 +13694,7 @@ RL_773F:
   k_pushi 1
   k_callx RF_66BF, 2
   k_pushi 1
-  k_pushiw $93D1
+  k_pushiw RD_93D1
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushi 3
@@ -13730,7 +13731,7 @@ RL_7777:
   k_pushi 0
   k_pushi 1
   k_callx RF_666D, 4
-  k_pushiw $93E6
+  k_pushiw RD_93E6
   k_callx RF_4B44, 2
   k_pushi 3
   k_callx RF_66BF, 2
@@ -13919,7 +13920,7 @@ RL_78BB:
   k_pushi 1
   k_callx RF_66BF, 2
   k_pushi 1
-  k_pushiw $93F6
+  k_pushiw RD_93F6
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 1
@@ -13955,7 +13956,7 @@ RL_78E0:
   k_inc
   k_stl -14
   k_pushi 1
-  k_pushiw $940B
+  k_pushiw RD_940B
   k_callx RF_2FB9, 4
   k_ldl -24
   k_ldri 3
@@ -14008,10 +14009,10 @@ RL_78E0:
   k_dec
   k_popstore
   k_pushl
-  k_pushiw $940F
+  k_pushiw RD_940F
   k_callx RF_3619, 4
   k_pushi 1
-  k_pushiw $9413
+  k_pushiw RD_9413
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_inc
@@ -14083,7 +14084,7 @@ RL_78E0:
   k_inc
   k_popstore
   k_pushl
-  k_pushiw $9417
+  k_pushiw RD_9417
   k_callx RF_3619, 4
   k_ldlarg 11
   k_ldri 7
@@ -14101,7 +14102,7 @@ RL_78E0:
   k_pushi 3
   k_callx RF_2F8F, 4
   k_pushi 1
-  k_pushiw $941B
+  k_pushiw RD_941B
   k_callx RF_2FB9, 4
   k_ldln -28
   k_dec
@@ -14124,7 +14125,7 @@ RL_79F3:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushn -93
-  k_pushiw $9429
+  k_pushiw RD_9429
   k_callx RF_3619, 4
   k_jump RL_7A42
 RL_7A1D:
@@ -14136,7 +14137,7 @@ RL_7A1D:
   k_pushi 1
   k_callx RF_666D, 4
   k_pushi 1
-  k_pushiw $9430
+  k_pushiw RD_9430
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushi 3
@@ -14193,7 +14194,7 @@ RL_7A82:
   k_pushi 0
   k_pushi 1
   k_callx RF_666D, 4
-  k_pushiw $9440
+  k_pushiw RD_9440
   k_callx RF_4B44, 2
   k_pushi 0
   k_callx RF_669A, 2
@@ -14256,7 +14257,7 @@ RF_7B11:
   k_pushi 3
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $945D
+  k_pushiw RD_945D
   k_callx RF_2FB9, 4
   k_ldli 0
   k_stl -2
@@ -14269,7 +14270,7 @@ RL_7B26:
   k_pushl
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $9463
+  k_pushiw RD_9463
   k_callx RF_2FB9, 4
   k_ldl -2
   k_inc
@@ -14282,7 +14283,7 @@ RL_7B26:
   k_pushib 17
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $9467
+  k_pushiw RD_9467
   k_callx RF_2FB9, 4
   k_return
 RF_7B51:
@@ -14352,7 +14353,7 @@ RL_7BAE:
   k_pushi 0
   k_callx RF_6DE0, 4
   k_pushi 1
-  k_pushiw $946F
+  k_pushiw RD_946F
   k_callx RF_2FB9, 4
   k_call RF_6DFD
   k_stl -2
@@ -14389,11 +14390,11 @@ RL_7BEF:
   k_ldl -6
   k_jumpf RL_7C05
   k_pushi 1
-  k_pushiw $9473
+  k_pushiw RD_9473
   k_jump RL_7C09
 RL_7C05:
   k_pushi 1
-  k_pushiw $9491
+  k_pushiw RD_9491
 RL_7C09:
   k_callx RF_2FB9, 4
   k_call RF_3CFF
@@ -14406,7 +14407,7 @@ RL_7C15:
   k_jump RL_7C36
 RL_7C1A:
   k_pushi 1
-  k_pushiw $949A
+  k_pushiw RD_949A
   k_callx RF_2FB9, 4
   k_call RF_7B11
   k_pusharg 11
@@ -14668,7 +14669,7 @@ RF_7E20:
   k_func 2
   k_ldlarg 13
   k_shl1
-  k_ldriw $949E
+  k_ldriw RD_949E
   k_add
   k_deref
   k_stl -2
@@ -14930,10 +14931,10 @@ RL_7FD0:
   k_ldri 1
   k_and
   k_jumpf RL_7FE0
-  k_ldliw $94BA
+  k_ldliw RD_94BA
   k_jump RL_7FE3
 RL_7FE0:
-  k_ldliw $94B6
+  k_ldliw RD_94B6
 RL_7FE3:
   k_pushl
   k_pushib 126
@@ -15506,13 +15507,13 @@ RF_837B:
   k_ldl -2
   k_ldrib 40
   k_mul
-  k_ldriw $94BE
+  k_ldriw RD_94BE
   k_add
   k_stl -18
   k_ldl -2
   k_ldrib 20
   k_mul
-  k_ldriw $955E
+  k_ldriw RD_955E
   k_add
   k_stl -14
   k_ldl -14
@@ -16051,7 +16052,7 @@ RL_8705:
   lsr a
   tax
   sep #$20
-  lda a:$872C,x
+  lda a:RD_872C,x
   rep #$30
   and #$FF
   tyx
@@ -16072,6 +16073,7 @@ RL_8725:
 RL_872A:
   plp
   rtl
+RD_872C:
   .byte $0F, $FF, $01, $24, $8A, $53, $CE, $DB, $7F, $FF, $FE, $DB, $7F, $FF, $F4, $82
   .byte $8E, $DB, $7E, $DB, $7F, $FF, $FF, $FF, $F0, $00, $00
   php
@@ -16606,322 +16608,616 @@ RL_8AC4:
   sta ($14),y
   plp
   rtl
-  .byte $E4, $8A, $EB, $8A, $F2, $8A, $FA, $8A, $02, $8B, $07, $8B, $0E, $8B, $16, $8B
-  .byte $1E, $8B, $25, $8B, $2A, $8B
-  .byte "initop"
+RD_8ACE:
+  .word RD_8AE4, RD_8AEB, RD_8AF2, RD_8AFA, RD_8B02, RD_8B07, RD_8B0E
+RD_8ADC:
+  .word RD_8B16, RD_8B1E, RD_8B25, RD_8B2A
+RD_8AE4:
+  .byte "initop", $00
+RD_8AEB:
+  .byte "i"
+RD_8AEC:
+  .byte "bento", $00
+RD_8AF2:
+  .byte "maituk"
+RD_8AF8:
+  .byte "i", $00
+RD_8AFA:
+  .byte "cminato", $00
+RD_8B02:
+  .byte "uc"
+RD_8B04:
+  .byte "om", $00
+RD_8B07:
+  .byte "uarugo", $00
+RD_8B0E:
+  .byte "jouriku", $00
+RD_8B16:
+  .byte "uminato", $00
+RD_8B1E:
+  .byte "sensou", $00
+RD_8B25:
+  .byte "scom", $00
+RD_8B2A:
+  .byte "ending", $00
+RD_8B31:
+  .word $4900, $4900, $4900, $4900, $4900, $4900, $4900
+  .byte $00, $1A, $00, $0F, $00, $49, $00
+  .byte "I"
+RD_8B47:
+  .byte "sgdata", $00
+RD_8B4E:
+  .byte "cbmap0", $00
+RD_8B55:
+  .byte "fdata", $00
+RD_8B5B:
+  .byte "kdata", $00
   .byte $00
-  .byte "ibento"
+RD_8B62:
+  .byte $80, $46
+RD_8B64:
+  .byte $DA, $46, $12, $47, $4A, $47, $82, $47, $BA
+RD_8B6D:
+  .byte $47
+RD_8B6E:
+  .byte $B8, $46, $F2, $47, $10
+  .byte "H.HLHjH"
+RD_8B7A:
+  .byte $20, $9D, $00, $9F, $00, $00, $E0, $A0, $C0, $A2, $00, $00, $60, $B7, $60, $B7
+  .byte $60, $B7, $A0, $A4, $80, $A6, $60, $A8, $40, $AA, $20, $AC, $00, $AE, $40, $B9
+  .byte $40, $B9, $40, $B9, $00, $00, $E0, $AF, $C0, $B1, $00, $00, $A0, $B3, $80, $B5
+  .byte $20, $BB, $20, $BB, $20, $BB
+RD_8BB0:
+  .byte $1B
+  .byte "C0", $00
+RD_8BB4:
+  .byte "Ship: ", $00
+RD_8BBB:
+  .byte "Condition"
+RD_8BC4:
+  .byte ": %3d", $00
+RD_8BCA:
+  .byte "Navigator: ", $00
+RD_8BD6:
+  .byte "Durability:        %3d/"
+RD_8BED:
+  .byte "%3d", $00
+RD_8BF1:
+  .byte "Power:             %3d/%3d", $00
+RD_8C0C:
+  .byte "Handling:   "
+RD_8C18:
+  .byte "       %3d/%3d", $00
+RD_8C27:
+  .byte "Cargo load:        %3d/%3d", $00
+RD_8C42:
+  .byte "Crewmen:          "
+RD_8C54:
+  .byte " %3d/%3d"
+RD_8C5C:
   .byte $00
-  .byte "maituki"
+RD_8C5D:
+  .byte "Arms (", $00
+RD_8C64:
+  .byte "):", $00
+RD_8C67:
+  .byte "%3d/%3"
+RD_8C6D:
+  .byte "d", $00
+RD_8C6F:
+  .byte "%3d   %3d   %3d", $00
+RD_8C7F:
+  .byte $1B
+  .byte "C2", $00
+  .word RD_8C89, RD_8C91, RD_8C9B
+RD_8C89:
+  .byte "Captain", $00
+RD_8C91:
+  .byte "Navigator", $00
+RD_8C9B:
+  .byte "Sailor", $00
+RD_8CA2:
+  .byte $1B
+  .byte "C0", $00
+RD_8CA6:
+  .byte $20, $00
+RD_8CA8:
+  .byte "Ship: ", $00
+RD_8CAF:
+  .byte "Age: %2d", $00
+RD_8CB8:
+  .byte "Fame:%6d      Gold: %5d", $00
+RD_8CD0:
+  .byte "Loyalty: %4d", $00
+RD_8CDD:
+  .byte "Battle Exp: %5d "
+RD_8CED:
+  .byte " Level:%3d", $00
+RD_8CF8:
+  .byte "Sailing Exp:%5d  Level:%3d", $00
+RD_8D13:
+  .byte "Charisma:%3d     Wisdom: %3d", $00
+RD_8D30:
+  .byte "Strength:%3d     Courage:%3d", $00
+RD_8D4D:
+  .byte "Intelligence:%3d", $00
+RD_8D5E:
+  .byte $1B
+  .byte "C2", $00
+RD_8D62:
+  .byte $A0, $08
+RD_8D64:
+  .byte $A1, $08
+RD_8D66:
+  .byte $A2, $08
+RD_8D68:
+  .byte $A3, $08
+RD_8D6A:
+  .byte $A4, $08
+RD_8D6C:
+  .byte $A5
+RD_8D6D:
+  .byte $08
+RD_8D6E:
+  .byte $A6, $08
+RD_8D70:
+  .byte $A7, $08
+RD_8D72:
+  .byte $F5, $81
+RD_8D74:
+  .byte $2B, $C3, $DB, $B9, $8D, $A7, $E6, $9C, $BC, $92, $95, $B0, $07, $89
+RD_8D82:
+  .byte $1B, $52, $27, $1B, $45, $16, $1B
+  .byte "=1'", $00
+RD_8D8D:
+  .byte $1B
+  .byte "C0", $00
   .byte $00
-  .byte "cminato"
+RD_8D92:
+  .byte $00, $00, $7B, $7F, $F7, $6E, $B5
+  .byte "fs^", $00
+  .byte $00, $CE, $4D
+RD_8DA0:
+  .byte $8C, $45, $55, $19, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $F7, $6E
+  .byte $FF, $7F
+RD_8DB2:
+  .word RD_8DCA, RD_8DCE, RD_8DD2, RD_8DD6, RD_8DDA, RD_8DDE, RD_8DE2, RD_8DE6
+  .word RD_8DEA, RD_8DEE, RD_8DF2, RD_8DF6
+RD_8DCA:
+  .byte "Jan", $00
+RD_8DCE:
+  .byte "Feb", $00
+RD_8DD2:
+  .byte "Mar", $00
+RD_8DD6:
+  .byte "Apr", $00
+RD_8DDA:
+  .byte "May", $00
+RD_8DDE:
+  .byte "Jun", $00
+RD_8DE2:
+  .byte "Jul", $00
+RD_8DE6:
+  .byte "Aug", $00
+RD_8DEA:
+  .byte "Sep"
+RD_8DED:
   .byte $00
-  .byte "ucom"
+RD_8DEE:
+  .byte "Oct", $00
+RD_8DF2:
+  .byte "Nov", $00
+RD_8DF6:
+  .byte "Dec", $00
+RD_8DFA:
+  .byte "%s %d, %d.", $0A, $00
+RD_8E06:
+  .byte "Last save was", $0A, "on ", $00
+RD_8E18:
+  .byte "Save game", $00
+RD_8E22:
+  .byte "Game is saved", $1B, "W", $00
+RD_8E32:
+  .byte "Quit game", $00
+RD_8E3C:
+  .byte $0A, "Are you", $0A, "sure", $00
+RD_8E4A:
+  .byte "Message speed", $0A, "is %2d. Change", $0A, "to", $00
+RD_8E6A:
   .byte $00
-  .byte "uarugo"
+RD_8E6B:
+  .word $754D
+RD_8E6D:
+  .byte "sic i"
+  .byte "s %s.", $0A, "Turn ", $00
+RD_8E7E:
+  .byte "on", $00
+RD_8E81:
+  .byte "off", $00
+RD_8E85:
+  .byte "off", $00
+RD_8E89:
+  .byte "on", $00
+RD_8E8C:
+  .word RD_8E98, RD_8E9D, RD_8EA3
+RD_8E92:
+  .word RF_2C36, RF_2D39, RF_2DA1
+RD_8E98:
+  .byte "Save", $00
+RD_8E9D:
+  .byte "Speed", $00
+RD_8EA3:
+  .byte "Music", $00
+RD_8EA9:
+  .byte "Which one?", $0A, "(B-cancel)", $00
+RD_8EBF:
   .byte $00
-  .byte "jouriku"
+RD_8EC0:
+  .byte $FF, $FF, $F7, $FF, $07, $00
+RD_8EC6:
+  .byte "(%d-%d)?", $00
+RD_8ECF:
+  .byte "(Y/N)?", $00
+RD_8ED6:
+  .byte $59, $00
+RD_8ED8:
+  .byte $4E, $00
+RD_8EDA:
+  .byte $F0, $8E, $F7, $8E, $FE, $8E, $06, $8F, $0E, $8F, $13, $8F, $1A, $8F, $22, $8F
+  .byte $2A, $8F, $31
+RD_8EED:
+  .byte $8F, $36, $8F
+RD_8EF0:
+  .byte "initop", $00
+RD_8EF7:
+  .byte "ibento", $00
+RD_8EFE:
+  .byte "maituki", $00
+RD_8F06:
+  .byte "cminato", $00
+RD_8F0E:
+  .byte "ucom", $00
+RD_8F13:
+  .byte "uarugo", $00
+RD_8F1A:
+  .byte "jouriku", $00
+RD_8F22:
+  .byte "uminato", $00
+RD_8F2A:
+  .byte "sensou", $00
+RD_8F31:
+  .byte "scom", $00
+RD_8F36:
+  .byte "ending", $00
+RD_8F3D:
+  .byte "%s %s%3d", $00
+RD_8F46:
+  .byte "input ovlno", $00
+RD_8F52:
+  .byte "ovl", $00
+RD_8F56:
   .byte $00
-  .byte "uminato"
+RD_8F57:
   .byte $00
-  .byte "sensou"
+RD_8F58:
   .byte $00
-  .byte "scom"
+RD_8F59:
   .byte $00
-  .byte "ending"
-  .byte $00, $00, $49, $00, $49, $00, $49, $00, $49, $00, $49, $00, $49, $00, $49, $00
-  .byte $1A, $00, $0F, $00, $49, $00
-  .byte "Isgdata"
-  .byte $00
-  .byte "cbmap0"
-  .byte $00
-  .byte "fdata"
-  .byte $00
-  .byte "kdata"
-  .byte $00, $00, $80, $46, $DA, $46, $12, $47, $4A, $47, $82, $47, $BA, $47, $B8, $46
-  .byte $F2, $47, $10
-  .byte "H.HLHjH "
-  .byte $9D, $00, $9F, $00, $00, $E0, $A0, $C0, $A2, $00, $00, $60, $B7, $60, $B7, $60
-  .byte $B7, $A0, $A4, $80, $A6, $60, $A8, $40, $AA, $20, $AC, $00, $AE, $40, $B9, $40
-  .byte $B9, $40, $B9, $00, $00, $E0, $AF, $C0, $B1, $00, $00, $A0, $B3, $80, $B5, $20
-  .byte $BB, $20, $BB, $20, $BB, $1B, $43, $30, $00
-  .byte "Ship: "
-  .byte $00
-  .byte "Condition: %3d"
-  .byte $00
-  .byte "Navigator: "
-  .byte $00
-  .byte "Durability:        %3d/%3d"
-  .byte $00
-  .byte "Power:             %3d/%3d"
-  .byte $00
-  .byte "Handling:          %3d/%3d"
-  .byte $00
-  .byte "Cargo load:        %3d/%3d"
-  .byte $00
-  .byte "Crewmen:           %3d/%3d"
-  .byte $00
-  .byte "Arms ("
-  .byte $00, $29, $3A, $00
-  .byte "%3d/%3d"
-  .byte $00
-  .byte "%3d   %3d   %3d"
-  .byte $00, $1B, $43, $32, $00, $89, $8C, $91, $8C, $9B, $8C
-  .byte "Captain"
-  .byte $00
-  .byte "Navigator"
-  .byte $00
-  .byte "Sailor"
-  .byte $00, $1B, $43, $30, $00, $20, $00
-  .byte "Ship: "
-  .byte $00
-  .byte "Age: %2d"
-  .byte $00
-  .byte "Fame:%6d      Gold: %5d"
-  .byte $00
-  .byte "Loyalty: %4d"
-  .byte $00
-  .byte "Battle Exp: %5d  Level:%3d"
-  .byte $00
-  .byte "Sailing Exp:%5d  Level:%3d"
-  .byte $00
-  .byte "Charisma:%3d     Wisdom: %3d"
-  .byte $00
-  .byte "Strength:%3d     Courage:%3d"
-  .byte $00
-  .byte "Intelligence:%3d"
-  .byte $00, $1B, $43, $32, $00, $A0, $08, $A1, $08, $A2, $08, $A3, $08, $A4, $08, $A5
-  .byte $08, $A6, $08, $A7, $08, $F5, $81, $2B, $C3, $DB, $B9, $8D, $A7, $E6, $9C, $BC
-  .byte $92, $95, $B0, $07, $89, $1B, $52, $27, $1B, $45, $16, $1B, $3D, $31, $27, $00
-  .byte $1B, $43, $30, $00, $00, $00, $00, $7B, $7F, $F7, $6E, $B5, $66, $73, $5E, $00
-  .byte $00, $CE, $4D, $8C, $45, $55, $19, $00, $00, $00, $00, $00, $00, $00, $00, $00
-  .byte $00, $F7, $6E, $FF, $7F, $CA, $8D, $CE, $8D, $D2, $8D, $D6, $8D, $DA, $8D, $DE
-  .byte $8D, $E2, $8D, $E6, $8D, $EA, $8D, $EE, $8D, $F2, $8D, $F6, $8D, $4A, $61, $6E
-  .byte $00, $46, $65, $62, $00, $4D, $61, $72, $00, $41, $70, $72, $00, $4D, $61, $79
-  .byte $00, $4A, $75, $6E, $00, $4A, $75, $6C, $00, $41, $75, $67, $00, $53, $65, $70
-  .byte $00, $4F, $63, $74, $00, $4E, $6F, $76, $00, $44, $65, $63, $00
-  .byte "%s %d, %d."
-  .byte $0A, $00
-  .byte "Last save was"
-  .byte $0A, $6F, $6E, $20, $00
-  .byte "Save game"
-  .byte $00
-  .byte "Game is saved"
-  .byte $1B, $57, $00
-  .byte "Quit game"
-  .byte $00, $0A
-  .byte "Are you"
-  .byte $0A
-  .byte "sure"
-  .byte $00
-  .byte "Message speed"
-  .byte $0A
-  .byte "is %2d. Change"
-  .byte $0A, $74, $6F, $00, $00
-  .byte "Music is %s."
-  .byte $0A
-  .byte "Turn "
-  .byte $00, $6F, $6E, $00, $6F, $66, $66, $00, $6F, $66, $66, $00, $6F, $6E, $00, $98
-  .byte $8E, $9D, $8E, $A3, $8E
-  .byte "6,9-"
-  .byte $A1
-  .byte "-Save"
-  .byte $00
-  .byte "Speed"
-  .byte $00
-  .byte "Music"
-  .byte $00
-  .byte "Which one?"
-  .byte $0A
-  .byte "(B-cancel)"
-  .byte $00, $00, $FF, $FF, $F7, $FF, $07, $00
-  .byte "(%d-%d)?"
-  .byte $00
-  .byte "(Y/N)?"
-  .byte $00, $59, $00, $4E, $00, $F0, $8E, $F7, $8E, $FE, $8E, $06, $8F, $0E, $8F, $13
-  .byte $8F, $1A, $8F, $22, $8F, $2A, $8F, $31, $8F, $36, $8F
-  .byte "initop"
-  .byte $00
-  .byte "ibento"
-  .byte $00
-  .byte "maituki"
-  .byte $00
-  .byte "cminato"
-  .byte $00
-  .byte "ucom"
-  .byte $00
-  .byte "uarugo"
-  .byte $00
-  .byte "jouriku"
-  .byte $00
-  .byte "uminato"
-  .byte $00
-  .byte "sensou"
-  .byte $00
-  .byte "scom"
-  .byte $00
-  .byte "ending"
-  .byte $00
-  .byte "%s %s%3d"
-  .byte $00
-  .byte "input ovlno"
-  .byte $00, $6F, $76, $6C, $00, $00, $00, $00, $00, $00, $00, $25, $34, $64, $00
-  .byte "%2d,"
-  .byte $00, $25, $32, $64, $00, $CE, $45, $D6, $45, $DE, $45, $00, $00, $00, $FF, $FF
-  .byte $01, $00, $1B, $43, $30, $00, $4E, $57, $FE, $5B, $76, $4D, $06, $4F, $26, $50
-  .byte $FE, $50, $76, $51, $EE, $51, $5E, $53, $CE, $54, $0E, $56, $08, $00, $10
-  .byte "`3a3b3c3"
-  .byte $00, $0D, $01, $0D, $02, $0D, $03, $0D, $04, $0D, $05, $0D, $06, $0D, $07, $0D
-  .byte $08, $0D, $09, $0D, $0A, $0D, $0B, $0D, $0C, $0D, $0D, $0D, $0E, $0D, $0F, $0D
-  .byte $10, $0D, $11, $0D, $12, $0D, $13, $0D, $14, $0D, $15, $0D, $16, $0D, $17, $0D
-  .byte $18, $0D, $19, $0D, $1A, $0D, $1B, $0D, $1C, $0D, $1D, $0D, $1E, $0D, $1F, $0D
-  .byte $14, $13, $06, $02, $01, $00, $00, $00, $02, $A0, $1A, $A1, $1A, $A2, $1A, $A3
-  .byte $1A, $A4, $1A, $A5, $1A, $A6, $1A, $A4, $1A, $A5, $1A, $A6, $1A, $A4, $1A, $A5
-  .byte $1A, $A6, $1A, $A7, $1A, $A8, $1A, $A6, $1A, $A4, $1A, $A5, $1A, $A6, $1A, $A4
-  .byte $1A, $A5, $1A, $A6, $1A, $A9, $1A, $AA, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB
-  .byte $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB
-  .byte $1A, $AC, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB
-  .byte $1A, $AB, $1A, $AD, $1A, $AE, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB
-  .byte $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AC
-  .byte $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB
-  .byte $1A, $AF, $1A, $B0, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB
-  .byte $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AC, $1A, $AB
-  .byte $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $B1
-  .byte $1A, $AA, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB
-  .byte $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AC, $1A, $AB, $1A, $AB
-  .byte $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AD, $1A, $AE
-  .byte $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB
-  .byte $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AC, $1A, $AB, $1A, $AB, $1A, $AB
-  .byte $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AF, $1A, $B2, $1A, $AB
-  .byte $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB
-  .byte $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AC, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB
-  .byte $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $B1, $1A, $B3, $1A, $B4, $1A, $B5
-  .byte $1A, $B6, $1A, $B7, $1A, $B8, $1A, $B9, $1A, $B7, $1A, $B8, $1A, $B9, $1A, $B7
-  .byte $1A, $B8, $1A, $B9, $1A, $BA, $1A, $B8, $1A, $B9, $1A, $B7, $1A, $B8, $1A, $B9
-  .byte $1A, $B7, $1A, $B8, $1A, $B9, $1A, $BB, $1A, $00, $01, $00, $02, $03, $02, $1B
-  .byte $43, $32, $1B, $52, $28, $1B, $45, $38, $00, $1B, $43, $32, $1B, $52, $28, $00
-  .byte "F!N!V!^!f!n!v!~!"
-  .byte $86, $21, $88, $21, $8A, $21, $8C, $21, $8E, $21, $90, $21, $92, $21, $94, $21
-  .byte $96, $21, $98, $21, $91, $91
-  .byte "days"
-  .byte $00, $25, $64, $00, $25, $73, $00, $25, $64, $00, $25, $73, $00, $1B, $52, $28
-  .byte $1B, $45, $3E, $1B, $43, $30, $00
-  .byte "Day %d"
-  .byte $00, $00, $1B, $43, $32, $1B, $52, $28, $1B, $45, $3D, $00, $1B, $43, $32, $1B
-  .byte $52, $28, $1B, $45, $3D, $00, $25, $00, $27, $00, $2F, $00, $31, $00, $3F, $00
-  .byte $40, $00, $41, $00, $43, $00, $44, $00, $46, $00, $E0, $91, $EC, $91, $20, $1B
-  .byte $4B, $B6, $C0, $B6, $C5, $1B, $48, $20, $20, $00, $20, $B4, $B2, $BD, $B3, $BC
-  .byte $DE, $20, $00, $C5, $CF, $B4, $3A, $00, $1B, $4B, $25, $63, $1B, $48, $00, $D6
-  .byte $DB, $BC, $B2, $C3, $DE, $BD, $B6, $00, $1B, $43, $32, $1B, $52, $28, $1B, $45
-  .byte $3E, $00, $1B, $43, $32, $1B, $52, $28, $1B, $45, $3E, $00, $F0, $66, $D0, $66
-  .byte $E1, $66, $1B, $43, $30, $1B, $52, $22, $1B, $45, $3F, $00
-  .byte "Ship"
-  .byte $00, $25, $33, $64, $00
-  .byte "%3d/%3d"
-  .byte $00
-  .byte "Total"
-  .byte $00, $25, $64, $00
-  .byte "/%4d"
-  .byte $00, $F0, $66, $D0, $66, $E1, $66, $1B, $43, $30, $1B, $52, $22, $1B, $45, $3F
-  .byte $00, $25, $33, $64, $00, $25, $33, $64, $00, $25, $64, $00
-  .byte "Cannot load more"
-  .byte $00
-  .byte "Load how much"
-  .byte $0A, $00
-  .byte "Which ship?"
-  .byte $0A
-  .byte "(B-end)"
-  .byte $00
-  .byte "%3d/%3d"
-  .byte $00
-  .byte "How many men"
-  .byte $0A, $00, $1B, $43, $30, $00
-  .byte "%4d left"
-  .byte $00
-  .byte "%4d left"
-  .byte $00
-  .byte "Which ship?"
-  .byte $00
-  .byte "Some men remain."
-  .byte $0A
-  .byte "OK to end?"
-  .byte $00
-  .byte " Cancel  End"
+RD_8F5A:
   .byte $00, $00
-  .byte "All done"
-  .byte $00, $0D, $93, $13, $93, $18, $93
-  .byte "Water"
+RD_8F5C:
+  .byte "%4d", $00
+RD_8F60:
+  .byte "%2d,", $00
+RD_8F65:
+  .byte "%2d", $00
+RD_8F69:
+  .byte $CE, $45, $D6, $45
+RD_8F6D:
+  .byte $DE, $45, $00
+RD_8F70:
+  .byte $00, $00, $FF, $FF, $01, $00
+RD_8F76:
+  .byte $1B
+  .byte "C0", $00
+RD_8F7A:
+  .byte $4E, $57, $FE, $5B
+RD_8F7E:
+  .byte $76, $4D, $06, $4F, $26, $50, $FE, $50, $76, $51, $EE, $51, $5E, $53, $CE, $54
+  .byte $0E, $56
+RD_8F90:
+  .byte $08, $00
+  .byte $10
+RD_8F93:
+  .byte "`3a3b3c3"
+RD_8F9B:
   .byte $00
-  .byte "Food"
+  .byte $0D, $01, $0D, $02, $0D, $03, $0D, $04, $0D, $05, $0D, $06, $0D, $07, $0D, $08
+  .byte $0D, $09, $0D, $0A, $0D, $0B, $0D, $0C, $0D, $0D, $0D, $0E, $0D, $0F, $0D, $10
+  .byte $0D, $11, $0D, $12, $0D, $13, $0D, $14, $0D, $15, $0D, $16, $0D, $17, $0D, $18
+  .byte $0D, $19, $0D, $1A, $0D, $1B, $0D, $1C, $0D, $1D, $0D, $1E, $0D, $1F, $0D
+RD_8FDB:
+  .byte $14, $13, $06
+RD_8FDE:
+  .byte $02, $01, $00, $00, $00, $02
+RD_8FE4:
+  .byte $A0, $1A, $A1, $1A, $A2, $1A, $A3, $1A, $A4, $1A, $A5, $1A, $A6, $1A, $A4, $1A
+  .byte $A5, $1A, $A6, $1A, $A4, $1A, $A5, $1A, $A6, $1A, $A7, $1A, $A8, $1A, $A6, $1A
+  .byte $A4, $1A, $A5, $1A, $A6, $1A, $A4, $1A, $A5, $1A, $A6, $1A, $A9, $1A, $AA, $1A
+  .byte $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AC, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AD, $1A, $AE, $1A, $AB, $1A
+  .byte $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $AB, $1A, $AB, $1A, $AB, $1A, $AC, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AF, $1A, $B0, $1A, $AB, $1A, $AB, $1A
+  .byte $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $AB, $1A, $AB, $1A, $AC, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $AB, $1A, $AB, $1A, $AB, $1A, $B1, $1A, $AA, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $AB, $1A, $AC, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $AB, $1A, $AB, $1A, $AD, $1A, $AE, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $AC, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $AB, $1A, $AF, $1A, $B2, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AC, $1A
+  .byte $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A, $AB, $1A
+  .byte $B1, $1A, $B3, $1A, $B4, $1A, $B5, $1A, $B6, $1A, $B7, $1A, $B8, $1A, $B9, $1A
+  .byte $B7, $1A, $B8, $1A, $B9, $1A, $B7, $1A, $B8, $1A, $B9, $1A, $BA, $1A, $B8, $1A
+  .byte $B9, $1A, $B7, $1A, $B8, $1A, $B9, $1A, $B7, $1A, $B8, $1A, $B9, $1A, $BB, $1A
+RD_9154:
+  .byte $00, $01, $00, $02, $03, $02
+RD_915A:
+  .byte $1B, $43, $32, $1B
+  .byte "R(", $1B, "E8", $00
+RD_9164:
+  .byte $1B
+  .byte "C2", $1B, "R(", $00
+RD_916B:
+  .word $2146, $214E
+  .byte "V!^!f!n!v!~!"
+RD_917B:
+  .byte $86, $21, $88, $21, $8A, $21, $8C, $21, $8E, $21, $90, $21, $92, $21, $94, $21
+  .byte $96, $21, $98, $21
+RD_918F:
+  .byte $91, $91
+  .byte "days", $00
+RD_9196:
+  .byte "%d", $00
+RD_9199:
+  .byte "%s", $00
+RD_919C:
+  .byte "%d", $00
+RD_919F:
+  .byte "%s", $00
+RD_91A2:
+  .byte $1B, $52, $28, $1B
+  .byte "E>", $1B, "C0", $00
+RD_91AC:
+  .byte "Day %d", $00
   .byte $00
-  .byte "Lumber"
+RD_91B4:
+  .byte $1B, $43, $32, $1B
+  .byte "R(", $1B, "E=", $00
+RD_91BE:
+  .byte $1B, $43, $32, $1B
+  .byte "R(", $1B, "E=", $00
+RD_91C8:
+  .byte $25, $00, $27, $00, $2F, $00, $31, $00, $3F, $00, $40, $00, $41, $00, $43, $00
+  .byte $44, $00, $46, $00, $E0, $91, $EC, $91, $20, $1B, $4B, $B6, $C0, $B6, $C5, $1B
+  .byte "H  ", $00
+  .byte $20, $B4, $B2, $BD, $B3, $BC, $DE, $20, $00
+RD_91F5:
+  .byte $C5, $CF, $B4, $3A, $00
+RD_91FA:
+  .word RL_4B1B, $6325, $481B
   .byte $00
-  .byte "Choose a vessel"
-  .byte $00, $0A
-  .byte "Transfer supplies on"
-  .byte $0A, $0A
-  .byte "the "
+RD_9201:
+  .byte $D6, $DB, $BC, $B2, $C3, $DE, $BD, $B6, $00
+RD_920A:
+  .byte $1B, $43, $32, $1B
+  .byte "R(", $1B, "E>", $00
+RD_9214:
+  .byte $1B, $43, $32, $1B
+  .byte "R(", $1B, "E>", $00
+RD_921E:
+  .word RF_66F0
+RD_9220:
+  .word RF_66D0, RF_66E1
+RD_9224:
+  .byte $1B, $43, $30, $1B
+  .byte "R", $22, $1B, "E?", $00
+RD_922E:
+  .byte "Ship", $00
+RD_9233:
+  .byte "%3d", $00
+RD_9237:
+  .byte "%3d/%3d", $00
+RD_923F:
+  .byte "Total", $00
+RD_9245:
+  .byte "%d", $00
+RD_9248:
+  .byte "/%4d", $00
+RD_924D:
+  .word RF_66F0, RF_66D0, RF_66E1
+RD_9253:
+  .byte $1B, $43, $30, $1B
+  .byte "R", $22, $1B, "E?", $00
+RD_925D:
+  .byte "%3d", $00
+RD_9261:
+  .byte "%3d", $00
+RD_9265:
+  .byte "%d", $00
+RD_9268:
+  .byte "Cannot load more", $00
+RD_9279:
+  .byte "Load how much", $0A, $00
+RD_9288:
+  .byte "Which ship?", $0A, "(B-end)", $00
+RD_929C:
+  .byte "%3d/"
+RD_92A0:
+  .byte "%3d", $00
+RD_92A4:
+  .byte "How many men", $0A, $00
+RD_92B2:
+  .byte $1B
+  .byte "C0", $00
+RD_92B6:
+  .byte "%4d left", $00
+RD_92BF:
+  .byte "%4d left", $00
+RD_92C8:
+  .byte "Which ship?", $00
+RD_92D4:
+  .byte "Some men remain.", $0A, "OK to end?", $00
+RD_92F0:
+  .byte " Cancel  End", $00
+RD_92FD:
   .byte $00
-  .byte "%4d barrels free"
-  .byte $00, $1B, $43, $30, $00, $25, $33, $64, $00, $1B
-  .byte "C1Reserve"
-  .byte $1B, $43, $30, $00
-  .byte "------"
-  .byte $00, $1B, $43, $30, $00, $25, $34, $64, $00, $1B, $43, $30, $00, $1B, $43, $30
-  .byte $00, $25, $34, $64, $00, $1B, $43, $30, $00, $25, $34, $64, $00, $1B, $43, $30
-  .byte $00, $25, $34, $64, $00, $1B, $43, $30, $00, $25, $33, $64, $00, $1B, $43, $32
-  .byte $00, $25, $34, $64, $00
-  .byte "Eliminating this"
-  .byte $0A
-  .byte "item"
-  .byte $00, $1B
-  .byte "C0%3d"
-  .byte $00, $1B
-  .byte "C2%4d"
+RD_92FE:
+  .byte "All done", $00
+RD_9307:
+  .word RD_930D, RD_9313, RD_9318
+RD_930D:
+  .byte "Water", $00
+RD_9313:
+  .byte "Food", $00
+RD_9318:
+  .byte "Lumber", $00
+RD_931F:
+  .byte "C"
+RD_9320:
+  .byte "hoose a vessel", $00
+RD_932F:
+  .byte $0A, "Transfer supplies on", $0A, $0A, "the ", $00
+RD_934B:
+  .byte "%4d barrels free", $00
+RD_935C:
+  .byte $1B
+  .byte "C0", $00
+RD_9360:
+  .byte "%3d", $00
+RD_9364:
+  .byte $1B, "C1Reserve", $1B, "C0", $00
+RD_9372:
+  .byte "------", $00
+RD_9379:
+  .byte $1B
+  .byte "C0", $00
+RD_937D:
+  .byte "%4d", $00
+RD_9381:
+  .byte $1B
+  .byte "C0", $00
+RD_9385:
+  .byte $1B
+  .byte "C0", $00
+RD_9389:
+  .byte "%4d", $00
+RD_938D:
+  .byte $1B
+  .byte "C0", $00
+RD_9391:
+  .byte "%4d", $00
+RD_9395:
+  .byte $1B
+  .byte "C0", $00
+RD_9399:
+  .byte "%4d", $00
+RD_939D:
+  .byte $1B
+  .byte "C0"
+RD_93A0:
   .byte $00
-  .byte "Cargo space is full!"
-  .byte $00
-  .byte "Add which item?"
-  .byte $00
-  .byte "No more cargo space!"
-  .byte $00, $1B, $43, $31, $00, $25, $34, $64, $00, $1B, $43, $30, $00, $25, $33, $64
-  .byte $00, $1B
-  .byte "C1Reserve"
-  .byte $1B, $43, $30, $00, $1B
-  .byte "C2%4d"
-  .byte $00
-  .byte "Cannot add more"
-  .byte $00
-  .byte "There's nothing else"
-  .byte $0A
-  .byte "to load"
-  .byte $00
-  .byte "Cargo"
-  .byte $00, $41, $6D, $74, $00
-  .byte "Reserve"
-  .byte $00, $1B, $43, $30, $00
-  .byte "Some goods remain."
-  .byte $0A
-  .byte "OK to quit"
-  .byte $00
-  .byte "All done"
-  .byte $00, $1B, $43, $30, $00, $1F, $00, $1C, $00, $1F, $00, $1E, $00, $1F, $00, $1E
-  .byte $00, $1F, $00, $1F, $00, $1E, $00, $1F, $00, $1E, $00, $1F, $00, $80, $12, $84
-  .byte $12, $88, $12, $8C, $12, $00, $00, $80, $02, $00, $05, $80, $07, $00, $0A, $60
-  .byte $0A, $C0, $0A, $20, $0B, $80, $0B, $E0, $0B, $40, $0C, $A0, $0C, $00, $0D, $40
-  .byte $0D, $80, $0D, $C0, $0D, $00, $0E, $E0, $0F, $C0, $11, $A0, $13, $80, $15, $A0
-  .byte $18, $C0, $1B, $E0, $1E, $00, $22, $60, $22, $C0, $22, $20, $23, $80, $23, $E0
-  .byte $23, $40, $24, $A0, $24, $00, $25, $60, $25, $C0, $25, $20, $26, $80, $26, $20
-  .byte $27, $C0, $27, $60, $28, $00, $3C, $E0, $3D, $C0, $3F, $A0, $41, $80, $43, $E0
-  .byte $43, $40, $44, $A0, $44, $00, $45, $60, $45, $C0, $45, $20, $46, $80, $46, $C0
-  .byte $46, $00, $47, $40, $47, $80
-  .byte "G`I@K M"
-  .byte $00, $29, $E0, $2A, $C0, $2C, $A0, $2E, $80, $30, $E0, $30, $40, $31, $A0, $31
-  .byte $00, $32, $60, $32, $C0, $32, $20, $33, $80, $33, $C0, $33, $00, $34, $40, $34
-  .byte $80
+RD_93A1:
+  .byte "%3d", $00
+RD_93A5:
+  .byte $1B
+  .byte "C2", $00
+RD_93A9:
+  .byte "%4d", $00
+RD_93AD:
+  .byte "Eliminating this", $0A, "item", $00
+RD_93C3:
+  .byte $1B, "C0%3d", $00
+RD_93CA:
+  .byte $1B, "C2%4d", $00
+RD_93D1:
+  .byte "Cargo space is full!", $00
+RD_93E6:
+  .byte "Add which item?", $00
+RD_93F6:
+  .byte "No more cargo space!", $00
+RD_940B:
+  .byte $1B
+  .byte "C1", $00
+RD_940F:
+  .byte "%4d", $00
+RD_9413:
+  .byte $1B
+  .byte "C0", $00
+RD_9417:
+  .byte "%3d", $00
+RD_941B:
+  .byte $1B, "C1Re"
+RD_9420:
+  .byte "serve", $1B, "C0", $00
+RD_9429:
+  .byte $1B, "C2%4d", $00
+RD_9430:
+  .byte "Cannot add more", $00
+RD_9440:
+  .byte "There's nothing else", $0A, "to load", $00
+RD_945D:
+  .byte "Cargo", $00
+RD_9463:
+  .byte "Amt", $00
+RD_9467:
+  .byte "Reserve", $00
+RD_946F:
+  .byte $1B
+  .byte "C0", $00
+RD_9473:
+  .byte "Some goods remain.", $0A, "OK to quit", $00
+RD_9491:
+  .byte "All done", $00
+RD_949A:
+  .byte $1B
+  .byte "C0", $00
+RD_949E:
+  .byte $1F, $00
+RD_94A0:
+  .byte $1C, $00, $1F, $00, $1E, $00, $1F, $00, $1E, $00, $1F, $00, $1F, $00, $1E, $00
+  .byte $1F, $00, $1E, $00, $1F, $00
+RD_94B6:
+  .byte $80, $12, $84, $12
+RD_94BA:
+  .byte $88, $12, $8C, $12
+RD_94BE:
+  .byte $00, $00, $80, $02, $00, $05, $80, $07, $00, $0A, $60, $0A, $C0, $0A, $20, $0B
+  .byte $80, $0B, $E0, $0B, $40, $0C, $A0, $0C, $00, $0D, $40, $0D, $80, $0D, $C0, $0D
+  .byte $00, $0E, $E0, $0F, $C0, $11, $A0, $13, $80, $15, $A0, $18, $C0, $1B, $E0, $1E
+  .byte $00, $22, $60, $22, $C0, $22
+RD_94F4:
+  .word $2320, RF_2380, $23E0, $2440, $24A0, $2500, $2560
+  .byte $C0, $25, $20, $26, $80, $26, $20, $27, $C0
+  .byte "'`(", $00
+  .byte $3C, $E0, $3D, $C0, $3F, $A0, $41, $80, $43, $E0, $43, $40, $44, $A0, $44, $00
+  .byte $45
+RD_9520:
+  .byte $60, $45, $C0, $45, $20, $46, $80, $46, $C0, $46, $00, $47, $40, $47, $80
+  .byte "G`I@K M", $00
+  .byte $29, $E0, $2A, $C0, $2C, $A0, $2E, $80, $30, $E0, $30, $40, $31, $A0, $31, $00
+  .byte $32, $60, $32, $C0, $32, $20, $33, $80, $33, $C0, $33, $00, $34, $40, $34, $80
   .byte "4`6@8 :"
-  .byte $00, $00, $14, $00, $0B, $00, $03, $00, $10, $00, $03, $00, $15, $00, $02, $00
-  .byte $0F, $00, $0F, $00, $00, $00, $19, $00, $0C, $00, $03, $00, $11, $00, $03, $00
-  .byte $16, $00, $03, $00, $19, $00, $05, $00, $00, $00, $0F, $00, $0A, $00, $03, $00
-  .byte $0F, $00, $03, $00, $15, $00, $02, $00, $0F, $00, $0F, $00, $00, $00, $0F, $00
-  .byte $0B, $00, $03, $00, $10, $00, $03, $00, $16, $00, $02, $00, $0F, $00, $0F, $00
+RD_955E:
+  .byte $00
+  .byte $00, $14, $00, $0B, $00, $03, $00, $10, $00, $03, $00, $15, $00, $02, $00, $0F
+  .byte $00, $0F, $00, $00, $00, $19, $00, $0C, $00, $03, $00, $11, $00, $03, $00, $16
+  .byte $00, $03, $00, $19, $00, $05, $00, $00, $00, $0F, $00, $0A, $00, $03, $00, $0F
+  .byte $00, $03, $00, $15, $00, $02, $00, $0F, $00, $0F, $00, $00, $00, $0F, $00, $0B
+  .byte $00
+RD_95A0:
+  .byte $03, $00, $10, $00, $03, $00, $16, $00, $02, $00, $0F, $00, $0F, $00

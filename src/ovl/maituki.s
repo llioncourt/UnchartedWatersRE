@@ -1380,7 +1380,7 @@ MAITUKI_L_9D60:
   k_shl1
   k_ldrn -11
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldrn -5
@@ -1433,7 +1433,7 @@ MAITUKI_L_9DB4:
   k_shl1
   k_ldrn -11
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldrn -5
@@ -1449,7 +1449,7 @@ MAITUKI_L_9DB4:
   k_shl1
   k_ldrn -11
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldrn -5
@@ -1635,7 +1635,7 @@ MAITUKI_F_9F06:
   k_shl1
   k_ldrarg 13
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldr -2
@@ -1693,7 +1693,7 @@ MAITUKI_F_9F06:
   k_mul
   k_ldrarg 13
   k_add
-  k_ldriw $A62E
+  k_ldriw MAITUKI_D_A62E
   k_add
   k_derefb
   k_ldr -6
@@ -1731,7 +1731,7 @@ MAITUKI_L_9F71:
   k_mul
   k_ldrarg 13
   k_add
-  k_ldriw $A62E
+  k_ldriw MAITUKI_D_A62E
   k_add
   k_derefb
   k_ldr -6
@@ -1760,7 +1760,7 @@ MAITUKI_L_9F71:
   k_shl1
   k_ldrarg 13
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldr -2
@@ -1837,7 +1837,7 @@ MAITUKI_L_9FFD:
   k_shl1
   k_ldrarg 13
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldr -2
@@ -1849,7 +1849,7 @@ MAITUKI_L_9FFD:
   k_shl1
   k_ldrarg 13
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldr -2
@@ -1869,7 +1869,7 @@ MAITUKI_L_9FFD:
   k_mul
   k_ldrarg 13
   k_add
-  k_ldriw $A62E
+  k_ldriw MAITUKI_D_A62E
   k_add
   k_derefb
   k_ldr -6
@@ -1886,7 +1886,7 @@ MAITUKI_L_A05D:
   k_shl1
   k_ldrarg 13
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldr -2
@@ -1928,7 +1928,7 @@ MAITUKI_L_A05D:
   k_shl1
   k_ldrarg 13
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldr -2
@@ -1942,7 +1942,7 @@ MAITUKI_L_A05D:
   k_shl1
   k_ldrarg 13
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldr -2
@@ -1957,7 +1957,7 @@ MAITUKI_L_A05D:
   k_mul
   k_ldrarg 13
   k_add
-  k_ldriw $A62E
+  k_ldriw MAITUKI_D_A62E
   k_add
   k_derefb
   k_ldr -6
@@ -1971,7 +1971,7 @@ MAITUKI_L_A0D3:
   k_mul
   k_ldrarg 13
   k_add
-  k_ldriw $A62E
+  k_ldriw MAITUKI_D_A62E
   k_add
   k_derefb
   k_ldr -6
@@ -1985,7 +1985,7 @@ MAITUKI_L_A0E4:
   k_mul
   k_ldrarg 13
   k_add
-  k_ldriw $A62E
+  k_ldriw MAITUKI_D_A62E
   k_add
   k_derefb
   k_ldr -6
@@ -2007,7 +2007,7 @@ MAITUKI_L_A102:
   k_shl1
   k_ldrarg 13
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldr -2
@@ -2019,7 +2019,7 @@ MAITUKI_L_A102:
   k_shl1
   k_ldrarg 13
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldr -2
@@ -2069,7 +2069,7 @@ MAITUKI_L_A12F:
   k_mul
   k_ldrarg 13
   k_add
-  k_ldriw $A62E
+  k_ldriw MAITUKI_D_A62E
   k_add
   k_derefb
   k_ldr -6
@@ -2083,7 +2083,7 @@ MAITUKI_L_A166:
   k_shl1
   k_ldrarg 13
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldr -2
@@ -2109,7 +2109,7 @@ MAITUKI_L_A166:
   k_shl1
   k_ldrarg 13
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldr -2
@@ -2121,7 +2121,7 @@ MAITUKI_L_A166:
   k_shl1
   k_ldrarg 13
   k_add
-  k_ldriw $A61E
+  k_ldriw MAITUKI_D_A61E
   k_add
   k_derefb
   k_ldr -2
@@ -2141,7 +2141,7 @@ MAITUKI_L_A166:
   k_mul
   k_ldrarg 13
   k_add
-  k_ldriw $A62E
+  k_ldriw MAITUKI_D_A62E
   k_add
   k_derefb
   k_ldr -6
@@ -2155,7 +2155,7 @@ MAITUKI_L_A1CB:
   k_mul
   k_ldrarg 13
   k_add
-  k_ldriw $A62E
+  k_ldriw MAITUKI_D_A62E
   k_add
   k_derefb
   k_ldr -6
@@ -2211,7 +2211,7 @@ MAITUKI_L_A1CB:
   k_mul
   k_ldrarg 13
   k_add
-  k_ldriw $A62E
+  k_ldriw MAITUKI_D_A62E
   k_add
   k_derefb
   k_ldr -6
@@ -2292,7 +2292,7 @@ MAITUKI_L_A292:
   k_stl -10
   k_ldlarg 11
   k_shl1
-  k_ldriw $A638
+  k_ldriw MAITUKI_D_A638
   k_add
   k_deref
   k_pushl
@@ -2908,6 +2908,10 @@ MAITUKI_L_A616:
   k_ult
   k_jumpt MAITUKI_L_A5FE
   k_return
-  .byte $00, $FF, $00, $02, $03, $00, $FF, $01, $04, $02, $01, $FF, $05, $03, $04, $05
-  .byte $FF, $FF, $00, $01, $02, $FF, $03, $04, $05, $FF, $00, $FF, $04, $79, $08, $88
-  .byte $0B
+  .byte $00
+MAITUKI_D_A61E:
+  .byte $FF, $00, $02, $03, $00, $FF, $01, $04, $02, $01, $FF, $05, $03, $04, $05, $FF
+MAITUKI_D_A62E:
+  .byte $FF, $00, $01, $02, $FF, $03, $04, $05, $FF, $00
+MAITUKI_D_A638:
+  .byte $FF, $04, $79, $08, $88, $0B

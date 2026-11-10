@@ -144,7 +144,7 @@ HANTEI_F_B0D2:
   k_shl1
   k_popr
   k_add
-  k_ldriw $B856
+  k_ldriw HANTEI_D_B856
   k_add
   k_derefb
   k_ldr -2
@@ -212,7 +212,7 @@ HANTEI_F_B13E:
   k_shl1
   k_popr
   k_add
-  k_ldriw $B866
+  k_ldriw HANTEI_D_B866
   k_add
   k_derefb
   k_ldr -2
@@ -264,7 +264,7 @@ HANTEI_F_B196:
   k_call RF_60EE
   k_call RF_60B2
   k_pushi 1
-  k_pusha $B7BE
+  k_pusha HANTEI_D_B7BE
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 0
@@ -274,7 +274,7 @@ HANTEI_L_B1BF:
   k_call RF_60B2
   k_pusha $E56D
   k_pushi 1
-  k_pusha $B7C0
+  k_pusha HANTEI_D_B7C0
   k_callx RF_3C4E, 6
   k_stl -2
   k_ldl -2
@@ -298,7 +298,7 @@ HANTEI_L_B1DA:
   k_jumpf HANTEI_L_B20C
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $B876
+  k_pushiw HANTEI_D_B876
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldl -2
@@ -311,7 +311,7 @@ HANTEI_L_B1DA:
 HANTEI_L_B20C:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $B8A8
+  k_pushiw HANTEI_D_B8A8
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 10
@@ -324,11 +324,11 @@ HANTEI_L_B224:
   k_call RF_60EE
   k_call RF_60B2
   k_pushi 1
-  k_pusha $B7C4
+  k_pusha HANTEI_D_B7C4
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushi 2
-  k_pushiw $B8E4
+  k_pushiw HANTEI_D_B8E4
   k_pushi 1
   k_pushi 8
   k_pushib 25
@@ -366,11 +366,11 @@ HANTEI_L_B26F:
   k_ldlarg 13
   k_jumpf HANTEI_L_B288
   k_pushi 1
-  k_pushiw $B8F3
+  k_pushiw HANTEI_D_B8F3
   k_jump HANTEI_L_B28C
 HANTEI_L_B288:
   k_pushi 1
-  k_pushiw $B929
+  k_pushiw HANTEI_D_B929
 HANTEI_L_B28C:
   k_callx RF_2FB9, 4
   k_call RF_472D
@@ -383,7 +383,7 @@ HANTEI_F_B295:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pusha $B7C2
+  k_pusha HANTEI_D_B7C2
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushi 1
@@ -393,7 +393,7 @@ HANTEI_F_B295:
   k_callx RF_4E29, 8
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $B946
+  k_pushiw HANTEI_D_B946
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pusharg 13
@@ -406,13 +406,13 @@ HANTEI_F_B295:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $B982
+  k_pushiw HANTEI_D_B982
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60EE
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $B9AF
+  k_pushiw HANTEI_D_B9AF
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushi 6
@@ -437,7 +437,7 @@ HANTEI_L_B31E:
   k_callx RF_60CE, 4
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $B9D2
+  k_pushiw HANTEI_D_B9D2
   k_callx RF_4B44, 2
   k_ldli 1
   k_return
@@ -486,7 +486,7 @@ HANTEI_F_B377:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $B9F0
+  k_pushiw HANTEI_D_B9F0
   k_callx RF_2FB9, 4
   k_ldli 10
   k_swap
@@ -504,7 +504,7 @@ HANTEI_F_B39F:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $BA12
+  k_pushiw HANTEI_D_BA12
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushib 120
@@ -523,7 +523,7 @@ HANTEI_F_B39F:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $BA3A
+  k_pushiw HANTEI_D_BA3A
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_jump HANTEI_L_B41C
@@ -532,7 +532,7 @@ HANTEI_L_B3E6:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $BA47
+  k_pushiw HANTEI_D_BA47
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushi 1
@@ -542,7 +542,7 @@ HANTEI_L_B3E6:
   k_callx RF_4E29, 8
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $BA61
+  k_pushiw HANTEI_D_BA61
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -588,7 +588,7 @@ HANTEI_F_B41E:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $BA98
+  k_pushiw HANTEI_D_BA98
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushi 1
@@ -598,7 +598,7 @@ HANTEI_F_B41E:
   k_callx RF_4E29, 8
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BAB3
+  k_pushiw HANTEI_D_BAB3
   k_jump HANTEI_L_B4C9
 HANTEI_L_B47B:
   k_call RF_60EE
@@ -606,7 +606,7 @@ HANTEI_L_B47B:
   k_pushi 1
   k_pusha $E56D
   k_pushi 1
-  k_pushiw $BAE8
+  k_pushiw HANTEI_D_BAE8
   k_callx RF_3C4E, 8
   k_stl -2
   k_ldl -2
@@ -627,7 +627,7 @@ HANTEI_L_B497:
   k_jumpf HANTEI_L_B4C2
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BB01
+  k_pushiw HANTEI_D_BB01
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldl -2
@@ -639,7 +639,7 @@ HANTEI_L_B497:
 HANTEI_L_B4C2:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BB19
+  k_pushiw HANTEI_D_BB19
 HANTEI_L_B4C9:
   k_callx RF_2FB9, 4
   k_call RF_472D
@@ -659,7 +659,7 @@ HANTEI_F_B4D5:
   k_callx RF_4E29, 8
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BB42
+  k_pushiw HANTEI_D_BB42
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_jump HANTEI_L_B51A
@@ -671,7 +671,7 @@ HANTEI_L_B4FE:
   k_callx RF_4E29, 8
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BB7C
+  k_pushiw HANTEI_D_BB7C
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call HANTEI_F_B377
@@ -688,7 +688,7 @@ HANTEI_F_B51C:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $BBEE
+  k_pushiw HANTEI_D_BBEE
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushi 1
@@ -704,11 +704,11 @@ HANTEI_F_B51C:
   k_callx RF_40DE, 2
   k_ldlbf 11
   k_shl1
-  k_ldriw $BBB1
+  k_ldriw HANTEI_D_BBB1
   k_add
   k_deref
   k_pushl
-  k_pushiw $BC26
+  k_pushiw HANTEI_D_BC26
   k_callx RF_3608, 4
   k_ldla $F18A
   k_dec
@@ -721,11 +721,11 @@ HANTEI_L_B578:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $BC52
+  k_pushiw HANTEI_D_BC52
   k_callx RF_2FB9, 4
   k_pushi 2
   k_pushi 3
-  k_pushiw $BBB7
+  k_pushiw HANTEI_D_BBB7
   k_pushi 2
   k_pushi 6
   k_pushib 23
@@ -740,7 +740,7 @@ HANTEI_L_B578:
   k_pushl
   k_ldlbf -1
   k_shl1
-  k_ldriw $BBBD
+  k_ldriw HANTEI_D_BBBD
   k_add
   k_deref
   k_callptrn 2
@@ -753,7 +753,7 @@ HANTEI_L_B5B4:
   k_callx RF_60CE, 4
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $BC64
+  k_pushiw HANTEI_D_BC64
   k_callx RF_4B44, 2
   k_call RF_2281
   k_return
@@ -796,10 +796,10 @@ HANTEI_L_B608:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_jumpf HANTEI_L_B625
-  k_ldliw $BC9F
+  k_ldliw HANTEI_D_BC9F
   k_jump HANTEI_L_B628
 HANTEI_L_B625:
-  k_ldliw $BCDC
+  k_ldliw HANTEI_D_BCDC
 HANTEI_L_B628:
   k_pushl
   k_jump HANTEI_L_B6E4
@@ -814,7 +814,7 @@ HANTEI_L_B62C:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 0
-  k_pushiw $BD0C
+  k_pushiw HANTEI_D_BD0C
   k_jump HANTEI_L_B6E4
 HANTEI_L_B64C:
   k_ldlba $EF69
@@ -841,10 +841,10 @@ HANTEI_L_B64C:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_jumpf HANTEI_L_B687
-  k_ldliw $BD5F
+  k_ldliw HANTEI_D_BD5F
   k_jump HANTEI_L_B628
 HANTEI_L_B687:
-  k_ldliw $BD8A
+  k_ldliw HANTEI_D_BD8A
   k_jump HANTEI_L_B628
 HANTEI_L_B68D:
   k_ldlba $E447
@@ -857,7 +857,7 @@ HANTEI_L_B68D:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $BDAC
+  k_pushiw HANTEI_D_BDAC
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
@@ -870,21 +870,21 @@ HANTEI_L_B68D:
     .word HANTEI_L_B6E8
 HANTEI_L_B6C6:
   k_pushi 1
-  k_pushiw $BDDC
+  k_pushiw HANTEI_D_BDDC
   k_jump HANTEI_L_B6E4
 HANTEI_L_B6CD:
   k_pushi 1
-  k_pushiw $BE15
+  k_pushiw HANTEI_D_BE15
   k_jump HANTEI_L_B6E4
 HANTEI_L_B6D4:
   k_pushi 1
-  k_pushiw $BE4E
+  k_pushiw HANTEI_D_BE4E
   k_jump HANTEI_L_B6E4
 HANTEI_L_B6DB:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
-  k_pushiw $BE8A
+  k_pushiw HANTEI_D_BE8A
 HANTEI_L_B6E4:
   k_callx RF_2FB9, 4
 HANTEI_L_B6E8:
@@ -1004,209 +1004,118 @@ HANTEI_L_B7B4:
 HANTEI_L_B7BB:
   k_ldl -8
   k_return
-  .byte $00, $C6, $B7, $E9, $B7, $02, $B8, $3A, $B8
-  .byte "We don't have any goldfor a bribe!"
   .byte $00
-  .byte "How much'll we give"
-  .byte $0A
-  .byte "them"
+HANTEI_D_B7BE:
+  .word HANTEI_D_B7C6
+HANTEI_D_B7C0:
+  .word HANTEI_D_B7E9
+HANTEI_D_B7C2:
+  .word HANTEI_D_B802
+HANTEI_D_B7C4:
+  .word HANTEI_D_B83A
+HANTEI_D_B7C6:
+  .byte "We don't have any goldfor a bribe!", $00
+HANTEI_D_B7E9:
+  .byte "How much'll we give", $0A, "them", $00
+HANTEI_D_B802:
+  .byte "Cap'n, some gruff", $0A, "looking officers are", $0A, "heading our way!", $00
+HANTEI_D_B83A:
+  .byte "What should we do,", $0A, "Captain?", $00
+HANTEI_D_B856:
+  .byte $FF, $00, $02, $03, $00, $FF, $01, $04, $02, $01, $FF, $05, $03, $04, $05, $FF
+HANTEI_D_B866:
+  .byte $FF, $00, $02, $03, $00, $FF, $01, $04, $02, $01, $FF, $05, $03, $04, $05, $FF
+HANTEI_D_B876:
+  .byte "Hmm. I'll let you get", $0A, "away with it just", $0A, "this once", $00
+HANTEI_D_B8A8:
+  .byte "What's this money?", $0A, "Did ye think ye could", $0A, "bribe us? Get out!", $00
+HANTEI_D_B8E4:
+  .word HANTEI_D_B8E8, HANTEI_D_B8EE
+HANTEI_D_B8E8:
+  .byte "Bribe", $00
+HANTEI_D_B8EE:
+  .byte "Sail", $00
+HANTEI_D_B8F3:
+  .byte "Don't worry, you'll", $0A, "be able to return", $0A, "sooner or later", $00
+HANTEI_D_B929:
+  .byte "Sorry, I'm just", $0A, "doing my job", $00
+HANTEI_D_B946:
+  .byte "All Portuguese are", $0A, "prohibited here. You", $0A, "must leave at once!", $00
+HANTEI_D_B982:
+  .byte "It doesn't look like", $0A, "we're very welcome", $0A, "here", $00
+HANTEI_D_B9AF:
+  .byte "Well, let's get to", $0A, "work right away", $00
+HANTEI_D_B9D2:
+  .byte "It's no use. We have", $0A, "to leave", $00
+HANTEI_D_B9F0:
+  .byte "Confound it! You'll", $0A, "pay for this!", $00
+HANTEI_D_BA12:
+  .byte "These officers look", $0A, "like trouble to me!", $00
+HANTEI_D_BA3A:
+  .byte "We got away!", $00
+HANTEI_D_BA47:
+  .byte "Blast!  We're", $0A, "surrounded!", $00
+HANTEI_D_BA61:
+  .byte $0A, "It's no use", $0A, "struggling!", $0A, "We're confiscating", $0A, "your goods", $00
+HANTEI_D_BA98:
+  .byte "We've no gold for a", $0A, "bribe!", $00
+HANTEI_D_BAB3:
+  .byte "We'll show that", $0A, "Portuguese fool by", $0A, "seizing his goods", $00
+HANTEI_D_BAE8:
+  .byte "How much'll we give", $0A, "them", $00
+HANTEI_D_BB01:
+  .byte "Ha ha ha!", $0A, "Much obliged!", $00
+HANTEI_D_BB19:
+  .byte "Trying to bribe us,", $0A, "eh? Seize his", $0A, "goods!", $00
+HANTEI_D_BB42:
+  .byte "Well, he's an honest", $0A, "scoundrel. I'll let", $0A, "you go this time", $00
+HANTEI_D_BB7C:
+  .byte "We'll show that", $0A, "Portuguese fool and", $0A, "seize his goods!", $00
+HANTEI_D_BBB1:
+  .word HANTEI_D_BBC3, HANTEI_D_BBCC, HANTEI_D_BBD2
+HANTEI_D_BBB7:
+  .word HANTEI_D_BBD9, HANTEI_D_BBDE, HANTEI_D_BBE4
+HANTEI_D_BBBD:
+  .word HANTEI_F_B39F, HANTEI_F_B41E, HANTEI_F_B4D5
+HANTEI_D_BBC3:
+  .byte "Portugal", $00
+HANTEI_D_BBCC:
+  .byte "Spain", $00
+HANTEI_D_BBD2:
+  .byte "Turkey", $00
+HANTEI_D_BBD9:
+  .byte "Flee", $00
+HANTEI_D_BBDE:
+  .byte "Bribe", $00
+HANTEI_D_BBE4:
+  .byte "Surrender", $00
+HANTEI_D_BBEE:
+  .byte "Cap'n, some gruff", $0A, "looking officers are", $0A, "heading our way!", $00
+HANTEI_D_BC26:
+  .byte ", you are", $0A, $0A, "under arrest in the", $0A, $0A, "name of %s!", $00
+HANTEI_D_BC52:
+  .byte "What shall we do?", $00
+HANTEI_D_BC64:
+  .byte "There's trouble in", $0A, "store for us here.", $0A, "We'd better set sail", $00
+HANTEI_D_BC9F:
+  .byte "How about a stop at", $0A, "the inn? We might hearsome useful gossip", $00
+HANTEI_D_BCDC:
+  .byte "It'd be nice to stop", $0A, "at the inn once in a", $0A, "while", $00
+HANTEI_D_BD0C:
+  .byte $0A, "Cap'n, I hear the", $0A, "Princess is a beauty.", $0A, "I'd love to set my"
+  .byte $0A, "eyes on her just once!", $00
+HANTEI_D_BD5F:
+  .byte "Captain, this is a", $0A, "suspicious looking", $0A, "port", $00
+HANTEI_D_BD8A:
+  .byte "Cap'n, this port looksa bit tough", $00
+HANTEI_D_BDAC:
+  .byte "Cap'n, have ye heard", $0A, "of the troubles out atsea?", $00
+HANTEI_D_BDDC:
+  .byte "We're likely to get", $0A, "tossed about if we", $0A, "sail into a storm", $00
+HANTEI_D_BE15:
+  .byte "I've heard of ships", $0A, "being swallowed up in", $0A, "certain waters", $00
+HANTEI_D_BE4E:
+  .byte "If the rudder gets", $0A, "tangled in seaweed", $0A, "we'll have to fix 'er", $00
+HANTEI_D_BE8A:
+  .byte "Where to, Captain?", $00
   .byte $00
-  .byte "Cap'n, some gruff"
-  .byte $0A
-  .byte "looking officers are"
-  .byte $0A
-  .byte "heading our way!"
-  .byte $00
-  .byte "What should we do,"
-  .byte $0A
-  .byte "Captain?"
-  .byte $00, $FF, $00, $02, $03, $00, $FF, $01, $04, $02, $01, $FF, $05, $03, $04, $05
-  .byte $FF, $FF, $00, $02, $03, $00, $FF, $01, $04, $02, $01, $FF, $05, $03, $04, $05
-  .byte $FF
-  .byte "Hmm. I'll let you get"
-  .byte $0A
-  .byte "away with it just"
-  .byte $0A
-  .byte "this once"
-  .byte $00
-  .byte "What's this money?"
-  .byte $0A
-  .byte "Did ye think ye could"
-  .byte $0A
-  .byte "bribe us? Get out!"
-  .byte $00, $E8, $B8, $EE, $B8
-  .byte "Bribe"
-  .byte $00
-  .byte "Sail"
-  .byte $00
-  .byte "Don't worry, you'll"
-  .byte $0A
-  .byte "be able to return"
-  .byte $0A
-  .byte "sooner or later"
-  .byte $00
-  .byte "Sorry, I'm just"
-  .byte $0A
-  .byte "doing my job"
-  .byte $00
-  .byte "All Portuguese are"
-  .byte $0A
-  .byte "prohibited here. You"
-  .byte $0A
-  .byte "must leave at once!"
-  .byte $00
-  .byte "It doesn't look like"
-  .byte $0A
-  .byte "we're very welcome"
-  .byte $0A
-  .byte "here"
-  .byte $00
-  .byte "Well, let's get to"
-  .byte $0A
-  .byte "work right away"
-  .byte $00
-  .byte "It's no use. We have"
-  .byte $0A
-  .byte "to leave"
-  .byte $00
-  .byte "Confound it! You'll"
-  .byte $0A
-  .byte "pay for this!"
-  .byte $00
-  .byte "These officers look"
-  .byte $0A
-  .byte "like trouble to me!"
-  .byte $00
-  .byte "We got away!"
-  .byte $00
-  .byte "Blast!  We're"
-  .byte $0A
-  .byte "surrounded!"
-  .byte $00, $0A
-  .byte "It's no use"
-  .byte $0A
-  .byte "struggling!"
-  .byte $0A
-  .byte "We're confiscating"
-  .byte $0A
-  .byte "your goods"
-  .byte $00
-  .byte "We've no gold for a"
-  .byte $0A
-  .byte "bribe!"
-  .byte $00
-  .byte "We'll show that"
-  .byte $0A
-  .byte "Portuguese fool by"
-  .byte $0A
-  .byte "seizing his goods"
-  .byte $00
-  .byte "How much'll we give"
-  .byte $0A
-  .byte "them"
-  .byte $00
-  .byte "Ha ha ha!"
-  .byte $0A
-  .byte "Much obliged!"
-  .byte $00
-  .byte "Trying to bribe us,"
-  .byte $0A
-  .byte "eh? Seize his"
-  .byte $0A
-  .byte "goods!"
-  .byte $00
-  .byte "Well, he's an honest"
-  .byte $0A
-  .byte "scoundrel. I'll let"
-  .byte $0A
-  .byte "you go this time"
-  .byte $00
-  .byte "We'll show that"
-  .byte $0A
-  .byte "Portuguese fool and"
-  .byte $0A
-  .byte "seize his goods!"
-  .byte $00, $C3, $BB, $CC, $BB, $D2, $BB, $D9, $BB, $DE, $BB, $E4, $BB, $9F, $B3, $1E
-  .byte $B4, $D5, $B4
-  .byte "Portugal"
-  .byte $00
-  .byte "Spain"
-  .byte $00
-  .byte "Turkey"
-  .byte $00
-  .byte "Flee"
-  .byte $00
-  .byte "Bribe"
-  .byte $00
-  .byte "Surrender"
-  .byte $00
-  .byte "Cap'n, some gruff"
-  .byte $0A
-  .byte "looking officers are"
-  .byte $0A
-  .byte "heading our way!"
-  .byte $00
-  .byte ", you are"
-  .byte $0A, $0A
-  .byte "under arrest in the"
-  .byte $0A, $0A
-  .byte "name of %s!"
-  .byte $00
-  .byte "What shall we do?"
-  .byte $00
-  .byte "There's trouble in"
-  .byte $0A
-  .byte "store for us here."
-  .byte $0A
-  .byte "We'd better set sail"
-  .byte $00
-  .byte "How about a stop at"
-  .byte $0A
-  .byte "the inn? We might hearsome useful gossip"
-  .byte $00
-  .byte "It'd be nice to stop"
-  .byte $0A
-  .byte "at the inn once in a"
-  .byte $0A
-  .byte "while"
-  .byte $00, $0A
-  .byte "Cap'n, I hear the"
-  .byte $0A
-  .byte "Princess is a beauty."
-  .byte $0A
-  .byte "I'd love to set my"
-  .byte $0A
-  .byte "eyes on her just once!"
-  .byte $00
-  .byte "Captain, this is a"
-  .byte $0A
-  .byte "suspicious looking"
-  .byte $0A
-  .byte "port"
-  .byte $00
-  .byte "Cap'n, this port looksa bit tough"
-  .byte $00
-  .byte "Cap'n, have ye heard"
-  .byte $0A
-  .byte "of the troubles out atsea?"
-  .byte $00
-  .byte "We're likely to get"
-  .byte $0A
-  .byte "tossed about if we"
-  .byte $0A
-  .byte "sail into a storm"
-  .byte $00
-  .byte "I've heard of ships"
-  .byte $0A
-  .byte "being swallowed up in"
-  .byte $0A
-  .byte "certain waters"
-  .byte $00
-  .byte "If the rudder gets"
-  .byte $0A
-  .byte "tangled in seaweed"
-  .byte $0A
-  .byte "we'll have to fix 'er"
-  .byte $00
-  .byte "Where to, Captain?"
-  .byte $00, $00

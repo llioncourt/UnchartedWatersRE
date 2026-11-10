@@ -58,7 +58,7 @@ UMINATO2_F_B042:
   k_pushi 8
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $B8D2
+  k_pushiw UMINATO2_D_B8D2
   k_callx RF_2FB9, 4
   k_call UMINATO2_F_B030
   k_pushi 1
@@ -165,7 +165,7 @@ UMINATO2_L_B0D0:
   k_ldri 10
   k_sdiv
   k_pushl
-  k_pushiw $B8CE
+  k_pushiw UMINATO2_D_B8CE
   k_callx RF_3619, 4
   k_ldln -21
   k_shl1
@@ -186,7 +186,7 @@ UMINATO2_L_B0D0:
   k_ldri 10
   k_sdiv
   k_pushl
-  k_pushiw $B8CE
+  k_pushiw UMINATO2_D_B8CE
   k_callx RF_3619, 4
   k_ldln -21
   k_shl1
@@ -218,11 +218,11 @@ UMINATO2_L_B0D0:
   k_ldli 1
   k_stln -17
   k_pushn -27
-  k_pushiw $B8D7
+  k_pushiw UMINATO2_D_B8D7
   k_jump UMINATO2_L_B182
 UMINATO2_L_B17D:
   k_pushn -27
-  k_pushiw $B8CE
+  k_pushiw UMINATO2_D_B8CE
 UMINATO2_L_B182:
   k_callx RF_3619, 4
   k_ldln -21
@@ -283,7 +283,7 @@ UMINATO2_F_B1C8:
   k_ldl -2
   k_jumpt UMINATO2_L_B1FB
   k_pushi 1
-  k_pushiw $B8E2
+  k_pushiw UMINATO2_D_B8E2
   k_callx RF_2FB9, 4
   k_jump UMINATO2_L_B229
 UMINATO2_L_B1FB:
@@ -291,10 +291,10 @@ UMINATO2_L_B1FB:
   k_ldri 10
   k_lt
   k_jumpf UMINATO2_L_B207
-  k_pushiw $B91B
+  k_pushiw UMINATO2_D_B91B
   k_jump UMINATO2_L_B20A
 UMINATO2_L_B207:
-  k_pushiw $B93C
+  k_pushiw UMINATO2_D_B93C
 UMINATO2_L_B20A:
   k_callx RF_4B44, 2
   k_call RF_60B2
@@ -302,14 +302,14 @@ UMINATO2_L_B20A:
   k_ldri 1
   k_eq
   k_jumpf UMINATO2_L_B21D
-  k_ldliw $B97F
+  k_ldliw UMINATO2_D_B97F
   k_jump UMINATO2_L_B220
 UMINATO2_L_B21D:
-  k_ldliw $B980
+  k_ldliw UMINATO2_D_B980
 UMINATO2_L_B220:
   k_pushl
   k_push -2
-  k_pushiw $B95F
+  k_pushiw UMINATO2_D_B95F
   k_callx RF_3619, 6
 UMINATO2_L_B229:
   k_call RF_3CFF
@@ -317,7 +317,7 @@ UMINATO2_L_B229:
   k_call $97BE
   k_call UMINATO2_F_B036
   k_call RF_60B2
-  k_pushiw $B982
+  k_pushiw UMINATO2_D_B982
   k_callx RF_4B44, 2
   k_call UMINATO2_F_B741
   k_ldli 1
@@ -330,7 +330,7 @@ UMINATO2_F_B249:
   k_func 24
   k_call UMINATO2_F_B036
   k_call RF_60B2
-  k_pushiw $B993
+  k_pushiw UMINATO2_D_B993
   k_callx RF_4B44, 2
   k_ldli 0
   k_stl -22
@@ -435,19 +435,19 @@ UMINATO2_L_B30C:
   k_jumpt UMINATO2_L_B31F
   k_call UMINATO2_F_B036
   k_call RF_60B2
-  k_pushiw $B9C1
+  k_pushiw UMINATO2_D_B9C1
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
 UMINATO2_L_B31F:
   k_call RF_60B2
   k_pusharg 15
-  k_pushiw $B9DA
+  k_pushiw UMINATO2_D_B9DA
   k_callx RF_3619, 4
   k_pushi 1
   k_push -2
   k_pushi 0
-  k_pushiw $B9FA
+  k_pushiw UMINATO2_D_B9FA
   k_callx RF_3C4E, 8
   k_stl -8
   k_ldl -8
@@ -466,7 +466,7 @@ UMINATO2_L_B342:
   k_mul
   k_stl -6
   k_push -6
-  k_pushiw $B9FB
+  k_pushiw UMINATO2_D_B9FB
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpt UMINATO2_L_B35A
@@ -489,18 +489,18 @@ UMINATO2_L_B35A:
   k_sub
   k_stla $E56D
   k_pushi 1
-  k_pushiw $BA2A
+  k_pushiw UMINATO2_D_BA2A
   k_callx RF_2FB9, 4
   k_pushi 12
   k_pushib 22
   k_callx RF_2F8F, 4
-  k_pushiw $BA2E
+  k_pushiw UMINATO2_D_BA2E
   k_callx RF_3619, 2
   k_pushi 14
   k_pushib 25
   k_callx RF_2F8F, 4
   k_pusha $E56D
-  k_pushiw $BA34
+  k_pushiw UMINATO2_D_BA34
   k_callx RF_3608, 4
   k_ldli 1
   k_return
@@ -515,7 +515,7 @@ UMINATO2_F_B39B:
   k_pusharg 17
   k_pusharg 13
   k_pusharg 15
-  k_pushiw $BA38
+  k_pushiw UMINATO2_D_BA38
   k_callx RF_3619, 8
   k_pushi 1
   k_callx RF_3DDF, 2
@@ -525,7 +525,7 @@ UMINATO2_F_B39B:
   k_jumpf UMINATO2_L_B3D4
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $BA57
+  k_pushiw UMINATO2_D_BA57
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -546,42 +546,42 @@ UMINATO2_L_B3D4:
   k_pusharg 11
   k_callx RF_6701, 6
   k_pushi 1
-  k_pushiw $BA73
+  k_pushiw UMINATO2_D_BA73
   k_callx RF_2FB9, 4
   k_pushi 9
   k_pushib 22
   k_callx RF_2F8F, 4
   k_pushi 0
-  k_pushiw $BA77
+  k_pushiw UMINATO2_D_BA77
   k_callx RF_2FB9, 4
   k_pushi 10
   k_pushib 22
   k_callx RF_2F8F, 4
   k_pusharg 13
-  k_pushiw $BA7E
+  k_pushiw UMINATO2_D_BA7E
   k_callx RF_3608, 4
   k_pushi 11
   k_pushib 22
   k_callx RF_2F8F, 4
   k_pusharg 17
-  k_pushiw $BA85
+  k_pushiw UMINATO2_D_BA85
   k_callx RF_3608, 4
   k_pushi 13
   k_pushib 22
   k_callx RF_2F8F, 4
-  k_pushiw $BA88
+  k_pushiw UMINATO2_D_BA88
   k_callx RF_3608, 2
   k_pushi 14
   k_pushib 25
   k_callx RF_2F8F, 4
   k_pusha $E56D
-  k_pushiw $BA8E
+  k_pushiw UMINATO2_D_BA8E
   k_callx RF_3608, 4
 UMINATO2_L_B447:
   k_call UMINATO2_F_B036
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BA92
+  k_pushiw UMINATO2_D_BA92
   k_callx RF_2FB9, 4
   k_pushn -21
   k_pushi 2
@@ -627,7 +627,7 @@ UMINATO2_L_B492:
   k_jumpf UMINATO2_L_B4A7
   k_call RF_60EE
   k_call RF_60B2
-  k_pushiw $BAA6
+  k_pushiw UMINATO2_D_BAA6
   k_callx RF_4B44, 2
 UMINATO2_L_B4A7:
   k_call $9662
@@ -708,11 +708,11 @@ UMINATO2_L_B512:
   k_ldri 5
   k_sdiv
   k_stl -2
-  k_pushiw $B4D8
-  k_pushiw $B4B0
-  k_pushiw $B4EF
-  k_pushiw $BAC5
-  k_pushiw $BAC0
+  k_pushiw UMINATO2_F_B4D8
+  k_pushiw UMINATO2_F_B4B0
+  k_pushiw UMINATO2_F_B4EF
+  k_pushiw UMINATO2_D_BAC5
+  k_pushiw UMINATO2_D_BAC0
   k_push -2
   k_pushi 0
   k_callx UMINATO2_F_B39B, 14
@@ -786,11 +786,11 @@ UMINATO2_L_B598:
   k_ldri 3
   k_sdiv
   k_stl -2
-  k_pushiw $B567
-  k_pushiw $B535
-  k_pushiw $B52F
-  k_pushiw $BAD3
-  k_pushiw $BACC
+  k_pushiw UMINATO2_F_B567
+  k_pushiw UMINATO2_F_B535
+  k_pushiw UMINATO2_F_B52F
+  k_pushiw UMINATO2_D_BAD3
+  k_pushiw UMINATO2_D_BACC
   k_push -2
   k_pushi 2
   k_callx UMINATO2_F_B39B, 14
@@ -849,7 +849,7 @@ UMINATO2_L_B5FD:
   k_jumpf UMINATO2_L_B61C
   k_call UMINATO2_F_B036
   k_call RF_60B2
-  k_pushiw $BAF6
+  k_pushiw UMINATO2_D_BAF6
   k_callx RF_4B44, 2
   k_ldli 0
   k_return
@@ -860,11 +860,11 @@ UMINATO2_L_B61F:
   k_call UMINATO2_F_B036
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BB0A
+  k_pushiw UMINATO2_D_BB0A
   k_callx RF_2FB9, 4
   k_pushi 2
   k_pushi 3
-  k_pushiw $BAD8
+  k_pushiw UMINATO2_D_BAD8
   k_pushi 2
   k_pushi 8
   k_pushib 23
@@ -879,7 +879,7 @@ UMINATO2_L_B61F:
   k_stlba $EF65
   k_ldl -4
   k_shl1
-  k_ldriw $BADE
+  k_ldriw UMINATO2_D_BADE
   k_add
   k_deref
   k_callptr
@@ -899,11 +899,11 @@ UMINATO2_F_B665:
   k_func 62
   k_call RF_60EE
   k_pushi 1
-  k_pushiw $BB31
+  k_pushiw UMINATO2_D_BB31
   k_callx RF_2FB9, 4
   k_pushi 1
   k_pushi 2
-  k_pushiw $BB20
+  k_pushiw UMINATO2_D_BB20
   k_pushi 1
   k_pushi 6
   k_pushib 23
@@ -980,11 +980,11 @@ UMINATO2_L_B705:
   k_call UMINATO2_F_B036
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BB6A
+  k_pushiw UMINATO2_D_BB6A
   k_callx RF_2FB9, 4
   k_pushi 2
   k_pushi 3
-  k_pushiw $BB48
+  k_pushiw UMINATO2_D_BB48
   k_pushi 2
   k_pushi 7
   k_pushib 23
@@ -997,7 +997,7 @@ UMINATO2_L_B705:
   k_jumpf UMINATO2_L_B733
   k_ldl -2
   k_shl1
-  k_ldriw $BB4E
+  k_ldriw UMINATO2_D_BB4E
   k_add
   k_deref
   k_callptr
@@ -1032,7 +1032,7 @@ UMINATO2_F_B741:
 UMINATO2_F_B763:
   k_func 0
   k_pushi 2
-  k_pushiw $BB82
+  k_pushiw UMINATO2_D_BB82
   k_pushi 2
   k_pushi 2
   k_pushi 1
@@ -1043,7 +1043,7 @@ UMINATO2_F_B763:
 UMINATO2_F_B776:
   k_func 0
   k_pusharg 11
-  k_pushiw $BB8D
+  k_pushiw UMINATO2_D_BB8D
   k_callx RF_3619, 4
   k_return
 UMINATO2_F_B784:
@@ -1056,7 +1056,7 @@ UMINATO2_F_B784:
   k_jumpt UMINATO2_L_B7A7
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $BB99
+  k_pushiw UMINATO2_D_BB99
   k_callx UMINATO2_F_B776, 2
   k_return
 UMINATO2_L_B7A7:
@@ -1077,7 +1077,7 @@ UMINATO2_L_B7A7:
   k_jumpt UMINATO2_L_B7D1
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $BBCA
+  k_pushiw UMINATO2_D_BBCA
   k_callx UMINATO2_F_B776, 2
   k_return
 UMINATO2_L_B7D1:
@@ -1094,7 +1094,7 @@ UMINATO2_L_B7D1:
   k_jumpt UMINATO2_L_B7F5
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $BBFA
+  k_pushiw UMINATO2_D_BBFA
   k_callx UMINATO2_F_B776, 2
   k_return
 UMINATO2_L_B7F5:
@@ -1111,7 +1111,7 @@ UMINATO2_L_B7F5:
   k_jumpt UMINATO2_L_B819
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $BC27
+  k_pushiw UMINATO2_D_BC27
   k_callx UMINATO2_F_B776, 2
   k_return
 UMINATO2_L_B819:
@@ -1128,7 +1128,7 @@ UMINATO2_L_B819:
   k_jumpt UMINATO2_L_B83F
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $BC52
+  k_pushiw UMINATO2_D_BC52
   k_callx UMINATO2_F_B776, 2
   k_return
 UMINATO2_L_B83F:
@@ -1163,16 +1163,16 @@ UMINATO2_L_B86A:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_jumpf UMINATO2_L_B886
-  k_ldliw $BC84
+  k_ldliw UMINATO2_D_BC84
   k_jump UMINATO2_L_B897
 UMINATO2_L_B886:
   k_pushi 2
   k_callx RF_3F3E, 2
   k_jumpf UMINATO2_L_B894
-  k_ldliw $BCA1
+  k_ldliw UMINATO2_D_BCA1
   k_jump UMINATO2_L_B897
 UMINATO2_L_B894:
-  k_ldliw $BCC8
+  k_ldliw UMINATO2_D_BCC8
 UMINATO2_L_B897:
   k_pushl
   k_callx UMINATO2_F_B776, 2
@@ -1190,157 +1190,144 @@ UMINATO2_L_B89D:
   k_jumpt UMINATO2_L_B8C0
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $BCF8
+  k_pushiw UMINATO2_D_BCF8
   k_callx UMINATO2_F_B776, 2
   k_return
 UMINATO2_L_B8C0:
   k_pushi 1
   k_callx RF_609A, 2
-  k_pushiw $BD2E
+  k_pushiw UMINATO2_D_BD2E
   k_callx RF_3619, 2
   k_return
-  .byte $00, $25, $33, $64, $00
-  .byte "Ship"
-  .byte $00, $1B, $43, $31, $01, $25, $33, $64, $1B, $43, $30, $00
-  .byte "We won't get anywhere"
-  .byte $0A
-  .byte "like this. Do ye stillwant to sail"
   .byte $00
-  .byte "We're not well"
-  .byte $0A
-  .byte "prepared, Captain"
+UMINATO2_D_B8CE:
+  .byte "%3d", $00
+UMINATO2_D_B8D2:
+  .byte "Ship", $00
+UMINATO2_D_B8D7:
+  .byte $1B, $43, $31, $01
+  .byte "%3d", $1B, "C0", $00
+UMINATO2_D_B8E2:
+  .byte "We won't get anywhere", $0A, "like this. Do ye stillwant to sail", $00
+UMINATO2_D_B91B:
+  .byte "We're not well", $0A, "prepared, Captain", $00
+UMINATO2_D_B93C:
+  .byte "Preparations are", $0A, "complete, Captain", $00
+UMINATO2_D_B95F:
+  .byte "We can sail for %d", $0A, "day%s. Ready", $00
+UMINATO2_D_B97F:
   .byte $00
-  .byte "Preparations are"
-  .byte $0A
-  .byte "complete, Captain"
+UMINATO2_D_B980:
+  .byte $73, $00
+UMINATO2_D_B982:
+  .byte "Steady as ye go!", $00
+UMINATO2_D_B993:
+  .byte "You're free to load", $0A, "as much water as you", $0A, "need", $00
+UMINATO2_D_B9C1:
+  .byte "This ship is packed", $0A, "full", $00
+UMINATO2_D_B9DA:
+  .byte "How many %ss", $0A, "will you purchase", $0A, $00
+UMINATO2_D_B9FA:
   .byte $00
-  .byte "We can sail for %d"
-  .byte $0A
-  .byte "day%s. Ready"
-  .byte $00, $00, $73, $00
-  .byte "Steady as ye go!"
+UMINATO2_D_B9FB:
+  .byte "That'll cost %d", $0A, "gold. Shall I start", $0A, "loading it", $00
+UMINATO2_D_BA2A:
+  .byte $1B
+  .byte "C0", $00
+UMINATO2_D_BA2E:
+  .byte "Gold:", $00
+UMINATO2_D_BA34:
+  .byte "%5d", $00
+UMINATO2_D_BA38:
+  .byte "%s will cost ye", $0A, "%d gold per %s", $00
+UMINATO2_D_BA57:
+  .byte "You don't have enough", $0A, "gold!", $00
+UMINATO2_D_BA73:
+  .byte $1B
+  .byte "C0", $00
+UMINATO2_D_BA77:
+  .byte "Price:", $00
+UMINATO2_D_BA7E:
+  .byte "%d per", $00
+UMINATO2_D_BA85:
+  .byte "%s", $00
+UMINATO2_D_BA88:
+  .byte "Gold:", $00
+UMINATO2_D_BA8E:
+  .byte "%5d", $00
+UMINATO2_D_BA92:
+  .byte "Restock which ship?", $00
+UMINATO2_D_BAA6:
+  .byte "That's all we can", $0A, "afford!", $00
+UMINATO2_D_BAC0:
+  .byte "Food", $00
+UMINATO2_D_BAC5:
+  .byte "barrel", $00
+UMINATO2_D_BACC:
+  .byte "Lumber", $00
+UMINATO2_D_BAD3:
+  .byte "bale", $00
+UMINATO2_D_BAD8:
+  .word UMINATO2_D_BAE4, UMINATO2_D_BAEA, UMINATO2_D_BAEF
+UMINATO2_D_BADE:
+  .word UMINATO2_F_B249, UMINATO2_F_B4F5, UMINATO2_F_B57B
+UMINATO2_D_BAE4:
+  .byte "Water", $00
+UMINATO2_D_BAEA:
+  .byte "Food", $00
+UMINATO2_D_BAEF:
+  .byte "Lumber", $00
+UMINATO2_D_BAF6:
+  .byte "All ships are full!", $00
+UMINATO2_D_BB0A:
+  .byte "Restock which supply?", $00
+UMINATO2_D_BB20:
+  .word UMINATO2_D_BB24, UMINATO2_D_BB28
+UMINATO2_D_BB24:
+  .byte "Men", $00
+UMINATO2_D_BB28:
+  .byte "Supplies", $00
+UMINATO2_D_BB31:
+  .byte "What will ye transfer?", $00
+UMINATO2_D_BB48:
+  .word UMINATO2_D_BB54, UMINATO2_D_BB59, UMINATO2_D_BB61
+UMINATO2_D_BB4E:
+  .word UMINATO2_F_B1C8, UMINATO2_F_B5B5, UMINATO2_F_B665
+UMINATO2_D_BB54:
+  .byte "Sail", $00
+UMINATO2_D_BB59:
+  .byte "Restock", $00
+UMINATO2_D_BB61:
+  .byte "Transfer", $00
+UMINATO2_D_BB6A:
+  .byte "What do ye want to do?", $00
   .byte $00
-  .byte "You're free to load"
-  .byte $0A
-  .byte "as much water as you"
-  .byte $0A
-  .byte "need"
+UMINATO2_D_BB82:
+  .word UMINATO2_D_BB86, UMINATO2_D_BB8A
+UMINATO2_D_BB86:
+  .byte "Yes", $00
+UMINATO2_D_BB8A:
+  .byte "No", $00
+UMINATO2_D_BB8D:
+  .byte "Captain, %s", $00
+UMINATO2_D_BB99:
+  .byte "a figurehead", $0A, "would protect our shipfrom disaster", $00
+UMINATO2_D_BBCA:
+  .byte "we could", $0A, "surely use a telescopewhen we set sail", $00
+UMINATO2_D_BBFA:
+  .byte "a sextant", $0A, "would be useful to", $0A, "guide our quest", $00
+UMINATO2_D_BC27:
+  .byte "we should", $0A, "try to find a", $0A, "speculum somewhere", $00
+UMINATO2_D_BC52:
+  .byte "our gold is", $0A, "running low. This", $0A, "could spell trouble", $00
+UMINATO2_D_BC84:
+  .byte "how about a", $0A, "stop at the inn?", $00
+UMINATO2_D_BCA1:
+  .byte "let's catch", $0A, "the latest news at", $0A, "the inn", $00
+UMINATO2_D_BCC8:
+  .byte "let's go to", $0A, "the inn for a bit of", $0A, "entertainment!", $00
+UMINATO2_D_BCF8:
+  .byte "if we could", $0A, "only earn enough to", $0A, "buy another vessel...", $00
+UMINATO2_D_BD2E:
+  .byte "Where to, Captain?", $00
   .byte $00
-  .byte "This ship is packed"
-  .byte $0A
-  .byte "full"
-  .byte $00
-  .byte "How many %ss"
-  .byte $0A
-  .byte "will you purchase"
-  .byte $0A, $00, $00
-  .byte "That'll cost %d"
-  .byte $0A
-  .byte "gold. Shall I start"
-  .byte $0A
-  .byte "loading it"
-  .byte $00, $1B, $43, $30, $00
-  .byte "Gold:"
-  .byte $00, $25, $35, $64, $00
-  .byte "%s will cost ye"
-  .byte $0A
-  .byte "%d gold per %s"
-  .byte $00
-  .byte "You don't have enough"
-  .byte $0A
-  .byte "gold!"
-  .byte $00, $1B, $43, $30, $00
-  .byte "Price:"
-  .byte $00
-  .byte "%d per"
-  .byte $00, $25, $73, $00
-  .byte "Gold:"
-  .byte $00, $25, $35, $64, $00
-  .byte "Restock which ship?"
-  .byte $00
-  .byte "That's all we can"
-  .byte $0A
-  .byte "afford!"
-  .byte $00
-  .byte "Food"
-  .byte $00
-  .byte "barrel"
-  .byte $00
-  .byte "Lumber"
-  .byte $00
-  .byte "bale"
-  .byte $00, $E4, $BA, $EA, $BA, $EF, $BA, $49, $B2, $F5, $B4, $7B, $B5
-  .byte "Water"
-  .byte $00
-  .byte "Food"
-  .byte $00
-  .byte "Lumber"
-  .byte $00
-  .byte "All ships are full!"
-  .byte $00
-  .byte "Restock which supply?"
-  .byte $00, $24, $BB, $28, $BB, $4D, $65, $6E, $00
-  .byte "Supplies"
-  .byte $00
-  .byte "What will ye transfer?"
-  .byte $00, $54, $BB, $59, $BB, $61, $BB, $C8, $B1, $B5, $B5, $65, $B6
-  .byte "Sail"
-  .byte $00
-  .byte "Restock"
-  .byte $00
-  .byte "Transfer"
-  .byte $00
-  .byte "What do ye want to do?"
-  .byte $00, $00, $86, $BB, $8A, $BB, $59, $65, $73, $00, $4E, $6F, $00
-  .byte "Captain, %s"
-  .byte $00
-  .byte "a figurehead"
-  .byte $0A
-  .byte "would protect our shipfrom disaster"
-  .byte $00
-  .byte "we could"
-  .byte $0A
-  .byte "surely use a telescopewhen we set sail"
-  .byte $00
-  .byte "a sextant"
-  .byte $0A
-  .byte "would be useful to"
-  .byte $0A
-  .byte "guide our quest"
-  .byte $00
-  .byte "we should"
-  .byte $0A
-  .byte "try to find a"
-  .byte $0A
-  .byte "speculum somewhere"
-  .byte $00
-  .byte "our gold is"
-  .byte $0A
-  .byte "running low. This"
-  .byte $0A
-  .byte "could spell trouble"
-  .byte $00
-  .byte "how about a"
-  .byte $0A
-  .byte "stop at the inn?"
-  .byte $00
-  .byte "let's catch"
-  .byte $0A
-  .byte "the latest news at"
-  .byte $0A
-  .byte "the inn"
-  .byte $00
-  .byte "let's go to"
-  .byte $0A
-  .byte "the inn for a bit of"
-  .byte $0A
-  .byte "entertainment!"
-  .byte $00
-  .byte "if we could"
-  .byte $0A
-  .byte "only earn enough to"
-  .byte $0A
-  .byte "buy another vessel..."
-  .byte $00
-  .byte "Where to, Captain?"
-  .byte $00, $00

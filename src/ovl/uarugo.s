@@ -91,7 +91,7 @@ UARUGO_L_965C:
   k_mul
   k_popr
   k_add
-  k_ldriw $B316
+  k_ldriw UARUGO_D_B316
   k_add
   k_deref
   k_popstoreb
@@ -1130,7 +1130,7 @@ UARUGO_L_9BD9:
   k_mul
   k_ldr -6
   k_add
-  k_ldriw $B328
+  k_ldriw UARUGO_D_B328
   k_add
   k_derefb
   k_popstoreb
@@ -1612,7 +1612,7 @@ UARUGO_L_9E3F:
   k_mul
   k_ldra $FF62
   k_add
-  k_ldriw $B329
+  k_ldriw UARUGO_D_B329
   k_add
   k_derefb
   k_popstoreb
@@ -2901,7 +2901,7 @@ UARUGO_L_A5EE:
   k_call RF_5F1C
   k_call RF_5C91
   k_pushi 0
-  k_pushiw $B332
+  k_pushiw UARUGO_D_B332
   k_callx RF_2FB9, 4
   k_ldln -7
   k_derefb
@@ -2910,7 +2910,7 @@ UARUGO_L_A5EE:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $B34D
+  k_pushiw UARUGO_D_B34D
   k_callx RF_2FB9, 4
   k_call RF_5FDB
   k_ldln -15
@@ -3026,17 +3026,17 @@ UARUGO_F_A6C5:
   k_call UARUGO_F_AA84
   k_call RF_5C3E
   k_pushi 0
-  k_pushiw $B352
+  k_pushiw UARUGO_D_B352
   k_callx RF_2FB9, 4
   k_push -2
   k_callx UARUGO_F_AC67, 2
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $B371
+  k_pushiw UARUGO_D_B371
   k_callx RF_2FB9, 4
   k_call RF_5C3E
-  k_pushiw $B376
+  k_pushiw UARUGO_D_B376
   k_callx RF_4B44, 2
   k_ldl -4
   k_addli 2
@@ -3066,14 +3066,14 @@ UARUGO_F_A706:
   k_call UARUGO_F_A9EA
   k_call RF_5C3E
   k_pushi 0
-  k_pushiw $B39B
+  k_pushiw UARUGO_D_B39B
   k_callx RF_2FB9, 4
   k_push -2
   k_callx UARUGO_F_AC67, 2
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $B3A1
+  k_pushiw UARUGO_D_B3A1
   k_callx RF_2FB9, 4
   k_push -4
   k_callx UARUGO_F_A208, 2
@@ -3088,7 +3088,7 @@ UARUGO_F_A706:
   k_jump UARUGO_L_A761
 UARUGO_L_A757:
   k_call RF_5C3E
-  k_pushiw $B3C3
+  k_pushiw UARUGO_D_B3C3
   k_callx RF_4B44, 2
 UARUGO_L_A761:
   k_return
@@ -3107,13 +3107,13 @@ UARUGO_F_A762:
   k_ldri 1
   k_eq
   k_jumpf UARUGO_L_A789
-  k_pushiw $B3F1
+  k_pushiw UARUGO_D_B3F1
   k_jump UARUGO_L_A796
 UARUGO_L_A789:
-  k_pushiw $B40F
+  k_pushiw UARUGO_D_B40F
   k_callx RF_4B44, 2
   k_call RF_5C3E
-  k_pushiw $B42F
+  k_pushiw UARUGO_D_B42F
 UARUGO_L_A796:
   k_callx RF_4B44, 2
   k_call RF_5FDB
@@ -3212,7 +3212,7 @@ UARUGO_L_A816:
   k_call RF_5F1C
   k_call RF_5C91
   k_pushi 0
-  k_pushiw $B451
+  k_pushiw UARUGO_D_B451
   k_callx RF_2FB9, 4
   k_ldlbf 11
   k_pushl
@@ -3220,7 +3220,7 @@ UARUGO_L_A816:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $B457
+  k_pushiw UARUGO_D_B457
   k_callx RF_2FB9, 4
   k_call RF_5FDB
   k_ldl -4
@@ -3298,10 +3298,10 @@ UARUGO_L_A8BB:
   k_call RF_5C91
   k_ldlba $F195
   k_jumpf UARUGO_L_A8D0
-  k_pushiw $B473
+  k_pushiw UARUGO_D_B473
   k_jump UARUGO_L_A8D3
 UARUGO_L_A8D0:
-  k_pushiw $B497
+  k_pushiw UARUGO_D_B497
 UARUGO_L_A8D3:
   k_callx RF_4B44, 2
   k_call RF_5FDB
@@ -3598,7 +3598,7 @@ UARUGO_F_AA84:
   k_stl -2
   k_ldlba $F28C
   k_shl1
-  k_ldriw $B4B8
+  k_ldriw UARUGO_D_B4B8
   k_add
   k_deref
   k_pushl
@@ -3631,7 +3631,7 @@ UARUGO_F_AA84:
   k_leal -20
   k_pushl
   k_pushib 126
-  k_pushiw $21BA
+  k_pushiw RD_21BA
   k_pusha $F280
   k_callx RF_3FC8, 10
   k_ldli 2
@@ -3670,7 +3670,7 @@ UARUGO_L_AAF3:
   k_jumpf UARUGO_L_AB0C
   k_ldl -8
   k_shl1
-  k_ldriw $B4C6
+  k_ldriw UARUGO_D_B4C6
   k_add
   k_deref
   k_jump UARUGO_L_AB0D
@@ -3686,7 +3686,7 @@ UARUGO_L_AB0D:
   k_jumpf UARUGO_L_AB20
   k_ldl -8
   k_shl1
-  k_ldriw $B4BE
+  k_ldriw UARUGO_D_B4BE
   k_add
   k_deref
   k_jump UARUGO_L_AB21
@@ -3779,10 +3779,10 @@ UARUGO_L_ABAE:
   k_ldri 1
   k_and
   k_jumpf UARUGO_L_ABBE
-  k_ldliw $B4D2
+  k_ldliw UARUGO_D_B4D2
   k_jump UARUGO_L_ABC1
 UARUGO_L_ABBE:
-  k_ldliw $B4CE
+  k_ldliw UARUGO_D_B4CE
 UARUGO_L_ABC1:
   k_pushl
   k_pushib 126
@@ -3865,12 +3865,12 @@ UARUGO_F_AC01:
 UARUGO_F_AC4C:
   k_func 0
   k_pushi 1
-  k_pushiw $B4D6
+  k_pushiw UARUGO_D_B4D6
   k_callx RF_2FB9, 4
   k_pusharg 13
   k_callx RF_40DE, 2
   k_pusharg 11
-  k_pushiw $B4DE
+  k_pushiw UARUGO_D_B4DE
   k_callx RF_3619, 4
   k_return
 UARUGO_F_AC67:
@@ -3891,7 +3891,7 @@ UARUGO_F_AC7C:
   k_call RF_5F1C
   k_call RF_5C91
   k_pushi 1
-  k_pushiw $B4E5
+  k_pushiw UARUGO_D_B4E5
   k_callx RF_2FB9, 4
   k_call RF_5FDB
   k_return
@@ -3899,7 +3899,7 @@ UARUGO_F_AC93:
   k_func 0
   k_call RF_5C91
   k_pushi 0
-  k_pushiw $B50B
+  k_pushiw UARUGO_D_B50B
   k_callx RF_2FB9, 4
   k_pusharg 11
   k_callx UARUGO_F_AC67, 2
@@ -3907,13 +3907,13 @@ UARUGO_F_AC93:
   k_callx RF_40DE, 2
   k_ldlarg 13
   k_jumpf UARUGO_L_ACB7
-  k_ldliw $B52B
+  k_ldliw UARUGO_D_B52B
   k_jump UARUGO_L_ACBA
 UARUGO_L_ACB7:
-  k_ldliw $B530
+  k_ldliw UARUGO_D_B530
 UARUGO_L_ACBA:
   k_pushl
-  k_pushiw $B511
+  k_pushiw UARUGO_D_B511
   k_callx RF_3608, 4
   k_return
 UARUGO_F_ACC3:
@@ -4073,7 +4073,7 @@ UARUGO_F_ADC0:
   k_ldlba $F192
   k_dec
   k_shl1
-  k_ldriw $B536
+  k_ldriw UARUGO_D_B536
   k_add
   k_deref
   k_callptr
@@ -4462,9 +4462,9 @@ UARUGO_L_B01E:
 UARUGO_L_B03A:
   rep #$30
   ldx z:$0A
-  stx a:$B0E5
+  stx a:UARUGO_D_B0E5
   ldy z:$0C
-  sty a:$B0E7
+  sty a:UARUGO_D_B0E7
   lda z:$10
   cmp #$02
   bcc UARUGO_L_B063
@@ -4475,10 +4475,10 @@ UARUGO_L_B03A:
   cmp #$06
   beq UARUGO_L_B060
 UARUGO_L_B05B:
-  dec a:$B0E5
+  dec a:UARUGO_D_B0E5
   bra UARUGO_L_B063
 UARUGO_L_B060:
-  inc a:$B0E5
+  inc a:UARUGO_D_B0E5
 UARUGO_L_B063:
   cmp #$03
   beq UARUGO_L_B078
@@ -4486,24 +4486,24 @@ UARUGO_L_B063:
   beq UARUGO_L_B078
   lsr a
   bcs UARUGO_L_B075
-  dec a:$B0E7
+  dec a:UARUGO_D_B0E7
   bra UARUGO_L_B078
 UARUGO_L_B075:
-  inc a:$B0E7
+  inc a:UARUGO_D_B0E7
 UARUGO_L_B078:
-  lda a:$B0E7
+  lda a:UARUGO_D_B0E7
   cmp #$10
   bcs UARUGO_L_B0C2
-  lda a:$B0E5
+  lda a:UARUGO_D_B0E5
   cmp #$10
   bcs UARUGO_L_B0C2
-  lda a:$B0E7
+  lda a:UARUGO_D_B0E7
   asl a
   asl a
   asl a
   asl a
   clc
-  adc a:$B0E5
+  adc a:UARUGO_D_B0E5
   tax
   clc
   adc z:$1A
@@ -4550,7 +4550,10 @@ UARUGO_L_B0D9:
 UARUGO_L_B0E3:
   plp
   rtl
-  .byte $00, $00, $00, $00, $00, $00
+UARUGO_D_B0E5:
+  .byte $00, $00
+UARUGO_D_B0E7:
+  .byte $00, $00, $00, $00
 UARUGO_L_B0EB:
   php
   rep #$30
@@ -4574,7 +4577,7 @@ UARUGO_L_B0EB:
   tay
   lda z:$10
   clc
-  adc #$B163
+  adc #UARUGO_D_B163
   sta z:$12
   lda ($12)
   beq UARUGO_L_B120
@@ -4625,6 +4628,7 @@ UARUGO_L_B15F:
 UARUGO_L_B161:
   plp
   rtl
+UARUGO_D_B163:
   .byte $02, $00, $01, $00, $02, $00, $01, $00, $00, $00, $02, $00, $01, $00, $00, $00
   .byte $02, $00, $02, $00, $01, $00, $01, $00, $02, $00, $00, $00, $00, $00, $01, $00
 UARUGO_L_B183:
@@ -4777,7 +4781,7 @@ UARUGO_L_B28D:
 UARUGO_L_B28E:
   asl a
   tay
-  lda a:$B2E6,y
+  lda a:UARUGO_D_B2E6,y
   clc
   adc a:$FF64
   sta z:$0C
@@ -4822,85 +4826,71 @@ UARUGO_L_B2D3:
 UARUGO_L_B2E4:
   plp
   rtl
+UARUGO_D_B2E6:
   .byte $B7, $FF, $B9, $FF, $47, $00, $49, $00, $B8, $FF, $48, $00, $FF, $FF, $01, $00
   .byte $FF, $FF, $B9, $FF, $8F, $00, $49, $00, $B8, $FF, $48, $00, $47, $00, $01, $00
   .byte $B7, $FF, $71, $FF, $47, $00, $01, $00, $B8, $FF, $48, $00, $FF, $FF, $B9, $FF
+UARUGO_D_B316:
   .byte $07, $00, $06, $00, $05, $00, $00, $00, $FF, $00, $04, $00, $01, $00, $02, $00
-  .byte $03, $00, $07, $06, $05, $00, $FF, $04, $01, $02, $03, $00, $0A
-  .byte "We've lost sight"
-  .byte $0A, $0A
-  .byte "of the "
-  .byte $00, $1B, $57, $1B, $57, $00, $0A
-  .byte "Something's"
-  .byte $0A, $0A
-  .byte "wrong with the"
-  .byte $0A, $0A, $00, $1B, $57, $1B, $57, $00
-  .byte "Blast! She's"
-  .byte $0A
-  .byte "caught up in"
-  .byte $0A
-  .byte "seaweed!"
-  .byte $1B, $57, $00, $0A
-  .byte "The "
-  .byte $00
-  .byte " has"
-  .byte $0A, $0A
-  .byte "mysteriously"
-  .byte $0A, $0A
-  .byte "vanished!"
+  .byte $03, $00
+UARUGO_D_B328:
+  .byte $07
+UARUGO_D_B329:
+  .byte $06, $05, $00, $FF, $04, $01, $02, $03, $00
+UARUGO_D_B332:
+  .byte $0A, "We've lost sight", $0A, $0A, "of the ", $00
+UARUGO_D_B34D:
   .byte $1B, $57, $1B, $57, $00
-  .byte "I've heard of"
-  .byte $0A
-  .byte "ships vanishing"
-  .byte $0A
-  .byte "in these waters"
-  .byte $00
-  .byte "These are rough"
-  .byte $0A
-  .byte "waves, Cap'n!"
-  .byte $00
-  .byte "Take to the"
-  .byte $0A
-  .byte "helm! It's a"
-  .byte $0A
-  .byte "storm!"
-  .byte $00
-  .byte "We've lost"
-  .byte $0A
-  .byte "control of the"
-  .byte $0A
-  .byte "rudder!"
-  .byte $00, $0A
-  .byte "The "
-  .byte $00, $20, $69, $73, $0A, $0A
-  .byte "nowhere in"
-  .byte $0A, $0A
-  .byte "sight!"
+UARUGO_D_B352:
+  .byte $0A, "Something's", $0A, $0A, "wrong with the", $0A, $0A, $00
+UARUGO_D_B371:
   .byte $1B, $57, $1B, $57, $00
-  .byte "There's been a"
-  .byte $0A
-  .byte "lot of damage,"
-  .byte $0A
-  .byte "Cap'n"
-  .byte $00
-  .byte "Sakes alive, we"
-  .byte $0A
-  .byte "made it through!"
-  .byte $00, $08, $00, $00, $00, $10, $00, $00, $00, $03, $00, $00, $00, $FD, $FF, $FD
-  .byte $FF, $00, $00, $03, $00, $00, $00, $80, $12, $84, $12, $88, $12, $8C, $12
-  .byte "Cap'n, "
-  .byte $00, $25, $73, $1B, $57, $1B, $57, $00
-  .byte "Land ho! There's"
-  .byte $0A
-  .byte "a port in sight!"
-  .byte $1B, $57, $1B, $57, $00, $0A
-  .byte "The "
-  .byte $00
-  .byte " has"
-  .byte $0A, $0A
-  .byte "run out of"
-  .byte $0A, $0A, $25, $73, $21, $1B, $57, $1B, $57, $00
-  .byte "food"
-  .byte $00
-  .byte "water"
-  .byte $00, $C5, $A6, $06, $A7, $62, $A7
+UARUGO_D_B376:
+  .byte "Blast! She's", $0A, "caught up in", $0A, "seaweed!", $1B, "W", $00
+UARUGO_D_B39B:
+  .byte $0A, "The ", $00
+UARUGO_D_B3A1:
+  .byte " has", $0A, $0A, "mysteriously", $0A, $0A, "vanished!", $1B, "W", $1B, "W", $00
+UARUGO_D_B3C3:
+  .byte "I've heard of", $0A, "ships vanishing", $0A, "in these waters", $00
+UARUGO_D_B3F1:
+  .byte "These are rough", $0A, "waves, Cap'n!", $00
+UARUGO_D_B40F:
+  .byte "Take to the", $0A, "helm! It's a", $0A, "storm!", $00
+UARUGO_D_B42F:
+  .byte "We've lost", $0A, "control of the", $0A, "rudder!", $00
+UARUGO_D_B451:
+  .byte $0A, "The ", $00
+UARUGO_D_B457:
+  .byte " is", $0A, $0A, "nowhere in", $0A, $0A, "sight!", $1B, "W", $1B, "W", $00
+UARUGO_D_B473:
+  .byte "There's been a", $0A, "lot of damage,", $0A, "Cap'n", $00
+UARUGO_D_B497:
+  .byte "Sakes alive, we", $0A, "made it through!", $00
+UARUGO_D_B4B8:
+  .byte $08, $00, $00, $00, $10, $00
+UARUGO_D_B4BE:
+  .byte $00, $00, $03, $00, $00, $00, $FD, $FF
+UARUGO_D_B4C6:
+  .byte $FD, $FF, $00, $00, $03, $00, $00, $00
+UARUGO_D_B4CE:
+  .byte $80, $12, $84, $12
+UARUGO_D_B4D2:
+  .byte $88, $12, $8C
+  .byte $12
+UARUGO_D_B4D6:
+  .byte "Cap'n, ", $00
+UARUGO_D_B4DE:
+  .byte $25, $73, $1B, $57, $1B, $57, $00
+UARUGO_D_B4E5:
+  .byte "Land ho! There's", $0A, "a port in sight!", $1B, "W", $1B, "W", $00
+UARUGO_D_B50B:
+  .byte $0A, "The ", $00
+UARUGO_D_B511:
+  .byte " has", $0A, $0A, "run out of", $0A, $0A, "%s!", $1B, "W", $1B, "W", $00
+UARUGO_D_B52B:
+  .byte "food", $00
+UARUGO_D_B530:
+  .byte "water", $00
+UARUGO_D_B536:
+  .word UARUGO_F_A6C5, UARUGO_F_A706, UARUGO_F_A762

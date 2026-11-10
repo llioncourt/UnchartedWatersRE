@@ -38,15 +38,15 @@ S_IBENT_F_B80F:
   k_ldri 3
   k_udiv
   k_shl1
-  k_ldriw $BAB4
+  k_ldriw S_IBENT_D_BAB4
   k_add
   k_deref
   k_pushl
-  k_pushiw $BAC3
+  k_pushiw S_IBENT_D_BAC3
   k_callx RF_3619, 4
 S_IBENT_L_B843:
   k_pushi 1
-  k_pushiw $BAC8
+  k_pushiw S_IBENT_D_BAC8
   k_callx RF_2FB9, 4
   k_ldlarg 11
   k_addlib 20
@@ -90,7 +90,7 @@ S_IBENT_F_B85B:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BACA
+  k_pushiw S_IBENT_D_BACA
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushiw $2710
@@ -119,7 +119,7 @@ S_IBENT_F_B85B:
 S_IBENT_L_B8DB:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BAFE
+  k_pushiw S_IBENT_D_BAFE
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_ldli 0
@@ -153,25 +153,25 @@ S_IBENT_L_B8EF:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BB25
+  k_pushiw S_IBENT_D_BB25
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BB44
+  k_pushiw S_IBENT_D_BB44
   k_callx RF_2FB9, 4
   k_call RF_3CFF
   k_jumpf S_IBENT_L_B94F
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BB6F
+  k_pushiw S_IBENT_D_BB6F
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_jump S_IBENT_L_B9B5
 S_IBENT_L_B94F:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BB93
+  k_pushiw S_IBENT_D_BB93
   k_callx RF_2FB9, 4
   k_ldla $EF5A
   k_ldri 1
@@ -186,7 +186,7 @@ S_IBENT_L_B94F:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BBB7
+  k_pushiw S_IBENT_D_BBB7
   k_callx RF_2FB9, 4
   k_jump S_IBENT_L_B98A
 S_IBENT_L_B97D:
@@ -200,7 +200,7 @@ S_IBENT_L_B97D:
 S_IBENT_L_B98A:
   k_call RF_472D
   k_call RF_60B2
-  k_pushiw $BBEB
+  k_pushiw S_IBENT_D_BBEB
   k_callx RF_4B44, 2
   k_pushi 10
   k_callx RF_3F3E, 2
@@ -252,12 +252,12 @@ S_IBENT_L_B9B7:
   k_callx RF_60CE, 4
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BC0D
+  k_pushiw S_IBENT_D_BC0D
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_call RF_60B2
   k_pushi 0
-  k_pushiw $BC46
+  k_pushiw S_IBENT_D_BC46
   k_callx RF_2FB9, 4
   k_ldlba $EF57
   k_addlib 20
@@ -276,11 +276,11 @@ S_IBENT_L_B9B7:
   k_eq
   k_jumpf S_IBENT_L_BA2F
   k_pushi 0
-  k_pushiw $BC51
+  k_pushiw S_IBENT_D_BC51
   k_jump S_IBENT_L_BA33
 S_IBENT_L_BA2F:
   k_pushi 0
-  k_pushiw $BC58
+  k_pushiw S_IBENT_D_BC58
 S_IBENT_L_BA33:
   k_callx RF_2FB9, 4
   k_ldlba $EF57
@@ -295,7 +295,7 @@ S_IBENT_L_BA33:
   k_pushl
   k_callx RF_40DE, 2
   k_pushi 0
-  k_pushiw $BC60
+  k_pushiw S_IBENT_D_BC60
   k_callx RF_2FB9, 4
   k_ldla $F18A
   k_dec
@@ -303,7 +303,7 @@ S_IBENT_L_BA33:
   k_call RF_472D
   k_call RF_60B2
   k_pusha $EF5A
-  k_pushiw $BC76
+  k_pushiw S_IBENT_D_BC76
   k_callx RF_3619, 4
   k_call RF_3CFF
   k_jumpf S_IBENT_L_BA9E
@@ -312,7 +312,7 @@ S_IBENT_L_BA33:
   k_ldri 1
   k_shr
   k_pushl
-  k_pushiw $BCA6
+  k_pushiw S_IBENT_D_BCA6
   k_callx RF_3619, 4
   k_pushiw $2710
   k_ldla $EF5A
@@ -331,7 +331,7 @@ S_IBENT_L_BA33:
 S_IBENT_L_BA9E:
   k_call RF_60B2
   k_pushi 1
-  k_pushiw $BCE2
+  k_pushiw S_IBENT_D_BCE2
   k_callx RF_2FB9, 4
   k_ldli 0
 S_IBENT_L_BAAA:
@@ -342,71 +342,41 @@ S_IBENT_L_BAAA:
 S_IBENT_L_BAB2:
   k_ldli 0
   k_return
-  .byte $B8, $BA, $BE, $BA, $BC, $AE, $B3, $BE, $DD, $00, $BE, $DD, $B6, $DD, $00, $25
-  .byte $73, $C0, $B2, $00, $C9, $00
-  .byte "I'm glad you came"
-  .byte $0A
-  .byte "through for us! We'll"
-  .byte $0A
-  .byte "be safe now"
-  .byte $00
-  .byte "I'll deposit your"
-  .byte $0A
-  .byte "reward at the palace"
-  .byte $00
-  .byte "What's become of the"
-  .byte $0A
-  .byte "villains?"
-  .byte $00
-  .byte "You didn't catch"
-  .byte $0A
-  .byte "them?! Will you try"
-  .byte $0A
-  .byte "again"
-  .byte $00
-  .byte "Then please hurry."
-  .byte $0A
-  .byte "I'm losing money"
-  .byte $00
-  .byte "You coward! Give me"
-  .byte $0A
-  .byte "back the money!"
-  .byte $00
-  .byte "Enough of your jokes."
-  .byte $0A
-  .byte "There's not enough"
-  .byte $0A
-  .byte "money here"
-  .byte $00
-  .byte "I thought you were"
-  .byte $0A
-  .byte "trustworthy..."
-  .byte $00
-  .byte "I've searched high andlow for you. I have a"
-  .byte $0A
-  .byte "favor to ask"
-  .byte $00, $0A
-  .byte "You see, "
-  .byte $00, $0A, $0A
-  .byte "the "
-  .byte $00, $0A, $0A
-  .byte "from "
-  .byte $00, $20, $69, $73, $0A, $0A
-  .byte "robbing me blind"
-  .byte $00
-  .byte "Will you take care of"
-  .byte $0A
-  .byte "him for %d000 gold"
-  .byte $0A
-  .byte "pieces"
-  .byte $00
-  .byte "Good! As down payment"
-  .byte $0A
-  .byte "I'll deposit %d000"
-  .byte $0A
-  .byte "gold at the palace"
-  .byte $00
-  .byte "You dare to call"
-  .byte $0A
-  .byte "yourself a sailor?"
-  .byte $00
+S_IBENT_D_BAB4:
+  .byte $B8, $BA, $BE, $BA, $BC, $AE, $B3, $BE, $DD, $00, $BE, $DD, $B6, $DD, $00
+S_IBENT_D_BAC3:
+  .byte $25, $73, $C0, $B2, $00
+S_IBENT_D_BAC8:
+  .byte $C9, $00
+S_IBENT_D_BACA:
+  .byte "I'm glad you came", $0A, "through for us! We'll", $0A, "be safe now", $00
+S_IBENT_D_BAFE:
+  .byte "I'll deposit your", $0A, "reward at the palace", $00
+S_IBENT_D_BB25:
+  .byte "What's become of the", $0A, "villains?", $00
+S_IBENT_D_BB44:
+  .byte "You didn't catch", $0A, "them?! Will you try", $0A, "again", $00
+S_IBENT_D_BB6F:
+  .byte "Then please hurry.", $0A, "I'm losing money", $00
+S_IBENT_D_BB93:
+  .byte "You coward! Give me", $0A, "back the money!", $00
+S_IBENT_D_BBB7:
+  .byte "Enough of your jokes.", $0A, "There's not enough", $0A, "money here", $00
+S_IBENT_D_BBEB:
+  .byte "I thought you were", $0A, "trustworthy...", $00
+S_IBENT_D_BC0D:
+  .byte "I've searched high andlow for you. I have a", $0A, "favor to ask", $00
+S_IBENT_D_BC46:
+  .byte $0A, "You see, ", $00
+S_IBENT_D_BC51:
+  .byte $0A, $0A, "the ", $00
+S_IBENT_D_BC58:
+  .byte $0A, $0A, "from ", $00
+S_IBENT_D_BC60:
+  .byte " is", $0A, $0A, "robbing me blind", $00
+S_IBENT_D_BC76:
+  .byte "Will you take care of", $0A, "him for %d000 gold", $0A, "pieces", $00
+S_IBENT_D_BCA6:
+  .byte "Good! As down payment", $0A, "I'll deposit %d000", $0A, "gold at the palace", $00
+S_IBENT_D_BCE2:
+  .byte "You dare to call", $0A, "yourself a sailor?", $00
