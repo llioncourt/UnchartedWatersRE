@@ -340,7 +340,7 @@ S_ONNA_F_B9D0:
   k_add
   k_stl -4
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_ONNA_L_BA5C
   k_ldl -4
   k_addli 5
@@ -421,7 +421,7 @@ S_ONNA_F_BA78:
   k_return
 S_ONNA_L_BAA4:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_ONNA_L_BAE2
   k_ldli 0
   k_stl -4
@@ -846,10 +846,10 @@ S_ONNA_L_BDD2:
   k_jump S_ONNA_L_BEBF
 S_ONNA_L_BE14:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_ONNA_L_BE76
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_inc
   k_ldrib 100
   k_mul
@@ -955,7 +955,7 @@ S_ONNA_L_BECB:
   k_pushiw S_ONNA_D_C979
   k_callx RF_2FB9, 4
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_ONNA_L_BF13
   k_ldla $EF52
   k_inc
@@ -1041,7 +1041,7 @@ S_ONNA_L_BF64:
   k_add
   k_stl -12
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_ONNA_L_BFA7
   k_pushi 0
   k_pushiw S_ONNA_D_C9D2
@@ -1448,7 +1448,7 @@ S_ONNA_L_C319:
   k_jump S_ONNA_L_C33F
 S_ONNA_L_C328:
   k_push -4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldrib 80
   k_ugt
   k_jumpf S_ONNA_L_C34D
@@ -1488,7 +1488,7 @@ S_ONNA_L_C356:
   k_popr
   k_shl
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -8
 S_ONNA_L_C36E:
   k_pushi 2
@@ -1515,7 +1515,7 @@ S_ONNA_L_C36E:
   k_pushl
   k_pushiw $00C8
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -4
   k_add
   k_addli 10
@@ -1528,7 +1528,7 @@ S_ONNA_L_C3A8:
   k_and
   k_jumpf S_ONNA_L_C3BE
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_ONNA_L_C3BE
   k_call S_ONNA_F_C262
   k_jump S_ONNA_L_C466
@@ -1537,7 +1537,7 @@ S_ONNA_L_C3BE:
   k_jumpt S_ONNA_L_C466
 S_ONNA_L_C3C2:
   k_pushib 20
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -10
   k_ldl -10
   k_inc

@@ -696,7 +696,7 @@ SENMAIN_F_A8C5:
   k_stl -6
 SENMAIN_L_A8D4:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldl -6
   k_ldriw $F44C
@@ -926,7 +926,7 @@ SENMAIN_L_AA04:
   k_sdiv
   k_pushl
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldl -16
   k_ldriw $F44C
@@ -982,7 +982,7 @@ SENMAIN_L_AA60:
   k_stl -4
 SENMAIN_L_AA72:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldl -16
   k_ldriw $F44A
@@ -1083,7 +1083,7 @@ SENMAIN_L_AAD6:
   k_sub
   k_popstoreb
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -12
   k_add
   k_pushl
@@ -1101,7 +1101,7 @@ SENMAIN_L_AAD6:
   k_sub
   k_popstore
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -12
   k_add
   k_pushl
@@ -1119,7 +1119,7 @@ SENMAIN_L_AAD6:
   k_sub
   k_popstoreb
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -12
   k_add
   k_pushl
@@ -1595,7 +1595,7 @@ SENMAIN_F_ADF4:
   k_ldlarg 11
   k_jumpt SENMAIN_L_AE07
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldri 7
   k_ult
   k_jumpf SENMAIN_L_AE0F
@@ -4846,7 +4846,7 @@ SENMAIN_L_C1A0:
   k_eq
   k_jumpf SENMAIN_L_C1ED
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt SENMAIN_L_C1FA
 SENMAIN_L_C1ED:
   k_ldl -4
@@ -5883,7 +5883,7 @@ SENMAIN_L_C743:
   k_jumpt SENMAIN_L_C77E
 SENMAIN_L_C776:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt SENMAIN_L_C78A
 SENMAIN_L_C77E:
   k_ldlarg 13
@@ -6039,7 +6039,7 @@ SENMAIN_L_C84A:
   k_and
   k_stl -8
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf SENMAIN_L_C91A
   k_ldl -8
   k_jumpf SENMAIN_L_C91A
@@ -6105,7 +6105,7 @@ SENMAIN_L_C8AB:
   k_add
   k_stl -20
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt SENMAIN_L_C911
   k_ldl -18
   k_ldri 0
@@ -6143,10 +6143,10 @@ SENMAIN_L_C8AB:
   k_add
   k_pushl
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldri 3
   k_mul
   k_popr

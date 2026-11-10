@@ -829,7 +829,7 @@ ENDING_L_9BDD:
   k_pushi 2
   k_pushi 3
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -12
   k_add
   k_dec
@@ -882,7 +882,7 @@ ENDING_L_9C10:
   k_jump ENDING_L_9CD4
 ENDING_L_9C3C:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -20
   k_ldl -4
   k_jumpf ENDING_L_9C4A

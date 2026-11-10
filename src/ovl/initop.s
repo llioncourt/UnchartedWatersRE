@@ -455,7 +455,7 @@ INITOP_L_999E:
   k_add
   k_pushl
   k_pushib 30
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 40
   k_popstoreb
   k_ldlbf -7
@@ -496,18 +496,18 @@ INITOP_L_99EF:
   k_ult
   k_jumpt INITOP_L_999E
   k_pushib 40
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_inc
   k_ldrib 40
   k_udiv
   k_stlbf -8
   k_pushib 30
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlbf -8
   k_pushl
   k_pushib 50
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 20
   k_popr
   k_mul
@@ -2464,7 +2464,7 @@ INITOP_L_A837:
   k_stl -2
 INITOP_L_A848:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_push -2
   k_pushi 1
@@ -2664,7 +2664,7 @@ INITOP_F_A998:
   k_pushib 37
   k_callx syscall, 4  ; sys 37 brightness_set
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_pushib 55
   k_pushi 1

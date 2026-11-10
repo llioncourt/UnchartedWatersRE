@@ -68,7 +68,7 @@ S_BJ_L_B859:
   k_leal -6
   k_pushl
   k_pushn -9
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_derefb
@@ -541,7 +541,7 @@ S_BJ_L_BBA5:
   k_ult
   k_jumpf S_BJ_L_BBEE
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw S_BJ_D_C38F
   k_add
@@ -809,7 +809,7 @@ S_BJ_L_BD86:
   k_pushi 1
   k_callx RF_3DDF, 2
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw S_BJ_D_C219
   k_add
@@ -883,7 +883,7 @@ S_BJ_L_BE17:
   k_pushi 1
   k_callx RF_3DDF, 2
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw S_BJ_D_C1E8
   k_add
@@ -1149,7 +1149,7 @@ S_BJ_L_C03B:
   k_ugt
   k_jumpf S_BJ_L_C062
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw S_BJ_D_C1B4
   k_add
@@ -1199,13 +1199,13 @@ S_BJ_L_C0B3:
   k_ugt
   k_jumpf S_BJ_L_C0C8
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw S_BJ_D_C2BE
   k_jump S_BJ_L_C0D1
 S_BJ_L_C0C8:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw S_BJ_D_C287
 S_BJ_L_C0D1:
@@ -1226,7 +1226,7 @@ S_BJ_L_C0E1:
   k_eq
   k_jumpt S_BJ_L_C0D7
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw S_BJ_D_C248
   k_add
@@ -1246,7 +1246,7 @@ S_BJ_L_C10D:
   k_callx RF_3DDF, 2
 S_BJ_L_C112:
   k_pushib 50
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlba g_port
   k_ldri 14
@@ -1269,7 +1269,7 @@ S_BJ_L_C112:
   k_jumpf S_BJ_L_C15C
 S_BJ_L_C13A:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw S_BJ_D_C3D0
   k_add
@@ -1317,7 +1317,7 @@ S_BJ_L_C15C:
   k_ldlbf -83
   k_jumpt S_BJ_L_BBA5
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw S_BJ_D_C355
   k_add

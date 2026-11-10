@@ -85,10 +85,77 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 ## Fins de jogo (`ending`, `$F169`)
 - `$F169` = 1: suprimentos acabaram no mar; 2: tempestade; 3: prazo (ano > 1521, `root 8272`); 4: derrota sem texto; `$FF`: final bom.
 - Prazo: o ano começa em 1502 (`$EA8D` = ano − 1500); ao virar 1522 o jogo acaba ("After 20 long years ... passed away").
-- Final bom (script em `ending $B51D`): o rei oferece Land, Princess, Honor ou Refuse. Land e Honor dão o título de Lord of Alcobaca; Princess leva ao casamento com Christiana e à coroa de Portugal; Land também pode terminar no pedido de casamento. Detalhar as condições do script.
+- Final bom (`ENDING_F_9D6A`): o rei oferece Land, Princess, Honor ou Refuse; cada escolha toca uma cena (`99ED`, `9A21`, `9A2E`, `9A48`, roteiros em `$B5C4`, `$B7FF`, `$B874`, `$BA70`). Não há condição escondida: a cena depende só da escolha.
+  - Land: Alcobaca, terra dos antepassados, e o título de Lord of Alcobaca; em seguida o rei, sem filho homem, pede que case com Christiana e seja o sucessor (Accept / Refuse; recusar faz o rei pedir de novo).
+  - Princess: o rei hesita ("I had planned for her to marry into Spain..."), Christiana insiste e ele passa a coroa: "As of this day you are King of Portugal".
+  - Honor: "Easily done. I dub you Lord of Alcobaca".
+  - Refuse: "I desire nothing in return"; Christiana corre atrás ("Wait!") e o rei percebe ("You must be hiding something from me").
 
 ## Suprimentos e moral (`uarugo A445`)
 - Por dia e por navio, água e comida caem cada uma em tripulantes × ração / 100 + 1 (tripulantes em `$EB96 + 7×navio`; ração padrão 50). Ex.: 20 homens, ração 50 → 11 por dia; 200 unidades duram 18 dias.
 - Ração ≥ 50: moral do navio (`carga +22`) sobe (ração − 50)/10 por dia, até 100. Ração < 50: moral cai (50 − ração)/2 e a lealdade do imediato do navio cai (50 − ração)/10 por dia.
 - Acabou água ou comida em todos os navios: fim de jogo "lost at sea" (`$F169 = 1`).
 - Perigos no mar (`uarugo`): tempestade (dano, leme), algas que prendem o leme, navio que some em certas águas, falta de suprimento.
+
+## Estaleiro (`zousen`, `z_sinzou`, `z_tyuuko`)
+
+### Navio novo (`z_sinzou`)
+- Tipos: Caravel (0), Bergantin (1), Nao (2), Carrack (3), Galleon (4), Heavy Galleon (5). O estaleiro oferece do 0 até (indústria − 100) / 180 (`Z_SINZOU_F_D759`).
+- Escolhas: casco Teak 0, Beach 1, Oak 2, Mahogany 3; mastros 1 ou 2 (Caravel, Bergantin), 1 a 3 (Nao, Carrack), 2 ou 3 (Galleon, Heavy Galleon); velas 3-point (0) ou 4-point (1).
+- Durabilidade = 10 × tipo + 10 × casco + 20 (`D071`).
+- Manobra = (20 − tipo) × 100 / 20 × (10 − mastros) / 10 × (4 − velas) / 4, com mastros = 0, 1, 2 para 1, 2, 3 mastros (`D09D`).
+- Força (velocidade) = mín(100, (10 × mastros + 100) × (10 − tipo) / 10 × (velas + 3) / 4) (`D0E3`).
+- Capacidade = (tipo + 2) / 2 × 300 + (tipo ímpar ? tipo × 50 : 0) + (tipo / 5) × 50 − 200: 100, 150, 400, 550, 700, 1000 (`D12A`).
+- Canhões: até ((tipo / 2) + 1) × 20 + (tipo / 5) × 40 posições: 20, 20, 40, 40, 60, 100. Beliches: mínimo 20. Carga = capacidade − tripulação − canhões (`D36A`).
+- Preço = (((7 × tipo) / 2 + 1) × índice × (casco + 2) / 2) × 7 + ((tipo / 2) × 6 + 1) × índice × (mastros + 1) × 3, teto 60.000; índice = índice de preço do porto em % (`D41F`).
+- Barganha: ao recusar o preço, chance 1/(título + 1) de poder propor outro valor; o mínimo aceito é preço − rand(preço / 10).
+
+### Navio usado (`z_tyuuko`)
+- Modelos (registros de `fdata` +$0481, 21 bytes: nome[15], tripulação, canhões, carga, byte de projeto): Latin, Redonda, Bergantin, Nao, Carrack, Galleon.
+
+| Modelo | Tripulação | Canhões | Carga | Projeto |
+| --- | --- | --- | --- | --- |
+| Latin | 20 | 10 | 70 | Caravel, Beach, 1 mastro, 3-point |
+| Redonda | 20 | 10 | 70 | Caravel, Beach, 1 mastro, 4-point |
+| Bergantin | 25 | 20 | 105 | Bergantin, Beach, 1 mastro, 3-point |
+| Nao | 60 | 30 | 310 | Nao, Beach, 2 mastros, 4-point |
+| Carrack | 90 | 40 | 420 | Carrack, Beach, 2 mastros, 4-point |
+| Galleon | 160 | 50 | 490 | Galleon, Beach, 3 mastros, 4-point |
+
+- Oferta: modelos 0 até (indústria − 100) / 160; com chance 1/20 o vendedor tem um a mais ("There's a beauty in store for ye today", `D675`).
+- Durabilidade, manobra e força = as do projeto menos 5 a 9 (desgaste) (`D2C4`).
+- Preço = (índice − 10) × ((casco + 2) × (7 × tipo / 2 + 1) / 2 × 700 + (mastros + 1) × ((tipo / 2) × 6 + 1) × 300) / 100 (`D4B2`).
+- Barganha: ao recusar, chance 1/(título + 1); o mínimo aceito é (10 − título) × preço / 20 + preço / 2 − rand(preço / 10). Abaixo disso: "No good land-lubber!".
+- **Segredo**: na barganha, digitar **3594** como oferta compra o navio por 3.594 e em seguida deixa o ouro em **60.000** (`Z_TYUUKO_L_D5E3`, compara com `$0E0A`). O valor digitado não pode passar do ouro nem do preço pedido.
+
+### Reformas (`zousen`)
+- Renomear: 10 de ouro.
+- Canhões: Saker e Culverin custam 1 × índice cada, Cannon 2 × índice. Trocar o tipo revende os antigos pela metade do preço (`B473`).
+- Velas: trocar 3-point ↔ 4-point custa (mastros + 1) × (índice − 30) × 3 e recalcula manobra e força (`B722`).
+- Carrancas: Swan 1.000, Eagle 2.000, Unicorn 4.000, Lion 8.000, Dragon 16.000, Neptune 32.000; o estaleiro mostra economia / 170 + 1 delas. Com mais de 35.000 de ouro num porto de economia acima de 850, chance 1/100 de oferecerem a **Venus** por 30.000 + rand(1.000) (`B9A7`).
+
+## Pessoas e atributos
+- Ficha de pessoa em `$EAC0 + 10 × p` (p = 0 herói, 1.. imediatos, 20.. almirantes rivais): +1 Charisma, +2 Wisdom, +3 Intelligence, +4 Courage, +5 Strength, +6 experiência de batalha (word), +8 experiência de navegação (word). Tela de status em `root RD_8D13` ("Charisma / Wisdom / Strength / Courage / Intelligence").
+- Segunda ficha em `$E444 + 7 × p`: +0 ponteiro do nome, +2 nível de batalha, +3 nível de navegação. Lealdade dos imediatos em `$E970 + 2 × (p − 1)`.
+
+## Batalha (`senmain`, `senfe`)
+- Cada lado usa os atributos do navegador do navio que age. O inimigo usa 75 em tudo se for a capitânia, 65 nos demais; moral 80; nível = o do almirante da frota (`SENMAIN_F_A836`).
+- **Tiro** (`A9EE`): força = (2 × Courage + Charisma) × (nível / 5 + 1) / 40 + rand(5) + (2 × Courage + Charisma) / 15. No navio do herói soma força × (poder do melhor ícone) / 8; o inimigo sempre soma +25%. Teto 100.
+  Dano = mín(canhões, tripulação) / 2 × moral / 100 × força / 100 + rand(3); **Cannon dobra o dano**. Contra o navio do herói, cada nível de amuleto tira 10%; o tiro do jogador sai com −20%.
+  O alvo perde esse dano em durabilidade e metade dele (+ rand(3)) em tripulação, força e manobra.
+- **Abordagem** (`A8C5`, `A95C`): força = (2 × Strength + Wisdom + Courage) × (nível / 5 + 1) / 40 + rand(3), + poder da melhor arma / 8 no navio do herói. Baixas causadas = tripulação × moral / 150 × força / 100 + 1. Os dois lados trocam golpes.
+- Experiência de batalha ao afundar ou esvaziar um navio inimigo: (k − 4)² × 100, com k = modelo do inimigo (Latin 100, Redonda 400, Bergantin 900, Nao 1.600, Carrack 2.500, Galleon 3.600); teto 60.000.
+- Nível (`SENFE_F_B5C3`): do nível L para L+1 custa L² × 50 de experiência até o nível 14 e 12.000 a partir do 15; máximo 50. Cada nível ganho soma rand(4 × níveis) a Courage e a Strength (teto 100).
+- Fim: capitânia sem tripulação ou sem casco perde (`$F300 = 5`); a capitânia inimiga idem dá a vitória (`$F300 = 4`). Ao pôr do sol a luta acaba ("the sun's setting").
+
+## Taverna (`sakaba` e `s_*`)
+- **Marinheiros** (`s_nori`): você gasta de 50 até mín(ouro, 1.000); custo por homem = (20 − apoio português / 10) + (10 − título) + (1.000 − economia) / 100; vêm gasto / custo + rand(2) + 1 homens, limitados pelos beliches livres. Recrutar é mais barato em porto rico, português e com título alto.
+- **Imediatos** (`s_nsaso`, "Find mates"): o candidato compara o próprio atributo mais alto × (nível de batalha + nível de navegação) com o mesmo atributo do herói × níveis do herói × (1 + título / 10) + rand(20). Se o dele for maior: "You don't know who you're dealing with!".
+- **Garçonete** (`s_onna`): gorjeta de 10 de ouro soma 10 + rand(5) ao afeto dela (teto 200); acima de 100 ela às vezes recusa. A qualidade da informação sobe a cada 45 pontos de afeto. Ela conta onde estão frotas rivais, onde se vende uma mercadoria, quem tem o mapa do tesouro, e avisa quando o rei, o mercador ou o mestre da guilda procuram você.
+- **Jogo** (`s_tobaku`, `s_bj`, `s_pk`, `s_card`): Black Jack e Poker com baralho de 52 cartas embaralhado com 104 trocas aleatórias (honesto). No Black Jack a vitória paga 1 para 1; a casa encerra o dia quando seu ouro passa de (economia / 2 + rand(50)) acima do que você tinha ao sentar, ou chega a 60.000.
+
+## No mar (`uarugo`)
+- Todo dia, em cada navio: moral (+22 do registro de carga) sobe (2 × Charisma + Wisdom do navegador) / 60 + rand(2), teto 100; depois o consumo de água e comida. Moral abaixo de 20 faz perder (20 − moral)% da tripulação + 1. Navio com menos de 5 tripulantes some ("We've lost sight of..."); se for a capitânia, fim de jogo (`UARUGO_F_A529`).
+- **Tempestade** (`A762`, `A8A0`): a cada 10 passos, cada navio tem chance 1/(carranca + 1) de levar dano (−3 durabilidade, manobra e força, −2 tripulantes). Carranca 0 = nenhuma; Swan 1 … Neptune 6, Venus 7. Casco 0 ou menos de 5 tripulantes afunda o navio; a capitânia afundada é fim de jogo (`$F169 = 2`). Passada a tempestade: +200 + rand(50) de experiência de navegação e −(10 + rand(5)) de moral.
+- **Sargaço** (`A6C5`): o navio com o navegador de menor nível de navegação fica com força 0 ("caught up in seaweed").
+- **Desaparecimento** (`A706`): o navio do navegador de menor nível de navegação some com ele ("has mysteriously vanished"); se só houver a capitânia, só o aviso.

@@ -1418,10 +1418,10 @@ ZOUSEN_L_BA2F:
   k_gt
   k_jumpf ZOUSEN_L_BAAC
   k_pushib 100
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt ZOUSEN_L_BAAC
   k_pushiw $03E8
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addliw $7530
   k_stl -20
   k_call RF_60B2
@@ -1700,7 +1700,7 @@ ZOUSEN_F_BC65:
   k_shr
   k_pushl
   k_pushib 100
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_ldra g_fame
@@ -1740,7 +1740,7 @@ ZOUSEN_F_BCA2:
   k_udiv
   k_pushl
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_ldr -4
@@ -1944,7 +1944,7 @@ ZOUSEN_L_BE2B:
   k_udiv
   k_pushl
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_stl -8
@@ -2602,7 +2602,7 @@ ZOUSEN_L_C269:
   k_ldlba g_title
   k_inc
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt ZOUSEN_L_C290
   k_ldl -12
   k_ldri 10

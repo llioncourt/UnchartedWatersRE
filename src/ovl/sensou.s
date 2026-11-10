@@ -903,7 +903,7 @@ SENSOU_L_9BCD:
   k_stl -4
 SENSOU_L_9BEA:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf SENSOU_L_9C00
   k_leal -12
   k_pushl
@@ -930,7 +930,7 @@ SENSOU_L_9C00:
 SENSOU_L_9C0D:
   k_popstore
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf SENSOU_L_9C24
   k_leal -18
   k_pushl
@@ -995,7 +995,7 @@ SENSOU_L_9C5F:
   k_stl -4
 SENSOU_L_9C61:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf SENSOU_L_9C77
   k_leal -12
   k_pushl
@@ -1022,7 +1022,7 @@ SENSOU_L_9C77:
 SENSOU_L_9C84:
   k_popstore
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf SENSOU_L_9C9B
   k_leal -18
   k_pushl

@@ -564,7 +564,7 @@ MDISP1_L_B3D9:
   k_stln -3
 MDISP1_L_B3DB:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stln -5
   k_ldln -5
   k_shl1
@@ -990,7 +990,7 @@ MDISP1_L_B6B9:
   k_jump MDISP1_L_B6AD
 MDISP1_L_B6BD:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldriw MDISP1_D_BD2D
   k_add
   k_derefb
@@ -1357,7 +1357,7 @@ MDISP1_L_B8EA:
   k_pushi 2
   k_pushi 3
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -12
   k_add
   k_dec
@@ -1499,7 +1499,7 @@ MDISP1_L_B9AD:
   k_jump MDISP1_L_BA6E
 MDISP1_L_B9D9:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -20
   k_ldl -4
   k_jumpf MDISP1_L_B9E7

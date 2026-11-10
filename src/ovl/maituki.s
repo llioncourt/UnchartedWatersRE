@@ -23,7 +23,7 @@ MAITUKI_F_960C:
   k_add
   k_stl -2
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 2
   k_pushl
   k_ldl -2
@@ -90,7 +90,7 @@ MAITUKI_L_9647:
   k_derefb
   k_pushl
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_pushl
@@ -105,7 +105,7 @@ MAITUKI_L_9647:
   k_derefb
   k_pushl
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_pushl
@@ -253,7 +253,7 @@ MAITUKI_L_9745:
   k_add
   k_stl -10
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 7
   k_stl -2
   k_ldl -4
@@ -587,7 +587,7 @@ MAITUKI_L_9900:
   k_add
   k_stl -10
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 9
   k_stl -2
   k_ldl -4
@@ -603,7 +603,7 @@ MAITUKI_L_9900:
   k_or
   k_popstoreb
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 2
   k_ldri 4
   k_shl
@@ -959,7 +959,7 @@ MAITUKI_L_9B0C:
   k_jumpt MAITUKI_L_9B00
 MAITUKI_L_9B12:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 8
   k_stl -2
   k_ldl -4
@@ -975,7 +975,7 @@ MAITUKI_L_9B12:
   k_or
   k_popstoreb
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 2
   k_ldri 4
   k_shl
@@ -1289,7 +1289,7 @@ MAITUKI_F_9CCF:
   k_add
   k_stln -17
   k_pushib 100
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldln -17
   k_addli 2
@@ -1507,7 +1507,7 @@ MAITUKI_L_9E17:
   k_ne
   k_jumpt MAITUKI_L_9D9F
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stln -11
   k_ldln -17
   k_addli 3
@@ -1546,7 +1546,7 @@ MAITUKI_F_9E55:
   k_udiv
   k_pushl
   k_pushi 15
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_popr
@@ -1562,7 +1562,7 @@ MAITUKI_F_9E55:
   k_ldlba g_title
   k_pushl
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_pushiw $0005
   k_callx RL_884E, 2
@@ -1586,7 +1586,7 @@ MAITUKI_F_9E55:
   k_callx RL_8962, 4
   k_stla $EED0
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlba g_title
   k_pushl
@@ -1768,7 +1768,7 @@ MAITUKI_L_9F71:
   k_gt
   k_jumpf MAITUKI_L_A225
   k_pushib 100
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlarg 11
   k_shl1
@@ -1872,7 +1872,7 @@ MAITUKI_L_9FFD:
   k_derefb
   k_pushl
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_addli 3
@@ -1894,7 +1894,7 @@ MAITUKI_L_9FFD:
   k_jump MAITUKI_L_A224
 MAITUKI_L_A05D:
   k_pushib 100
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlarg 11
   k_shl1
@@ -1935,7 +1935,7 @@ MAITUKI_L_A05D:
   k_or
   k_stla $EA9D
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 2
   k_pushl
   k_ldlarg 11
@@ -2014,7 +2014,7 @@ MAITUKI_L_A0E4:
   k_gt
   k_jumpf MAITUKI_L_A102
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt MAITUKI_L_A0D3
 MAITUKI_L_A102:
   k_ldlarg 11
@@ -2042,7 +2042,7 @@ MAITUKI_L_A102:
   k_derefb
   k_pushl
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_inc
@@ -2115,7 +2115,7 @@ MAITUKI_L_A166:
   k_callx RL_884E, 2
   k_pushl
   k_pushi 7
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_ult
   k_jumpt MAITUKI_L_A0D3
@@ -2144,7 +2144,7 @@ MAITUKI_L_A166:
   k_derefb
   k_pushl
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_inc
@@ -2193,7 +2193,7 @@ MAITUKI_L_A1CB:
   k_and
   k_jumpt MAITUKI_L_A225
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt MAITUKI_L_A225
   k_ldlarg 11
   k_shl1
@@ -2316,7 +2316,7 @@ MAITUKI_L_A292:
   k_deref
   k_pushl
   k_pushib 90
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_popr
   k_add
@@ -2458,7 +2458,7 @@ MAITUKI_F_A339:
   k_shl1
   k_pushl
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_popr
@@ -2497,7 +2497,7 @@ MAITUKI_L_A381:
   k_shl1
   k_pushl
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_popr
@@ -2643,7 +2643,7 @@ MAITUKI_L_A472:
   k_ldl -10
 MAITUKI_L_A473:
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_swap
   k_ldl -10
   k_sub
@@ -2863,7 +2863,7 @@ MAITUKI_L_A5B1:
   k_derefb
   k_pushl
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_dec
@@ -2913,7 +2913,7 @@ MAITUKI_L_A5FE:
   k_derefb
   k_pushl
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 5
   k_pushl
   k_callx RL_8962, 4

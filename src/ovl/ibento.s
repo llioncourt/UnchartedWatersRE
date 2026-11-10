@@ -177,7 +177,7 @@ IBENTO_F_96D3:
   k_addli 15
   k_pushl
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlba g_title
   k_ldri 3
@@ -189,7 +189,7 @@ IBENTO_F_96D3:
   k_mul
   k_popstore
   k_pushi 12
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw IBENTO_D_9DE9
   k_add
@@ -201,7 +201,7 @@ IBENTO_F_96D3:
   k_push -4
   k_callx $89A1, 4
   k_pushi 13
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw IBENTO_D_9E01
   k_add
@@ -234,10 +234,10 @@ IBENTO_F_9721:
   k_callx map_rom_read, 6
 IBENTO_L_975A:
   k_pushib 24
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stln -17
   k_pushi 12
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stln -19
   k_pushiw $F300
   k_pushn -19
@@ -252,16 +252,16 @@ IBENTO_L_975A:
   k_callx RL_88F4, 6
 IBENTO_L_9786:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stln -5
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stln -7
   k_pushi 7
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stln -9
   k_pushi 7
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stln -11
   k_pushn -11
   k_pushn -9
@@ -285,10 +285,10 @@ IBENTO_L_9786:
   k_stln -21
 IBENTO_L_97C7:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stln -13
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stln -15
   k_pushn -15
   k_pushn -13
@@ -363,7 +363,7 @@ mission_crates_set:
   k_ldlba g_title
   k_pushl
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_stl -2
@@ -381,7 +381,7 @@ mission_letter_set:
   k_ldli 1
   k_stlba g_king_mission+2
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_inc
   k_stlbf -1
   k_ldlbf -1
@@ -568,7 +568,7 @@ IBENTO_L_9962:
   k_ldli 0
   k_stl -10
   k_pushib 90
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw $04FF
   k_add
@@ -624,7 +624,7 @@ IBENTO_F_9996:
   k_derefb
   k_pushl
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_pushl
@@ -639,7 +639,7 @@ IBENTO_F_9996:
   k_derefb
   k_pushl
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_pushl
@@ -655,7 +655,7 @@ IBENTO_F_9996:
   k_inc
   k_pushl
   k_pushib 20
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popstoreb
   k_push -10
   k_ldli 0
@@ -684,7 +684,7 @@ IBENTO_F_99FF:
   k_stl -16
 IBENTO_L_9A0D:
   k_pushib 20
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_inc
   k_stl -18
   k_ldli 0
@@ -760,7 +760,7 @@ IBENTO_L_9A6F:
   k_ldli 0
   k_stl -4
   k_pushib 20
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -6
   k_ldlarg 11
   k_ldrarg 13
@@ -804,7 +804,7 @@ mission_treasure_set:
   k_inc
   k_stln -7
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlba g_title
   k_ldri 3
@@ -819,7 +819,7 @@ mission_treasure_set:
   k_jump IBENTO_L_9B0F
 IBENTO_L_9ACB:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf IBENTO_L_9AE3
   k_call IBENTO_F_99FF
   k_stln -13
@@ -858,14 +858,14 @@ IBENTO_L_9B0F:
   k_ult
   k_jumpt IBENTO_L_9ACB
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf IBENTO_L_9B26
   k_ldli 0
   k_stlba g_king_mission+8
   k_jump IBENTO_L_9B51
 IBENTO_L_9B26:
   k_pushi 15
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 6
   k_stln -17
   k_ldln -17
@@ -1047,7 +1047,7 @@ IBENTO_F_9C18:
   k_func 2
 IBENTO_L_9C1D:
   k_pushib 28
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_inc
   k_stl -2
   k_ldl -2
@@ -1064,7 +1064,7 @@ IBENTO_F_9C32:
   k_func 2
 IBENTO_L_9C37:
   k_pushib 28
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_inc
   k_stl -2
   k_ldl -2
@@ -1088,7 +1088,7 @@ IBENTO_F_9C57:
   k_func 2
 IBENTO_L_9C5C:
   k_pushib 28
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_inc
   k_stl -2
   k_ldl -2
@@ -1178,7 +1178,7 @@ IBENTO_L_9CD9:
   k_ldlba g_title
   k_jumpf IBENTO_L_9D10
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlba g_title
   k_dec
@@ -1283,14 +1283,14 @@ IBENTO_L_9DAA:
   k_pushl
   k_callx RL_8962, 4
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_inc
 IBENTO_L_9DBB:
   k_stl -2
   k_ldl -2
   k_jumpf IBENTO_L_9DC8
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf IBENTO_L_9DCD
 IBENTO_L_9DC8:
   k_push -2

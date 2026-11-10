@@ -130,7 +130,7 @@ S_PK_L_B899:
   k_jump S_PK_L_B8CA
 S_PK_L_B8A6:
   k_push -4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -8
   k_ldli 1
   k_ldr -8
@@ -520,7 +520,7 @@ S_PK_L_BA9A:
 S_PK_F_BAA4:
   k_func 1
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_PK_L_BAB5
   k_ldli 4
   k_jump S_PK_L_BAB6
@@ -557,7 +557,7 @@ S_PK_L_BAE9:
   k_eq
   k_jumpf S_PK_L_BB00
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_PK_L_BB00
   k_pusharg 13
   k_pusharg 11
@@ -569,7 +569,7 @@ S_PK_L_BB00:
   k_eq
   k_jumpf S_PK_L_BB17
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_PK_L_BB17
   k_pusharg 13
   k_pusharg 11
@@ -593,7 +593,7 @@ S_PK_L_BB2E:
   k_eq
   k_jumpf S_PK_L_BB46
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_PK_L_BB46
   k_pusharg 13
   k_pusharg 11
@@ -605,7 +605,7 @@ S_PK_L_BB46:
   k_uge
   k_jumpf S_PK_L_BB5E
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_PK_L_BB5E
   k_pusharg 13
   k_pusharg 11
@@ -653,7 +653,7 @@ S_PK_L_BB9B:
   k_jumpf S_PK_L_BBCD
 S_PK_L_BBAB:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_PK_L_BBCD
   k_ldln -13
   k_addlib 20
@@ -1375,7 +1375,7 @@ S_PK_L_C001:
   k_ne
   k_jumpf S_PK_L_C010
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_PK_L_C01F
 S_PK_L_C010:
   k_ldln -13
@@ -1383,7 +1383,7 @@ S_PK_L_C010:
   k_eq
   k_jumpf S_PK_L_C065
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_PK_L_C065
 S_PK_L_C01F:
   k_ldlarg 13
@@ -1393,14 +1393,14 @@ S_PK_L_C01F:
   k_ldlarg 13
   k_deref
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_ldrarg 11
   k_ult
   k_jumpf S_PK_L_C03B
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_PK_L_C03B
   k_ldli 0
   k_return
@@ -1427,7 +1427,7 @@ S_PK_L_C050:
   k_add
   k_deref
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_PK_L_C065
   k_ldlarg 13
   k_deref
@@ -1442,7 +1442,7 @@ S_PK_L_C065:
   k_eq
   k_jumpf S_PK_L_C07B
   k_pushi 15
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jump S_PK_L_C087
 S_PK_L_C07B:
   k_ldln -19
@@ -1450,7 +1450,7 @@ S_PK_L_C07B:
   k_shr
   k_pushl
   k_pushi 15
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
 S_PK_L_C087:
@@ -1473,10 +1473,10 @@ S_PK_L_C09A:
   k_eq
   k_jumpf S_PK_L_C0BB
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_PK_L_C0BB
   k_pushn 25
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jump S_PK_L_C0B9
 S_PK_L_C0B3:
   k_ldlarg 13
@@ -1647,7 +1647,7 @@ S_PK_L_C17A:
   k_add
   k_pushl
   k_pushiw $03E8
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addliw $03E8
   k_popstore
   k_ldlf -144
@@ -1678,7 +1678,7 @@ S_PK_L_C17A:
   k_pushl
   k_callx S_PK_F_B81D, 2
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stln -92
 S_PK_L_C1D9:
   k_ldli 0
@@ -1701,7 +1701,7 @@ S_PK_L_C1E7:
   k_ldli 1
   k_popstore
   k_pushi 15
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 60
   k_pushl
   k_leal -140
@@ -1893,7 +1893,7 @@ S_PK_L_C30C:
   k_ldrf -144
   k_sub
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_PK_L_C34B
   k_leal -162
   k_pushl
@@ -2254,7 +2254,7 @@ S_PK_L_C587:
   k_pushl
   k_callx $B14C, 4
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_PK_L_C5BC
   k_leal -162
   k_pushl
@@ -2475,13 +2475,13 @@ S_PK_L_C6E4:
   k_eq
   k_jumpf S_PK_L_C740
   k_pushib 20
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_PK_L_C740
   k_leal -162
   k_pushl
   k_pushi 5
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_jump S_PK_L_C73C
 S_PK_L_C735:
@@ -2964,7 +2964,7 @@ S_PK_L_CA5E:
   k_eq
   k_jumpf S_PK_L_CAB2
   k_pushib 50
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlba g_port
   k_ldri 14
@@ -2986,7 +2986,7 @@ S_PK_L_CA5E:
   k_pushi 11
 S_PK_L_CA8B:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_jump S_PK_L_CB3E
 S_PK_L_CA94:
@@ -3064,7 +3064,7 @@ S_PK_L_CAB2:
   k_ldln -88
   k_jumpt S_PK_L_CB51
   k_pushib 100
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldra g_player_gold
   k_add
   k_addlib 100
@@ -3168,7 +3168,7 @@ S_PK_F_CBAD:
   k_ldri 4
   k_sdiv
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -6
   k_add
   k_pushl
@@ -3357,7 +3357,7 @@ S_PK_L_CCF1:
   k_stlarg 13
 S_PK_L_CCF9:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -10
   k_ldl -10
   k_ldr -8
@@ -3420,7 +3420,7 @@ S_PK_L_CD75:
   k_pushl
   k_callx $8979, 4
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 32
 S_PK_L_CD87:
   k_stlbf -18
@@ -3439,7 +3439,7 @@ S_PK_L_CD9B:
   k_pushl
   k_callx $8979, 4
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 36
   k_jump S_PK_L_CD87
 S_PK_L_CDB0:
@@ -3448,7 +3448,7 @@ S_PK_L_CDB0:
   k_pushl
   k_callx $8979, 4
   k_pushi 6
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 40
   k_jump S_PK_L_CD87
 S_PK_L_CDC5:
@@ -3457,7 +3457,7 @@ S_PK_L_CDC5:
   k_pushl
   k_callx $8979, 4
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 46
   k_jump S_PK_L_CD87
 S_PK_L_CDDA:
@@ -3466,7 +3466,7 @@ S_PK_L_CDDA:
   k_pushl
   k_callx $8979, 4
   k_pushi 7
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 50
   k_jump S_PK_L_CD87
 S_PK_L_CDEF:
@@ -3475,14 +3475,14 @@ S_PK_L_CDEF:
   k_pushl
   k_callx $8979, 4
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldriw S_PK_D_D757
   k_add
   k_derefb
   k_jump S_PK_L_CD87
 S_PK_L_CE07:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_PK_L_CE1D
   k_pushiw S_PK_D_D7C2
 S_PK_L_CE12:
@@ -3495,7 +3495,7 @@ S_PK_L_CE1D:
   k_jump S_PK_L_CE12
 S_PK_L_CE23:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw S_PK_D_D75D
   k_add
@@ -3508,7 +3508,7 @@ S_PK_L_CE32:
   k_pushl
   k_callx $8979, 4
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldra S_PK_D_D763
   k_add
   k_derefb
@@ -3526,7 +3526,7 @@ S_PK_L_CE59:
   k_pushl
   k_callx $8979, 4
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 74
   k_jump S_PK_L_CD87
 S_PK_L_CE6E:
@@ -3535,7 +3535,7 @@ S_PK_L_CE6E:
   k_pushl
   k_callx $8979, 4
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 76
   k_jump S_PK_L_CD87
 ; calls 5

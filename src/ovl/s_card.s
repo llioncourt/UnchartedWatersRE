@@ -135,10 +135,10 @@ S_CARD_F_B104:
   k_stln -5
 S_CARD_L_B10C:
   k_pushib 52
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stlbf -2
   k_pushib 52
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stlbf -3
   k_ldlbf -2
   k_ldrarg 11

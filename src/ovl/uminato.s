@@ -697,11 +697,11 @@ UMINATO_L_99D8:
   k_ult
   k_jumpt UMINATO_L_99D8
   k_pushi 14
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 6
   k_stl -8
   k_pushi 6
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 5
   k_stl -10
   k_push -2
@@ -756,7 +756,7 @@ UMINATO_L_99D8:
   k_add
   k_pushl
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popstore
   k_ldl -2
   k_inc
@@ -1166,7 +1166,7 @@ UMINATO_L_9CA0:
   k_add
   k_stl -10
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldriw UMINATO_D_ACBC
   k_add
   k_derefb
@@ -1489,12 +1489,12 @@ UMINATO_L_9E4C:
 UMINATO_L_9E62:
   k_pusharg 13
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
 UMINATO_L_9E68:
   k_popstore
   k_pushi 4
 UMINATO_L_9E6A:
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UMINATO_L_9E75
   k_ldli 1
   k_jump UMINATO_L_9E76
@@ -1521,7 +1521,7 @@ UMINATO_L_9E76:
 UMINATO_L_9E9F:
   k_pusharg 13
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UMINATO_L_9EAC
   k_ldli 1
   k_jump UMINATO_L_9EAD
@@ -1534,7 +1534,7 @@ UMINATO_L_9EAD:
 UMINATO_L_9EB2:
   k_pusharg 13
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UMINATO_L_9EBF
   k_ldli 1
   k_jump UMINATO_L_9E68
@@ -1608,7 +1608,7 @@ UMINATO_L_9F23:
   k_ldln -17
   k_jumpf UMINATO_L_9F54
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stln -15
   k_ldlarg 11
   k_addliw $0098
@@ -1628,12 +1628,12 @@ UMINATO_L_9F44:
   k_addliw $0098
   k_pushl
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
 UMINATO_L_9F53:
   k_popstore
 UMINATO_L_9F54:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldriw UMINATO_D_ACBF
   k_add
   k_derefb
@@ -1940,7 +1940,7 @@ UMINATO_L_A13F:
   k_ldl -4
   k_jumpf UMINATO_L_A1BB
   k_pushib 32
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -12
   k_ldl -12
   k_ldri 15
@@ -3256,7 +3256,7 @@ UMINATO_L_AA58:
   k_call RF_60EE
   k_pushi 1
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw UMINATO_D_AE1E
   k_add

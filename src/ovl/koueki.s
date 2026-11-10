@@ -1772,7 +1772,7 @@ KOUEKI_L_BAE4:
   k_return
 KOUEKI_L_BB48:
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 70
   k_pushl
   k_ldlba g_port
@@ -2927,7 +2927,7 @@ port_alliance_check:
   k_shr
   k_pushl
   k_pushib 100
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_ldra g_fame
@@ -2967,7 +2967,7 @@ KOUEKI_F_C31E:
   k_udiv
   k_pushl
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_ldr -4
@@ -3164,7 +3164,7 @@ KOUEKI_L_C48F:
   k_ugt
   k_jumpf KOUEKI_L_C4BB
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlba g_port
   k_ldri 14
@@ -3175,7 +3175,7 @@ KOUEKI_L_C48F:
   k_jump KOUEKI_L_C4D0
 KOUEKI_L_C4BB:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlba g_port
   k_ldri 14

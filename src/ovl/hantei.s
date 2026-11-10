@@ -262,7 +262,7 @@ HANTEI_L_B191:
 HANTEI_F_B196:
   k_func 6
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 3
   k_ldriw $01F4
   k_mul
@@ -302,7 +302,7 @@ HANTEI_L_B1DA:
   k_ugt
   k_jumpf HANTEI_L_B20C
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf HANTEI_L_B20C
   k_call RF_60B2
   k_pushi 1
@@ -521,7 +521,7 @@ HANTEI_F_B39F:
   k_callx RF_2FB9, 4
   k_call RF_472D
   k_pushib 120
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlba g_hero_stats+4
   k_pushl
@@ -591,7 +591,7 @@ HANTEI_F_B41E:
   k_udiv
   k_stl -4
   k_push -4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -4
   k_add
   k_addlib 100
@@ -665,7 +665,7 @@ HANTEI_L_B4D3:
 HANTEI_F_B4D5:
   k_func 0
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt HANTEI_L_B4FE
   k_pushi 1
   k_pusha $F9A0
@@ -796,11 +796,11 @@ HANTEI_F_B5CF:
   k_ne
   k_jumpf HANTEI_L_B5FF
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf HANTEI_L_B608
 HANTEI_L_B5FF:
   k_pushib 20
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt HANTEI_L_B62C
 HANTEI_L_B608:
   k_ldlba g_port
@@ -811,7 +811,7 @@ HANTEI_L_B608:
   k_callx RF_609A, 2
   k_pushi 1
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf HANTEI_L_B625
   k_ldliw HANTEI_D_BC9F
   k_jump HANTEI_L_B628
@@ -826,7 +826,7 @@ HANTEI_L_B62C:
   k_ldlba $E442
   k_jumpt HANTEI_L_B64C
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt HANTEI_L_B64C
   k_pushi 1
   k_callx RF_609A, 2
@@ -850,13 +850,13 @@ HANTEI_L_B64C:
   k_and
   k_jumpf HANTEI_L_B68D
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf HANTEI_L_B68D
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 1
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf HANTEI_L_B687
   k_ldliw HANTEI_D_BD5F
   k_jump HANTEI_L_B628
@@ -869,7 +869,7 @@ HANTEI_L_B68D:
   k_ult
   k_jumpf HANTEI_L_B6DB
   k_pushi 12
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt HANTEI_L_B6DB
   k_pushi 1
   k_callx RF_609A, 2
@@ -879,7 +879,7 @@ HANTEI_L_B68D:
   k_call RF_472D
   k_call RF_60B2
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_switchn 3
     .word $0000, HANTEI_L_B6C6
     .word $0001, HANTEI_L_B6CD
@@ -972,7 +972,7 @@ HANTEI_L_B734:
   k_callx HANTEI_F_B0D2, 6
   k_stl -2
   k_pushiw $012C
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -2
   k_uge
   k_jumpf HANTEI_L_B7A9
@@ -993,7 +993,7 @@ HANTEI_L_B734:
   k_callx HANTEI_F_B13E, 6
   k_stl -4
   k_pushib 100
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -4
   k_ult
   k_jumpf HANTEI_L_B7B4

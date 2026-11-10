@@ -121,7 +121,7 @@ S_NORI_L_B878:
   k_udiv
   k_pushl
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_inc

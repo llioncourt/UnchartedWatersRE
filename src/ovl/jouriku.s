@@ -1873,7 +1873,7 @@ JOURIKU_L_A15D:
   k_derefb
   k_pushl
   k_pushib 100
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_uge
   k_jumpf JOURIKU_L_A184
@@ -2139,7 +2139,7 @@ JOURIKU_L_A33B:
   k_leal -30
   k_pushl
   k_push -10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_derefb
@@ -2167,7 +2167,7 @@ JOURIKU_L_A35A:
   k_derefb
   k_pushl
   k_pushib 30
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 70
   k_popr
   k_ule

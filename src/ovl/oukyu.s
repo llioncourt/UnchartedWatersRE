@@ -101,14 +101,14 @@ OUKYU_L_B0B2:
   k_derefb
   k_inc
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldrib 20
   k_ugt
   k_jumpt OUKYU_L_B0D4
   k_ldlba g_title
   k_inc
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt OUKYU_L_B0E2
 OUKYU_L_B0D4:
   k_pushi 1
@@ -528,7 +528,7 @@ OUKYU_L_B3DD:
   k_ldlba g_title
   k_pushl
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 3
   k_popr
   k_mul
@@ -628,7 +628,7 @@ OUKYU_L_B486:
   k_ldri 10
   k_udiv
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_swap
@@ -714,7 +714,7 @@ OUKYU_L_B546:
   k_ldri 10
   k_udiv
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_swap
@@ -794,7 +794,7 @@ OUKYU_L_B5F5:
   k_ldlba g_title
   k_pushl
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 3
   k_popr
   k_mul
@@ -853,7 +853,7 @@ OUKYU_L_B65F:
   k_ldri 10
   k_udiv
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_swap
@@ -920,7 +920,7 @@ OUKYU_L_B6EF:
   k_ldri 10
   k_udiv
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_swap
@@ -1015,7 +1015,7 @@ OUKYU_L_B7D8:
   k_ldlba g_title
   k_pushl
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 3
   k_popr
   k_mul
@@ -1074,7 +1074,7 @@ OUKYU_L_B842:
   k_ldri 10
   k_udiv
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_swap
@@ -1158,7 +1158,7 @@ OUKYU_L_B8F3:
   k_ldri 10
   k_udiv
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_swap
@@ -1306,7 +1306,7 @@ OUKYU_L_BA10:
   k_ldri 10
   k_udiv
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_swap
@@ -1385,7 +1385,7 @@ OUKYU_L_BAB5:
   k_ldri 10
   k_udiv
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_swap
@@ -1431,7 +1431,7 @@ OUKYU_L_BADF:
   k_udiv
   k_pushl
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_pushi 0
   k_callx RF_4190, 2
@@ -1570,7 +1570,7 @@ OUKYU_L_BC4A:
   k_ldri 10
   k_udiv
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_swap
@@ -1612,7 +1612,7 @@ OUKYU_L_BCA1:
   k_ldri 10
   k_udiv
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_swap
@@ -1920,7 +1920,7 @@ OUKYU_L_BEBD:
   k_ldlbf -1
   k_addli 3
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt OUKYU_L_BEED
   k_pushiw OUKYU_D_D322
   k_callx RF_4B44, 2
@@ -2563,7 +2563,7 @@ OUKYU_F_C38C:
   k_return
 OUKYU_L_C3D1:
   k_pushib 100
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlbf -6
   k_popr
@@ -2572,7 +2572,7 @@ OUKYU_L_C3D1:
   k_ldlba g_title
   k_pushl
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_ldri 3
@@ -2646,7 +2646,7 @@ OUKYU_L_C416:
   k_popr
   k_shl
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jump OUKYU_L_C490
 OUKYU_L_C48F:
   k_ldli 1
@@ -2665,7 +2665,7 @@ OUKYU_L_C490:
   k_udiv
   k_inc
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jump OUKYU_L_C4B0
 OUKYU_L_C4AF:
   k_ldli 0
@@ -2913,7 +2913,7 @@ OUKYU_L_C688:
   k_ldlbf -6
   k_pushl
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_popr

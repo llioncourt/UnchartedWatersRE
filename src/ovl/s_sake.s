@@ -359,7 +359,7 @@ S_SAKE_L_BA08:
 S_SAKE_F_BA0A:
   k_func 0
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_SAKE_L_BA2D
   k_pushi 0
   k_pushiw S_SAKE_D_C680
@@ -533,7 +533,7 @@ S_SAKE_F_BB09:
   k_add
   k_stl -4
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_SAKE_L_BBAB
   k_ldl -4
   k_addli 5
@@ -638,7 +638,7 @@ S_SAKE_L_BBF5:
   k_ldlba g_port
   k_pushl
   k_pushib 19
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_stl -4
@@ -1213,10 +1213,10 @@ S_SAKE_L_C033:
   k_jump S_SAKE_L_BFBF
 S_SAKE_L_C07E:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_SAKE_L_C0C6
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_inc
   k_ldrib 100
   k_mul
@@ -1579,7 +1579,7 @@ S_SAKE_L_C3B6:
 S_SAKE_F_C3B7:
   k_func 0
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_callx S_SAKE_F_B906, 2
   k_ldlba g_king_mission+2
@@ -1605,10 +1605,10 @@ S_SAKE_L_C3F0:
 S_SAKE_F_C3F6:
   k_func 39
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_SAKE_L_C47C
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_callx S_SAKE_F_B906, 2
   k_leal -27
@@ -1620,14 +1620,14 @@ S_SAKE_F_C3F6:
   k_leal -27
   k_pushl
   k_pushn -35
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_derefb
   k_jump S_SAKE_L_C432
 S_SAKE_L_C42C:
   k_pushib 26
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
 S_SAKE_L_C432:
   k_stln -29
   k_pushn -29
@@ -1663,17 +1663,17 @@ S_SAKE_L_C432:
   k_return
 S_SAKE_L_C47C:
   k_pushi 6
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_SAKE_L_C578
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_callx S_SAKE_F_B906, 2
 S_SAKE_L_C48E:
   k_ldlba g_port
   k_pushl
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_addlib -2
@@ -1892,7 +1892,7 @@ S_SAKE_L_C5E9:
   k_addliw $012C
   k_pushl
   k_pushiw $03E8
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_ugt
   k_jumpf S_SAKE_L_C65B
@@ -1910,7 +1910,7 @@ S_SAKE_L_C65B:
   k_and
   k_jumpf S_SAKE_L_C67B
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf S_SAKE_L_C67B
   k_call S_SAKE_F_C3B7
   k_jump S_SAKE_L_C67E

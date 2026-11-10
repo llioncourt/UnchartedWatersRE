@@ -326,7 +326,7 @@ SCOM_F_9762:
 SCOM_F_978F:
   k_func 6
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt SCOM_L_97B6
   k_ldlarg 11
   k_addlib 20

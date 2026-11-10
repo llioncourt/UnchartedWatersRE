@@ -97,7 +97,7 @@ UCOM_F_9675:
   k_ldlba $EF81
   k_jumpf UCOM_L_9695
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UCOM_L_9695
   k_call RF_5C91
   k_pushiw UCOM_D_BF87
@@ -630,7 +630,7 @@ UCOM_L_99AE:
   k_derefb
   k_pushl
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_pushl
@@ -645,7 +645,7 @@ UCOM_L_99AE:
   k_derefb
   k_pushl
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_pushl
@@ -660,7 +660,7 @@ UCOM_L_99AE:
   k_derefb
   k_pushl
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_pushl
@@ -1038,7 +1038,7 @@ UCOM_L_9C25:
   k_ult
   k_jumpt UCOM_L_9BD2
   k_push -18
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stln -30
   k_leal -16
   k_pushl
@@ -1671,20 +1671,20 @@ UCOM_L_9FE7:
 UCOM_L_9FF5:
   k_stl -12
   k_pushiw $00B4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldl -12
   k_popr
   k_ult
   k_jumpf UCOM_L_A03B
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -16
   k_add
   k_addlib -2
   k_stl -16
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -18
   k_add
   k_dec
@@ -2016,7 +2016,7 @@ UCOM_L_A217:
   k_deref
   k_callptr
   k_pushib 80
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 100
   k_pushl
   k_ldln -17
@@ -2751,7 +2751,7 @@ UCOM_F_A6DF:
   k_stl -2
 UCOM_L_A6E6:
   k_pushib 27
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -4
   k_push -4
   k_callx UCOM_F_A6A3, 2
@@ -2803,7 +2803,7 @@ UCOM_L_A724:
   k_leal -25
   k_pushl
   k_pushn -27
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_derefb

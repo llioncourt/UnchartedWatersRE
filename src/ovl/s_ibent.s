@@ -207,7 +207,7 @@ S_IBENT_L_B98A:
   k_pushiw S_IBENT_D_BBEB
   k_callx RF_4B44, 2
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldri 5
   k_mul
   k_addliw $012C
@@ -246,7 +246,7 @@ S_IBENT_L_B9B7:
   k_pushi 4
   k_callx RF_21EA, 4
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldri 5
   k_mul
   k_addlib 100

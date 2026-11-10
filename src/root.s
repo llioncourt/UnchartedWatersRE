@@ -4555,7 +4555,7 @@ RL_3EEE:
   k_pushib 29
   k_callx syscall, 8  ; sys 29 file_palette_dma
   k_return
-RF_3F01:
+rng:
   k_func 0
   k_longw $10, $F278
   k_longd $19, $41C64E6D
@@ -4577,14 +4577,14 @@ RF_3F31:
   k_longw $12, $F278
   k_return
 ; calls 1
-RF_3F3E:
+rand:
   k_func 0
   k_ldlarg 11
   k_jumpt RL_3F49
   k_ldli 0
   k_return
 RL_3F49:
-  k_call RF_3F01
+  k_call rng
   k_ldrarg 11
   k_umod
   k_return
@@ -5898,7 +5898,7 @@ RL_4651:
   k_add
   k_stl -8
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -12
   k_ldl -12
   k_ldri 8
@@ -5908,7 +5908,7 @@ RL_4651:
   k_add
   k_stl -8
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -12
   k_ldl -12
   k_ldri 6
@@ -5918,7 +5918,7 @@ RL_4651:
   k_add
   k_stl -8
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -12
   k_ldl -12
   k_ldri 4
@@ -5928,7 +5928,7 @@ RL_4651:
   k_add
   k_stl -8
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -12
   k_ldl -12
   k_shl1
@@ -5938,7 +5938,7 @@ RL_4651:
   k_add
   k_stl -8
   k_pushi 4
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -12
   k_ldl -12
   k_swap
@@ -8528,7 +8528,7 @@ RL_5667:
   k_eq
   k_jumpf RL_5675
   k_pushi 8
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stlarg 15
 RL_5675:
   k_pushi 0
@@ -8691,7 +8691,7 @@ RL_5751:
   k_leal -8
   k_pushl
   k_push -10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_derefb
@@ -8737,26 +8737,26 @@ RF_5788:
   k_func 0
 RL_578D:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf RL_57A7
   k_pusharg 11
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldri 13
   k_mul
   k_popstoreb
   k_pusharg 13
   k_pushi 14
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jump RL_57B6
 RL_57A7:
   k_pusharg 11
   k_pushi 14
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popstoreb
   k_pusharg 13
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldri 13
   k_mul
 RL_57B6:
@@ -14945,12 +14945,12 @@ RL_7E75:
   k_udiv
   k_stl -4
   k_pushiw $0258
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -4
   k_ult
   k_jumpf RL_7EC1
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt RL_7EB5
   k_ldl -4
   k_ldri 1
@@ -14985,7 +14985,7 @@ RL_7ED0:
   k_pusharg 11
   k_callx RF_5BBB, 2
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlba g_month
   k_ldri 2
@@ -15011,7 +15011,7 @@ RL_7EF6:
   k_and
   k_stlba $EF82
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlba g_month
   k_ldri 2
@@ -15190,7 +15190,7 @@ RL_7FE3:
 RF_8029:
   k_func 12
   k_pushib 20
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt RL_803D
   k_pushi 1
   k_pushi 1
@@ -15433,7 +15433,7 @@ RL_81B0:
   k_stlba $F198
 RL_81C2:
   k_pushib 60
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf RL_81EF
   k_ldl -4
   k_addli 15

@@ -313,7 +313,7 @@ S_NSASO_L_BA03:
   k_add
   k_stln -62
   k_pushib 20
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldrn -62
   k_add
   k_pushl
@@ -349,7 +349,7 @@ S_NSASO_L_BA6F:
   k_ult
   k_jumpf S_NSASO_L_BA8C
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 20
   k_pushl
   k_ldln -70

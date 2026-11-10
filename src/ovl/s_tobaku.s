@@ -34,7 +34,7 @@ S_TOBAKU_F_B80F:
   k_ult
   k_jumpf S_TOBAKU_L_B83E
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_TOBAKU_L_B883
 S_TOBAKU_L_B83E:
   k_ldlba g_port
@@ -54,7 +54,7 @@ S_TOBAKU_L_B83E:
   k_long $2C
   k_jumpt S_TOBAKU_L_B883
   k_pushib 20
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlib 100
   k_popr
@@ -65,7 +65,7 @@ S_TOBAKU_L_B83E:
   k_ult
   k_jumpt S_TOBAKU_L_B883
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 4
   k_pushl
   k_ldlba $EA88
@@ -123,7 +123,7 @@ S_TOBAKU_L_B8CB:
   k_ult
   k_jumpt S_TOBAKU_L_B8E7
   k_pushib 30
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_TOBAKU_L_B913
 S_TOBAKU_L_B8E7:
   k_ldlbf -1
@@ -134,7 +134,7 @@ S_TOBAKU_L_B8E7:
   k_jump S_TOBAKU_L_B8FB
 S_TOBAKU_L_B8F5:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_inc
 S_TOBAKU_L_B8FB:
   k_stlbf -1
@@ -172,11 +172,11 @@ S_TOBAKU_F_B91A:
   k_ult
   k_jumpf S_TOBAKU_L_B949
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt S_TOBAKU_L_B974
 S_TOBAKU_L_B949:
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldlib 60
   k_popr

@@ -98,7 +98,7 @@ CMINATO_F_9662:
   k_add
   k_stl -2
   k_pushib 16
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 15
   k_stl -4
   k_ldl -4
@@ -117,7 +117,7 @@ CMINATO_F_9662:
   k_and
   k_popstoreb
   k_pushi 6
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -6
   k_ugt
   k_jumpf CMINATO_L_96C9
@@ -281,7 +281,7 @@ CMINATO_L_973D:
   k_derefb
   k_pushl
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_addli 4
@@ -442,7 +442,7 @@ CMINATO_L_984B:
   k_udiv
   k_pushl
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_pushl
@@ -468,7 +468,7 @@ CMINATO_L_984B:
   k_ldliw g_relations
   k_stln -27
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 4
   k_pushl
   k_ldln -43
@@ -685,7 +685,7 @@ CMINATO_L_99B4:
   k_sdiv
   k_pushl
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_pushl
@@ -927,7 +927,7 @@ CMINATO_L_9B29:
   k_add
   k_stln -15
   k_pushib 50
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldln -15
   k_deref
@@ -971,7 +971,7 @@ CMINATO_L_9B63:
   k_derefb
   k_pushl
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 2
   k_pushl
   k_callx RL_8962, 4
@@ -989,7 +989,7 @@ CMINATO_L_9B9C:
   k_addli 9
   k_pushl
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldriw $03E8
   k_mul
   k_addliw $2710
@@ -1237,7 +1237,7 @@ CMINATO_F_9BB3:
   k_ult
   k_jumpf CMINATO_L_9D09
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 90
   k_pushl
   k_ldl -4
@@ -1256,7 +1256,7 @@ CMINATO_F_9BB3:
   k_deref
   k_pushl
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_addlib 20
@@ -1414,7 +1414,7 @@ CMINATO_L_9DD4:
   k_addli 5
   k_pushl
   k_pushi 15
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 3
 CMINATO_L_9DDD:
   k_popstoreb
@@ -1466,7 +1466,7 @@ CMINATO_L_9E1F:
   k_ult
   k_jumpt CMINATO_L_9E05
   k_pushiw $02BC
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldr -4
   k_lt
   k_jumpf CMINATO_L_9E40
@@ -1527,7 +1527,7 @@ CMINATO_L_9E79:
   k_mul
   k_pushl
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_inc
@@ -1710,7 +1710,7 @@ CMINATO_L_9F60:
   k_leal -5
   k_pushl
   k_pushn -9
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_derefb
@@ -1793,7 +1793,7 @@ CMINATO_F_9FC0:
   k_leal -5
   k_pushl
   k_pushn -7
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_derefb
@@ -1855,7 +1855,7 @@ CMINATO_L_A047:
   k_jump CMINATO_L_A046
 CMINATO_L_A04F:
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf CMINATO_L_A03C
 CMINATO_L_A057:
   k_pusharg 11
@@ -1985,7 +1985,7 @@ CMINATO_L_A0F6:
   k_addli 5
   k_pushl
   k_pushib 47
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 3
 CMINATO_L_A100:
   k_popstoreb

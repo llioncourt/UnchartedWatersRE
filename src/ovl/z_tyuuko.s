@@ -429,7 +429,7 @@ Z_TYUUKO_L_D2E7:
   k_ldl -2
   k_stlbf -3
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 5
   k_stlbf -15
   k_pushn -17
@@ -854,7 +854,7 @@ Z_TYUUKO_L_D5E3:
   k_ldlba g_title
   k_inc
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt Z_TYUUKO_L_D5C7
   k_call RF_60B2
   k_pushn -15
@@ -884,7 +884,7 @@ Z_TYUUKO_L_D619:
   k_ldri 10
   k_sdiv
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldln -7
   k_ldri 2
@@ -950,7 +950,7 @@ Z_TYUUKO_F_D675:
   k_ult
   k_jumpf Z_TYUUKO_L_D6B7
   k_pushib 20
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt Z_TYUUKO_L_D6B7
   k_pushi 1
   k_callx RF_609A, 2

@@ -1069,7 +1069,7 @@ UMINATO2_F_B784:
   k_stla g_portrait
   k_call RF_60EE
   k_pushib 90
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UMINATO2_L_B7A7
   k_pushi 1
   k_callx RF_609A, 2
@@ -1090,7 +1090,7 @@ UMINATO2_L_B7A7:
   k_ult
   k_jumpf UMINATO2_L_B7D1
   k_pushib 40
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UMINATO2_L_B7D1
   k_pushi 1
   k_callx RF_609A, 2
@@ -1107,7 +1107,7 @@ UMINATO2_L_B7D1:
   k_ult
   k_jumpf UMINATO2_L_B7F5
   k_pushib 50
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UMINATO2_L_B7F5
   k_pushi 1
   k_callx RF_609A, 2
@@ -1124,7 +1124,7 @@ UMINATO2_L_B7F5:
   k_ult
   k_jumpf UMINATO2_L_B819
   k_pushib 50
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UMINATO2_L_B819
   k_pushi 1
   k_callx RF_609A, 2
@@ -1133,7 +1133,7 @@ UMINATO2_L_B7F5:
   k_return
 UMINATO2_L_B819:
   k_pushib 100
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 70
   k_pushl
   k_ldla g_player_gold
@@ -1141,7 +1141,7 @@ UMINATO2_L_B819:
   k_ult
   k_jumpf UMINATO2_L_B83F
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UMINATO2_L_B83F
   k_pushi 1
   k_callx RF_609A, 2
@@ -1164,11 +1164,11 @@ UMINATO2_L_B83F:
   k_ne
   k_jumpf UMINATO2_L_B861
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf UMINATO2_L_B86A
 UMINATO2_L_B861:
   k_pushib 30
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UMINATO2_L_B89D
 UMINATO2_L_B86A:
   k_ldlba g_port
@@ -1178,13 +1178,13 @@ UMINATO2_L_B86A:
   k_pushi 1
   k_callx RF_609A, 2
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf UMINATO2_L_B886
   k_ldliw UMINATO2_D_BC84
   k_jump UMINATO2_L_B897
 UMINATO2_L_B886:
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf UMINATO2_L_B894
   k_ldliw UMINATO2_D_BCA1
   k_jump UMINATO2_L_B897
@@ -1203,7 +1203,7 @@ UMINATO2_L_B89D:
   k_eq
   k_jumpf UMINATO2_L_B8C0
   k_pushi 15
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UMINATO2_L_B8C0
   k_pushi 1
   k_callx RF_609A, 2

@@ -120,7 +120,7 @@ ERAM = {
 
 # bytecode functions, (module, address) -> name
 FUNCS = {
-    ('root', 0x21BE): 'syscall', ('root', 0x3F4F): 'map_rom_read', ('root', 0x5449): 'map_load_zone',
+    ('root', 0x21BE): 'syscall', ('root', 0x3F3E): 'rand', ('root', 0x3F01): 'rng', ('root', 0x3F4F): 'map_rom_read', ('root', 0x5449): 'map_load_zone',
     ('root', 0x54D9): 'map_open', ('root', 0x837B): 'portrait_compose', ('root', 0x41CD): 'item_best_power',
     ('root', 0x4353): 'port_owner_update', ('root', 0x8272): 'deadline_check', ('root', 0x22A8): 'face_block_load',
     ('cminato', 0x96CA): 'rival_merchant_trade', ('cminato', 0x9AFF): 'rival_fleet_home',

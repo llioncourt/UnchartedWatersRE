@@ -1020,7 +1020,7 @@ Z_SINZOU_L_D651:
   k_ldlba g_title
   k_inc
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt Z_SINZOU_L_D6FB
   k_call RF_60B2
   k_pushn -9
@@ -1044,7 +1044,7 @@ Z_SINZOU_L_D651:
   k_ldri 10
   k_udiv
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_long $26
   k_long $14
   k_longw $0C, $FFEF

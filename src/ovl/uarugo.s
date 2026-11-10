@@ -254,7 +254,7 @@ UARUGO_L_9736:
   k_eq
   k_jumpt UARUGO_L_9866
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UARUGO_L_986C
   k_ldl -14
   k_derefb
@@ -643,14 +643,14 @@ UARUGO_L_9957:
   k_deref
   k_jumpf UARUGO_L_9973
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf UARUGO_L_9973
   k_ldl -2
   k_addli 6
   k_derefb
   k_jumpt UARUGO_L_9989
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpf UARUGO_L_9989
 UARUGO_L_9973:
   k_ldl -6
@@ -755,7 +755,7 @@ UARUGO_L_9989:
   k_addli 6
   k_pushl
   k_pushi 6
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 5
 UARUGO_L_99F7:
   k_popstoreb
@@ -1503,7 +1503,7 @@ UARUGO_L_9DB2:
   k_jump UARUGO_L_9DC2
 UARUGO_L_9DBC:
   k_pushi 12
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 2
 UARUGO_L_9DC2:
   k_stl -12
@@ -1522,7 +1522,7 @@ UARUGO_L_9DCD:
   k_jump UARUGO_L_9DDD
 UARUGO_L_9DD7:
   k_pushi 12
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 2
 UARUGO_L_9DDD:
   k_stl -14
@@ -1738,7 +1738,7 @@ UARUGO_L_9F1E:
   k_ldlarg 11
   k_jumpt UARUGO_L_9F35
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UARUGO_L_9F35
   k_call UARUGO_F_AA23
 UARUGO_L_9F35:
@@ -1938,7 +1938,7 @@ UARUGO_L_9FB6:
   k_addli 6
   k_pushl
   k_pushi 6
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 5
   k_popstoreb
   k_pushi 1
@@ -2223,7 +2223,7 @@ UARUGO_L_A1A3:
   k_return
 UARUGO_L_A1FA:
   k_pushi 15
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UARUGO_L_A207
   k_pusharg 11
   k_callx UARUGO_F_9DEF, 2
@@ -2746,7 +2746,7 @@ UARUGO_L_A4E8:
   k_callx UARUGO_F_A3B5, 4
   k_jumpf UARUGO_L_A528
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 20
   k_pushl
   k_ldl -4
@@ -2766,7 +2766,7 @@ UARUGO_L_A4E8:
   k_derefb
   k_jumpf UARUGO_L_A528
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldli 5
   k_popr
@@ -2824,7 +2824,7 @@ UARUGO_L_A549:
   k_derefb
   k_pushl
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldln -17
   k_addli 2
@@ -3290,7 +3290,7 @@ UARUGO_L_A87C:
   k_derefb
   k_inc
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt UARUGO_L_A896
   k_ldl -2
   k_derefb
@@ -3379,7 +3379,7 @@ UARUGO_L_A8F0:
   k_deref
   k_pushl
   k_pushib 50
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_addliw $00C8
@@ -3389,7 +3389,7 @@ UARUGO_L_A8F0:
   k_popstore
 UARUGO_L_A938:
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 10
   k_pushl
   k_ldln -13
@@ -3979,7 +3979,7 @@ UARUGO_F_ACC3:
   k_shr
   k_pushl
   k_pushib 100
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_ldra g_fame

@@ -468,7 +468,7 @@ UM_SUB_L_B389:
   k_pushiw UM_SUB_D_C88A
   k_callx RF_2FB9, 4
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldri 5
   k_mul
   k_addlib 50
@@ -543,7 +543,7 @@ UM_SUB_L_B3B9:
   k_udiv
   k_pushl
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_pushi 0
   k_callx RF_4190, 2
@@ -2929,7 +2929,7 @@ UM_SUB_L_C564:
   k_ldli 0
   k_stlba g_princess
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldri 5
   k_mul
   k_addliw $00C8
@@ -2999,7 +2999,7 @@ UM_SUB_L_C587:
   k_ldlba g_title
   k_pushl
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_inc

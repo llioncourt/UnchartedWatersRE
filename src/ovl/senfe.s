@@ -95,7 +95,7 @@ SENFE_L_A565:
   k_popr
   k_sub
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_ugt
   k_jumpf SENFE_L_A5EB
@@ -155,7 +155,7 @@ SENFE_L_A5CF:
   k_add
   k_pushl
   k_pushib 25
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 4
   k_popstoreb
   k_ldlarg 15
@@ -186,10 +186,10 @@ SENFE_F_A5F5:
 SENFE_L_A605:
   k_push -4
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popstoreb
   k_pushib 30
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt SENFE_L_A618
   k_push -4
   k_ldli 3
@@ -223,10 +223,10 @@ SENFE_L_A62B:
   k_jumpt SENFE_L_A680
 SENFE_L_A637:
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt SENFE_L_A680
   k_pushi 8
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_stl -10
   k_ldli 0
   k_stl -4
@@ -477,12 +477,12 @@ SENFE_F_A785:
   k_jump SENFE_L_A7F6
 SENFE_L_A796:
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldrarg 11
   k_add
   k_stl -10
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldrarg 13
   k_add
   k_stl -12
@@ -513,7 +513,7 @@ SENFE_L_A796:
   k_add
   k_pushl
   k_pushi 2
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popstoreb
 SENFE_L_A7D0:
   k_push -6
@@ -1107,7 +1107,7 @@ SENFE_L_ABDE:
   k_pushib 25
   k_callx RF_4E29, 8
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_shl1
   k_ldriw SENFE_D_BFC3
   k_add
@@ -1718,7 +1718,7 @@ SENFE_L_B048:
   k_derefb
   k_jumpf SENFE_L_B0EB
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 5
   k_pushl
   k_ldl -2
@@ -1753,7 +1753,7 @@ SENFE_L_B048:
   k_addlib 20
   k_pushl
   k_pushib 40
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_ugt
   k_jumpf SENFE_L_B0A7
@@ -1788,7 +1788,7 @@ SENFE_L_B0A7:
   k_derefb
   k_pushl
   k_pushib 70
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_ugt
   k_jumpf SENFE_L_B0D6
@@ -1796,7 +1796,7 @@ SENFE_L_B0A7:
   k_inc
   k_pushl
   k_pushib 20
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 14
   k_popstoreb
   k_ldl -8
@@ -1812,7 +1812,7 @@ SENFE_L_B0A7:
   k_stl -12
 SENFE_L_B0D6:
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 5
   k_pushl
   k_ldl -6
@@ -2213,7 +2213,7 @@ SENFE_L_B3E8:
   k_ldln -26
   k_jumpf SENFE_L_B435
   k_pushib 60
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_pushl
   k_ldln -26
   k_ldri 10
@@ -2231,7 +2231,7 @@ SENFE_L_B3E8:
   k_add
   k_stl -8
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 8
   k_pushl
   k_ldl -8
@@ -2434,7 +2434,7 @@ SENFE_L_B50F:
   k_eq
   k_jumpf SENFE_L_B585
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_jumpt SENFE_L_B585
   k_ldl -12
   k_derefb
@@ -2503,7 +2503,7 @@ SENFE_L_B588:
   k_ult
   k_jumpt SENFE_L_B50F
   k_pushib 50
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 30
   k_ldr -24
   k_mul
@@ -2512,7 +2512,7 @@ SENFE_L_B588:
   k_add
   k_stla $F5AA
   k_pushib 50
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addlib 30
   k_ldr -24
   k_mul
@@ -2521,7 +2521,7 @@ SENFE_L_B588:
   k_add
   k_stla $F5AC
   k_pushi 3
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_inc
   k_ldr -24
   k_mul
@@ -3012,7 +3012,7 @@ SENFE_L_B849:
   k_shl1
   k_shl1
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_pushl
@@ -3030,7 +3030,7 @@ SENFE_L_B849:
   k_shl1
   k_shl1
   k_pushl
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_pushl
@@ -3157,7 +3157,7 @@ SENFE_L_B955:
   k_derefb
   k_pushl
   k_pushi 5
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_popr
   k_add
   k_addli 10
@@ -3172,7 +3172,7 @@ SENFE_L_B955:
   k_derefb
   k_stl -14
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_addli 10
   k_pushl
   k_ldl -14
@@ -3386,7 +3386,7 @@ SENFE_L_BAF4:
   k_udiv
   k_jumpf SENFE_L_BB58
   k_pushi 10
-  k_callx RF_3F3E, 2
+  k_callx rand, 2
   k_ldri 10
   k_mul
   k_pushl
