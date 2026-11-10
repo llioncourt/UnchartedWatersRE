@@ -73,3 +73,16 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 - Hospedagem (inn), informação sobre nações (pago), loja de itens (compra e venda de tesouros), encomendas de mercadores.
 - Cais: Sail, Restock (água, comida, madeira), Transfer.
 - Em porto hostil, oficiais podem confiscar a carga; dá para subornar (`hantei`).
+
+## Navegação (`ucom`)
+- Sextant: mostra a posição atual ("We don't have a sextant" sem ele). Telescope: muda a identificação das frotas à vista (`ucom A217`). Speculum: necessário para examinar a terra ("There's nothing unusual" sem ele, `ucom B273`).
+- Comandos no mar: direção (8 rumos), ancorar, aportar, desembarcar (escolher ponto), olhar/inspecionar/negociar com frotas, rações (1 a 99), dar ouro aos imediatos (lealdade), trocar navegador, descartar navio.
+
+## Taverna (`sakaba`, `s_*`)
+- Menus: Crew (recrutar marujos pagando, `s_nori`), Find mates / Quit mates (imediatos, `s_nsaso`/`s_nwaka`), Gossip (bebida, `s_sake`; moça da taverna, `s_onna`), Gamble (pôquer, blackjack, cartas; só em portos com índice suficiente, `s_tobaku`).
+- A taverna é a central de pistas: avisa quando o rei, o mercador-chefe, o mestre da guilda ou o dono da estalagem de outro porto procura você; diz onde comprar e vender cada mercadoria e quais portos precisam de investimento; e conduz a caça ao tesouro (quem tem o mapa, para que lado fica, que rival carrega o tesouro). A moça da taverna pode dar o mapa em troca de visitas.
+
+## Fins de jogo (`ending`, `$F169`)
+- `$F169` = 1: suprimentos acabaram no mar; 2: tempestade; 3: prazo (ano > 1521, `root 8272`); 4: derrota sem texto; `$FF`: final bom.
+- Prazo: o ano começa em 1502 (`$EA8D` = ano − 1500); ao virar 1522 o jogo acaba ("After 20 long years ... passed away").
+- Final bom (script em `ending $B51D`): o rei oferece Land, Princess, Honor ou Refuse. Land e Honor dão o título de Lord of Alcobaca; Princess leva ao casamento com Christiana e à coroa de Portugal; Land também pode terminar no pedido de casamento. Detalhar as condições do script.
