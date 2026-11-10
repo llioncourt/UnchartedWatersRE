@@ -13,6 +13,7 @@ from kbc import insn as kinsn
 
 ROM = TR.ROM
 ROOTDIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+PTR_LOADS = {'LDA', 'LDX', 'LDY'}
 WORD_IMM_OPS = {0x8A, 0x8C, 0x8E, 0x90, 0xA4, 0xA5, 0xA6, 0xA7, 0xA8, 0xA9, 0xAA, 0xAB}
 
 class Mod:
@@ -44,7 +45,8 @@ def load_mods():
         mods[name] = Mod(name, start, size, off, ins)
     return mods
 
-def collect_refs(mods):
+def collect_refs(mods, imm_ok=None):
+    """imm_ok: None = skip immediate operands; else a function (mod, addr) -> bool that accepts them."""
     root = mods['root']
     for m in mods.values():
         for a, t in m.starts.items():
@@ -56,7 +58,8 @@ def collect_refs(mods):
             elif t[1] == 'N':
                 n, kind, mn, md, val = t[:5]
                 if md in ('abs', 'absx', 'absy') and mn not in ('JSR', 'JMP'): vals.append(val)
-                elif md in ('immM', 'immX') and val is not None and val > 0xFF: vals.append(val)
+                elif md in ('immM', 'immX') and mn in PTR_LOADS and val is not None and 0xFF < val < 0xFF00 and val != 0x8000:
+                    if imm_ok and imm_ok(m, val): vals.append(val)
                 elif mn == 'PEA': vals.append(val)
             for v in vals:
                 if m.is_data(v): m.refs[v].add((m.name, a))
@@ -76,11 +79,31 @@ def string_len(buf, i, end):
     if n < 2 or pr / n < 0.8: return 0
     return n + 1
 
-def classify(m, code_starts_all):
-    """Returns list of blocks (addr, size, kind) covering every data byte, kind in S/P/T/Z."""
+def typed_blocks(mods):
+    """Blocks whose type is known from how the code uses them:
+    C = palette (BGR555 words, syscall 3 source), F = file directory of bank $00."""
+    import json
+    t = {name: {} for name in mods}
+    t['bank00'][0xF800] = (0x260, 'F')
+    p = os.path.join(ROOTDIR, 'out', 'sysargs.json')
+    if not os.path.exists(p): return t
+    sa = json.load(open(p))
+    for c in sa.get('3', []):
+        a = c['args']
+        if a[0] is None or a[1] != 0x7E or a[3] is None: continue
+        for name in (c['mod'], 'root'):
+            m = mods.get(name)
+            if m and m.is_data(a[0]):
+                old = t[name].get(a[0], (0, 'C'))[0]
+                t[name][a[0]] = (max(old, a[3]), 'C'); break
+    return t
+
+def classify(m, code_starts_all, typed=None):
+    """Returns list of blocks (addr, size, kind) covering every data byte, kind in S/P/T/Z/C/F."""
     blocks = []
     i = 0; S = m.size
-    labels = set(m.refs)
+    typed = typed or {}
+    labels = set(m.refs) | set(typed)
     while i < S:
         if m.code[i] != ord('-'): i += 1; continue
         j = i
@@ -89,6 +112,12 @@ def classify(m, code_starts_all):
         p = i
         while p < j:
             a = m.start + p
+            if a in typed:
+                n = min(typed[a][0], j - p)
+                # stop at the next label so references stay on block starts
+                for q in range(p + 1, p + n):
+                    if (m.start + q) in labels: n = q - p; break
+                blocks.append((a, n, typed[a][1])); p += n; continue
             # padding: a run of >= 16 identical $00/$FF bytes
             c0 = m.buf[p]
             if c0 in (0, 0xFF):
@@ -119,11 +148,23 @@ def classify(m, code_starts_all):
     return blocks
 
 def run():
+    # pass 1 without immediate operands; pass 2 accepts an immediate only where pass 1 found data (not padding)
     mods = load_mods()
     collect_refs(mods)
+    kind1 = {}
+    for name, m in mods.items():
+        cls = bytearray(m.code)
+        for a, n, k in classify(m, None):
+            for x in range(n): cls[a - m.start + x] = ord(k)
+        kind1[name] = cls
+    def imm_ok(m, v):
+        return m.has(v) and chr(kind1[m.name][v - m.start]) in 'SPT'
+    mods = load_mods()
+    collect_refs(mods, imm_ok)
+    typed = typed_blocks(mods)
     out = {}
     for name, m in mods.items():
-        blocks = classify(m, None)
+        blocks = classify(m, None, typed[name])
         cls = bytearray(m.code)
         for a, n, k in blocks:
             for x in range(n): cls[a - m.start + x] = ord(k)
@@ -133,8 +174,8 @@ def run():
     tot = defaultdict(int)
     for name, d in out.items():
         c = d['cls']
-        for k in 'NBSPTZ-': tot[k] += c.count(k.encode())
-        print(f"{name:<9}", ' '.join(f"{k}:{c.count(k.encode())}" for k in 'NBSPTZ-'))
+        for k in 'NBSPTZCF-': tot[k] += c.count(k.encode())
+        print(f"{name:<9}", ' '.join(f"{k}:{c.count(k.encode())}" for k in 'NBSPTZCF-'))
     print('TOTAL', dict(tot))
     return out
 

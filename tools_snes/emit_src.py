@@ -114,6 +114,19 @@ def data_block(buf, start, a, n, k, syms):
     b = buf[a - start:a - start + n]
     if k == 'Z':
         return [f'  .res {n}, ${b[0]:02X}']
+    if k == 'C' and n % 2 == 0:
+        ws = [b[i] | b[i + 1] << 8 for i in range(0, n, 2)]
+        return ['  .word ' + ', '.join(hx(w, 4) for w in ws[i:i + 8]) + '  ; BGR555' for i in range(0, len(ws), 8)]
+    if k == 'F' and n % 16 == 0:
+        out = ['  ; file directory: name[8], bank, 0, address, size, 0']
+        for i in range(0, n, 16):
+            e = b[i:i + 16]
+            if e[0] == 0 and not any(e):
+                out.append(f'  .res {n - i}, $00'); break
+            nm = e[:8].split(bytes([0]))[0].decode('ascii')
+            out.append(f'  .byte "{nm}"' + ', $00' * (8 - len(nm)) + f', ${e[8]:02X}, ${e[9]:02X}')
+            out.append(f'  .word ${e[10] | e[11] << 8:04X}, ${e[12] | e[13] << 8:04X}, ${e[14] | e[15] << 8:04X}')
+        return out
     if k == 'P' and n % 2 == 0:
         ws = [b[i] | b[i + 1] << 8 for i in range(0, n, 2)]
         return ['  .word ' + ', '.join(syms.get(w, hx(w, 4)) for w in ws[i:i + 8]) for i in range(0, len(ws), 8)]
@@ -139,7 +152,7 @@ def native_text(mn, md, val, pc, labels, nxt, syms=None):
     if mn in ('BRK', 'COP', 'WDM'): return f'.byte ${ {"BRK":0,"COP":2,"WDM":0x42}[mn]:02X}, ${val:02X}'
     if syms and md in ('abs', 'absx', 'absy') and mn not in ('JSR', 'JMP') and val in syms:
         return NAT_FMT[md].replace('{v4}', syms[val]).format(mn=mnl, v2='', v4='', v6='')
-    if syms and md in ('immM', 'immX') and val is not None and val > 0xFF and val in syms:
+    if syms and md in ('immM', 'immX') and mn in ('LDA', 'LDX', 'LDY') and val is not None and val > 0xFF and val in syms:
         return f'{mnl} #{syms[val]}'
     if md in ('immM', 'immX', 'imm8'):
         return f'{mnl} #{hx(val, 4 if val > 255 else 2)}' if md != 'imm8' else f'{mnl} #{hx(val, 2)}'

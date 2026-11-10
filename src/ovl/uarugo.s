@@ -4577,7 +4577,7 @@ UARUGO_L_B0EB:
   tay
   lda z:$10
   clc
-  adc #UARUGO_D_B163
+  adc #$B163
   sta z:$12
   lda ($12)
   beq UARUGO_L_B120
@@ -4628,7 +4628,6 @@ UARUGO_L_B15F:
 UARUGO_L_B161:
   plp
   rtl
-UARUGO_D_B163:
   .byte $02, $00, $01, $00, $02, $00, $01, $00, $00, $00, $02, $00, $01, $00, $00, $00
   .byte $02, $00, $02, $00, $01, $00, $01, $00, $02, $00, $00, $00, $00, $00, $01, $00
 UARUGO_L_B183:

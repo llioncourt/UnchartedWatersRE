@@ -73,7 +73,7 @@ EL_8052:
   jsr EL_9CBF
   rep #$10
   sep #$20
-  ldx #ED_FFFF
+  ldx #$FFFF
   stx z:$32
   ldx #$8000
   stx z:$35
@@ -323,7 +323,7 @@ EL_82E3:
 EL_8314:
   rep #$30
 .a16
-  lda #ED_F000
+  lda #$F000
 .i16
   ldx #$00
   ldy #$80
@@ -571,7 +571,7 @@ EL_8512:
   bne EL_8546
   lda a:$0B22
 .a16
-  cmp #ED_FFFF
+  cmp #$FFFF
   beq EL_8539
   inx
 EL_8539:
@@ -2500,7 +2500,7 @@ EL_943D:
 sys_12:
   lda z:$5C
 .a16
-  cmp #ED_D003
+  cmp #$D003
   asl a
   jsr EL_93DB
   rep #$20
@@ -3025,7 +3025,7 @@ EL_9955:
   asl a
   asl a
   xba
-  and #ED_FF00
+  and #$FF00
   rts
   asl a
   asl a
@@ -3042,12 +3042,12 @@ EL_9955:
   asl a
   rol a
   rts
-  and #ED_C000
+  and #$C000
   asl a
   rol a
   rol a
   rts
-  and #ED_E000
+  and #$E000
   asl a
   rol a
   rol a
@@ -3165,7 +3165,7 @@ EL_9B1A:
   sta ($48),y
   bra EL_9B33
 EL_9B2E:
-  lda #ED_FFFF
+  lda #$FFFF
   sta z:$68
 EL_9B33:
   rts
@@ -4039,40 +4039,40 @@ vm_fetch:
   plx
   jmp ($0000)
 vm_00_op00:
-  lda #ED_FFE9
+  lda #$FFE9
   bne EL_A196
 vm_01_op01:
-  lda #ED_FFEB
+  lda #$FFEB
   bne EL_A196
 vm_02_op02:
-  lda #ED_FFED
+  lda #$FFED
   bne EL_A196
 vm_03_op03:
-  lda #ED_FFEF
+  lda #$FFEF
   bne EL_A196
 vm_04_op04:
-  lda #ED_FFF1
+  lda #$FFF1
   bne EL_A196
 vm_05_op05:
-  lda #ED_FFF3
+  lda #$FFF3
   bne EL_A196
 vm_06_op06:
-  lda #ED_FFF5
+  lda #$FFF5
   bne EL_A196
 vm_07_op07:
-  lda #ED_FFF7
+  lda #$FFF7
   bne EL_A196
 vm_08_op08:
-  lda #ED_FFF9
+  lda #$FFF9
   bne EL_A196
 vm_09_op09:
-  lda #ED_FFFB
+  lda #$FFFB
   bne EL_A196
 vm_0A_op0a:
-  lda #ED_FFFD
+  lda #$FFFD
   bne EL_A196
 vm_0B_op0b:
-  lda #ED_FFFF
+  lda #$FFFF
 EL_A196:
   clc
   adc z:$04
@@ -4096,40 +4096,40 @@ EL_A1B4:
   sta z:$0A
   jmp vm_fetch
 vm_10_op10:
-  lda #ED_FFE9
+  lda #$FFE9
   bne EL_A1F5
 vm_11_op11:
-  lda #ED_FFEB
+  lda #$FFEB
   bne EL_A1F5
 vm_12_op12:
-  lda #ED_FFED
+  lda #$FFED
   bne EL_A1F5
 vm_13_op13:
-  lda #ED_FFEF
+  lda #$FFEF
   bne EL_A1F5
 vm_14_op14:
-  lda #ED_FFF1
+  lda #$FFF1
   bne EL_A1F5
 vm_15_op15:
-  lda #ED_FFF3
+  lda #$FFF3
   bne EL_A1F5
 vm_16_op16:
-  lda #ED_FFF5
+  lda #$FFF5
   bne EL_A1F5
 vm_17_op17:
-  lda #ED_FFF7
+  lda #$FFF7
   bne EL_A1F5
 vm_18_op18:
-  lda #ED_FFF9
+  lda #$FFF9
   bne EL_A1F5
 vm_19_op19:
-  lda #ED_FFFB
+  lda #$FFFB
   bne EL_A1F5
 vm_1A_op1a:
-  lda #ED_FFFD
+  lda #$FFFD
   bne EL_A1F5
 vm_1B_op1b:
-  lda #ED_FFFF
+  lda #$FFFF
 EL_A1F5:
   clc
   adc z:$04
@@ -4153,40 +4153,40 @@ EL_A213:
   sta z:$0E
   jmp vm_fetch
 vm_20_op20:
-  lda #ED_FFE9
+  lda #$FFE9
   bne EL_A254
 vm_21_op21:
-  lda #ED_FFEB
+  lda #$FFEB
   bne EL_A254
 vm_22_op22:
-  lda #ED_FFED
+  lda #$FFED
   bne EL_A254
 vm_23_op23:
-  lda #ED_FFEF
+  lda #$FFEF
   bne EL_A254
 vm_24_op24:
-  lda #ED_FFF1
+  lda #$FFF1
   bne EL_A254
 vm_25_op25:
-  lda #ED_FFF3
+  lda #$FFF3
   bne EL_A254
 vm_26_op26:
-  lda #ED_FFF5
+  lda #$FFF5
   bne EL_A254
 vm_27_op27:
-  lda #ED_FFF7
+  lda #$FFF7
   bne EL_A254
 vm_28_op28:
-  lda #ED_FFF9
+  lda #$FFF9
   bne EL_A254
 vm_29_op29:
-  lda #ED_FFFB
+  lda #$FFFB
   bne EL_A254
 vm_2A_op2a:
-  lda #ED_FFFD
+  lda #$FFFD
   bne EL_A254
 vm_2B_op2b:
-  lda #ED_FFFF
+  lda #$FFFF
 EL_A254:
   clc
   adc z:$04
@@ -4210,40 +4210,40 @@ EL_A272:
   sta ($04),y
   jmp vm_fetch
 vm_30_op30:
-  lda #ED_FFE9
+  lda #$FFE9
   bne EL_A2B3
 vm_31_op31:
-  lda #ED_FFEB
+  lda #$FFEB
   bne EL_A2B3
 vm_32_op32:
-  lda #ED_FFED
+  lda #$FFED
   bne EL_A2B3
 vm_33_op33:
-  lda #ED_FFEF
+  lda #$FFEF
   bne EL_A2B3
 vm_34_op34:
-  lda #ED_FFF1
+  lda #$FFF1
   bne EL_A2B3
 vm_35_op35:
-  lda #ED_FFF3
+  lda #$FFF3
   bne EL_A2B3
 vm_36_op36:
-  lda #ED_FFF5
+  lda #$FFF5
   bne EL_A2B3
 vm_37_op37:
-  lda #ED_FFF7
+  lda #$FFF7
   bne EL_A2B3
 vm_38_op38:
-  lda #ED_FFF9
+  lda #$FFF9
   bne EL_A2B3
 vm_39_op39:
-  lda #ED_FFFB
+  lda #$FFFB
   bne EL_A2B3
 vm_3A_op3a:
-  lda #ED_FFFD
+  lda #$FFFD
   bne EL_A2B3
 vm_3B_op3b:
-  lda #ED_FFFF
+  lda #$FFFF
 EL_A2B3:
   clc
   adc z:$04
@@ -4880,7 +4880,7 @@ vm_CB_neg:
   jmp vm_fetch
 vm_CC_compl:
   lda z:$0A
-  eor #ED_FFFF
+  eor #$FFFF
   sta z:$0A
   jmp vm_fetch
 vm_CD_swap:
@@ -5064,7 +5064,7 @@ EL_AA16:
   lsr a
   bcc EL_AA29
   clc
-  ldx #ED_FFFC
+  ldx #$FFFC
 EL_AA1F:
   lda z:$16,x
   adc z:$12,x
@@ -5102,7 +5102,7 @@ EL_AA43:
 EL_AA56:
   lda z:$10
   bpl EL_AA68
-  ldx #ED_FFFC
+  ldx #$FFFC
 EL_AA5D:
   lda #$00
   sbc z:$12,x
@@ -5156,7 +5156,7 @@ EL_AAB0:
   jmp vm_b7_05
 vm_b7_03:
   clc
-  ldx #ED_FFFC
+  ldx #$FFFC
 EL_AAB7:
   lda z:$0E,x
   adc z:$12,x
@@ -5167,7 +5167,7 @@ EL_AAB7:
   rts
 vm_b7_04:
   sec
-  ldx #ED_FFFC
+  ldx #$FFFC
 EL_AAC6:
   lda z:$0E,x
   sbc z:$12,x
@@ -5178,8 +5178,8 @@ EL_AAC6:
   rts
 vm_b7_1F:
   clc
-  ldy #ED_FFFF
-  ldx #ED_FFFC
+  ldy #$FFFF
+  ldx #$FFFC
 EL_AAD8:
   tya
   adc z:$12,x
@@ -5203,8 +5203,8 @@ EL_AAF2:
   php
 EL_AAF3:
   clc
-  ldy #ED_FFFF
-  ldx #ED_FFFC
+  ldy #$FFFF
+  ldx #$FFFC
 EL_AAFA:
   tya
   adc z:$12,x
@@ -5224,8 +5224,8 @@ EL_AB08:
   jmp EL_AAF3
 vm_b7_2D:
   clc
-  ldy #ED_FFFF
-  ldx #ED_FFFC
+  ldy #$FFFF
+  ldx #$FFFC
 EL_AB18:
   tya
   adc z:$12,x
@@ -5244,7 +5244,7 @@ vm_b7_21:
   ldx #$02
 EL_AB2F:
   lda z:$0A,x
-  eor #ED_FFFF
+  eor #$FFFF
   sta z:$0A,x
   dex
   dex
@@ -5282,7 +5282,7 @@ EL_AB5A:
   rts
 vm_b7_05:
   sec
-  ldx #ED_FFFC
+  ldx #$FFFC
 EL_AB69:
   tya
   sbc z:$0E,x
@@ -5419,7 +5419,7 @@ EL_AC15:
 vm_b7_25:
   lda z:$0A
   bpl vm_b7_26
-  ldy #ED_FFFF
+  ldy #$FFFF
 vm_b7_26:
   sty z:$0C
 vm_b7_27:
@@ -5447,7 +5447,7 @@ EL_AC44:
   sta z:$06
   rts
 vm_b7_1C:
-  ldy #ED_FFFF
+  ldy #$FFFF
   tya
   bne EL_AC55
 vm_b7_1B:
@@ -5624,7 +5624,7 @@ EL_AD37:
 EL_AD49:
   jsr EL_AD1A
   lda z:$0C
-  eor #ED_FFFF
+  eor #$FFFF
   sta a:$000C
   lsr a
   and z:$0A
@@ -5658,7 +5658,7 @@ EL_AD7D:
   and z:$0C
   sta z:$0A
   lda z:$0C
-  eor #ED_FFFF
+  eor #$FFFF
   and ($00),y
   ora z:$0A
   sta ($00),y
@@ -5678,7 +5678,7 @@ EL_AD9C:
   rts
 sys_49:
   rep #$30
-  lda #ED_FFFF
+  lda #$FFFF
   sta z:$68
   lda z:$54
   beq EL_ADE7
@@ -5718,7 +5718,7 @@ EL_ADE7:
   rts
 sys_50:
   rep #$30
-  lda #ED_FFFF
+  lda #$FFFF
   sta z:$68
   lda z:$54
   cmp z:$9F
@@ -5759,12 +5759,12 @@ EL_AE01:
   clc
   adc z:$A5
   sta z:$A5
-  lda #ED_BFFF
+  lda #$BFFF
   sta z:$B4
   sta z:$B6
   sta z:$B8
   clc
-  adc #ED_FE3E
+  adc #$FE3E
   sta z:$B2
   dec a
   dec a
@@ -5773,7 +5773,7 @@ EL_AE01:
   sta z:$AE
   sta z:$B0
   clc
-  adc #ED_FF6A
+  adc #$FF6A
   sta z:$AA
   lda z:$54
   and #$07
@@ -6899,7 +6899,7 @@ EL_B5EB:
 EL_B5FD:
   rep #$20
 .a16
-  eor #ED_FFFF
+  eor #$FFFF
   inc a
   sep #$20
 EL_B605:
@@ -6940,7 +6940,7 @@ EL_B623:
 EL_B635:
   rep #$20
 .a16
-  eor #ED_FFFF
+  eor #$FFFF
   inc a
   sep #$20
 EL_B63D:
@@ -7250,7 +7250,7 @@ EL_B855:
   sec
   sbc z:$CE
   sta a:$0E01
-  lda #ED_BBAA
+  lda #$BBAA
 EL_B865:
   cmp a:$2140
   bne EL_B865
@@ -7422,139 +7422,87 @@ sys_65:
   sta a:$0E08
   sta a:$0E06
   rts
-  .res 533, $00
-ED_BBAA:
-  .res 1109, $00
-ED_BFFF:
-  .byte $00
-ED_C000:
-  .res 4099, $00
-ED_D003:
-  .res 4093, $00
-ED_E000:
-  .res 4096, $00
-ED_F000:
-  .res 2048, $00
+  .res 15979, $00
 ED_F800:
-  .byte "root", $00
-  .byte $00, $00, $00, $01, $00, $00, $80, $AE, $75, $00, $00
-  .byte "sgdata", $00
-  .byte $00, $01, $00, $AE, $F5, $88, $12, $00, $00
-  .byte "fdata", $00
-  .byte $00, $00, $02, $00, $36, $88, $D8, $37, $00, $00
-  .byte "cbmap0", $00
-  .byte $00, $02, $00, $0E, $C0, $E6, $E8, $00, $00
-  .byte "initop", $00
-  .byte $00, $04, $00, $F4, $A8
-  .byte "d>", $00
-  .byte $00
-  .byte "ibento", $00
-  .byte $00, $04, $00, $58, $E7, $F4, $08, $00, $00
-  .byte "maituki", $00
-  .byte $04, $00, $4C, $F0, $3E, $10, $00, $00
-  .byte "cminato", $00
-  .byte $05, $00, $8A, $80, $DC, $0B, $00, $00
-  .byte "jouriku", $00
-  .byte $05, $00, $66, $8C, $48, $12, $00, $00
-  .byte "scom", $00
-  .byte $00, $00, $00, $05, $00, $AE, $9E, $34, $04, $00, $00
-  .byte "sensou", $00
-  .byte $00, $05, $00, $E2, $A2, $02, $0B, $00, $00
-  .byte "senmain", $00
-  .byte $05, $00, $E4, $AD, $8A, $27, $00, $00
-  .byte "senfe", $00
-  .byte $00, $00, $05, $00, $6E, $D5, $A8, $20, $00, $00
-  .byte "kdata", $00
-  .byte $00, $00, $05, $00, $16, $F6
-  .byte "$", $0A, $00
-  .byte $00
-  .byte "uarugo", $00
-  .byte $00, $06, $00, $3A, $80, $3C, $1F, $00, $00
-  .byte "ucom", $00
-  .byte $00, $00, $00, $06, $00, $76, $9F, $FA, $32, $00, $00
-  .byte "ending", $00
-  .byte $00, $06, $00, $70, $D2, $BE, $2E, $00, $00
-  .byte "uminato", $00
-  .byte $07, $00, $2E, $81, $12, $19, $00, $00
-  .byte "hantei", $00
-  .byte $00, $07, $00, $40, $9A, $9E, $0E, $00, $00
-  .byte "mdisp1", $00
-  .byte $00, $07, $00, $DE, $A8, $7C, $0D, $00, $00
+  ; file directory: name[8], bank, 0, address, size, 0
+  .byte "root", $00, $00, $00, $00, $01, $00
+  .word $8000, $75AE, $0000
+  .byte "sgdata", $00, $00, $01, $00
+  .word $F5AE, $1288, $0000
+  .byte "fdata", $00, $00, $00, $02, $00
+  .word $8836, $37D8, $0000
+  .byte "cbmap0", $00, $00, $02, $00
+  .word $C00E, $E8E6, $0000
+  .byte "initop", $00, $00, $04, $00
+  .word $A8F4, $3E64, $0000
+  .byte "ibento", $00, $00, $04, $00
+  .word $E758, $08F4, $0000
+  .byte "maituki", $00, $04, $00
+  .word $F04C, $103E, $0000
+  .byte "cminato", $00, $05, $00
+  .word $808A, $0BDC, $0000
+  .byte "jouriku", $00, $05, $00
+  .word $8C66, $1248, $0000
+  .byte "scom", $00, $00, $00, $00, $05, $00
+  .word $9EAE, $0434, $0000
+  .byte "sensou", $00, $00, $05, $00
+  .word $A2E2, $0B02, $0000
+  .byte "senmain", $00, $05, $00
+  .word $ADE4, $278A, $0000
+  .byte "senfe", $00, $00, $00, $05, $00
+  .word $D56E, $20A8, $0000
+  .byte "kdata", $00, $00, $00, $05, $00
+  .word $F616, $0A24, $0000
+  .byte "uarugo", $00, $00, $06, $00
+  .word $803A, $1F3C, $0000
+  .byte "ucom", $00, $00, $00, $00, $06, $00
+  .word $9F76, $32FA, $0000
+  .byte "ending", $00, $00, $06, $00
+  .word $D270, $2EBE, $0000
+  .byte "uminato", $00, $07, $00
+  .word $812E, $1912, $0000
+  .byte "hantei", $00, $00, $07, $00
+  .word $9A40, $0E9E, $0000
+  .byte "mdisp1", $00, $00, $07, $00
+  .word $A8DE, $0D7C, $0000
   .byte "uminato2", $07, $00
-  .byte $5A, $B6, $42, $0D, $00, $00
-  .byte "um_sub", $00
-  .byte $00, $07, $00, $9C, $C3
-  .byte "0", $22, $00
-  .byte $00
-  .byte "oukyu", $00
-  .byte $00, $00, $07, $00, $CC, $E5
-  .byte "\.", $00
-  .byte $00
-  .byte "koueki", $00
-  .byte $00, $08, $00, $28, $94, $48, $1C, $00, $00
-  .byte "sakaba", $00
-  .byte $00, $08, $00, $70, $B0, $D0, $02, $00, $00
-  .byte "s_nwaka", $00
-  .byte $08, $00, $40, $B3, $E6, $02, $00, $00
-  .byte "s_nsaso", $00
-  .byte $08, $00, $26, $B6, $8A, $03, $00, $00
-  .byte "s_nori", $00
-  .byte $00, $08, $00, $B0, $B9, $70, $02, $00, $00
-  .byte "s_sake", $00
-  .byte $00, $08, $00, $20, $BC, $F8, $19, $00, $00
-  .byte "s_onna", $00
-  .byte $00, $08, $00, $18, $D6, $AA, $16, $00, $00
+  .word $B65A, $0D42, $0000
+  .byte "um_sub", $00, $00, $07, $00
+  .word $C39C, $2230, $0000
+  .byte "oukyu", $00, $00, $00, $07, $00
+  .word $E5CC, $2E5C, $0000
+  .byte "koueki", $00, $00, $08, $00
+  .word $9428, $1C48, $0000
+  .byte "sakaba", $00, $00, $08, $00
+  .word $B070, $02D0, $0000
+  .byte "s_nwaka", $00, $08, $00
+  .word $B340, $02E6, $0000
+  .byte "s_nsaso", $00, $08, $00
+  .word $B626, $038A, $0000
+  .byte "s_nori", $00, $00, $08, $00
+  .word $B9B0, $0270, $0000
+  .byte "s_sake", $00, $00, $08, $00
+  .word $BC20, $19F8, $0000
+  .byte "s_onna", $00, $00, $08, $00
+  .word $D618, $16AA, $0000
   .byte "s_tobaku", $08, $00
-  .byte $C2, $EC, $58, $03, $00, $00
-  .byte "s_ibent", $00
-  .byte $08, $00, $1A, $F0, $06, $05, $00, $00
-  .byte "s_card", $00
-  .byte $00, $08, $00, $20, $F5, $78, $02, $00, $00
-  .byte "s_bj", $00
-  .byte $00, $00, $00, $08, $00, $98, $F7, $D6, $0C, $00, $00
-  .byte "s_pk", $00
-  .byte $00, $00, $00, $09, $00, $6E, $84
-  .byte "* ", $00
-  .byte $00
-  .byte "zousen", $00
-  .byte $00, $09, $00, $98, $A4, $FA, $1E, $00, $00
+  .word $ECC2, $0358, $0000
+  .byte "s_ibent", $00, $08, $00
+  .word $F01A, $0506, $0000
+  .byte "s_card", $00, $00, $08, $00
+  .word $F520, $0278, $0000
+  .byte "s_bj", $00, $00, $00, $00, $08, $00
+  .word $F798, $0CD6, $0000
+  .byte "s_pk", $00, $00, $00, $00, $09, $00
+  .word $846E, $202A, $0000
+  .byte "zousen", $00, $00, $09, $00
+  .word $A498, $1EFA, $0000
   .byte "z_tyuuko", $09, $00
-  .byte $92, $C3, $C6, $0A, $00, $00
+  .word $C392, $0AC6, $0000
   .byte "z_sinzou", $09, $00
-  .byte $58, $CE, $24, $0D
-  .res 992, $00
-ED_FE3E:
-  .res 194, $00
-ED_FF00:
-  .res 106, $00
-ED_FF6A:
-  .res 86, $00
+  .word $CE58, $0D24, $0000
+  .res 1376, $00
   .byte "UNCHARTED WATERS      "
   .byte $02, $0A, $03, $01, $C8, $00, $B0, $57, $4F, $A8, $00, $00, $00, $00, $00, $00
-  .byte $00, $00, $00
-ED_FFE9:
-  .byte $00, $61
-ED_FFEB:
-  .byte $83, $00
-ED_FFED:
-  .byte $00, $93
-ED_FFEF:
-  .byte $95, $00
-ED_FFF1:
-  .byte $00, $00
-ED_FFF3:
-  .byte $00, $00
-ED_FFF5:
-  .byte $00, $00
-ED_FFF7:
-  .byte $00, $00
-ED_FFF9:
-  .byte $00, $00
-ED_FFFB:
-  .byte $00
-ED_FFFC:
-  .byte $0F
-ED_FFFD:
-  .byte $80, $00
-ED_FFFF:
-  .byte $00
+  .byte $00, $00, $00, $00, $61, $83, $00, $00, $93, $95, $00, $00, $00, $00, $00, $00
+  .byte $00, $00, $00, $00, $00, $00, $0F, $80, $00, $00

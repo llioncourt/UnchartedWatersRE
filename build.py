@@ -38,6 +38,10 @@ def main():
         print(f"{mod['name']:<10} {mod['size']:6d} bytes  {'identical' if same else 'DIFFERENT'}")
     os.makedirs(os.path.join(HERE, 'assets'), exist_ok=True)
     for a in m['assets']:
+        if 'fill' in a:
+            rom[a['off']:a['off'] + a['size']] = bytes([a['fill']]) * a['size']
+            for i in range(a['off'], a['off'] + a['size']): filled[i] = 1
+            continue
         p = os.path.join(HERE, 'assets', a['name'] + '.bin')
         if not os.path.exists(p):
             open(p, 'wb').write(base[a['off']:a['off'] + a['size']])

@@ -22,7 +22,7 @@ Para regerar a fonte a partir da ROM: `cd tools_snes && python3 trace.py && pyth
 | `$010836` | `fdata` (tabelas fixas: mercados, mercadorias, nomes, navios) | asset |
 | `$01400E` | `cbmap0` (retratos) | asset |
 | `$0228F4-$04DB7B` | 34 overlays + `kdata` | `src/ovl/*.s` |
-| `$04DB7C-$0FFFFF` | gráficos, mapa, som (em classificação) | assets |
+| `$04DB7C-$0FFFFF` | gráficos (LZ e tiles crus), mapa-múndi, som do APU, preenchimento; mapa byte a byte em `docs/ASSETS.md` | assets |
 
 Diretório: entradas de 16 bytes em `$7800` (nome[8], banco, endereço, tamanho). Offset = banco × $8000 + endereço − $8000.
 

@@ -15,10 +15,18 @@ for name, off, size in TR.DIR:
     else:
         assets.append({'name': name, 'off': off, 'size': size, 'kind': 'data file'})
 end = max(m['off'] + m['size'] for m in mods + assets)
-b = end // 0x8000
-assets.append({'name': f'bank{b:02X}_tail', 'off': end, 'size': (b + 1) * 0x8000 - end, 'kind': 'unclassified'})
-for b in range(b + 1, len(ROM) // 0x8000):
-    assets.append({'name': f'bank{b:02X}', 'off': b * 0x8000, 'size': 0x8000, 'kind': 'unclassified'})
+ap = os.path.join(ROOT, 'out', 'assets.json')
+if os.path.exists(ap):
+    # tail classified by tools_snes/assets.py; padding is generated, not copied
+    for r in json.load(open(ap)):
+        a = {'name': f"{r['kind'].lower()}_{r['start']:06X}", 'off': r['start'], 'size': r['end'] - r['start'], 'kind': r['kind'], 'info': r['info']}
+        if r['kind'] == 'PAD': a['fill'] = ROM[r['start']]
+        assets.append(a)
+else:
+    b = end // 0x8000
+    assets.append({'name': f'bank{b:02X}_tail', 'off': end, 'size': (b + 1) * 0x8000 - end, 'kind': 'unclassified'})
+    for b in range(b + 1, len(ROM) // 0x8000):
+        assets.append({'name': f'bank{b:02X}', 'off': b * 0x8000, 'size': 0x8000, 'kind': 'unclassified'})
 m = {'rom': 'Uncharted Waters (USA).sfc', 'sha1': hashlib.sha1(ROM).hexdigest(), 'size': len(ROM), 'modules': mods, 'assets': assets}
 json.dump(m, open(os.path.join(ROOT, 'out', 'rom_map.json'), 'w'), indent=1)
 print(len(mods), 'modules,', len(assets), 'assets, sha1', m['sha1'])

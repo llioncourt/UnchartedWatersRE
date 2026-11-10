@@ -275,142 +275,2472 @@
    "kind": "data file"
   },
   {
-   "name": "bank09_tail",
+   "name": "pad_04DB7C",
    "off": 318332,
    "size": 9348,
-   "kind": "unclassified"
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
   },
   {
-   "name": "bank0A",
+   "name": "map_050000",
    "off": 327680,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 4,
+   "kind": "MAP",
+   "info": "world map header: block table and chunk table offsets"
   },
   {
-   "name": "bank0B",
-   "off": 360448,
-   "size": 32768,
-   "kind": "unclassified"
+   "name": "map_050004",
+   "off": 327684,
+   "size": 1440,
+   "kind": "MAP",
+   "info": "world map zones: 288 records of 5 bytes (24 x 12): block number, 3 attribute bytes"
   },
   {
-   "name": "bank0C",
-   "off": 393216,
-   "size": 32768,
-   "kind": "unclassified"
+   "name": "map_0505A4",
+   "off": 329124,
+   "size": 4014,
+   "kind": "MAP",
+   "info": "world map blocks: 223 blocks of 3x3 chunk numbers (18 bytes)"
   },
   {
-   "name": "bank0D",
+   "name": "map_051552",
+   "off": 333138,
+   "size": 65219,
+   "kind": "MAP",
+   "info": "world map chunks: 1331 chunks of 7x7 tiles (49 bytes)"
+  },
+  {
+   "name": "pad_061415",
+   "off": 398357,
+   "size": 2283,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "lz_061D00",
+   "off": 400640,
+   "size": 2315,
+   "kind": "LZ",
+   "info": "5632 bytes unpacked"
+  },
+  {
+   "name": "lz_06260B",
+   "off": 402955,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "lz_06260D",
+   "off": 402957,
+   "size": 280,
+   "kind": "LZ",
+   "info": "1056 bytes unpacked"
+  },
+  {
+   "name": "lz_062725",
+   "off": 403237,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "tile_062727",
+   "off": 403239,
+   "size": 288,
+   "kind": "TILE",
+   "info": "9 tiles 4bpp to VRAM tile 0xe0"
+  },
+  {
+   "name": "unref_062847",
+   "off": 403527,
+   "size": 32,
+   "kind": "UNREF",
+   "info": ""
+  },
+  {
+   "name": "tile_062867",
+   "off": 403559,
+   "size": 864,
+   "kind": "TILE",
+   "info": "54 tiles 2bpp to VRAM tile 0x160"
+  },
+  {
+   "name": "pad_062BC7",
+   "off": 404423,
+   "size": 32,
+   "kind": "PAD",
+   "info": "$FF",
+   "fill": 255
+  },
+  {
+   "name": "pad_062BE7",
+   "off": 404455,
+   "size": 217,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "lz_062CC0",
+   "off": 404672,
+   "size": 21172,
+   "kind": "LZ",
+   "info": "26880 bytes unpacked"
+  },
+  {
+   "name": "lz_067F74",
+   "off": 425844,
+   "size": 1,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "pad_067F75",
+   "off": 425845,
+   "size": 139,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "spc_068000",
    "off": 425984,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 47757,
+   "kind": "SPC",
+   "info": "APU upload 90@0600 24@0700 2903@0800 18611@B000 209@FE00 64@0400 25824@1350"
   },
   {
-   "name": "bank0E",
-   "off": 458752,
-   "size": 32768,
-   "kind": "unclassified"
+   "name": "pad_073A8D",
+   "off": 473741,
+   "size": 17779,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
   },
   {
-   "name": "bank0F",
+   "name": "tile_078000",
    "off": 491520,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 896,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp to VRAM tile 0x2a0"
   },
   {
-   "name": "bank10",
+   "name": "pad_078380",
+   "off": 492416,
+   "size": 31872,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_080000",
    "off": 524288,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 2304,
+   "kind": "TILE",
+   "info": "72 tiles 4bpp, set 0 of 4"
   },
   {
-   "name": "bank11",
+   "name": "tile_080900",
+   "off": 526592,
+   "size": 2304,
+   "kind": "TILE",
+   "info": "72 tiles 4bpp to VRAM tile 0x77"
+  },
+  {
+   "name": "tile_081200",
+   "off": 528896,
+   "size": 2304,
+   "kind": "TILE",
+   "info": "72 tiles 4bpp to VRAM tile 0x77"
+  },
+  {
+   "name": "tile_081B00",
+   "off": 531200,
+   "size": 2304,
+   "kind": "TILE",
+   "info": "72 tiles 4bpp, set 3 of 4"
+  },
+  {
+   "name": "lz_082400",
+   "off": 533504,
+   "size": 3535,
+   "kind": "LZ",
+   "info": "5408 bytes unpacked"
+  },
+  {
+   "name": "lz_0831CF",
+   "off": 537039,
+   "size": 1501,
+   "kind": "LZ",
+   "info": "1664 bytes unpacked"
+  },
+  {
+   "name": "unref_0837AC",
+   "off": 538540,
+   "size": 88,
+   "kind": "UNREF",
+   "info": ""
+  },
+  {
+   "name": "lz_083804",
+   "off": 538628,
+   "size": 1240,
+   "kind": "LZ",
+   "info": "1664 bytes unpacked"
+  },
+  {
+   "name": "lz_083CDC",
+   "off": 539868,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "tile_083CDE",
+   "off": 539870,
+   "size": 128,
+   "kind": "TILE",
+   "info": "sprite animation, 4 frames"
+  },
+  {
+   "name": "tile_083D5E",
+   "off": 539998,
+   "size": 128,
+   "kind": "TILE",
+   "info": "sprite animation, 4 frames"
+  },
+  {
+   "name": "tile_083DDE",
+   "off": 540126,
+   "size": 128,
+   "kind": "TILE",
+   "info": "sprite animation, 4 frames"
+  },
+  {
+   "name": "tile_083E5E",
+   "off": 540254,
+   "size": 128,
+   "kind": "TILE",
+   "info": "sprite animation, 4 frames"
+  },
+  {
+   "name": "tile_083EDE",
+   "off": 540382,
+   "size": 512,
+   "kind": "TILE",
+   "info": "sprite animation, 4 frames"
+  },
+  {
+   "name": "tile_0840DE",
+   "off": 540894,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp to VRAM tile 0xbf"
+  },
+  {
+   "name": "tile_0842DE",
+   "off": 541406,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp to VRAM tile 0xbf"
+  },
+  {
+   "name": "tile_0844DE",
+   "off": 541918,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp to VRAM tile 0xbf"
+  },
+  {
+   "name": "tile_0846DE",
+   "off": 542430,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp, frame 4 of 8"
+  },
+  {
+   "name": "tile_0848DE",
+   "off": 542942,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp, frame 5 of 8"
+  },
+  {
+   "name": "tile_084ADE",
+   "off": 543454,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp, frame 6 of 8"
+  },
+  {
+   "name": "tile_084CDE",
+   "off": 543966,
+   "size": 512,
+   "kind": "TILE",
+   "info": "sprite animation, 4 frames"
+  },
+  {
+   "name": "tile_084EDE",
+   "off": 544478,
+   "size": 512,
+   "kind": "TILE",
+   "info": "sprite animation, 4 frames"
+  },
+  {
+   "name": "tile_0850DE",
+   "off": 544990,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp to VRAM tile 0xcf"
+  },
+  {
+   "name": "tile_0852DE",
+   "off": 545502,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp to VRAM tile 0xcf"
+  },
+  {
+   "name": "tile_0854DE",
+   "off": 546014,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp to VRAM tile 0xcf"
+  },
+  {
+   "name": "tile_0856DE",
+   "off": 546526,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp, frame 4 of 8"
+  },
+  {
+   "name": "tile_0858DE",
+   "off": 547038,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp, frame 5 of 8"
+  },
+  {
+   "name": "tile_085ADE",
+   "off": 547550,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp, frame 6 of 8"
+  },
+  {
+   "name": "tile_085CDE",
+   "off": 548062,
+   "size": 3072,
+   "kind": "TILE",
+   "info": "96 tiles 4bpp to VRAM tile 0x220"
+  },
+  {
+   "name": "unref_0868DE",
+   "off": 551134,
+   "size": 384,
+   "kind": "UNREF",
+   "info": ""
+  },
+  {
+   "name": "tile_086A5E",
+   "off": 551518,
+   "size": 576,
+   "kind": "TILE",
+   "info": "18 tiles 4bpp to VRAM tile 0x180"
+  },
+  {
+   "name": "tile_086C9E",
+   "off": 552094,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp to VRAM tile 0x280"
+  },
+  {
+   "name": "pad_086E9E",
+   "off": 552606,
+   "size": 4450,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_088000",
    "off": 557056,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 1920,
+   "kind": "TILE",
+   "info": "60 tiles 4bpp to VRAM tile 0xf0"
   },
   {
-   "name": "bank12",
+   "name": "tile_088780",
+   "off": 558976,
+   "size": 5472,
+   "kind": "TILE",
+   "info": "171 tiles 4bpp to VRAM tile 0x12c"
+  },
+  {
+   "name": "tile_089CE0",
+   "off": 564448,
+   "size": 5760,
+   "kind": "TILE",
+   "info": "180 tiles 4bpp, entry 1 of MDISP1 BD16"
+  },
+  {
+   "name": "tile_08B360",
+   "off": 570208,
+   "size": 5312,
+   "kind": "TILE",
+   "info": "166 tiles 4bpp, entry 2 of MDISP1 BD16"
+  },
+  {
+   "name": "tile_08C820",
+   "off": 575520,
+   "size": 4768,
+   "kind": "TILE",
+   "info": "149 tiles 4bpp, entry 3 of MDISP1 BD16"
+  },
+  {
+   "name": "tile_08DAC0",
+   "off": 580288,
+   "size": 1920,
+   "kind": "TILE",
+   "info": "60 tiles 4bpp, entry 4 of MDISP1 BD16"
+  },
+  {
+   "name": "pad_08E240",
+   "off": 582208,
+   "size": 7616,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_090000",
    "off": 589824,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 14368,
+   "kind": "TILE",
+   "info": "449 tiles 4bpp to VRAM tile 0x1a0"
   },
   {
-   "name": "bank13",
+   "name": "tile_093820",
+   "off": 604192,
+   "size": 12928,
+   "kind": "TILE",
+   "info": "404 tiles 4bpp, port town set 1 of 8"
+  },
+  {
+   "name": "pad_096AA0",
+   "off": 617120,
+   "size": 5472,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_098000",
    "off": 622592,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 16096,
+   "kind": "TILE",
+   "info": "503 tiles 4bpp, port town set 2 of 8"
   },
   {
-   "name": "bank14",
+   "name": "tile_09BEE0",
+   "off": 638688,
+   "size": 12768,
+   "kind": "TILE",
+   "info": "399 tiles 4bpp, port town set 3 of 8"
+  },
+  {
+   "name": "pad_09F0C0",
+   "off": 651456,
+   "size": 3904,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_0A0000",
    "off": 655360,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 16416,
+   "kind": "TILE",
+   "info": "513 tiles 4bpp, port town set 4 of 8"
   },
   {
-   "name": "bank15",
+   "name": "tile_0A4020",
+   "off": 671776,
+   "size": 11296,
+   "kind": "TILE",
+   "info": "353 tiles 4bpp, port town set 5 of 8"
+  },
+  {
+   "name": "pad_0A6C40",
+   "off": 683072,
+   "size": 5056,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_0A8000",
    "off": 688128,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 13120,
+   "kind": "TILE",
+   "info": "410 tiles 4bpp, port town set 6 of 8"
   },
   {
-   "name": "bank16",
+   "name": "tile_0AB340",
+   "off": 701248,
+   "size": 13920,
+   "kind": "TILE",
+   "info": "435 tiles 4bpp, port town set 7 of 8"
+  },
+  {
+   "name": "pad_0AE9A0",
+   "off": 715168,
+   "size": 5728,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "lz_0B0000",
    "off": 720896,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 2925,
+   "kind": "LZ",
+   "info": "6400 bytes unpacked"
   },
   {
-   "name": "bank17",
+   "name": "tile_0B0B6D",
+   "off": 723821,
+   "size": 1024,
+   "kind": "TILE",
+   "info": "32 tiles 4bpp to VRAM tile 0x77"
+  },
+  {
+   "name": "lz_0B0F6D",
+   "off": 724845,
+   "size": 1934,
+   "kind": "LZ",
+   "info": "9408 bytes unpacked"
+  },
+  {
+   "name": "lz_0B16FB",
+   "off": 726779,
+   "size": 13802,
+   "kind": "LZ",
+   "info": "30048 bytes unpacked"
+  },
+  {
+   "name": "lz_0B4CE5",
+   "off": 740581,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "lz_0B4CE7",
+   "off": 740583,
+   "size": 3997,
+   "kind": "LZ",
+   "info": "12928 bytes unpacked"
+  },
+  {
+   "name": "pad_0B5C84",
+   "off": 744580,
+   "size": 9084,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "lz_0B8000",
    "off": 753664,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 499,
+   "kind": "LZ",
+   "info": "864 bytes unpacked"
   },
   {
-   "name": "bank18",
+   "name": "lz_0B81F3",
+   "off": 754163,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "lz_0B81F5",
+   "off": 754165,
+   "size": 1808,
+   "kind": "LZ",
+   "info": "3456 bytes unpacked, entry 0 of RD_8D72"
+  },
+  {
+   "name": "lz_0B8905",
+   "off": 755973,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "lz_0B8907",
+   "off": 755975,
+   "size": 2483,
+   "kind": "LZ",
+   "info": "3456 bytes unpacked, entry 7 of RD_8D72"
+  },
+  {
+   "name": "lz_0B92BA",
+   "off": 758458,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "lz_0B92BC",
+   "off": 758460,
+   "size": 2602,
+   "kind": "LZ",
+   "info": "3456 bytes unpacked, entry 5 of RD_8D72"
+  },
+  {
+   "name": "lz_0B9CE6",
+   "off": 761062,
+   "size": 2727,
+   "kind": "LZ",
+   "info": "3456 bytes unpacked, entry 4 of RD_8D72"
+  },
+  {
+   "name": "lz_0BA78D",
+   "off": 763789,
+   "size": 2310,
+   "kind": "LZ",
+   "info": "3456 bytes unpacked, entry 3 of RD_8D72"
+  },
+  {
+   "name": "lz_0BB093",
+   "off": 766099,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "lz_0BB095",
+   "off": 766101,
+   "size": 2372,
+   "kind": "LZ",
+   "info": "3456 bytes unpacked, entry 6 of RD_8D72"
+  },
+  {
+   "name": "lz_0BB9D9",
+   "off": 768473,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "lz_0BB9DB",
+   "off": 768475,
+   "size": 2382,
+   "kind": "LZ",
+   "info": "3456 bytes unpacked, entry 2 of RD_8D72"
+  },
+  {
+   "name": "lz_0BC329",
+   "off": 770857,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "lz_0BC32B",
+   "off": 770859,
+   "size": 3572,
+   "kind": "LZ",
+   "info": "4480 bytes unpacked, entry 1 of RD_8D72"
+  },
+  {
+   "name": "lz_0BD11F",
+   "off": 774431,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "pad_0BD121",
+   "off": 774433,
+   "size": 11999,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_0C0000",
    "off": 786432,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 64,
+   "kind": "TILE",
+   "info": "2 tiles 4bpp to VRAM tile 0x57"
   },
   {
-   "name": "bank19",
+   "name": "tile_0C0040",
+   "off": 786496,
+   "size": 288,
+   "kind": "TILE",
+   "info": "9 tiles 4bpp to VRAM tile 0x23"
+  },
+  {
+   "name": "tile_0C0160",
+   "off": 786784,
+   "size": 288,
+   "kind": "TILE",
+   "info": "9 tiles 4bpp, set 2 of 7"
+  },
+  {
+   "name": "tile_0C0280",
+   "off": 787072,
+   "size": 288,
+   "kind": "TILE",
+   "info": "9 tiles 4bpp, set 3 of 7"
+  },
+  {
+   "name": "tile_0C03A0",
+   "off": 787360,
+   "size": 288,
+   "kind": "TILE",
+   "info": "9 tiles 4bpp, set 4 of 7"
+  },
+  {
+   "name": "tile_0C04C0",
+   "off": 787648,
+   "size": 288,
+   "kind": "TILE",
+   "info": "9 tiles 4bpp, set 5 of 7"
+  },
+  {
+   "name": "tile_0C05E0",
+   "off": 787936,
+   "size": 288,
+   "kind": "TILE",
+   "info": "9 tiles 4bpp, set 6 of 7"
+  },
+  {
+   "name": "tile_0C0700",
+   "off": 788224,
+   "size": 288,
+   "kind": "TILE",
+   "info": "9 tiles 4bpp, set 7 of 7"
+  },
+  {
+   "name": "tile_0C0820",
+   "off": 788512,
+   "size": 896,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp to VRAM tile 0x2c"
+  },
+  {
+   "name": "tile_0C0BA0",
+   "off": 789408,
+   "size": 896,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp, block 1 of 15"
+  },
+  {
+   "name": "tile_0C0F20",
+   "off": 790304,
+   "size": 896,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp, block 2 of 15"
+  },
+  {
+   "name": "tile_0C12A0",
+   "off": 791200,
+   "size": 896,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp, block 3 of 15"
+  },
+  {
+   "name": "tile_0C1620",
+   "off": 792096,
+   "size": 896,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp, block 4 of 15"
+  },
+  {
+   "name": "tile_0C19A0",
+   "off": 792992,
+   "size": 896,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp, block 5 of 15"
+  },
+  {
+   "name": "tile_0C1D20",
+   "off": 793888,
+   "size": 896,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp to VRAM tile 0x48"
+  },
+  {
+   "name": "tile_0C20A0",
+   "off": 794784,
+   "size": 64,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp, block 7 of 15"
+  },
+  {
+   "name": "tile_0C20E0",
+   "off": 794848,
+   "size": 832,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp to VRAM tile 0x48"
+  },
+  {
+   "name": "tile_0C2420",
+   "off": 795680,
+   "size": 128,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp, block 8 of 15"
+  },
+  {
+   "name": "tile_0C24A0",
+   "off": 795808,
+   "size": 768,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, entry 9 of RD_8B7A"
+  },
+  {
+   "name": "tile_0C27A0",
+   "off": 796576,
+   "size": 192,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp, block 9 of 15"
+  },
+  {
+   "name": "tile_0C2860",
+   "off": 796768,
+   "size": 704,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, entry 11 of RD_8B7A"
+  },
+  {
+   "name": "tile_0C2B20",
+   "off": 797472,
+   "size": 256,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp, block 10 of 15"
+  },
+  {
+   "name": "tile_0C2C20",
+   "off": 797728,
+   "size": 640,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, entry 13 of RD_8B7A"
+  },
+  {
+   "name": "tile_0C2EA0",
+   "off": 798368,
+   "size": 320,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp, block 11 of 15"
+  },
+  {
+   "name": "tile_0C2FE0",
+   "off": 798688,
+   "size": 576,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, entry 19 of RD_8B7A"
+  },
+  {
+   "name": "tile_0C3220",
+   "off": 799264,
+   "size": 384,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp, block 12 of 15"
+  },
+  {
+   "name": "tile_0C33A0",
+   "off": 799648,
+   "size": 512,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, entry 22 of RD_8B7A"
+  },
+  {
+   "name": "tile_0C35A0",
+   "off": 800160,
+   "size": 448,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp, block 13 of 15"
+  },
+  {
+   "name": "tile_0C3760",
+   "off": 800608,
+   "size": 448,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, entry 6 of RD_8B7A"
+  },
+  {
+   "name": "tile_0C3920",
+   "off": 801056,
+   "size": 32,
+   "kind": "TILE",
+   "info": "28 tiles 4bpp, block 14 of 15"
+  },
+  {
+   "name": "tile_0C3940",
+   "off": 801088,
+   "size": 864,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, entry 15 of RD_8B7A"
+  },
+  {
+   "name": "tile_0C3CA0",
+   "off": 801952,
+   "size": 96,
+   "kind": "TILE",
+   "info": ""
+  },
+  {
+   "name": "pad_0C3D00",
+   "off": 802048,
+   "size": 17152,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_0C8000",
    "off": 819200,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
   },
   {
-   "name": "bank1A",
+   "name": "tile_0C8002",
+   "off": 819202,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp to VRAM tile 0x59"
+  },
+  {
+   "name": "tile_0C83C2",
+   "off": 820162,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0C83C4",
+   "off": 820164,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 1"
+  },
+  {
+   "name": "tile_0C8784",
+   "off": 821124,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0C8786",
+   "off": 821126,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 2"
+  },
+  {
+   "name": "tile_0C8B46",
+   "off": 822086,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0C8B48",
+   "off": 822088,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 3"
+  },
+  {
+   "name": "tile_0C8F08",
+   "off": 823048,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0C8F0A",
+   "off": 823050,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp to VRAM tile 0x59"
+  },
+  {
+   "name": "tile_0C92CA",
+   "off": 824010,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0C92CC",
+   "off": 824012,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp to VRAM tile 0x59"
+  },
+  {
+   "name": "tile_0C968C",
+   "off": 824972,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0C968E",
+   "off": 824974,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp to VRAM tile 0x59"
+  },
+  {
+   "name": "tile_0C9A4E",
+   "off": 825934,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0C9A50",
+   "off": 825936,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp to VRAM tile 0x59"
+  },
+  {
+   "name": "tile_0C9E10",
+   "off": 826896,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0C9E12",
+   "off": 826898,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp to VRAM tile 0x59"
+  },
+  {
+   "name": "tile_0CA1D2",
+   "off": 827858,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CA1D4",
+   "off": 827860,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp to VRAM tile 0x59"
+  },
+  {
+   "name": "tile_0CA594",
+   "off": 828820,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CA596",
+   "off": 828822,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp to VRAM tile 0x59"
+  },
+  {
+   "name": "tile_0CA956",
+   "off": 829782,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CA958",
+   "off": 829784,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp to VRAM tile 0x59"
+  },
+  {
+   "name": "tile_0CAD18",
+   "off": 830744,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CAD1A",
+   "off": 830746,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp to VRAM tile 0x59"
+  },
+  {
+   "name": "tile_0CB0DA",
+   "off": 831706,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CB0DC",
+   "off": 831708,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp to VRAM tile 0x59"
+  },
+  {
+   "name": "tile_0CB49C",
+   "off": 832668,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CB49E",
+   "off": 832670,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 14"
+  },
+  {
+   "name": "tile_0CB85E",
+   "off": 833630,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CB860",
+   "off": 833632,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 15"
+  },
+  {
+   "name": "tile_0CBC20",
+   "off": 834592,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CBC22",
+   "off": 834594,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 16"
+  },
+  {
+   "name": "tile_0CBFE2",
+   "off": 835554,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CBFE4",
+   "off": 835556,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 17"
+  },
+  {
+   "name": "tile_0CC3A4",
+   "off": 836516,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CC3A6",
+   "off": 836518,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 18"
+  },
+  {
+   "name": "tile_0CC766",
+   "off": 837478,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CC768",
+   "off": 837480,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 19"
+  },
+  {
+   "name": "tile_0CCB28",
+   "off": 838440,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CCB2A",
+   "off": 838442,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 20"
+  },
+  {
+   "name": "tile_0CCEEA",
+   "off": 839402,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CCEEC",
+   "off": 839404,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 21"
+  },
+  {
+   "name": "tile_0CD2AC",
+   "off": 840364,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CD2AE",
+   "off": 840366,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 22"
+  },
+  {
+   "name": "tile_0CD66E",
+   "off": 841326,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CD670",
+   "off": 841328,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 23"
+  },
+  {
+   "name": "tile_0CDA30",
+   "off": 842288,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CDA32",
+   "off": 842290,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 24"
+  },
+  {
+   "name": "tile_0CDDF2",
+   "off": 843250,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CDDF4",
+   "off": 843252,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 25"
+  },
+  {
+   "name": "tile_0CE1B4",
+   "off": 844212,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CE1B6",
+   "off": 844214,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 26"
+  },
+  {
+   "name": "tile_0CE576",
+   "off": 845174,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CE578",
+   "off": 845176,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 27"
+  },
+  {
+   "name": "tile_0CE938",
+   "off": 846136,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CE93A",
+   "off": 846138,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 28"
+  },
+  {
+   "name": "tile_0CECFA",
+   "off": 847098,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CECFC",
+   "off": 847100,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 29"
+  },
+  {
+   "name": "tile_0CF0BC",
+   "off": 848060,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CF0BE",
+   "off": 848062,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 30"
+  },
+  {
+   "name": "tile_0CF47E",
+   "off": 849022,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CF480",
+   "off": 849024,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 31"
+  },
+  {
+   "name": "tile_0CF840",
+   "off": 849984,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0CF842",
+   "off": 849986,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 32"
+  },
+  {
+   "name": "pad_0CFC02",
+   "off": 850946,
+   "size": 1022,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_0D0000",
    "off": 851968,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
   },
   {
-   "name": "bank1B",
+   "name": "tile_0D0002",
+   "off": 851970,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 33"
+  },
+  {
+   "name": "tile_0D03C2",
+   "off": 852930,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D03C4",
+   "off": 852932,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 34"
+  },
+  {
+   "name": "tile_0D0784",
+   "off": 853892,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D0786",
+   "off": 853894,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 35"
+  },
+  {
+   "name": "tile_0D0B46",
+   "off": 854854,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D0B48",
+   "off": 854856,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 36"
+  },
+  {
+   "name": "tile_0D0F08",
+   "off": 855816,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D0F0A",
+   "off": 855818,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 37"
+  },
+  {
+   "name": "tile_0D12CA",
+   "off": 856778,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D12CC",
+   "off": 856780,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 38"
+  },
+  {
+   "name": "tile_0D168C",
+   "off": 857740,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D168E",
+   "off": 857742,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 39"
+  },
+  {
+   "name": "tile_0D1A4E",
+   "off": 858702,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D1A50",
+   "off": 858704,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 40"
+  },
+  {
+   "name": "tile_0D1E10",
+   "off": 859664,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D1E12",
+   "off": 859666,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 41"
+  },
+  {
+   "name": "tile_0D21D2",
+   "off": 860626,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D21D4",
+   "off": 860628,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 42"
+  },
+  {
+   "name": "tile_0D2594",
+   "off": 861588,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D2596",
+   "off": 861590,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 43"
+  },
+  {
+   "name": "tile_0D2956",
+   "off": 862550,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D2958",
+   "off": 862552,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 44"
+  },
+  {
+   "name": "tile_0D2D18",
+   "off": 863512,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D2D1A",
+   "off": 863514,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 45"
+  },
+  {
+   "name": "tile_0D30DA",
+   "off": 864474,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D30DC",
+   "off": 864476,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 46"
+  },
+  {
+   "name": "tile_0D349C",
+   "off": 865436,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D349E",
+   "off": 865438,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 47"
+  },
+  {
+   "name": "tile_0D385E",
+   "off": 866398,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D3860",
+   "off": 866400,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 48"
+  },
+  {
+   "name": "tile_0D3C20",
+   "off": 867360,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D3C22",
+   "off": 867362,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 49"
+  },
+  {
+   "name": "tile_0D3FE2",
+   "off": 868322,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D3FE4",
+   "off": 868324,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 50"
+  },
+  {
+   "name": "tile_0D43A4",
+   "off": 869284,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D43A6",
+   "off": 869286,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp, portrait 51"
+  },
+  {
+   "name": "tile_0D4766",
+   "off": 870246,
+   "size": 2,
+   "kind": "TILE",
+   "info": "portrait header: its first tile number (k*30), not read by the game"
+  },
+  {
+   "name": "tile_0D4768",
+   "off": 870248,
+   "size": 960,
+   "kind": "TILE",
+   "info": "30 tiles 4bpp to VRAM tile 0x59"
+  },
+  {
+   "name": "pad_0D4B28",
+   "off": 871208,
+   "size": 13528,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_0D8000",
    "off": 884736,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 640,
+   "kind": "TILE",
+   "info": "20 tiles 4bpp, face part: type 0, part 0, variant 0"
   },
   {
-   "name": "bank1C",
+   "name": "tile_0D8280",
+   "off": 885376,
+   "size": 640,
+   "kind": "TILE",
+   "info": "20 tiles 4bpp, face part: type 0, part 0, variant 1"
+  },
+  {
+   "name": "tile_0D8500",
+   "off": 886016,
+   "size": 640,
+   "kind": "TILE",
+   "info": "20 tiles 4bpp, face part: type 0, part 0, variant 2"
+  },
+  {
+   "name": "tile_0D8780",
+   "off": 886656,
+   "size": 640,
+   "kind": "TILE",
+   "info": "20 tiles 4bpp, face part: type 0, part 0, variant 3"
+  },
+  {
+   "name": "tile_0D8A00",
+   "off": 887296,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 0, part 1, variant 0"
+  },
+  {
+   "name": "tile_0D8A60",
+   "off": 887392,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 0, part 1, variant 1"
+  },
+  {
+   "name": "tile_0D8AC0",
+   "off": 887488,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 0, part 1, variant 2"
+  },
+  {
+   "name": "tile_0D8B20",
+   "off": 887584,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 0, part 1, variant 3"
+  },
+  {
+   "name": "tile_0D8B80",
+   "off": 887680,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 0, part 2, variant 0"
+  },
+  {
+   "name": "tile_0D8BE0",
+   "off": 887776,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 0, part 2, variant 1"
+  },
+  {
+   "name": "tile_0D8C40",
+   "off": 887872,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 0, part 2, variant 2"
+  },
+  {
+   "name": "tile_0D8CA0",
+   "off": 887968,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 0, part 2, variant 3"
+  },
+  {
+   "name": "tile_0D8D00",
+   "off": 888064,
+   "size": 64,
+   "kind": "TILE",
+   "info": "2 tiles 4bpp, face part: type 0, part 3, variant 0"
+  },
+  {
+   "name": "tile_0D8D40",
+   "off": 888128,
+   "size": 64,
+   "kind": "TILE",
+   "info": "2 tiles 4bpp, face part: type 0, part 3, variant 1"
+  },
+  {
+   "name": "tile_0D8D80",
+   "off": 888192,
+   "size": 64,
+   "kind": "TILE",
+   "info": "2 tiles 4bpp, face part: type 0, part 3, variant 2"
+  },
+  {
+   "name": "tile_0D8DC0",
+   "off": 888256,
+   "size": 64,
+   "kind": "TILE",
+   "info": "2 tiles 4bpp, face part: type 0, part 3, variant 3"
+  },
+  {
+   "name": "tile_0D8E00",
+   "off": 888320,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 0, part 4, variant 0"
+  },
+  {
+   "name": "tile_0D8FE0",
+   "off": 888800,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 0, part 4, variant 1"
+  },
+  {
+   "name": "tile_0D91C0",
+   "off": 889280,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 0, part 4, variant 2"
+  },
+  {
+   "name": "tile_0D93A0",
+   "off": 889760,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 0, part 4, variant 3"
+  },
+  {
+   "name": "tile_0D9580",
+   "off": 890240,
+   "size": 800,
+   "kind": "TILE",
+   "info": "25 tiles 4bpp, face part: type 1, part 0, variant 0"
+  },
+  {
+   "name": "tile_0D98A0",
+   "off": 891040,
+   "size": 800,
+   "kind": "TILE",
+   "info": "25 tiles 4bpp, face part: type 1, part 0, variant 1"
+  },
+  {
+   "name": "tile_0D9BC0",
+   "off": 891840,
+   "size": 800,
+   "kind": "TILE",
+   "info": "25 tiles 4bpp, face part: type 1, part 0, variant 2"
+  },
+  {
+   "name": "tile_0D9EE0",
+   "off": 892640,
+   "size": 800,
+   "kind": "TILE",
+   "info": "25 tiles 4bpp, face part: type 1, part 0, variant 3"
+  },
+  {
+   "name": "tile_0DA200",
+   "off": 893440,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 1, part 1, variant 0"
+  },
+  {
+   "name": "tile_0DA260",
+   "off": 893536,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 1, part 1, variant 1"
+  },
+  {
+   "name": "tile_0DA2C0",
+   "off": 893632,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 1, part 1, variant 2"
+  },
+  {
+   "name": "tile_0DA320",
+   "off": 893728,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 1, part 1, variant 3"
+  },
+  {
+   "name": "tile_0DA380",
+   "off": 893824,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 1, part 2, variant 0"
+  },
+  {
+   "name": "tile_0DA3E0",
+   "off": 893920,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 1, part 2, variant 1"
+  },
+  {
+   "name": "tile_0DA440",
+   "off": 894016,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 1, part 2, variant 2"
+  },
+  {
+   "name": "tile_0DA4A0",
+   "off": 894112,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 1, part 2, variant 3"
+  },
+  {
+   "name": "tile_0DA500",
+   "off": 894208,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 1, part 3, variant 0"
+  },
+  {
+   "name": "tile_0DA560",
+   "off": 894304,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 1, part 3, variant 1"
+  },
+  {
+   "name": "tile_0DA5C0",
+   "off": 894400,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 1, part 3, variant 2"
+  },
+  {
+   "name": "tile_0DA620",
+   "off": 894496,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 1, part 3, variant 3"
+  },
+  {
+   "name": "tile_0DA680",
+   "off": 894592,
+   "size": 160,
+   "kind": "TILE",
+   "info": "5 tiles 4bpp, face part: type 1, part 4, variant 0"
+  },
+  {
+   "name": "tile_0DA720",
+   "off": 894752,
+   "size": 160,
+   "kind": "TILE",
+   "info": "5 tiles 4bpp, face part: type 1, part 4, variant 1"
+  },
+  {
+   "name": "tile_0DA7C0",
+   "off": 894912,
+   "size": 160,
+   "kind": "TILE",
+   "info": "5 tiles 4bpp, face part: type 1, part 4, variant 2"
+  },
+  {
+   "name": "tile_0DA860",
+   "off": 895072,
+   "size": 160,
+   "kind": "TILE",
+   "info": "5 tiles 4bpp, face part: type 1, part 4, variant 3"
+  },
+  {
+   "name": "tile_0DA900",
+   "off": 895232,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 3, part 0, variant 0"
+  },
+  {
+   "name": "tile_0DAAE0",
+   "off": 895712,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 3, part 0, variant 1"
+  },
+  {
+   "name": "tile_0DACC0",
+   "off": 896192,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 3, part 0, variant 2"
+  },
+  {
+   "name": "tile_0DAEA0",
+   "off": 896672,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 3, part 0, variant 3"
+  },
+  {
+   "name": "tile_0DB080",
+   "off": 897152,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 3, part 1, variant 0"
+  },
+  {
+   "name": "tile_0DB0E0",
+   "off": 897248,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 3, part 1, variant 1"
+  },
+  {
+   "name": "tile_0DB140",
+   "off": 897344,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 3, part 1, variant 2"
+  },
+  {
+   "name": "tile_0DB1A0",
+   "off": 897440,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 3, part 1, variant 3"
+  },
+  {
+   "name": "tile_0DB200",
+   "off": 897536,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 3, part 2, variant 0"
+  },
+  {
+   "name": "tile_0DB260",
+   "off": 897632,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 3, part 2, variant 1"
+  },
+  {
+   "name": "tile_0DB2C0",
+   "off": 897728,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 3, part 2, variant 2"
+  },
+  {
+   "name": "tile_0DB320",
+   "off": 897824,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 3, part 2, variant 3"
+  },
+  {
+   "name": "tile_0DB380",
+   "off": 897920,
+   "size": 64,
+   "kind": "TILE",
+   "info": "2 tiles 4bpp, face part: type 3, part 3, variant 0"
+  },
+  {
+   "name": "tile_0DB3C0",
+   "off": 897984,
+   "size": 64,
+   "kind": "TILE",
+   "info": "2 tiles 4bpp, face part: type 3, part 3, variant 1"
+  },
+  {
+   "name": "tile_0DB400",
+   "off": 898048,
+   "size": 64,
+   "kind": "TILE",
+   "info": "2 tiles 4bpp, face part: type 3, part 3, variant 2"
+  },
+  {
+   "name": "tile_0DB440",
+   "off": 898112,
+   "size": 64,
+   "kind": "TILE",
+   "info": "2 tiles 4bpp, face part: type 3, part 3, variant 3"
+  },
+  {
+   "name": "tile_0DB480",
+   "off": 898176,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 3, part 4, variant 0"
+  },
+  {
+   "name": "tile_0DB660",
+   "off": 898656,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 3, part 4, variant 1"
+  },
+  {
+   "name": "tile_0DB840",
+   "off": 899136,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 3, part 4, variant 2"
+  },
+  {
+   "name": "tile_0DBA20",
+   "off": 899616,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 3, part 4, variant 3"
+  },
+  {
+   "name": "tile_0DBC00",
+   "off": 900096,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 2, part 0, variant 0"
+  },
+  {
+   "name": "tile_0DBDE0",
+   "off": 900576,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 2, part 0, variant 1"
+  },
+  {
+   "name": "tile_0DBFC0",
+   "off": 901056,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 2, part 0, variant 2"
+  },
+  {
+   "name": "tile_0DC1A0",
+   "off": 901536,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 2, part 0, variant 3"
+  },
+  {
+   "name": "tile_0DC380",
+   "off": 902016,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 2, part 1, variant 0"
+  },
+  {
+   "name": "tile_0DC3E0",
+   "off": 902112,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 2, part 1, variant 1"
+  },
+  {
+   "name": "tile_0DC440",
+   "off": 902208,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 2, part 1, variant 2"
+  },
+  {
+   "name": "tile_0DC4A0",
+   "off": 902304,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 2, part 1, variant 3"
+  },
+  {
+   "name": "tile_0DC500",
+   "off": 902400,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 2, part 2, variant 0"
+  },
+  {
+   "name": "tile_0DC560",
+   "off": 902496,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 2, part 2, variant 1"
+  },
+  {
+   "name": "tile_0DC5C0",
+   "off": 902592,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 2, part 2, variant 2"
+  },
+  {
+   "name": "tile_0DC620",
+   "off": 902688,
+   "size": 96,
+   "kind": "TILE",
+   "info": "3 tiles 4bpp, face part: type 2, part 2, variant 3"
+  },
+  {
+   "name": "tile_0DC680",
+   "off": 902784,
+   "size": 64,
+   "kind": "TILE",
+   "info": "2 tiles 4bpp, face part: type 2, part 3, variant 0"
+  },
+  {
+   "name": "tile_0DC6C0",
+   "off": 902848,
+   "size": 64,
+   "kind": "TILE",
+   "info": "2 tiles 4bpp, face part: type 2, part 3, variant 1"
+  },
+  {
+   "name": "tile_0DC700",
+   "off": 902912,
+   "size": 64,
+   "kind": "TILE",
+   "info": "2 tiles 4bpp, face part: type 2, part 3, variant 2"
+  },
+  {
+   "name": "tile_0DC740",
+   "off": 902976,
+   "size": 64,
+   "kind": "TILE",
+   "info": "2 tiles 4bpp, face part: type 2, part 3, variant 3"
+  },
+  {
+   "name": "tile_0DC780",
+   "off": 903040,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 2, part 4, variant 0"
+  },
+  {
+   "name": "tile_0DC960",
+   "off": 903520,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 2, part 4, variant 1"
+  },
+  {
+   "name": "tile_0DCB40",
+   "off": 904000,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 2, part 4, variant 2"
+  },
+  {
+   "name": "tile_0DCD20",
+   "off": 904480,
+   "size": 480,
+   "kind": "TILE",
+   "info": "15 tiles 4bpp, face part: type 2, part 4, variant 3"
+  },
+  {
+   "name": "pad_0DCF00",
+   "off": 904960,
+   "size": 12544,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_0E0000",
    "off": 917504,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 26272,
+   "kind": "TILE",
+   "info": "821 tiles 4bpp to VRAM tile 0x77"
   },
   {
-   "name": "bank1D",
+   "name": "tile_0E66A0",
+   "off": 943776,
+   "size": 3648,
+   "kind": "TILE",
+   "info": "114 tiles 4bpp to VRAM tile 0x100"
+  },
+  {
+   "name": "pad_0E74E0",
+   "off": 947424,
+   "size": 2848,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_0E8000",
    "off": 950272,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 3488,
+   "kind": "TILE",
+   "info": "109 tiles 4bpp to VRAM tile 0x77"
   },
   {
-   "name": "bank1E",
+   "name": "tile_0E8DA0",
+   "off": 953760,
+   "size": 3840,
+   "kind": "TILE",
+   "info": "120 tiles 4bpp to VRAM tile 0xf0"
+  },
+  {
+   "name": "tile_0E9CA0",
+   "off": 957600,
+   "size": 10752,
+   "kind": "TILE",
+   "info": "336 tiles 4bpp to VRAM tile 0xe4"
+  },
+  {
+   "name": "tile_0EC6A0",
+   "off": 968352,
+   "size": 11232,
+   "kind": "TILE",
+   "info": "351 tiles 4bpp to VRAM tile 0x77"
+  },
+  {
+   "name": "tile_0EF280",
+   "off": 979584,
+   "size": 2176,
+   "kind": "TILE",
+   "info": "68 tiles 4bpp to VRAM tile 0x12c"
+  },
+  {
+   "name": "tile_0EFB00",
+   "off": 981760,
+   "size": 608,
+   "kind": "TILE",
+   "info": "19 tiles 4bpp to VRAM tile 0x234"
+  },
+  {
+   "name": "unref_0EFD60",
+   "off": 982368,
+   "size": 59,
+   "kind": "UNREF",
+   "info": ""
+  },
+  {
+   "name": "pad_0EFD9B",
+   "off": 982427,
+   "size": 613,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_0F0000",
    "off": 983040,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 21152,
+   "kind": "TILE",
+   "info": "661 tiles 4bpp to VRAM tile 0x77"
   },
   {
-   "name": "bank1F",
+   "name": "pad_0F52A0",
+   "off": 1004192,
+   "size": 96,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "tile_0F5300",
+   "off": 1004288,
+   "size": 5440,
+   "kind": "TILE",
+   "info": "170 tiles 4bpp to VRAM tile 0x90"
+  },
+  {
+   "name": "tile_0F6840",
+   "off": 1009728,
+   "size": 4224,
+   "kind": "TILE",
+   "info": ""
+  },
+  {
+   "name": "pad_0F78C0",
+   "off": 1013952,
+   "size": 1856,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "lz_0F8000",
    "off": 1015808,
-   "size": 32768,
-   "kind": "unclassified"
+   "size": 2977,
+   "kind": "LZ",
+   "info": "4480 bytes unpacked"
+  },
+  {
+   "name": "pad_0F8BA1",
+   "off": 1018785,
+   "size": 2,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
+  },
+  {
+   "name": "lz_0F8BA3",
+   "off": 1018787,
+   "size": 10770,
+   "kind": "LZ",
+   "info": "22208 bytes unpacked"
+  },
+  {
+   "name": "lz_0FB5B5",
+   "off": 1029557,
+   "size": 6234,
+   "kind": "LZ",
+   "info": "33152 bytes unpacked"
+  },
+  {
+   "name": "lz_0FCE0F",
+   "off": 1035791,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "lz_0FCE11",
+   "off": 1035793,
+   "size": 5709,
+   "kind": "LZ",
+   "info": "16064 bytes unpacked"
+  },
+  {
+   "name": "lz_0FE45E",
+   "off": 1041502,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "tile_0FE460",
+   "off": 1041504,
+   "size": 512,
+   "kind": "TILE",
+   "info": "16 tiles 4bpp to VRAM tile 0x2fc"
+  },
+  {
+   "name": "lz_0FE660",
+   "off": 1042016,
+   "size": 3448,
+   "kind": "LZ",
+   "info": "7696 bytes unpacked"
+  },
+  {
+   "name": "lz_0FF3D8",
+   "off": 1045464,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "lz_0FF3DA",
+   "off": 1045466,
+   "size": 429,
+   "kind": "LZ",
+   "info": "544 bytes unpacked"
+  },
+  {
+   "name": "lz_0FF587",
+   "off": 1045895,
+   "size": 2,
+   "kind": "LZ",
+   "info": "end of stream (flush word)"
+  },
+  {
+   "name": "pad_0FF589",
+   "off": 1045897,
+   "size": 2679,
+   "kind": "PAD",
+   "info": "$00",
+   "fill": 0
   }
  ]
 }

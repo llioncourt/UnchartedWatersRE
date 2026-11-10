@@ -1,0 +1,9080 @@
+{
+"1": [
+{
+"mod": "root",
+"line": 101,
+"args": [
+null
+]
+}
+],
+"3": [
+{
+"mod": "root",
+"line": 1839,
+"args": [
+36242,
+126,
+128,
+32
+]
+},
+{
+"mod": "root",
+"line": 7271,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 1026,
+"args": [
+44010,
+126,
+128,
+32
+]
+},
+{
+"mod": "ending",
+"line": 1087,
+"args": [
+43530,
+126,
+32,
+96
+]
+},
+{
+"mod": "ending",
+"line": 1093,
+"args": [
+43626,
+126,
+160,
+32
+]
+},
+{
+"mod": "ending",
+"line": 1099,
+"args": [
+43626,
+126,
+96,
+32
+]
+},
+{
+"mod": "ending",
+"line": 1942,
+"args": [
+49815,
+126,
+208,
+32
+]
+},
+{
+"mod": "ending",
+"line": 2025,
+"args": [
+43658,
+126,
+112,
+32
+]
+},
+{
+"mod": "ending",
+"line": 2031,
+"args": [
+43690,
+126,
+80,
+32
+]
+},
+{
+"mod": "ending",
+"line": 2076,
+"args": [
+43754,
+126,
+96,
+64
+]
+},
+{
+"mod": "ending",
+"line": 2082,
+"args": [
+43722,
+126,
+64,
+32
+]
+},
+{
+"mod": "ending",
+"line": 2088,
+"args": [
+43722,
+126,
+192,
+32
+]
+},
+{
+"mod": "ending",
+"line": 2137,
+"args": [
+43818,
+126,
+96,
+64
+]
+},
+{
+"mod": "ending",
+"line": 2146,
+"args": [
+43882,
+126,
+96,
+64
+]
+},
+{
+"mod": "ending",
+"line": 2155,
+"args": [
+43946,
+126,
+96,
+64
+]
+},
+{
+"mod": "initop",
+"line": 1253,
+"args": [
+47176,
+126,
+64,
+32
+]
+},
+{
+"mod": "initop",
+"line": 1299,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 1342,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 1366,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 1390,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 1414,
+"args": [
+47176,
+126,
+64,
+32
+]
+},
+{
+"mod": "initop",
+"line": 1431,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 1447,
+"args": [
+47592,
+126,
+128,
+32
+]
+},
+{
+"mod": "initop",
+"line": 1477,
+"args": [
+46792,
+126,
+16,
+32
+]
+},
+{
+"mod": "initop",
+"line": 1831,
+"args": [
+45288,
+126,
+96,
+32
+]
+},
+{
+"mod": "initop",
+"line": 2156,
+"args": [
+44872,
+126,
+0,
+128
+]
+},
+{
+"mod": "initop",
+"line": 2194,
+"args": [
+44872,
+126,
+0,
+128
+]
+},
+{
+"mod": "initop",
+"line": 2679,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 2692,
+"args": [
+45480,
+126,
+48,
+32
+]
+},
+{
+"mod": "initop",
+"line": 2709,
+"args": [
+45480,
+126,
+48,
+32
+]
+},
+{
+"mod": "initop",
+"line": 2816,
+"args": [
+45192,
+126,
+32,
+32
+]
+},
+{
+"mod": "initop",
+"line": 2822,
+"args": [
+45160,
+126,
+64,
+32
+]
+},
+{
+"mod": "initop",
+"line": 2828,
+"args": [
+45512,
+126,
+112,
+32
+]
+},
+{
+"mod": "initop",
+"line": 2834,
+"args": [
+45224,
+126,
+0,
+32
+]
+},
+{
+"mod": "initop",
+"line": 2840,
+"args": [
+45224,
+126,
+144,
+32
+]
+},
+{
+"mod": "initop",
+"line": 2846,
+"args": [
+45256,
+126,
+208,
+32
+]
+},
+{
+"mod": "initop",
+"line": 3014,
+"args": [
+45544,
+126,
+208,
+32
+]
+},
+{
+"mod": "scom",
+"line": 545,
+"args": [
+39444,
+126,
+208,
+32
+]
+},
+{
+"mod": "uarugo",
+"line": 3490,
+"args": [
+null,
+null,
+null,
+null
+]
+}
+],
+"4": [
+{
+"mod": "root",
+"line": 2666,
+"args": [
+3,
+0,
+0
+]
+},
+{
+"mod": "root",
+"line": 4272,
+"args": [
+null,
+0,
+null
+]
+},
+{
+"mod": "root",
+"line": 9638,
+"args": [
+3,
+0,
+8192
+]
+},
+{
+"mod": "root",
+"line": 9761,
+"args": [
+3,
+0,
+0
+]
+},
+{
+"mod": "ending",
+"line": 22,
+"args": [
+3,
+0,
+8192
+]
+},
+{
+"mod": "ending",
+"line": 592,
+"args": [
+1,
+1,
+0
+]
+},
+{
+"mod": "ending",
+"line": 2247,
+"args": [
+2,
+0,
+0
+]
+},
+{
+"mod": "ending",
+"line": 2252,
+"args": [
+3,
+0,
+8192
+]
+},
+{
+"mod": "ending",
+"line": 2363,
+"args": [
+2,
+1,
+0
+]
+},
+{
+"mod": "initop",
+"line": 1258,
+"args": [
+2,
+0,
+12289
+]
+},
+{
+"mod": "initop",
+"line": 1463,
+"args": [
+1,
+0,
+0
+]
+},
+{
+"mod": "initop",
+"line": 1468,
+"args": [
+2,
+0,
+0
+]
+},
+{
+"mod": "initop",
+"line": 1500,
+"args": [
+2,
+0,
+0
+]
+},
+{
+"mod": "initop",
+"line": 1505,
+"args": [
+1,
+0,
+0
+]
+},
+{
+"mod": "initop",
+"line": 1538,
+"args": [
+2,
+0,
+0
+]
+},
+{
+"mod": "initop",
+"line": 2216,
+"args": [
+3,
+0,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 2221,
+"args": [
+3,
+1,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 2379,
+"args": [
+3,
+0,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 2384,
+"args": [
+3,
+1,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 2415,
+"args": [
+3,
+0,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 2420,
+"args": [
+3,
+1,
+8192
+]
+},
+{
+"mod": "ucom",
+"line": 2358,
+"args": [
+3,
+0,
+0
+]
+},
+{
+"mod": "ucom",
+"line": 3727,
+"args": [
+3,
+0,
+8192
+]
+},
+{
+"mod": "ucom",
+"line": 3769,
+"args": [
+3,
+0,
+8192
+]
+},
+{
+"mod": "ucom",
+"line": 3894,
+"args": [
+3,
+0,
+8192
+]
+},
+{
+"mod": "ucom",
+"line": 4495,
+"args": [
+1,
+0,
+0
+]
+},
+{
+"mod": "ucom",
+"line": 4503,
+"args": [
+3,
+0,
+8192
+]
+}
+],
+"5": [
+{
+"mod": "root",
+"line": 1220,
+"args": [
+1,
+3,
+4,
+1,
+1,
+2214
+]
+},
+{
+"mod": "root",
+"line": 1228,
+"args": [
+1,
+28,
+4,
+1,
+1,
+2212
+]
+},
+{
+"mod": "root",
+"line": 1236,
+"args": [
+1,
+3,
+25,
+1,
+1,
+2215
+]
+},
+{
+"mod": "root",
+"line": 1244,
+"args": [
+1,
+28,
+25,
+1,
+1,
+2213
+]
+},
+{
+"mod": "root",
+"line": 1252,
+"args": [
+1,
+3,
+5,
+1,
+20,
+2209
+]
+},
+{
+"mod": "root",
+"line": 1260,
+"args": [
+1,
+28,
+5,
+1,
+20,
+2208
+]
+},
+{
+"mod": "root",
+"line": 1268,
+"args": [
+1,
+4,
+4,
+24,
+1,
+2210
+]
+},
+{
+"mod": "root",
+"line": 1276,
+"args": [
+1,
+4,
+25,
+24,
+1,
+2211
+]
+},
+{
+"mod": "root",
+"line": 2125,
+"args": [
+1,
+null,
+null,
+8,
+8,
+0
+]
+},
+{
+"mod": "root",
+"line": 2646,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 2659,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4156,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7105,
+"args": [
+1,
+null,
+null,
+5,
+6,
+0
+]
+},
+{
+"mod": "root",
+"line": 7117,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7231,
+"args": [
+3,
+null,
+null,
+5,
+6,
+8192
+]
+},
+{
+"mod": "root",
+"line": 8325,
+"args": [
+1,
+null,
+null,
+2,
+2,
+0
+]
+},
+{
+"mod": "root",
+"line": 9703,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 9903,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 10307,
+"args": [
+3,
+3,
+26,
+26,
+1,
+8192
+]
+},
+{
+"mod": "root",
+"line": 10327,
+"args": [
+3,
+3,
+26,
+26,
+1,
+8192
+]
+},
+{
+"mod": "root",
+"line": 10519,
+"args": [
+3,
+3,
+25,
+24,
+2,
+8192
+]
+},
+{
+"mod": "root",
+"line": 10576,
+"args": [
+3,
+3,
+25,
+24,
+2,
+8192
+]
+},
+{
+"mod": "root",
+"line": 10708,
+"args": [
+3,
+5,
+6,
+22,
+15,
+8192
+]
+},
+{
+"mod": "root",
+"line": 10957,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 14060,
+"args": [
+3,
+3,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 14342,
+"args": [
+3,
+15,
+3,
+1,
+16,
+8442
+]
+},
+{
+"mod": "root",
+"line": 14351,
+"args": [
+3,
+3,
+2,
+26,
+1,
+8192
+]
+},
+{
+"mod": "ending",
+"line": 382,
+"args": [
+3,
+9,
+12,
+18,
+6,
+8192
+]
+},
+{
+"mod": "ending",
+"line": 404,
+"args": [
+3,
+5,
+21,
+18,
+6,
+8192
+]
+},
+{
+"mod": "ending",
+"line": 779,
+"args": [
+1,
+5,
+20,
+null,
+null,
+0
+]
+},
+{
+"mod": "ending",
+"line": 795,
+"args": [
+1,
+13,
+18,
+3,
+2,
+0
+]
+},
+{
+"mod": "ending",
+"line": 1981,
+"args": [
+3,
+3,
+21,
+26,
+6,
+8192
+]
+},
+{
+"mod": "ending",
+"line": 2197,
+"args": [
+3,
+8,
+16,
+21,
+6,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 346,
+"args": [
+3,
+3,
+25,
+24,
+2,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 365,
+"args": [
+3,
+6,
+25,
+21,
+2,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 413,
+"args": [
+3,
+9,
+4,
+14,
+17,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 434,
+"args": [
+3,
+23,
+26,
+1,
+1,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 532,
+"args": [
+3,
+7,
+26,
+18,
+1,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 541,
+"args": [
+3,
+7,
+25,
+18,
+2,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 671,
+"args": [
+3,
+7,
+22,
+18,
+2,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 679,
+"args": [
+3,
+7,
+24,
+18,
+2,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 906,
+"args": [
+3,
+9,
+4,
+14,
+17,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 1876,
+"args": [
+3,
+6,
+14,
+20,
+7,
+8192
+]
+},
+{
+"mod": "initop",
+"line": 2316,
+"args": [
+3,
+2,
+null,
+28,
+2,
+8192
+]
+},
+{
+"mod": "mdisp1",
+"line": 1288,
+"args": [
+1,
+5,
+20,
+null,
+null,
+0
+]
+},
+{
+"mod": "mdisp1",
+"line": 1304,
+"args": [
+1,
+13,
+18,
+3,
+2,
+0
+]
+},
+{
+"mod": "mdisp1",
+"line": 1651,
+"args": [
+3,
+6,
+11,
+20,
+5,
+8192
+]
+},
+{
+"mod": "mdisp1",
+"line": 1680,
+"args": [
+3,
+6,
+11,
+20,
+5,
+8192
+]
+},
+{
+"mod": "s_bj",
+"line": 471,
+"args": [
+1,
+10,
+9,
+17,
+4,
+0
+]
+},
+{
+"mod": "s_bj",
+"line": 479,
+"args": [
+1,
+10,
+17,
+17,
+6,
+0
+]
+},
+{
+"mod": "s_bj",
+"line": 487,
+"args": [
+3,
+10,
+9,
+17,
+4,
+8192
+]
+},
+{
+"mod": "s_bj",
+"line": 495,
+"args": [
+3,
+10,
+17,
+17,
+6,
+8192
+]
+},
+{
+"mod": "s_card",
+"line": 281,
+"args": [
+1,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "s_pk",
+"line": 23,
+"args": [
+1,
+null,
+null,
+2,
+3,
+0
+]
+},
+{
+"mod": "s_pk",
+"line": 735,
+"args": [
+1,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "s_pk",
+"line": 757,
+"args": [
+3,
+10,
+24,
+8,
+1,
+8192
+]
+},
+{
+"mod": "s_pk",
+"line": 1152,
+"args": [
+3,
+21,
+17,
+10,
+8,
+8192
+]
+},
+{
+"mod": "s_pk",
+"line": 3093,
+"args": [
+1,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "s_pk",
+"line": 3115,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "s_pk",
+"line": 3201,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "s_pk",
+"line": 3220,
+"args": [
+3,
+null,
+null,
+10,
+6,
+8192
+]
+},
+{
+"mod": "s_pk",
+"line": 3251,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "s_pk",
+"line": 3270,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "senfe",
+"line": 2676,
+"args": [
+3,
+8,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "senfe",
+"line": 2684,
+"args": [
+3,
+19,
+13,
+10,
+14,
+8192
+]
+},
+{
+"mod": "senmain",
+"line": 65,
+"args": [
+1,
+null,
+null,
+2,
+2,
+0
+]
+},
+{
+"mod": "senmain",
+"line": 2955,
+"args": [
+21,
+27,
+1,
+1,
+228,
+0
+]
+},
+{
+"mod": "senmain",
+"line": 2966,
+"args": [
+21,
+27,
+1,
+1,
+0,
+0
+]
+},
+{
+"mod": "senmain",
+"line": 2983,
+"args": [
+21,
+27,
+1,
+1,
+0,
+0
+]
+},
+{
+"mod": "senmain",
+"line": 3032,
+"args": [
+1,
+12,
+22,
+19,
+4,
+0
+]
+},
+{
+"mod": "senmain",
+"line": 3194,
+"args": [
+1,
+12,
+22,
+19,
+4,
+0
+]
+},
+{
+"mod": "sensou",
+"line": 243,
+"args": [
+3,
+12,
+26,
+19,
+2,
+8192
+]
+},
+{
+"mod": "sensou",
+"line": 394,
+"args": [
+1,
+1,
+22,
+30,
+6,
+0
+]
+},
+{
+"mod": "sensou",
+"line": 1178,
+"args": [
+1,
+16,
+22,
+6,
+6,
+0
+]
+},
+{
+"mod": "sensou",
+"line": 1422,
+"args": [
+1,
+13,
+22,
+6,
+1,
+0
+]
+},
+{
+"mod": "sensou",
+"line": 1468,
+"args": [
+1,
+13,
+22,
+6,
+1,
+0
+]
+},
+{
+"mod": "sensou",
+"line": 1511,
+"args": [
+1,
+13,
+22,
+6,
+1,
+0
+]
+},
+{
+"mod": "sensou",
+"line": 1543,
+"args": [
+1,
+13,
+22,
+6,
+1,
+0
+]
+},
+{
+"mod": "ucom",
+"line": 3722,
+"args": [
+1,
+1,
+null,
+30,
+20,
+0
+]
+},
+{
+"mod": "ucom",
+"line": 3764,
+"args": [
+1,
+1,
+null,
+30,
+20,
+0
+]
+},
+{
+"mod": "ucom",
+"line": 3889,
+"args": [
+1,
+1,
+null,
+30,
+20,
+0
+]
+},
+{
+"mod": "ucom",
+"line": 4299,
+"args": [
+3,
+null,
+null,
+14,
+null,
+0
+]
+},
+{
+"mod": "ucom",
+"line": 4650,
+"args": [
+3,
+2,
+27,
+30,
+4,
+0
+]
+},
+{
+"mod": "ucom",
+"line": 5689,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "ucom",
+"line": 5743,
+"args": [
+3,
+null,
+null,
+null,
+2,
+8192
+]
+},
+{
+"mod": "ucom",
+"line": 5842,
+"args": [
+3,
+8,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 44,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null
+]
+}
+],
+"6": [
+{
+"mod": "root",
+"line": 2458,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 2562,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 2818,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4405,
+"args": [
+null,
+null,
+null,
+null,
+1,
+0,
+127
+]
+},
+{
+"mod": "root",
+"line": 6837,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null,
+127
+]
+},
+{
+"mod": "root",
+"line": 6875,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 6897,
+"args": [
+1,
+null,
+null,
+null,
+null,
+null,
+127
+]
+},
+{
+"mod": "root",
+"line": 6935,
+"args": [
+1,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 6957,
+"args": [
+2,
+null,
+null,
+null,
+null,
+null,
+127
+]
+},
+{
+"mod": "root",
+"line": 6995,
+"args": [
+2,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7925,
+"args": [
+null,
+null,
+null,
+null,
+7,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7961,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 8469,
+"args": [
+1,
+null,
+null,
+2,
+2,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 9649,
+"args": [
+1,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 14970,
+"args": [
+2,
+2,
+1,
+28,
+28,
+55296,
+127
+]
+},
+{
+"mod": "initop",
+"line": 1840,
+"args": [
+1,
+5,
+12,
+22,
+10,
+53824,
+126
+]
+},
+{
+"mod": "initop",
+"line": 2150,
+"args": [
+1,
+18,
+11,
+10,
+12,
+47782,
+126
+]
+},
+{
+"mod": "initop",
+"line": 2179,
+"args": [
+2,
+0,
+1,
+32,
+28,
+48022,
+126
+]
+},
+{
+"mod": "initop",
+"line": 2188,
+"args": [
+1,
+18,
+11,
+10,
+12,
+47782,
+126
+]
+},
+{
+"mod": "initop",
+"line": 2264,
+"args": [
+3,
+2,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 2345,
+"args": [
+3,
+2,
+null,
+28,
+2,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 2771,
+"args": [
+2,
+0,
+2,
+608,
+1,
+49814,
+126
+]
+},
+{
+"mod": "initop",
+"line": 2780,
+"args": [
+2,
+0,
+21,
+32,
+7,
+51178,
+126
+]
+},
+{
+"mod": "initop",
+"line": 2789,
+"args": [
+3,
+5,
+49,
+22,
+11,
+51626,
+126
+]
+},
+{
+"mod": "initop",
+"line": 2875,
+"args": [
+1,
+18,
+21,
+10,
+2,
+51058,
+126
+]
+},
+{
+"mod": "initop",
+"line": 2899,
+"args": [
+1,
+18,
+21,
+10,
+2,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 2913,
+"args": [
+1,
+22,
+11,
+2,
+1,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 2966,
+"args": [
+1,
+18,
+21,
+10,
+2,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 2980,
+"args": [
+1,
+22,
+11,
+2,
+1,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 3025,
+"args": [
+1,
+14,
+24,
+18,
+3,
+54264,
+126
+]
+},
+{
+"mod": "initop",
+"line": 3060,
+"args": [
+1,
+18,
+21,
+10,
+2,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 3074,
+"args": [
+1,
+22,
+11,
+2,
+1,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 3138,
+"args": [
+1,
+14,
+24,
+18,
+3,
+54264,
+126
+]
+},
+{
+"mod": "senmain",
+"line": 336,
+"args": [
+1,
+null,
+null,
+2,
+1,
+null,
+null
+]
+},
+{
+"mod": "sensou",
+"line": 621,
+"args": [
+1,
+null,
+null,
+null,
+1,
+null,
+null
+]
+},
+{
+"mod": "uarugo",
+"line": 3818,
+"args": [
+2,
+2,
+1,
+28,
+28,
+55296,
+127
+]
+},
+{
+"mod": "ucom",
+"line": 4944,
+"args": [
+1,
+4,
+3,
+23,
+23,
+62208,
+126
+]
+}
+],
+"7": [
+{
+"mod": "root",
+"line": 4355,
+"args": [
+null,
+null,
+null,
+null,
+1,
+0,
+127
+]
+},
+{
+"mod": "root",
+"line": 6646,
+"args": [
+2,
+null,
+null,
+null,
+null,
+null,
+127
+]
+},
+{
+"mod": "root",
+"line": 6684,
+"args": [
+2,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 6706,
+"args": [
+1,
+null,
+null,
+null,
+null,
+null,
+127
+]
+},
+{
+"mod": "root",
+"line": 6744,
+"args": [
+1,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 6766,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null,
+127
+]
+},
+{
+"mod": "root",
+"line": 6804,
+"args": [
+3,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7976,
+"args": [
+null,
+null,
+null,
+null,
+7,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 8012,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 614,
+"args": [
+2,
+1,
+19,
+1,
+9,
+null,
+null
+]
+}
+],
+"8": [
+{
+"mod": "root",
+"line": 4258,
+"args": []
+},
+{
+"mod": "root",
+"line": 13403,
+"args": []
+},
+{
+"mod": "root",
+"line": 14417,
+"args": []
+},
+{
+"mod": "ending",
+"line": 2346,
+"args": []
+},
+{
+"mod": "initop",
+"line": 121,
+"args": []
+},
+{
+"mod": "initop",
+"line": 357,
+"args": []
+},
+{
+"mod": "initop",
+"line": 663,
+"args": []
+},
+{
+"mod": "initop",
+"line": 1495,
+"args": []
+},
+{
+"mod": "initop",
+"line": 3186,
+"args": []
+},
+{
+"mod": "initop",
+"line": 3202,
+"args": []
+},
+{
+"mod": "jouriku",
+"line": 608,
+"args": []
+},
+{
+"mod": "jouriku",
+"line": 701,
+"args": []
+},
+{
+"mod": "jouriku",
+"line": 843,
+"args": []
+},
+{
+"mod": "koueki",
+"line": 1632,
+"args": []
+},
+{
+"mod": "koueki",
+"line": 1649,
+"args": []
+},
+{
+"mod": "s_card",
+"line": 94,
+"args": []
+},
+{
+"mod": "sensou",
+"line": 1266,
+"args": []
+},
+{
+"mod": "ucom",
+"line": 4490,
+"args": []
+},
+{
+"mod": "um_sub",
+"line": 2439,
+"args": []
+},
+{
+"mod": "uminato",
+"line": 170,
+"args": []
+},
+{
+"mod": "uminato2",
+"line": 276,
+"args": []
+},
+{
+"mod": "uminato2",
+"line": 398,
+"args": []
+},
+{
+"mod": "uminato2",
+"line": 536,
+"args": []
+},
+{
+"mod": "uminato2",
+"line": 923,
+"args": []
+}
+],
+"9": [
+{
+"mod": "root",
+"line": 8370,
+"args": [
+18,
+null,
+null,
+2,
+2,
+36755,
+0,
+126
+]
+},
+{
+"mod": "ending",
+"line": 285,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 755,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 916,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 1658,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "hantei",
+"line": 128,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 3035,
+"args": [
+0,
+40,
+143,
+22,
+2,
+52110,
+0,
+126
+]
+},
+{
+"mod": "initop",
+"line": 3154,
+"args": [
+0,
+40,
+143,
+22,
+2,
+52110,
+0,
+126
+]
+},
+{
+"mod": "mdisp1",
+"line": 1016,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 1063,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 1264,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 1425,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 1537,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "senmain",
+"line": 1650,
+"args": [
+null,
+null,
+null,
+1,
+1,
+null,
+null,
+null
+]
+},
+{
+"mod": "senmain",
+"line": 2463,
+"args": [
+22,
+null,
+null,
+1,
+1,
+null,
+null,
+null
+]
+},
+{
+"mod": "uarugo",
+"line": 3701,
+"args": [
+22,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "ucom",
+"line": 79,
+"args": [
+10,
+null,
+null,
+2,
+2,
+null,
+null,
+null
+]
+},
+{
+"mod": "ucom",
+"line": 4409,
+"args": [
+14,
+null,
+null,
+1,
+2,
+50716,
+0,
+126
+]
+},
+{
+"mod": "uminato",
+"line": 1213,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 1662,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null,
+null,
+null
+]
+}
+],
+"10": [
+{
+"mod": "root",
+"line": 6337,
+"args": [
+22,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 6387,
+"args": [
+22,
+null,
+null,
+null,
+2,
+1
+]
+},
+{
+"mod": "scom",
+"line": 525,
+"args": [
+10,
+null,
+null,
+15232,
+2,
+0
+]
+},
+{
+"mod": "scom",
+"line": 573,
+"args": [
+10,
+null,
+null,
+15232,
+2,
+1
+]
+},
+{
+"mod": "senmain",
+"line": 1810,
+"args": [
+21,
+null,
+null,
+null,
+2,
+0
+]
+},
+{
+"mod": "senmain",
+"line": 1843,
+"args": [
+21,
+null,
+null,
+null,
+2,
+1
+]
+},
+{
+"mod": "senmain",
+"line": 1856,
+"args": [
+21,
+null,
+null,
+null,
+2,
+0
+]
+},
+{
+"mod": "sensou",
+"line": 286,
+"args": [
+20,
+null,
+null,
+null,
+2,
+1
+]
+},
+{
+"mod": "sensou",
+"line": 297,
+"args": [
+20,
+null,
+null,
+12544,
+2,
+0
+]
+}
+],
+"11": [
+{
+"mod": "root",
+"line": 120,
+"args": [
+0,
+353,
+0,
+127,
+3
+]
+},
+{
+"mod": "root",
+"line": 132,
+"args": [
+1,
+34,
+0,
+127,
+1
+]
+},
+{
+"mod": "root",
+"line": 145,
+"args": [
+352,
+54,
+43111,
+12,
+3
+]
+},
+{
+"mod": "root",
+"line": 357,
+"args": [
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 443,
+"args": [
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 532,
+"args": [
+35,
+9,
+null,
+24,
+1
+]
+},
+{
+"mod": "root",
+"line": 873,
+"args": [
+87,
+2,
+32768,
+24,
+1
+]
+},
+{
+"mod": "root",
+"line": 1197,
+"args": [
+168,
+15,
+384,
+127,
+2
+]
+},
+{
+"mod": "root",
+"line": 1204,
+"args": [
+160,
+8,
+0,
+127,
+1
+]
+},
+{
+"mod": "root",
+"line": 1348,
+"args": [
+184,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 1833,
+"args": [
+144,
+170,
+54016,
+30,
+2
+]
+},
+{
+"mod": "root",
+"line": 7892,
+"args": [
+119,
+72,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 9078,
+"args": [
+191,
+16,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 9089,
+"args": [
+207,
+16,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 14463,
+"args": [
+288,
+53,
+0,
+127,
+1
+]
+},
+{
+"mod": "root",
+"line": 14470,
+"args": [
+352,
+89,
+1824,
+127,
+1
+]
+},
+{
+"mod": "root",
+"line": 14477,
+"args": [
+448,
+23,
+4672,
+127,
+1
+]
+},
+{
+"mod": "root",
+"line": 14495,
+"args": [
+256,
+32,
+0,
+127,
+2
+]
+},
+{
+"mod": "root",
+"line": 14502,
+"args": [
+232,
+4,
+1536,
+127,
+2
+]
+},
+{
+"mod": "root",
+"line": 14532,
+"args": [
+544,
+96,
+56542,
+16,
+1
+]
+},
+{
+"mod": "root",
+"line": 14539,
+"args": [
+672,
+28,
+32768,
+15,
+1
+]
+},
+{
+"mod": "root",
+"line": 14546,
+"args": [
+640,
+16,
+60574,
+16,
+1
+]
+},
+{
+"mod": "root",
+"line": 15459,
+"args": [
+null,
+30,
+null,
+null,
+1
+]
+},
+{
+"mod": "root",
+"line": 15674,
+"args": [
+null,
+30,
+null,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 1020,
+"args": [
+144,
+170,
+54016,
+30,
+2
+]
+},
+{
+"mod": "ending",
+"line": 1061,
+"args": [
+119,
+109,
+32768,
+29,
+2
+]
+},
+{
+"mod": "ending",
+"line": 1068,
+"args": [
+228,
+336,
+40096,
+29,
+1
+]
+},
+{
+"mod": "ending",
+"line": 1081,
+"args": [
+564,
+19,
+64256,
+29,
+1
+]
+},
+{
+"mod": "ending",
+"line": 1467,
+"args": [
+944,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 1815,
+"args": [
+119,
+32,
+35693,
+22,
+1
+]
+},
+{
+"mod": "ending",
+"line": 1827,
+"args": [
+151,
+189,
+0,
+127,
+2
+]
+},
+{
+"mod": "ending",
+"line": 1834,
+"args": [
+933,
+11,
+6048,
+127,
+2
+]
+},
+{
+"mod": "ending",
+"line": 1853,
+"args": [
+416,
+449,
+32768,
+18,
+2
+]
+},
+{
+"mod": "ending",
+"line": 2019,
+"args": [
+119,
+351,
+50848,
+29,
+1
+]
+},
+{
+"mod": "ending",
+"line": 2064,
+"args": [
+119,
+661,
+32768,
+30,
+1
+]
+},
+{
+"mod": "initop",
+"line": 1065,
+"args": [
+152,
+840,
+0,
+127,
+2
+]
+},
+{
+"mod": "initop",
+"line": 1232,
+"args": [
+1,
+133,
+59424,
+30,
+1
+]
+},
+{
+"mod": "initop",
+"line": 1245,
+"args": [
+144,
+170,
+54016,
+30,
+2
+]
+},
+{
+"mod": "initop",
+"line": 1825,
+"args": [
+119,
+17,
+0,
+127,
+1
+]
+},
+{
+"mod": "initop",
+"line": 2139,
+"args": [
+1,
+141,
+0,
+127,
+1
+]
+},
+{
+"mod": "initop",
+"line": 2170,
+"args": [
+206,
+694,
+0,
+127,
+2
+]
+},
+{
+"mod": "initop",
+"line": 2243,
+"args": [
+1,
+504,
+0,
+127,
+3
+]
+},
+{
+"mod": "initop",
+"line": 2331,
+"args": [
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 2737,
+"args": [
+206,
+502,
+0,
+127,
+2
+]
+},
+{
+"mod": "initop",
+"line": 2744,
+"args": [
+764,
+16,
+58464,
+31,
+2
+]
+},
+{
+"mod": "initop",
+"line": 2756,
+"args": [
+1,
+206,
+0,
+127,
+3
+]
+},
+{
+"mod": "jouriku",
+"line": 2042,
+"args": [
+119,
+72,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 513,
+"args": [
+944,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 612,
+"args": [
+344,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 792,
+"args": [
+386,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 882,
+"args": [
+119,
+32,
+35693,
+22,
+1
+]
+},
+{
+"mod": "mdisp1",
+"line": 894,
+"args": [
+151,
+189,
+0,
+127,
+2
+]
+},
+{
+"mod": "mdisp1",
+"line": 901,
+"args": [
+933,
+11,
+6048,
+127,
+2
+]
+},
+{
+"mod": "s_card",
+"line": 72,
+"args": [
+416,
+404,
+0,
+127,
+1
+]
+},
+{
+"mod": "senfe",
+"line": 1409,
+"args": [
+160,
+4,
+256,
+127,
+1
+]
+},
+{
+"mod": "senfe",
+"line": 1527,
+"args": [
+119,
+821,
+32768,
+28,
+2
+]
+},
+{
+"mod": "uminato",
+"line": 341,
+"args": [
+416,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "zousen",
+"line": 46,
+"args": [
+416,
+294,
+0,
+127,
+2
+]
+}
+],
+"13": [
+{
+"mod": "root",
+"line": 138,
+"args": [
+224,
+9,
+42791,
+12
+]
+},
+{
+"mod": "root",
+"line": 1826,
+"args": [
+1,
+74,
+59424,
+30
+]
+},
+{
+"mod": "root",
+"line": 14483,
+"args": [
+320,
+4,
+1696,
+127
+]
+},
+{
+"mod": "root",
+"line": 14513,
+"args": [
+256,
+36,
+0,
+127
+]
+},
+{
+"mod": "root",
+"line": 14519,
+"args": [
+304,
+12,
+1152,
+127
+]
+},
+{
+"mod": "root",
+"line": 14525,
+"args": [
+352,
+4,
+1536,
+127
+]
+},
+{
+"mod": "root",
+"line": 14552,
+"args": [
+384,
+18,
+59998,
+16
+]
+},
+{
+"mod": "ending",
+"line": 1013,
+"args": [
+1,
+74,
+59424,
+30
+]
+},
+{
+"mod": "ending",
+"line": 1074,
+"args": [
+240,
+120,
+36256,
+29
+]
+},
+{
+"mod": "ending",
+"line": 1840,
+"args": [
+240,
+60,
+32768,
+17
+]
+},
+{
+"mod": "ending",
+"line": 1846,
+"args": [
+300,
+68,
+62080,
+29
+]
+},
+{
+"mod": "ending",
+"line": 2070,
+"args": [
+240,
+10,
+53600,
+30
+]
+},
+{
+"mod": "initop",
+"line": 1238,
+"args": [
+1,
+74,
+59424,
+30
+]
+},
+{
+"mod": "initop",
+"line": 2762,
+"args": [
+256,
+42,
+6352,
+127
+]
+},
+{
+"mod": "mdisp1",
+"line": 833,
+"args": [
+240,
+60,
+32768,
+17
+]
+},
+{
+"mod": "mdisp1",
+"line": 855,
+"args": [
+300,
+null,
+null,
+null
+]
+},
+{
+"mod": "senfe",
+"line": 1533,
+"args": [
+256,
+114,
+59040,
+28
+]
+}
+],
+"15": [
+{
+"mod": "root",
+"line": 2258,
+"args": [
+0
+]
+},
+{
+"mod": "root",
+"line": 2262,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 2267,
+"args": [
+0
+]
+},
+{
+"mod": "root",
+"line": 2271,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 3226,
+"args": [
+null
+]
+},
+{
+"mod": "root",
+"line": 3231,
+"args": [
+0
+]
+},
+{
+"mod": "root",
+"line": 3240,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 3351,
+"args": [
+0
+]
+},
+{
+"mod": "root",
+"line": 3359,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 5967,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 5988,
+"args": [
+0
+]
+},
+{
+"mod": "root",
+"line": 5998,
+"args": [
+0
+]
+},
+{
+"mod": "root",
+"line": 6002,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 13453,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 13459,
+"args": [
+0
+]
+},
+{
+"mod": "root",
+"line": 13669,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 13675,
+"args": [
+0
+]
+},
+{
+"mod": "senmain",
+"line": 1672,
+"args": [
+0
+]
+},
+{
+"mod": "senmain",
+"line": 1678,
+"args": [
+1
+]
+},
+{
+"mod": "senmain",
+"line": 1685,
+"args": [
+0
+]
+},
+{
+"mod": "senmain",
+"line": 1689,
+"args": [
+1
+]
+},
+{
+"mod": "senmain",
+"line": 2946,
+"args": [
+1
+]
+},
+{
+"mod": "senmain",
+"line": 2973,
+"args": [
+0
+]
+},
+{
+"mod": "senmain",
+"line": 2987,
+"args": [
+0
+]
+},
+{
+"mod": "senmain",
+"line": 2991,
+"args": [
+1
+]
+}
+],
+"16": [
+{
+"mod": "root",
+"line": 2254,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 3249,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 3380,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 3894,
+"args": [
+3
+]
+},
+{
+"mod": "root",
+"line": 3911,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 3980,
+"args": [
+10
+]
+},
+{
+"mod": "root",
+"line": 4294,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 4312,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 5977,
+"args": [
+2
+]
+},
+{
+"mod": "root",
+"line": 5984,
+"args": [
+2
+]
+},
+{
+"mod": "root",
+"line": 6400,
+"args": [
+1
+]
+},
+{
+"mod": "root",
+"line": 8788,
+"args": [
+1
+]
+},
+{
+"mod": "ending",
+"line": 169,
+"args": [
+120
+]
+},
+{
+"mod": "ending",
+"line": 215,
+"args": [
+7
+]
+},
+{
+"mod": "ending",
+"line": 485,
+"args": [
+null
+]
+},
+{
+"mod": "ending",
+"line": 798,
+"args": [
+8
+]
+},
+{
+"mod": "ending",
+"line": 824,
+"args": [
+3
+]
+},
+{
+"mod": "ending",
+"line": 847,
+"args": [
+15
+]
+},
+{
+"mod": "ending",
+"line": 854,
+"args": [
+2
+]
+},
+{
+"mod": "ending",
+"line": 941,
+"args": [
+null
+]
+},
+{
+"mod": "ending",
+"line": 986,
+"args": [
+2
+]
+},
+{
+"mod": "ending",
+"line": 996,
+"args": [
+2
+]
+},
+{
+"mod": "ending",
+"line": 1002,
+"args": [
+60
+]
+},
+{
+"mod": "ending",
+"line": 1208,
+"args": [
+180
+]
+},
+{
+"mod": "ending",
+"line": 1240,
+"args": [
+180
+]
+},
+{
+"mod": "ending",
+"line": 1268,
+"args": [
+400
+]
+},
+{
+"mod": "ending",
+"line": 1791,
+"args": [
+null
+]
+},
+{
+"mod": "ending",
+"line": 1960,
+"args": [
+300
+]
+},
+{
+"mod": "ending",
+"line": 1973,
+"args": [
+360
+]
+},
+{
+"mod": "ending",
+"line": 1987,
+"args": [
+360
+]
+},
+{
+"mod": "ending",
+"line": 2008,
+"args": [
+300
+]
+},
+{
+"mod": "ending",
+"line": 2052,
+"args": [
+300
+]
+},
+{
+"mod": "ending",
+"line": 2057,
+"args": [
+200
+]
+},
+{
+"mod": "ending",
+"line": 2109,
+"args": [
+250
+]
+},
+{
+"mod": "ending",
+"line": 2120,
+"args": [
+200
+]
+},
+{
+"mod": "ending",
+"line": 2131,
+"args": [
+150
+]
+},
+{
+"mod": "ending",
+"line": 2140,
+"args": [
+120
+]
+},
+{
+"mod": "ending",
+"line": 2149,
+"args": [
+120
+]
+},
+{
+"mod": "ending",
+"line": 2158,
+"args": [
+300
+]
+},
+{
+"mod": "ending",
+"line": 2163,
+"args": [
+120
+]
+},
+{
+"mod": "ending",
+"line": 2207,
+"args": [
+120
+]
+},
+{
+"mod": "ending",
+"line": 2218,
+"args": [
+50
+]
+},
+{
+"mod": "ending",
+"line": 2229,
+"args": [
+50
+]
+},
+{
+"mod": "ending",
+"line": 2240,
+"args": [
+300
+]
+},
+{
+"mod": "ending",
+"line": 2268,
+"args": [
+60
+]
+},
+{
+"mod": "ending",
+"line": 2309,
+"args": [
+3
+]
+},
+{
+"mod": "ending",
+"line": 2334,
+"args": [
+3
+]
+},
+{
+"mod": "ending",
+"line": 2344,
+"args": [
+30
+]
+},
+{
+"mod": "ending",
+"line": 2349,
+"args": [
+600
+]
+},
+{
+"mod": "initop",
+"line": 355,
+"args": [
+60
+]
+},
+{
+"mod": "initop",
+"line": 1179,
+"args": [
+1
+]
+},
+{
+"mod": "initop",
+"line": 1204,
+"args": [
+1
+]
+},
+{
+"mod": "initop",
+"line": 1275,
+"args": [
+1
+]
+},
+{
+"mod": "initop",
+"line": 1285,
+"args": [
+20
+]
+},
+{
+"mod": "initop",
+"line": 1345,
+"args": [
+0
+]
+},
+{
+"mod": "initop",
+"line": 1369,
+"args": [
+0
+]
+},
+{
+"mod": "initop",
+"line": 1393,
+"args": [
+1
+]
+},
+{
+"mod": "initop",
+"line": 1417,
+"args": [
+10
+]
+},
+{
+"mod": "initop",
+"line": 1434,
+"args": [
+4
+]
+},
+{
+"mod": "initop",
+"line": 1458,
+"args": [
+20
+]
+},
+{
+"mod": "initop",
+"line": 1471,
+"args": [
+1
+]
+},
+{
+"mod": "initop",
+"line": 1491,
+"args": [
+120
+]
+},
+{
+"mod": "initop",
+"line": 1647,
+"args": [
+1
+]
+},
+{
+"mod": "initop",
+"line": 1809,
+"args": [
+15
+]
+},
+{
+"mod": "initop",
+"line": 1926,
+"args": [
+1
+]
+},
+{
+"mod": "initop",
+"line": 3106,
+"args": [
+6
+]
+},
+{
+"mod": "initop",
+"line": 3194,
+"args": [
+1
+]
+},
+{
+"mod": "jouriku",
+"line": 304,
+"args": [
+1
+]
+},
+{
+"mod": "mdisp1",
+"line": 1019,
+"args": [
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 1077,
+"args": [
+4
+]
+},
+{
+"mod": "mdisp1",
+"line": 1325,
+"args": [
+45
+]
+},
+{
+"mod": "mdisp1",
+"line": 1329,
+"args": [
+8
+]
+},
+{
+"mod": "mdisp1",
+"line": 1428,
+"args": [
+1
+]
+},
+{
+"mod": "mdisp1",
+"line": 1441,
+"args": [
+2
+]
+},
+{
+"mod": "mdisp1",
+"line": 1468,
+"args": [
+15
+]
+},
+{
+"mod": "mdisp1",
+"line": 1475,
+"args": [
+2
+]
+},
+{
+"mod": "mdisp1",
+"line": 1562,
+"args": [
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 1605,
+"args": [
+2
+]
+},
+{
+"mod": "mdisp1",
+"line": 1656,
+"args": [
+2
+]
+},
+{
+"mod": "scom",
+"line": 681,
+"args": [
+30
+]
+},
+{
+"mod": "senmain",
+"line": 564,
+"args": [
+24
+]
+},
+{
+"mod": "senmain",
+"line": 2958,
+"args": [
+3
+]
+},
+{
+"mod": "senmain",
+"line": 2969,
+"args": [
+3
+]
+},
+{
+"mod": "sensou",
+"line": 207,
+"args": [
+1
+]
+},
+{
+"mod": "sensou",
+"line": 1047,
+"args": [
+4
+]
+},
+{
+"mod": "sensou",
+"line": 1058,
+"args": [
+4
+]
+},
+{
+"mod": "sensou",
+"line": 1069,
+"args": [
+4
+]
+},
+{
+"mod": "sensou",
+"line": 1080,
+"args": [
+4
+]
+},
+{
+"mod": "sensou",
+"line": 1091,
+"args": [
+4
+]
+},
+{
+"mod": "sensou",
+"line": 1259,
+"args": [
+8
+]
+},
+{
+"mod": "sensou",
+"line": 1269,
+"args": [
+8
+]
+},
+{
+"mod": "sensou",
+"line": 1274,
+"args": [
+8
+]
+},
+{
+"mod": "sensou",
+"line": 1301,
+"args": [
+2
+]
+},
+{
+"mod": "sensou",
+"line": 1327,
+"args": [
+2
+]
+},
+{
+"mod": "sensou",
+"line": 1338,
+"args": [
+2
+]
+},
+{
+"mod": "sensou",
+"line": 1349,
+"args": [
+2
+]
+},
+{
+"mod": "sensou",
+"line": 1360,
+"args": [
+2
+]
+},
+{
+"mod": "sensou",
+"line": 1371,
+"args": [
+2
+]
+},
+{
+"mod": "sensou",
+"line": 1382,
+"args": [
+2
+]
+},
+{
+"mod": "sensou",
+"line": 1406,
+"args": [
+1
+]
+},
+{
+"mod": "sensou",
+"line": 1450,
+"args": [
+1
+]
+},
+{
+"mod": "sensou",
+"line": 1495,
+"args": [
+1
+]
+},
+{
+"mod": "sensou",
+"line": 1554,
+"args": [
+1
+]
+},
+{
+"mod": "uarugo",
+"line": 2106,
+"args": [
+1
+]
+},
+{
+"mod": "uarugo",
+"line": 2126,
+"args": [
+1
+]
+},
+{
+"mod": "uarugo",
+"line": 3495,
+"args": [
+null
+]
+},
+{
+"mod": "uarugo",
+"line": 3533,
+"args": [
+3
+]
+},
+{
+"mod": "uarugo",
+"line": 3543,
+"args": [
+3
+]
+},
+{
+"mod": "uarugo",
+"line": 3565,
+"args": [
+3
+]
+},
+{
+"mod": "uarugo",
+"line": 3577,
+"args": [
+2
+]
+},
+{
+"mod": "uarugo",
+"line": 3704,
+"args": [
+2
+]
+},
+{
+"mod": "ucom",
+"line": 1431,
+"args": [
+1
+]
+},
+{
+"mod": "ucom",
+"line": 4281,
+"args": [
+8
+]
+},
+{
+"mod": "uminato",
+"line": 1460,
+"args": [
+1
+]
+},
+{
+"mod": "uminato",
+"line": 1667,
+"args": [
+3
+]
+},
+{
+"mod": "uminato",
+"line": 2052,
+"args": [
+null
+]
+},
+{
+"mod": "uminato",
+"line": 2484,
+"args": [
+2
+]
+},
+{
+"mod": "z_sinzou",
+"line": 555,
+"args": [
+30
+]
+},
+{
+"mod": "z_sinzou",
+"line": 560,
+"args": [
+30
+]
+},
+{
+"mod": "z_tyuuko",
+"line": 669,
+"args": [
+30
+]
+},
+{
+"mod": "z_tyuuko",
+"line": 674,
+"args": [
+30
+]
+},
+{
+"mod": "zousen",
+"line": 570,
+"args": [
+30
+]
+},
+{
+"mod": "zousen",
+"line": 575,
+"args": [
+30
+]
+}
+],
+"17": [
+{
+"mod": "root",
+"line": 7900,
+"args": [
+1,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7905,
+"args": [
+2,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7910,
+"args": [
+3,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 499,
+"args": [
+2,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 568,
+"args": [
+2,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 576,
+"args": [
+1,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 597,
+"args": [
+1,
+0,
+0
+]
+},
+{
+"mod": "initop",
+"line": 2211,
+"args": [
+3,
+0,
+0
+]
+},
+{
+"mod": "initop",
+"line": 2433,
+"args": [
+3,
+0,
+0
+]
+},
+{
+"mod": "initop",
+"line": 2443,
+"args": [
+1,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 2640,
+"args": [
+1,
+55,
+null
+]
+},
+{
+"mod": "initop",
+"line": 2948,
+"args": [
+3,
+0,
+null
+]
+}
+],
+"19": [
+{
+"mod": "root",
+"line": 3891,
+"args": [
+4,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4173,
+"args": [
+6,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "jouriku",
+"line": 636,
+"args": [
+0,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "jouriku",
+"line": 692,
+"args": [
+0,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "sensou",
+"line": 859,
+"args": [
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "ucom",
+"line": 4481,
+"args": [
+14,
+null,
+null,
+14659,
+0
+]
+},
+{
+"mod": "ucom",
+"line": 4760,
+"args": [
+null,
+null,
+null,
+14656,
+0
+]
+},
+{
+"mod": "ucom",
+"line": 5579,
+"args": [
+null,
+null,
+null,
+12519,
+0
+]
+}
+],
+"20": [
+{
+"mod": "root",
+"line": 157,
+"args": [
+23,
+23
+]
+}
+],
+"21": [
+{
+"mod": "root",
+"line": 106,
+"args": []
+}
+],
+"22": [
+{
+"mod": "ending",
+"line": 1222,
+"args": [
+null
+]
+},
+{
+"mod": "ending",
+"line": 1263,
+"args": [
+2
+]
+}
+],
+"23": [
+{
+"mod": "root",
+"line": 1871,
+"args": [
+112,
+4194,
+126,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 1883,
+"args": [
+112,
+2957,
+126,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 1891,
+"args": [
+112,
+2956,
+126,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 1899,
+"args": [
+112,
+2955,
+126,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 1929,
+"args": [
+126,
+57093,
+112,
+5,
+null
+]
+},
+{
+"mod": "root",
+"line": 2731,
+"args": [
+0,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 2761,
+"args": [
+0,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 2847,
+"args": [
+0,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 2877,
+"args": [
+0,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4578,
+"args": [
+null,
+null,
+126,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 14942,
+"args": [
+126,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 15548,
+"args": [
+27,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 15576,
+"args": [
+27,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 15606,
+"args": [
+27,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 15636,
+"args": [
+27,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 15666,
+"args": [
+27,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 1009,
+"args": [
+112,
+4194,
+126,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 1034,
+"args": [
+112,
+5,
+126,
+57093,
+null
+]
+},
+{
+"mod": "uarugo",
+"line": 3790,
+"args": [
+126,
+null,
+null,
+null,
+null
+]
+}
+],
+"24": [
+{
+"mod": "root",
+"line": 22,
+"args": [
+null
+]
+},
+{
+"mod": "root",
+"line": 172,
+"args": [
+35655
+]
+},
+{
+"mod": "root",
+"line": 176,
+"args": [
+35662
+]
+},
+{
+"mod": "root",
+"line": 180,
+"args": [
+35669
+]
+},
+{
+"mod": "root",
+"line": 184,
+"args": [
+35675
+]
+},
+{
+"mod": "s_card",
+"line": 23,
+"args": [
+null
+]
+},
+{
+"mod": "sakaba",
+"line": 93,
+"args": [
+null
+]
+},
+{
+"mod": "sensou",
+"line": 23,
+"args": [
+null
+]
+},
+{
+"mod": "uminato",
+"line": 2808,
+"args": [
+null
+]
+},
+{
+"mod": "zousen",
+"line": 2658,
+"args": [
+null
+]
+}
+],
+"25": [
+{
+"mod": "root",
+"line": 42,
+"args": [
+null
+]
+},
+{
+"mod": "s_card",
+"line": 38,
+"args": [
+null
+]
+},
+{
+"mod": "sakaba",
+"line": 110,
+"args": [
+null
+]
+},
+{
+"mod": "sensou",
+"line": 38,
+"args": [
+null
+]
+},
+{
+"mod": "uminato",
+"line": 2828,
+"args": [
+null
+]
+},
+{
+"mod": "zousen",
+"line": 2673,
+"args": [
+null
+]
+}
+],
+"26": [
+{
+"mod": "root",
+"line": 29,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 368,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 454,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4362,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4388,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4415,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4438,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4471,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4609,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4773,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7334,
+"args": [
+null,
+25820,
+0,
+0
+]
+},
+{
+"mod": "root",
+"line": 7428,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7642,
+"args": [
+null,
+48714,
+0,
+0
+]
+},
+{
+"mod": "root",
+"line": 7784,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7801,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7825,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7842,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 8064,
+"args": [
+null,
+8610,
+0,
+0
+]
+},
+{
+"mod": "root",
+"line": 8077,
+"args": [
+null,
+8614,
+0,
+0
+]
+},
+{
+"mod": "root",
+"line": 8383,
+"args": [
+null,
+8634,
+0,
+0
+]
+},
+{
+"mod": "root",
+"line": 8412,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 9252,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 685,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 1915,
+"args": [
+null,
+10128,
+0,
+0
+]
+},
+{
+"mod": "ending",
+"line": 1927,
+"args": [
+null,
+10384,
+0,
+0
+]
+},
+{
+"mod": "initop",
+"line": 106,
+"args": [
+null,
+4196,
+0,
+0
+]
+},
+{
+"mod": "initop",
+"line": 166,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 234,
+"args": [
+null,
+4,
+0,
+0
+]
+},
+{
+"mod": "initop",
+"line": 246,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 97,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 113,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 390,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 1194,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "s_card",
+"line": 30,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "s_card",
+"line": 104,
+"args": [
+null,
+10064,
+0,
+0
+]
+},
+{
+"mod": "s_card",
+"line": 185,
+"args": [
+null,
+10000,
+0,
+0
+]
+},
+{
+"mod": "s_card",
+"line": 197,
+"args": [
+null,
+10000,
+0,
+0
+]
+},
+{
+"mod": "sakaba",
+"line": 102,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "sensou",
+"line": 30,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 658,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 1115,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 1720,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 1768,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 1803,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 1838,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 1984,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 2676,
+"args": [
+null,
+10640,
+0,
+0
+]
+},
+{
+"mod": "uminato",
+"line": 2707,
+"args": [
+null,
+11480,
+0,
+0
+]
+},
+{
+"mod": "uminato",
+"line": 2815,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "zousen",
+"line": 2665,
+"args": [
+null,
+null,
+null,
+null
+]
+}
+],
+"27": [
+{
+"mod": "root",
+"line": 39,
+"args": [
+null,
+38400,
+null
+]
+},
+{
+"mod": "s_card",
+"line": 35,
+"args": [
+null,
+47104,
+8704
+]
+},
+{
+"mod": "sakaba",
+"line": 107,
+"args": [
+null,
+47104,
+null
+]
+},
+{
+"mod": "sensou",
+"line": 35,
+"args": [
+null,
+42240,
+14848
+]
+},
+{
+"mod": "uminato",
+"line": 2825,
+"args": [
+null,
+45056,
+null
+]
+},
+{
+"mod": "zousen",
+"line": 2670,
+"args": [
+null,
+53248,
+null
+]
+}
+],
+"28": [
+{
+"mod": "root",
+"line": 4375,
+"args": [
+null,
+127,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4615,
+"args": [
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4780,
+"args": [
+null,
+126,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7344,
+"args": [
+null,
+127,
+0,
+null
+]
+},
+{
+"mod": "root",
+"line": 7434,
+"args": [
+null,
+127,
+null,
+2
+]
+},
+{
+"mod": "root",
+"line": 7648,
+"args": [
+null,
+127,
+59392,
+1680
+]
+},
+{
+"mod": "root",
+"line": 7790,
+"args": [
+null,
+127,
+null,
+4
+]
+},
+{
+"mod": "root",
+"line": 7809,
+"args": [
+null,
+127,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7831,
+"args": [
+null,
+127,
+null,
+4
+]
+},
+{
+"mod": "root",
+"line": 7850,
+"args": [
+null,
+127,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 8070,
+"args": [
+null,
+127,
+null,
+4
+]
+},
+{
+"mod": "root",
+"line": 8085,
+"args": [
+null,
+127,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 703,
+"args": [
+null,
+126,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 112,
+"args": [
+null,
+126,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 173,
+"args": [
+null,
+126,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 240,
+"args": [
+null,
+126,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 1212,
+"args": [
+null,
+126,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 675,
+"args": [
+null,
+126,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 2682,
+"args": [
+null,
+126,
+62218,
+840
+]
+},
+{
+"mod": "uminato",
+"line": 2713,
+"args": [
+null,
+126,
+62218,
+840
+]
+}
+],
+"29": [
+{
+"mod": "root",
+"line": 4450,
+"args": [
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 4489,
+"args": [
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 9257,
+"args": [
+null,
+32,
+32
+]
+},
+{
+"mod": "ending",
+"line": 1920,
+"args": [
+null,
+32,
+32
+]
+},
+{
+"mod": "ending",
+"line": 1932,
+"args": [
+null,
+96,
+32
+]
+},
+{
+"mod": "mdisp1",
+"line": 102,
+"args": [
+null,
+32,
+32
+]
+},
+{
+"mod": "mdisp1",
+"line": 118,
+"args": [
+null,
+96,
+32
+]
+},
+{
+"mod": "s_card",
+"line": 109,
+"args": [
+null,
+48,
+64
+]
+},
+{
+"mod": "s_card",
+"line": 190,
+"args": [
+null,
+48,
+64
+]
+},
+{
+"mod": "s_card",
+"line": 202,
+"args": [
+null,
+160,
+32
+]
+}
+],
+"30": [
+{
+"mod": "root",
+"line": 376,
+"args": [
+1,
+null,
+null,
+7,
+4,
+null
+]
+},
+{
+"mod": "root",
+"line": 464,
+"args": [
+1,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 398,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null
+]
+}
+],
+"31": [
+{
+"mod": "root",
+"line": 4424,
+"args": [
+null,
+null,
+null,
+null,
+null,
+0,
+null
+]
+},
+{
+"mod": "root",
+"line": 8392,
+"args": [
+22,
+null,
+null,
+2,
+2,
+0,
+null
+]
+},
+{
+"mod": "root",
+"line": 8421,
+"args": [
+22,
+null,
+null,
+1,
+1,
+2,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 1124,
+"args": [
+10,
+null,
+null,
+2,
+3,
+0,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 1733,
+"args": [
+null,
+null,
+null,
+2,
+3,
+0,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 1781,
+"args": [
+null,
+null,
+null,
+2,
+3,
+0,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 1816,
+"args": [
+null,
+null,
+null,
+2,
+3,
+0,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 1851,
+"args": [
+null,
+null,
+null,
+2,
+3,
+0,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 1993,
+"args": [
+null,
+null,
+null,
+2,
+3,
+0,
+null
+]
+}
+],
+"34": [
+{
+"mod": "root",
+"line": 108,
+"args": []
+},
+{
+"mod": "initop",
+"line": 17,
+"args": []
+},
+{
+"mod": "initop",
+"line": 1225,
+"args": []
+}
+],
+"35": [
+{
+"mod": "root",
+"line": 147,
+"args": []
+},
+{
+"mod": "initop",
+"line": 23,
+"args": []
+},
+{
+"mod": "initop",
+"line": 1247,
+"args": []
+}
+],
+"36": [
+{
+"mod": "root",
+"line": 7264,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 7635,
+"args": [
+127,
+57344,
+0,
+8192
+]
+},
+{
+"mod": "root",
+"line": 8733,
+"args": [
+126,
+61849,
+255,
+21
+]
+},
+{
+"mod": "root",
+"line": 8739,
+"args": [
+126,
+61870,
+255,
+196
+]
+},
+{
+"mod": "root",
+"line": 10697,
+"args": [
+126,
+null,
+95,
+null
+]
+},
+{
+"mod": "root",
+"line": 14212,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 14219,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 14332,
+"args": [
+126,
+null,
+0,
+58
+]
+},
+{
+"mod": "root",
+"line": 14565,
+"args": [
+127,
+55296,
+0,
+10239
+]
+},
+{
+"mod": "ending",
+"line": 664,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 1587,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 2375,
+"args": [
+126,
+62226,
+0,
+72
+]
+},
+{
+"mod": "hantei",
+"line": 429,
+"args": [
+126,
+63922,
+0,
+462
+]
+},
+{
+"mod": "hantei",
+"line": 469,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 51,
+"args": [
+126,
+61849,
+0,
+21
+]
+},
+{
+"mod": "initop",
+"line": 57,
+"args": [
+126,
+61870,
+0,
+196
+]
+},
+{
+"mod": "initop",
+"line": 524,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "jouriku",
+"line": 95,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "maituki",
+"line": 2511,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "maituki",
+"line": 2518,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "maituki",
+"line": 2669,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 1174,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "s_pk",
+"line": 243,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "s_pk",
+"line": 431,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "s_pk",
+"line": 527,
+"args": [
+126,
+null,
+255,
+null
+]
+},
+{
+"mod": "s_pk",
+"line": 749,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "s_pk",
+"line": 3618,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "s_pk",
+"line": 3811,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "senfe",
+"line": 559,
+"args": [
+126,
+62224,
+0,
+135
+]
+},
+{
+"mod": "senfe",
+"line": 1456,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "senfe",
+"line": 2157,
+"args": [
+126,
+62838,
+0,
+58
+]
+},
+{
+"mod": "senmain",
+"line": 245,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "senmain",
+"line": 252,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "senmain",
+"line": 3887,
+"args": [
+126,
+62224,
+128,
+135
+]
+},
+{
+"mod": "senmain",
+"line": 5589,
+"args": [
+126,
+62224,
+128,
+135
+]
+},
+{
+"mod": "senmain",
+"line": 5844,
+"args": [
+126,
+62554,
+128,
+135
+]
+},
+{
+"mod": "senmain",
+"line": 5850,
+"args": [
+126,
+62224,
+128,
+135
+]
+},
+{
+"mod": "sensou",
+"line": 539,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "uarugo",
+"line": 1382,
+"args": [
+126,
+62208,
+254,
+256
+]
+},
+{
+"mod": "uminato",
+"line": 623,
+"args": [
+126,
+63922,
+0,
+462
+]
+},
+{
+"mod": "z_sinzou",
+"line": 518,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "z_sinzou",
+"line": 1159,
+"args": [
+126,
+null,
+null,
+null
+]
+},
+{
+"mod": "z_tyuuko",
+"line": 627,
+"args": [
+126,
+null,
+null,
+null
+]
+}
+],
+"37": [
+{
+"mod": "root",
+"line": 1294,
+"args": [
+0
+]
+},
+{
+"mod": "root",
+"line": 7280,
+"args": [
+null
+]
+},
+{
+"mod": "root",
+"line": 7298,
+"args": [
+null
+]
+},
+{
+"mod": "ending",
+"line": 1134,
+"args": [
+15
+]
+},
+{
+"mod": "ending",
+"line": 1228,
+"args": [
+null
+]
+},
+{
+"mod": "ending",
+"line": 2011,
+"args": [
+0
+]
+},
+{
+"mod": "initop",
+"line": 1053,
+"args": [
+0
+]
+},
+{
+"mod": "initop",
+"line": 1223,
+"args": [
+0
+]
+},
+{
+"mod": "initop",
+"line": 1272,
+"args": [
+null
+]
+},
+{
+"mod": "initop",
+"line": 1522,
+"args": [
+15
+]
+},
+{
+"mod": "initop",
+"line": 1533,
+"args": [
+0
+]
+},
+{
+"mod": "initop",
+"line": 1563,
+"args": [
+15
+]
+},
+{
+"mod": "initop",
+"line": 1574,
+"args": [
+0
+]
+},
+{
+"mod": "initop",
+"line": 1939,
+"args": [
+null
+]
+},
+{
+"mod": "initop",
+"line": 1962,
+"args": [
+null
+]
+},
+{
+"mod": "initop",
+"line": 2119,
+"args": [
+0
+]
+},
+{
+"mod": "initop",
+"line": 2633,
+"args": [
+0
+]
+},
+{
+"mod": "initop",
+"line": 2686,
+"args": [
+0
+]
+},
+{
+"mod": "initop",
+"line": 2703,
+"args": [
+0
+]
+},
+{
+"mod": "initop",
+"line": 2866,
+"args": [
+15
+]
+},
+{
+"mod": "initop",
+"line": 3197,
+"args": [
+0
+]
+},
+{
+"mod": "initop",
+"line": 3216,
+"args": [
+15
+]
+},
+{
+"mod": "mdisp1",
+"line": 871,
+"args": [
+0
+]
+},
+{
+"mod": "s_card",
+"line": 121,
+"args": [
+15
+]
+},
+{
+"mod": "senfe",
+"line": 1540,
+"args": [
+15
+]
+},
+{
+"mod": "senfe",
+"line": 2110,
+"args": [
+15
+]
+},
+{
+"mod": "senfe",
+"line": 2727,
+"args": [
+15
+]
+},
+{
+"mod": "senfe",
+"line": 2918,
+"args": [
+15
+]
+},
+{
+"mod": "senfe",
+"line": 3234,
+"args": [
+15
+]
+},
+{
+"mod": "senfe",
+"line": 3302,
+"args": [
+15
+]
+},
+{
+"mod": "zousen",
+"line": 32,
+"args": [
+0
+]
+},
+{
+"mod": "zousen",
+"line": 71,
+"args": [
+15
+]
+},
+{
+"mod": "zousen",
+"line": 77,
+"args": [
+0
+]
+},
+{
+"mod": "zousen",
+"line": 84,
+"args": [
+15
+]
+}
+],
+"38": [
+{
+"mod": "root",
+"line": 7513,
+"args": [
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 1848,
+"args": [
+45,
+109,
+211,
+171,
+32,
+1
+]
+},
+{
+"mod": "initop",
+"line": 2234,
+"args": [
+16,
+28,
+248,
+212,
+4,
+1
+]
+},
+{
+"mod": "senmain",
+"line": 3013,
+"args": [
+99,
+179,
+245,
+205,
+32,
+1
+]
+},
+{
+"mod": "senmain",
+"line": 3094,
+"args": [
+50,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "sensou",
+"line": 1188,
+"args": [
+128,
+218,
+176,
+239,
+16,
+0
+]
+}
+],
+"39": [
+{
+"mod": "root",
+"line": 1968,
+"args": []
+},
+{
+"mod": "root",
+"line": 2242,
+"args": []
+},
+{
+"mod": "root",
+"line": 7327,
+"args": []
+},
+{
+"mod": "root",
+"line": 9752,
+"args": []
+},
+{
+"mod": "ending",
+"line": 1994,
+"args": []
+},
+{
+"mod": "initop",
+"line": 156,
+"args": []
+},
+{
+"mod": "initop",
+"line": 1136,
+"args": []
+},
+{
+"mod": "initop",
+"line": 1628,
+"args": []
+},
+{
+"mod": "initop",
+"line": 2428,
+"args": []
+},
+{
+"mod": "jouriku",
+"line": 69,
+"args": []
+},
+{
+"mod": "koueki",
+"line": 2317,
+"args": []
+},
+{
+"mod": "oukyu",
+"line": 2925,
+"args": []
+},
+{
+"mod": "senfe",
+"line": 3246,
+"args": []
+},
+{
+"mod": "senfe",
+"line": 3311,
+"args": []
+},
+{
+"mod": "senmain",
+"line": 3039,
+"args": []
+},
+{
+"mod": "senmain",
+"line": 3186,
+"args": []
+},
+{
+"mod": "sensou",
+"line": 386,
+"args": []
+},
+{
+"mod": "sensou",
+"line": 1271,
+"args": []
+},
+{
+"mod": "ucom",
+"line": 2067,
+"args": []
+},
+{
+"mod": "ucom",
+"line": 3395,
+"args": []
+},
+{
+"mod": "ucom",
+"line": 5102,
+"args": []
+},
+{
+"mod": "ucom",
+"line": 5366,
+"args": []
+},
+{
+"mod": "uminato",
+"line": 271,
+"args": []
+}
+],
+"48": [
+{
+"mod": "root",
+"line": 153,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "root",
+"line": 1966,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "root",
+"line": 2240,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "root",
+"line": 7325,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "root",
+"line": 7518,
+"args": [
+32,
+83,
+224
+]
+},
+{
+"mod": "root",
+"line": 9750,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "ending",
+"line": 1992,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "initop",
+"line": 154,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "initop",
+"line": 1134,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "initop",
+"line": 1164,
+"args": [
+0,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 1176,
+"args": [
+0,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 1201,
+"args": [
+0,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 1216,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "initop",
+"line": 1626,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "initop",
+"line": 1853,
+"args": [
+32,
+82,
+224
+]
+},
+{
+"mod": "initop",
+"line": 1985,
+"args": [
+0,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 1997,
+"args": [
+0,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 2025,
+"args": [
+0,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 2043,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "initop",
+"line": 2524,
+"args": [
+32,
+83,
+224
+]
+},
+{
+"mod": "initop",
+"line": 2646,
+"args": [
+0,
+130,
+224
+]
+},
+{
+"mod": "initop",
+"line": 2657,
+"args": [
+0,
+130,
+null
+]
+},
+{
+"mod": "initop",
+"line": 2863,
+"args": [
+0,
+130,
+224
+]
+},
+{
+"mod": "jouriku",
+"line": 67,
+"args": [
+48,
+0,
+224
+]
+},
+{
+"mod": "koueki",
+"line": 2315,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "oukyu",
+"line": 2489,
+"args": [
+32,
+83,
+224
+]
+},
+{
+"mod": "oukyu",
+"line": 2494,
+"args": [
+32,
+83,
+null
+]
+},
+{
+"mod": "oukyu",
+"line": 2499,
+"args": [
+32,
+83,
+null
+]
+},
+{
+"mod": "oukyu",
+"line": 2930,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "senfe",
+"line": 3244,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "senfe",
+"line": 3309,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "senmain",
+"line": 3018,
+"args": [
+32,
+82,
+71
+]
+},
+{
+"mod": "senmain",
+"line": 3037,
+"args": [
+48,
+0,
+224
+]
+},
+{
+"mod": "senmain",
+"line": 3099,
+"args": [
+32,
+82,
+0
+]
+},
+{
+"mod": "senmain",
+"line": 3184,
+"args": [
+48,
+0,
+0
+]
+},
+{
+"mod": "sensou",
+"line": 384,
+"args": [
+48,
+0,
+0
+]
+},
+{
+"mod": "ucom",
+"line": 2065,
+"args": [
+48,
+0,
+224
+]
+},
+{
+"mod": "ucom",
+"line": 3393,
+"args": [
+48,
+0,
+224
+]
+},
+{
+"mod": "ucom",
+"line": 5100,
+"args": [
+48,
+0,
+224
+]
+},
+{
+"mod": "ucom",
+"line": 5364,
+"args": [
+48,
+0,
+224
+]
+},
+{
+"mod": "uminato",
+"line": 269,
+"args": [
+0,
+0,
+224
+]
+},
+{
+"mod": "uminato",
+"line": 2469,
+"args": [
+0,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 2481,
+"args": [
+0,
+null,
+null
+]
+},
+{
+"mod": "uminato",
+"line": 2593,
+"args": [
+0,
+0,
+224
+]
+}
+],
+"55": [
+{
+"mod": "root",
+"line": 8816,
+"args": [
+0,
+2,
+191,
+null,
+4,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 8831,
+"args": [
+1,
+2,
+195,
+null,
+0,
+0,
+0,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 8846,
+"args": [
+2,
+2,
+199,
+null,
+0,
+0,
+0,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 8861,
+"args": [
+3,
+2,
+203,
+null,
+0,
+0,
+0,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 8876,
+"args": [
+4,
+2,
+207,
+null,
+0,
+0,
+0,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 8891,
+"args": [
+5,
+2,
+211,
+null,
+0,
+0,
+0,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 8906,
+"args": [
+6,
+2,
+215,
+null,
+0,
+0,
+0,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 8921,
+"args": [
+7,
+2,
+219,
+null,
+0,
+0,
+255,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 14882,
+"args": [
+0,
+2,
+640,
+null,
+4,
+40,
+0,
+60574,
+16
+]
+},
+{
+"mod": "root",
+"line": 14893,
+"args": [
+1,
+2,
+644,
+null,
+0,
+0,
+0,
+60702,
+16
+]
+},
+{
+"mod": "root",
+"line": 14904,
+"args": [
+2,
+2,
+648,
+null,
+0,
+0,
+0,
+60830,
+16
+]
+},
+{
+"mod": "root",
+"line": 14915,
+"args": [
+3,
+2,
+652,
+null,
+0,
+0,
+15,
+60958,
+16
+]
+},
+{
+"mod": "ending",
+"line": 1500,
+"args": [
+0,
+2,
+119,
+null,
+4,
+20,
+0,
+35693,
+22
+]
+},
+{
+"mod": "ending",
+"line": 1511,
+"args": [
+1,
+2,
+123,
+null,
+0,
+0,
+0,
+35821,
+22
+]
+},
+{
+"mod": "ending",
+"line": 1522,
+"args": [
+2,
+2,
+127,
+null,
+0,
+0,
+0,
+35949,
+22
+]
+},
+{
+"mod": "ending",
+"line": 1533,
+"args": [
+3,
+2,
+131,
+null,
+0,
+0,
+0,
+36077,
+22
+]
+},
+{
+"mod": "ending",
+"line": 1544,
+"args": [
+4,
+2,
+135,
+null,
+0,
+0,
+0,
+36205,
+22
+]
+},
+{
+"mod": "ending",
+"line": 1555,
+"args": [
+5,
+2,
+139,
+null,
+0,
+0,
+0,
+36333,
+22
+]
+},
+{
+"mod": "ending",
+"line": 1566,
+"args": [
+6,
+2,
+143,
+null,
+0,
+0,
+0,
+36461,
+22
+]
+},
+{
+"mod": "ending",
+"line": 1577,
+"args": [
+7,
+2,
+147,
+null,
+0,
+0,
+255,
+36589,
+22
+]
+},
+{
+"mod": "initop",
+"line": 2470,
+"args": [
+0,
+2,
+2812,
+null,
+4,
+48,
+0,
+58464,
+31
+]
+},
+{
+"mod": "initop",
+"line": 2483,
+"args": [
+1,
+2,
+2816,
+null,
+0,
+0,
+0,
+58592,
+31
+]
+},
+{
+"mod": "initop",
+"line": 2496,
+"args": [
+2,
+2,
+2820,
+null,
+0,
+0,
+0,
+58720,
+31
+]
+},
+{
+"mod": "initop",
+"line": 2509,
+"args": [
+3,
+2,
+2824,
+null,
+0,
+0,
+15,
+58848,
+31
+]
+},
+{
+"mod": "sensou",
+"line": 127,
+"args": [
+0,
+2,
+264,
+null,
+4,
+40,
+0,
+37408,
+28
+]
+},
+{
+"mod": "sensou",
+"line": 138,
+"args": [
+1,
+2,
+268,
+null,
+0,
+0,
+0,
+37536,
+28
+]
+},
+{
+"mod": "sensou",
+"line": 149,
+"args": [
+2,
+2,
+272,
+null,
+0,
+0,
+0,
+37664,
+28
+]
+},
+{
+"mod": "sensou",
+"line": 160,
+"args": [
+3,
+2,
+276,
+null,
+0,
+0,
+0,
+37792,
+28
+]
+},
+{
+"mod": "sensou",
+"line": 171,
+"args": [
+4,
+2,
+280,
+null,
+0,
+0,
+0,
+37920,
+28
+]
+},
+{
+"mod": "sensou",
+"line": 182,
+"args": [
+5,
+2,
+284,
+null,
+0,
+0,
+0,
+38048,
+28
+]
+},
+{
+"mod": "sensou",
+"line": 193,
+"args": [
+6,
+2,
+288,
+null,
+0,
+0,
+0,
+38176,
+28
+]
+},
+{
+"mod": "sensou",
+"line": 204,
+"args": [
+7,
+2,
+292,
+null,
+0,
+0,
+255,
+38304,
+28
+]
+},
+{
+"mod": "uarugo",
+"line": 3730,
+"args": [
+0,
+2,
+640,
+null,
+4,
+40,
+0,
+60574,
+16
+]
+},
+{
+"mod": "uarugo",
+"line": 3741,
+"args": [
+1,
+2,
+644,
+null,
+0,
+0,
+0,
+60702,
+16
+]
+},
+{
+"mod": "uarugo",
+"line": 3752,
+"args": [
+2,
+2,
+648,
+null,
+0,
+0,
+0,
+60830,
+16
+]
+},
+{
+"mod": "uarugo",
+"line": 3763,
+"args": [
+3,
+2,
+652,
+null,
+0,
+0,
+15,
+60958,
+16
+]
+},
+{
+"mod": "uminato",
+"line": 355,
+"args": [
+0,
+2,
+119,
+null,
+4,
+20,
+0,
+35693,
+22
+]
+},
+{
+"mod": "uminato",
+"line": 366,
+"args": [
+1,
+2,
+123,
+null,
+0,
+0,
+0,
+35821,
+22
+]
+},
+{
+"mod": "uminato",
+"line": 377,
+"args": [
+2,
+2,
+127,
+null,
+0,
+0,
+0,
+35949,
+22
+]
+},
+{
+"mod": "uminato",
+"line": 388,
+"args": [
+3,
+2,
+131,
+null,
+0,
+0,
+0,
+36077,
+22
+]
+},
+{
+"mod": "uminato",
+"line": 399,
+"args": [
+4,
+2,
+135,
+null,
+0,
+0,
+0,
+36205,
+22
+]
+},
+{
+"mod": "uminato",
+"line": 410,
+"args": [
+5,
+2,
+139,
+null,
+0,
+0,
+0,
+36333,
+22
+]
+},
+{
+"mod": "uminato",
+"line": 421,
+"args": [
+6,
+2,
+143,
+null,
+0,
+0,
+0,
+36461,
+22
+]
+},
+{
+"mod": "uminato",
+"line": 432,
+"args": [
+7,
+2,
+147,
+null,
+0,
+0,
+255,
+36589,
+22
+]
+}
+],
+"56": [
+{
+"mod": "root",
+"line": 1290,
+"args": [
+0,
+0
+]
+},
+{
+"mod": "root",
+"line": 1816,
+"args": [
+0,
+0
+]
+},
+{
+"mod": "root",
+"line": 2247,
+"args": [
+3,
+255
+]
+},
+{
+"mod": "root",
+"line": 7466,
+"args": [
+0,
+0
+]
+},
+{
+"mod": "root",
+"line": 9756,
+"args": [
+3,
+255
+]
+},
+{
+"mod": "ending",
+"line": 66,
+"args": [
+0,
+0
+]
+},
+{
+"mod": "ending",
+"line": 1999,
+"args": [
+3,
+255
+]
+},
+{
+"mod": "jouriku",
+"line": 73,
+"args": [
+3,
+255
+]
+},
+{
+"mod": "oukyu",
+"line": 2472,
+"args": [
+0,
+0
+]
+},
+{
+"mod": "oukyu",
+"line": 2934,
+"args": [
+3,
+255
+]
+},
+{
+"mod": "uarugo",
+"line": 3100,
+"args": [
+0,
+0
+]
+},
+{
+"mod": "uarugo",
+"line": 3832,
+"args": [
+0,
+0
+]
+},
+{
+"mod": "ucom",
+"line": 2071,
+"args": [
+3,
+255
+]
+},
+{
+"mod": "ucom",
+"line": 3399,
+"args": [
+3,
+255
+]
+},
+{
+"mod": "ucom",
+"line": 5106,
+"args": [
+3,
+255
+]
+},
+{
+"mod": "ucom",
+"line": 5370,
+"args": [
+3,
+255
+]
+},
+{
+"mod": "uminato",
+"line": 275,
+"args": [
+3,
+255
+]
+},
+{
+"mod": "uminato",
+"line": 2606,
+"args": [
+3,
+255
+]
+}
+],
+"58": [
+{
+"mod": "root",
+"line": 3514,
+"args": [
+0,
+9
+]
+},
+{
+"mod": "root",
+"line": 3527,
+"args": [
+0,
+9
+]
+},
+{
+"mod": "root",
+"line": 3542,
+"args": [
+0,
+9
+]
+},
+{
+"mod": "root",
+"line": 4109,
+"args": [
+0,
+9
+]
+},
+{
+"mod": "root",
+"line": 4194,
+"args": [
+0,
+9
+]
+},
+{
+"mod": "root",
+"line": 5981,
+"args": [
+6,
+1
+]
+},
+{
+"mod": "root",
+"line": 5994,
+"args": [
+6,
+1
+]
+},
+{
+"mod": "root",
+"line": 8360,
+"args": [
+22,
+4
+]
+},
+{
+"mod": "root",
+"line": 9054,
+"args": [
+22,
+4
+]
+},
+{
+"mod": "root",
+"line": 9869,
+"args": [
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 802,
+"args": [
+10,
+12
+]
+},
+{
+"mod": "ending",
+"line": 851,
+"args": [
+94,
+6
+]
+},
+{
+"mod": "ending",
+"line": 959,
+"args": [
+null,
+null
+]
+},
+{
+"mod": "ending",
+"line": 993,
+"args": [
+46,
+null
+]
+},
+{
+"mod": "ending",
+"line": 1621,
+"args": [
+null,
+null
+]
+},
+{
+"mod": "hantei",
+"line": 421,
+"args": [
+16,
+6
+]
+},
+{
+"mod": "jouriku",
+"line": 100,
+"args": [
+18,
+4
+]
+},
+{
+"mod": "jouriku",
+"line": 308,
+"args": [
+18,
+4
+]
+},
+{
+"mod": "mdisp1",
+"line": 1472,
+"args": [
+82,
+6
+]
+},
+{
+"mod": "mdisp1",
+"line": 1580,
+"args": [
+null,
+null
+]
+},
+{
+"mod": "mdisp1",
+"line": 1612,
+"args": [
+34,
+null
+]
+},
+{
+"mod": "scom",
+"line": 529,
+"args": [
+10,
+1
+]
+},
+{
+"mod": "senmain",
+"line": 1662,
+"args": [
+23,
+null
+]
+},
+{
+"mod": "senmain",
+"line": 1814,
+"args": [
+21,
+1
+]
+},
+{
+"mod": "senmain",
+"line": 1860,
+"args": [
+21,
+1
+]
+},
+{
+"mod": "senmain",
+"line": 2604,
+"args": [
+22,
+1
+]
+},
+{
+"mod": "senmain",
+"line": 2622,
+"args": [
+22,
+1
+]
+},
+{
+"mod": "sensou",
+"line": 301,
+"args": [
+20,
+1
+]
+},
+{
+"mod": "sensou",
+"line": 398,
+"args": [
+10,
+10
+]
+},
+{
+"mod": "sensou",
+"line": 867,
+"args": [
+null,
+null
+]
+},
+{
+"mod": "ucom",
+"line": 86,
+"args": [
+0,
+17
+]
+},
+{
+"mod": "ucom",
+"line": 217,
+"args": [
+22,
+4
+]
+},
+{
+"mod": "ucom",
+"line": 867,
+"args": [
+22,
+4
+]
+},
+{
+"mod": "ucom",
+"line": 1257,
+"args": [
+22,
+4
+]
+},
+{
+"mod": "ucom",
+"line": 2229,
+"args": [
+22,
+4
+]
+},
+{
+"mod": "ucom",
+"line": 4599,
+"args": [
+14,
+4
+]
+},
+{
+"mod": "ucom",
+"line": 5572,
+"args": [
+null,
+2
+]
+},
+{
+"mod": "ucom",
+"line": 5585,
+"args": [
+0,
+9
+]
+},
+{
+"mod": "ucom",
+"line": 5596,
+"args": [
+0,
+9
+]
+},
+{
+"mod": "ucom",
+"line": 6204,
+"args": [
+0,
+9
+]
+},
+{
+"mod": "uminato",
+"line": 1675,
+"args": [
+10,
+6
+]
+},
+{
+"mod": "uminato",
+"line": 1682,
+"args": [
+16,
+18
+]
+}
+],
+"60": [
+{
+"mod": "root",
+"line": 268,
+"args": [
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 308,
+"args": [
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 1813,
+"args": [
+13,
+1
+]
+},
+{
+"mod": "initop",
+"line": 2123,
+"args": [
+1,
+0
+]
+},
+{
+"mod": "initop",
+"line": 2850,
+"args": [
+12,
+0
+]
+}
+],
+"61": [
+{
+"mod": "root",
+"line": 253,
+"args": []
+},
+{
+"mod": "root",
+"line": 318,
+"args": []
+},
+{
+"mod": "initop",
+"line": 1142,
+"args": []
+}
+],
+"62": [
+{
+"mod": "root",
+"line": 278,
+"args": []
+}
+],
+"63": [
+{
+"mod": "root",
+"line": 228,
+"args": [
+null
+]
+},
+{
+"mod": "root",
+"line": 327,
+"args": [
+0
+]
+}
+],
+"65": [
+{
+"mod": "initop",
+"line": 21,
+"args": [
+32768,
+13
+]
+}
+],
+"69": [
+{
+"mod": "initop",
+"line": 2290,
+"args": [
+1,
+0,
+null,
+null,
+null,
+null,
+null,
+null
+]
+},
+{
+"mod": "initop",
+"line": 2372,
+"args": [
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+3
+]
+},
+{
+"mod": "initop",
+"line": 2396,
+"args": [
+2,
+0,
+0,
+0,
+0,
+0,
+0,
+3
+]
+}
+],
+"73": [
+{
+"mod": "initop",
+"line": 2518,
+"args": [
+1,
+38,
+47678,
+126
+]
+},
+{
+"mod": "oukyu",
+"line": 2483,
+"args": [
+4,
+38,
+null,
+null
+]
+}
+],
+"74": [
+{
+"mod": "initop",
+"line": 3200,
+"args": []
+},
+{
+"mod": "oukyu",
+"line": 2923,
+"args": []
+}
+],
+"75": [
+{
+"mod": "initop",
+"line": 2127,
+"args": [
+3,
+122
+]
+},
+{
+"mod": "initop",
+"line": 3206,
+"args": [
+3,
+121
+]
+},
+{
+"mod": "uminato",
+"line": 2588,
+"args": [
+2,
+116
+]
+},
+{
+"mod": "uminato",
+"line": 2600,
+"args": [
+2,
+113
+]
+}
+],
+"76": [
+{
+"mod": "root",
+"line": 113,
+"args": [
+0,
+40192,
+12
+]
+},
+{
+"mod": "root",
+"line": 125,
+"args": [
+0,
+42509,
+12
+]
+},
+{
+"mod": "root",
+"line": 1190,
+"args": [
+0,
+32768,
+23
+]
+},
+{
+"mod": "root",
+"line": 1332,
+"args": [
+0,
+null,
+null
+]
+},
+{
+"mod": "root",
+"line": 14456,
+"args": [
+0,
+41984,
+16
+]
+},
+{
+"mod": "root",
+"line": 14488,
+"args": [
+0,
+45519,
+16
+]
+},
+{
+"mod": "root",
+"line": 14507,
+"args": [
+0,
+47108,
+16
+]
+},
+{
+"mod": "ending",
+"line": 1359,
+"args": [
+0,
+38651,
+22
+]
+},
+{
+"mod": "ending",
+"line": 1820,
+"args": [
+0,
+32768,
+22
+]
+},
+{
+"mod": "initop",
+"line": 1058,
+"args": [
+0,
+44224,
+12
+]
+},
+{
+"mod": "initop",
+"line": 1818,
+"args": [
+0,
+62426,
+31
+]
+},
+{
+"mod": "initop",
+"line": 2132,
+"args": [
+0,
+32768,
+31
+]
+},
+{
+"mod": "initop",
+"line": 2163,
+"args": [
+0,
+35747,
+31
+]
+},
+{
+"mod": "initop",
+"line": 2226,
+"args": [
+0,
+46517,
+31
+]
+},
+{
+"mod": "initop",
+"line": 2730,
+"args": [
+0,
+52753,
+31
+]
+},
+{
+"mod": "initop",
+"line": 2749,
+"args": [
+0,
+58976,
+31
+]
+},
+{
+"mod": "mdisp1",
+"line": 406,
+"args": [
+0,
+38651,
+22
+]
+},
+{
+"mod": "mdisp1",
+"line": 887,
+"args": [
+0,
+32768,
+22
+]
+},
+{
+"mod": "s_card",
+"line": 65,
+"args": [
+0,
+52455,
+22
+]
+},
+{
+"mod": "senfe",
+"line": 1402,
+"args": [
+0,
+32768,
+23
+]
+},
+{
+"mod": "zousen",
+"line": 39,
+"args": [
+0,
+36717,
+22
+]
+}
+]
+}

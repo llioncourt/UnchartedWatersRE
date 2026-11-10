@@ -1,0 +1,4997 @@
+[
+{
+"start": 318332,
+"end": 327680,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 327680,
+"end": 327684,
+"kind": "MAP",
+"info": "world map header: block table and chunk table offsets",
+"refs": [
+{
+"at": 327680,
+"info": "world map header: block table and chunk table offsets",
+"from": "root:RF_54D9"
+}
+]
+},
+{
+"start": 327684,
+"end": 329124,
+"kind": "MAP",
+"info": "world map zones: 288 records of 5 bytes (24 x 12): block number, 3 attribute bytes",
+"refs": [
+{
+"at": 327684,
+"info": "world map zones: 288 records of 5 bytes (24 x 12): block number, 3 attribute bytes",
+"from": "root:RF_5449"
+}
+]
+},
+{
+"start": 329124,
+"end": 333138,
+"kind": "MAP",
+"info": "world map blocks: 223 blocks of 3x3 chunk numbers (18 bytes)",
+"refs": [
+{
+"at": 329124,
+"info": "world map blocks: 223 blocks of 3x3 chunk numbers (18 bytes)",
+"from": "root:RF_5449"
+}
+]
+},
+{
+"start": 333138,
+"end": 398357,
+"kind": "MAP",
+"info": "world map chunks: 1331 chunks of 7x7 tiles (49 bytes)",
+"refs": [
+{
+"at": 333138,
+"info": "world map chunks: 1331 chunks of 7x7 tiles (49 bytes)",
+"from": "root:RF_5449"
+}
+]
+},
+{
+"start": 398357,
+"end": 400640,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 400640,
+"end": 402955,
+"kind": "LZ",
+"info": "5632 bytes unpacked",
+"refs": [
+{
+"at": 400640,
+"info": "5632 bytes unpacked",
+"from": "root:113"
+}
+]
+},
+{
+"start": 402955,
+"end": 402957,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 402957,
+"end": 403237,
+"kind": "LZ",
+"info": "1056 bytes unpacked",
+"refs": [
+{
+"at": 402957,
+"info": "1056 bytes unpacked",
+"from": "root:125"
+}
+]
+},
+{
+"start": 403237,
+"end": 403239,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 403239,
+"end": 403527,
+"kind": "TILE",
+"info": "9 tiles 4bpp to VRAM tile 0xe0",
+"refs": [
+{
+"at": 403239,
+"info": "9 tiles 4bpp to VRAM tile 0xe0",
+"from": "root:138"
+},
+{
+"at": 403239,
+"info": "9 tiles 4bpp to VRAM tile 0xe0",
+"from": "run"
+},
+{
+"at": 403239,
+"info": "9 tiles 4bpp to VRAM tile 0xe0",
+"from": "run"
+}
+]
+},
+{
+"start": 403527,
+"end": 403559,
+"kind": "UNREF",
+"info": "",
+"refs": []
+},
+{
+"start": 403559,
+"end": 404423,
+"kind": "TILE",
+"info": "54 tiles 2bpp to VRAM tile 0x160",
+"refs": [
+{
+"at": 403559,
+"info": "54 tiles 2bpp to VRAM tile 0x160",
+"from": "root:145"
+},
+{
+"at": 403559,
+"info": "54 tiles 2bpp to VRAM tile 0x160",
+"from": "run"
+},
+{
+"at": 403559,
+"info": "54 tiles 2bpp to VRAM tile 0x160",
+"from": "run"
+}
+]
+},
+{
+"start": 404423,
+"end": 404455,
+"kind": "PAD",
+"info": "$FF",
+"refs": []
+},
+{
+"start": 404455,
+"end": 404672,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 404672,
+"end": 425844,
+"kind": "LZ",
+"info": "26880 bytes unpacked",
+"refs": [
+{
+"at": 404672,
+"info": "26880 bytes unpacked",
+"from": "initop:1058"
+}
+]
+},
+{
+"start": 425844,
+"end": 425845,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 425845,
+"end": 425984,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 425984,
+"end": 473741,
+"kind": "SPC",
+"info": "APU upload 90@0600 24@0700 2903@0800 18611@B000 209@FE00 64@0400 25824@1350",
+"refs": [
+{
+"at": 425984,
+"info": "APU upload 90@0600 24@0700 2903@0800 18611@B000 209@FE00 64@0400 25824@1350",
+"from": "initop:21"
+}
+]
+},
+{
+"start": 473741,
+"end": 491520,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 491520,
+"end": 492416,
+"kind": "TILE",
+"info": "28 tiles 4bpp to VRAM tile 0x2a0",
+"refs": [
+{
+"at": 491520,
+"info": "28 tiles 4bpp to VRAM tile 0x2a0",
+"from": "root:14539"
+},
+{
+"at": 491520,
+"info": "28 tiles 4bpp to VRAM tile 0x2a0",
+"from": "run"
+}
+]
+},
+{
+"start": 492416,
+"end": 524288,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 524288,
+"end": 526592,
+"kind": "TILE",
+"info": "72 tiles 4bpp, set 0 of 4",
+"refs": [
+{
+"at": 524288,
+"info": "72 tiles 4bpp, set 0 of 4",
+"from": "root:7892 formula"
+}
+]
+},
+{
+"start": 526592,
+"end": 528896,
+"kind": "TILE",
+"info": "72 tiles 4bpp to VRAM tile 0x77",
+"refs": [
+{
+"at": 526592,
+"info": "72 tiles 4bpp to VRAM tile 0x77",
+"from": "run"
+},
+{
+"at": 526592,
+"info": "72 tiles 4bpp to VRAM tile 0x77",
+"from": "run"
+},
+{
+"at": 526592,
+"info": "72 tiles 4bpp, set 1 of 4",
+"from": "root:7892 formula"
+}
+]
+},
+{
+"start": 528896,
+"end": 531200,
+"kind": "TILE",
+"info": "72 tiles 4bpp to VRAM tile 0x77",
+"refs": [
+{
+"at": 528896,
+"info": "72 tiles 4bpp to VRAM tile 0x77",
+"from": "run"
+},
+{
+"at": 528896,
+"info": "72 tiles 4bpp to VRAM tile 0x77",
+"from": "run"
+},
+{
+"at": 528896,
+"info": "72 tiles 4bpp, set 2 of 4",
+"from": "root:7892 formula"
+}
+]
+},
+{
+"start": 531200,
+"end": 533504,
+"kind": "TILE",
+"info": "72 tiles 4bpp, set 3 of 4",
+"refs": [
+{
+"at": 531200,
+"info": "72 tiles 4bpp, set 3 of 4",
+"from": "root:7892 formula"
+}
+]
+},
+{
+"start": 533504,
+"end": 537039,
+"kind": "LZ",
+"info": "5408 bytes unpacked",
+"refs": [
+{
+"at": 533504,
+"info": "5408 bytes unpacked",
+"from": "root:14456"
+}
+]
+},
+{
+"start": 537039,
+"end": 538540,
+"kind": "LZ",
+"info": "1664 bytes unpacked",
+"refs": [
+{
+"at": 537039,
+"info": "1664 bytes unpacked",
+"from": "root:14488"
+}
+]
+},
+{
+"start": 538540,
+"end": 538628,
+"kind": "UNREF",
+"info": "",
+"refs": []
+},
+{
+"start": 538628,
+"end": 539868,
+"kind": "LZ",
+"info": "1664 bytes unpacked",
+"refs": [
+{
+"at": 538628,
+"info": "1664 bytes unpacked",
+"from": "root:14507"
+}
+]
+},
+{
+"start": 539868,
+"end": 539870,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 539870,
+"end": 539998,
+"kind": "TILE",
+"info": "sprite animation, 4 frames",
+"refs": [
+{
+"at": 539870,
+"info": "sprite animation, 4 frames",
+"from": "run"
+}
+]
+},
+{
+"start": 539998,
+"end": 540126,
+"kind": "TILE",
+"info": "sprite animation, 4 frames",
+"refs": [
+{
+"at": 539998,
+"info": "sprite animation, 4 frames",
+"from": "run"
+}
+]
+},
+{
+"start": 540126,
+"end": 540254,
+"kind": "TILE",
+"info": "sprite animation, 4 frames",
+"refs": [
+{
+"at": 540126,
+"info": "sprite animation, 4 frames",
+"from": "run"
+}
+]
+},
+{
+"start": 540254,
+"end": 540382,
+"kind": "TILE",
+"info": "sprite animation, 4 frames",
+"refs": [
+{
+"at": 540254,
+"info": "sprite animation, 4 frames",
+"from": "run"
+}
+]
+},
+{
+"start": 540382,
+"end": 540894,
+"kind": "TILE",
+"info": "sprite animation, 4 frames",
+"refs": [
+{
+"at": 540382,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 540382,
+"info": "16 tiles 4bpp, frame 0 of 8",
+"from": "root:9078 formula"
+},
+{
+"at": 540510,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 540638,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 540766,
+"info": "sprite animation, 4 frames",
+"from": "run"
+}
+]
+},
+{
+"start": 540894,
+"end": 541406,
+"kind": "TILE",
+"info": "16 tiles 4bpp to VRAM tile 0xbf",
+"refs": [
+{
+"at": 540894,
+"info": "16 tiles 4bpp to VRAM tile 0xbf",
+"from": "run"
+},
+{
+"at": 540894,
+"info": "16 tiles 4bpp to VRAM tile 0xbf",
+"from": "run"
+},
+{
+"at": 540894,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 540894,
+"info": "16 tiles 4bpp, frame 1 of 8",
+"from": "root:9078 formula"
+},
+{
+"at": 541022,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 541150,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 541278,
+"info": "sprite animation, 4 frames",
+"from": "run"
+}
+]
+},
+{
+"start": 541406,
+"end": 541918,
+"kind": "TILE",
+"info": "16 tiles 4bpp to VRAM tile 0xbf",
+"refs": [
+{
+"at": 541406,
+"info": "16 tiles 4bpp to VRAM tile 0xbf",
+"from": "run"
+},
+{
+"at": 541406,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 541406,
+"info": "16 tiles 4bpp, frame 2 of 8",
+"from": "root:9078 formula"
+},
+{
+"at": 541534,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 541662,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 541790,
+"info": "sprite animation, 4 frames",
+"from": "run"
+}
+]
+},
+{
+"start": 541918,
+"end": 542430,
+"kind": "TILE",
+"info": "16 tiles 4bpp to VRAM tile 0xbf",
+"refs": [
+{
+"at": 541918,
+"info": "16 tiles 4bpp to VRAM tile 0xbf",
+"from": "run"
+},
+{
+"at": 541918,
+"info": "16 tiles 4bpp, frame 3 of 8",
+"from": "root:9078 formula"
+}
+]
+},
+{
+"start": 542430,
+"end": 542942,
+"kind": "TILE",
+"info": "16 tiles 4bpp, frame 4 of 8",
+"refs": [
+{
+"at": 542430,
+"info": "16 tiles 4bpp, frame 4 of 8",
+"from": "root:9078 formula"
+}
+]
+},
+{
+"start": 542942,
+"end": 543454,
+"kind": "TILE",
+"info": "16 tiles 4bpp, frame 5 of 8",
+"refs": [
+{
+"at": 542942,
+"info": "16 tiles 4bpp, frame 5 of 8",
+"from": "root:9078 formula"
+}
+]
+},
+{
+"start": 543454,
+"end": 543966,
+"kind": "TILE",
+"info": "16 tiles 4bpp, frame 6 of 8",
+"refs": [
+{
+"at": 543454,
+"info": "16 tiles 4bpp, frame 6 of 8",
+"from": "root:9078 formula"
+}
+]
+},
+{
+"start": 543966,
+"end": 544478,
+"kind": "TILE",
+"info": "sprite animation, 4 frames",
+"refs": [
+{
+"at": 543966,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 543966,
+"info": "16 tiles 4bpp, frame 7 of 8",
+"from": "root:9078 formula"
+},
+{
+"at": 544094,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 544222,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 544350,
+"info": "sprite animation, 4 frames",
+"from": "run"
+}
+]
+},
+{
+"start": 544478,
+"end": 544990,
+"kind": "TILE",
+"info": "sprite animation, 4 frames",
+"refs": [
+{
+"at": 544478,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 544478,
+"info": "16 tiles 4bpp, frame 0 of 8",
+"from": "root:9089 formula"
+},
+{
+"at": 544606,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 544734,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 544862,
+"info": "sprite animation, 4 frames",
+"from": "run"
+}
+]
+},
+{
+"start": 544990,
+"end": 545502,
+"kind": "TILE",
+"info": "16 tiles 4bpp to VRAM tile 0xcf",
+"refs": [
+{
+"at": 544990,
+"info": "16 tiles 4bpp to VRAM tile 0xcf",
+"from": "run"
+},
+{
+"at": 544990,
+"info": "16 tiles 4bpp to VRAM tile 0xcf",
+"from": "run"
+},
+{
+"at": 544990,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 544990,
+"info": "16 tiles 4bpp, frame 1 of 8",
+"from": "root:9089 formula"
+},
+{
+"at": 545118,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 545246,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 545374,
+"info": "sprite animation, 4 frames",
+"from": "run"
+}
+]
+},
+{
+"start": 545502,
+"end": 546014,
+"kind": "TILE",
+"info": "16 tiles 4bpp to VRAM tile 0xcf",
+"refs": [
+{
+"at": 545502,
+"info": "16 tiles 4bpp to VRAM tile 0xcf",
+"from": "run"
+},
+{
+"at": 545502,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 545502,
+"info": "16 tiles 4bpp, frame 2 of 8",
+"from": "root:9089 formula"
+},
+{
+"at": 545630,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 545758,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 545886,
+"info": "sprite animation, 4 frames",
+"from": "run"
+}
+]
+},
+{
+"start": 546014,
+"end": 546526,
+"kind": "TILE",
+"info": "16 tiles 4bpp to VRAM tile 0xcf",
+"refs": [
+{
+"at": 546014,
+"info": "16 tiles 4bpp to VRAM tile 0xcf",
+"from": "run"
+},
+{
+"at": 546014,
+"info": "16 tiles 4bpp, frame 3 of 8",
+"from": "root:9089 formula"
+}
+]
+},
+{
+"start": 546526,
+"end": 547038,
+"kind": "TILE",
+"info": "16 tiles 4bpp, frame 4 of 8",
+"refs": [
+{
+"at": 546526,
+"info": "16 tiles 4bpp, frame 4 of 8",
+"from": "root:9089 formula"
+}
+]
+},
+{
+"start": 547038,
+"end": 547550,
+"kind": "TILE",
+"info": "16 tiles 4bpp, frame 5 of 8",
+"refs": [
+{
+"at": 547038,
+"info": "16 tiles 4bpp, frame 5 of 8",
+"from": "root:9089 formula"
+}
+]
+},
+{
+"start": 547550,
+"end": 548062,
+"kind": "TILE",
+"info": "16 tiles 4bpp, frame 6 of 8",
+"refs": [
+{
+"at": 547550,
+"info": "16 tiles 4bpp, frame 6 of 8",
+"from": "root:9089 formula"
+}
+]
+},
+{
+"start": 548062,
+"end": 551134,
+"kind": "TILE",
+"info": "96 tiles 4bpp to VRAM tile 0x220",
+"refs": [
+{
+"at": 548062,
+"info": "96 tiles 4bpp to VRAM tile 0x220",
+"from": "root:14532"
+},
+{
+"at": 548062,
+"info": "96 tiles 4bpp to VRAM tile 0x220",
+"from": "run"
+},
+{
+"at": 548062,
+"info": "16 tiles 4bpp, frame 7 of 8",
+"from": "root:9089 formula"
+}
+]
+},
+{
+"start": 551134,
+"end": 551518,
+"kind": "UNREF",
+"info": "",
+"refs": []
+},
+{
+"start": 551518,
+"end": 552094,
+"kind": "TILE",
+"info": "18 tiles 4bpp to VRAM tile 0x180",
+"refs": [
+{
+"at": 551518,
+"info": "18 tiles 4bpp to VRAM tile 0x180",
+"from": "root:14552"
+},
+{
+"at": 551518,
+"info": "18 tiles 4bpp to VRAM tile 0x180",
+"from": "run"
+}
+]
+},
+{
+"start": 552094,
+"end": 552606,
+"kind": "TILE",
+"info": "16 tiles 4bpp to VRAM tile 0x280",
+"refs": [
+{
+"at": 552094,
+"info": "16 tiles 4bpp to VRAM tile 0x280",
+"from": "root:14546"
+},
+{
+"at": 552094,
+"info": "sprite animation, 4 frames",
+"from": "root:14882"
+},
+{
+"at": 552094,
+"info": "16 tiles 4bpp to VRAM tile 0x280",
+"from": "run"
+},
+{
+"at": 552222,
+"info": "sprite animation, 4 frames",
+"from": "root:14893"
+},
+{
+"at": 552350,
+"info": "sprite animation, 4 frames",
+"from": "root:14904"
+},
+{
+"at": 552478,
+"info": "sprite animation, 4 frames",
+"from": "root:14915"
+}
+]
+},
+{
+"start": 552606,
+"end": 557056,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 557056,
+"end": 558976,
+"kind": "TILE",
+"info": "60 tiles 4bpp to VRAM tile 0xf0",
+"refs": [
+{
+"at": 557056,
+"info": "60 tiles 4bpp to VRAM tile 0xf0",
+"from": "ending:1840"
+},
+{
+"at": 557056,
+"info": "60 tiles 4bpp to VRAM tile 0xf0",
+"from": "run"
+}
+]
+},
+{
+"start": 558976,
+"end": 564448,
+"kind": "TILE",
+"info": "171 tiles 4bpp to VRAM tile 0x12c",
+"refs": [
+{
+"at": 558976,
+"info": "171 tiles 4bpp to VRAM tile 0x12c",
+"from": "run"
+},
+{
+"at": 558976,
+"info": "171 tiles 4bpp, entry 0 of MDISP1 BD16",
+"from": "mdisp1:855 table"
+}
+]
+},
+{
+"start": 564448,
+"end": 570208,
+"kind": "TILE",
+"info": "180 tiles 4bpp, entry 1 of MDISP1 BD16",
+"refs": [
+{
+"at": 564448,
+"info": "180 tiles 4bpp, entry 1 of MDISP1 BD16",
+"from": "mdisp1:855 table"
+}
+]
+},
+{
+"start": 570208,
+"end": 575520,
+"kind": "TILE",
+"info": "166 tiles 4bpp, entry 2 of MDISP1 BD16",
+"refs": [
+{
+"at": 570208,
+"info": "166 tiles 4bpp, entry 2 of MDISP1 BD16",
+"from": "mdisp1:855 table"
+}
+]
+},
+{
+"start": 575520,
+"end": 580288,
+"kind": "TILE",
+"info": "149 tiles 4bpp, entry 3 of MDISP1 BD16",
+"refs": [
+{
+"at": 575520,
+"info": "149 tiles 4bpp, entry 3 of MDISP1 BD16",
+"from": "mdisp1:855 table"
+}
+]
+},
+{
+"start": 580288,
+"end": 582208,
+"kind": "TILE",
+"info": "60 tiles 4bpp, entry 4 of MDISP1 BD16",
+"refs": [
+{
+"at": 580288,
+"info": "60 tiles 4bpp, entry 4 of MDISP1 BD16",
+"from": "mdisp1:855 table"
+}
+]
+},
+{
+"start": 582208,
+"end": 589824,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 589824,
+"end": 604192,
+"kind": "TILE",
+"info": "449 tiles 4bpp to VRAM tile 0x1a0",
+"refs": [
+{
+"at": 589824,
+"info": "449 tiles 4bpp to VRAM tile 0x1a0",
+"from": "ending:1853"
+},
+{
+"at": 589824,
+"info": "449 tiles 4bpp to VRAM tile 0x1a0",
+"from": "run"
+},
+{
+"at": 589824,
+"info": "449 tiles 4bpp to VRAM tile 0x1a0",
+"from": "run"
+},
+{
+"at": 589824,
+"info": "449 tiles 4bpp to VRAM tile 0x1a0",
+"from": "run"
+},
+{
+"at": 589824,
+"info": "449 tiles 4bpp, port town set 0 of 8",
+"from": "uminato:341 table"
+}
+]
+},
+{
+"start": 604192,
+"end": 617120,
+"kind": "TILE",
+"info": "404 tiles 4bpp, port town set 1 of 8",
+"refs": [
+{
+"at": 604192,
+"info": "404 tiles 4bpp, port town set 1 of 8",
+"from": "uminato:341 table"
+}
+]
+},
+{
+"start": 617120,
+"end": 622592,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 622592,
+"end": 638688,
+"kind": "TILE",
+"info": "503 tiles 4bpp, port town set 2 of 8",
+"refs": [
+{
+"at": 622592,
+"info": "503 tiles 4bpp, port town set 2 of 8",
+"from": "uminato:341 table"
+}
+]
+},
+{
+"start": 638688,
+"end": 651456,
+"kind": "TILE",
+"info": "399 tiles 4bpp, port town set 3 of 8",
+"refs": [
+{
+"at": 638688,
+"info": "399 tiles 4bpp, port town set 3 of 8",
+"from": "uminato:341 table"
+}
+]
+},
+{
+"start": 651456,
+"end": 655360,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 655360,
+"end": 671776,
+"kind": "TILE",
+"info": "513 tiles 4bpp, port town set 4 of 8",
+"refs": [
+{
+"at": 655360,
+"info": "513 tiles 4bpp, port town set 4 of 8",
+"from": "uminato:341 table"
+}
+]
+},
+{
+"start": 671776,
+"end": 683072,
+"kind": "TILE",
+"info": "353 tiles 4bpp, port town set 5 of 8",
+"refs": [
+{
+"at": 671776,
+"info": "353 tiles 4bpp, port town set 5 of 8",
+"from": "uminato:341 table"
+}
+]
+},
+{
+"start": 683072,
+"end": 688128,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 688128,
+"end": 701248,
+"kind": "TILE",
+"info": "410 tiles 4bpp, port town set 6 of 8",
+"refs": [
+{
+"at": 688128,
+"info": "410 tiles 4bpp, port town set 6 of 8",
+"from": "uminato:341 table"
+}
+]
+},
+{
+"start": 701248,
+"end": 715168,
+"kind": "TILE",
+"info": "435 tiles 4bpp, port town set 7 of 8",
+"refs": [
+{
+"at": 701248,
+"info": "435 tiles 4bpp, port town set 7 of 8",
+"from": "uminato:341 table"
+}
+]
+},
+{
+"start": 715168,
+"end": 720896,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 720896,
+"end": 723821,
+"kind": "LZ",
+"info": "6400 bytes unpacked",
+"refs": [
+{
+"at": 720896,
+"info": "6400 bytes unpacked",
+"from": "ending:1820"
+}
+]
+},
+{
+"start": 723821,
+"end": 724845,
+"kind": "TILE",
+"info": "32 tiles 4bpp to VRAM tile 0x77",
+"refs": [
+{
+"at": 723821,
+"info": "32 tiles 4bpp to VRAM tile 0x77",
+"from": "ending:1815"
+},
+{
+"at": 723821,
+"info": "sprite animation, 4 frames",
+"from": "ending:1500"
+},
+{
+"at": 723821,
+"info": "32 tiles 4bpp to VRAM tile 0x77",
+"from": "run"
+},
+{
+"at": 723821,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 723821,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 723949,
+"info": "sprite animation, 4 frames",
+"from": "ending:1511"
+},
+{
+"at": 723949,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 723949,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 724077,
+"info": "sprite animation, 4 frames",
+"from": "ending:1522"
+},
+{
+"at": 724077,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 724077,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 724205,
+"info": "sprite animation, 4 frames",
+"from": "ending:1533"
+},
+{
+"at": 724205,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 724205,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 724333,
+"info": "sprite animation, 4 frames",
+"from": "ending:1544"
+},
+{
+"at": 724333,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 724333,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 724461,
+"info": "sprite animation, 4 frames",
+"from": "ending:1555"
+},
+{
+"at": 724461,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 724461,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 724589,
+"info": "sprite animation, 4 frames",
+"from": "ending:1566"
+},
+{
+"at": 724589,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 724589,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 724717,
+"info": "sprite animation, 4 frames",
+"from": "ending:1577"
+},
+{
+"at": 724717,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 724717,
+"info": "sprite animation, 4 frames",
+"from": "run"
+}
+]
+},
+{
+"start": 724845,
+"end": 726779,
+"kind": "LZ",
+"info": "9408 bytes unpacked",
+"refs": [
+{
+"at": 724845,
+"info": "9408 bytes unpacked",
+"from": "zousen:39"
+}
+]
+},
+{
+"start": 726779,
+"end": 740581,
+"kind": "LZ",
+"info": "30048 bytes unpacked",
+"refs": [
+{
+"at": 726779,
+"info": "30048 bytes unpacked",
+"from": "ending:1359"
+}
+]
+},
+{
+"start": 740581,
+"end": 740583,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 740583,
+"end": 744580,
+"kind": "LZ",
+"info": "12928 bytes unpacked",
+"refs": [
+{
+"at": 740583,
+"info": "12928 bytes unpacked",
+"from": "s_card:65"
+}
+]
+},
+{
+"start": 744580,
+"end": 753664,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 753664,
+"end": 754163,
+"kind": "LZ",
+"info": "864 bytes unpacked",
+"refs": [
+{
+"at": 753664,
+"info": "864 bytes unpacked",
+"from": "root:1190"
+}
+]
+},
+{
+"start": 754163,
+"end": 754165,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 754165,
+"end": 755973,
+"kind": "LZ",
+"info": "3456 bytes unpacked, entry 0 of RD_8D72",
+"refs": [
+{
+"at": 754165,
+"info": "3456 bytes unpacked, entry 0 of RD_8D72",
+"from": "root:1332 table RD_8D72"
+}
+]
+},
+{
+"start": 755973,
+"end": 755975,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 755975,
+"end": 758458,
+"kind": "LZ",
+"info": "3456 bytes unpacked, entry 7 of RD_8D72",
+"refs": [
+{
+"at": 755975,
+"info": "3456 bytes unpacked, entry 7 of RD_8D72",
+"from": "root:1332 table RD_8D72"
+}
+]
+},
+{
+"start": 758458,
+"end": 758460,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 758460,
+"end": 761062,
+"kind": "LZ",
+"info": "3456 bytes unpacked, entry 5 of RD_8D72",
+"refs": [
+{
+"at": 758460,
+"info": "3456 bytes unpacked, entry 5 of RD_8D72",
+"from": "root:1332 table RD_8D72"
+}
+]
+},
+{
+"start": 761062,
+"end": 763789,
+"kind": "LZ",
+"info": "3456 bytes unpacked, entry 4 of RD_8D72",
+"refs": [
+{
+"at": 761062,
+"info": "3456 bytes unpacked, entry 4 of RD_8D72",
+"from": "root:1332 table RD_8D72"
+}
+]
+},
+{
+"start": 763789,
+"end": 766099,
+"kind": "LZ",
+"info": "3456 bytes unpacked, entry 3 of RD_8D72",
+"refs": [
+{
+"at": 763789,
+"info": "3456 bytes unpacked, entry 3 of RD_8D72",
+"from": "root:1332 table RD_8D72"
+}
+]
+},
+{
+"start": 766099,
+"end": 766101,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 766101,
+"end": 768473,
+"kind": "LZ",
+"info": "3456 bytes unpacked, entry 6 of RD_8D72",
+"refs": [
+{
+"at": 766101,
+"info": "3456 bytes unpacked, entry 6 of RD_8D72",
+"from": "root:1332 table RD_8D72"
+}
+]
+},
+{
+"start": 768473,
+"end": 768475,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 768475,
+"end": 770857,
+"kind": "LZ",
+"info": "3456 bytes unpacked, entry 2 of RD_8D72",
+"refs": [
+{
+"at": 768475,
+"info": "3456 bytes unpacked, entry 2 of RD_8D72",
+"from": "root:1332 table RD_8D72"
+}
+]
+},
+{
+"start": 770857,
+"end": 770859,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 770859,
+"end": 774431,
+"kind": "LZ",
+"info": "4480 bytes unpacked, entry 1 of RD_8D72",
+"refs": [
+{
+"at": 770859,
+"info": "4480 bytes unpacked, entry 1 of RD_8D72",
+"from": "root:1332 table RD_8D72"
+}
+]
+},
+{
+"start": 774431,
+"end": 774433,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 774433,
+"end": 786432,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 786432,
+"end": 786496,
+"kind": "TILE",
+"info": "2 tiles 4bpp to VRAM tile 0x57",
+"refs": [
+{
+"at": 786432,
+"info": "2 tiles 4bpp to VRAM tile 0x57",
+"from": "root:873"
+}
+]
+},
+{
+"start": 786496,
+"end": 786784,
+"kind": "TILE",
+"info": "9 tiles 4bpp to VRAM tile 0x23",
+"refs": [
+{
+"at": 786496,
+"info": "9 tiles 4bpp to VRAM tile 0x23",
+"from": "run"
+},
+{
+"at": 786496,
+"info": "9 tiles 4bpp to VRAM tile 0x23",
+"from": "run"
+},
+{
+"at": 786496,
+"info": "9 tiles 4bpp to VRAM tile 0x23",
+"from": "run"
+},
+{
+"at": 786496,
+"info": "9 tiles 4bpp to VRAM tile 0x23",
+"from": "run"
+},
+{
+"at": 786496,
+"info": "9 tiles 4bpp to VRAM tile 0x23",
+"from": "run"
+},
+{
+"at": 786496,
+"info": "9 tiles 4bpp, set 1 of 7",
+"from": "root:532 formula"
+}
+]
+},
+{
+"start": 786784,
+"end": 787072,
+"kind": "TILE",
+"info": "9 tiles 4bpp, set 2 of 7",
+"refs": [
+{
+"at": 786784,
+"info": "9 tiles 4bpp, set 2 of 7",
+"from": "root:532 formula"
+}
+]
+},
+{
+"start": 787072,
+"end": 787360,
+"kind": "TILE",
+"info": "9 tiles 4bpp, set 3 of 7",
+"refs": [
+{
+"at": 787072,
+"info": "9 tiles 4bpp, set 3 of 7",
+"from": "root:532 formula"
+}
+]
+},
+{
+"start": 787360,
+"end": 787648,
+"kind": "TILE",
+"info": "9 tiles 4bpp, set 4 of 7",
+"refs": [
+{
+"at": 787360,
+"info": "9 tiles 4bpp, set 4 of 7",
+"from": "root:532 formula"
+}
+]
+},
+{
+"start": 787648,
+"end": 787936,
+"kind": "TILE",
+"info": "9 tiles 4bpp, set 5 of 7",
+"refs": [
+{
+"at": 787648,
+"info": "9 tiles 4bpp, set 5 of 7",
+"from": "root:532 formula"
+}
+]
+},
+{
+"start": 787936,
+"end": 788224,
+"kind": "TILE",
+"info": "9 tiles 4bpp, set 6 of 7",
+"refs": [
+{
+"at": 787936,
+"info": "9 tiles 4bpp, set 6 of 7",
+"from": "root:532 formula"
+}
+]
+},
+{
+"start": 788224,
+"end": 788512,
+"kind": "TILE",
+"info": "9 tiles 4bpp, set 7 of 7",
+"refs": [
+{
+"at": 788224,
+"info": "9 tiles 4bpp, set 7 of 7",
+"from": "root:532 formula"
+}
+]
+},
+{
+"start": 788512,
+"end": 789408,
+"kind": "TILE",
+"info": "28 tiles 4bpp to VRAM tile 0x2c",
+"refs": [
+{
+"at": 788512,
+"info": "28 tiles 4bpp to VRAM tile 0x2c",
+"from": "run"
+},
+{
+"at": 788512,
+"info": "28 tiles 4bpp to VRAM tile 0x2c",
+"from": "run"
+},
+{
+"at": 788512,
+"info": "28 tiles 4bpp to VRAM tile 0x2c",
+"from": "run"
+},
+{
+"at": 788512,
+"info": "28 tiles 4bpp, block 0 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 789408,
+"end": 790304,
+"kind": "TILE",
+"info": "28 tiles 4bpp, block 1 of 15",
+"refs": [
+{
+"at": 789408,
+"info": "28 tiles 4bpp, block 1 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 790304,
+"end": 791200,
+"kind": "TILE",
+"info": "28 tiles 4bpp, block 2 of 15",
+"refs": [
+{
+"at": 790304,
+"info": "28 tiles 4bpp, block 2 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 791200,
+"end": 792096,
+"kind": "TILE",
+"info": "28 tiles 4bpp, block 3 of 15",
+"refs": [
+{
+"at": 791200,
+"info": "28 tiles 4bpp, block 3 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 792096,
+"end": 792992,
+"kind": "TILE",
+"info": "28 tiles 4bpp, block 4 of 15",
+"refs": [
+{
+"at": 792096,
+"info": "28 tiles 4bpp, block 4 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 792992,
+"end": 793888,
+"kind": "TILE",
+"info": "28 tiles 4bpp, block 5 of 15",
+"refs": [
+{
+"at": 792992,
+"info": "28 tiles 4bpp, block 5 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 793888,
+"end": 794784,
+"kind": "TILE",
+"info": "15 tiles 4bpp to VRAM tile 0x48",
+"refs": [
+{
+"at": 793888,
+"info": "15 tiles 4bpp to VRAM tile 0x48",
+"from": "run"
+},
+{
+"at": 793888,
+"info": "28 tiles 4bpp, block 6 of 15",
+"from": "root:RF_22A8 formula"
+},
+{
+"at": 793888,
+"info": "15 tiles 4bpp, entry 0 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 794368,
+"info": "15 tiles 4bpp, entry 1 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+}
+]
+},
+{
+"start": 794784,
+"end": 794848,
+"kind": "TILE",
+"info": "28 tiles 4bpp, block 7 of 15",
+"refs": [
+{
+"at": 794784,
+"info": "28 tiles 4bpp, block 7 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 794848,
+"end": 795680,
+"kind": "TILE",
+"info": "15 tiles 4bpp to VRAM tile 0x48",
+"refs": [
+{
+"at": 794848,
+"info": "15 tiles 4bpp to VRAM tile 0x48",
+"from": "run"
+},
+{
+"at": 794848,
+"info": "15 tiles 4bpp, entry 3 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 795328,
+"info": "15 tiles 4bpp, entry 4 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+}
+]
+},
+{
+"start": 795680,
+"end": 795808,
+"kind": "TILE",
+"info": "28 tiles 4bpp, block 8 of 15",
+"refs": [
+{
+"at": 795680,
+"info": "28 tiles 4bpp, block 8 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 795808,
+"end": 796576,
+"kind": "TILE",
+"info": "15 tiles 4bpp, entry 9 of RD_8B7A",
+"refs": [
+{
+"at": 795808,
+"info": "15 tiles 4bpp, entry 9 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 796288,
+"info": "15 tiles 4bpp, entry 10 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+}
+]
+},
+{
+"start": 796576,
+"end": 796768,
+"kind": "TILE",
+"info": "28 tiles 4bpp, block 9 of 15",
+"refs": [
+{
+"at": 796576,
+"info": "28 tiles 4bpp, block 9 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 796768,
+"end": 797472,
+"kind": "TILE",
+"info": "15 tiles 4bpp, entry 11 of RD_8B7A",
+"refs": [
+{
+"at": 796768,
+"info": "15 tiles 4bpp, entry 11 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 797248,
+"info": "15 tiles 4bpp, entry 12 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+}
+]
+},
+{
+"start": 797472,
+"end": 797728,
+"kind": "TILE",
+"info": "28 tiles 4bpp, block 10 of 15",
+"refs": [
+{
+"at": 797472,
+"info": "28 tiles 4bpp, block 10 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 797728,
+"end": 798368,
+"kind": "TILE",
+"info": "15 tiles 4bpp, entry 13 of RD_8B7A",
+"refs": [
+{
+"at": 797728,
+"info": "15 tiles 4bpp, entry 13 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 798208,
+"info": "15 tiles 4bpp, entry 14 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+}
+]
+},
+{
+"start": 798368,
+"end": 798688,
+"kind": "TILE",
+"info": "28 tiles 4bpp, block 11 of 15",
+"refs": [
+{
+"at": 798368,
+"info": "28 tiles 4bpp, block 11 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 798688,
+"end": 799264,
+"kind": "TILE",
+"info": "15 tiles 4bpp, entry 19 of RD_8B7A",
+"refs": [
+{
+"at": 798688,
+"info": "15 tiles 4bpp, entry 19 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 799168,
+"info": "15 tiles 4bpp, entry 20 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+}
+]
+},
+{
+"start": 799264,
+"end": 799648,
+"kind": "TILE",
+"info": "28 tiles 4bpp, block 12 of 15",
+"refs": [
+{
+"at": 799264,
+"info": "28 tiles 4bpp, block 12 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 799648,
+"end": 800160,
+"kind": "TILE",
+"info": "15 tiles 4bpp, entry 22 of RD_8B7A",
+"refs": [
+{
+"at": 799648,
+"info": "15 tiles 4bpp, entry 22 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 800128,
+"info": "15 tiles 4bpp, entry 23 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+}
+]
+},
+{
+"start": 800160,
+"end": 800608,
+"kind": "TILE",
+"info": "28 tiles 4bpp, block 13 of 15",
+"refs": [
+{
+"at": 800160,
+"info": "28 tiles 4bpp, block 13 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 800608,
+"end": 801056,
+"kind": "TILE",
+"info": "15 tiles 4bpp, entry 6 of RD_8B7A",
+"refs": [
+{
+"at": 800608,
+"info": "15 tiles 4bpp, entry 6 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 800608,
+"info": "15 tiles 4bpp, entry 7 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 800608,
+"info": "15 tiles 4bpp, entry 8 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+}
+]
+},
+{
+"start": 801056,
+"end": 801088,
+"kind": "TILE",
+"info": "28 tiles 4bpp, block 14 of 15",
+"refs": [
+{
+"at": 801056,
+"info": "28 tiles 4bpp, block 14 of 15",
+"from": "root:RF_22A8 formula"
+}
+]
+},
+{
+"start": 801088,
+"end": 801952,
+"kind": "TILE",
+"info": "15 tiles 4bpp, entry 15 of RD_8B7A",
+"refs": [
+{
+"at": 801088,
+"info": "15 tiles 4bpp, entry 15 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 801088,
+"info": "15 tiles 4bpp, entry 16 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 801088,
+"info": "15 tiles 4bpp, entry 17 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 801568,
+"info": "15 tiles 4bpp, entry 24 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 801568,
+"info": "15 tiles 4bpp, entry 25 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+},
+{
+"at": 801568,
+"info": "15 tiles 4bpp, entry 26 of RD_8B7A",
+"from": "root:443 table RD_8B7A"
+}
+]
+},
+{
+"start": 801952,
+"end": 802048,
+"kind": "TILE",
+"info": "",
+"refs": []
+},
+{
+"start": 802048,
+"end": 819200,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 819200,
+"end": 819202,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 819200,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 819202,
+"end": 820162,
+"kind": "TILE",
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"refs": [
+{
+"at": 819202,
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"from": "run"
+},
+{
+"at": 819202,
+"info": "30 tiles 4bpp, portrait 0",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 820162,
+"end": 820164,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 820162,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 820164,
+"end": 821124,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 1",
+"refs": [
+{
+"at": 820164,
+"info": "30 tiles 4bpp, portrait 1",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 821124,
+"end": 821126,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 821124,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 821126,
+"end": 822086,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 2",
+"refs": [
+{
+"at": 821126,
+"info": "30 tiles 4bpp, portrait 2",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 822086,
+"end": 822088,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 822086,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 822088,
+"end": 823048,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 3",
+"refs": [
+{
+"at": 822088,
+"info": "30 tiles 4bpp, portrait 3",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 823048,
+"end": 823050,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 823048,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 823050,
+"end": 824010,
+"kind": "TILE",
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"refs": [
+{
+"at": 823050,
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"from": "run"
+},
+{
+"at": 823050,
+"info": "30 tiles 4bpp, portrait 4",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 824010,
+"end": 824012,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 824010,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 824012,
+"end": 824972,
+"kind": "TILE",
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"refs": [
+{
+"at": 824012,
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"from": "run"
+},
+{
+"at": 824012,
+"info": "30 tiles 4bpp, portrait 5",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 824972,
+"end": 824974,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 824972,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 824974,
+"end": 825934,
+"kind": "TILE",
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"refs": [
+{
+"at": 824974,
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"from": "run"
+},
+{
+"at": 824974,
+"info": "30 tiles 4bpp, portrait 6",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 825934,
+"end": 825936,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 825934,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 825936,
+"end": 826896,
+"kind": "TILE",
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"refs": [
+{
+"at": 825936,
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"from": "run"
+},
+{
+"at": 825936,
+"info": "30 tiles 4bpp, portrait 7",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 826896,
+"end": 826898,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 826896,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 826898,
+"end": 827858,
+"kind": "TILE",
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"refs": [
+{
+"at": 826898,
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"from": "run"
+},
+{
+"at": 826898,
+"info": "30 tiles 4bpp, portrait 8",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 827858,
+"end": 827860,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 827858,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 827860,
+"end": 828820,
+"kind": "TILE",
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"refs": [
+{
+"at": 827860,
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"from": "run"
+},
+{
+"at": 827860,
+"info": "30 tiles 4bpp, portrait 9",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 828820,
+"end": 828822,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 828820,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 828822,
+"end": 829782,
+"kind": "TILE",
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"refs": [
+{
+"at": 828822,
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"from": "run"
+},
+{
+"at": 828822,
+"info": "30 tiles 4bpp, portrait 10",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 829782,
+"end": 829784,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 829782,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 829784,
+"end": 830744,
+"kind": "TILE",
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"refs": [
+{
+"at": 829784,
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"from": "run"
+},
+{
+"at": 829784,
+"info": "30 tiles 4bpp, portrait 11",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 830744,
+"end": 830746,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 830744,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 830746,
+"end": 831706,
+"kind": "TILE",
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"refs": [
+{
+"at": 830746,
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"from": "run"
+},
+{
+"at": 830746,
+"info": "30 tiles 4bpp, portrait 12",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 831706,
+"end": 831708,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 831706,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 831708,
+"end": 832668,
+"kind": "TILE",
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"refs": [
+{
+"at": 831708,
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"from": "run"
+},
+{
+"at": 831708,
+"info": "30 tiles 4bpp, portrait 13",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 832668,
+"end": 832670,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 832668,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 832670,
+"end": 833630,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 14",
+"refs": [
+{
+"at": 832670,
+"info": "30 tiles 4bpp, portrait 14",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 833630,
+"end": 833632,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 833630,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 833632,
+"end": 834592,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 15",
+"refs": [
+{
+"at": 833632,
+"info": "30 tiles 4bpp, portrait 15",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 834592,
+"end": 834594,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 834592,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 834594,
+"end": 835554,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 16",
+"refs": [
+{
+"at": 834594,
+"info": "30 tiles 4bpp, portrait 16",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 835554,
+"end": 835556,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 835554,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 835556,
+"end": 836516,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 17",
+"refs": [
+{
+"at": 835556,
+"info": "30 tiles 4bpp, portrait 17",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 836516,
+"end": 836518,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 836516,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 836518,
+"end": 837478,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 18",
+"refs": [
+{
+"at": 836518,
+"info": "30 tiles 4bpp, portrait 18",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 837478,
+"end": 837480,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 837478,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 837480,
+"end": 838440,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 19",
+"refs": [
+{
+"at": 837480,
+"info": "30 tiles 4bpp, portrait 19",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 838440,
+"end": 838442,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 838440,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 838442,
+"end": 839402,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 20",
+"refs": [
+{
+"at": 838442,
+"info": "30 tiles 4bpp, portrait 20",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 839402,
+"end": 839404,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 839402,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 839404,
+"end": 840364,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 21",
+"refs": [
+{
+"at": 839404,
+"info": "30 tiles 4bpp, portrait 21",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 840364,
+"end": 840366,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 840364,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 840366,
+"end": 841326,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 22",
+"refs": [
+{
+"at": 840366,
+"info": "30 tiles 4bpp, portrait 22",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 841326,
+"end": 841328,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 841326,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 841328,
+"end": 842288,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 23",
+"refs": [
+{
+"at": 841328,
+"info": "30 tiles 4bpp, portrait 23",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 842288,
+"end": 842290,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 842288,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 842290,
+"end": 843250,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 24",
+"refs": [
+{
+"at": 842290,
+"info": "30 tiles 4bpp, portrait 24",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 843250,
+"end": 843252,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 843250,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 843252,
+"end": 844212,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 25",
+"refs": [
+{
+"at": 843252,
+"info": "30 tiles 4bpp, portrait 25",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 844212,
+"end": 844214,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 844212,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 844214,
+"end": 845174,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 26",
+"refs": [
+{
+"at": 844214,
+"info": "30 tiles 4bpp, portrait 26",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 845174,
+"end": 845176,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 845174,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 845176,
+"end": 846136,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 27",
+"refs": [
+{
+"at": 845176,
+"info": "30 tiles 4bpp, portrait 27",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 846136,
+"end": 846138,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 846136,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 846138,
+"end": 847098,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 28",
+"refs": [
+{
+"at": 846138,
+"info": "30 tiles 4bpp, portrait 28",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 847098,
+"end": 847100,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 847098,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 847100,
+"end": 848060,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 29",
+"refs": [
+{
+"at": 847100,
+"info": "30 tiles 4bpp, portrait 29",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 848060,
+"end": 848062,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 848060,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 848062,
+"end": 849022,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 30",
+"refs": [
+{
+"at": 848062,
+"info": "30 tiles 4bpp, portrait 30",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 849022,
+"end": 849024,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 849022,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 849024,
+"end": 849984,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 31",
+"refs": [
+{
+"at": 849024,
+"info": "30 tiles 4bpp, portrait 31",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 849984,
+"end": 849986,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 849984,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 849986,
+"end": 850946,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 32",
+"refs": [
+{
+"at": 849986,
+"info": "30 tiles 4bpp, portrait 32",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 850946,
+"end": 851968,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 851968,
+"end": 851970,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 851968,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 851970,
+"end": 852930,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 33",
+"refs": [
+{
+"at": 851970,
+"info": "30 tiles 4bpp, portrait 33",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 852930,
+"end": 852932,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 852930,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 852932,
+"end": 853892,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 34",
+"refs": [
+{
+"at": 852932,
+"info": "30 tiles 4bpp, portrait 34",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 853892,
+"end": 853894,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 853892,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 853894,
+"end": 854854,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 35",
+"refs": [
+{
+"at": 853894,
+"info": "30 tiles 4bpp, portrait 35",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 854854,
+"end": 854856,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 854854,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 854856,
+"end": 855816,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 36",
+"refs": [
+{
+"at": 854856,
+"info": "30 tiles 4bpp, portrait 36",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 855816,
+"end": 855818,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 855816,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 855818,
+"end": 856778,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 37",
+"refs": [
+{
+"at": 855818,
+"info": "30 tiles 4bpp, portrait 37",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 856778,
+"end": 856780,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 856778,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 856780,
+"end": 857740,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 38",
+"refs": [
+{
+"at": 856780,
+"info": "30 tiles 4bpp, portrait 38",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 857740,
+"end": 857742,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 857740,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 857742,
+"end": 858702,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 39",
+"refs": [
+{
+"at": 857742,
+"info": "30 tiles 4bpp, portrait 39",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 858702,
+"end": 858704,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 858702,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 858704,
+"end": 859664,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 40",
+"refs": [
+{
+"at": 858704,
+"info": "30 tiles 4bpp, portrait 40",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 859664,
+"end": 859666,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 859664,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 859666,
+"end": 860626,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 41",
+"refs": [
+{
+"at": 859666,
+"info": "30 tiles 4bpp, portrait 41",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 860626,
+"end": 860628,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 860626,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 860628,
+"end": 861588,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 42",
+"refs": [
+{
+"at": 860628,
+"info": "30 tiles 4bpp, portrait 42",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 861588,
+"end": 861590,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 861588,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 861590,
+"end": 862550,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 43",
+"refs": [
+{
+"at": 861590,
+"info": "30 tiles 4bpp, portrait 43",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 862550,
+"end": 862552,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 862550,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 862552,
+"end": 863512,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 44",
+"refs": [
+{
+"at": 862552,
+"info": "30 tiles 4bpp, portrait 44",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 863512,
+"end": 863514,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 863512,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 863514,
+"end": 864474,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 45",
+"refs": [
+{
+"at": 863514,
+"info": "30 tiles 4bpp, portrait 45",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 864474,
+"end": 864476,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 864474,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 864476,
+"end": 865436,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 46",
+"refs": [
+{
+"at": 864476,
+"info": "30 tiles 4bpp, portrait 46",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 865436,
+"end": 865438,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 865436,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 865438,
+"end": 866398,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 47",
+"refs": [
+{
+"at": 865438,
+"info": "30 tiles 4bpp, portrait 47",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 866398,
+"end": 866400,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 866398,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 866400,
+"end": 867360,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 48",
+"refs": [
+{
+"at": 866400,
+"info": "30 tiles 4bpp, portrait 48",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 867360,
+"end": 867362,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 867360,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 867362,
+"end": 868322,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 49",
+"refs": [
+{
+"at": 867362,
+"info": "30 tiles 4bpp, portrait 49",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 868322,
+"end": 868324,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 868322,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 868324,
+"end": 869284,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 50",
+"refs": [
+{
+"at": 868324,
+"info": "30 tiles 4bpp, portrait 50",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 869284,
+"end": 869286,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 869284,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 869286,
+"end": 870246,
+"kind": "TILE",
+"info": "30 tiles 4bpp, portrait 51",
+"refs": [
+{
+"at": 869286,
+"info": "30 tiles 4bpp, portrait 51",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 870246,
+"end": 870248,
+"kind": "TILE",
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"refs": [
+{
+"at": 870246,
+"info": "portrait header: its first tile number (k*30), not read by the game",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 870248,
+"end": 871208,
+"kind": "TILE",
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"refs": [
+{
+"at": 870248,
+"info": "30 tiles 4bpp to VRAM tile 0x59",
+"from": "run"
+},
+{
+"at": 870248,
+"info": "30 tiles 4bpp, portrait 52",
+"from": "root:15459 formula"
+}
+]
+},
+{
+"start": 871208,
+"end": 884736,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 884736,
+"end": 885376,
+"kind": "TILE",
+"info": "20 tiles 4bpp, face part: type 0, part 0, variant 0",
+"refs": [
+{
+"at": 884736,
+"info": "20 tiles 4bpp, face part: type 0, part 0, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 885376,
+"end": 886016,
+"kind": "TILE",
+"info": "20 tiles 4bpp, face part: type 0, part 0, variant 1",
+"refs": [
+{
+"at": 885376,
+"info": "20 tiles 4bpp, face part: type 0, part 0, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 886016,
+"end": 886656,
+"kind": "TILE",
+"info": "20 tiles 4bpp, face part: type 0, part 0, variant 2",
+"refs": [
+{
+"at": 886016,
+"info": "20 tiles 4bpp, face part: type 0, part 0, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 886656,
+"end": 887296,
+"kind": "TILE",
+"info": "20 tiles 4bpp, face part: type 0, part 0, variant 3",
+"refs": [
+{
+"at": 886656,
+"info": "20 tiles 4bpp, face part: type 0, part 0, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 887296,
+"end": 887392,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 0, part 1, variant 0",
+"refs": [
+{
+"at": 887296,
+"info": "3 tiles 4bpp, face part: type 0, part 1, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 887392,
+"end": 887488,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 0, part 1, variant 1",
+"refs": [
+{
+"at": 887392,
+"info": "3 tiles 4bpp, face part: type 0, part 1, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 887488,
+"end": 887584,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 0, part 1, variant 2",
+"refs": [
+{
+"at": 887488,
+"info": "3 tiles 4bpp, face part: type 0, part 1, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 887584,
+"end": 887680,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 0, part 1, variant 3",
+"refs": [
+{
+"at": 887584,
+"info": "3 tiles 4bpp, face part: type 0, part 1, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 887680,
+"end": 887776,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 0, part 2, variant 0",
+"refs": [
+{
+"at": 887680,
+"info": "3 tiles 4bpp, face part: type 0, part 2, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 887776,
+"end": 887872,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 0, part 2, variant 1",
+"refs": [
+{
+"at": 887776,
+"info": "3 tiles 4bpp, face part: type 0, part 2, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 887872,
+"end": 887968,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 0, part 2, variant 2",
+"refs": [
+{
+"at": 887872,
+"info": "3 tiles 4bpp, face part: type 0, part 2, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 887968,
+"end": 888064,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 0, part 2, variant 3",
+"refs": [
+{
+"at": 887968,
+"info": "3 tiles 4bpp, face part: type 0, part 2, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 888064,
+"end": 888128,
+"kind": "TILE",
+"info": "2 tiles 4bpp, face part: type 0, part 3, variant 0",
+"refs": [
+{
+"at": 888064,
+"info": "2 tiles 4bpp, face part: type 0, part 3, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 888128,
+"end": 888192,
+"kind": "TILE",
+"info": "2 tiles 4bpp, face part: type 0, part 3, variant 1",
+"refs": [
+{
+"at": 888128,
+"info": "2 tiles 4bpp, face part: type 0, part 3, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 888192,
+"end": 888256,
+"kind": "TILE",
+"info": "2 tiles 4bpp, face part: type 0, part 3, variant 2",
+"refs": [
+{
+"at": 888192,
+"info": "2 tiles 4bpp, face part: type 0, part 3, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 888256,
+"end": 888320,
+"kind": "TILE",
+"info": "2 tiles 4bpp, face part: type 0, part 3, variant 3",
+"refs": [
+{
+"at": 888256,
+"info": "2 tiles 4bpp, face part: type 0, part 3, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 888320,
+"end": 888800,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 0, part 4, variant 0",
+"refs": [
+{
+"at": 888320,
+"info": "15 tiles 4bpp, face part: type 0, part 4, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 888800,
+"end": 889280,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 0, part 4, variant 1",
+"refs": [
+{
+"at": 888800,
+"info": "15 tiles 4bpp, face part: type 0, part 4, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 889280,
+"end": 889760,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 0, part 4, variant 2",
+"refs": [
+{
+"at": 889280,
+"info": "15 tiles 4bpp, face part: type 0, part 4, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 889760,
+"end": 890240,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 0, part 4, variant 3",
+"refs": [
+{
+"at": 889760,
+"info": "15 tiles 4bpp, face part: type 0, part 4, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 890240,
+"end": 891040,
+"kind": "TILE",
+"info": "25 tiles 4bpp, face part: type 1, part 0, variant 0",
+"refs": [
+{
+"at": 890240,
+"info": "25 tiles 4bpp, face part: type 1, part 0, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 891040,
+"end": 891840,
+"kind": "TILE",
+"info": "25 tiles 4bpp, face part: type 1, part 0, variant 1",
+"refs": [
+{
+"at": 891040,
+"info": "25 tiles 4bpp, face part: type 1, part 0, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 891840,
+"end": 892640,
+"kind": "TILE",
+"info": "25 tiles 4bpp, face part: type 1, part 0, variant 2",
+"refs": [
+{
+"at": 891840,
+"info": "25 tiles 4bpp, face part: type 1, part 0, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 892640,
+"end": 893440,
+"kind": "TILE",
+"info": "25 tiles 4bpp, face part: type 1, part 0, variant 3",
+"refs": [
+{
+"at": 892640,
+"info": "25 tiles 4bpp, face part: type 1, part 0, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 893440,
+"end": 893536,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 1, part 1, variant 0",
+"refs": [
+{
+"at": 893440,
+"info": "3 tiles 4bpp, face part: type 1, part 1, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 893536,
+"end": 893632,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 1, part 1, variant 1",
+"refs": [
+{
+"at": 893536,
+"info": "3 tiles 4bpp, face part: type 1, part 1, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 893632,
+"end": 893728,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 1, part 1, variant 2",
+"refs": [
+{
+"at": 893632,
+"info": "3 tiles 4bpp, face part: type 1, part 1, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 893728,
+"end": 893824,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 1, part 1, variant 3",
+"refs": [
+{
+"at": 893728,
+"info": "3 tiles 4bpp, face part: type 1, part 1, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 893824,
+"end": 893920,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 1, part 2, variant 0",
+"refs": [
+{
+"at": 893824,
+"info": "3 tiles 4bpp, face part: type 1, part 2, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 893920,
+"end": 894016,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 1, part 2, variant 1",
+"refs": [
+{
+"at": 893920,
+"info": "3 tiles 4bpp, face part: type 1, part 2, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 894016,
+"end": 894112,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 1, part 2, variant 2",
+"refs": [
+{
+"at": 894016,
+"info": "3 tiles 4bpp, face part: type 1, part 2, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 894112,
+"end": 894208,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 1, part 2, variant 3",
+"refs": [
+{
+"at": 894112,
+"info": "3 tiles 4bpp, face part: type 1, part 2, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 894208,
+"end": 894304,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 1, part 3, variant 0",
+"refs": [
+{
+"at": 894208,
+"info": "3 tiles 4bpp, face part: type 1, part 3, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 894304,
+"end": 894400,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 1, part 3, variant 1",
+"refs": [
+{
+"at": 894304,
+"info": "3 tiles 4bpp, face part: type 1, part 3, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 894400,
+"end": 894496,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 1, part 3, variant 2",
+"refs": [
+{
+"at": 894400,
+"info": "3 tiles 4bpp, face part: type 1, part 3, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 894496,
+"end": 894592,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 1, part 3, variant 3",
+"refs": [
+{
+"at": 894496,
+"info": "3 tiles 4bpp, face part: type 1, part 3, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 894592,
+"end": 894752,
+"kind": "TILE",
+"info": "5 tiles 4bpp, face part: type 1, part 4, variant 0",
+"refs": [
+{
+"at": 894592,
+"info": "5 tiles 4bpp, face part: type 1, part 4, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 894752,
+"end": 894912,
+"kind": "TILE",
+"info": "5 tiles 4bpp, face part: type 1, part 4, variant 1",
+"refs": [
+{
+"at": 894752,
+"info": "5 tiles 4bpp, face part: type 1, part 4, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 894912,
+"end": 895072,
+"kind": "TILE",
+"info": "5 tiles 4bpp, face part: type 1, part 4, variant 2",
+"refs": [
+{
+"at": 894912,
+"info": "5 tiles 4bpp, face part: type 1, part 4, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 895072,
+"end": 895232,
+"kind": "TILE",
+"info": "5 tiles 4bpp, face part: type 1, part 4, variant 3",
+"refs": [
+{
+"at": 895072,
+"info": "5 tiles 4bpp, face part: type 1, part 4, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 895232,
+"end": 895712,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 3, part 0, variant 0",
+"refs": [
+{
+"at": 895232,
+"info": "15 tiles 4bpp, face part: type 3, part 0, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 895712,
+"end": 896192,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 3, part 0, variant 1",
+"refs": [
+{
+"at": 895712,
+"info": "15 tiles 4bpp, face part: type 3, part 0, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 896192,
+"end": 896672,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 3, part 0, variant 2",
+"refs": [
+{
+"at": 896192,
+"info": "15 tiles 4bpp, face part: type 3, part 0, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 896672,
+"end": 897152,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 3, part 0, variant 3",
+"refs": [
+{
+"at": 896672,
+"info": "15 tiles 4bpp, face part: type 3, part 0, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 897152,
+"end": 897248,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 3, part 1, variant 0",
+"refs": [
+{
+"at": 897152,
+"info": "3 tiles 4bpp, face part: type 3, part 1, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 897248,
+"end": 897344,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 3, part 1, variant 1",
+"refs": [
+{
+"at": 897248,
+"info": "3 tiles 4bpp, face part: type 3, part 1, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 897344,
+"end": 897440,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 3, part 1, variant 2",
+"refs": [
+{
+"at": 897344,
+"info": "3 tiles 4bpp, face part: type 3, part 1, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 897440,
+"end": 897536,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 3, part 1, variant 3",
+"refs": [
+{
+"at": 897440,
+"info": "3 tiles 4bpp, face part: type 3, part 1, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 897536,
+"end": 897632,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 3, part 2, variant 0",
+"refs": [
+{
+"at": 897536,
+"info": "3 tiles 4bpp, face part: type 3, part 2, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 897632,
+"end": 897728,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 3, part 2, variant 1",
+"refs": [
+{
+"at": 897632,
+"info": "3 tiles 4bpp, face part: type 3, part 2, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 897728,
+"end": 897824,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 3, part 2, variant 2",
+"refs": [
+{
+"at": 897728,
+"info": "3 tiles 4bpp, face part: type 3, part 2, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 897824,
+"end": 897920,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 3, part 2, variant 3",
+"refs": [
+{
+"at": 897824,
+"info": "3 tiles 4bpp, face part: type 3, part 2, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 897920,
+"end": 897984,
+"kind": "TILE",
+"info": "2 tiles 4bpp, face part: type 3, part 3, variant 0",
+"refs": [
+{
+"at": 897920,
+"info": "2 tiles 4bpp, face part: type 3, part 3, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 897984,
+"end": 898048,
+"kind": "TILE",
+"info": "2 tiles 4bpp, face part: type 3, part 3, variant 1",
+"refs": [
+{
+"at": 897984,
+"info": "2 tiles 4bpp, face part: type 3, part 3, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 898048,
+"end": 898112,
+"kind": "TILE",
+"info": "2 tiles 4bpp, face part: type 3, part 3, variant 2",
+"refs": [
+{
+"at": 898048,
+"info": "2 tiles 4bpp, face part: type 3, part 3, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 898112,
+"end": 898176,
+"kind": "TILE",
+"info": "2 tiles 4bpp, face part: type 3, part 3, variant 3",
+"refs": [
+{
+"at": 898112,
+"info": "2 tiles 4bpp, face part: type 3, part 3, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 898176,
+"end": 898656,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 3, part 4, variant 0",
+"refs": [
+{
+"at": 898176,
+"info": "15 tiles 4bpp, face part: type 3, part 4, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 898656,
+"end": 899136,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 3, part 4, variant 1",
+"refs": [
+{
+"at": 898656,
+"info": "15 tiles 4bpp, face part: type 3, part 4, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 899136,
+"end": 899616,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 3, part 4, variant 2",
+"refs": [
+{
+"at": 899136,
+"info": "15 tiles 4bpp, face part: type 3, part 4, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 899616,
+"end": 900096,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 3, part 4, variant 3",
+"refs": [
+{
+"at": 899616,
+"info": "15 tiles 4bpp, face part: type 3, part 4, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 900096,
+"end": 900576,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 2, part 0, variant 0",
+"refs": [
+{
+"at": 900096,
+"info": "15 tiles 4bpp, face part: type 2, part 0, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 900576,
+"end": 901056,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 2, part 0, variant 1",
+"refs": [
+{
+"at": 900576,
+"info": "15 tiles 4bpp, face part: type 2, part 0, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 901056,
+"end": 901536,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 2, part 0, variant 2",
+"refs": [
+{
+"at": 901056,
+"info": "15 tiles 4bpp, face part: type 2, part 0, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 901536,
+"end": 902016,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 2, part 0, variant 3",
+"refs": [
+{
+"at": 901536,
+"info": "15 tiles 4bpp, face part: type 2, part 0, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 902016,
+"end": 902112,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 2, part 1, variant 0",
+"refs": [
+{
+"at": 902016,
+"info": "3 tiles 4bpp, face part: type 2, part 1, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 902112,
+"end": 902208,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 2, part 1, variant 1",
+"refs": [
+{
+"at": 902112,
+"info": "3 tiles 4bpp, face part: type 2, part 1, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 902208,
+"end": 902304,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 2, part 1, variant 2",
+"refs": [
+{
+"at": 902208,
+"info": "3 tiles 4bpp, face part: type 2, part 1, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 902304,
+"end": 902400,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 2, part 1, variant 3",
+"refs": [
+{
+"at": 902304,
+"info": "3 tiles 4bpp, face part: type 2, part 1, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 902400,
+"end": 902496,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 2, part 2, variant 0",
+"refs": [
+{
+"at": 902400,
+"info": "3 tiles 4bpp, face part: type 2, part 2, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 902496,
+"end": 902592,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 2, part 2, variant 1",
+"refs": [
+{
+"at": 902496,
+"info": "3 tiles 4bpp, face part: type 2, part 2, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 902592,
+"end": 902688,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 2, part 2, variant 2",
+"refs": [
+{
+"at": 902592,
+"info": "3 tiles 4bpp, face part: type 2, part 2, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 902688,
+"end": 902784,
+"kind": "TILE",
+"info": "3 tiles 4bpp, face part: type 2, part 2, variant 3",
+"refs": [
+{
+"at": 902688,
+"info": "3 tiles 4bpp, face part: type 2, part 2, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 902784,
+"end": 902848,
+"kind": "TILE",
+"info": "2 tiles 4bpp, face part: type 2, part 3, variant 0",
+"refs": [
+{
+"at": 902784,
+"info": "2 tiles 4bpp, face part: type 2, part 3, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 902848,
+"end": 902912,
+"kind": "TILE",
+"info": "2 tiles 4bpp, face part: type 2, part 3, variant 1",
+"refs": [
+{
+"at": 902848,
+"info": "2 tiles 4bpp, face part: type 2, part 3, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 902912,
+"end": 902976,
+"kind": "TILE",
+"info": "2 tiles 4bpp, face part: type 2, part 3, variant 2",
+"refs": [
+{
+"at": 902912,
+"info": "2 tiles 4bpp, face part: type 2, part 3, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 902976,
+"end": 903040,
+"kind": "TILE",
+"info": "2 tiles 4bpp, face part: type 2, part 3, variant 3",
+"refs": [
+{
+"at": 902976,
+"info": "2 tiles 4bpp, face part: type 2, part 3, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 903040,
+"end": 903520,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 2, part 4, variant 0",
+"refs": [
+{
+"at": 903040,
+"info": "15 tiles 4bpp, face part: type 2, part 4, variant 0",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 903520,
+"end": 904000,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 2, part 4, variant 1",
+"refs": [
+{
+"at": 903520,
+"info": "15 tiles 4bpp, face part: type 2, part 4, variant 1",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 904000,
+"end": 904480,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 2, part 4, variant 2",
+"refs": [
+{
+"at": 904000,
+"info": "15 tiles 4bpp, face part: type 2, part 4, variant 2",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 904480,
+"end": 904960,
+"kind": "TILE",
+"info": "15 tiles 4bpp, face part: type 2, part 4, variant 3",
+"refs": [
+{
+"at": 904480,
+"info": "15 tiles 4bpp, face part: type 2, part 4, variant 3",
+"from": "root:RF_837B tables RD_94BE/RD_955E"
+}
+]
+},
+{
+"start": 904960,
+"end": 917504,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 917504,
+"end": 943776,
+"kind": "TILE",
+"info": "821 tiles 4bpp to VRAM tile 0x77",
+"refs": [
+{
+"at": 917504,
+"info": "821 tiles 4bpp to VRAM tile 0x77",
+"from": "senfe:1527"
+},
+{
+"at": 922144,
+"info": "sprite animation, 4 frames",
+"from": "sensou:127"
+},
+{
+"at": 922272,
+"info": "sprite animation, 4 frames",
+"from": "sensou:138"
+},
+{
+"at": 922400,
+"info": "sprite animation, 4 frames",
+"from": "sensou:149"
+},
+{
+"at": 922528,
+"info": "sprite animation, 4 frames",
+"from": "sensou:160"
+},
+{
+"at": 922656,
+"info": "sprite animation, 4 frames",
+"from": "sensou:171"
+},
+{
+"at": 922784,
+"info": "sprite animation, 4 frames",
+"from": "sensou:182"
+},
+{
+"at": 922912,
+"info": "sprite animation, 4 frames",
+"from": "sensou:193"
+},
+{
+"at": 923040,
+"info": "sprite animation, 4 frames",
+"from": "sensou:204"
+}
+]
+},
+{
+"start": 943776,
+"end": 947424,
+"kind": "TILE",
+"info": "114 tiles 4bpp to VRAM tile 0x100",
+"refs": [
+{
+"at": 943776,
+"info": "114 tiles 4bpp to VRAM tile 0x100",
+"from": "senfe:1533"
+}
+]
+},
+{
+"start": 947424,
+"end": 950272,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 950272,
+"end": 953760,
+"kind": "TILE",
+"info": "109 tiles 4bpp to VRAM tile 0x77",
+"refs": [
+{
+"at": 950272,
+"info": "109 tiles 4bpp to VRAM tile 0x77",
+"from": "ending:1061"
+}
+]
+},
+{
+"start": 953760,
+"end": 957600,
+"kind": "TILE",
+"info": "120 tiles 4bpp to VRAM tile 0xf0",
+"refs": [
+{
+"at": 953760,
+"info": "120 tiles 4bpp to VRAM tile 0xf0",
+"from": "ending:1074"
+}
+]
+},
+{
+"start": 957600,
+"end": 968352,
+"kind": "TILE",
+"info": "336 tiles 4bpp to VRAM tile 0xe4",
+"refs": [
+{
+"at": 957600,
+"info": "336 tiles 4bpp to VRAM tile 0xe4",
+"from": "ending:1068"
+}
+]
+},
+{
+"start": 968352,
+"end": 979584,
+"kind": "TILE",
+"info": "351 tiles 4bpp to VRAM tile 0x77",
+"refs": [
+{
+"at": 968352,
+"info": "351 tiles 4bpp to VRAM tile 0x77",
+"from": "ending:2019"
+}
+]
+},
+{
+"start": 979584,
+"end": 981760,
+"kind": "TILE",
+"info": "68 tiles 4bpp to VRAM tile 0x12c",
+"refs": [
+{
+"at": 979584,
+"info": "68 tiles 4bpp to VRAM tile 0x12c",
+"from": "ending:1846"
+}
+]
+},
+{
+"start": 981760,
+"end": 982368,
+"kind": "TILE",
+"info": "19 tiles 4bpp to VRAM tile 0x234",
+"refs": [
+{
+"at": 981760,
+"info": "19 tiles 4bpp to VRAM tile 0x234",
+"from": "ending:1081"
+}
+]
+},
+{
+"start": 982368,
+"end": 982427,
+"kind": "UNREF",
+"info": "",
+"refs": []
+},
+{
+"start": 982427,
+"end": 983040,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 983040,
+"end": 1004192,
+"kind": "TILE",
+"info": "661 tiles 4bpp to VRAM tile 0x77",
+"refs": [
+{
+"at": 983040,
+"info": "661 tiles 4bpp to VRAM tile 0x77",
+"from": "ending:2064"
+},
+{
+"at": 1003872,
+"info": "10 tiles 4bpp to VRAM tile 0xf0",
+"from": "ending:2070"
+}
+]
+},
+{
+"start": 1004192,
+"end": 1004288,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 1004288,
+"end": 1009728,
+"kind": "TILE",
+"info": "170 tiles 4bpp to VRAM tile 0x90",
+"refs": [
+{
+"at": 1004288,
+"info": "170 tiles 4bpp to VRAM tile 0x90",
+"from": "root:1833"
+},
+{
+"at": 1004288,
+"info": "170 tiles 4bpp to VRAM tile 0x90",
+"from": "run"
+},
+{
+"at": 1009696,
+"info": "133 tiles 4bpp to VRAM tile 0x1",
+"from": "initop:1232"
+},
+{
+"at": 1009696,
+"info": "74 tiles 4bpp to VRAM tile 0x1",
+"from": "root:1826"
+},
+{
+"at": 1009696,
+"info": "133 tiles 4bpp to VRAM tile 0x1",
+"from": "run"
+},
+{
+"at": 1009696,
+"info": "74 tiles 4bpp to VRAM tile 0x1",
+"from": "run"
+}
+]
+},
+{
+"start": 1009728,
+"end": 1013952,
+"kind": "TILE",
+"info": "",
+"refs": []
+},
+{
+"start": 1013952,
+"end": 1015808,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 1015808,
+"end": 1018785,
+"kind": "LZ",
+"info": "4480 bytes unpacked",
+"refs": [
+{
+"at": 1015808,
+"info": "4480 bytes unpacked",
+"from": "initop:2132"
+}
+]
+},
+{
+"start": 1018785,
+"end": 1018787,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+},
+{
+"start": 1018787,
+"end": 1029557,
+"kind": "LZ",
+"info": "22208 bytes unpacked",
+"refs": [
+{
+"at": 1018787,
+"info": "22208 bytes unpacked",
+"from": "initop:2163"
+}
+]
+},
+{
+"start": 1029557,
+"end": 1035791,
+"kind": "LZ",
+"info": "33152 bytes unpacked",
+"refs": [
+{
+"at": 1029557,
+"info": "33152 bytes unpacked",
+"from": "initop:2226"
+}
+]
+},
+{
+"start": 1035791,
+"end": 1035793,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 1035793,
+"end": 1041502,
+"kind": "LZ",
+"info": "16064 bytes unpacked",
+"refs": [
+{
+"at": 1035793,
+"info": "16064 bytes unpacked",
+"from": "initop:2730"
+}
+]
+},
+{
+"start": 1041502,
+"end": 1041504,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 1041504,
+"end": 1042016,
+"kind": "TILE",
+"info": "16 tiles 4bpp to VRAM tile 0x2fc",
+"refs": [
+{
+"at": 1041504,
+"info": "16 tiles 4bpp to VRAM tile 0x2fc",
+"from": "initop:2744"
+},
+{
+"at": 1041504,
+"info": "sprite animation, 4 frames",
+"from": "initop:2470"
+},
+{
+"at": 1041504,
+"info": "16 tiles 4bpp to VRAM tile 0x2fc",
+"from": "run"
+},
+{
+"at": 1041504,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 1041504,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 1041632,
+"info": "sprite animation, 4 frames",
+"from": "initop:2483"
+},
+{
+"at": 1041632,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 1041632,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 1041760,
+"info": "sprite animation, 4 frames",
+"from": "initop:2496"
+},
+{
+"at": 1041760,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 1041760,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 1041888,
+"info": "sprite animation, 4 frames",
+"from": "initop:2509"
+},
+{
+"at": 1041888,
+"info": "sprite animation, 4 frames",
+"from": "run"
+},
+{
+"at": 1041888,
+"info": "sprite animation, 4 frames",
+"from": "run"
+}
+]
+},
+{
+"start": 1042016,
+"end": 1045464,
+"kind": "LZ",
+"info": "7696 bytes unpacked",
+"refs": [
+{
+"at": 1042016,
+"info": "7696 bytes unpacked",
+"from": "initop:2749"
+}
+]
+},
+{
+"start": 1045464,
+"end": 1045466,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 1045466,
+"end": 1045895,
+"kind": "LZ",
+"info": "544 bytes unpacked",
+"refs": [
+{
+"at": 1045466,
+"info": "544 bytes unpacked",
+"from": "initop:1818"
+}
+]
+},
+{
+"start": 1045895,
+"end": 1045897,
+"kind": "LZ",
+"info": "end of stream (flush word)",
+"refs": []
+},
+{
+"start": 1045897,
+"end": 1048576,
+"kind": "PAD",
+"info": "$00",
+"refs": []
+}
+]
