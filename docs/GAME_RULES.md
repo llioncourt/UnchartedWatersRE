@@ -191,3 +191,9 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 - Garçonetes: todo mês cada uma perde 5 a 8 pontos de afeição (`maituki` A5EF).
 - Missão de carga: recompensa (título + 1) × 2.000 na poupança; o Rei paga as caixas entregues ao preço, e o que passa de 60.000 vai para a poupança (`oukyu` BBxx).
 - Estado inicial: Hermes com 5 de pimenta e 2 de quartzo, moral 70, carranca Swan; espaço livre no porão 18 (água, comida e madeira ocupam o porão).
+- Canhões, reembolso ao trocar o tipo (`zousen` 303 contra 259): compra = ((posição no menu / 2) + 1) × índice; reembolso = ((tipo antigo / 2) + 1) × índice / 2, com tipo 1 Saker, 2 Culverin, 3 Cannon. Sakers e cannons voltam pela metade; culverins voltam pelo preço cheio (o texto do jogo diz "half price").
+- Alcance (`senmain` C0C2): tipo de canhão ímpar (Saker, Cannon) cobre 6 casas da tabela de alcance; par (Culverin) cobre 14. Mesmo dano entre saker e culverin.
+- Venda e índice: cada venda sobrescreve a queda guardada, min(10, receita / 1.000); ela é aplicada uma vez ao sair do mercado (`koueki` 173, B5C6). Só a última venda conta.
+- Fim no mar: faltar água ou comida não encerra o jogo; tira 20 a 22 de moral por dia e 4 a 5 de lealdade do imediato (`uarugo` A3B5). Abaixo de moral 20 deserta (20 − moral)% + 1 da tripulação por dia. O final "perdido no mar" vem quando o navio do herói fica com menos de 5 marinheiros (`uarugo` A5EE).
+- Investimento mínimo: 1 de ouro (`koueki` C3F6). Todo investimento soma rand(2) ao apoio, além dos pontos: investir 1 de ouro de cada vez sobe o apoio por quase nada.
+- Gift da princesa: só aparece com 400 de ouro ou mais; o jogo escolhe o item (o de maior índice até 30 que você tiver).
