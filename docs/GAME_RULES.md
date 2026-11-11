@@ -159,3 +159,21 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 - **Tempestade** (`A762`, `A8A0`): a cada 10 passos, cada navio tem chance 1/(carranca + 1) de levar dano (−3 durabilidade, manobra e força, −2 tripulantes). Carranca 0 = nenhuma; Swan 1 … Neptune 6, Venus 7. Casco 0 ou menos de 5 tripulantes afunda o navio; a capitânia afundada é fim de jogo (`$F169 = 2`). Passada a tempestade: +200 + rand(50) de experiência de navegação e −(10 + rand(5)) de moral.
 - **Sargaço** (`A6C5`): o navio com o navegador de menor nível de navegação fica com força 0 ("caught up in seaweed").
 - **Desaparecimento** (`A706`): o navio do navegador de menor nível de navegação some com ele ("has mysteriously vanished"); se só houver a capitânia, só o aviso.
+
+## Mercado: o jogador mexe no índice (`koueki`)
+- Comprar: se o gasto passar de 1.000, o índice do porto sobe min(10, gasto/1.000) pontos, até o byte 100 (150%) (`KOUEKI_L_BCB2`).
+- Vender: cada venda guarda min(10, receita/1.000); ao sair, o índice cai esse valor (se o byte for > 9; senão vai a 0, ou seja 50%) (`KOUEKI_L_B5C6`).
+- A bolsa trava em 60.000: a venda que passar disso perde o excesso ("We've got a wealth of gold now!").
+
+## Pessoas e frotas (`sgdata`, `fdata`)
+- 21 fichas iniciais em `$EAC0+10p` (p 0 herói, 1..20 imediatos): +0 desconhecido, +1..+5 atributos. Níveis em `$E444+7p` (+2 batalha, +3 navegação), +6 = nação×16 + 1 (0 Portugal, 1 Espanha, 2 Turquia, 3 outros/piratas).
+- Almirante da frota n (1..20) = pessoa n+20. Frotas 1-5 Portugal, 6-10 Espanha, 11-15 Turquia, 16-20 piratas (Singleton, El Drago, Morgan, Gonzales, Gregorio). Todos começam no nível de batalha 5.
+- Garçonetes: 20 nomes em `fdata $0036`; o byte +3 do registro de mercado do porto (`fdata $150A+5p`, `mkt_b3`) é o índice da garçonete (255 = nenhuma). Lisbon = Carlotta.
+
+## Carta do mundo
+- Cada célula do mapa vira 2×2 quartos pela tabela `fdata $25F8` (4 bytes por tipo de tile); quarto 0 = mar. Os 70 portos (`fdata $0FD8`, 19 bytes: nome[15] + a, b, c, d) ficam em meio-quadrado: x = (14a + c)/2, y = (14b + d)/2. Todos os portos ficam no mesmo mar navegável (`tools_snes/book_chart.py`, `guide/seadist.py`).
+- Estaleiro: indústria < 100 → "Sorry, we don't build ships around here".
+
+## NES e Mega Drive
+- NES: o arquivo de dados (`fdata`) é idêntico ao do SNES até `$1CA8`, tirando ponteiros; o mapa do mundo é idêntico; todas as falas citadas no livro existem; a VM do NES tem o mesmo código para o segredo 3594, a Venus, o tiro e os níveis.
+- Mega Drive: mesmas falas e mesmo mapa; itens, navios e 3594 conferidos antes.
