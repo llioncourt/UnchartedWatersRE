@@ -20,8 +20,8 @@ Base para o walkthrough Master Play. Cada regra aponta a função de onde saiu.
 - Destino sorteado: rei da Espanha (Seville) ou sultão (Istanbul). Entregar no palácio de lá e voltar a Lisbon.
 
 ### Missão 3: tesouro (`ibento 9A97`)
-- Monta uma cadeia de pistas com rand(2) + título/3 + 1 passos; cada passo é um porto ou um ponto de desembarque.
-- Em 2 de cada 3 vezes, uma frota rival (6 a 20) carrega o tesouro e é preciso vencê-la (`senfe B131`).
+- Monta uma cadeia de pistas com rand(2) + título/3 + 1 passos; cada pista é uma pessoa a encontrar nas tavernas: um dos 20 imediatos ou uma das 20 garçonetes.
+- Em 1 de cada 3 vezes, uma frota rival (6 a 20) carrega o tesouro e é preciso vencê-la (`senfe B131`).
 - Nome do tesouro = adjetivo (Lion, Dragon, Hydra, Ebony, Bronze, Crystal, Silver, Ruby, Magic, Royal, Golden, Emerald) + objeto (Dagger, Charm, Crown, Goblet, Statue, Harp, Mirror, Ladle, Shield, Armor, Sword, Helmet, Ring).
 
 ### Missão 4: princesa (`ibento 9B5D`, `oukyu B2D3`, `senfe B1D7`)
@@ -65,7 +65,7 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 | 4 objetos de valor | Coral Ring, Ivory Box, Candlestick, Gold Nugget, Silver Rosary, Pearl/Coral/Gold Bracelet, Sapphire, Ruby, Opal, Emerald, Crown, Jewelled Ladle, Ring, Silver Comb (800 a 15.000) | presentes/venda (a decodificar em `s_onna`) |
 
 ## Estaleiro (`zousen`, `z_tyuuko`, `z_sinzou`)
-- Serviços: consertar, vender, comprar usado, construir, remodelar (canhões Culverin/Cannon, velas de 3 ou 4 pontas), carranca (Unicorn, Dragon, Neptune; Venus rara), renomear (10 de ouro), investir (indústria; em porto estrangeiro precisa do consentimento do rei/sultão).
+- Serviços: consertar, vender, comprar usado, construir, remodelar (canhões Culverin/Cannon, velas de 3 ou 4 pontas), carranca (Unicorn, Dragon, Neptune; Venus rara), renomear (10 de ouro), investir (indústria). As três capitais (Lisbon, Seville, Istanbul) nunca aceitam investimento, no mercado nem no estaleiro ("You can't invest here without the King's consent"); todos os outros portos aceitam (`koueki` 902-910, `zousen` 591-599).
 - Classes (`fdata $0418`, 21 bytes): Latin, Redonda (capacidade 70), Bergantin (105), Nao (310), Carrack (420), Galleon (490). Para construir: casco Teak, Beach ou Mahogany; mastros; velas 3 pontas (bolina) ou 4 pontas (popa); canhões e beliches. Heavy Galleon só em poucos portos.
 - O Hermes do início é uma Latin (capacidade 70).
 
@@ -108,7 +108,7 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 - Capacidade = (tipo + 2) / 2 × 300 + (tipo ímpar ? tipo × 50 : 0) + (tipo / 5) × 50 − 200: 100, 150, 400, 550, 700, 1000 (`D12A`).
 - Canhões: até ((tipo / 2) + 1) × 20 + (tipo / 5) × 40 posições: 20, 20, 40, 40, 60, 100. Beliches: mínimo 20. Carga = capacidade − tripulação − canhões (`D36A`).
 - Preço = (((7 × tipo) / 2 + 1) × índice × (casco + 2) / 2) × 7 + ((tipo / 2) × 6 + 1) × índice × (mastros + 1) × 3, teto 60.000; índice = índice de preço do porto em % (`D41F`).
-- Barganha: ao recusar o preço, chance 1/(título + 1) de poder propor outro valor; o mínimo aceito é preço − rand(preço / 10).
+- Barganha: ao recusar o preço, chance 1/(título + 1) de poder propor outro valor; o mínimo aceito é a mesma regra do navio usado: (10 − título) × preço / 20 + preço / 2, menos rand(preço / 10).
 
 ### Navio usado (`z_tyuuko`)
 - Modelos (registros de `fdata` +$0481, 21 bytes: nome[15], tripulação, canhões, carga, byte de projeto): Latin, Redonda, Bergantin, Nao, Carrack, Galleon.
@@ -177,3 +177,17 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 ## NES e Mega Drive
 - NES: o arquivo de dados (`fdata`) é idêntico ao do SNES até `$1CA8`, tirando ponteiros; o mapa do mundo é idêntico; todas as falas citadas no livro existem; a VM do NES tem o mesmo código para o segredo 3594, a Venus, o tiro e os níveis.
 - Mega Drive: mesmas falas e mesmo mapa; itens, navios e 3594 conferidos antes.
+
+## Revisão do livro, 10/11/2026 (QA independente)
+- Palácio de Lisbon, menu: Meet King, Secret Call, Request (Funds, Crew), Savings (`oukyu` C74F).
+- Request: reservas mensais do Rei (`maituki` 9E55). Ouro: $EECE += (rand(15) + nações/50) × título, teto 10.000 pontos. Funds oferece min(60.000 − ouro, reserva × 10), arredondado para baixo em milhares; cada X de ouro retirado custa X/10 + 1 pontos (`oukyu` C261). Homens: $EED0 += (W/50 + rand(5)) × título, teto 1.000; Crew oferece min(vagas, reserva); com reserva ≤ 10: "His Majesty hopes that you will manage on your own".
+- Secret Call (`oukyu` C38C): visita à princesa. Opções Profess love, Flowers, Gift. Gift entrega o item de maior índice (≤ 30) do inventário; sem item, paga 300 de ouro e ela pode recusar (mais provável com estima baixa). Estima $E442 sobe a cada visita, teto 200; cai todo mês min(estima, 9 − título + rand(2)). Com chance 1 em 2^(5 − estima/45) ela soma 1.000 pontos à reserva de ouro, se estiver abaixo de 5.000. Títulos 0 a 2 podem ser expulsos ("You make me suspicious...") se estima < rand(100) e rand(3) + título < 3.
+- Palácio estrangeiro (`oukyu` B0B2): só recebe se as relações permitem, e então com chance título/(título + 1).
+- Habilidade náutica do navegador (`root` RF_2986): S = 2 × Sabedoria + Carisma + Intel; habilidade = ((S × nível de navegação)/8 + S)/8. Manobra e potência usáveis = valor/2 × habilidade/100 + valor/2, teto 100; a frota usa o menor valor entre os navios (RF_29D2, RF_2A38).
+- Intel também é testado em terra (`jouriku` 614, 710).
+- Rações separadas de água ($E99A) e comida ($E99B), cada uma de 1 a 99 (`ucom` B5F5).
+- Investimento: o ouro vai para o fundo do porto; todo mês, se o fundo passa de 1.000, economia (ou indústria) sobe 4 por 1.000 inteiro + rand(10), teto 1.000, e o resto fica (`maituki` A339). Os pontos da tabela (X+1)/20, X/100+50, X/1000+150 (estaleiro: X/1000+50 na faixa do meio) só alimentam o apoio de Portugal no porto (`koueki` 940-960).
+- Índice: só uma compra de mais de 1.000 de ouro mexe no índice (+1 por 1.000 inteiro, até +10) (`koueki` 591-598).
+- Garçonetes: todo mês cada uma perde 5 a 8 pontos de afeição (`maituki` A5EF).
+- Missão de carga: recompensa (título + 1) × 2.000 na poupança; o Rei paga as caixas entregues ao preço, e o que passa de 60.000 vai para a poupança (`oukyu` BBxx).
+- Estado inicial: Hermes com 5 de pimenta e 2 de quartzo, moral 70, carranca Swan; espaço livre no porão 18 (água, comida e madeira ocupam o porão).
