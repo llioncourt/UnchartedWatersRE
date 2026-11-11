@@ -49,6 +49,9 @@ Base para o walkthrough Master Play. Cada regra aponta a função de onde saiu.
 - Atributos do herói: Charisma, Wisdom, Intel, Courage, Strength (nomes em `initop $AE24`). Cada um começa em 40 + rand(30).
 - Pontos de bônus: 40 + rand(30), e em 1 de cada 40 sorteios soma mais 20 a 69 (máximo 138). Dá para sortear de novo quantas vezes quiser respondendo "não" (`initop 998B`).
 - Ficha do herói em `$EAB0` (nome) e `$EAC1` (atributos); `$E444` aponta para o nome.
+- Nome do herói: até 11 caracteres. Em branco, o jogo usa 'Leon Franco' (`initop 993F-994C`, texto em `$AE88`); o nome digitado vai para `$EAB0` e é usado na história ("I am <nome>.", visto no emulador com 'Alex').
+- Nomes recusados: os 40 nomes da tabela de personagens (índices 1 a 40 de `$E444 + 7×i`: Fernando ... Gregorio, imediatos, rivais e piratas) dão "Cannot use that name" (`initop 98B1-9908`; 'Pedro' testado).
+- Nome do navio em branco: 'Hermes' (visto no emulador). Na versão japonesa do Super Famicom o nome em branco vira só レオン (Leon), sem sobrenome; a abertura diz わたしのなは、レオン。
 
 ## Itens citados pela tripulação (`uminato2`)
 - Figurehead (proteção contra desastre), telescope, sextant, speculum. Falta decodificar onde se obtêm e o efeito.
@@ -220,3 +223,7 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 - Teste do imediato: Marco usa Coragem (79 × 2 = 158); Oswaldo (Carisma 65, 130) começa em Venice.
 - Venda, borda: se a última venda esvazia o navio ou enche a bolsa (60.000), a sessão termina e a queda é aplicada mesmo sendo zero; com índice abaixo de 60% ele vai a 50% (`koueki` 174-185, 253-261).
 - Subida de nível: abaixo do nível 15 a experiência precisa passar estritamente de L² × 50 (`senfe` 848, `>`); esse valor é descontado.
+
+## Revisão do livro, 11/11/2026
+- Estaleiro, Buy: "What interests you? Buy used ship / Build new ship" (só com imediato sem navio: `$E99C` lista até 10 imediatos, `RF_4251` filtra os que estão na capitânia). Build: "Choose yer hull" (Lisboa no dia 1 vai até a Carrack), "Shall I build one for ye", madeira (Teak, Oak, Beach, Mahogany), mastros, velas, "All this would cost ye 1010 gold. Is it a deal", canhões 0-20, beliches 20-100. Caravela de teca, 1 mastro, vela de 3 pontas em Lisboa (índice 101) custa 1.010 = 707 + 303, confere com a fórmula.
+- Fofoca: notícia real se rand(1000) <= economia + 300, ou seja (economia + 301) em 1.000 (`s_sake` 785-786).
