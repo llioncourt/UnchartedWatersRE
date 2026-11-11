@@ -203,3 +203,9 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 - Speculum: usado em Info > Land, no mar (`ucom` 1513).
 - Jogo de cartas: recusa capitão com 59.000 ou mais; em portos com índice abaixo de 70%, muitas vezes ninguém joga (`s_tobaku`).
 - Navio-capitânia nunca pode ser vendido ("That's the captain's vessel!").
+- Black Jack (`s_bj`): a aposta sai na hora; vitória devolve 2× (paga 1:1); 21 de duas cartas do jogador devolve 3× (2:1); empate perde a aposta ("Too bad, it's a tie"); 21 de duas cartas da banca tira mais uma aposta ("I'll take twice the stakes!").
+- Rações: `daily_supplies` roda uma vez para a água e outra para a comida; o efeito na moral e na lealdade de cada uma soma. Faltar as duas tira 40 a 44 de moral por dia.
+- Alga e navio que some (`uarugo` A658): escolhem o navio do imediato com menor nível de navegação; navios do herói são pulados, então a capitânia só é pega quando navega sozinha.
+- Perigos do mar (`root` RF_7E44): uma única chance, (atributo da zona × 6 + 1) / (média das carrancas + 1) em 600, decide se há perigo; o tipo (tempestade, alga, sumiço) vem depois. Carrancas reduzem os três.
+- Venda de navio: recusada para a capitânia e para navio com tripulação a bordo ("The crew is still bunked on that ship").
+- Gorjeta: com afeição 100 ou mais, ela às vezes recusa (rand(afeição) > 80); a moeda fica com você e a afeição sobe do mesmo jeito.
