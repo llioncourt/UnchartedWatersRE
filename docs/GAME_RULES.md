@@ -213,3 +213,8 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 - Índice após venda: ao sair do mercado, se o byte do índice for 9 ou menos (abaixo de 60%), vai direto a 50%, qualquer que seja a venda (`koueki` B5C6).
 - Contratar marinheiros: o ouro todo é descontado antes do limite de beliches; quem não cabe não é reembolsado ("We found %d men, but only %d can join us") (`s_nori` 32, 44).
 - Teto de 100 na artilharia: só no navio do herói e nos inimigos; navios dos imediatos não têm teto (`senmain` A9EE).
+- Fim de batalha: além de perder a última tripulação ou o casco, a capitânia inimiga com 20 marinheiros ou menos, ou casco 20 ou menos, foge ao chegar à borda do mapa (`$F300 = 2`, sem espólio); a capitânia do herói na borda ganha uma sexta ordem que encerra a batalha (`senmain` BA65, `$F300 = 3`).
+- Gorjeta e notícias: com afeição A, a gorjeta traz notícia de frota rival com chance de 1 em 2^(5 − A/45) (nunca abaixo de 45; 1/16, 1/8, 1/4, 1/2); pista de tesouro com garçonete só acima de 90 (`s_onna` 318, 675).
+- Imediato demitido com lealdade 40 ou mais volta sem teste: "So we meet again" (`s_nsaso` 68).
+- Tela do porto: água e comida aparecem divididas por 10; dias = água / (tripulação / 2 + 1) (`uminato2` 44-61).
+- Teste do imediato: Marco usa Coragem (79 × 2 = 158); Oswaldo (Carisma 65, 130) começa em Venice.
