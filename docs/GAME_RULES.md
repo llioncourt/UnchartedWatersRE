@@ -218,3 +218,5 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 - Imediato demitido com lealdade 40 ou mais volta sem teste: "So we meet again" (`s_nsaso` 68).
 - Tela do porto: água e comida aparecem divididas por 10; dias = água / (tripulação / 2 + 1) (`uminato2` 44-61).
 - Teste do imediato: Marco usa Coragem (79 × 2 = 158); Oswaldo (Carisma 65, 130) começa em Venice.
+- Venda, borda: se a última venda esvazia o navio ou enche a bolsa (60.000), a sessão termina e a queda é aplicada mesmo sendo zero; com índice abaixo de 60% ele vai a 50% (`koueki` 174-185, 253-261).
+- Subida de nível: abaixo do nível 15 a experiência precisa passar estritamente de L² × 50 (`senfe` 848, `>`); esse valor é descontado.
