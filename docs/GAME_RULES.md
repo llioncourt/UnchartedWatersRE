@@ -209,3 +209,7 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 - Perigos do mar (`root` RF_7E44): uma única chance, (atributo da zona × 6 + 1) / (média das carrancas + 1) em 600, decide se há perigo; o tipo (tempestade, alga, sumiço) vem depois. Carrancas reduzem os três.
 - Venda de navio: recusada para a capitânia e para navio com tripulação a bordo ("The crew is still bunked on that ship").
 - Gorjeta: com afeição 100 ou mais, ela às vezes recusa (rand(afeição) > 80); a moeda fica com você e a afeição sobe do mesmo jeito.
+- Recompensa da taverna: valor = rand(5) × 5 + 100 (em milhares), mostrado como "%d000": 100.000 a 120.000; metade (50 a 60 mil) vai para a poupança na hora (`s_ibent` 88).
+- Índice após venda: ao sair do mercado, se o byte do índice for 9 ou menos (abaixo de 60%), vai direto a 50%, qualquer que seja a venda (`koueki` B5C6).
+- Contratar marinheiros: o ouro todo é descontado antes do limite de beliches; quem não cabe não é reembolsado ("We found %d men, but only %d can join us") (`s_nori` 32, 44).
+- Teto de 100 na artilharia: só no navio do herói e nos inimigos; navios dos imediatos não têm teto (`senmain` A9EE).
