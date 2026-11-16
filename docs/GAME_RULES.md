@@ -227,3 +227,29 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 ## Revisão do livro, 11/11/2026
 - Estaleiro, Buy: "What interests you? Buy used ship / Build new ship" (só com imediato sem navio: `$E99C` lista até 10 imediatos, `RF_4251` filtra os que estão na capitânia). Build: "Choose yer hull" (Lisboa no dia 1 vai até a Carrack), "Shall I build one for ye", madeira (Teak, Oak, Beach, Mahogany), mastros, velas, "All this would cost ye 1010 gold. Is it a deal", canhões 0-20, beliches 20-100. Caravela de teca, 1 mastro, vela de 3 pontas em Lisboa (índice 101) custa 1.010 = 707 + 303, confere com a fórmula.
 - Fofoca: notícia real se rand(1000) <= economia + 300, ou seja (economia + 301) em 1.000 (`s_sake` 785-786).
+
+## Revisão do livro, 16/11/2026 (sextante, tesouro da guilda, fichas de pessoas)
+
+### Sextante (LOOK > Survey, `ucom` UCOM_F_9FAF)
+- Sem o Sextant (item 1, bit 1 de `$E56F`): "We don't have a sextant".
+- Lê a posição da frota em blocos (`fleet+0` x 0..71, `fleet+1` y 0..35; bloco = 7×7 casas da carta).
+- Erro: v = Intel do herói + (Intel do imediato de maior nível de navegação a bordo da capitânia, ou 60 sem imediato) (`RF_430C`); se rand(180) > v, x += rand(5) − 2 e y += rand(3) − 1 (limitados a 0..71 e 0..35).
+- Latitude: y < 18 → N (90 − 5y); senão S (5y − 90). Longitude: t = (x + 38) mod 72; t < 36 → E (5t); senão W (5 × (72 − t)). Passos de 5 graus. "Our present position is N 50° W 25°" visto no jogo no bloco (29, 8).
+- Mesma conta no NES (bytecode igual, só endereços) e no Mega Drive (68000 em `$01570E`-`$015878`, mesmas constantes 60, 180, 90, 18, 38, 72, 36).
+- Leitura de cada porto (bloco a, b do registro do porto, `fdata $0FD8`): `tools_snes/book_people.py`.
+
+### Tesouro da guilda (= missão de tesouro do Rei)
+- O trabalho da guilda (tipo 2 de `mission_pick`, `ibento` 9D45) chama `mission_treasure_set`, a mesma do Rei. O pedido é sempre o item 31, com nome sorteado: adjetivo (12) + objeto (13) (`IBENTO_F_96D3`). Nunca é um objeto de valor da loja (Silver Rosary etc.).
+- Guilda: oferta (título + rand(2) + 1) × 40 mil; metade adiantada na poupança do palácio; entregar o tesouro no mesmo porto dá a outra metade e 2.000 de fama (teto 50.000) (`um_sub` wanted_item_delivered).
+- Cadeia de pistas: rand(2) + título/3 + 1 pessoas; cada uma, 1 em 2, um imediato (1..20; vago, o jogo cria um com nome sorteado e rosto composto, `IBENTO_F_9996`) ou uma garçonete (0..19).
+- 1 em 3: uma frota rival (6 a 20) leva o tesouro (`$E571+16n` bit 15) e não há lugar em terra. Nos outros 2 em 3 (`IBENTO_F_9721`): sorteia uma zona da carta (24 × 12 zonas de 3×3 blocos) que tenha casa válida, depois uma casa válida dentro dela (uniforme), depois o quarto da casa pela tabela `IBENTO_D_9DCE`. Casas válidas: tipos de tile 5-16, 21-24, 29-40 (costa). Total: 13.459 quartos em 192 das 288 zonas, todos em terra na beira da água; ilhotas (tipos 4 e 49-52) ficam fora.
+- Guardado em `$EF5D` (bloco x), `$EF5E` (bloco y), `$EF5F`/`$EF60` (quarto dentro do bloco, 0..13).
+- Com o mapa (`g_princess` bit 4): no mar, INFO ganha "Map", que abre a zona e marca o ponto (`UCOM_F_B2D2`). Na taverna, com o mapa: "That looks like a map of this area!" no bloco do tesouro, senão "My guess is it's more to the <rumo>" (`s_sake` BDDC). Em terra, Search fora do ponto: "Let me have a look at the treasure map"; um imediato do grupo com Intel ≥ 70 + rand(30) diz "Looks like the treasure's at <lat> <long>" (mesma conta do sextante, `JOURIKU_F_A1C7`) e "I reckon it's further <rumo>"; no bloco certo e quarto errado: "This doesn't seem to be the spot, Cap'n" / "We'd better confirm the shape of the coast from sea". No ponto: "Captain <nome> found the <tesouro>!".
+- Garçonete com a pista pode vender o mapa: "I'll sell you this map for %d gold".
+
+### Pessoas
+- Ficha `$EAC0 + 10p`: +0 é a idade (tela do imediato: "Age"), +1..+5 Cha, Wis, Int, Cou, Str.
+- Retrato: palavra +4 da ficha `$E444 + 7p`. Imediatos 1..20 = retratos 33..52; garçonete i = retrato 13 + i (`s_onna`, RF_60CE tipo 2); acima de $0FFF o retrato é composto por partes (`portrait_compose`): os 20 almirantes rivais e os sorteados por `RF_464C`. Paleta 5 da CGRAM, igual em todas as cenas. Conferido pixel a pixel: retrato 8 (marinheiro), 33 e 52 (imediatos), 7734 (Singleton na tela de batalha).
+- Imediatos 1 a 10 (Fernando, Alfonso, Christopher, Americus, Dias, Benedetto, Vicente, Cyran, Regis, Jose) mudam de porto uma vez por mês: −1, 0 ou +1 no índice do porto, de 0 a 49, dando a volta (Zeiton ↔ Lisbon) (`MAITUKI_F_A5A2`). Os outros dez ficam. Visto no emulador.
+- Afeição inicial das garçonetes (`$E42E + i`): Carlotta 60, as outras 0.
+- Piratas (frotas 16-20, almirantes 36-40): nível de batalha 5, navegação 8, 6, 7, 6, 7; 2.000 de ouro; começam nos blocos de Diu, Ternate, Guatemala, Caracas e Sofala; o registro do capitão (`$DF05 + 51(n−1)`, +9) traz o primeiro rumo. Depois o destino muda a cada chegada; no emulador, em poucos meses, os cinco apareceram do Caribe ao Mediterrâneo e ao Mar da China.
