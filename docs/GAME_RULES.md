@@ -217,7 +217,7 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 - Contratar marinheiros: o ouro todo é descontado antes do limite de beliches; quem não cabe não é reembolsado ("We found %d men, but only %d can join us") (`s_nori` 32, 44).
 - Teto de 100 na artilharia: só no navio do herói e nos inimigos; navios dos imediatos não têm teto (`senmain` A9EE).
 - Fim de batalha: além de perder a última tripulação ou o casco, a capitânia inimiga com 20 marinheiros ou menos, ou casco 20 ou menos, foge ao chegar à borda do mapa (`$F300 = 2`, sem espólio); a capitânia do herói na borda ganha uma sexta ordem que encerra a batalha (`senmain` BA65, `$F300 = 3`).
-- Gorjeta e notícias: com afeição A, a gorjeta traz notícia de frota rival com chance de 1 em 2^(5 − A/45) (nunca abaixo de 45; 1/16, 1/8, 1/4, 1/2); pista de tesouro com garçonete só acima de 90 (`s_onna` 318, 675).
+- Gorjeta e notícias: com afeição A, a gorjeta traz notícia de frota rival com chance de 1 em 2^(5 − A/45) (nunca abaixo de 45; 1/16, 1/8, 1/4, 1/2); garçonete na cadeia do tesouro sempre dá a pista; se o mapa está com ela, acima de 90 de afeição ela o dá ("I'll give you my map, sweety"), com 90 ou menos vende 1 vez em 2 por (rand(5)+1) × 100, no máximo o ouro que você tem, ou diz "let me think it over" (`s_onna` S_ONNA_F_BC2C; corrigido em 16/11/2026, antes dizia "pista só acima de 90").
 - Imediato demitido com lealdade 40 ou mais volta sem teste: "So we meet again" (`s_nsaso` 68).
 - Tela do porto: água e comida aparecem divididas por 10; dias = água / (tripulação / 2 + 1) (`uminato2` 44-61).
 - Teste do imediato: Marco usa Coragem (79 × 2 = 158); Oswaldo (Carisma 65, 130) começa em Venice.
@@ -245,7 +245,7 @@ Itens do jogador: bits em `$E56F` (frota 0 +11). `root 41CD(tipo)` devolve o mai
 - 1 em 3: uma frota rival (6 a 20) leva o tesouro (`$E571+16n` bit 15) e não há lugar em terra. Nos outros 2 em 3 (`IBENTO_F_9721`): sorteia uma zona da carta (24 × 12 zonas de 3×3 blocos) que tenha casa válida, depois uma casa válida dentro dela (uniforme), depois o quarto da casa pela tabela `IBENTO_D_9DCE`. Casas válidas: tipos de tile 5-16, 21-24, 29-40 (costa). Total: 13.459 quartos em 192 das 288 zonas, todos em terra na beira da água; ilhotas (tipos 4 e 49-52) ficam fora.
 - Guardado em `$EF5D` (bloco x), `$EF5E` (bloco y), `$EF5F`/`$EF60` (quarto dentro do bloco, 0..13).
 - Com o mapa (`g_princess` bit 4): no mar, INFO ganha "Map", que abre a zona e marca o ponto (`UCOM_F_B2D2`). Na taverna, com o mapa: "That looks like a map of this area!" no bloco do tesouro, senão "My guess is it's more to the <rumo>" (`s_sake` BDDC). Em terra, Search fora do ponto: "Let me have a look at the treasure map"; um imediato do grupo com Intel ≥ 70 + rand(30) diz "Looks like the treasure's at <lat> <long>" (mesma conta do sextante, `JOURIKU_F_A1C7`) e "I reckon it's further <rumo>"; no bloco certo e quarto errado: "This doesn't seem to be the spot, Cap'n" / "We'd better confirm the shape of the coast from sea". No ponto: "Captain <nome> found the <tesouro>!".
-- Garçonete com a pista pode vender o mapa: "I'll sell you this map for %d gold".
+- Garçonete com o mapa: acima de 90 de afeição dá de graça; com 90 ou menos vende (100 a 500, no máximo o seu ouro) ou adia. Imediato com o mapa: se a lealdade guardada (`$E970+2(n−1)`) não é 0, dá; se é 0, 1 em 2 vende por 100 a 500, senão "Come back another time" (`s_sake` L_BF80-C0C6).
 
 ### Pessoas
 - Ficha `$EAC0 + 10p`: +0 é a idade (tela do imediato: "Age"), +1..+5 Cha, Wis, Int, Cou, Str.
